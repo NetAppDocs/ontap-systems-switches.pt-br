@@ -1,0 +1,1367 @@
+---
+permalink: switch-cisco-92300/setup-worksheet-92300yc.html 
+sidebar: sidebar 
+keywords: cable worksheet, Cisco NX 92300YC 
+summary: Se você quiser documentar as plataformas suportadas, você deve preencher a Planilha de cabeamento em branco usando a Planilha de cabeamento de amostra concluída como um guia. 
+---
+= Folha de cálculo completa de cabeamento do Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você quiser documentar as plataformas suportadas, baixe um PDF desta página e complete a Planilha de cabeamento.
+
+A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
+
+
+
+== Planilha de cabeamento de amostra
+
+A definição de porta de amostra em cada par de switches é a seguinte:
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+
+
+| Porta do switch | Uso de nó e porta | Porta do switch | Uso de nó e porta 
+
+
+ a| 
+1
+ a| 
+Nó de 10/25 GbE
+ a| 
+1
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+2
+ a| 
+Nó de 10/25 GbE
+ a| 
+2
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+3
+ a| 
+Nó de 10/25 GbE
+ a| 
+3
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+4
+ a| 
+Nó de 10/25 GbE
+ a| 
+4
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+5
+ a| 
+Nó de 10/25 GbE
+ a| 
+5
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+6
+ a| 
+Nó de 10/25 GbE
+ a| 
+6
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+7
+ a| 
+Nó de 10/25 GbE
+ a| 
+7
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+8
+ a| 
+Nó de 10/25 GbE
+ a| 
+8
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+9
+ a| 
+Nó de 10/25 GbE
+ a| 
+9
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+10
+ a| 
+Nó de 10/25 GbE
+ a| 
+10
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+11
+ a| 
+Nó de 10/25 GbE
+ a| 
+11
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+12
+ a| 
+Nó de 10/25 GbE
+ a| 
+12
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+13
+ a| 
+Nó de 10/25 GbE
+ a| 
+13
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+14
+ a| 
+Nó de 10/25 GbE
+ a| 
+14
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+15
+ a| 
+Nó de 10/25 GbE
+ a| 
+15
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+16
+ a| 
+Nó de 10/25 GbE
+ a| 
+16
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+17
+ a| 
+Nó de 10/25 GbE
+ a| 
+17
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+18
+ a| 
+Nó de 10/25 GbE
+ a| 
+18
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+19
+ a| 
+Nó de 10/25 GbE
+ a| 
+19
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+20
+ a| 
+Nó de 10/25 GbE
+ a| 
+20
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+21
+ a| 
+Nó de 10/25 GbE
+ a| 
+21
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+22
+ a| 
+Nó de 10/25 GbE
+ a| 
+22
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+23
+ a| 
+Nó de 10/25 GbE
+ a| 
+23
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+24
+ a| 
+Nó de 10/25 GbE
+ a| 
+24
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+25
+ a| 
+Nó de 10/25 GbE
+ a| 
+25
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+26
+ a| 
+Nó de 10/25 GbE
+ a| 
+26
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+27
+ a| 
+Nó de 10/25 GbE
+ a| 
+27
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+28
+ a| 
+Nó de 10/25 GbE
+ a| 
+28
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+29
+ a| 
+Nó de 10/25 GbE
+ a| 
+29
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+30
+ a| 
+Nó de 10/25 GbE
+ a| 
+30
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+31
+ a| 
+Nó de 10/25 GbE
+ a| 
+31
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+32
+ a| 
+Nó de 10/25 GbE
+ a| 
+32
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+33
+ a| 
+Nó de 10/25 GbE
+ a| 
+33
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+34
+ a| 
+Nó de 10/25 GbE
+ a| 
+34
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+35
+ a| 
+Nó de 10/25 GbE
+ a| 
+35
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+36
+ a| 
+Nó de 10/25 GbE
+ a| 
+36
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+37
+ a| 
+Nó de 10/25 GbE
+ a| 
+37
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+38
+ a| 
+Nó de 10/25 GbE
+ a| 
+38
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+39
+ a| 
+Nó de 10/25 GbE
+ a| 
+39
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+40
+ a| 
+Nó de 10/25 GbE
+ a| 
+40
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+41
+ a| 
+Nó de 10/25 GbE
+ a| 
+41
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+42
+ a| 
+Nó de 10/25 GbE
+ a| 
+42
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+43
+ a| 
+Nó de 10/25 GbE
+ a| 
+43
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+44
+ a| 
+Nó de 10/25 GbE
+ a| 
+44
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+45
+ a| 
+Nó de 10/25 GbE
+ a| 
+45
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+46
+ a| 
+Nó de 10/25 GbE
+ a| 
+46
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+47
+ a| 
+Nó de 10/25 GbE
+ a| 
+47
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+48
+ a| 
+Nó de 10/25 GbE
+ a| 
+48
+ a| 
+Nó de 10/25 GbE
+
+
+
+ a| 
+49
+ a| 
+Nó de 40/100 GbE
+ a| 
+49
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+50
+ a| 
+Nó de 40/100 GbE
+ a| 
+50
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+51
+ a| 
+Nó de 40/100 GbE
+ a| 
+51
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+52
+ a| 
+Nó de 40/100 GbE
+ a| 
+52
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+53
+ a| 
+Nó de 40/100 GbE
+ a| 
+53
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+54
+ a| 
+Nó de 40/100 GbE
+ a| 
+54
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+55
+ a| 
+Nó de 40/100 GbE
+ a| 
+55
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+56
+ a| 
+Nó de 40/100 GbE
+ a| 
+56
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+57
+ a| 
+Nó de 40/100 GbE
+ a| 
+57
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+58
+ a| 
+Nó de 40/100 GbE
+ a| 
+58
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+59
+ a| 
+Nó de 40/100 GbE
+ a| 
+59
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+60
+ a| 
+Nó de 40/100 GbE
+ a| 
+60
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+61
+ a| 
+Nó de 40/100 GbE
+ a| 
+61
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+62
+ a| 
+Nó de 40/100 GbE
+ a| 
+62
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+63
+ a| 
+Nó de 40/100 GbE
+ a| 
+63
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+64
+ a| 
+Nó de 40/100 GbE
+ a| 
+64
+ a| 
+Nó de 40/100 GbE
+
+
+
+ a| 
+65
+ a| 
+100 GbE ISL para a porta 65 do switch B.
+ a| 
+65
+ a| 
+100 GbE ISL para switch A porta 65
+
+
+
+ a| 
+66
+ a| 
+100 GbE ISL para a porta 66 do switch B.
+ a| 
+66
+ a| 
+100 GbE ISL para switch A porta 65
+
+|===
+
+
+== Folha de cálculo de cablagem em branco
+
+Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A seção _conexões de cluster suportadas_ da https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+
+
+| Porta do switch | Uso de nó/porta | Porta do switch | Uso de nó/porta 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11
+ a| 
+ a| 
+11
+ a| 
+
+
+
+ a| 
+12
+ a| 
+ a| 
+12
+ a| 
+
+
+
+ a| 
+13
+ a| 
+ a| 
+13
+ a| 
+
+
+
+ a| 
+14
+ a| 
+ a| 
+14
+ a| 
+
+
+
+ a| 
+15
+ a| 
+ a| 
+15
+ a| 
+
+
+
+ a| 
+16
+ a| 
+ a| 
+16
+ a| 
+
+
+
+ a| 
+17
+ a| 
+ a| 
+17
+ a| 
+
+
+
+ a| 
+18
+ a| 
+ a| 
+18
+ a| 
+
+
+
+ a| 
+19
+ a| 
+ a| 
+19
+ a| 
+
+
+
+ a| 
+20
+ a| 
+ a| 
+20
+ a| 
+
+
+
+ a| 
+21
+ a| 
+ a| 
+21
+ a| 
+
+
+
+ a| 
+22
+ a| 
+ a| 
+22
+ a| 
+
+
+
+ a| 
+23
+ a| 
+ a| 
+23
+ a| 
+
+
+
+ a| 
+24
+ a| 
+ a| 
+24
+ a| 
+
+
+
+ a| 
+25
+ a| 
+ a| 
+25
+ a| 
+
+
+
+ a| 
+26
+ a| 
+ a| 
+26
+ a| 
+
+
+
+ a| 
+27
+ a| 
+ a| 
+27
+ a| 
+
+
+
+ a| 
+28
+ a| 
+ a| 
+28
+ a| 
+
+
+
+ a| 
+29
+ a| 
+ a| 
+29
+ a| 
+
+
+
+ a| 
+30
+ a| 
+ a| 
+30
+ a| 
+
+
+
+ a| 
+31
+ a| 
+ a| 
+31
+ a| 
+
+
+
+ a| 
+32
+ a| 
+ a| 
+32
+ a| 
+
+
+
+ a| 
+33
+ a| 
+ a| 
+33
+ a| 
+
+
+
+ a| 
+34
+ a| 
+ a| 
+34
+ a| 
+
+
+
+ a| 
+35
+ a| 
+ a| 
+35
+ a| 
+
+
+
+ a| 
+36
+ a| 
+ a| 
+36
+ a| 
+
+
+
+ a| 
+37
+ a| 
+ a| 
+37
+ a| 
+
+
+
+ a| 
+38
+ a| 
+ a| 
+38
+ a| 
+
+
+
+ a| 
+39
+ a| 
+ a| 
+39
+ a| 
+
+
+
+ a| 
+40
+ a| 
+ a| 
+40
+ a| 
+
+
+
+ a| 
+41
+ a| 
+ a| 
+41
+ a| 
+
+
+
+ a| 
+42
+ a| 
+ a| 
+42
+ a| 
+
+
+
+ a| 
+43
+ a| 
+ a| 
+43
+ a| 
+
+
+
+ a| 
+44
+ a| 
+ a| 
+44
+ a| 
+
+
+
+ a| 
+45
+ a| 
+ a| 
+45
+ a| 
+
+
+
+ a| 
+46
+ a| 
+ a| 
+46
+ a| 
+
+
+
+ a| 
+47
+ a| 
+ a| 
+47
+ a| 
+
+
+
+ a| 
+48
+ a| 
+ a| 
+48
+ a| 
+
+
+
+ a| 
+49
+ a| 
+ a| 
+49
+ a| 
+
+
+
+ a| 
+50
+ a| 
+ a| 
+50
+ a| 
+
+
+
+ a| 
+51
+ a| 
+ a| 
+51
+ a| 
+
+
+
+ a| 
+52
+ a| 
+ a| 
+52
+ a| 
+
+
+
+ a| 
+53
+ a| 
+ a| 
+53
+ a| 
+
+
+
+ a| 
+54
+ a| 
+ a| 
+54
+ a| 
+
+
+
+ a| 
+55
+ a| 
+ a| 
+55
+ a| 
+
+
+
+ a| 
+56
+ a| 
+ a| 
+56
+ a| 
+
+
+
+ a| 
+57
+ a| 
+ a| 
+57
+ a| 
+
+
+
+ a| 
+58
+ a| 
+ a| 
+58
+ a| 
+
+
+
+ a| 
+59
+ a| 
+ a| 
+59
+ a| 
+
+
+
+ a| 
+60
+ a| 
+ a| 
+60
+ a| 
+
+
+
+ a| 
+61
+ a| 
+ a| 
+61
+ a| 
+
+
+
+ a| 
+62
+ a| 
+ a| 
+62
+ a| 
+
+
+
+ a| 
+63
+ a| 
+ a| 
+63
+ a| 
+
+
+
+ a| 
+64
+ a| 
+ a| 
+64
+ a| 
+
+
+
+ a| 
+65
+ a| 
+ISL para a porta 65 do interrutor B.
+ a| 
+65
+ a| 
+ISL para mudar A porta 65
+
+
+
+ a| 
+66
+ a| 
+ISL para a porta 66 do interrutor B.
+ a| 
+66
+ a| 
+ISL para mudar A porta 66
+
+|===

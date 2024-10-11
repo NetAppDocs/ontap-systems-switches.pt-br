@@ -1,0 +1,75 @@
+---
+permalink: switch-nvidia-sn2100-storage/components-sn2100-storage.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar a lista de componentes e números de peça do kit de gabinete e trilho. 
+---
+= Componentes e números de peça para interrutores NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar a lista de componentes e números de peça do kit de gabinete e trilho.
+
+
+
+== Detalhes do gabinete
+
+Você instala o switch NVIDIA SN2100 (X190006/X190106) no gabinete de switch dual/single NVIDIA com os suportes padrão incluídos no switch.
+
+
+
+== Detalhes do kit de calha
+
+A tabela a seguir lista o número de peça e a descrição dos MSN2100 interrutores e kits de trilho:
+
+[cols="1,2"]
+|===
+| Número de peça | Descrição 
+
+
+ a| 
+X190006-PE
+ a| 
+Interrutor de cluster, NVIDIA SN2100, 16pt 100g, PTSX
+
+
+
+ a| 
+X190006-PI
+ a| 
+Comutador de cluster, NVIDIA SN2100, 16pt 100g, PSIN
+
+
+
+ a| 
+X190106-FE-PE
+ a| 
+Interrutor, NVIDIA SN2100, 16pt 100g, PTSX, extremidade dianteira
+
+
+
+ a| 
+X190106-FE-PI
+ a| 
+Interrutor, NVIDIA SN2100, 16pt 100g, PSIN, extremidade dianteira
+
+
+
+ a| 
+X-MTEF-KIT-D
+ a| 
+Kit de calha, interrutor duplo NVIDIA lado a lado
+
+
+
+ a| 
+X-MTEF-KIT-E
+ a| 
+Kit de calha, NVIDIA interrutor simples, profundidade curta
+
+|===
+
+NOTE: Consulte a documentação do NVIDIA para obter detalhes https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalar o seu kit de comutador e calha SN2100"^] sobre .

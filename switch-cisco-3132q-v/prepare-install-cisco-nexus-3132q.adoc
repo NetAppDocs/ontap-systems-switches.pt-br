@@ -1,0 +1,191 @@
+---
+permalink: switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html 
+sidebar: sidebar 
+keywords: install, nx-os software, rcfs, cisco nexus 3132q-v, cluster switches 
+summary: 'O software Cisco NX-os e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de cluster Cisco Nexus 3132Q-V.' 
+---
+= Prepare-se para instalar o software NX-os e o ficheiro de configuração de referência
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar o software NX-os e o ficheiro de configuração de referência (RCF), siga este procedimento.
+
+.Sobre os exemplos
+Os exemplos neste procedimento usam dois nós. Esses nós usam duas portas de interconexão de cluster 10GbE `e0a` e `e0b`.
+
+Consulte link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^]para verificar as portas de cluster corretas nas suas plataformas.
+
+
+NOTE: As saídas de comando podem variar dependendo de diferentes versões do ONTAP.
+
+Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+
+* Os nomes dos dois switches Cisco são `cs1` e `cs2`.
+* Os nomes dos nós são `cluster1-01` e `cluster1-02`.
+* Os nomes de LIF do cluster são `cluster1-01_clus1` e `cluster1-01_clus2` para cluster1-01 e `cluster1-02_clus1` e `cluster1-02_clus2` para cluster1-02.
+* O `cluster1::*>` prompt indica o nome do cluster.
+
+
+.Sobre esta tarefa
+O procedimento requer o uso de comandos ONTAP e comandos Cisco Nexus 3000 Series switches; os comandos ONTAP são usados, a menos que indicado de outra forma.
+
+.Passos
+. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+onde _x_ é a duração da janela de manutenção em horas.
+
++
+
+NOTE: A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+
+. Altere o nível de privilégio para avançado, inserindo *y* quando solicitado a continuar:
++
+`set -privilege advanced`
+
++
+(`*>`É apresentado o aviso avançado ).
+
+. Exiba quantas interfaces de interconexão de cluster são configuradas em cada nó para cada switch de interconexão de cluster:
++
+`network device-discovery show -protocol cdp`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- --------
+cluster1-02/cdp
+            e0a    cs1                       Eth1/2            N3K-C3132Q-V
+            e0b    cs2                       Eth1/2            N3K-C3132Q-V
+cluster1-01/cdp
+            e0a    cs1                       Eth1/1            N3K-C3132Q-V
+            e0b    cs2                       Eth1/1            N3K-C3132Q-V
+----
+====
+. Verifique o status administrativo ou operacional de cada interface de cluster.
++
+.. Exibir os atributos da porta de rede:
++
+`network port show –ipspace Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: cluster1-02
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: cluster1-01
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+----
+====
+.. Exibir informações sobre os LIFs:
++
+`network interface show -vserver Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical            Status     Network            Current       Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node          Port    Home
+----------- ------------------ ---------- ------------------ ------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.209.69/16  cluster1-01   e0a     true
+            cluster1-01_clus2  up/up      169.254.49.125/16  cluster1-01   e0b     true
+            cluster1-02_clus1  up/up      169.254.47.194/16  cluster1-02   e0a     true
+            cluster1-02_clus2  up/up      169.254.19.183/16  cluster1-02   e0b     true
+----
+====
+
+
+. Faça ping nas LIFs do cluster remoto:
++
+`cluster ping-cluster -node local`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is cluster1-02
+Getting addresses from network interface table...
+Cluster cluster1-01_clus1 169.254.209.69 cluster1-01     e0a
+Cluster cluster1-01_clus2 169.254.49.125 cluster1-01     e0b
+Cluster cluster1-02_clus1 169.254.47.194 cluster1-02     e0a
+Cluster cluster1-02_clus2 169.254.19.183 cluster1-02     e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+. Verifique se o `auto-revert` comando está ativado em todas as LIFs de cluster:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
+
+          Logical
+Vserver   Interface           Auto-revert
+--------- ––––––-------------- ------------
+Cluster
+          cluster1-01_clus1   true
+          cluster1-01_clus2   true
+          cluster1-02_clus1   true
+          cluster1-02_clus2   true
+----
+====
+
+
+.O que se segue?
+link:install-nx-os-software-3132q-v.html["Instale o software NX-os"].

@@ -1,0 +1,137 @@
+---
+permalink: switch-nvidia-sn2100-storage/sn2100-overview.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar todos os requisitos e a documentação recomendada. 
+---
+= Visão geral e requisitos para switches NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar todos os requisitos e a documentação recomendada.
+
+Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis. Você pode usar switches de gerenciamento adicionais, que são opcionais.
+
+
+
+== Suporte a ONTAP e Linux
+
+O switch NVIDIA SN2100 é um switch Ethernet de 10/25/40/100 GB executando o Linux Cumulus. O interrutor suporta o seguinte:
+
+* ONTAP 9.10.1P3. O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10.1P3 em diferentes pares de switches. A partir do ONTAP 9.10.1P3, você pode usar os switches NVIDIA SN2100 para combinar a funcionalidade de armazenamento e cluster em uma configuração de switch compartilhado.
+* Cumulus Linux (CL) os versão 4,4.3. Para obter informações de compatibilidade atuais, consulte a https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet NVIDIA"^] página de informações.
+* Você pode instalar o Cumulus Linux quando o switch estiver executando Cumulus Linux ou ONIE.
+
+
+
+
+== Detalhes do kit de gabinete e trilho
+
+Você instala o switch NVIDIA SN2100 (X190006/X190106) no gabinete de switch dual/single NVIDIA com os suportes padrão incluídos no switch.
+
+A tabela a seguir lista o número de peça e a descrição dos MSN2100 interrutores e kits de trilho:
+
+[cols="1,2"]
+|===
+| Número de peça | Descrição 
+
+
+ a| 
+X190006-PE
+ a| 
+Interrutor de cluster, NVIDIA SN2100, 16pt 100g, PTSX
+
+
+
+ a| 
+X190006-PI
+ a| 
+Comutador de cluster, NVIDIA SN2100, 16pt 100g, PSIN
+
+
+
+ a| 
+X190106-FE-PE
+ a| 
+Interrutor, NVIDIA SN2100, 16pt 100g, PTSX, extremidade dianteira
+
+
+
+ a| 
+X190106-FE-PI
+ a| 
+Interrutor, NVIDIA SN2100, 16pt 100g, PSIN, extremidade dianteira
+
+
+
+ a| 
+X-MTEF-KIT-D
+ a| 
+Kit de calha, interrutor duplo NVIDIA lado a lado
+
+
+
+ a| 
+X-MTEF-KIT-E
+ a| 
+Kit de calha, NVIDIA interrutor simples, profundidade curta
+
+|===
+
+NOTE: Consulte a documentação do NVIDIA para obter detalhes https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalar o seu kit de comutador e calha SN2100"^] sobre .
+
+
+
+== Documentação disponível
+
+A tabela a seguir lista a documentação disponível para os switches NVIDIA SN2100.
+
+[cols="1,2"]
+|===
+| Título | Descrição 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["_Configurar e configurar os switches NVIDIA SN2100_"^]
+ a| 
+Descreve como configurar e configurar seus switches NVIDIA SN2100, incluindo a instalação do Cumulus Linux e RCFs aplicáveis.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html["_Migrar de um switch de cluster Cisco para um switch de cluster NVIDIA SN2100_"^]
+ a| 
+Descreve como migrar de ambientes que usam switches de cluster Cisco para ambientes que usam switches de cluster NVIDIA SN2100.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html["_Migrar de um switch de armazenamento Cisco para um switch de armazenamento NVIDIA_"^]
+ a| 
+Descreve como migrar de ambientes que usam switches de storage Cisco para ambientes que usam switches de storage NVIDIA SN2100.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["_Migrar para um cluster comutado de dois nós com os switches de cluster NVIDIA SN2100_"^]
+ a| 
+Descreve como migrar para um ambiente comutado de dois nós usando os switches de cluster NVIDIA SN2100.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html["_Substitua um switch de cluster do NVIDIA SN2100_"^]
+ a| 
+Descreve o procedimento para substituir um switch NVIDIA SN2100 com defeito em um cluster e fazer o download do arquivo de configuração de referência e Linux Cumulus.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-storage.html["_Substitua um switch de armazenamento NVIDIA SN2100_"^]
+ a| 
+Descreve o procedimento para substituir um switch de armazenamento NVIDIA SN2100 com defeito e fazer o download do arquivo de configuração de referência e Linux Cumulus.
+
+|===

@@ -1,0 +1,61 @@
+---
+permalink: get-started/learn-switch-concept.html 
+sidebar: sidebar 
+keywords:  
+summary: Saiba mais sobre cluster, armazenamento e switches compartilhados. 
+---
+= Saiba mais sobre Cluster, Storage e switches compartilhados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O NetApp oferece cluster, storage e switches compartilhados que fornecem comunicações internas com a capacidade de mover dados e interfaces de rede sem interrupções pelo cluster.
+
+Os switches "front-end" fornecem conectividade ao storage de host, enquanto os switches de cluster "back-end" fornecem conexões entre duas ou mais controladoras NetApp.
+
+
+NOTE: Somente switches de back-end validados pela NetApp (solicitados pela NetApp) são compatíveis.
+
+
+
+== Interrutores do cluster
+
+Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós. Os switches de cluster compatíveis com NetApp incluem:
+
+* Broadcom BES-53248
+* Cisco Nexus 9336C-FX2
+* NVIDIA SN2100
+
+
+
+
+== Interrutores de armazenamento
+
+Os switches de armazenamento permitem rotear dados entre servidores e matrizes de armazenamento em uma rede de Área de armazenamento (SAN). Os switches de storage compatíveis com NetApp incluem:
+
+* Cisco Nexus 9336C-FX2
+* NVIDIA SN2100
+
+
+
+
+== Switches compartilhados
+
+Os switches compartilhados permitem combinar a funcionalidade de cluster e armazenamento em uma configuração de switch compartilhado, suportando o uso de cluster compartilhado e RCFs de armazenamento. O switch compartilhado suportado pelo NetApp é:
+
+* Cisco Nexus 9336C-FX2
+
+
+
+
+== Término da disponibilidade
+
+Os seguintes switches de storage não estão mais disponíveis para compra, mas ainda são compatíveis:
+
+* Cisco Nexus 3232C
+* Cisco Nexus 3132Q-V
+* Cisco Nexus 92300YC
+* NetApp CN1610
+

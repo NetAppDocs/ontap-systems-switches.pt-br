@@ -1,0 +1,41 @@
+---
+permalink: switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar todos os requisitos e a documentação recomendada. 
+---
+= Requisitos de configuração para switches NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar todos os requisitos de configuração.
+
+
+
+== Requisitos de instalação
+
+Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis. Você pode usar switches de gerenciamento adicionais, que são opcionais.
+
+Você instala o switch NVIDIA SN2100 (X190006) no gabinete de switch duplo/único NVIDIA com os suportes padrão incluídos no switch.
+
+Para obter diretrizes de cabeamento, link:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração"]consulte .
+
+
+
+== Suporte a ONTAP e Linux
+
+O switch NVIDIA SN2100 é um switch 10/25/40/100GbE que executa o Cumulus Linux. O interrutor suporta o seguinte:
+
+* ONTAP 9.10.1P3.
++
+O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10.1P3 em diferentes pares de switches.
+
+* Versão do SO Cumulus Linux (CL).
++
+Para fazer o download do software Cumulus SN2100 da NVIDIA, você deve ter credenciais de login para acessar o Portal de suporte Empresarial da NVIDIA. Consulte o artigo da base de dados de Conhecimento https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Como se Registrar no NVIDIA para acesso ao Portal de suporte Empresarial"^] . Para obter informações de compatibilidade atuais, consulte a https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet NVIDIA"^] página de informações.
+
+* Você pode instalar o Cumulus Linux quando o switch estiver executando Cumulus Linux ou ONIE.
+

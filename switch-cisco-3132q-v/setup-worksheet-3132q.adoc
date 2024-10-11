@@ -1,0 +1,591 @@
+---
+permalink: switch-cisco-3132q-v/setup_worksheet_3132q.html 
+sidebar: sidebar 
+keywords: cable worksheet, Cisco NX 3132Q-V 
+summary: Se você quiser documentar as plataformas suportadas, você deve preencher a Planilha de cabeamento em branco usando a Planilha de cabeamento de amostra concluída como um guia. Cada switch pode ser configurado como uma única porta 40GbE ou 4 portas x 10GbE. 
+---
+= Folha de cálculo completa de cabeamento Cisco Nexus 3132Q-V.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você quiser documentar as plataformas suportadas, baixe um PDF desta página e complete a Planilha de cabeamento.
+
+A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
+
+Cada switch pode ser configurado como uma única porta 40GbE ou 4 portas x 10GbE.
+
+
+
+== Planilha de cabeamento de amostra
+
+A definição de porta de amostra em cada par de switches é a seguinte:
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+
+
+| Porta do switch | Uso de nó e porta | Porta do switch | Uso de nó e porta 
+
+
+ a| 
+1
+ a| 
+4x10G/40G nó
+ a| 
+1
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+2
+ a| 
+4x10G/40G nó
+ a| 
+2
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+3
+ a| 
+4x10G/40G nó
+ a| 
+3
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+4
+ a| 
+4x10G/40G nó
+ a| 
+4
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+5
+ a| 
+4x10G/40G nó
+ a| 
+5
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+6
+ a| 
+4x10G/40G nó
+ a| 
+6
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+7
+ a| 
+4x10G/40G nó
+ a| 
+7
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+8
+ a| 
+4x10G/40G nó
+ a| 
+8
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+9
+ a| 
+4x10G/40G nó
+ a| 
+9
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+10
+ a| 
+4x10G/40G nó
+ a| 
+10
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+11
+ a| 
+4x10G/40G nó
+ a| 
+11
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+12
+ a| 
+4x10G/40G nó
+ a| 
+12
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+13
+ a| 
+4x10G/40G nó
+ a| 
+13
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+14
+ a| 
+4x10G/40G nó
+ a| 
+14
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+15
+ a| 
+4x10G/40G nó
+ a| 
+15
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+16
+ a| 
+4x10G/40G nó
+ a| 
+16
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+17
+ a| 
+4x10G/40G nó
+ a| 
+17
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+18
+ a| 
+4x10G/40G nó
+ a| 
+18
+ a| 
+4x10G/40G nó
+
+
+
+ a| 
+19
+ a| 
+40g nó 19
+ a| 
+19
+ a| 
+40g nó 19
+
+
+
+ a| 
+20
+ a| 
+40g nó 20
+ a| 
+20
+ a| 
+40g nó 20
+
+
+
+ a| 
+21
+ a| 
+40g nó 21
+ a| 
+21
+ a| 
+40g nó 21
+
+
+
+ a| 
+22
+ a| 
+40g nó 22
+ a| 
+22
+ a| 
+40g nó 22
+
+
+
+ a| 
+23
+ a| 
+40g nó 23
+ a| 
+23
+ a| 
+40g nó 23
+
+
+
+ a| 
+24
+ a| 
+40g nó 24
+ a| 
+24
+ a| 
+40g nó 24
+
+
+
+ a| 
+25 a 30
+ a| 
+Todos os direitos reservados
+ a| 
+25 a 30
+ a| 
+Todos os direitos reservados
+
+
+
+ a| 
+31
+ a| 
+40g ISL para a porta 31 do interrutor B.
+ a| 
+31
+ a| 
+40g ISL para mudar A porta 31
+
+
+
+ a| 
+32
+ a| 
+40g ISL para a porta 32 do interrutor B.
+ a| 
+32
+ a| 
+40g ISL para mudar A porta 32
+
+|===
+
+
+== Folha de cálculo de cablagem em branco
+
+Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A seção _conexões de cluster suportadas_ da https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+
+
+| Porta do switch | Uso de nó/porta | Porta do switch | Uso de nó/porta 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11
+ a| 
+ a| 
+11
+ a| 
+
+
+
+ a| 
+12
+ a| 
+ a| 
+12
+ a| 
+
+
+
+ a| 
+13
+ a| 
+ a| 
+13
+ a| 
+
+
+
+ a| 
+14
+ a| 
+ a| 
+14
+ a| 
+
+
+
+ a| 
+15
+ a| 
+ a| 
+15
+ a| 
+
+
+
+ a| 
+16
+ a| 
+ a| 
+16
+ a| 
+
+
+
+ a| 
+17
+ a| 
+ a| 
+17
+ a| 
+
+
+
+ a| 
+18
+ a| 
+ a| 
+18
+ a| 
+
+
+
+ a| 
+19
+ a| 
+ a| 
+19
+ a| 
+
+
+
+ a| 
+20
+ a| 
+ a| 
+20
+ a| 
+
+
+
+ a| 
+21
+ a| 
+ a| 
+21
+ a| 
+
+
+
+ a| 
+22
+ a| 
+ a| 
+22
+ a| 
+
+
+
+ a| 
+23
+ a| 
+ a| 
+23
+ a| 
+
+
+
+ a| 
+24
+ a| 
+ a| 
+24
+ a| 
+
+
+
+ a| 
+25 a 30
+ a| 
+Todos os direitos reservados
+ a| 
+25 a 30
+ a| 
+Todos os direitos reservados
+
+
+
+ a| 
+31
+ a| 
+40g ISL para a porta 31 do interrutor B.
+ a| 
+31
+ a| 
+40g ISL para mudar A porta 31
+
+
+
+ a| 
+32
+ a| 
+40g ISL para a porta 32 do interrutor B.
+ a| 
+32
+ a| 
+40g ISL para mudar A porta 32
+
+|===

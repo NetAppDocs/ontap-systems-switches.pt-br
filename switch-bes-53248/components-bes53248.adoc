@@ -1,0 +1,128 @@
+---
+permalink: switch-bes-53248/components-bes53248.html 
+sidebar: sidebar 
+keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
+summary: Para instalação e manutenção do comutador BES-53248, certifique-se de que lê a lista de componentes e números de peça. 
+---
+= Componentes e números de peça para comutadores de cluster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalação e manutenção do comutador BES-53248, certifique-se de que lê a lista de componentes e números de peça.
+
+A tabela a seguir lista o número de peça, a descrição e as versões mínimas EFOS e ONTAP para os componentes do switch de cluster BES-53248, incluindo detalhes do kit de trilho de montagem em rack.
+
+
+NOTE: É necessária uma versão EFOS mínima de *3.10.0.3* para os números de peça *X190005-B* e *X190005R-B*.
+
+[cols="20,40,20,20"]
+|===
+| Número de peça | Descrição | Versão mínima do EFOS | Versão mínima do ONTAP 
+
+
+ a| 
+X190005-B
+ a| 
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX (PTSX - escape lateral da porta)
+ a| 
+3.10.0.3
+ a| 
+9,8
+
+
+
+ a| 
+X190005R-B
+ a| 
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN (PSIN - Entrada lateral da porta)
+ a| 
+3.10.0.3
+ a| 
+9,8
+
+
+
+ a| 
+X190005
+ a| 
+BES-53248, CLSW, 16PT10/25GB, PTSX, BRDCM SUPP
+ a| 
+3.4.4.6
+ a| 
+9.5P8
+
+
+
+ a| 
+X190005R
+ a| 
+BES-53248, CLSW, 16PT10/25GB, PSIN, SUPP BRDCM
+ a| 
+3.4.4.6
+ a| 
+9.5P8
+
+
+
+ a| 
+X-RAIL-4POST-190005
+ a| 
+Kit de calha de montagem em rack Ozeki 4 POST 19"
+ a| 
+N/A.
+ a| 
+N/A.
+
+|===
+
+IMPORTANT: Observe as seguintes informações em relação aos tipos de máquina:
+
+[cols="50,50"]
+|===
+| Tipo de máquina | Versão mínima do EFOS 
+
+
+ a| 
+BES-53248A1
+| 3.4.4.6 
+
+
+ a| 
+BES-53248A2
+| 3.10.0.3 
+
+
+ a| 
+BES-53248A3
+| 3.10.0.3 
+|===
+Você pode determinar seu tipo de máquina específico usando o comando: `show version`
+
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs1)# *show version*
+
+Switch: cs1
+
+System Description............................. EFOS, 3.10.0.3, Linux 5.4.2-b4581018, 2016.05.00.07
+Machine Type................................... *_BES-53248A3_*
+Machine Model.................................. BES-53248
+Serial Number.................................. QTWCU225xxxxx
+Part Number.................................... 1IX8BZxxxxx
+Maintenance Level.............................. a3a
+Manufacturer................................... QTMC
+Burned In MAC Address.......................... C0:18:50:F4:3x:xx
+Software Version............................... 3.10.0.3
+Operating System............................... Linux 5.4.2-b4581018
+Network Processing Device...................... BCM56873_A0
+.
+.
+.
+----
+====

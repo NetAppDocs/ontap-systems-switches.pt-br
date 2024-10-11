@@ -1,0 +1,532 @@
+---
+permalink: switch-cisco-9336c-fx2/migrate-cn1610-9336c-cluster.html 
+sidebar: sidebar 
+keywords: migrate cluster Cisco Nexus 9336C-FX2 cluster switches cn1610 
+summary: Você pode migrar switches de cluster NetApp CN1610 sem interrupções para um cluster ONTAP para os switches de rede de cluster Cisco Nexus 9336C-FX2X. 
+---
+= Migre de um switch de cluster NetApp CN1610 para um switch de cluster Cisco 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível migrar os switches de cluster do NetApp CN1610 para um cluster do ONTAP para os switches de cluster do Cisco 9336C-FX2. Este é um procedimento sem interrupções.
+
+
+
+== Rever os requisitos
+
+Você deve estar ciente de certas informações de configuração, conexões de portas e requisitos de cabeamento ao substituir os switches de cluster NetApp CN1610 por switches de cluster Cisco 9336C-FX2. Além disso, verifique o número de série do switch para garantir que o switch correto seja migrado.
+
+.Interrutores suportados
+Os seguintes switches de cluster são suportados:
+
+* NetApp CN1610
+* Cisco 9336C-FX2
+
+
+Para obter detalhes sobre as portas suportadas e suas configurações, consulte o https://hwu.netapp.com/["Hardware Universe"^].
+
+.O que você vai precisar
+Verifique se sua configuração atende aos seguintes requisitos:
+
+* O cluster existente está corretamente configurado e funcionando.
+* Todas as portas de cluster estão no estado *up* para garantir operações ininterruptas.
+* Os switches de cluster Cisco 9336C-FX2 são configurados e operando sob a versão correta do NX-os instalado com o arquivo de configuração de referência (RCF) aplicado.
+* A configuração de rede de cluster existente tem o seguinte:
++
+** Um cluster NetApp redundante e totalmente funcional usando switches NetApp CN1610.
+** Conetividade de gerenciamento e acesso ao console aos switches NetApp CN1610 e aos novos switches.
+** Todas as LIFs de cluster no estado up com os LIFs de cluster estão em suas portas residenciais.
+
+
+* Algumas das portas são configuradas nos switches Cisco 9336C-FX2 para serem executadas em 40GbE ou 100GbE.
+* Você planejou, migrou e documentou a conectividade 40GbE e 100GbE de nós para os switches de cluster Cisco 9336C-FX2.
+
+
+
+
+== Migrar os switches
+
+.Sobre os exemplos
+Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+
+* Os switches de cluster CN1610 existentes são _C1_ e _C2_.
+* Os novos switches de cluster 9336C-FX2 são _CS1_ e _CS2_.
+* Os nós são _node1_ e _node2_.
+* Os LIFs de cluster são _node1_clus1_ e _node1_clus2_ no nó 1 e _node2_clus1_ e _node2_clus2_ no nó 2 respetivamente.
+* O `cluster1::*>` prompt indica o nome do cluster.
+* As portas de cluster usadas neste procedimento são _E3A_ e _e3b_.
+
+
+.Sobre esta tarefa
+Este procedimento abrange o seguinte cenário:
+
+* O interrutor C2 é substituído primeiro pelo interrutor CS2.
++
+** Encerre as portas para os nós de cluster. Todas as portas devem ser fechadas simultaneamente para evitar a instabilidade do cluster.
++
+*** Todas as LIFs do cluster fazem failover para o novo switch CS2.
+
+
+** O cabeamento entre os nós e o C2 é desconetado do C2 e reconetado ao CS2.
+
+
+* O interrutor C1 é substituído pelo interrutor CS1.
++
+** Encerre as portas para os nós de cluster. Todas as portas devem ser fechadas simultaneamente para evitar a instabilidade do cluster.
++
+*** Todas as LIFs do cluster fazem failover para o novo switch CS1.
+
+
+** O cabeamento entre os nós e o C1 é desconetado do C1 e reconetado ao CS1.
+
+
+
+
+
+NOTE: Não é necessária qualquer ligação entre interrutores (ISL) operacional durante este procedimento. Isso é feito por design porque as alterações na versão do RCF podem afetar temporariamente a conetividade do ISL. Para garantir operações de cluster sem interrupções, o procedimento a seguir faz failover de todas as LIFs de cluster para o switch de parceiro operacional enquanto executa as etapas no switch de destino.
+
+
+
+=== Passo 1: Prepare-se para a migração
+
+. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+onde _x_ é a duração da janela de manutenção em horas.
+
+. Altere o nível de privilégio para avançado, inserindo *y* quando solicitado a continuar:
++
+`set -privilege advanced`
+
++
+É apresentado o aviso avançado (*>).
+
+. Desative a reversão automática nos LIFs do cluster.
++
+Ao desativar a reversão automática para este procedimento, as LIFs do cluster não serão automaticamente movidas de volta para sua porta inicial. Eles permanecem na porta atual enquanto continua a estar operacional.
+
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
+
+
+
+
+=== Etapa 2: Configurar portas e cabeamento
+
+. Determine o status administrativo ou operacional de cada interface de cluster.
++
+Cada porta deve ser exibida durante `Link` e `healthy` para `Health Status`.
+
++
+.. Exibir os atributos da porta de rede:
++
+`network port show -ipspace Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+----
+====
+.. Exibir informações sobre os LIFs e seus nós iniciais designados:
++
+`network interface show -vserver Cluster`
+
++
+Cada LIF deve ser exibido `up/up` para `Status Admin/Oper` e `true` para `Is Home`.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical      Status     Network            Current     Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node        Port    Home
+----------- -----------  ---------- ------------------ ----------- ------- ----
+Cluster
+            node1_clus1  up/up      169.254.209.69/16  node1       e3a     true
+            node1_clus2  up/up      169.254.49.125/16  node1       e3b     true
+            node2_clus1  up/up      169.254.47.194/16  node2       e3a     true
+            node2_clus2  up/up      169.254.19.183/16  node2       e3b     true
+
+----
+====
+
+
+. As portas de cluster em cada nó são conetadas aos switches de cluster existentes da seguinte maneira (da perspetiva dos nós) usando o comando:
++
+`network device-discovery show -protocol`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1      /cdp
+            e3a    C1 (6a:ad:4f:98:3b:3f)    0/1               -
+            e3b    C2 (6a:ad:4f:98:4c:a4)    0/1               -
+node2      /cdp
+            e3a    C1 (6a:ad:4f:98:3b:3f)    0/2               -
+            e3b    C2 (6a:ad:4f:98:4c:a4)    0/2               -
+----
+====
+. As portas e os switches do cluster são conetados da seguinte maneira (da perspetiva dos switches) usando o comando:
++
+`show cdp neighbors`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+C1# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID             Local Intrfce Hldtme Capability  Platform         Port ID
+node1                 Eth1/1        124    H           AFF-A400         e3a
+node2                 Eth1/2        124    H           AFF-A400         e3a
+C2                    0/13          179    S I s       CN1610           0/13
+C2                    0/14          175    S I s       CN1610           0/14
+C2                    0/15          179    S I s       CN1610           0/15
+C2                    0/16          175    S I s       CN1610           0/16
+
+C2# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+
+Device-ID             Local Intrfce Hldtme Capability  Platform         Port ID
+node1                 Eth1/1        124    H           AFF-A400         e3b
+node2                 Eth1/2        124    H           AFF-A400         e3b
+C1                    0/13          175    S I s       CN1610           0/13
+C1                    0/14          175    S I s       CN1610           0/14
+C1                    0/15          175    S I s       CN1610           0/15
+C1                    0/16          175    S I s       CN1610           0/16
+----
+====
+. Verifique se a rede do cluster tem conetividade total usando o comando:
++
+`cluster ping-cluster -node node-name`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node node2*
+
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1     e3a
+Cluster node1_clus2 169.254.49.125 node1     e3b
+Cluster node2_clus1 169.254.47.194 node2     e3a
+Cluster node2_clus2 169.254.19.183 node2     e3b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+. No switch C2, encerre as portas conetadas às portas do cluster dos nós para fazer failover das LIFs do cluster.
++
+[listing, subs="+quotes"]
+----
+(C2)# *configure*
+(C2)(Config)# *interface 0/1-0/12*
+(C2)(Interface 0/1-0/12)# *shutdown*
+(C2)(Interface 0/1-0/12)# *exit*
+(C2)(Config)# *exit*
+----
+. Mova as portas do cluster de nós do switch antigo C2 para o novo switch CS2, usando o cabeamento apropriado suportado pelo Cisco 9336C-FX2.
+. Exibir os atributos da porta de rede:
++
+`network port show -ipspace Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+----
+====
+. As portas do cluster em cada nó agora são conetadas aos switches do cluster da seguinte maneira, da perspetiva dos nós:
++
+`network device-discovery show -protocol`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1      /cdp
+            e3a    C1  (6a:ad:4f:98:3b:3f)   0/1               CN1610
+            e3b    cs2 (b8:ce:f6:19:1a:7e)   Ethernet1/1/1     N9K-C9336C-FX2
+node2      /cdp
+            e3a    C1  (6a:ad:4f:98:3b:3f)   0/2               CN1610
+            e3b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2     N9K-C9336C-FX2
+----
+====
+. No switch CS2, verifique se todas as portas do cluster de nós estão ativas:
++
+`network interface show -vserver Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical      Status     Network            Current     Current Is
+Vserver     Interfac     Admin/Oper Address/Mask       Node        Port    Home
+----------- ------------ ---------- ------------------ ----------- ------- ----
+Cluster
+            node1_clus1  up/up      169.254.3.4/16     node1       e0b     false
+            node1_clus2  up/up      169.254.3.5/16     node1       e0b     true
+            node2_clus1  up/up      169.254.3.8/16     node2       e0b     false
+            node2_clus2  up/up      169.254.3.9/16     node2       e0b     true
+----
+====
+. No switch C1, encerre as portas conetadas às portas do cluster dos nós para fazer failover das LIFs do cluster.
++
+[listing, subs="+quotes"]
+----
+(C1)# *configure*
+(C1)(Config)# *interface 0/1-0/12*
+(C1)(Interface 0/1-0/12)# *shutdown*
+(C1)(Interface 0/1-0/12)# *exit*
+(C1)(Config)# *exit*
+----
+. Mova as portas do cluster de nós do switch antigo C1 para o novo switch CS1, usando o cabeamento apropriado suportado pelo Cisco 9336C-FX2.
+. Verifique a configuração final do cluster:
++
+`network port show -ipspace Cluster`
+
++
+Cada porta deve ser exibida `up` para `Link` e `healthy` para `Health Status`.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+----
+====
+. As portas do cluster em cada nó agora são conetadas aos switches do cluster da seguinte maneira, da perspetiva dos nós:
++
+`network device-discovery show -protocol`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  ----------------
+node1      /cdp
+            e3a    cs1 (b8:ce:f6:19:1a:7e)   Ethernet1/1/1   N9K-C9336C-FX2
+            e3b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2   N9K-C9336C-FX2
+node2      /cdp
+            e3a    cs1 (b8:ce:f6:19:1a:7e)   Ethernet1/1/1   N9K-C9336C-FX2
+            e3b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2   N9K-C9336C-FX2
+----
+====
+. Nos switches CS1 e CS2, verifique se todas as portas do cluster de nós estão ativas:
++
+`network port show -ipspace Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+. Verifique se ambos os nós têm uma conexão com cada switch:
++
+`network device-discovery show -protocol`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra os resultados apropriados para ambos os switches:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  --------------
+node1      /cdp
+            e0a    cs1 (b8:ce:f6:19:1b:42)   Ethernet1/1/1   N9K-C9336C-FX2
+            e0b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2   N9K-C9336C-FX2
+
+node2      /cdp
+            e0a    cs1 (b8:ce:f6:19:1b:42)   Ethernet1/1/1   N9K-C9336C-FX2
+            e0b    cs2 (b8:ce:f6:19:1b:96)   Ethernet1/1/2   N9K-C9336C-FX2
+----
+====
+
+
+
+
+=== Etapa 3: Verifique a configuração
+
+. Ativar a reversão automática nos LIFs do cluster:
++
+`cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
+
+. Verifique se todas as LIFs de rede do cluster estão de volta em suas portas domésticas:
++
+`network interface show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e3a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e3b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e3a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
+----
+====
+. Altere o nível de privilégio de volta para admin:
++
+`set -privilege admin`
+
+. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+.O que se segue?
+link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].

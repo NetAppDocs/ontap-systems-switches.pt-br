@@ -1,0 +1,762 @@
+---
+permalink: switch-cisco-92300/install-the-rcf-file.html 
+sidebar: sidebar 
+keywords: install, rcf 
+summary: Você pode instalar o RCF depois de configurar o switch Nexus 92300YC pela primeira vez. 
+---
+= Instalar o ficheiro de configuração de referência (RCF)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimento para instalar o RCF depois de configurar o switch Nexus 92300YC pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.
+
+
+
+== Rever os requisitos
+
+.O que você vai precisar
+* Um backup atual da configuração do switch.
+* Um cluster totalmente funcional (sem erros nos logs ou problemas semelhantes).
+* O ficheiro de configuração de referência atual (RCF).
+* Uma configuração de inicialização no RCF que reflete as imagens de inicialização desejadas, necessária se você estiver instalando apenas NX-os e mantendo sua versão RCF atual. Se você precisar alterar a configuração de inicialização para refletir as imagens de inicialização atuais, você deve fazê-lo antes de reaplicar o RCF para que a versão correta seja instanciada em futuras reinicializações.
+* Uma ligação de consola ao interrutor, necessária ao instalar o RCF.
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página do switch Ethernet Cisco"^] Consulte a tabela de compatibilidade do switch para as versões ONTAP e RCF suportadas. Note que pode haver dependências de comando entre a sintaxe de comando no RCF e aquela encontrada em versões do NX-os.
+
+
+
+
+== Instale o ficheiro
+
+.Sobre os exemplos
+Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+
+* Os nomes dos dois switches Cisco são `cs1` e `cs2`.
+* Os nomes dos nós são `node1` e `node2`.
+* Os nomes de LIF do cluster são `node1_clus1`, `node1_clus2`, `node2_clus1`, `node2_clus2` e .
+* O `cluster1::*>` prompt indica o nome do cluster.
+
+
+.Sobre esta tarefa
+O procedimento requer a utilização de ambos os comandos ONTAP e https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus 9000 Series"^]; os comandos ONTAP são utilizados, salvo indicação em contrário.
+
+.Passos
+. Exiba as portas do cluster em cada nó conetado aos switches do cluster:
++
+`network device-discovery show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ------------
+node1/cdp
+            e0a    cs1                       Ethernet1/1/1     N9K-C92300YC
+            e0b    cs2                       Ethernet1/1/1     N9K-C92300YC
+node2/cdp
+            e0a    cs1                       Ethernet1/1/2     N9K-C92300YC
+            e0b    cs2                       Ethernet1/1/2     N9K-C92300YC
+cluster1::*>
+----
+====
+. Verifique o status administrativo e operacional de cada porta de cluster.
++
+.. Verifique se todas as portas do cluster estão ativas com um status de integridade:
++
+`network port show -ipspace Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0c       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0c       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+cluster1::*>
+----
+====
+.. Verifique se todas as interfaces de cluster (LIFs) estão na porta inicial
+`network interface show -vserver Cluster`
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical            Status     Network           Current      Current Is
+Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
+----------- ------------------ ---------- ----------------- ------------ ------- ----
+Cluster
+            node1_clus1        up/up      169.254.3.4/23    node1        e0c     true
+            node1_clus2        up/up      169.254.3.5/23    node1        e0d     true
+            node2_clus1        up/up      169.254.3.8/23    node2        e0c     true
+            node2_clus2        up/up      169.254.3.9/23    node2        e0d     true
+cluster1::*>
+----
+====
+.. Verifique se o cluster exibe informações para ambos os switches do cluster
+`system cluster-switch show -is-monitoring-enabled-operational true`
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs1                         cluster-network    10.233.205.92    N9K-C92300YC
+     Serial Number: FOXXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+cs2                         cluster-network    10.233.205.93    N9K-C92300YC
+     Serial Number: FOXXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+2 entries were displayed.
+----
+====
+
+
+. Desative a reversão automática nos LIFs do cluster.
++
+[listing, subs="+quotes"]
+----
+cluster1::*> **network interface modify -vserver Cluster -lif * -auto-revert false**
+----
+. No switch de cluster CS2, encerre as portas conetadas às portas de cluster dos nós.
++
+[listing, subs="+quotes"]
+----
+cs2(config)# *interface e1/1-64*
+cs2(config-if-range)# *shutdown*
+----
+. Verifique se as portas de cluster migraram para as portas hospedadas no switch de cluster CS1. Isso pode levar alguns segundos.
++
+`network interface show -vserver Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical           Status     Network            Current       Current Is
+Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
+----------- ----------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1       up/up      169.254.3.4/23     node1         e0c     true
+            node1_clus2       up/up      169.254.3.5/23     node1         e0c     false
+            node2_clus1       up/up      169.254.3.8/23     node2         e0c     true
+            node2_clus2       up/up      169.254.3.9/23     node2         e0c     false
+cluster1::*>
+----
+====
+. Verifique se o cluster está em bom estado:
++
+`cluster show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node           Health  Eligibility   Epsilon
+-------------- ------- ------------  -------
+node1          true    true          false
+node2          true    true          false
+cluster1::*>
+----
+====
+. Se você ainda não tiver um backup atual do switch, você pode salvar a configuração atual do switch copiando a saída do seguinte comando para um arquivo de log:
++
+`show running-config`
+
+. Limpe a configuração no interrutor CS2 e execute uma configuração básica.
++
+.. Limpe a configuração. Esta etapa requer uma conexão de console com o switch.
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *write erase*
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n)  [n] *y*
+cs2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
+cs2#
+----
+====
+.. Execute uma configuração básica do switch.
+
+
+. Copie o RCF para o flash de inicialização do switch CS2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP. Para obter mais informações sobre comandos Cisco, consulte o guia apropriado https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus 9000 Series"^] nos guias.
++
+.Mostrar exemplo
+[%collapsible]
+====
+Este exemplo mostra TFTP sendo usado para copiar um RCF para o flash de inicialização no switch CS2:
+
+[listing, subs="+quotes"]
+----
+cs2# *copy tftp: bootflash: vrf management*
+Enter source filename: */code/Nexus_92300YC_RCF_v1.0.2.txt*
+Enter hostname for the tftp server: *172.19.2.1*
+Enter username: *user1*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+tftp> *progress*
+Progress meter enabled
+tftp> *get /code/Nexus_92300YC_RCF_v1.0.2.txt* /bootflash/nxos.9.2.2.bin
+/code/Nexus_92300YC_R  100% 9687   530.2KB/s   00:00
+tftp> *exit*
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+====
+. Aplique o RCF baixado anteriormente ao flash de inicialização.
++
+Para obter mais informações sobre comandos Cisco, consulte o guia apropriado https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus 9000 Series"^] nos guias.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+Este exemplo mostra o arquivo RCF `Nexus_92300YC_RCF_v1.0.2.txt` sendo instalado no switch CS2:
+
+[listing, subs="+quotes"]
+----
+cs2# *copy Nexus_92300YC_RCF_v1.0.2.txt running-config echo-commands*
+
+Disabling ssh: as its enabled right now:
+ generating ecdsa key(521 bits)......
+generated ecdsa key
+
+Enabling ssh: as it has been disabled
+ this command enables edge port type (portfast) by default on all interfaces. You
+ should now disable edge port type (portfast) explicitly on switched ports leading to hubs,
+ switches and bridges as they may create temporary bridging loops.
+
+Edge port type (portfast) should only be enabled on ports connected to a single
+ host. Connecting hubs, concentrators, switches, bridges, etc...  to this
+ interface when edge port type (portfast) is enabled, can cause temporary bridging loops.
+ Use with CAUTION
+
+Edge Port Type (Portfast) has been configured on Ethernet1/1 but will only
+ have effect when the interface is in a non-trunking mode.
+
+...
+
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+====
+. Verifique no switch se o RCF foi mesclado com êxito:
++
+`show running-config`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *show running-config*
+!Command: show running-config
+!Running configuration last done at: Wed Apr 10 06:32:27 2019
+!Time: Wed Apr 10 06:36:00 2019
+
+version 9.2(2) Bios:version 05.33
+switchname cs2
+vdc cs2 id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource u4route-mem minimum 248 maximum 248
+  limit-resource u6route-mem minimum 96 maximum 96
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature lacp
+
+no password strength-check
+username admin password 5 $5$HY9Kk3F9$YdCZ8iQJ1RtoiEFa0sKP5IO/LNG1k9C4lSJfi5kesl
+6  role network-admin
+ssh key ecdsa 521
+
+banner motd #
+********************************************************************************
+*                                                                              *
+*  Nexus 92300YC Reference Configuration File (RCF) v1.0.2 (10-19-2018)        *
+*                                                                              *
+*  Ports 1/1  - 1/48: 10GbE Intra-Cluster Node Ports                           *
+*  Ports 1/49 - 1/64: 40/100GbE Intra-Cluster Node Ports                       *
+*  Ports 1/65 - 1/66: 40/100GbE Intra-Cluster ISL Ports                        *
+*                                                                              *
+********************************************************************************
+----
+====
+
+
+
+NOTE: Ao aplicar o RCF pela primeira vez, a mensagem *ERROR: Failed to write VSH commands* é esperada e pode ser ignorada.
+
+. [[step12]]Verifique se o arquivo RCF é a versão mais recente correta:
++
+`show running-config`
+
++
+Quando verificar a saída para verificar se tem o RCF correto, certifique-se de que as seguintes informações estão corretas:
+
++
+** O banner RCF
+** As configurações de nó e porta
+** Personalizações
++
+A saída varia de acordo com a configuração do seu site. Verifique as configurações da porta e consulte as notas de versão para ver se há alterações específicas ao RCF que você instalou.
+
+
+
+. Depois de verificar se as versões do RCF e as configurações do switch estão corretas, copie o arquivo running-config para o arquivo startup-config.
++
+Para obter mais informações sobre comandos Cisco, consulte o guia apropriado https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus 9000 Series"^] nos guias.
+
++
+[listing, subs="+quotes"]
+----
+cs2# *copy running-config startup-config*
+[########################################] 100% Copy complete
+----
+. Interrutor de reinicialização CS2. Você pode ignorar os eventos "portas de cluster para baixo" relatados nos nós enquanto o switch é reinicializado.
++
+[listing, subs="+quotes"]
+----
+cs2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
+----
+. Verifique a integridade das portas do cluster no cluster.
++
+.. Verifique se as portas e0d estão ativas e íntegras em todos os nós do cluster:
++
+`network port show -ipspace Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+.. Verifique a integridade do switch a partir do cluster (isso pode não mostrar o switch CS2, uma vez que LIFs não são homed em e0d).
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- ------------
+node1/cdp
+            e0a    cs1                       Ethernet1/1       N9K-C92300YC
+            e0b    cs2                       Ethernet1/1       N9K-C92300YC
+node2/cdp
+            e0a    cs1                       Ethernet1/2       N9K-C92300YC
+            e0b    cs2                       Ethernet1/2       N9K-C92300YC
+
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ------------
+cs1                         cluster-network    10.233.205.90    N9K-C92300YC
+     Serial Number: FOXXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+cs2                         cluster-network    10.233.205.91    N9K-C92300YC
+     Serial Number: FOXXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+2 entries were displayed.
+----
+====
++
+[NOTE]
+====
+Você pode observar a seguinte saída no console do switch CS1, dependendo da versão RCF previamente carregada no switch
+
+....
+2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
+2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
+....
+====
+
+
++
+
+NOTE: Pode levar até 5 minutos para que os nós de cluster relatem como íntegros.
+
+. No switch de cluster CS1, encerre as portas conetadas às portas de cluster dos nós.
++
+O exemplo a seguir usa a saída de exemplo de interface do passo 1:
+
++
+[listing, subs="+quotes"]
+----
+cs1(config)# *interface e1/1-64*
+cs1(config-if-range)# *shutdown*
+----
+. Verifique se os LIFs de cluster migraram para as portas hospedadas no switch CS2. Isso pode levar alguns segundos. `network interface show -vserver Cluster`
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical          Status     Network            Current           Current Is
+Vserver     Interface        Admin/Oper Address/Mask       Node              Port    Home
+----------- ---------------- ---------- ------------------ ----------------- ------- ----
+Cluster
+            node1_clus1      up/up      169.254.3.4/23     node1             e0d     false
+            node1_clus2      up/up      169.254.3.5/23     node1             e0d     true
+            node2_clus1      up/up      169.254.3.8/23     node2             e0d     false
+            node2_clus2      up/up      169.254.3.9/23     node2             e0d     true
+cluster1::*>
+----
+====
+. Verifique se o cluster está em bom estado:
++
+`cluster show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node           Health   Eligibility   Epsilon
+-------------- -------- ------------- -------
+node1          true     true          false
+node2          true     true          false
+cluster1::*>
+----
+====
+. Repita os passos 7 a 14 no interrutor CS1.
+. Ative a reversão automática nos LIFs do cluster.
++
+[listing, subs="+quotes"]
+----
+cluster1::*> **network interface modify -vserver Cluster -lif * -auto-revert True**
+----
+. Interrutor de reinicialização CS1. Você faz isso para acionar os LIFs do cluster para reverter para suas portas domésticas. Você pode ignorar os eventos "portas de cluster para baixo" relatados nos nós enquanto o switch é reinicializado.
++
+[listing, subs="+quotes"]
+----
+cs1# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
+----
+. Verifique se as portas do switch conetadas às portas do cluster estão ativadas.
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show interface brief | grep up*
+.
+.
+Ethernet1/1      1       eth  access up      none                    10G(D) --
+Ethernet1/2      1       eth  access up      none                    10G(D) --
+Ethernet1/3      1       eth  trunk  up      none                   100G(D) --
+Ethernet1/4      1       eth  trunk  up      none                   100G(D) --
+.
+.
+----
+====
+. Verifique se o ISL entre CS1 e CS2 está funcional:
++
+`show port-channel summary`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
+cs1#
+----
+====
+. Verifique se os LIFs do cluster reverteram para sua porta inicial:
++
+`network interface show -vserver Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical       Status     Network            Current       Current Is
+Vserver     Interface     Admin/Oper Address/Mask       Node          Port    Home
+----------- ------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1   up/up      169.254.3.4/23     node1         e0d     true
+            node1_clus2   up/up      169.254.3.5/23     node1         e0d     true
+            node2_clus1   up/up      169.254.3.8/23     node2         e0d     true
+            node2_clus2   up/up      169.254.3.9/23     node2         e0d     true
+cluster1::*>
+----
+====
+. Verifique se o cluster está em bom estado:
++
+`cluster show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node           Health  Eligibility   Epsilon
+-------------- ------- ------------- -------
+node1          true    true          false
+node2          true    true          false
+----
+====
+. Faça ping nas interfaces do cluster remoto para verificar a conetividade:
++
+`cluster ping-cluster -node local`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node1
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.3.4 node1 e0a
+Cluster node1_clus2 169.254.3.5 node1 e0b
+Cluster node2_clus1 169.254.3.8 node2 e0a
+Cluster node2_clus2 169.254.3.9 node2 e0b
+Local = 169.254.1.3 169.254.1.1
+Remote = 169.254.1.6 169.254.1.7 169.254.3.4 169.254.3.5 169.254.3.8 169.254.3.9
+Cluster Vserver Id = 4294967293
+Ping status:
+............
+Basic connectivity succeeds on 12 path(s)
+Basic connectivity fails on 0 path(s)
+................................................
+Detected 9000 byte MTU on 12 path(s):
+    Local 169.254.1.3 to Remote 169.254.1.6
+    Local 169.254.1.3 to Remote 169.254.1.7
+    Local 169.254.1.3 to Remote 169.254.3.4
+    Local 169.254.1.3 to Remote 169.254.3.5
+    Local 169.254.1.3 to Remote 169.254.3.8
+    Local 169.254.1.3 to Remote 169.254.3.9
+    Local 169.254.1.1 to Remote 169.254.1.6
+    Local 169.254.1.1 to Remote 169.254.1.7
+    Local 169.254.1.1 to Remote 169.254.3.4
+    Local 169.254.1.1 to Remote 169.254.3.5
+    Local 169.254.1.1 to Remote 169.254.3.8
+    Local 169.254.1.1 to Remote 169.254.3.9
+Larger than PMTU communication succeeds on 12 path(s)
+RPC status:
+6 paths up, 0 paths down (tcp check)
+6 paths up, 0 paths down (udp check)
+----
+====
+
+
+[role="tabbed-block"]
+====
+.Para o ONTAP 9.8 e posterior
+--
+Para o ONTAP 9.8 e posterior, ative o recurso de coleta de logs do monitor de integridade do switch para coletar arquivos de log relacionados ao switch, usando os comandos:
+`system switch ethernet log setup-password` E. `system switch ethernet log enable-collection`
+
+Introduza: ``system switch ethernet log setup-password``
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: *cs2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+----
+Seguido por:
+
+``system switch ethernet log enable-collection``
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+--
+.Para o ONTAP 9.4 e posterior
+--
+Para o ONTAP 9.4 e posterior, ative o recurso de coleta de logs do monitor de integridade do switch para coletar arquivos de log relacionados ao switch usando os comandos:
+
+`system cluster-switch log setup-password` e `system cluster-switch log enable-collection`
+
+Introduza: `system cluster-switch log setup-password`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system cluster-switch log setup-password*
+
+Enter the switch name: *cs2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+----
+Seguido por:
+
+``system cluster-switch log enable-collection``
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
+--
+====
+
+NOTE: Se algum desses comandos retornar um erro, entre em Contato com o suporte do NetApp.
+
+.O que se segue?
+link:setup-install-cshm-file.html["Instale o arquivo de configuração do Monitor de integridade do interrutor de cluster (CSHM)"].

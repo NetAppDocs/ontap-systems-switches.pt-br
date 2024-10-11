@@ -1,0 +1,48 @@
+---
+permalink: switch-cisco-92300/migrate-to-92300yc-overview.html 
+sidebar: sidebar 
+keywords: migrate to cisco nx 92300yc cluster switch,new cluster switch migration 
+summary: Você deve estar ciente de certas informações de configuração, conexões de portas e requisitos de cabeamento ao substituir alguns switches de cluster Cisco Nexus antigos por switches de cluster Cisco Nexus 92300YC. 
+---
+= Migre de um switch Cisco para um switch Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve estar ciente de certas informações de configuração, conexões de portas e requisitos de cabeamento ao substituir alguns switches de cluster Cisco Nexus antigos por switches de cluster Cisco Nexus 92300YC.
+
+* Os seguintes switches de cluster são suportados:
++
+** Nexus 92300YC
+** Nexus 5596UP
+** Nexus 5020
+** Nexus 5010
+
+
+* Os switches de cluster usam as seguintes portas para conexões com nós:
++
+** Portas E1/1-48 (10/25 GbE), E1/49-64 (40/100 GbE): Nexus 92300YC
+** Portas E1/1-40 (10 GbE): Nexus 5596UP
+** Portas E1/1-32 (10 GbE): Nexus 5020
+** Portas E1/1-12, E2/1-6 (10 GbE): Nexus 5010 com módulo de expansão
+
+
+* Os switches do cluster usam as seguintes portas ISL (Inter-Switch Link):
++
+** Portas E1/65-66 (100 GbE): Nexus 92300YC
+** Portas E1/41-48 (10 GbE): Nexus 5596UP
+** Portas E1/33-40 (10 GbE): Nexus 5020
+** Portas E1/13-20 (10 GbE): Nexus 5010
+
+
+* O https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe_"^] contém informações sobre o cabeamento suportado para todos os switches de cluster.
+* Você configurou algumas das portas nos switches Nexus 92300YC para serem executadas a 10 GbE ou 40 GbE.
+* Você planejou, migrou e documentou a conectividade de 10 GbE e 40 GbE de nós para os switches de cluster Nexus 92300YC.
+* As versões ONTAP e NX-os suportadas neste procedimento estão https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] na página.
++
+
+NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para suportar o Monitor de integridade do comutador de cluster (CSHM) para switches de cluster 92300YC. link:setup-install-cshm-file.html["Instale o arquivo de configuração do Monitor de integridade do interrutor de cluster (CSHM)"]Consulte para obter detalhes.
+
+

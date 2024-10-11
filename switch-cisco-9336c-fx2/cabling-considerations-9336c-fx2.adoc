@@ -1,0 +1,62 @@
+---
+permalink: switch-cisco-9336c-fx2/cabling-considerations-9336c-fx2.html 
+sidebar: sidebar 
+keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
+summary: Antes de configurar o switch Cisco 9336C-FX2, revise as informações a seguir. 
+---
+= Analise as considerações sobre cabeamento e configuração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de configurar o switch Cisco 9336C-FX2, revise as seguintes considerações.
+
+
+
+== Suporte para portas NVIDIA CX6, CX6-DX e CX7 Ethernet
+
+Se estiver conetando uma porta de switch a um controlador ONTAP usando as portas de NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), é necessário codificar a velocidade da porta do switch.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/19
+*For 100GbE speed:*
+(cs1)(config-if)# *speed 100000*
+*For 40GbE speed:*
+(cs1)(config-if)# *speed 40000*
+(cs1)(config-if)# no negotiate auto
+(cs1)(config-if)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
+Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obter mais informações sobre portas do switch.
+
+
+
+== 25GbE requisitos da FEC
+
+
+
+=== Portas FAS2820 e0a/e0b
+
+As portas FAS2820 e0a e e0b exigem alterações na configuração do FEC para se conetar a portas de switch 9336C-FX2. Para as portas do switch e0a e e0b, a configuração fec é definida como `rs-cons16`.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/8-9
+(cs1)(config-if-range)# *fec rs-cons16*
+(cs1)(config-if-range)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
+
+
+== As portas não se ligam devido a recursos TCAM
+
+No switch 9336C-FX2, os recursos de memória endereçável de conteúdo ternário (TCAM) configurados na configuração utilizada pelo switch são esgotados.
+
+Consulte o artigo da base de dados de Conhecimento https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["As portas não se conetam no Cisco Nexus 9336C-FX2 devido aos recursos TCAM"^] para obter detalhes sobre como resolver este problema.

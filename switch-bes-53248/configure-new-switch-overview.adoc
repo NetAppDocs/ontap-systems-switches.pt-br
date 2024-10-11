@@ -1,0 +1,57 @@
+---
+permalink: switch-bes-53248/configure-new-switch-overview.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
+summary: Antes de configurar os switches de cluster BES-53248, consulte a visão geral da configuração. 
+---
+= Visão geral da instalação e configuração dos switches BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O BES-53248 é um switch bare metal projetado para funcionar em clusters ONTAP que variam de dois a 24 nós.
+
+
+
+== Visão geral da configuração inicial
+
+Para configurar inicialmente um switch de cluster BES-53248 em sistemas que executam o ONTAP, siga estas etapas:
+
+. link:install-hardware-bes53248.html["Instale o hardware do switch do cluster BES-53248"].
++
+As instruções estão disponíveis no Guia de instalação do comutador de cluster BES-53248 compatível com a Broadcom_.
+
+. link:configure-install-initial.html["Configure o switch do cluster BES-53248"].
++
+Execute uma configuração inicial do switch do cluster BES-53248.
+
+. link:configure-efos-software.html["Instale o software EFOS"].
++
+Faça o download e instale o software do sistema operacional de malha Ethernet (EFOS) no switch de cluster BES-53248.
+
+. link:configure-licenses.html["Instalar licenças para switches de cluster BES-53248"].
++
+Opcionalmente, adicione novas portas comprando e instalando mais licenças. O modelo base do switch é licenciado para 16 10GbE ou 25GbE portas e duas portas 100GbE.
+
+. link:configure-install-rcf.html["Instalar o ficheiro de configuração de referência (RCF)"].
++
+Instale ou atualize o RCF no switch de cluster BES-53248 e, em seguida, verifique as portas para uma licença adicional após a aplicação do RCF.
+
+. link:configure-ssh.html["Ative o SSH nos switches de cluster BES-53248"].
++
+Se você usar os recursos do Monitor de integridade do comutador Ethernet (CSHM) e da coleção de logs, ative o SSH nos switches.
+
+
+
+
+
+== Informações adicionais
+
+Antes de iniciar a instalação ou manutenção, certifique-se de rever o seguinte:
+
+* link:configure-reqs-bes53248.html["Requisitos de configuração"]
+* link:components-bes53248.html["Componentes e números de peça"]
+* link:required-documentation-bes53248.html["Documentação necessária"]
+

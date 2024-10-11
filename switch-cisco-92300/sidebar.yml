@@ -1,0 +1,51 @@
+---
+section: switch-cisco-92300
+title: Cisco Nexus 92300YC
+entries:
+- title: Visão geral
+  pdf-filename: Overview_92300yc
+  entries:
+  - title: Visão geral da configuração
+    url: "/switch-cisco-92300/install-overview-cisco-92300.html"
+  - title: Requisitos de configuração
+    url: "/switch-cisco-92300/configure-reqs-92300.html"
+  - title: Componentes e números de peça
+    url: "/switch-cisco-92300/components-92300.html"
+  - title: Documentação necessária
+    url: "/switch-cisco-92300/required-documentation-92300.html"
+  - title: Requisitos para Smart Call Home
+    url: "/switch-cisco-92300/smart-call-home-92300.html"
+- title: Instale o hardware
+  pdf-filename: Install_hardware_92300yc
+  entries:
+  - title: Folha de cálculo de cablagem completa
+    url: "/switch-cisco-92300/setup-worksheet-92300yc.html"
+  - title: Configure o interrutor
+    url: "/switch-cisco-92300/configure-install-initial.html"
+  - title: Revise o cabeamento e a configuração
+    url: "/switch-cisco-92300/cabling-considerations-92300.html"
+- title: Configure o software
+  pdf-filename: Configure_software_92300yc
+  entries:
+  - title: Prepare-se para instalar o NX-os e o RCF
+    url: "/switch-cisco-92300/install-nxos-overview.html"
+  - title: Instale o NX-os
+    url: "/switch-cisco-92300/install-nxos-software.html"
+  - title: Instale o arquivo de configuração RCF
+    url: "/switch-cisco-92300/install-the-rcf-file.html"
+  - title: Verifique a configuração do SSH
+    url: "/switch-cisco-92300/configure-ssh-keys.html"
+- title: Migrar switches
+  pdf-filename: Migrate_switches_92300yc
+  entries:
+  - title: Migrar para cluster comutado de dois nós
+    url: "/switch-cisco-92300/migrate-to-2n-switched.html"
+  - title: Migrar do switch Cisco mais antigo
+    url: "/switch-cisco-92300/migrate-to-92300yc.html"
+- title: Substitua os interrutores
+  pdf-filename: Replace_switches_92300yc
+  entries:
+  - title: Substitua o interrutor
+    url: "/switch-cisco-92300/replace-92300yc.html"
+  - title: Substitua os switches do cluster por conexões sem switch
+    url: "/switch-cisco-92300/migrate-to-switchless-cluster-interconnect.html"

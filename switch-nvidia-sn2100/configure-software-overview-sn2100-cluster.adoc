@@ -1,0 +1,28 @@
+---
+permalink: switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
+summary: Visão geral da configuração de software ou dos switches NVIDIA SN2100. 
+---
+= Fluxo de trabalho de instalação de software para switches NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar e configurar o software para um switch NVIDIA SN2100, siga estas etapas:
+
+. link:install-cumulus-mode-sn2100-cluster.html["Instale o Cumulus Linux no modo Cumulus"] ou link:install-onie-mode-sn2100-cluster.html["Instale o Cumulus Linux no modo ONIE"].
++
+Você pode instalar o SO Cumulus Linux (CL) quando o switch estiver executando o Cumulus Linux ou ONIE.
+
+. link:install-rcf-sn2100-cluster.html["Instale o script RCF (Reference Configuration File)"].
++
+Existem dois scripts RCF disponíveis para aplicativos de agrupamento e armazenamento. O procedimento para cada um é o mesmo.
+
+. link:setup-install-cshm-file.html["Instale o arquivo CSHM"].
++
+Você pode instalar o arquivo de configuração aplicável para o monitoramento de integridade do switch Ethernet dos switches de cluster NVIDIA.
+
+

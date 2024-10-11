@@ -1,0 +1,35 @@
+---
+permalink: switch-nvidia-sn2100-storage/configure-reqs-sn2100-storage.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de rever todos os requisitos. 
+---
+= Requisitos de configuração para switches NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de rever todos os requisitos.
+
+
+
+== Requisitos de instalação
+
+Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis. Você pode usar switches de gerenciamento adicionais, que são opcionais.
+
+Você instala o switch NVIDIA SN2100 (X190006/X190106) no gabinete de switch dual/single NVIDIA com os suportes padrão incluídos no switch.
+
+Para obter diretrizes de cabeamento, link:cabling-considerations-sn2100-cluster.html["Considerações sobre cabeamento e configuração"]consulte .
+
+
+
+== Suporte a ONTAP e Linux
+
+O switch NVIDIA SN2100 é um switch Ethernet de 10/25/40/100 GB executando o Linux Cumulus. O interrutor suporta o seguinte:
+
+* ONTAP 9.10.1P3. O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10.1P3 em diferentes pares de switches. A partir do ONTAP 9.10.1P3, você pode usar os switches NVIDIA SN2100 para combinar a funcionalidade de armazenamento e cluster em uma configuração de switch compartilhado.
+* Cumulus Linux (CL) os versão 4,4.3. Para obter informações de compatibilidade atuais, consulte a https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet NVIDIA"^] página de informações.
+* Você pode instalar o Cumulus Linux quando o switch estiver executando Cumulus Linux ou ONIE.
+

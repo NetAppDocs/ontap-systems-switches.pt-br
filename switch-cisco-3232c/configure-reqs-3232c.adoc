@@ -1,0 +1,33 @@
+---
+permalink: switch-cisco-3232c/configure-reqs-3232c.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Você pode usar os switches Cisco Nexus 3232C como switches de cluster no seu cluster AFF ou FAS. 
+---
+= Requisitos de configuração para switches Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para a instalação e manutenção do switch Cisco Nexus 3232C, certifique-se de rever os requisitos de configuração e rede.
+
+
+
+== Requisitos de configuração
+
+Para configurar o cluster, é necessário o número e o tipo apropriados de cabos e conetores de cabos para os switches. Dependendo do tipo de switch que você está configurando inicialmente, você precisa se conetar à porta do console do switch com o cabo de console incluído; você também precisa fornecer informações específicas de rede.
+
+
+
+== Requisitos de rede
+
+Você precisa das seguintes informações de rede para todas as configurações de switch:
+
+* Sub-rede IP para o tráfego de rede de gerenciamento
+* Nomes de host e endereços IP para cada um dos controladores do sistema de storage e todos os switches aplicáveis
+* A maioria dos controladores do sistema de storage é gerenciada por meio da interface e0M, conetando-se à porta de serviço Ethernet (ícone de chave inglesa). Nos sistemas AFF A800 e AFF A700, a interface e0M utiliza uma porta Ethernet dedicada.
+
+
+Consulte a https://hwu.netapp.com["Hardware Universe"^] para obter informações mais recentes.

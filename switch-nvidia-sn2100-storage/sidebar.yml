@@ -1,0 +1,48 @@
+---
+section: switch-nvidia-sn2100-storage
+title: NVIDIA SN2100
+pdf-filename: switch-NVIDIA-sn2100-storage
+entries:
+- title: Visão geral
+  pdf-filename: Overview_sn2100-storage
+  entries:
+  - title: Visão geral da configuração
+    url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
+  - title: Requisitos de configuração
+    url: "/switch-nvidia-sn2100-storage/configure-reqs-sn2100-storage.html"
+  - title: Componentes e números de peça
+    url: "/switch-nvidia-sn2100-storage/components-sn2100-storage.html"
+  - title: Documentação necessária
+    url: "/switch-nvidia-sn2100-storage/required-documentation-sn2100-storage.html"
+- title: Instale o hardware
+  pdf-filename: Install_hardware_sn2100-storage
+  entries:
+  - title: Instale o interrutor
+    url: "/switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html"
+  - title: Configure o interrutor
+    url: "/switch-nvidia-sn2100-storage/configure-sn2100-storage.html"
+  - title: Revise o cabeamento e a configuração
+    url: "/switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html"
+  - title: Cabo NS224 prateleiras
+    url: "/switch-nvidia-sn2100-storage/install-cable-shelves-sn2100-storage.html"
+- title: Configure o software
+  pdf-filename: Configure_software_sn2100-storage
+  entries:
+  - title: Fluxo de trabalho de instalação do software
+    url: "/switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
+  - title: Instale o Cumulus Linux no modo Cumulus
+    url: "/switch-nvidia-sn2100-storage/install-cumulus-mode-sn2100-storage.html"
+  - title: Instale o Cumulus Linux no modo ONIE
+    url: "/switch-nvidia-sn2100-storage/install-onie-mode-sn2100-storage.html"
+  - title: Instale o script RCF
+    url: "/switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html"
+  - title: Instale o arquivo CSHM
+    url: "/switch-nvidia-sn2100-storage/setup-install-cshm-file.html"
+- title: Migrar switches
+  pdf-filename: Migrar_switches_sn2100-storage
+  entries:
+  - title: Migrar de switches de storage Cisco
+    url: "/switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html"
+- title: Substitua o interrutor
+  pdf-filename: Substitui_switch_sn2100-storage
+  url: "/switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"

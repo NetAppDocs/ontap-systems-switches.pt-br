@@ -1,0 +1,41 @@
+---
+section: switch-cisco-9336c-fx2-storage
+title: Cisco Nexus 9336C-FX2
+pdf-filename: switch-Cisco-9336c-fx2-storage
+entries:
+- title: Visão geral
+  pdf-filename: Overview_9336c-FX2-storage
+  entries:
+  - title: Visão geral da configuração
+    url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
+  - title: Requisitos de configuração
+    url: "/switch-cisco-9336c-fx2-storage/configure-reqs-9336c-storage.html"
+  - title: Componentes e números de peça
+    url: "/switch-cisco-9336c-fx2-storage/components-9336c-storage.html"
+  - title: Documentação necessária
+    url: "/switch-cisco-9336c-fx2-storage/required-documentation-9336c-storage.html"
+  - title: Requisitos para Smart Call Home
+    url: "/switch-cisco-9336c-fx2-storage/smart-call-9336c-storage.html"
+- title: Instale o hardware
+  pdf-filename: Install_hardware_9336c-FX2-storage
+  entries:
+  - title: Instale o interrutor
+    url: "/switch-cisco-9336c-fx2-storage/install-9336c-storage.html"
+  - title: Configure o interrutor
+    url: "/switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html"
+  - title: Instale o interrutor no gabinete do NetApp
+    url: "/switch-cisco-9336c-fx2-storage/install-switch-and-passthrough-panel-9336c-storage.html"
+- title: Configure o software
+  pdf-filename: Configure_software_9336c-FX2-storage
+  entries:
+  - title: Fluxo de trabalho de instalação do software
+    url: "/switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
+  - title: Prepare-se para instalar o NX-os e o RCF
+    url: "/switch-cisco-9336c-fx2-storage/install-nxos-overview-9336c-storage.html"
+  - title: Instale o software NX-os
+    url: "/switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html"
+  - title: Instale o arquivo de configuração RCF
+    url: "/switch-cisco-9336c-fx2-storage/install-nxos-rcf-9336c-storage.html"
+- title: Substitua o interrutor de armazenamento
+  pdf-filename: Replace_switch_9336c-FX2-storage
+  url: "/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"

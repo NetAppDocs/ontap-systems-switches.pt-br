@@ -1,0 +1,98 @@
+---
+permalink: switch-bes-53248/replace-verify.html 
+sidebar: sidebar 
+keywords: command, verify, operational, bes, cluster, switch, upgrade, verify the configuration after a cluster switch upgrade - bes-53428 switches 
+summary: Você pode usar os comandos fornecidos aqui para verificar se tudo está operacional após uma atualização do switch de cluster BES-53248. 
+---
+= Verifique a rede do cluster ONTAP após uma atualização do software EFOS ou RCF dos switches do cluster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar os seguintes comandos para verificar a integridade da rede de cluster ONTAP após uma atualização do software EFOS ou RCF para switches de cluster BES-53248.
+
+.Passos
+. Exiba informações sobre as portas de rede no cluster usando o comando:
++
+[source, cli]
+----
+network port show -ipspace Cluster
+----
++
+`Link` tem de ter o valor `up` e `Health Status` tem de ser `healthy`.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra a saída do comando:
+
+[listing, subs="+quotes"]
+----
+cluster1::> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                    Ignore
+                                               Speed(Mbps) Health   Health
+Port   IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+------ ------------ ---------------- ---- ---- ----------- -------- ------
+e0a    Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                    Ignore
+                                               Speed(Mbps) Health   Health
+Port   IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+-----  ------------ ---------------- ---- ---- ----------- -------- ------
+e0a    Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+. Para cada LIF, verifique se `Is Home` está `true` e `Status Admin/Oper` está `up` em ambos os nós, usando o comando:
++
+[source, cli]
+----
+network interface show -vserver Cluster
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *network interface show -vserver Cluster*
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.217.125/16 node1         e0a     true
+            node1_clus2  up/up    169.254.205.88/16  node1         e0b     true
+            node2_clus1  up/up    169.254.252.125/16 node2         e0a     true
+            node2_clus2  up/up    169.254.110.131/16 node2         e0b     true
+----
+====
+. Verifique se o `Health Status` de cada nó `true` está usando o comando:
++
+`cluster show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *cluster show*
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+----
+====
+
+
+.O que se segue?
+link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].

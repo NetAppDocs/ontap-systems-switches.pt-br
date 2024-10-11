@@ -1,0 +1,143 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-shared/9336c_migrate_from_a_switchless_configuration_with_sat_storage_by_reusing_the_storage_switches.html 
+keywords:  
+summary:  
+---
+= Migre de uma configuração sem switch com armazenamento SAT reutilizando os switches de armazenamento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+
+
+== Migrar os switches de armazenamento
+
+Ao reutilizar os switches de storage, os switches de storage do par de HA 1 se tornam os switches compartilhados. *Diagrama de cabeamento para conexão com switch*
+
+image:9336c_image1.jpg["Interrutor ligado"]
+
+.Passos
+. Verifique se a configuração de armazenamento do par HA 1 (e par HA 2) está correta e sem erros:
+`system switch ethernet show`
+
+
+[listing]
+----
+storage::*> system switch ethernet show
+Switch                    Type                  Address          Model
+------------------------- --------------------- ---------------- ----------
+sh1
+                          storage-network       172.17.227.5     C9336C
+
+    Serial Number: FOC221206C2
+     Is Monitored: true
+           Reason: none
+ Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                   9.3(5)
+   Version Source: CDP
+sh2
+                        storage-network        172.17.227.6      C9336C
+    Serial Number: FOC220443LZ
+     Is Monitored: true
+           Reason: None
+ Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                   9.3(5)
+   Version Source: CDP
+2 entries were displayed.
+storage::*>
+----
+. [[step2]]Verifique se as portas do nó estão íntegras e operacionais:
+`storage port show -port-type ENET`
+
+
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                   Speed                          VLAN
+Node    Port    Type    Mode       (Gb/s)    State     Status       ID
+------- ------- ------- ---------- --------- --------- --------- -----
+node1
+        e0c     ENET    storage          100 enabled   online       30
+        e0d     ENET    storage          100 enabled   online       30
+        e5a     ENET    storage          100 enabled   online       30
+        e5b     ENET    storage          100 enabled   online       30
+
+node2
+        e0c     ENET    storage          100 enabled   online       30
+        e0d     ENET    storage          100 enabled   online       30
+        e5a     ENET    storage          100 enabled   online       30
+        e5b     ENET    storage          100 enabled   online       30
+----
+. [[step3]]mova os cabos do par HA 1, NSM224 caminho A do switch de armazenamento A para as portas de armazenamento NS224 partilhadas para o par HA 1, caminho A no switch de armazenamento A..
+. Mova o cabo do par de HA 1, nó A, caminho A para a porta de storage compartilhado do par de HA 1, nó A no switch de storage A.
+. Mova o cabo do par de HA 1, nó B, caminho A para a porta de storage compartilhado para o par de HA 1, nó B no switch de storage A.
+. Verifique se o storage anexado ao par HA 1, o switch de storage A está funcionando:
+`system health alert show -instance`
+
+
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[step7]]substitua o RCF de armazenamento no switch compartilhado A pelo arquivo RCF compartilhado. link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2"]Consulte para obter mais detalhes.
+. Verifique se o storage conetado ao par HA 1, o switch de storage B está funcionando:
+`system health alert show -instance`
+
+
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[step9]]mova os cabos do par HA 1, NSM224 caminho B do switch de armazenamento B para as portas de armazenamento NS224 compartilhadas para o par HA 1, caminho B para o switch de armazenamento B.
+. Mova o cabo do par de HA 1, nó A, caminho B para a porta de storage compartilhado para o par de HA 1, nó A, caminho B no switch de storage B.
+. Mova o cabo do par de HA 1, nó B, caminho B para a porta de storage compartilhado para o par de HA 1, nó B, caminho B no switch de storage B.
+. Verifique se o storage conetado ao par HA 1, o switch de storage B está funcionando:
+`system health alert show -instance`
+
+
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[step13]]substitua o arquivo RCF de armazenamento no switch compartilhado B pelo arquivo RCF compartilhado. link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2"]Consulte para obter mais detalhes.
+. Verifique se o storage conetado ao par HA 1, o switch de storage B está funcionando:
+`system health alert show -instance`
+
+
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[step15]]instale os ISLs entre o switch compartilhado A e o switch compartilhado B:
+
+
+[listing]
+----
+sh1# configure
+Enter configuration commands, one per line. End with CNTL/Z.
+sh1 (config)# interface e1/35-36
+sh1 (config-if-range)# no lldp transmit
+sh1 (config-if-range)# no lldp receive
+sh1 (config-if-range)# switchport mode trunk
+sh1 (config-if-range)# no spanning-tree bpduguard enable
+sh1 (config-if-range)# channel-group 101 mode active
+sh1 (config-if-range)# exit
+sh1 (config)# interface port-channel 101
+sh1 (config-if)# switchport mode trunk
+sh1 (config-if)# spanning-tree port type network
+sh1 (config-if)# exit
+sh1 (config)# exit
+----
+. [[step16]]Converta o par HA 1 de um cluster sem switch para um cluster comutado. Use as atribuições de portas de cluster definidas pelo RCF compartilhado. link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html["Instalar o software NX-os e arquivos de configuração de referência (RCFs)"]Consulte ​ para obter mais detalhes.
+. Verifique se a configuração de rede comutada é válida:
+`network port show`
+

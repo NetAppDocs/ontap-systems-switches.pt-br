@@ -1,0 +1,42 @@
+---
+permalink: switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
+summary: Visão geral da instalação e configuração para switches de armazenamento Cisco Nexus 9336C-FX2 
+---
+= Visão geral da instalação e configuração para switches de armazenamento Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O switch Cisco Nexus 9336C-FX2 faz parte da plataforma Cisco Nexus 9000 e pode ser instalado em um gabinete de sistema NetApp. O Nexus 9336C-FX2 é um switch Ethernet que permite alternar dados entre controladores e compartimentos de disco.
+
+
+
+== Visão geral da configuração inicial
+
+Para configurar inicialmente um switch Cisco Nexus 9336C-FX2 em sistemas que executam o ONTAP, siga estas etapas:
+
+. link:setup-worksheet-9336c-storage.html["Folha de cálculo de cablagem completa"].
+. link:install-9336c-storage.html["Instale o interrutor"].
+. link:setup-switch-9336c-storage.html["Configure o interrutor"].
+. link:install-switch-and-passthrough-panel-9336c-storage.html["Instale o interrutor em um gabinete NetApp"].
+. link:install-nxos-overview-9336c-storage.html["Prepare-se para instalar o NX-os e o RCF"].
+. link:install-nxos-software-9336c-storage.html["Instale o software NX-os"].
+. link:install-nxos-rcf-9336c-storage.html["Instale o arquivo de configuração do RCF"].
+. link:configure-ssh.html["Ativar SSH"].
+
+
+
+
+== Informações adicionais
+
+Antes de iniciar a instalação ou manutenção, certifique-se de rever o seguinte:
+
+* link:configure-reqs-9336c-storage.html["Requisitos de configuração"]
+* link:components-9336c-storage.html["Componentes e números de peça"]
+* link:required-documentation-9336c-storage.html["Documentação necessária"]
+* link:smart-call-9336c-storage.html["Requisitos para Smart Call Home"]
+

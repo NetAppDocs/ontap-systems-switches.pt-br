@@ -1,0 +1,30 @@
+---
+section: switch-cshm
+title: Monitorar a integridade do interrutor
+entries:
+- title: Visão geral da monitorização do estado do interrutor
+  url: "/switch-cshm/cshm-overview.html"
+  pdf-filename: Switch_health_cshm
+- title: Configurar o monitoramento de integridade do switch
+  pdf-filename: Configure_switch_health
+  entries:
+  - title: Visão geral da configuração
+    url: "/switch-cshm/config-overview.html"
+  - title: Configurar a coleção de registos
+    url: "/switch-cshm/config-log-collection.html"
+  - title: Opcional - Configurar SNMPv3
+    url: "/switch-cshm/config-snmpv3.html"
+- title: Verifique a integridade do interrutor
+  pdf-filename: Monitor_switch_health
+  entries:
+  - title: Visão geral da verificação de integridade
+    url: "/switch-cshm/monitor-overview.html"
+  - title: Solucionar problemas de alertas
+    url: "/switch-cshm/monitor-troubleshoot.html"
+- title: Recolha de registos
+  pdf-filename: log_collection_switch_health
+  entries:
+  - title: Descrição geral da coleção de registos
+    url: "/switch-cshm/log-collection-overview.html"
+  - title: Solucionar problemas
+    url: "/switch-cshm/log-collection-troubleshoot.html"

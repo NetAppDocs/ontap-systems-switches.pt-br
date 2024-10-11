@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
+keywords: shared storage cluster switch cable 
+summary: Use as imagens de cabeamento para concluir o cabeamento entre as controladoras e os switches. 
+---
+= Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Use as seguintes imagens de cabeamento para concluir o cabeamento entre as controladoras e os switches.
+
+
+
+== Armazenamento do cabo NS224 como switch-anexado
+
+Se você quiser o armazenamento do cabo NS224 como conetado ao switch, siga o diagrama anexado ao switch:
+
+image:9336c_image1.jpg["Interrutor ligado"]
+
+Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obter mais informações sobre portas do switch.
+
+
+
+== Armazenamento do cabo NS224 como conexão direta
+
+Se você quiser fazer o armazenamento de NS224 GB por cabo como conexão direta em vez de usar as portas de armazenamento de switch compartilhado, siga o diagrama de conexão direta:
+
+image:9336c_image2.jpg["Das ligações diretas"]
+
+Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obter mais informações sobre portas do switch.
+
+
+
+== Folha de cálculo do cabeamento Cisco Nexus 9336C-FX2
+
+Se você quiser documentar as plataformas suportadas, você deve preencher a Planilha de cabeamento em branco usando a Planilha de cabeamento de amostra concluída como um guia.
+
+A definição de porta de amostra em cada par de switches é a seguinte:
+
+image:cabling_worksheet.jpg["Folha de cálculo de cablagem"]
+
+Local:
+
+* 100g ISL para mudar A porta 35
+* 100g ISL para mudar A porta 36
+* 100g ISL para a porta 35 do interrutor B.
+* 100g ISL para a porta 36 do interrutor B.
+
+
+
+
+== Folha de cálculo de cablagem em branco
+
+Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A tabela conexões de cluster suportadas do Hardware Universe define as portas de cluster usadas pela plataforma.
+
+image:blank_cabling_worksheet.jpg["Folha de cálculo de cablagem em branco"]
+
+Local:
+
+* 100g ISL para mudar A porta 35
+* 100g ISL para mudar A porta 36
+* 100g ISL para a porta 35 do interrutor B.
+* 100g ISL para a porta 36 do interrutor B.
+

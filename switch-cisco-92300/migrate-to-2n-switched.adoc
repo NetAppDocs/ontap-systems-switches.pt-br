@@ -1,0 +1,630 @@
+---
+permalink: switch-cisco-92300/migrate-to-2n-switched.html 
+sidebar: sidebar 
+keywords: 2-node switched Cisco 92300YC cluster switch migration 
+summary: Se você tiver um ambiente de cluster sem switch de dois nós existente, poderá migrar para um ambiente de cluster comutado de dois nós usando os switches Cisco Nexus 92300YC para permitir que você escale além de dois nós no cluster. 
+---
+= Migre para um cluster comutado de dois nós com um switch Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você tiver um ambiente de cluster _sem switch_ de dois nós, poderá migrar para um ambiente de cluster _comutado_ de dois nós usando os switches Cisco Nexus 92300YC para permitir que você escale além de dois nós no cluster.
+
+O procedimento usado depende se você tem duas portas de rede de cluster dedicadas em cada controlador ou uma única porta de cluster em cada controlador. O processo documentado funciona para todos os nós que usam portas óticas ou twinax, mas não é suportado neste switch se os nós estiverem usando portas integradas 10Gb BASE-T RJ45 para as portas de cluster-rede.
+
+A maioria dos sistemas requer duas portas de rede de cluster dedicadas em cada controlador.
+
+
+NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para suportar o Monitor de integridade do comutador de cluster (CSHM) para switches de cluster 92300YC. link:setup-install-cshm-file.html["Instale o Monitor de integridade do interrutor do cluster (CSHM)"]Consulte .
+
+
+
+== Rever os requisitos
+
+.O que você vai precisar
+Para uma configuração sem switch de dois nós, certifique-se de que:
+
+* A configuração sem switch de dois nós está corretamente configurada e funcionando.
+* Os nós estão executando o ONTAP 9.6 e posterior.
+* Todas as portas de cluster estão no estado *up*.
+* Todas as interfaces lógicas de cluster (LIFs) estão no estado *up* e em suas portas domésticas.
+
+
+Para a configuração do switch Cisco Nexus 92300YC:
+
+* Ambos os switches têm conetividade de rede de gerenciamento.
+* Existe acesso à consola aos interrutores do cluster.
+* As conexões de switch nó a nó Nexus 92300YC e switch a switch usam cabos twinax ou de fibra.
++
+https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interrutores"^] contém mais informações sobre cabeamento.
+
+* Os cabos ISL (Inter-Switch Link) são conetados às portas 1/65 e 1/66 em ambos os switches 92300YC.
+* A personalização inicial de ambos os 92300YC switches está concluída. Para que:
++
+** Os switches 92300YC estão executando a versão mais recente do software
+** Arquivos de Configuração de Referência (RCFs) são aplicados aos switches qualquer personalização de site, como SMTP, SNMP e SSH, é configurada nos novos switches.
+
+
+
+
+
+
+== Migrar o switch
+
+.Sobre os exemplos
+Os exemplos deste procedimento utilizam a seguinte nomenclatura de nó e switch de cluster:
+
+* Os nomes dos switches 92300YC são CS1 e CS2.
+* Os nomes dos SVMs do cluster são node1 e node2.
+* Os nomes dos LIFs são node1_clus1 e node1_clus2 no nó 1 e node2_clus1 e node2_clus2 no nó 2 respetivamente.
+* O `cluster1::*>` prompt indica o nome do cluster.
+* As portas do cluster usadas neste procedimento são e0a e e0b.
++
+https://hwu.netapp.com["Hardware Universe"^] contém as informações mais recentes sobre as portas de cluster reais para suas plataformas.
+
+
+
+
+
+=== Passo 1: Prepare-se para a migração
+
+. Altere o nível de privilégio para avançado, inserindo `y` quando solicitado a continuar:
++
+`set -privilege advanced`
+
++
+(`*>`É apresentado o aviso avançado ).
+
+. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+onde x é a duração da janela de manutenção em horas.
+
++
+
+NOTE: A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O seguinte comando suprime a criação automática de casos por duas horas:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=2h*
+----
+====
+
+
+
+
+=== Etapa 2: Configurar cabos e portas
+
+. Desative todas as portas voltadas para o nó (não portas ISL) nos novos switches de cluster CS1 e CS2.
++
+Não deve desativar as portas ISL.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que as portas 1 a 64 voltadas para o nó estão desativadas no switch CS1:
+
+[listing, subs="+quotes"]
+----
+cs1# *config*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# *interface e/1-64*
+cs1(config-if-range)# *shutdown*
+----
+====
+. Verifique se o ISL e as portas físicas no ISL entre os dois switches 92300YC CS1 e CS2 estão acima nas portas 1/65 e 1/66:
++
+`show port-channel summary`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que as portas ISL estão acima no interrutor CS1:
+
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
+----
+O exemplo a seguir mostra que as portas ISL estão acima no interrutor CS2 :
+
+E
+
+[listing, subs="+quotes"]
+----
+(cs2)# *show port-channel summary*
+
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
+----
+====
+. Exibir a lista de dispositivos vizinhos:
++
+`show cdp neighbors`
+
++
+Este comando fornece informações sobre os dispositivos que estão conetados ao sistema.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir lista os dispositivos vizinhos no switch CS1:
+
+[listing, subs="+quotes"]
+----
+cs1# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs2(FDO220329V5)    Eth1/65        175    R S I s   N9K-C92300YC  Eth1/65
+cs2(FDO220329V5)    Eth1/66        175    R S I s   N9K-C92300YC  Eth1/66
+
+Total entries displayed: 2
+----
+O exemplo a seguir lista os dispositivos vizinhos no switch CS2:
+
+E
+
+[listing, subs="+quotes"]
+----
+cs2# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs1(FDO220329KU)    Eth1/65        177    R S I s   N9K-C92300YC  Eth1/65
+cs1(FDO220329KU)    Eth1/66        177    R S I s   N9K-C92300YC  Eth1/66
+
+Total entries displayed: 2
+----
+====
+. Verifique se todas as portas do cluster estão ativas:
++
+`network port show -ipspace Cluster`
+
++
+Cada porta deve ser exibida para `Link` e saudável para `Health Status`.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: node2
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+----
+====
+. Verifique se todas as LIFs de cluster estão ativas e operacionais:
++
+`network interface show -vserver Cluster`
+
++
+Cada LIF de cluster deve exibir true para `Is Home` e ter um `Status Admin/Oper` de up/up
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+4 entries were displayed.
+----
+====
+. Verifique se a reversão automática está ativada em todas as LIFs do cluster:
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
+
+          Logical
+Vserver   Interface     Auto-revert
+--------- ------------- ------------
+Cluster
+          node1_clus1   true
+          node1_clus2   true
+          node2_clus1   true
+          node2_clus2   true
+
+4 entries were displayed.
+----
+====
+. Desconete o cabo da porta de cluster e0a no node1 e conete o e0a à porta 1 no switch de cluster CS1, usando o cabeamento apropriado suportado pelos switches 92300YC.
++
+O https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - switches_"^] contém mais informações sobre cabeamento.
+
+. Desconete o cabo da porta de cluster e0a no node2 e conete o e0a à porta 2 no switch de cluster CS1, usando o cabeamento apropriado suportado pelos switches 92300YC.
+. Habilite todas as portas voltadas para o nó no switch de cluster CS1.
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que as portas 1/1 a 1/64 estão ativadas no switch CS1:
+
+[listing, subs="+quotes"]
+----
+cs1# *config*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# *interface e1/1-64*
+cs1(config-if-range)# *no shutdown*
+----
+====
+. Verifique se todas as LIFs do cluster estão ativas, operacionais e exibidas como verdadeiras para `Is Home`:
++
+`network interface show -vserver Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que todos os LIFs estão em node1 e node2 e que `Is Home` os resultados são verdadeiros:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+         Logical      Status     Network            Current     Current Is
+Vserver  Interface    Admin/Oper Address/Mask       Node        Port    Home
+-------- ------------ ---------- ------------------ ----------- ------- ----
+Cluster
+         node1_clus1  up/up      169.254.209.69/16  node1       e0a     true
+         node1_clus2  up/up      169.254.49.125/16  node1       e0b     true
+         node2_clus1  up/up      169.254.47.194/16  node2       e0a     true
+         node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
+
+4 entries were displayed.
+----
+====
+. Exibir informações sobre o status dos nós no cluster:
++
+`cluster show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir exibe informações sobre a integridade e a elegibilidade dos nós no cluster:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.
+----
+====
+. Desconete o cabo da porta de cluster e0b no node1 e conete o e0b à porta 1 no switch de cluster CS2, usando o cabeamento apropriado suportado pelos switches 92300YC.
+. Desconete o cabo da porta de cluster e0b no node2 e conete o e0b à porta 2 no switch de cluster CS2, usando o cabeamento apropriado suportado pelos switches 92300YC.
+. Habilite todas as portas voltadas para o nó no switch de cluster CS2.
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que as portas 1/1 a 1/64 estão ativadas no switch CS2:
+
+[listing, subs="+quotes"]
+----
+cs2# *config*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs2(config)# *interface e1/1-64*
+cs2(config-if-range)# *no shutdown*
+----
+====
+
+
+
+
+=== Etapa 3: Verifique a configuração
+
+. Verifique se todas as portas do cluster estão ativas:
++
+`network port show -ipspace Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que todas as portas do cluster estão em node1 e node2:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+4 entries were displayed.
+----
+====
+. Verifique se todas as interfaces exibem verdadeiro para `Is Home`:
++
+`network interface show -vserver Cluster`
+
++
+
+NOTE: Isso pode levar vários minutos para ser concluído.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que todos os LIFs estão em node1 e node2 e que `Is Home` os resultados são verdadeiros:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+          Logical      Status     Network            Current    Current Is
+Vserver   Interface    Admin/Oper Address/Mask       Node       Port    Home
+--------- ------------ ---------- ------------------ ---------- ------- ----
+Cluster
+          node1_clus1  up/up      169.254.209.69/16  node1      e0a     true
+          node1_clus2  up/up      169.254.49.125/16  node1      e0b     true
+          node2_clus1  up/up      169.254.47.194/16  node2      e0a     true
+          node2_clus2  up/up      169.254.19.183/16  node2      e0b     true
+
+4 entries were displayed.
+----
+====
+. Verifique se ambos os nós têm uma conexão com cada switch:
++
+`show cdp neighbors`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra os resultados apropriados para ambos os switches:
+
+[listing, subs="+quotes"]
+----
+(cs1)# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1               Eth1/1         133    H         FAS2980       e0a
+node2               Eth1/2         133    H         FAS2980       e0a
+cs2(FDO220329V5)    Eth1/65        175    R S I s   N9K-C92300YC  Eth1/65
+cs2(FDO220329V5)    Eth1/66        175    R S I s   N9K-C92300YC  Eth1/66
+
+Total entries displayed: 4
+
+
+(cs2)# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1               Eth1/1         133    H         FAS2980       e0b
+node2               Eth1/2         133    H         FAS2980       e0b
+cs1(FDO220329KU)
+                    Eth1/65        175    R S I s   N9K-C92300YC  Eth1/65
+cs1(FDO220329KU)
+                    Eth1/66        175    R S I s   N9K-C92300YC  Eth1/66
+
+Total entries displayed: 4
+----
+====
+. Exiba informações sobre os dispositivos de rede descobertos no cluster:
++
+`network device-discovery show -protocol cdp`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       0/2               N9K-C92300YC
+            e0b    cs2                       0/2               N9K-C92300YC
+node1      /cdp
+            e0a    cs1                       0/1               N9K-C92300YC
+            e0b    cs2                       0/1               N9K-C92300YC
+
+4 entries were displayed.
+----
+====
+. Verifique se as definições estão desativadas:
++
+`network options switchless-cluster show`
+
++
+
+NOTE: Pode demorar vários minutos para o comando ser concluído. Aguarde até que o anúncio "3 minutos de duração expire".
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+A saída falsa no exemplo a seguir mostra que as configurações estão desativadas:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network options switchless-cluster show*
+Enable Switchless Cluster: false
+----
+====
+. Verifique o status dos membros do nó no cluster:
++
+`cluster show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra informações sobre a integridade e a elegibilidade dos nós no cluster:
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  --------
+node1                true    true          false
+node2                true    true          false
+----
+====
+. Verifique se a rede do cluster tem conetividade total:
++
+`cluster ping-cluster -node node-name`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *cluster ping-cluster -node node2*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=END*
+----
+====
+. Altere o nível de privilégio de volta para admin:
++
+`set -privilege admin`
+
+
+
+.O que se segue?
+link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"]

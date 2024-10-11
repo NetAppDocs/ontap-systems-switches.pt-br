@@ -1,0 +1,18 @@
+---
+permalink: switch-cshm/config-overview.html 
+sidebar: sidebar 
+keywords: cshm, cluster, storage, switch logs, debugging, collection 
+summary: 'O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir a integridade operacional dos switches de rede Cluster e Storage e coletar logs de switch para fins de depuração.' 
+---
+= Visão geral da configuração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir a integridade operacional dos switches de rede Cluster e Storage e coletar logs de switch para fins de depuração.
+
+* link:config-log-collection.html["Configurar a coleção de registos"]
+* link:config-snmpv3.html["Opcional: Configurar SNMPv3"]
+

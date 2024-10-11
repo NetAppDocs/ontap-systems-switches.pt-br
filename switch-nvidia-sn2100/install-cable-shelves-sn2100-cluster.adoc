@@ -1,0 +1,27 @@
+---
+permalink: switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
+summary: 'Se você tiver um sistema no qual os NS224 compartimentos de unidades precisem ser cabeados como storage conectado ao switch (não storage com conexão direta), use as informações fornecidas aqui.' 
+---
+= Prenda as NS224 gavetas como storage conetado a switch
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você tiver um sistema no qual os NS224 compartimentos de unidades precisem ser cabeados como storage conectado ao switch (não storage com conexão direta), use as informações fornecidas aqui.
+
+* Cabos NS224 shelves de unidade através de switches de armazenamento:
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Cabeamento de compartimentos de unidades NS224 conectados a switch"^]
+
+* Confirme o hardware suportado, como switches de armazenamento e cabos, para o modelo da sua plataforma:
++
+https://hwu.netapp.com/["NetApp Hardware Universe"^]
+
+
+
+.O que se segue?
+link:install-cumulus-mode-sn2100-cluster.html["Instale o Cumulus Linux no modo Cumulus"] ou link:install-onie-mode-sn2100-cluster.html["Instale o Cumulus Linux no modo ONIE"].

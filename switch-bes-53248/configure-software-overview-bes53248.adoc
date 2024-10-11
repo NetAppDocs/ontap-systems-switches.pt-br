@@ -1,0 +1,32 @@
+---
+permalink: switch-bes-53248/configure-software-overview-bes53248.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
+summary: Reveja a visão geral do software. 
+---
+= Fluxo de trabalho de instalação de software para switches BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar e configurar inicialmente o software para um switch de cluster BES-53248, siga estas etapas:
+
+. link:configure-efos-software.html["Instale o software EFOS"].
++
+Faça o download e instale o software do sistema operacional de malha Ethernet (EFOS) no switch de cluster BES-53248.
+
+. link:configure-licenses.html["Instalar licenças para switches de cluster BES-53248"].
++
+Opcionalmente, adicione novas portas comprando e instalando mais licenças. O modelo base do switch é licenciado para 16 10GbE ou 25GbE portas e duas portas 100GbE.
+
+. link:configure-install-rcf.html["Instalar o ficheiro de configuração de referência (RCF)"].
++
+Instale ou atualize o RCF no switch de cluster BES-53248 e, em seguida, verifique as portas para uma licença adicional após a aplicação do RCF.
+
+. link:configure-ssh.html["Ative o SSH nos switches de cluster BES-53248"].
++
+Se você usar os recursos do Monitor de integridade do comutador Ethernet (CSHM) e da coleção de logs, ative o SSH nos switches.
+
+

@@ -1,0 +1,27 @@
+---
+permalink: switch-cisco-92300/smart-call-home-92300.html 
+sidebar: sidebar 
+keywords: cisco nexus 92300YC 
+summary: Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis. Você pode usar switches de gerenciamento adicionais, que são opcionais. 
+---
+= Requisitos para Smart Call Home
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para usar o recurso Smart Call Home, revise as diretrizes a seguir.
+
+O Smart Call Home monitora os componentes de hardware e software da rede. Quando ocorre uma configuração crítica do sistema, ela gera uma notificação baseada em e-mail e gera um alerta para todos os destinatários configurados no perfil de destino. Para usar o Smart Call Home, você deve configurar um switch de rede de cluster para se comunicar usando e-mail com o sistema Smart Call Home. Além disso, você pode configurar opcionalmente o switch de rede de cluster para aproveitar o recurso de suporte integrado ao Smart Call Home da Cisco.
+
+Antes de poder utilizar a Smart Call Home, tenha em atenção as seguintes considerações:
+
+* Um servidor de e-mail deve estar no lugar.
+* O switch deve ter conetividade IP com o servidor de e-mail.
+* É necessário configurar o nome do contacto (contacto do servidor SNMP), o número de telefone e as informações do endereço da rua. Isso é necessário para determinar a origem das mensagens recebidas.
+* Um ID de CCO deve ser associado a um contrato de serviço Cisco SMARTnet apropriado para a sua empresa.
+* O Serviço SMARTnet da Cisco deve estar em vigor para que o dispositivo seja registrado.
+
+
+O http://www.cisco.com/c/en/us/products/switches/index.html["Site de suporte da Cisco"^] contém informações sobre os comandos para configurar Smart Call Home.

@@ -1,0 +1,542 @@
+---
+permalink: switch-cisco-3232c/upgrade-3232c-storage-switches.html 
+sidebar: sidebar 
+keywords: upgrade, cisco nexus, 3232c storage switch 
+summary: 'O software Cisco NX-os e os arquivos de configuração de referência (RCFs) podem ser atualizados nos switches de armazenamento Cisco Nexus 3232C.' 
+---
+= Atualizar um switch de storage Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estas etapas para atualizar o software Cisco NX-os e os arquivos de configuração de referência (RCF) nos switches Cisco Nexus 3232C.
+
+
+
+== Rever os requisitos
+
+.O que você vai precisar
+Certifique-se de que existem as seguintes condições antes de atualizar o software NX-os e os RCFs no comutador de armazenamento:
+
+* O interrutor está totalmente funcionando (não deve haver erros nos logs ou problemas semelhantes).
+* Você verificou ou definiu suas variáveis de inicialização desejadas no RCF para refletir as imagens de inicialização desejadas se você estiver instalando apenas NX-os e mantendo sua versão atual do RCF.
++
+Se você precisar alterar as variáveis de inicialização para refletir as imagens de inicialização atuais, você deve fazê-lo antes de reaplicar o RCF para que a versão correta seja instanciada em futuras reinicializações.
+
+* Você encaminhou o software apropriado e os guias de atualização disponíveis na http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Switches Cisco Nexus 3000 Series"^] página para obter a documentação completa sobre os procedimentos de atualização e downgrade de armazenamento do Cisco.
+* O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] página.
+
+
+
+
+== Substitua o interrutor
+
+.Sobre os exemplos
+Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+
+* Os nomes dos dois switches de armazenamento são S1 e S2.
+* Os nós são node1 e node2.
+
+
+Os exemplos neste procedimento usam dois nós: node1 com duas portas de storage e node2 com duas portas de storage. Consulte link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^]para verificar as portas de armazenamento corretas nas suas plataformas.
+
+
+NOTE: O procedimento requer o uso de comandos ONTAP e comandos Cisco Nexus 3000 Series switches; os comandos ONTAP são usados, a menos que indicado de outra forma. As saídas de comando podem variar dependendo de diferentes versões do ONTAP.
+
+
+
+=== Passo 1: Verifique o estado de funcionamento dos switches e das portas
+
+. Se o AutoSupport estiver ativado, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+`system node autosupport invoke -node * -type all - message MAINT=xh`
++
+_x_ é a duração da janela de manutenção em horas.
+
++
+
+NOTE: A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+
+. Verifique se os interrutores de armazenamento estão disponíveis:
++
+`system switch ethernet show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *system switch ethernet show*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+S1
+                            storage-network    172.17.227.5     NX3232C
+     Serial Number: FOC221206C2
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(3)
+    Version Source: CDP
+
+S2
+                            storage-network    172.17.227.6     NX3232C
+     Serial Number: FOC220443LZ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(3)
+    Version Source: CDP
+
+2 entries were displayed.
+storage::*>
+----
+====
+. Verifique se as portas dos nós estão íntegras e operacionais:
++
+`storage port show -port-type ENET`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *storage port show -port-type ENET*
+                                      Speed                       VLAN
+Node               Port Type  Mode    (Gb/s) State    Status        ID
+------------------ ---- ----- ------- ------ -------- ----------- ----
+node1
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+node2
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+----
+====
+. Verifique se não há problemas de cabeamento ou switch de storage:
++
+`system health alert show -instance`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *system health alert show -instance*
+There are no entries matching your query.
+----
+====
+
+
+
+
+=== Passo 2: Copie o RCF para o switch Cisco S2
+
+. Copie o RCF no switch S2 para o flash de inicialização do switch usando um dos seguintes protocolos de transferência: FTP, HTTP, TFTP, SFTP ou SCP.
++
+Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra HTTP sendo usado para copiar um RCF para o flash de inicialização no switch S2:
+
+[listing, subs="+quotes"]
+----
+S2# *copy http://172.16.10.1//cfg/Nexus_3232C_RCF_v1.6-Storage.txt bootflash: vrf management*
+% Total    % Received % Xferd  Average  Speed   Time    Time     Time                          Current
+                               Dload    Upload  Total   Spent    Left                          Speed
+  100        3254       100    3254     0       0       8175     0 --:--:-- --:--:-- --:--:-   8301
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+S2#
+----
+====
+. Aplique o RCF baixado anteriormente ao flash de inicialização:
++
+`copy bootflash:`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra o arquivo RCF `Nexus_3232C_RCF_v1.6-Storage.txt` sendo instalado no switch S2:
+
+[listing, subs="+quotes"]
+----
+S2# *copy Nexus_3232C_RCF_v1.6-Storage.txt running-config echo-commands*
+----
+====
+. Verifique se o arquivo RCF é a versão mais recente correta:
++
+`show running-config`
+
++
+Quando verificar a saída para verificar se tem o RCF correto, certifique-se de que as seguintes informações estão corretas:
+
++
+** O banner RCF
+** As configurações de nó e porta
+** Personalizações
+
+
++
+A saída varia de acordo com a configuração do seu site. Verifique as configurações da porta e consulte as notas de versão para ver se há alterações específicas ao RCF que você instalou.
+
++
+[NOTE]
+====
+Na saída do banner `show banner motd` do comando, você deve ler e seguir as instruções na seção *NOTAS IMPORTANTES* para garantir a configuração e o funcionamento corretos do switch.
+
+====
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing]
+----
+S2# show banner motd
+
+******************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : Cisco Nexus 3232C
+* Filename : Nexus_3232C_RCF_v1.6-Storage.txt
+* Date     : Oct-20-2020
+* Version  : v1.6
+*
+* Port Usage : Storage configuration
+* Ports  1-32: Controller and Shelf Storage Ports
+* Ports 33-34: Disabled
+*
+* IMPORTANT NOTES*
+* - This RCF utilizes QoS and requires TCAM re-configuration, requiring RCF
+*   to be loaded twice with the Storage Switch rebooted in between.
+*
+* - Perform the following 4 steps to ensure proper RCF installation:
+*
+*   (1) Apply RCF first time, expect following messages:
+*       - Please save config and reload the system...
+*       - Edge port type (portfast) should only be enabled on ports...
+*       - TCAM region is not configured for feature QoS class IPv4 ingress...
+*
+*   (2) Save running-configuration and reboot Cluster Switch
+*
+*   (3) After reboot, apply same RCF second time and expect following messages:
+*       - % Invalid command at '^' marker
+*       - Syntax error while parsing...
+*
+*   (4) Save running-configuration again
+******************************************************************************
+S2#
+----
+====
++
+
+NOTE: Ao aplicar o RCF pela primeira vez, a mensagem *ERROR: Failed to write VSH commands* é esperada e pode ser ignorada.
+
+. Depois de verificar se as versões do software e as definições do interrutor estão corretas, copie o `running-config` ficheiro para `startup-config` o ficheiro no interrutor S2.
++
+Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra o `running-config` arquivo copiado com êxito para o `startup-config` arquivo:
+
+[listing]
+----
+S2# copy running-config startup-config
+[########################################] 100% Copy complete.
+----
+====
+
+
+
+
+=== Passo 3: Copie a imagem NX-os para o switch Cisco S2 e reinicie
+
+. Copie a imagem NX-os para o switch S2.
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+S2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/nxos.9.3.4.bin*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/nxos.9.3.4.bin  /bootflash/nxos.9.3.4.bin
+/code/nxos.9.3.4.bin  100% 1261MB   9.3MB/s   02:15
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/n9000-epld.9.3.4.img*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/n9000-epld.9.3.4.img  /bootflash/n9000-epld.9.3.4.img
+/code/n9000-epld.9.3.4.img  100%  161MB   9.5MB/s   00:16
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+====
+. Instale a imagem do sistema para que a nova versão seja carregada na próxima vez que o switch S2 for reinicializado.
++
+O interrutor será reiniciado em 10 segundos com a nova imagem, conforme mostrado na seguinte saída:
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+S2# *install all nxos bootflash:nxos.9.3.4.bin*
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.9.3.4.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  default upgrade is not hitless
+
+
+Images will be upgraded according to following table:
+Module       Image                  Running-Version(pri:alt)           New-Version  Upg-Required
+------  ----------  ----------------------------------------  --------------------  ------------
+     1        nxos                                    9.3(3)                9.3(4)           yes
+     1        bios     v08.37(01/28/2020):v08.23(09/23/2015)    v08.38(05/29/2020)            no
+
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n] *y*
+input string too long
+Do you want to continue with the installation (y/n)?  [n] *y*
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+S2#
+----
+====
+. Salve a configuração.
++
+Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+
++
+É-lhe pedido que reinicie o sistema.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+S2# *copy running-config startup-config*
+[########################################] 100% Copy complete.
+S2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
+----
+====
+. Confirme se o novo número de versão do NX-os está no switch:
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+S2# *show version*
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 08.38
+ NXOS: version 9.3(4)
+  BIOS compile time:  05/29/2020
+  NXOS image file is: bootflash:///nxos.9.3.4.bin
+  NXOS compile time:  4/28/2020 21:00:00 [04/29/2020 02:28:31]
+
+
+Hardware
+  cisco Nexus3000 C3232C Chassis (Nexus 9000 Series)
+  Intel(R) Xeon(R) CPU E5-2403 v2 @ 1.80GHz with 8154432 kB of memory.
+  Processor Board ID FOC20291J6K
+
+  Device name: S2
+  bootflash:   53298520 kB
+Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 42 second(s)
+
+Last reset at 157524 usecs after Mon Nov  2 18:32:06 2020
+  Reason: Reset due to upgrade
+  System version: 9.3(3)
+  Service:
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+S2#
+----
+====
+
+
+
+
+=== Etapa 4: Verifique novamente o status de integridade dos switches e das portas
+
+. Verifique novamente se os interrutores de armazenamento estão disponíveis após a reinicialização:
++
+`system switch ethernet show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *system switch ethernet show*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+S1
+                            storage-network    172.17.227.5     NX3232C
+     Serial Number: FOC221206C2
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+S2
+                            storage-network    172.17.227.6    NX3232C
+     Serial Number: FOC220443LZ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+2 entries were displayed.
+storage::*>
+----
+====
+. Verifique se as portas do switch estão em boas condições e operacionais após a reinicialização:
++
+`storage port show -port-type ENET`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *storage port show -port-type ENET*
+                                      Speed                       VLAN
+Node               Port Type  Mode    (Gb/s) State    Status        ID
+------------------ ---- ----- ------- ------ -------- ----------- ----
+node1
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+node2
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+----
+====
+. Verifique novamente se não há problemas de cabeamento ou switch de storage no cluster:
++
+`system health alert show -instance`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *system health alert show -instance*
+There are no entries matching your query.
+----
+====
+. Repita o procedimento para atualizar o software NX-os e o RCF no interrutor S1.
+. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+

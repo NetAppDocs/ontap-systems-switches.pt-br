@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/install-9336c-shared.html 
+keywords:  
+summary:  
+---
+= Instale os switches compartilhados Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Siga estas instruções para configurar os switches compartilhados do Cisco Nexus 9336C-FX2.
+
+.O que você vai precisar
+* Documentação necessária do switch compartilhado, documentação do controlador e documentação do ONTAP. link:required-documentation-9336c-shared.html["Requisitos de documentação para switches compartilhados Cisco Nexus 9336C-FX2"]Consulte e https://docs.netapp.com/us-en/ontap/index.html["Documentação do NetApp ONTAP"^].
+* Licenças aplicáveis, informações de rede e configuração e cabos.
+* Fichas de trabalho de cablagem concluídas. link:cable-9336c-shared.html["Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2"]Consulte . Para obter mais informações sobre cabeamento, consulte o https://hwu.netapp.com["Hardware Universe"].
+
+
+.Passos
+. Rack os switches, controladores e NS224 compartimentos de storage NVMe.
++
+Consulte o https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-install-cabinet/GUID-92287262-E7A6-4A62-B159-7F148097B33B.html["Instruções de estantes"] para saber como colocar o switch em rack em um gabinete NetApp.
+
+. Ligue os switches, as controladoras e as NS224 gavetas de storage NVMe.
+
+
+.O que se segue?
+Vá para https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html["Configure o switch compartilhado Cisco Nexus 9336C-FX2"].

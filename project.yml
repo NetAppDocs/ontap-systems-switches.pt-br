@@ -1,0 +1,51 @@
+---
+settings:
+  name: Cluster and storage switches
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  pdf:
+    zip-level: 1
+    zip-filename: ontap-systems-switches-pdfs.zip
+  langs: pt-br,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
+sidebar:
+  entries:
+  - title: Documentação do switch para hardware ONTAP
+    url: "/index.html"
+  - title: Comece agora
+    entries:
+    - title: O que há de novo
+      url: "/whats-new.html"
+    - title: Saiba mais sobre os switches de sistemas ONTAP
+      url: "/get-started/learn-switch-concept.html"
+    - title: Comece a trabalhar
+      url: "/get-started/get-up-and-running.html"
+  - title: Interrutores do cluster
+    entries:
+    - section: switch-bes-53248
+    - section: switch-cisco-9336c-fx2
+    - section: switch-nvidia-sn2100
+  - title: Interrutores de armazenamento
+    entries:
+    - section: switch-cisco-9336c-fx2-storage
+    - section: switch-nvidia-sn2100-storage
+  - title: Switches compartilhados
+    entries:
+    - section: switch-cisco-9336c-fx2-shared
+      pdf-filename: switch-Cisco-9336c-fx2-storage
+  - section: switch-cshm
+  - title: Switches de fim de disponibilidade
+    entries:
+    - title: Visão geral
+      url: "/overview-eod.html"
+    - section: switch-cisco-3232c
+    - section: switch-cisco-3132q-v
+    - section: switch-cisco-92300
+    - section: switch-netapp-cn1610
+  - title: Avisos legais
+    url: "/legal-notices.html"
+product-family:
+  name: ONTAP hardware systems
+  repo: ontap-systems-family

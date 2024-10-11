@@ -1,0 +1,170 @@
+---
+permalink: switch-bes-53248/configure-ssh.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on bes-53248 cluster switches - bes-53248 switches 
+summary: 'O SSH é um requisito ao usar os recursos do Monitor de integridade do Cluster Switch (CSHM) e coleta de logs. Para ativar o SSH nos switches de cluster BES-53248, você gera as chaves SSH primeiro e depois ativa o SSH.' 
+---
+= Ative o SSH nos switches de cluster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver usando os recursos do Monitor de integridade do comutador Ethernet (CSHM) e da coleção de logs, será necessário gerar as chaves SSH e, em seguida, ativar o SSH nos switches do cluster.
+
+.Passos
+. Verifique se o SSH está desativado:
++
+`show ip ssh`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *show ip ssh*
+
+SSH Configuration
+
+Administrative Mode: .......................... Disabled
+SSH Port: ..................................... 22
+Protocol Level: ............................... Version 2
+SSH Sessions Currently Active: ................ 0
+Max SSH Sessions Allowed: ..................... 5
+SSH Timeout (mins): ........................... 5
+Keys Present: ................................. DSA(1024) RSA(1024) ECDSA(521)
+Key Generation In Progress: ................... None
+SSH Public Key Authentication Mode: ........... Disabled
+SCP server Administrative Mode: ............... Disabled
+----
+====
+. Gerar as chaves SSH:
++
+`crypto key generate`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *config*
+
+(switch) (Config)# *crypto key generate rsa*
+
+Do you want to overwrite the existing RSA keys? (y/n): *y*
+
+
+(switch) (Config)# *crypto key generate dsa*
+
+Do you want to overwrite the existing DSA keys? (y/n): *y*
+
+
+(switch) (Config)# *crypto key generate ecdsa 521*
+
+Do you want to overwrite the existing ECDSA keys? (y/n): *y*
+
+(switch) (Config)# *aaa authorization commands "noCmdAuthList" none*
+(switch) (Config)# *exit*
+(switch)# *ip ssh server enable*
+(switch)# *ip scp server enable*
+(switch)# *ip ssh pubkey-auth*
+(switch)# *write mem*
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
++
+
+WARNING: Certifique-se de que o SSH está desativado antes de modificar as chaves, caso contrário, um aviso é relatado no switch.
+
+. Encripte as chaves SSH (apenas para o modo *FIPS*):
++
+
+CAUTION: No modo FIPS, as chaves devem ser criptografadas com uma senha para segurança. Na ausência de uma chave criptografada, o aplicativo não inicia. As chaves são criadas e criptografadas usando os seguintes comandos:
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch) *configure*
+(switch) (Config)# *crypto key encrypt write rsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch) (Config)# *crypto key encrypt write dsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch)(Config)# *crypto key encrypt write ecdsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch) (Config)# end
+(switch)# write memory
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+. Reinicie o switch:
++
+`reload`
+
+. Verifique se o SSH está ativado:
++
+`show ip ssh`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *show ip ssh*
+
+SSH Configuration
+
+Administrative Mode: .......................... Enabled
+SSH Port: ..................................... 22
+Protocol Level: ............................... Version 2
+SSH Sessions Currently Active: ................ 0
+Max SSH Sessions Allowed: ..................... 5
+SSH Timeout (mins): ........................... 5
+Keys Present: ................................. DSA(1024) RSA(1024) ECDSA(521)
+Key Generation In Progress: ................... None
+SSH Public Key Authentication Mode: ........... Enabled
+SCP server Administrative Mode: ............... Enabled
+----
+====
+
+
+.O que se segue?
+link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].

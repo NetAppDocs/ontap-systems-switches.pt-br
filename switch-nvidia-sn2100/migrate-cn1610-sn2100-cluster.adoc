@@ -1,0 +1,537 @@
+---
+permalink: switch-nvidia-sn2100/migrate-cn1610-sn2100-cluster-switch.html 
+sidebar: sidebar 
+keywords: migrate cluster NVIDIA SN2100 cluster switches cn1610 
+summary: Você pode migrar switches de cluster NetApp CN1610 sem interrupções para um cluster ONTAP para switches de rede de cluster NVIDIA SN2100. 
+---
+= Migre os switches de cluster CN1610 para os switches de cluster NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível migrar os switches de cluster do NetApp CN1610 para um cluster do ONTAP para os switches de cluster do NVIDIA SN2100. Este é um procedimento sem interrupções.
+
+
+
+== Rever os requisitos
+
+Você deve estar ciente de certas informações de configuração, conexões de portas e requisitos de cabeamento ao substituir os switches de cluster NetApp CN1610 por switches de cluster NVIDIA SN2100. link:configure-overview-sn2100-cluster.html["Visão geral da instalação e configuração dos switches NVIDIA SN2100"]Consulte .
+
+.Interrutores suportados
+Os seguintes switches de cluster são suportados:
+
+* NetApp CN1610
+* NVIDIA SN2100
+
+
+Para obter detalhes sobre as portas suportadas e suas configurações, consulte o https://hwu.netapp.com/["Hardware Universe"^].
+
+.O que você vai precisar
+Verifique se você atende aos seguintes requisitos para sua configuração:
+
+* O cluster existente está corretamente configurado e funcionando.
+* Todas as portas de cluster estão no estado *up* para garantir operações ininterruptas.
+* Os switches de cluster NVIDIA SN2100 são configurados e operando sob a versão correta do Cumulus Linux instalado com o arquivo de configuração de referência (RCF) aplicado.
+* A configuração de rede de cluster existente tem o seguinte:
++
+** Um cluster NetApp redundante e totalmente funcional usando switches CN1610.
+** Conetividade de gerenciamento e acesso ao console aos switches CN1610 e aos novos switches.
+** Todos os LIFs de cluster no estado up com os LIfs de cluster em suas portas iniciais.
+** Portas ISL ativadas e cabeadas entre os switches CN1610 e entre os novos switches.
+
+
+* Algumas das portas são configuradas nos switches NVIDIA SN2100 para serem executadas em 40GbE ou 100GbE.
+* Você planejou, migrou e documentou a conectividade 40GbE e 100GbE de nós para os switches de cluster NVIDIA SN2100.
+
+
+
+
+== Migrar os switches
+
+.Sobre os exemplos
+Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+
+* Os switches de cluster CN1610 existentes são _C1_ e _C2_.
+* Os novos switches de cluster do NVIDIA SN2100 são _SW1_ e _SW2_.
+* Os nós são _node1_ e _node2_.
+* Os LIFs de cluster são _node1_clus1_ e _node1_clus2_ no nó 1 e _node2_clus1_ e _node2_clus2_ no nó 2 respetivamente.
+* O `cluster1::*>` prompt indica o nome do cluster.
+* As portas de cluster usadas neste procedimento são _E3A_ e _e3b_.
+* As portas breakout tomam o formato: swp[port]s[breakout port 0-3]. Por exemplo, quatro portas breakout no swp1 são _swp1s0_, _swp1s1_, _swp1s2_ e _swp1s3_.
+
+
+.Sobre esta tarefa
+Este procedimento abrange o seguinte cenário:
+
+* O interrutor C2 é substituído primeiro pelo interrutor SW2.
++
+** Encerre as portas para os nós de cluster. Todas as portas devem ser fechadas simultaneamente para evitar a instabilidade do cluster.
+** O cabeamento entre os nós e o C2 é desconetado do C2 e reconetado ao SW2.
+
+
+* O interrutor C1 é substituído pelo interrutor SW1.
++
+** Encerre as portas para os nós de cluster. Todas as portas devem ser fechadas simultaneamente para evitar a instabilidade do cluster.
+** O cabeamento entre os nós e o C1 é desconetado do C1 e reconetado ao SW1.
+
+
+
+
+
+NOTE: Não é necessária qualquer ligação entre interrutores (ISL) operacional durante este procedimento. Isso é feito por design porque as alterações na versão do RCF podem afetar temporariamente a conetividade do ISL. Para garantir operações de cluster sem interrupções, o procedimento a seguir migra todas as LIFs de cluster para o switch de parceiro operacional enquanto executa as etapas no switch de destino.
+
+
+
+=== Passo 1: Prepare-se para a migração
+
+. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+onde _x_ é a duração da janela de manutenção em horas.
+
+. Altere o nível de privilégio para avançado, inserindo *y* quando solicitado a continuar:
++
+`set -privilege advanced`
+
++
+É apresentado o aviso avançado (*>).
+
+. Desativar a reversão automática nos LIFs do cluster:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
+
+
+
+
+=== Etapa 2: Configurar portas e cabeamento
+
+. Determine o status administrativo ou operacional de cada interface de cluster.
++
+Cada porta deve ser exibida durante `Link` e `healthy` para `Health Status`.
+
++
+.. Exibir os atributos da porta de rede:
++
+`network port show -ipspace Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+----
+====
+.. Exibir informações sobre os LIFs e seus nós iniciais designados:
++
+`network interface show -vserver Cluster`
+
++
+Cada LIF deve ser exibido `up/up` para `Status Admin/Oper` e `true` para `Is Home`.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical      Status     Network            Current     Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node        Port    Home
+----------- -----------  ---------- ------------------ ----------- ------- ----
+Cluster
+            node1_clus1  up/up      169.254.209.69/16  node1       e3a     true
+            node1_clus2  up/up      169.254.49.125/16  node1       e3b     true
+            node2_clus1  up/up      169.254.47.194/16  node2       e3a     true
+            node2_clus2  up/up      169.254.19.183/16  node2       e3b     true
+
+----
+====
+
+
+. As portas de cluster em cada nó são conetadas aos switches de cluster existentes da seguinte maneira (da perspetiva dos nós) usando o comando:
++
+`network device-discovery show -protocol`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1      /cdp
+            e3a    c1 (6a:ad:4f:98:3b:3f)    0/1               -
+            e3b    c2 (6a:ad:4f:98:4c:a4)    0/1               -
+node2      /cdp
+            e3a    c1 (6a:ad:4f:98:3b:3f)    0/2               -
+            e3b    c2 (6a:ad:4f:98:4c:a4)    0/2               -
+----
+====
+. As portas e os switches do cluster são conetados da seguinte maneira (da perspetiva dos switches) usando o comando:
++
+`show cdp neighbors`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+c1# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID             Local Intrfce Hldtme Capability  Platform         Port ID
+node1                 0/1           124     H          AFF-A400         e3a
+node2                 0/2           124     H          AFF-A400         e3a
+c2                    0/13          179     S I s      CN1610           0/13
+c2                    0/14          175     S I s      CN1610           0/14
+c2                    0/15          179     S I s      CN1610           0/15
+c2                    0/16          175     S I s      CN1610           0/16
+
+c2# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+
+Device-ID             Local Intrfce Hldtme Capability  Platform         Port ID
+node1                 0/1           124    H           AFF-A400         e3b
+node2                 0/2           124    H           AFF-A400         e3b
+c1                    0/13          175    S I s       CN1610           0/13
+c1                    0/14          175    S I s       CN1610           0/14
+c1                    0/15          175    S I s       CN1610           0/15
+c1                    0/16          175    S I s       CN1610           0/16
+----
+====
+. Verifique se a rede do cluster tem conetividade total:
++
+`cluster ping-cluster -node node-name`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node node2*
+
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1     e3a
+Cluster node1_clus2 169.254.49.125 node1     e3b
+Cluster node2_clus1 169.254.47.194 node2     e3a
+Cluster node2_clus2 169.254.19.183 node2     e3b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+. No switch C2, encerre as portas conetadas às portas do cluster dos nós para fazer failover das LIFs do cluster.
++
+[listing, subs="+quotes"]
+----
+(c2)# *configure*
+(c2)(Config)# *interface 0/1-0/12*
+(c2)(Interface 0/1-0/12)# *shutdown*
+(c2)(Interface 0/1-0/12)# *exit*
+(c2)(Config)# *exit*
+(c2)#
+----
+. Mova as portas do cluster de nós do switch antigo C2 para o novo switch SW2, usando o cabeamento apropriado suportado pelo NVIDIA SN2100.
+. Exibir os atributos da porta de rede:
++
+`network port show -ipspace Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+----
+====
+. As portas do cluster em cada nó agora são conetadas aos switches do cluster da seguinte maneira, da perspetiva dos nós:
++
+`network device-discovery show -protocol`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol lldp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1      /lldp
+            e3a    c1  (6a:ad:4f:98:3b:3f)   0/1               -
+            e3b    sw2 (b8:ce:f6:19:1a:7e)   swp3              -
+node2      /lldp
+            e3a    c1  (6a:ad:4f:98:3b:3f)   0/2               -
+            e3b    sw2 (b8:ce:f6:19:1b:96)   swp4              -
+----
+====
+. No switch SW2, verifique se todas as portas do cluster de nós estão ativas:
++
+`net show interface`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *net show interface*
+
+State  Name         Spd   MTU    Mode        LLDP              Summary
+-----  -----------  ----  -----  ----------  ----------------- ----------------------
+...
+...
+UP     swp3         100G  9216   Trunk/L2    e3b               Master: bridge(UP)
+UP     swp4         100G  9216   Trunk/L2    e3b               Master: bridge(UP)
+UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
+UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
+----
+====
+. No switch C1, encerre as portas conetadas às portas do cluster dos nós para fazer failover das LIFs do cluster.
++
+[listing, subs="+quotes"]
+----
+(c1)# *configure*
+(c1)(Config)# *interface 0/1-0/12*
+(c1)(Interface 0/1-0/12)# *shutdown*
+(c1)(Interface 0/1-0/12)# *exit*
+(c1)(Config)# *exit*
+(c1)#
+----
+. Mova as portas do cluster de nós do switch antigo C1 para o novo switch SW1, usando o cabeamento apropriado suportado pelo NVIDIA SN2100.
+. Verifique a configuração final do cluster:
++
+`network port show -ipspace Cluster`
+
++
+Cada porta deve ser exibida `up` para `Link` e `healthy` para `Health Status`.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                 Speed(Mbps)  Health   Health
+Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
+--------- ---------- ---------------- ---- ----- ------------ -------- ------
+e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
+e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
+----
+====
+. As portas do cluster em cada nó agora são conetadas aos switches do cluster da seguinte maneira, da perspetiva dos nós:
++
+`network device-discovery show -protocol`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol lldp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  ----------------
+node1      /lldp
+            e3a    sw1 (b8:ce:f6:19:1a:7e)   swp3            -
+            e3b    sw2 (b8:ce:f6:19:1b:96)   swp3            -
+node2      /lldp
+            e3a    sw1 (b8:ce:f6:19:1a:7e)   swp4            -
+            e3b    sw2 (b8:ce:f6:19:1b:96)   swp4            -
+----
+====
+. Nos switches SW1 e SW2, verifique se todas as portas do cluster de nós estão ativas:
++
+`net show interface`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show interface*
+
+State  Name         Spd   MTU    Mode        LLDP              Summary
+-----  -----------  ----  -----  ----------  ----------------- ----------------------
+...
+...
+UP     swp3         100G  9216   Trunk/L2    e3a               Master: bridge(UP)
+UP     swp4         100G  9216   Trunk/L2    e3a               Master: bridge(UP)
+UP     swp15        100G  9216   BondMember  sw2 (swp15)       Master: cluster_isl(UP)
+UP     swp16        100G  9216   BondMember  sw2 (swp16)       Master: cluster_isl(UP)
+
+
+cumulus@sw2:~$ *net show interface*
+
+State  Name         Spd   MTU    Mode        LLDP              Summary
+-----  -----------  ----  -----  ----------  ----------------- -----------------------
+...
+...
+UP     swp3         100G  9216   Trunk/L2    e3b               Master: bridge(UP)
+UP     swp4         100G  9216   Trunk/L2    e3b               Master: bridge(UP)
+UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
+UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
+----
+====
+. Verifique se ambos os nós têm uma conexão com cada switch:
++
+`net show lldp`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra os resultados apropriados para ambos os switches:
+
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show lldp*
+
+LocalPort  Speed  Mode        RemoteHost          RemotePort
+---------  -----  ----------  ------------------  -----------
+swp3       100G   Trunk/L2    node1               e3a
+swp4       100G   Trunk/L2    node2               e3a
+swp15      100G   BondMember  sw2                 swp15
+swp16      100G   BondMember  sw2                 swp16
+
+cumulus@sw2:~$ *net show lldp*
+
+LocalPort  Speed  Mode        RemoteHost          RemotePort
+---------  -----  ----------  ------------------  -----------
+swp3       100G   Trunk/L2    node1               e3b
+swp4       100G   Trunk/L2    node2               e3b
+swp15      100G   BondMember  sw1                 swp15
+swp16      100G   BondMember  sw1                 swp16
+----
+====
+
+
+
+
+=== Etapa 3: Verifique a configuração
+
+. Ativar a reversão automática nos LIFs do cluster:
++
+`cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
+
+. Verifique se todas as LIFs de rede do cluster estão de volta em suas portas domésticas:
++
+`network interface show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e3a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e3b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e3a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
+----
+====
+. Altere o nível de privilégio de volta para admin:
++
+`set -privilege admin`
+
+. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+.O que se segue?
+link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].

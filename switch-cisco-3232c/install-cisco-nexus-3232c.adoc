@@ -1,0 +1,136 @@
+---
+permalink: switch-cisco-3232c/install-cisco-nexus-3232c.html 
+sidebar: sidebar 
+keywords: install, cisco nexus, 3232c cluster switch, pass-through panel, netapp cabinet 
+summary: Você pode instalar o switch Cisco Nexus 3232C e o painel pass-through em um gabinete NetApp com os suportes padrão que estão incluídos com o switch. 
+---
+= Instale um switch de cluster Cisco Nexus 3232C em um gabinete NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dependendo da sua configuração, você pode precisar instalar o switch de cluster Cisco Nexus 3232C e o painel pass-through em um gabinete NetApp com os suportes padrão que estão incluídos no switch.
+
+.O que você vai precisar
+* Os requisitos de preparação inicial, o conteúdo do kit e as precauções de segurança no link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guia de instalação de hardware do Cisco Nexus 3000 Series"^].
+* Para cada interrutor, os oito parafusos 10-32 ou 12-24 e as porcas de fixação para montar os suportes e os trilhos deslizantes nos postes dianteiros e traseiros do armário.
+* Kit de trilho padrão Cisco para instalar o interrutor em um gabinete NetApp.
+
+
+[NOTE]
+====
+Os cabos de ligação em ponte não estão incluídos no kit de passagem e devem ser incluídos com os switches. Se eles não foram enviados com os switches, você pode encomendá-los da NetApp (código de peça X1558A-R6).
+
+====
+.Passos
+. Instale o painel obturador de passagem no gabinete NetApp.
++
+O kit de painel de passagem está disponível na NetApp (código de peça X8784-R6).
+
++
+O kit do painel de passagem do NetApp contém o seguinte hardware:
+
++
+** Um painel obturador de passagem
+** Quatro parafusos 10-32 x .75
+** Quatro porcas de freio 10-32
++
+... Determine a localização vertical dos interrutores e do painel obturador no gabinete.
++
+Neste procedimento, o painel obturador será instalado em U40.
+
+... Instale duas porcas de mola em cada lado nos orifícios quadrados apropriados para os trilhos dianteiros do gabinete.
+... Centralize o painel verticalmente para evitar a intrusão no espaço adjacente do rack e, em seguida, aperte os parafusos.
+... Insira os conetores fêmea de ambos os cabos de ligação em ponte de 48 polegadas a partir da parte traseira do painel e através do conjunto da escova.
++
+image::../media/cisco_9148_jumper_cords.gif[cabos de ligação em ponte do Cisco 9148]
+
+
+
+
+
+
+
+_(1) conetor fêmea do cabo de ligação em ponte._
+
+. Instale os suportes de montagem em rack no chassi do switch Nexus 3232C.
++
+.. Posicione um suporte dianteiro de montagem em rack em um lado do chassi do interrutor de modo que a orelha de montagem fique alinhada com a placa frontal do chassi (no lado da PSU ou do ventilador) e, em seguida, use quatro parafusos M4 para prender o suporte ao chassi.
++
+image::../media/3132q_front_bracket.gif[suporte dianteiro]
+
+.. Repita o passo 2a com o outro suporte de montagem em rack dianteiro do outro lado do interrutor.
+.. Instale o suporte traseiro do suporte do suporte do rack no chassis do interrutor.
+.. Repita o passo 2c com o outro suporte de montagem em rack traseiro do outro lado do interrutor.
+
+
+. Instale as porcas de mola nas localizações dos orifícios quadrados para os quatro postes IEA.
++
+image::../media/ru_locations_for_3132q_v.gif[localizações ru para 3132q v]
+
++
+Os dois interrutores 3232C serão sempre montados no topo 2U do gabinete RU41 e 42.
+
+. Instale os trilhos deslizantes no gabinete.
++
+.. Posicione o primeiro trilho deslizante na marca RU42 na parte traseira do poste esquerdo traseiro, insira os parafusos com o tipo de rosca correspondente e aperte os parafusos com os dedos.
++
+image::../media/3132q_v_slider_rails.gif[calhas deslizantes de 3132q v.]
+
++
+_(1) ao deslizar suavemente o trilho deslizante, alinhe-o com os orifícios dos parafusos no rack.___(2) aperte os parafusos dos trilhos deslizantes nos postes do gabinete._
+
+.. Repita o passo 4a para a coluna traseira do lado direito.
+.. Repita as etapas 4a e 4b nos RU41 locais do gabinete.
+
+
+. Instale o interrutor no gabinete.
++
+[NOTE]
+====
+Este passo requer duas pessoas: Uma pessoa para apoiar o interrutor da frente e outra para guiar o interrutor para os trilhos deslizantes traseiros.
+
+====
++
+.. Posicione a parte traseira do interrutor em RU41.
++
+image::../media/3132q_v_positioning.gif[3232C posicionamento em U39-40]
+
++
+_(1) à medida que o chassis é empurrado para os postes traseiros, alinhe as duas guias de montagem em rack traseiras com os trilhos deslizantes._
+
++
+_(2) deslize suavemente o interrutor até que os suportes de montagem em rack dianteiros estejam alinhados com os postes dianteiros._
+
+.. Ligue o interrutor ao armário.
++
+image::../media/3132q_attaching.gif[3132q fixação]
+
++
+_(1) com uma pessoa segurando a frente do nível do chassi, a outra pessoa deve apertar totalmente os quatro parafusos traseiros aos postes do gabinete._
+
+.. Com o chassis agora suportado sem assistência, aperte totalmente os parafusos dianteiros nos postes.
+.. Repita os passos 5a a 5c para o segundo interrutor na localização RU42.
++
+[NOTE]
+====
+Ao utilizar o interrutor totalmente instalado como suporte, não é necessário manter a frente do segundo interrutor durante o processo de instalação.
+
+====
+
+
+. Quando os switches estiverem instalados, conete os cabos de ligação em ponte às entradas de energia do switch.
+. Ligue as fichas macho de ambos os cabos de ligação em ponte às tomadas PDU mais próximas disponíveis.
++
+[NOTE]
+====
+Para manter a redundância, os dois cabos devem ser conetados a diferentes PDUs.
+
+====
+. Conete a porta de gerenciamento de cada switch 3232C a um dos switches de gerenciamento (se solicitado) ou conete-os diretamente à sua rede de gerenciamento.
++
+A porta de gerenciamento é a porta superior direita localizada no lado da PSU do switch. O cabo CAT6 para cada switch precisa ser encaminhado através do painel de passagem depois que os switches são instalados para se conetar aos switches de gerenciamento ou à rede de gerenciamento.
+
+

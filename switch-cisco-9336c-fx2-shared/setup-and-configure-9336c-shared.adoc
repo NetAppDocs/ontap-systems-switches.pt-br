@@ -1,0 +1,137 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html 
+keywords:  
+summary:  
+---
+= Configurar os switches compartilhados Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Siga estas instruções para configurar os switches compartilhados do Cisco Nexus 9336C-FX2.
+
+.O que você vai precisar
+* Documentação necessária do switch compartilhado, documentação do controlador e documentação do ONTAP. link:required-documentation-9336c-shared.html["Requisitos de documentação para switches compartilhados Cisco Nexus 9336C-FX2"]Consulte e https://docs.netapp.com/us-en/ontap/index.html["Documentação do NetApp ONTAP"^].
+* Licenças aplicáveis, informações de rede e configuração e cabos.
+* Fichas de trabalho de cablagem concluídas. link:cable-9336c-shared.html["Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2"]Consulte . Para obter mais informações sobre cabeamento, consulte o https://hwu.netapp.com["Hardware Universe"].
+
+
+.Passos
+. [[step3]]execute uma configuração inicial dos switches.
++
+Para a configuração, você precisa do número e tipo apropriados de cabos e conetores de cabo para seus switches.
+
++
+Dependendo do tipo de switch que você está configurando inicialmente, você precisa se conetar à porta do console do switch com o cabo de console incluído; você também precisa fornecer informações específicas de rede.
+
+. Arranque o interrutor.
++
+Forneça as respostas aplicáveis às seguintes perguntas de configuração inicial ao inicializar o switch pela primeira vez.
+
++
+A política de segurança do seu site define as respostas e os serviços a serem ativados.
+
++
+.. Cancelar o provisionamento automático e continuar com a configuração normal? (sim/não)
++
+Responda com *sim*. A predefinição é não
+
+.. Pretende aplicar o padrão de palavra-passe seguro? (sim/não)
++
+Responda com *sim*. O padrão é sim.
+
+.. Introduza a palavra-passe para admin.
++
+A senha padrão é admin; você deve criar uma nova senha forte.
+
++
+Uma senha fraca pode ser rejeitada.
+
+.. Pretende introduzir a caixa de diálogo de configuração básica? (sim/não)
++
+Responda com *sim* na configuração inicial do comutador.
+
+.. Criar outra conta de login? (sim/não)
++
+Sua resposta depende das políticas do seu site em administradores alternativos. A predefinição é não
+
+.. Configurar string de comunidade SNMP somente leitura? (sim/não)
++
+Responda com *não*. A predefinição é não
+
+.. Configurar string de comunidade SNMP de leitura-escrita? (sim/não)
++
+Responda com *não*. A predefinição é não
+
+.. Introduza o nome do interrutor.
++
+O nome do switch está limitado a 63 carateres alfanuméricos.
+
+.. Continuar com a configuração de gerenciamento fora da banda (mgmt0)? (sim/não)
++
+Responda com *yes* (o padrão) nesse prompt. No prompt mgmt0 IPv4 address:, insira seu endereço IP: ip_address
+
+.. Configurar o gateway padrão? (sim/não)
++
+Responda com *sim*. No endereço IPv4 do prompt default-gateway:, digite seu default_gateway.
+
+.. Configurar opções IP avançadas? (sim/não)
++
+Responda com *não*. A predefinição é não
+
+.. Ativar o serviço telnet? (sim/não)
++
+Responda com *não*. A predefinição é não
+
+.. Ativar serviço SSH? (sim/não)
++
+Responda com *sim*. O padrão é sim.
+
++
+
+NOTE: O SSH é recomendado ao usar o Ethernet Switch Health Monitor (CSHM) para seus recursos de coleta de logs. O SSHv2 também é recomendado para maior segurança.
+
+.. [[step14]]Digite o tipo de chave SSH que você deseja gerar (dsa/rsa/rsa1). O padrão é rsa.
+.. Introduza o número de bits de chave (1024- 2048).
+.. Configurar o servidor NTP? (sim/não)
++
+Responda com *não*. A predefinição é não
+
+.. Configurar a camada de interface padrão (L3/L2):
++
+Responda com *L2*. A predefinição é L2.
+
+.. Configurar o estado predefinido da interface da porta do switch (Shut/noshut):
++
+Responda com *noshut*. O padrão é noshut.
+
+.. Configurar o perfil do sistema CoPP (strict/moderate/lenient/dense):
++
+Responda com *strict*. O padrão é rigoroso.
+
+.. Pretende editar a configuração? (sim/não)
++
+Você deve ver a nova configuração neste momento. Reveja e faça as alterações necessárias à configuração que acabou de introduzir. Responda com não no prompt se você estiver satisfeito com a configuração. Responda com *yes* se quiser editar as configurações.
+
+.. Utilizar esta configuração e guardá-la? (sim/não)
++
+Responda com *yes* para salvar a configuração. Isto atualiza automaticamente as imagens do Kickstart e do sistema.
+
+
+
+. Verifique as opções de configuração que você fez no visor que aparece no final da configuração e certifique-se de salvar a configuração.
++
+
+NOTE: Se você não salvar a configuração nesta fase, nenhuma das alterações entrará em vigor na próxima vez que você reiniciar o switch.
+
+. Verifique a versão nos switches de rede do cluster e, se necessário, baixe a versão do software suportada pelo NetApp para os switches a partir da https://software.cisco.com/download/home["Transferência do software Cisco"^] página.
+
+
+.O que se segue?
+Dependendo da sua configuração, pode link:install-switch-and-passthrough-panel-9336c-shared.html["Instale o interrutor no gabinete do NetApp"]. Caso contrário, vá link:prepare-nxos-rcf-9336c-shared.html["Prepare-se para instalar o NX-os e o RCF"]para .
