@@ -21,7 +21,7 @@ A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas 
 
 A definição de porta de amostra em cada par de switches é a seguinte:
 
-[cols="1, 1, 1, 1"]
+[cols="1,3,1,3"]
 |===
 2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
 
@@ -32,66 +32,66 @@ A definição de porta de amostra em cada par de switches é a seguinte:
  a| 
 1
  a| 
-4x10GbE nó 1
+4x100GbE nó 1
  a| 
 1
  a| 
-4x10GbE nó 1
+4x100GbE nó 1
 
 
 
  a| 
 2
  a| 
-4x10GbE nó 2
+4x100GbE nó 2
  a| 
 2
  a| 
-4x10GbE nó 2
+4x100GbE nó 2
 
 
 
  a| 
 3
  a| 
-4x10GbE nó 3
+4x100GbE nó 3
  a| 
 3
  a| 
-4x10GbE nó 3
+4x100GbE nó 3
 
 
 
  a| 
 4
  a| 
-4x25GbE nó 4
+4x100GbE nó 4
  a| 
 4
  a| 
-4x25GbE nó 4
+4x100GbE nó 4
 
 
 
  a| 
 5
  a| 
-4x25GbE nó 5
+4x100GbE nó 5
  a| 
 5
  a| 
-4x25GbE nó 5
+4x100GbE nó 5
 
 
 
  a| 
 6
  a| 
-4x25GbE nó 6
+4x100GbE nó 6
  a| 
 6
  a| 
-4x25GbE nó 6
+4x100GbE nó 6
 
 
 
@@ -294,35 +294,145 @@ A definição de porta de amostra em cada par de switches é a seguinte:
 
 
  a| 
-25 a 34
+25
  a| 
-Todos os direitos reservados
+4x100GbE nó 25
  a| 
-25 a 34
+25
  a| 
-Todos os direitos reservados
+4x100GbE nó 25
+
+
+
+ a| 
+26
+ a| 
+4x100GbE nó 26
+ a| 
+26
+ a| 
+4x100GbE nó 26
+
+
+
+ a| 
+27
+ a| 
+4x100GbE nó 27
+ a| 
+27
+ a| 
+4x100GbE nó 27
+
+
+
+ a| 
+28
+ a| 
+4x100GbE nó 28
+ a| 
+28
+ a| 
+4x100GbE nó 28
+
+
+
+ a| 
+29
+ a| 
+4x100GbE nó 29
+ a| 
+29
+ a| 
+4x100GbE nó 29
+
+
+
+ a| 
+30
+ a| 
+4x100GbE nó 30
+ a| 
+30
+ a| 
+4x100GbE nó 30
+
+
+
+ a| 
+31
+ a| 
+4x100GbE nó 31
+ a| 
+31
+ a| 
+4x100GbE nó 31
+
+
+
+ a| 
+32
+ a| 
+4x100GbE nó 32
+ a| 
+32
+ a| 
+4x100GbE nó 32
+
+
+
+ a| 
+33
+ a| 
+4x100GbE nó 33
+ a| 
+33
+ a| 
+4x100GbE nó 33
+
+
+
+ a| 
+30
+ a| 
+4x100GbE nó 30
+ a| 
+30
+ a| 
+4x100GbE nó 33
+
+
+
+ a| 
+34
+ a| 
+4x100GbE nó 34
+ a| 
+34
+ a| 
+4x100GbE nó 34
 
 
 
  a| 
 35
  a| 
-100g ISL para a porta 35 do interrutor B.
+4x100GbE nó 35
  a| 
 35
  a| 
-100g ISL para mudar A porta 35
+4x100GbE nó 35
 
 
 
  a| 
 36
  a| 
-100g ISL para a porta 36 do interrutor B.
+4x100GbE nó 36
  a| 
 36
  a| 
-100g ISL para mudar A porta 36
+4x100GbE nó 36
 
 |===
 
@@ -331,7 +441,7 @@ Todos os direitos reservados
 
 Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A seção _conexões de cluster suportadas_ da https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
 
-[cols="1, 1, 1, 1"]
+[cols="5%, 45%, 5%, 45%"]
 |===
 2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
 
@@ -553,34 +663,109 @@ Você pode usar a Planilha de cabeamento em branco para documentar as plataforma
 
 
  a| 
-25 a 34
+25
  a| 
-Todos os direitos reservados
  a| 
-25 a 34
+25
  a| 
-Todos os direitos reservados
+
+
+
+ a| 
+26
+ a| 
+ a| 
+26
+ a| 
+
+
+
+ a| 
+27
+ a| 
+ a| 
+27
+ a| 
+
+
+
+ a| 
+28
+ a| 
+ a| 
+28
+ a| 
+
+
+
+ a| 
+29
+ a| 
+ a| 
+29
+ a| 
+
+
+
+ a| 
+30
+ a| 
+ a| 
+30
+ a| 
+
+
+
+ a| 
+31
+ a| 
+ a| 
+31
+ a| 
+
+
+
+ a| 
+32
+ a| 
+ a| 
+32
+ a| 
+
+
+
+ a| 
+33
+ a| 
+ a| 
+33
+ a| 
+
+
+
+ a| 
+34
+ a| 
+ a| 
+34
+ a| 
 
 
 
  a| 
 35
  a| 
-100g ISL para a porta 35 do interrutor B.
  a| 
 35
  a| 
-100g ISL para mudar A porta 35
 
 
 
  a| 
 36
  a| 
-100g ISL para a porta 36 do interrutor B.
  a| 
 36
  a| 
-100g ISL para mudar A porta 36
 
 |===

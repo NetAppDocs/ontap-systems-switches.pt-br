@@ -36,7 +36,6 @@
   <block id="8f5d4c5edc1ac35d440165e075268f86" category="list-text">Verifique a nova versão do software NX-os depois que o switch reiniciar:</block>
   <block id="3e59b0e11242ccaa0aa06829a5a285e1" category="list-text">Atualize a imagem EPLD e reinicie o switch.</block>
   <block id="b2ed876df70e9e36d71d5bfdd2c8ce2f" category="list-text">Após a reinicialização do switch, faça login novamente e verifique se a nova versão do EPLD foi carregada com sucesso.</block>
-  <block id="44dd2902e6a8940e811d66f001eb74b8" category="list-text">Repita os passos 1 a 8 para instalar o software NX-os no interrutor CS1.</block>
   <block id="537e4a57b26f325406ead3c055f368d4" category="doc">Passo 1: Instale o RCF nos interrutores</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">Antes de começar</block>
   <block id="64375c1eb0a39c01e2fa4b38e4b977d5" category="paragraph">Certifique-se do seguinte:</block>
@@ -270,26 +269,14 @@
   <block id="0052efad5d260a806d52bfcfe640936f" category="cell">Interrutores</block>
   <block id="b5a7adde1af5c87d7fd797b6245c2a39" category="cell">Descrição</block>
   <block id="198fc1af468509094e8d40e07916c836" category="cell">Disponível a partir do início</block>
-  <block id="d580be6c6f7c3c0fa749d81a5cd7cd95" category="inline-link">Switch Cisco de 36 portas de 100 GbE (X190200)</block>
-  <block id="deb0a21917c7eb0c3c9938d678ab438a" category="paragraph"><block ref="deb0a21917c7eb0c3c9938d678ab438a" category="inline-link-rx"></block></block>
   <block id="123e4b878b0b13297b19666d44ad9918" category="paragraph">Dá suporte a uma infraestrutura compartilhada (cluster, HA e storage conectado a switch) no mesmo par de switches Cisco Nexus 9336C-FX2, incluindo suporte para configurações IP MetroCluster.</block>
   <block id="74eb178224c5fa701fbcd96998feaafe" category="paragraph">ONTAP 9.9,1</block>
-  <block id="b35c80b21274714ff3bddbab4058ca2d" category="inline-link">Switch Cisco de 36 portas de 100 GbE (X190200 e X190210)</block>
-  <block id="f8fcbafd01f8949c32d6eda760c789d1" category="paragraph"><block ref="f8fcbafd01f8949c32d6eda760c789d1" category="inline-link-rx"></block></block>
-  <block id="89d274f5355a3e0e5f362e8cbb94f354" category="paragraph">Switch de interconexão de cluster Cisco Nexus 9336C-FX2X compatível com switch de storage e switch de storage para controladores AFF/FAS, bem como para conectividade de dados de front-end.</block>
   <block id="2abfff2974f589f7a217325f304e0ec5" category="paragraph">ONTAP 9,8</block>
   <block id="deba35864593b3bc749c649b8ffc8b8a" category="inline-link">Switch Broadcom BES-53248 (X190005 e X190005R)</block>
-  <block id="acee3e35fac9100c5030755c314eab73" category="paragraph"><block ref="acee3e35fac9100c5030755c314eab73" category="inline-link-rx"></block></block>
-  <block id="3e3c90d3e7cba2e9c472cc6c982b426c" category="paragraph">Suporte ao switch de interconexão de cluster BES-53248 Broadcom para controladores AFF/FAS com portas de 40 GbE/100GbE GbE.</block>
-  <block id="76b8d0202e0ebac8536bfbb927cb77cf" category="inline-link">Switch Cisco de 32 portas de 100 GbE (X190100 e X190100R)</block>
-  <block id="289176b1f2563464b0dfb798658c0152" category="paragraph"><block ref="deb0a21917c7eb0c3c9938d678ab438a" category="inline-link-rx"></block><block ref="18e71ce452675f527b9e6ee74d504889" category="inline-link-rx"></block></block>
-  <block id="856f27e361c1b2c9da2793619e1bea84" category="paragraph">O switch Cisco Nexus 100 GbE pode ser usado como um switch de storage dedicado para conectar gavetas de unidade NVMe NS224 às seguintes plataformas:</block>
   <block id="fe3922b3af83dfb6ba506bb4b7969408" category="list-text">AFF A800/AFF ASA A800</block>
   <block id="040a43f160d19358d6aaa58c129061c6" category="list-text">AFF A700/AFF ASA A700</block>
   <block id="a2830a8a6b7415efd3d60ab3af3c1b02" category="list-text">AFF A400/AFF ASA A400</block>
   <block id="73ab298c8e00d66d28156892903a39ce" category="list-text">AFF A320</block>
-  <block id="fc2c2083a19a418b8843fac67146e44d" category="paragraph">Suporte ao switch de interconexão de cluster BES-53248 Broadcom para controladores AFF/FAS com portas de 10 GbE/25GbE GbE.</block>
-  <block id="afa798215d91c0ee616815befa600f66" category="paragraph">ONTAP 9.5P8</block>
   <block id="75f5ca2695f30fa3987540c3aa6c3b02" category="list-text">Os nomes dos nós são cluster1-01 e cluster1-02.</block>
   <block id="9ffdf3ff45071667f2b0aadc7de3c8d9" category="list-text">Os nomes de LIF de cluster são 02-01_clus1 e cluster1-01_clus2 para cluster1-01 e cluster1-02_clus1 e cluster1-02_clus2 para cluster1-cluster1.</block>
   <block id="28a53e17dbed56e3e939f59daaad8359" category="list-text">Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:<block ref="d4f081f8f7b730c426160bfa9617a56a" prefix=" " category="inline-code"></block></block>
@@ -2063,11 +2050,8 @@
   <block id="62a6080939e22aeda3281430c2563f03" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block>. Consulte os guias de software e atualização apropriados disponíveis no site da Cisco para obter a documentação completa sobre os procedimentos de atualização e downgrade do switch Cisco.</block>
   <block id="484438288295ccb871ffe387515ce29d" category="paragraph">Certifique-se de que conclui o procedimento em <block ref="92ff606cd08828782a7061b88d8a96a2" category="inline-link-macro-rx"></block>e, em seguida, siga os passos abaixo.</block>
   <block id="3f9bab8a5b1cdb3201a21d8b44293910" category="list-text">Copie o software NX-os e as imagens EPLD para o switch Nexus 3232C.</block>
-  <block id="270d9f5c816d086b9c8e95d65a866883" category="list-text">Verifique a nova versão do software NX-os depois que o switch reiniciar:<block ref="48f6d03db0af7dafae461857e48942d9" prefix=" " category="inline-code"></block></block>
-  <block id="f9a089a8b7bd6f9eda6a30bb504dd013" category="list-text">Após a reinicialização do switch, faça login novamente, atualize a imagem dourada do EPLD e reinicie o switch mais uma vez.</block>
   <block id="3f5e00dc10415204c495781f25039129" category="list-text">Após a reinicialização do switch, faça login para verificar se a nova versão do EPLD foi carregada com sucesso.</block>
   <block id="ec8855627efbb26afaa912164ff82dbd" category="inline-link-macro">Instale o arquivo de configuração RCF</block>
-  <block id="7b1f8572a598b67cece8c82d64948766" category="paragraph"><block ref="7b1f8572a598b67cece8c82d64948766" category="inline-link-macro-rx"></block></block>
   <block id="4a91febaa4c24955d4b5a205fc4846e7" category="summary">Antes de configurar os switches Cisco Nexus 3232c, revise uma visão geral do processo e da nomenclatura.</block>
   <block id="3d8c0d3afd6618c62321bcaf19ae1a50" category="doc">Visão geral da instalação e configuração para switches Cisco Nexus 3232c</block>
   <block id="d4d8b9ec23fdb4722400f56c58539809" category="paragraph">Os switches Cisco Nexus 3232C podem ser usados como switches de cluster no seu cluster AFF ou FAS. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.</block>
@@ -5028,4 +5012,41 @@
   <block id="ff518749d3663227de48008bfca511bb" category="list-text">[[step5]] no switch C2, encerre as portas conetadas às portas do cluster dos nós para fazer failover dos LIFs do cluster.</block>
   <block id="c47f8dc188da37844fcf13bca92e64bd" category="list-text">[[step8]] ative o recurso de coleta de log do monitor de integridade do switch Ethernet para coletar arquivos de log relacionados ao switch, usando os comandos:</block>
   <block id="d2370f0d6957d5e8b2747d5a02f35221" category="list-text">[[step8]] no switch C2, encerre as portas conetadas às portas do cluster dos nós.</block>
+  <block id="aa831e5ed3cf3569aacf417dc10d9847" category="list-text">Desative a reversão automática nos LIFs do cluster. Os LIFs de cluster fazem failover para o switch de cluster do parceiro e permanecem lá enquanto você executa o procedimento de atualização no switch de destino:</block>
+  <block id="aa63446a40dd376200a3a73560757d27" category="list-text">Repita os passos 6 a 13 para instalar o software NX-os no interrutor CS1.</block>
+  <block id="963ab35877bd19d496030356c61b1b19" category="paragraph"><block ref="7e5d5f666d8b34453c237cc352a9c503" prefix="" category="inline-code"></block></block>
+  <block id="05bb6ef3e2c06f73934efc48137c162b" category="paragraph">Switch NVIDIA de 16 portas 100GbE (X190006-PE e X190006-PI)</block>
+  <block id="397bd69d3afa84776e6692d4f26e2a0e" category="paragraph">Suporte a switch de interconexão de cluster e switch de storage NVIDIA SN2100, incluindo suporte para configurações IP MetroCluster.</block>
+  <block id="ed1ecba6f44fa7687919f5f5a307e935" category="paragraph">Switch Cisco de 36 portas 100GbE (X190200-CS-PE e X190200-CS-PI)</block>
+  <block id="e9a66ffb0e3c0bad6cf6c904a86f31c9" category="paragraph">Switch de 36 portas 100GbE Cisco (X190200-CS-PE e X190200-CS-PI), (X190210-FE-PE e X190210-FE-PI)</block>
+  <block id="6b5cc0ac44e39f8cfe3a6dc3d48b0474" category="paragraph">Switch de interconexão de cluster Cisco Nexus 9336C-FX2X compatível com switch de storage e switch de storage para sistemas de storage AFF e ASA, bem como para conectividade de dados de front-end.</block>
+  <block id="c4da6f8530fbc654aa08dd52e5a99d6e" category="paragraph">Suporte para switch de interconexão de cluster BES-53248 Broadcom para controladores AFF/FAS com portas 10/25GbE e 40/100GbE.</block>
+  <block id="453008c048efb5abaa0f870ff90ec06c" category="paragraph">Switch Cisco de 36 portas 100GbE (X190200) e switch Cisco de 32 portas 100GbE (X190100 e X190100R)</block>
+  <block id="c96a54a5cd974eb7bce094557b242499" category="paragraph">Suporte ao switch de storage Cisco Nexus 3232C para conectar compartimentos de unidade NVMe NS224 sistemas de storage AFF e ASA:</block>
+  <block id="716c0f8abe31b5f13bfd7bd43eb22133" category="paragraph"><block ref="39471232415c92480914fc76a83483d5" prefix="" category="inline-code"></block></block>
+  <block id="cf9a2fc59b627c808dba1bdf68eecdd2" category="list-text">Repita os passos 6 a 11 no interrutor CS1.</block>
+  <block id="5ea1c753a2f7b1ad712e6e80173d371b" category="list-text">Se estiver a atualizar para a versão NX-os 9,3(11), tem de atualizar a imagem EPLD<block ref="c773fdef3889bdadbe809f1e8aaeea46" prefix=" " category="inline-code"></block> e reiniciar a central novamente. Caso contrário, vá para o passo 12.</block>
+  <block id="28caefed3a29faf45a4d032d5b1006b4" category="inline-link">Notas de versão de atualização do EPLD, versão 9,3(11)</block>
+  <block id="46ddffef0745adf199d35e9bbe4eec40" category="paragraph"><block ref="a4e876354b2a6a79541beefead7e3974" category="inline-link-rx"></block>Consulte para obter mais detalhes.</block>
+  <block id="476acca7b2d84d147895203411c05eee" category="list-text">Repita os passos 6 a 14 no interrutor CS1.</block>
+  <block id="11e210472a35f336b513b2c57b8cffab" category="paragraph"><block ref="7b1f8572a598b67cece8c82d64948766" category="inline-link-macro-rx"></block>.</block>
+  <block id="d80fed14d08f5cc94b5972605f7b1264" category="paragraph">4x100GbE nó 1</block>
+  <block id="f92dbce301746858220367bd16fe3670" category="paragraph">4x100GbE nó 2</block>
+  <block id="b360b026e43659aaec27da3653619648" category="paragraph">4x100GbE nó 3</block>
+  <block id="266d2d353a3daec78bf2e7d143456e44" category="paragraph">4x100GbE nó 4</block>
+  <block id="760f51d18df9099a0f0fe83e3abb7faf" category="paragraph">4x100GbE nó 5</block>
+  <block id="b168a292126af3713fcd57f554534fd6" category="paragraph">4x100GbE nó 6</block>
+  <block id="815287549036f1b9783ed83f49d18ad8" category="paragraph">4x100GbE nó 25</block>
+  <block id="a6543ce9d981a8762d3f93b912a1513b" category="paragraph">4x100GbE nó 26</block>
+  <block id="bda4efa27ca22157a1124a1811bb0fde" category="paragraph">4x100GbE nó 27</block>
+  <block id="d96fb8ec55a6e1a3d9dc7b983a7db52a" category="paragraph">4x100GbE nó 28</block>
+  <block id="115ad3a955478088a1ea07504f6b2100" category="paragraph">4x100GbE nó 29</block>
+  <block id="d756601dbc88cef368b2fa44b4a6a1c5" category="paragraph">4x100GbE nó 30</block>
+  <block id="4f370b0b5d39f8e59c998ad2ca78f8e0" category="paragraph">4x100GbE nó 31</block>
+  <block id="b13fbfadd2367eaa29c4f08ea92d4d50" category="paragraph">4x100GbE nó 32</block>
+  <block id="9ceb13bbaf3370be40502b834610747b" category="paragraph">4x100GbE nó 33</block>
+  <block id="caaf1cd1838e5d2b66c67c3a5a467340" category="paragraph">4x100GbE nó 34</block>
+  <block id="c509ae209503be0a774ac204f0f2dc91" category="paragraph">4x100GbE nó 35</block>
+  <block id="f992d2e7f110147780c9ce8e305e4981" category="paragraph">4x100GbE nó 36</block>
+  <block id="cb02ea2e8f595e77e5e6585ac0421c1a" category="paragraph">Saiba mais sobre os novos switches para sistemas FAS e AFF. Para obter informações adicionais sobre o interrutor, consulte<block ref="341c1c8afc925d24c41903215e7d4958" category="inline-link-rx"></block>.</block>
 </blocks>

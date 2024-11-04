@@ -19,6 +19,8 @@ entries:
 - title: Instale o hardware
   pdf-filename: Install_hardware_9336c-FX2-storage
   entries:
+  - title: Folha de cálculo de cablagem completa
+    url: "/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html"
   - title: Instale o interrutor
     url: "/switch-cisco-9336c-fx2-storage/install-9336c-storage.html"
   - title: Configure o interrutor
