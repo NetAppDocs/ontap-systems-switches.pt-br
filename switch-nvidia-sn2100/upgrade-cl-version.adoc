@@ -37,6 +37,8 @@ NOTE: Cada vez que o Cumulus Linux é atualizado, toda a estrutura do sistema de
 
 CAUTION: A senha padrão para a conta de usuário do Cumulus é *Cumulus*. A primeira vez que você fizer login no Cumulus Linux, você deve alterar essa senha padrão. Você deve atualizar todos os scripts de automação antes de instalar uma nova imagem. O Cumulus Linux fornece opções de linha de comando para alterar a senha padrão automaticamente durante o processo de instalação.
 
+ https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-510/Installation-Management/Installing-a-New-Cumulus-Linux-Image/["Instalando uma nova imagem do Cumulus Linux"^]Consulte para obter mais informações.
+
 .Passos
 [role="tabbed-block"]
 ====
@@ -79,14 +81,14 @@ UP     swp6    100G  9216   Trunk/L2    SHFFG1826000102 (e0b)   Master: bridge(U
 .
 .
 ----
-. Faça o download da imagem Cumulux Linux 5.x:
+. Faça o download da imagem Cumulux Linux 5.x:tmp
 +
 [listing, subs="+quotes"]
 ----
-admin@sw1:mgmt:~$ *sudo onie-install -a -i http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin/*
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://_<ip-to-webserver>_/path/to/cumulus-linux-5.4.0-mlx-amd64.bin*
 [sudo] password for cumulus:
-Fetching installer: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
-Downloading URL: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+Fetching installer: http://_<ip-to-webserver>_/path/to/cumulus-linux-5.4.0-mlx-amd64.bin
+Downloading URL: http://_<ip-to-webserver>_/path/to/cumulus-linux-5.4.0-mlx-amd64.bin
 ######################################################################### 100.0%
 Success: HTTP download complete.
 EFI variables are not supported on this system
@@ -109,8 +111,7 @@ Reboot required to take effect.
 +
 [listing, subs="+quotes"]
 ----
-admin@sw1:mgmt:~$ *sudo onie-install -a -i http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin/*
- *sudo reboot*
+admin@sw1:mgmt:~$ *sudo reboot*
 ----
 . Alterar a palavra-passe:
 +
@@ -178,7 +179,7 @@ cumulus@sw1:mgmt:~$
 +
 [listing, subs="+quotes"]
 ----
-cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206/22*
 cumulus@sw1:mgmt:~$ *nv set interface eth0 ip gateway 10.231.80.1*
 cumulus@sw1:mgmt:~$ *nv config apply*
 applied [rev_id: 2]
@@ -282,10 +283,10 @@ Interface     MTU   Speed State Remote Host         Remote Port- Type      Summa
 +
 [listing, subs="+quotes"]
 ----
-admin@sw1:mgmt:~$ *sudo onie-install -a -i http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin/*
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://_<ip-to-webserver>_/path/to/cumulus-linux-5.4.0-mlx-amd64.bin*
 [sudo] password for cumulus:
-Fetching installer: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
-Downloading URL: http://10.60.132.97/x/eng/testbedN,svl/nic/files/NVIDIA/cumulus-linux-5.4.0-mlx-amd64.bin
+Fetching installer: http://_<ip-to-webserver>_/path/to/cumulus-linux-5.4.0-mlx-amd64.bin
+Downloading URL: http://_<ip-to-webserver>_/path/to/cumulus-linux-5.4.0-mlx-amd64.bin
 ######################################################################### 100.0%
 Success: HTTP download complete.
 EFI variables are not supported on this system
@@ -376,7 +377,7 @@ cumulus@sw1:mgmt:~$
 +
 [listing, subs="+quotes"]
 ----
-cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206/22*
 cumulus@sw1:mgmt:~$ *nv set interface eth0 ip gateway 10.231.80.1*
 cumulus@sw1:mgmt:~$ *nv config apply*
 applied [rev_id: 2]

@@ -14,7 +14,7 @@ summary: 'Pode instalar o ficheiro de configuração de referência (RCF) depois
 A partir do EFOS 3.12.0.1, pode instalar o ficheiro de configuração de referência (RCF) e o ficheiro de licença depois de configurar o comutador de cluster BES-53248.
 
 
-CAUTION: As portas Sall são configuradas quando você instala o RCF, mas você precisa instalar sua licença para ativar as portas configuradas.
+CAUTION: Todas as portas são configuradas quando você instala o RCF, mas você precisa instalar sua licença para ativar as portas configuradas.
 
 
 
