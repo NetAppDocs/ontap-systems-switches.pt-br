@@ -397,6 +397,7 @@ vlan database
 no vlan 17
 no vlan 18
 exit
+show-running-config
 ----
 .. Salve a configuração em execução na configuração de inicialização:
 +
