@@ -24,13 +24,13 @@ Certifique-se de entender os requisitos de cabeamento e conexões de nó e porta
 * O link:https://hwu.netapp.com/["Hardware Universe"^] contém informações sobre cabeamento compatível com switches Nexus 3132Q-V:
 +
 ** Os nós com conexões de cluster de 10 GbE exigem módulos óticos QSFP com cabos de fibra breakout ou cabos de rutura de cobre QSFP para SFP.
-** Os nós com conexões de cluster de 40/100 GbE exigem módulos óticos QSFP/QSFP28 com cabos de fibra ou cabos de conexão direta de cobre QSFP/QSFP28.
+** Os nós com conexões de cluster de 40 GbE exigem módulos óticos QSFP/QSFP28 com cabos de fibra ou cabos de conexão direta de cobre QSFP/QSFP28.
 ** Os switches de cluster usam o cabeamento ISL apropriado: Cabos de conexão direta de fibra 2x QSFP28 ou cobre.
 
 
-* No Nexus 3132Q-V, você pode operar portas QSFP como modos Ethernet de 40/100 GB ou Ethernet de 4 x10 GB.
+* No Nexus 3132Q-V, você pode operar portas QSFP como modos Ethernet de 40 GB ou Ethernet de 4 x10 GB.
 +
-Por padrão, existem 32 portas no modo Ethernet de 40/100 GB. Essas portas Ethernet de 40 GB são numeradas em uma convenção de nomenclatura de 2 tuplos. Por exemplo, a segunda porta Ethernet de 40 GB é numerada como 1/2. O processo de alteração da configuração de Ethernet de 40 GB para Ethernet de 10 GB é chamado _breakout_ e o processo de alteração da configuração de Ethernet de 10 GB para Ethernet de 40 GB é chamado _breakin_. Quando você divide uma porta Ethernet de 40/100 GB em portas Ethernet de 10 GB, as portas resultantes são numeradas usando uma convenção de nomenclatura de 3 tuplas. Por exemplo, as portas de arranque da segunda porta Ethernet de 40/100 GB estão numeradas como 1/2/1, 1/2/2, 1/2/4, 1/2/3.
+Por padrão, existem 32 portas no modo Ethernet de 40 GB. Essas portas Ethernet de 40 GB são numeradas em uma convenção de nomenclatura de 2 tuplos. Por exemplo, a segunda porta Ethernet de 40 GB é numerada como 1/2. O processo de alteração da configuração de Ethernet de 40 GB para Ethernet de 10 GB é chamado _breakout_ e o processo de alteração da configuração de Ethernet de 10 GB para Ethernet de 40 GB é chamado _breakin_. Quando você divide uma porta Ethernet de 40 GB em portas Ethernet de 10 GB, as portas resultantes são numeradas usando uma convenção de nomenclatura de 3 tuplas. Por exemplo, as portas de saída da segunda porta Ethernet de 40 GB são numeradas como 1/2/1, 1/2/2, 1/2/4 e 1/2/3.
 
 * No lado esquerdo do Nexus 3132Q-V está um conjunto de quatro portas SFP multiplexadas para a primeira porta QSFP.
 +
@@ -39,11 +39,11 @@ Por padrão, o RCF é estruturado para usar a primeira porta QSFP.
 +
 Você pode ativar quatro portas SFP em vez de uma porta QSFP para Nexus 3132Q-V usando o `hardware profile front portmode sfp-plus` comando. Da mesma forma, você pode redefinir o Nexus 3132Q-V para usar uma porta QSFP em vez de quatro portas SFP usando o `hardware profile front portmode qsfp` comando.
 
-* Certifique-se de que configurou algumas das portas no Nexus 3132Q-V para serem executadas a 10 GbE ou 40/100 GbE.
+* Certifique-se de que configurou algumas das portas no Nexus 3132Q-V para serem executadas a 10 GbE ou 40 GbE.
 +
 Você pode dividir as primeiras seis portas no modo 4x10 GbE usando o `interface breakout module 1 port 1-6 map 10g-4x` comando. Da mesma forma, você pode reagrupar as primeiras seis portas QSFP a partir da configuração de breakout usando o `no interface breakout module 1 port 1-6 map 10g-4x` comando.
 
-* O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Transferência do ficheiro de configuração de referência do comutador de rede de cluster da Cisco"^] página.
+* O número de portas 10 GbE e 40 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Transferência do ficheiro de configuração de referência do comutador de rede de cluster da Cisco"^] página.
 
 
 .O que você vai precisar
@@ -67,7 +67,7 @@ A link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Switches 
 
 
 
-Além disso, você precisa Planejar, migrar e ler a documentação necessária sobre a conectividade de 10 GbE e 40/100 GbE dos nós para os switches de cluster Nexus 3132Q-V.
+Além disso, você precisa Planejar, migrar e ler a documentação necessária sobre a conectividade de 10 GbE e 40 GbE dos nós para os switches de cluster Nexus 3132Q-V.
 
 
 
@@ -82,7 +82,7 @@ Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
 
 [NOTE]
 ====
-Os exemplos deste procedimento usam dois nós, cada um utilizando duas portas de interconexão de cluster de 40/100 GbE e4a e e4e. link:https://hwu.netapp.com/["Hardware Universe"^]O tem detalhes sobre as portas de cluster em suas plataformas.
+Os exemplos deste procedimento usam dois nós, cada um usando duas portas de interconexão de cluster de 40 GbE e4a e e4e. link:https://hwu.netapp.com/["Hardware Universe"^]O tem detalhes sobre as portas de cluster em suas plataformas.
 
 ====
 .Sobre esta tarefa
@@ -92,7 +92,7 @@ Este procedimento abrange os seguintes cenários:
 * N1_clus2 é o primeiro LIF de cluster a ser conetado ao switch de cluster C2 para o nó n1.
 * N2_clus1 é o primeiro LIF de cluster a ser conetado ao switch de cluster C1 para o nó n2.
 * N2_clus2 é o segundo LIF de cluster a ser conetado ao switch de cluster C2 para o nó n2.
-* O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Transferência do ficheiro de configuração de referência do comutador de rede de cluster da Cisco"^] página.
+* O número de portas 10 GbE e 40 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Transferência do ficheiro de configuração de referência do comutador de rede de cluster da Cisco"^] página.
 
 
 [NOTE]

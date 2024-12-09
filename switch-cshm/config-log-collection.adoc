@@ -45,6 +45,9 @@ O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir 
 --
 . Para configurar a coleção de logs, execute o seguinte comando para cada switch. Você será solicitado a digitar o nome do switch, nome de usuário e senha para a coleta de logs.
 +
+*OBSERVAÇÃO:* se responder `y` ao prompt de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias conforme descrito em <<Antes de começar>> .
+
++
 [source, cli]
 ----
 system switch ethernet log setup-password
@@ -111,6 +114,9 @@ system switch ethernet log show
 .ONTAP 9.15,1 e posterior
 --
 . Para configurar a coleção de logs, execute o seguinte comando para cada switch. Você será solicitado a digitar o nome do switch, nome de usuário e senha para a coleta de logs.
++
+*OBSERVAÇÃO:* se responder `y` ao prompt de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias conforme descrito em <<Antes de começar>>.
+
 +
 [source, cli]
 ----
