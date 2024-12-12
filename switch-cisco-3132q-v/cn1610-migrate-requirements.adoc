@@ -1,0 +1,91 @@
+---
+permalink: switch-cisco-3132q-v/cn1610-migrate-requirements.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 3132q-v switch, 
+summary: Antes de configurar os switches Cisco Nexus 3132q-v, revise uma visão geral do processo e da nomenclatura. 
+---
+= Requisitos de migração
+:allow-uri-read: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os switches Cisco Nexus 3132Q-V podem ser usados como switches de cluster em seu cluster AFF ou FAS. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.
+
+[NOTE]
+====
+O procedimento requer o uso de comandos ONTAP e comandos Cisco Nexus 3000 Series switches; os comandos ONTAP são usados, a menos que indicado de outra forma.
+
+====
+Para obter mais informações, consulte:
+
+* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Página de descrição do NetApp CN1601 e CN1610"^]
+* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descrição do comutador Ethernet Cisco"^]
+* http://hwu.netapp.com["Hardware Universe"^]
+
+
+
+
+== CN1610 requisitos
+
+Os seguintes switches de cluster são suportados:
+
+* NetApp CN1610
+* Cisco Nexus 3132Q-V
+
+
+Os switches do cluster suportam as seguintes conexões de nós:
+
+* NetApp CN1610: Portas de 0/1 a 0/12 (10 GbE)
+* Cisco Nexus 3132QP-V: Portas E1/1-30 (40/100 GbE)
+
+
+Os interrutores do grupo de instrumentos utilizam as seguintes portas ISL (Inter-Switch Link):
+
+* NetApp CN1610: Portas de 0/13 a 0/16 (10 GbE)
+* Cisco Nexus 3132QP-V: Portas E1/31-32 (40/100 GbE)
++
+O link:https://hwu.netapp.com/["Hardware Universe"^] contém informações sobre cabeamento compatível com switches Nexus 3132Q-V:
+
+* Os nós com conexões de cluster de 10 GbE exigem cabos de conexões de fibra ótica QSFP para SFP ou cabos de conexões de cobre QSFP para SFP
+* Os nós com conexões de cluster de 40/100 GbE exigem módulos óticos QSFP/QSFP28 com cabos de fibra ótica ou cabos de conexão direta de cobre QSFP/QSFP28
+
+
+O cabeamento ISL apropriado é o seguinte:
+
+* Início: Para CN1610 GbE a CN1610 GbE (SFP a SFP), quatro cabos de conexão direta de fibra ótica SFP ou cobre
+* Interino: Para CN1610 para Nexus 3132Q-V (QSFP para quatro SFP mais breakout), um cabo de fibra ótica QSFP para SFP ou de cobre breakout
+* Final: Para Nexus 3132Q-V para Nexus 3132Q-V (QSFP28 a QSFP28), dois cabos de fibra ótica QSFP28 ou cobre de ligação direta
+
+
+Os cabos NetApp twinax não são compatíveis com os switches Cisco Nexus 3132Q-V.
+
+Se a sua configuração atual do CN1610 utilizar cabos NetApp twinax para ligações de cluster-nó-a-switch ou ISL e pretender continuar a utilizar o twinax no seu ambiente, tem de adquirir cabos Cisco twinax. Como alternativa, você pode usar cabos de fibra ótica tanto para as conexões ISL quanto para as conexões cluster-node para switch.
+
+.Sobre os exemplos usados
+Os exemplos neste procedimento descrevem a substituição de switches CN1610 por switches Cisco Nexus 3132Q-V. Pode utilizar estes passos (com modificações) para outras centrais Cisco mais antigas.
+
+O procedimento também usa a seguinte nomenclatura de switch e nó:
+
+* As saídas de comando podem variar dependendo de diferentes versões do ONTAP.
+* Os CN1610 interrutores a substituir são *CL1* e *CL2*.
+* Os switches Nexus 3132Q-V para substituir os switches CN1610 são *C1* e *C2*.
+* *n1_clus1* é a primeira interface lógica de cluster (LIF) conetada ao switch de cluster 1 (CL1 ou C1) para o nó *n1*.
+* *n1_clus2* é o primeiro cluster LIF conetado ao switch de cluster 2 (CL2 ou C2) para o nó *n1*.
+* *n1_clus3* é o segundo LIF conetado ao switch de cluster 2 (CL2 ou C2) para o nó *n1*.
+* *n1_clus4* é o segundo LIF conetado ao switch de cluster 1 (CL1 ou C1) para o nó *n1*.
+* O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] página.
+* Os nós são *n1*, *n2*, *n3* e *n4*.
+
+
+Os exemplos neste procedimento usam quatro nós:
+
+* Dois nós usam quatro portas de interconexão de cluster de 10 GbE: *e0a*, *e0b*, *e0c* e *e0d*.
+* Os outros dois nós usam duas portas de interconexão de cluster de 40 GbE: *e4a* e *e4e*.
++
+A link:https://hwu.netapp.com/["Hardware Universe"^] lista as portas de cluster reais em suas plataformas.
+
+
+
+.O que se segue?
+link:cn5596-prepare-to-migrate.html["Prepare-se para a migração"].

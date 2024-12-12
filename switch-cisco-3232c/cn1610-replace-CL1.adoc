@@ -1,0 +1,249 @@
+---
+permalink: switch-cisco-3232c/cn1610-replace-CL1.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Você pode usar os switches Cisco Nexus 3232C como switches de cluster no seu cluster AFF ou FAS. 
+---
+= Substitua o interrutor CN1610 CL1 pelo interrutor 3232C C1
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estas etapas para substituir o switch CN1610 (CL1) por um switch Nexus 3232C (C1).
+
+.Passos
+. Verifique o status do cluster:
++
+`network interface show -role cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que as LIFs de cluster necessárias foram migradas para as portas de cluster apropriadas hospedadas no switch de cluster C2:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface show -role cluster*
+(network interface show)
+         Logical    Status      Network        Current  Current  Is
+Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
+-------- ---------- ----------- -------------- -------- -------- -----
+Cluster
+         n1_clus1   up/up       10.10.0.1/24   n1       e0b      false
+         n1_clus2   up/up       10.10.0.2/24   n1       e0b      true
+         n1_clus3   up/up       10.10.0.3/24   n1       e0c      true
+         n1_clus4   up/up       10.10.0.4/24   n1       e0c      false
+         n2_clus1   up/up       10.10.0.5/24   n2       e0b      false
+         n2_clus2   up/up       10.10.0.6/24   n2       e0b      true
+         n2_clus3   up/up       10.10.0.7/24   n2       e0c      true
+         n2_clus4   up/up       10.10.0.8/24   n2       e0c      false
+
+8 entries were displayed.
+----
+====
+. Encerre as portas de nós que estão conetadas ao CL1 em todos os nós:
++
+`network port modify -node _node-name_ -port _port-name_ -up-admin false`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra portas específicas sendo fechadas nos nós n1 e n2:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network port modify -node n1 -port e0a -up-admin false*
+cluster::*> *network port modify -node n1 -port e0d -up-admin false*
+cluster::*> *network port modify -node n2 -port e0a -up-admin false*
+cluster::*> *network port modify -node n2 -port e0d -up-admin false*
+----
+====
+. Desligue as portas ISL 24, 31 e 32 no interrutor 3232C ativo C2.
++
+Para obter mais informações sobre comandos Cisco, consulte os guias listados no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que ISLs 24, 31 e 32 estão sendo encerrados no interrutor 3232C ativo C2:
+
+[listing, subs="+quotes"]
+----
+C2# *configure*
+C2(config)# *interface ethernet 1/24/1-4*
+C2(config-if-range)# *shutdown*
+C2(config-if-range)# *exit*
+C2(config)# *interface ethernet 1/31-32*
+C2(config-if-range)# *shutdown*
+C2(config-if-range)# *exit*
+C2(config)# *exit*
+C2#
+----
+====
+. Remova os cabos que estão conetados ao switch CN1610 CL1 em todos os nós.
++
+Usando o cabeamento apropriado, você deve reconetar as portas desconetadas em todos os nós ao switch Nexus 3232C C1.
+
+. Remova os cabos QSFP28 da porta E1/24 do Nexus 3232C C2.
++
+É necessário conetar as portas E1/31 e E1/32 no C1 às portas E1/31 e E1/32 no C2 usando fibra ótica Cisco QSFP28 suportada ou cabos de conexão direta.
+
+. Restaure a configuração na porta 24 e remova o canal de porta temporário 2 no C2:
++
+Para obter mais informações sobre comandos Cisco, consulte os guias listados no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra o `running-configuration` arquivo que está sendo copiado para o `startup-configuration` arquivo:
+
+[listing, subs="+quotes"]
+----
+C2# configure
+C2(config)# *no interface breakout module 1 port 24 map 10g-4x*
+C2(config)# *no interface port-channel 2*
+C2(config-if)# *interface e1/24*
+C2(config-if)# *description 100GbE/40GbE Node Port*
+C2(config-if)# *spanning-tree port type edge*
+Edge port type (portfast) should only be enabled on ports connected to a single
+host. Connecting hubs, concentrators, switches, bridges, etc...  to this
+interface when edge port type (portfast) is enabled, can cause temporary bridging loops.
+Use with CAUTION
+
+Edge Port Type (Portfast) has been configured on Ethernet 1/24 but will only
+have effect when the interface is in a non-trunking mode.
+
+C2(config-if)# *spanning-tree bpduguard enable*
+C2(config-if)# *mtu 9216*
+C2(config-if-range)# *exit*
+C2(config)# *exit*
+C2# copy running-config startup-config
+[########################################] 100%
+Copy Complete.
+----
+====
+. Abra as portas ISL 31 e 32 no C2, o interrutor 3232C ativo.
++
+Para obter mais informações sobre comandos Cisco, consulte os guias listados no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra ISLs 31 e 32 sendo trazidos para o interrutor 3232C C2:
+
+[listing, subs="+quotes"]
+----
+C2# *configure*
+C2(config)# *interface ethernet 1/31-32*
+C2(config-if-range)# *no shutdown*
+C2(config-if-range)# *exit*
+C2(config)# *exit*
+C2# copy running-config startup-config
+[########################################] 100%
+Copy Complete.
+----
+====
+. Verifique se as conexões ISL estão `up` no interrutor 3232C C2.
++
+Para obter mais informações sobre comandos Cisco, consulte os guias listados no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra as conexões ISL sendo verificadas. As portas eth1/31 e eth1/32 indicam `(P)`, o que significa que ambas as portas ISL estão `up` no canal de porta:
+
+[listing, subs="+quotes"]
+----
+C1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        M - Not in use. Min-links not met
+------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+-----------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
+
+C2# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        M - Not in use. Min-links not met
+------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
+----
+====
+. Abra todas as portas de interconexão de cluster conetadas ao novo switch 3232C C1 em todos os nós:
++
+`network port modify -node _node-name_ -port _port-name_ -up-admin true`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra todas as portas de interconexão de cluster conetadas ao novo switch 3232C C1 sendo criado:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network port modify -node n1 -port e0a -up-admin true*
+cluster::*> *network port modify -node n1 -port e0d -up-admin true*
+cluster::*> *network port modify -node n2 -port e0a -up-admin true*
+cluster::*> *network port modify -node n2 -port e0d -up-admin true*
+----
+====
+. Verifique o status da porta do nó do cluster:
++
+`network port show -role cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra a saída que verifica se as portas de interconexão de cluster nos nós n1 e n2 no novo switch 3232C C1 são `up`:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network port show -role cluster*
+       (network port show)
+
+Node: n1
+                Broadcast              Speed (Mbps) Health   Ignore
+Port  IPspace   Domain     Link  MTU   Admin/Open   Status   Health Status
+----- --------- ---------- ----- ----- ------------ -------- -------------
+e0a   cluster   cluster    up    9000  auto/10000     -
+e0b   cluster   cluster    up    9000  auto/10000     -
+e0c   cluster   cluster    up    9000  auto/10000     -        -
+e0d   cluster   cluster    up    9000  auto/10000     -        -
+
+Node: n2
+                Broadcast              Speed (Mbps) Health   Ignore
+Port  IPspace   Domain     Link  MTU   Admin/Open   Status   Health Status
+----- --------- ---------- ----- ----- ------------ -------- -------------
+e0a   cluster   cluster    up    9000  auto/10000     -
+e0b   cluster   cluster    up    9000  auto/10000     -
+e0c   cluster   cluster    up    9000  auto/10000     -
+e0d   cluster   cluster    up    9000  auto/10000     -
+
+8 entries were displayed.
+----
+====
+
+
+.O que se segue?
+link:cn1610-complete-migration.html["Conclua a migração"].

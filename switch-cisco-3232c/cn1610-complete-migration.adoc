@@ -1,0 +1,344 @@
+---
+permalink: switch-cisco-3232c/cn1610-complete-migration.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Você pode usar os switches Cisco Nexus 3232C como switches de cluster no seu cluster AFF ou FAS. 
+---
+= Conclua sua migração de CN1610 switches para 3232C switches
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Conclua as etapas a seguir para finalizar a migração de switches CN1610 para os switches Nexus 3232C.
+
+.Passos
+. Reverter todas as LIFs de interconexão de cluster migradas originalmente conetadas ao C1 em todos os nós:
++
+`network interface revert -server cluster -lif _lif-name_`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+Você deve migrar cada LIF individualmente, conforme mostrado no exemplo a seguir:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface revert -vserver cluster -lif n1_clus1*
+cluster::*> *network interface revert -vserver cluster -lif n1_clus4*
+cluster::*> *network interface revert -vserver cluster -lif n2_clus1*
+cluster::*> *network interface revert -vserver cluster -lif n2_clus4*
+----
+====
+. Verifique se a interface está agora em casa:
++
+`network interface show -role cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra o status das interfaces de interconexão de cluster é `up` e "é Início" para os nós n1 e n2:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface show -role cluster*
+(network interface show)
+         Logical    Status      Network        Current  Current  Is
+Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
+-------- ---------- ----------- -------------- -------- -------- -----
+Cluster
+         n1_clus1   up/up       10.10.0.1/24   n1       e0a      true
+         n1_clus2   up/up       10.10.0.2/24   n1       e0b      true
+         n1_clus3   up/up       10.10.0.3/24   n1       e0c      true
+         n1_clus4   up/up       10.10.0.4/24   n1       e0d      true
+         n2_clus1   up/up       10.10.0.5/24   n2       e0a      true
+         n2_clus2   up/up       10.10.0.6/24   n2       e0b      true
+         n2_clus3   up/up       10.10.0.7/24   n2       e0c      true
+         n2_clus4   up/up       10.10.0.8/24   n2       e0d      true
+
+8 entries were displayed.
+----
+====
+. Verifique a conectividade das interfaces de cluster remotas:
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9,1 e posterior
+--
+Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+
+`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2         n2-clus1         none
+       3/5/2022 19:21:20 -06:00   n1_clus2         n2_clus2         none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2         n1_clus1         none
+       3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
+----
+--
+.Todos os lançamentos do ONTAP
+--
+Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is n1
+Getting addresses from network interface table...
+Cluster n1_clus1 n1       e0a    10.10.0.1
+Cluster n1_clus2 n1       e0b    10.10.0.2
+Cluster n1_clus3 n1       e0c    10.10.0.3
+Cluster n1_clus4 n1       e0d    10.10.0.4
+Cluster n2_clus1 n2       e0a    10.10.0.5
+Cluster n2_clus2 n2       e0b    10.10.0.6
+Cluster n2_clus3 n2       e0c    10.10.0.7
+Cluster n2_clus4 n2       e0d    10.10.0.8
+Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
+Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
+Cluster Vserver Id = 4294967293 Ping status:
+....
+Basic connectivity succeeds on 16 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 16 path(s):
+    Local 10.10.0.1 to Remote 10.10.0.5
+    Local 10.10.0.1 to Remote 10.10.0.6
+    Local 10.10.0.1 to Remote 10.10.0.7
+    Local 10.10.0.1 to Remote 10.10.0.8
+    Local 10.10.0.2 to Remote 10.10.0.5
+    Local 10.10.0.2 to Remote 10.10.0.6
+    Local 10.10.0.2 to Remote 10.10.0.7
+    Local 10.10.0.2 to Remote 10.10.0.8
+    Local 10.10.0.3 to Remote 10.10.0.5
+    Local 10.10.0.3 to Remote 10.10.0.6
+    Local 10.10.0.3 to Remote 10.10.0.7
+    Local 10.10.0.3 to Remote 10.10.0.8
+    Local 10.10.0.4 to Remote 10.10.0.5
+    Local 10.10.0.4 to Remote 10.10.0.6
+    Local 10.10.0.4 to Remote 10.10.0.7
+    Local 10.10.0.4 to Remote 10.10.0.8
+
+Larger than PMTU communication succeeds on 16 path(s)
+RPC status:
+4 paths up, 0 paths down (tcp check)
+3 paths up, 0 paths down (udp check)
+----
+--
+====
+. [[step4]] expanda o cluster adicionando nós aos switches de cluster Nexus 3232C.
+. Exiba as informações sobre os dispositivos em sua configuração:
++
+** `network device-discovery show`
+** `network port show -role cluster`
+** `network interface show -role cluster`
+** `system cluster-switch show`
++
+.Mostrar exemplo
+[%collapsible]
+====
+Os exemplos a seguir mostram os nós n3 e n4 com portas de cluster de 40 GbE conetadas às portas E1/7 e E1/8, respetivamente, em ambos os switches de cluster Nexus 3232C. Ambos os nós são Unidos ao cluster. As portas de interconexão de cluster de 40 GbE usadas são e4a e e4e.
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network device-discovery show*
+
+       Local  Discovered
+Node   Port   Device       Interface       Platform
+------ ------ ------------ --------------- -------------
+n1     /cdp
+        e0a   C1           Ethernet1/1/1   N3K-C3232C
+        e0b   C2           Ethernet1/1/1   N3K-C3232C
+        e0c   C2           Ethernet1/1/2   N3K-C3232C
+        e0d   C1           Ethernet1/1/2   N3K-C3232C
+n2     /cdp
+        e0a   C1           Ethernet1/1/3   N3K-C3232C
+        e0b   C2           Ethernet1/1/3   N3K-C3232C
+        e0c   C2           Ethernet1/1/4   N3K-C3232C
+        e0d   C1           Ethernet1/1/4   N3K-C3232C
+
+n3     /cdp
+        e4a   C1           Ethernet1/7     N3K-C3232C
+        e4e   C2           Ethernet1/7     N3K-C3232C
+
+n4     /cdp
+        e4a   C1           Ethernet1/8     N3K-C3232C
+        e4e   C2           Ethernet1/8     N3K-C3232C
+
+12 entries were displayed.
+cluster::*> *network port show -role cluster*
+(network port show)
+
+Node: n1
+                Broadcast              Speed (Mbps) Health   Ignore
+Port  IPspace   Domain     Link  MTU   Admin/Open   Status   Health Status
+----- --------- ---------- ----- ----- ------------ -------- -------------
+e0a   cluster   cluster    up    9000  auto/10000     -
+e0b   cluster   cluster    up    9000  auto/10000     -
+e0c   cluster   cluster    up    9000  auto/10000     -        -
+e0d   cluster   cluster    up    9000  auto/10000     -        -
+
+Node: n2
+                Broadcast              Speed (Mbps) Health   Ignore
+Port  IPspace   Domain     Link  MTU   Admin/Open   Status   Health Status
+----- --------- ---------- ----- ----- ------------ -------- -------------
+e0a   cluster   cluster    up    9000  auto/10000     -
+e0b   cluster   cluster    up    9000  auto/10000     -
+e0c   cluster   cluster    up    9000  auto/10000     -
+e0d   cluster   cluster    up    9000  auto/10000     -        -
+
+Node: n3
+                Broadcast              Speed (Mbps) Health   Ignore
+Port  IPspace   Domain     Link  MTU   Admin/Open   Status   Health Status
+----- --------- ---------- ----- ----- ------------ -------- -------------
+e4a   cluster   cluster    up    9000  auto/40000     -
+e4e   cluster   cluster    up    9000  auto/40000     -        -
+
+Node: n4
+                Broadcast              Speed (Mbps) Health   Ignore
+Port  IPspace   Domain     Link  MTU   Admin/Open   Status   Health Status
+----- --------- ---------- ----- ----- ------------ -------- -------------
+e4a   cluster   cluster    up    9000  auto/40000     -
+e4e   cluster   cluster    up    9000  auto/40000     -
+
+12 entries were displayed.
+
+cluster::*> *network interface show -role cluster*
+(network interface show)
+         Logical    Status      Network        Current  Current  Is
+Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
+-------- ---------- ----------- -------------- -------- -------- -----
+Cluster
+         n1_clus1   up/up       10.10.0.1/24   n1       e0a      true
+         n1_clus2   up/up       10.10.0.2/24   n1       e0b      true
+         n1_clus3   up/up       10.10.0.3/24   n1       e0c      true
+         n1_clus4   up/up       10.10.0.4/24   n1       e0d      true
+         n2_clus1   up/up       10.10.0.5/24   n2       e0a      true
+         n2_clus2   up/up       10.10.0.6/24   n2       e0b      true
+         n2_clus3   up/up       10.10.0.7/24   n2       e0c      true
+         n2_clus4   up/up       10.10.0.8/24   n2       e0d      true
+         n3_clus1   up/up       10.10.0.9/24   n3       e4a      true
+         n3_clus2   up/up       10.10.0.10/24  n3       e4e      true
+         n4_clus1   up/up       10.10.0.11/24  n4       e4a     true
+         n4_clus2   up/up       10.10.0.12/24  n4       e4e     true
+
+12 entries were displayed.
+
+cluster::> *system cluster-switch show*
+
+Switch                      Type             Address       Model
+--------------------------- ---------------- ------------- ---------
+C1                          cluster-network  10.10.1.103   NX3232C
+
+     Serial Number: FOX000001
+      Is Monitored: true
+            Reason:
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    7.0(3)I6(1)
+    Version Source: CDP
+
+C2                          cluster-network  10.10.1.104   NX3232C
+
+     Serial Number: FOX000002
+      Is Monitored: true
+            Reason:
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    7.0(3)I6(1)
+    Version Source: CDP
+CL1                         cluster-network  10.10.1.101   CN1610
+
+     Serial Number: 01234567
+      Is Monitored: true
+            Reason:
+  Software Version: 1.2.0.7
+    Version Source: ISDP
+CL2                         cluster-network  10.10.1.102    CN1610
+
+     Serial Number: 01234568
+      Is Monitored: true
+            Reason:
+  Software Version: 1.2.0.7
+    Version Source: ISDP 4 entries were displayed.
+----
+====
+
+
+. Extrair os CN1610 interrutores substituídos, se não forem removidos automaticamente:
++
+`system cluster-switch delete -device _switch-name_`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+Você deve excluir ambos os dispositivos individualmente, como mostrado no exemplo a seguir:
+
+[listing, subs="+quotes"]
+----
+cluster::> *system cluster-switch delete –device CL1*
+cluster::> *system cluster-switch delete –device CL2*
+----
+====
+. Verifique se os switches de cluster adequados são monitorados:
++
+`system cluster-switch show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que os switches de cluster C1 e C2 estão sendo monitorados:
+
+[listing, subs="+quotes"]
+----
+cluster::> *system cluster-switch show*
+
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+C1                          cluster-network    10.10.1.103      NX3232C
+
+     Serial Number: FOX000001
+      Is Monitored: true
+            Reason:
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    7.0(3)I6(1)
+    Version Source: CDP
+
+C2                          cluster-network    10.10.1.104      NX3232C
+     Serial Number: FOX000002
+      Is Monitored: true
+          Reason:
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    7.0(3)I6(1)
+    Version Source: CDP
+
+2 entries were displayed.
+----
+====
+. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+.O que se segue?
+link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].

@@ -19,7 +19,7 @@ Você também pode usar este procedimento para atualizar sua versão RCF. Consul
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
 * Um backup atual da configuração do switch.
 * Um cluster totalmente funcional (sem erros nos logs ou problemas semelhantes).
 * O ficheiro de configuração de referência atual (RCF).

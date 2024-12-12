@@ -17,7 +17,7 @@ Siga este procedimento para instalar o software NX-os no switch de cluster Nexus
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
 * Um backup atual da configuração do switch.
 * Um cluster totalmente funcional (sem erros nos logs ou problemas semelhantes).
 

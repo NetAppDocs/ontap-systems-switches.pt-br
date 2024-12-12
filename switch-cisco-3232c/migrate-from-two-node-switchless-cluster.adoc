@@ -17,11 +17,8 @@ Se você tiver um cluster _sem switch_ de dois nós, poderá migrar para um clus
 
 == Rever os requisitos
 
-.Requisitos de migração
-Antes da migração, certifique-se de rever link:migrate-requirements-3232c.html["Requisitos de migração"]o .
-
-.O que você vai precisar
-Certifique-se de que:
+.Antes de começar
+Verifique as seguintes instalações e conexões:
 
 * As portas estão disponíveis para conexões de nós. Os switches do cluster usam as portas ISL (Inter-Switch Link) E1/31-32.
 * Você tem cabos apropriados para conexões de cluster:
@@ -50,10 +47,6 @@ Os dois nós devem estar conetados e funcionando em uma configuração de cluste
 
 
 
-
-
-== Migrar os switches
-
 .Sobre os exemplos
 Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
 
@@ -77,7 +70,7 @@ O procedimento requer o uso de comandos ONTAP e comandos Cisco Nexus 3000 Series
 ====
 
 
-=== Etapa 1: Exibir e migrar portas físicas e lógicas
+== Etapa 1: Exibir e migrar portas físicas e lógicas
 
 . Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
 +
@@ -330,7 +323,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
-=== Passo 2: Desligue os LIFs reatribuídos e desconete os cabos
+== Passo 2: Desligue os LIFs reatribuídos e desconete os cabos
 
 . Verifique se as interfaces do cluster migraram com êxito:
 +
@@ -445,7 +438,7 @@ Você pode consultar a configuração em execução e conetar a primeira porta d
 
 
 
-=== Etapa 3: Ative as portas do cluster
+== Etapa 3: Ative as portas do cluster
 
 . Desconete o cabo do e4a no nó n2.
 +
@@ -561,7 +554,7 @@ Cluster
 
 
 
-=== Etapa 4: Ative os LIFs reatribuídos
+== Etapa 4: Ative os LIFs reatribuídos
 
 . Exiba a conetividade da porta do cluster em cada nó:
 +

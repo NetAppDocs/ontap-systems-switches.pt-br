@@ -1,0 +1,243 @@
+---
+permalink: switch-cisco-3232c/cn5596-prepare-to-migrate.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Você pode usar os switches Cisco Nexus 3232C como switches de cluster no seu cluster AFF ou FAS. 
+---
+= Prepare-se para a migração de switches Nexus 5596 para switches Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estas etapas para preparar seus switches Cisco Nexus 5596 para migração para os switches Cisco Nexus 3232C.
+
+.Passos
+. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all - message MAINT=xh`
+
++
+_x_ é a duração da janela de manutenção em horas.
+
++
+[NOTE]
+====
+A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+
+====
+. Exiba informações sobre os dispositivos em sua configuração:
++
+`network device-discovery show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra quantas interfaces de interconexão de cluster foram configuradas em cada nó para cada switch de interconexão de cluster:
+
+[listing, subs="+quotes"]
+----
+cluster::> *network device-discovery show*
+            Local  Discovered
+Node        Port   Device              Interface        Platform
+----------- ------ ------------------- ---------------- ----------------
+n1         /cdp
+            e0a    CL1                 Ethernet1/1      N5K-C5596UP
+            e0b    CL2                 Ethernet1/1      N5K-C5596UP
+            e0c    CL2                 Ethernet1/2      N5K-C5596UP
+            e0d    CL1                 Ethernet1/2      N5K-C5596UP
+n2         /cdp
+            e0a    CL1                 Ethernet1/3      N5K-C5596UP
+            e0b    CL2                 Ethernet1/3      N5K-C5596UP
+            e0c    CL2                 Ethernet1/4      N5K-C5596UP
+            e0d    CL1                 Ethernet1/4      N5K-C5596UP
+8 entries were displayed.
+----
+====
+. Determine o status administrativo ou operacional de cada interface de cluster.
++
+.. Exibir os atributos da porta de rede:
++
+`network port show -role cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir exibe os atributos da porta de rede nos nós n1 e n2:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network port show –role cluster*
+  (network port show)
+Node: n1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000 auto/10000  -        -
+e0b       Cluster      Cluster          up   9000 auto/10000  -        -
+e0c       Cluster      Cluster          up   9000 auto/10000  -        -
+e0d       Cluster      Cluster          up   9000 auto/10000  -        -
+
+Node: n2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 -        -
+e0b       Cluster      Cluster          up   9000  auto/10000 -        -
+e0c       Cluster      Cluster          up   9000  auto/10000 -        -
+e0d       Cluster      Cluster          up   9000  auto/10000 -        -
+8 entries were displayed.
+----
+====
+.. Exibir informações sobre as interfaces lógicas:
++
+`network interface show -role cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir exibe as informações gerais sobre todas as LIFs no cluster, incluindo suas portas atuais:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface show -role cluster*
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e0a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e0b     true
+            n1_clus3   up/up      10.10.0.3/24       n1            e0c     true
+            n1_clus4   up/up      10.10.0.4/24       n1            e0d     true
+            n2_clus1   up/up      10.10.0.5/24       n2            e0a     true
+            n2_clus2   up/up      10.10.0.6/24       n2            e0b     true
+            n2_clus3   up/up      10.10.0.7/24       n2            e0c     true
+            n2_clus4   up/up      10.10.0.8/24       n2            e0d     true
+8 entries were displayed.
+----
+====
+.. Exibir informações sobre os switches de cluster descobertos:
++
+`system cluster-switch show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra os switches do cluster ativo:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *system cluster-switch show*
+
+Switch                        Type               Address         Model
+----------------------------- ------------------ --------------- ---------------
+CL1                           cluster-network    10.10.1.101     NX5596
+     Serial Number: 01234567
+      Is Monitored: true
+            Reason:
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    7.1(1)N1(1)
+    Version Source: CDP
+CL2                           cluster-network    10.10.1.102     NX5596
+     Serial Number: 01234568
+      Is Monitored: true
+            Reason:
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    7.1(1)N1(1)
+    Version Source: CDP
+
+2 entries were displayed.
+----
+====
+
+
+. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3232C conforme necessário para seus requisitos e faça as personalizações essenciais do site, como usuários e senhas, endereços de rede e outras personalizações.
++
+[NOTE]
+====
+Neste momento, tem de preparar ambos os interrutores.
+
+====
++
+Se você precisar atualizar o RCF e a imagem, você deve concluir as seguintes etapas:
+
++
+.. Vá para a página _switches Ethernet Cisco_ no site de suporte da NetApp.
++
+http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet Cisco"^]
+
+.. Observe o switch e as versões de software necessárias na tabela nessa página.
+.. Baixe a versão apropriada do RCF.
+.. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
+.. Transfira a versão apropriada do software de imagem.
++
+Consulte a página __ONTAP 8.x ou mais recente de transferência de Configuração de comutador de rede de Gestão e Cluster___ e, em seguida, selecione a versão apropriada.
+
++
+Para encontrar a versão correta, consulte a página de download do comutador de rede de cluster _ONTAP 8.x ou posterior_.
+
+
+
+. Migrar os LIFs associados ao segundo switch Nexus 5596 a ser substituído:
++
+`network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ - destination-node _node-name_ -destination-port _destination-port-name_`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra as LIFs sendo migradas para os nós n1 e n2; a migração de LIF deve ser feita em todos os nós:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 -
+destination-node n1 -destination-port e0a*
+cluster::*> *network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 -
+destination-node n1 -destination-port e0d*
+cluster::*> *network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 -
+destination-node n2 -destination-port e0a*
+cluster::*> *network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 -
+destination-node n2 -destination-port e0d*
+----
+====
+. Verifique a integridade do cluster:
++
+`network interface show -role cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra o status atual de cada cluster:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface show -role cluster*
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e0a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e0a     false
+            n1_clus3   up/up      10.10.0.3/24       n1            e0d     false
+            n1_clus4   up/up      10.10.0.4/24       n1            e0d     true
+            n2_clus1   up/up      10.10.0.5/24       n2            e0a     true
+            n2_clus2   up/up      10.10.0.6/24       n2            e0a     false
+            n2_clus3   up/up      10.10.0.7/24       n2            e0d     false
+            n2_clus4   up/up      10.10.0.8/24       n2            e0d     true
+8 entries were displayed.
+----
+====
+
+
+.O que se segue?
+link:cn5596-configure-ports.html["Configure as portas"].

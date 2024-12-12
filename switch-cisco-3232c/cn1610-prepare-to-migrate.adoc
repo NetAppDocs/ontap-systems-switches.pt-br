@@ -1,0 +1,222 @@
+---
+permalink: switch-cisco-3232c/cn1610-prepare-to-migrate.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Você pode usar os switches Cisco Nexus 3232C como switches de cluster no seu cluster AFF ou FAS. 
+---
+= Prepare-se para a migração a partir de CN1610 switches 3232C switches
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estes passos para preparar a migração de switch CN1610 para um switch Cisco Nexus 3232C.
+
+.Passos
+. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+_x_ é a duração da janela de manutenção em horas.
+
++
+[NOTE]
+====
+A mensagem notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+
+====
+. Exiba informações sobre os dispositivos em sua configuração:
++
+`network device-discovery show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra quantas interfaces de interconexão de cluster foram configuradas em cada nó para cada switch de interconexão de cluster:
+
+[listing, subs="+quotes"]
+----
+cluster::> *network device-discovery show*
+
+       Local  Discovered
+Node   Port   Device       Interface   Platform
+------ ------ ------------ ----------- ----------
+n1     /cdp
+        e0a   CL1          0/1         CN1610
+        e0b   CL2          0/1         CN1610
+        e0c   CL2          0/2         CN1610
+        e0d   CL1          0/2         CN1610
+n2     /cdp
+        e0a   CL1          0/3         CN1610
+        e0b   CL2          0/3         CN1610
+        e0c   CL2          0/4         CN1610
+        e0d   CL1          0/4         CN1610
+
+8 entries were displayed.
+----
+====
+. Determine o status administrativo ou operacional de cada interface de cluster.
++
+.. Exibir os atributos da porta de rede do cluster:
++
+`network port show -role cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network port show -role cluster*
+       (network port show)
+
+Node: n1
+                Broadcast              Speed (Mbps) Health Ignore
+Port  IPspace   Domain     Link  MTU   Admin/Open   Status Health Status
+----- --------- ---------- ----- ----- ------------ ------ -------------
+e0a   cluster   cluster    up    9000  auto/10000     -
+e0b   cluster   cluster    up    9000  auto/10000     -
+e0c   cluster   cluster    up    9000  auto/10000     -        -
+e0d   cluster   cluster    up    9000  auto/10000     -        -
+Node: n2
+                Broadcast              Speed (Mbps) Health Ignore
+Port  IPspace   Domain     Link  MTU   Admin/Open   Status Health Status
+----- --------- ---------- ----- ----- ------------ ------ -------------
+e0a   cluster   cluster    up    9000  auto/10000     -
+e0b   cluster   cluster    up    9000  auto/10000     -
+e0c   cluster   cluster    up    9000  auto/10000     -
+e0d   cluster   cluster    up    9000  auto/10000     -
+
+8 entries were displayed.
+----
+====
+.. Exibir informações sobre as interfaces lógicas:
++
+`network interface show -role cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface show -role cluster*
+(network interface show)
+         Logical    Status      Network        Current  Current  Is
+Vserver  Interface  Admin/Oper  Address/Mask   Node     Port     Home
+-------- ---------- ----------- -------------- -------- -------- -----
+Cluster
+         n1_clus1   up/up       10.10.0.1/24   n1       e0a      true
+         n1_clus2   up/up       10.10.0.2/24   n1       e0b      true
+         n1_clus3   up/up       10.10.0.3/24   n1       e0c      true
+         n1_clus4   up/up       10.10.0.4/24   n1       e0d      true
+         n2_clus1   up/up       10.10.0.5/24   n2       e0a      true
+         n2_clus2   up/up       10.10.0.6/24   n2       e0b      true
+         n2_clus3   up/up       10.10.0.7/24   n2       e0c      true
+         n2_clus4   up/up       10.10.0.8/24   n2       e0d      true
+
+ 8 entries were displayed.
+----
+====
+.. Exibir informações sobre os switches de cluster descobertos:
++
+`system cluster-switch show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir exibe os switches de cluster que são conhecidos pelo cluster junto com seus endereços IP de gerenciamento:
+
+[listing, subs="+quotes"]
+----
+cluster::> *system cluster-switch show*
+Switch                        Type             Address       Model
+----------------------------- ---------------- ------------- --------
+CL1                           cluster-network  10.10.1.101   CN1610
+     Serial Number: 01234567
+      Is Monitored: true
+            Reason:
+  Software Version: 1.2.0.7
+    Version Source: ISDP
+CL2                           cluster-network  10.10.1.102   CN1610
+     Serial Number: 01234568
+      Is Monitored: true
+            Reason:
+  Software Version: 1.2.0.7
+    Version Source: ISDP
+
+2	entries displayed.
+----
+====
+
+
+. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3232C conforme necessário para seus requisitos e faça as personalizações essenciais do site.
++
+Você deve preparar ambos os interrutores neste momento. Se necessitar de atualizar o RCF e a imagem, tem de concluir o seguinte procedimento:
+
++
+.. Consulte link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Switch Ethernet Cisco"^]a página no site de suporte da NetApp.
+.. Observe o switch e as versões de software necessárias na tabela nessa página.
+.. Baixe a versão apropriada do RCF.
+.. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
+.. Faça o download da versão apropriada do software de imagem em link:http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.html["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^].
+
+
+. Migre os LIFs associados ao segundo switch CN1610 que você planeja substituir:
++
+`network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ destination-node _destination-node-name_ -destination-port _destination-port-name_`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+Você deve migrar cada LIF individualmente, conforme mostrado no exemplo a seguir:
+
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus2 -source-node n1
+-destination-node  n1  -destination-port  e0a*
+cluster::*> *network interface migrate -vserver cluster -lif n1_clus3 -source-node n1
+-destination-node  n1  -destination-port  e0d*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus2 -source-node n2
+-destination-node  n2  -destination-port  e0a*
+cluster::*> *network interface migrate -vserver cluster -lif n2_clus3 -source-node n2
+-destination-node  n2  -destination-port  e0d*
+----
+====
+. Verifique a integridade do cluster:
++
+`network interface show -role cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface show -role cluster*
+(network interface show)
+         Logical    Status      Network         Current  Current  Is
+Vserver  Interface  Admin/Oper  Address/Mask    Node     Port     Home
+-------- ---------- ----------- --------------- -------- -------- -----
+Cluster
+         n1_clus1   up/up       10.10.0.1/24    n1        e0a     true
+         n1_clus2   up/up       10.10.0.2/24    n1        e0a     false
+         n1_clus3   up/up       10.10.0.3/24    n1        e0d     false
+         n1_clus4   up/up       10.10.0.4/24    n1        e0d     true
+         n2_clus1   up/up       10.10.0.5/24    n2        e0a     true
+         n2_clus2   up/up       10.10.0.6/24    n2        e0a     false
+         n2_clus3   up/up       10.10.0.7/24    n2        e0d     false
+         n2_clus4   up/up       10.10.0.8/24    n2        e0d     true
+
+8 entries were displayed.
+----
+====
+
+
+.O que se segue?
+link:cn1610-replace-CL2.html["Substitua o interrutor CN1610 CL2 pelo interrutor 3232C C2"].

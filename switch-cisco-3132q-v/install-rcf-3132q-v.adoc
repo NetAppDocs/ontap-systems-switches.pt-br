@@ -17,7 +17,7 @@ Siga este procedimento para instalar o RCF depois de configurar o interrutor Nex
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
 * Um backup atual da configuração do switch.
 * Um cluster totalmente funcional (sem erros nos logs ou problemas semelhantes).
 * O ficheiro de configuração de referência atual (RCF).

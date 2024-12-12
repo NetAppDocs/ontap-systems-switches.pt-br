@@ -1,12 +1,23 @@
-= Passo 1: Instale o RCF nos interrutores
+---
+permalink: switch-cisco-9336c-fx2/install-rcf-software-9336c-cluster.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: Você pode instalar o RCF depois de configurar o switch Nexus 9336C-FX2 pela primeira vez.você também pode usar este procedimento para atualizar sua versão RCF. 
+---
+= Instalar o ficheiro de configuração de referência (RCF)
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
+
+[role="lead"]
+Você instala o arquivo de configuração de referência (RCF) depois de configurar o switch Nexus 9336C-FX2 pela primeira vez.
 
 .Antes de começar
-Certifique-se do seguinte:
+Verifique as seguintes instalações e conexões:
 
 * Uma ligação de consola ao interrutor. A conexão do console é opcional se você tiver acesso remoto ao switch.
-* O switch CS1 e o switch CS2 são ativados e a configuração inicial do switch está concluída (o endereço IP de gerenciamento e o SSH são configurados)
+* O switch CS1 e o switch CS2 são ativados e a configuração inicial do switch está concluída (o endereço IP de gerenciamento e o SSH são configurados).
 * A versão NX-os pretendida foi instalada.
 * As ligações ISL entre os interrutores estão ligadas.
 * As portas do cluster de nós do ONTAP não estão conetadas.
@@ -14,7 +25,7 @@ Certifique-se do seguinte:
 
 
 
-=== Passo 1: Instale o RCF nos interrutores
+== Passo 1: Instale o RCF nos interrutores
 
 . Faça login no switch CS1 usando SSH ou usando um console serial.
 . Copie o RCF para o flash de inicialização do switch CS1 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.
@@ -140,7 +151,7 @@ Para obter mais informações sobre comandos Cisco, consulte o guia apropriado n
 
 
 
-=== Etapa 2: Verifique as conexões do interrutor
+== Etapa 2: Verifique as conexões do interrutor
 
 . Verifique se as portas do switch conetadas às portas do cluster estão *up*.
 +
@@ -350,7 +361,7 @@ cs1#
 
 
 
-=== Passo 3: Configure o cluster do ONTAP
+== Passo 3: Configure o cluster do ONTAP
 
 A NetApp recomenda que você use o Gerenciador de sistemas para configurar novos clusters.
 

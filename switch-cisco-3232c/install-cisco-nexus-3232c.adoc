@@ -13,7 +13,7 @@ summary: Você pode instalar o switch Cisco Nexus 3232C e o painel pass-through 
 [role="lead"]
 Dependendo da sua configuração, você pode precisar instalar o switch de cluster Cisco Nexus 3232C e o painel pass-through em um gabinete NetApp com os suportes padrão que estão incluídos no switch.
 
-.O que você vai precisar
+.Antes de começar
 * Os requisitos de preparação inicial, o conteúdo do kit e as precauções de segurança no link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guia de instalação de hardware do Cisco Nexus 3000 Series"^].
 * Para cada interrutor, os oito parafusos 10-32 ou 12-24 e as porcas de fixação para montar os suportes e os trilhos deslizantes nos postes dianteiros e traseiros do armário.
 * Kit de trilho padrão Cisco para instalar o interrutor em um gabinete NetApp.

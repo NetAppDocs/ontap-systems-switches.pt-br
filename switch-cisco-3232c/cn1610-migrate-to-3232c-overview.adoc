@@ -1,0 +1,108 @@
+---
+permalink: switch-cisco-3232c/cn1610-migrate-to-3232c-overview.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 3232c switch, 
+summary: Antes de configurar os switches Cisco Nexus 3232c, revise uma visão geral do processo e da nomenclatura. 
+---
+= Requisitos de migração
+:allow-uri-read: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os switches Cisco Nexus 3232C podem ser usados como switches de cluster no seu cluster AFF ou FAS. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.
+
+
+NOTE: O procedimento requer o uso de comandos ONTAP e comandos Cisco Nexus 3000 Series switches; os comandos ONTAP são usados, a menos que indicado de outra forma.
+
+Se necessário, consulte o seguinte para obter mais informações:
+
+* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Página de descrição do NetApp CN1601 e CN1610"^]
+* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descrição do comutador Ethernet Cisco"^]
+* http://hwu.netapp.com["Hardware Universe"^]
+
+
+
+
+== Requisitos de migração de CN1610
+
+Os switches do cluster suportam as seguintes conexões de nós:
+
+* NetApp CN1610: Portas de 0/1 a 0/12 (10 GbE)
+* Cisco Nexus 3232C: Portas E1/1-30 (40 ou 100 GbE ou 4x10GbE)
+
+
+Os interrutores do grupo de instrumentos utilizam as seguintes portas ISL (Inter-switch link).
+
+* NetApp CN1610: Portas de 0/13 a 0/16 (10 GbE)
+* Cisco Nexus 3232CX: Portas 1/31-32 (100GbE)
+
+
+[NOTE]
+====
+Você deve usar cabos de ligação 4x10G no switch de cluster Cisco Nexus 3232C.
+
+====
+A tabela a seguir mostra as conexões de cabeamento que são necessárias em cada etapa durante a transição dos switches NetApp CN1610 para os switches de cluster Cisco Nexus 3232C:
+
+|===
+| Fase | Descrição | Cabos necessários 
+
+
+ a| 
+Inicial
+ a| 
+CN1610 GbE para CN1610 GbE (SFP)
+ a| 
+4 cabos de conexão direta de fibra ótica ou cobre SFP
+
+
+
+ a| 
+Transição
+ a| 
+CN1610 GbE para 3232C GbE (QSFP para SFP)
+ a| 
+Cabos de fibra ótica ou cobre de 1 QSFP e 4GbE SFP
+
+
+
+ a| 
+Final
+ a| 
+3232C GbE a 3232C GbE (QSFP para QSFP)
+ a| 
+Cabos de conexão direta de fibra ótica de 2 QSFP ou cobre
+
+|===
+Você deve ter baixado os arquivos de configuração de referência (RCFs) aplicáveis. O número de portas 10 GbE e 40/100 GbE é definido nos RCFs disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] página.
+
+As versões ONTAP e NX-os compatíveis com este procedimento estão listadas no link:https://mysupport.netapp.com/NOW/download/software/cm_switches/.html["Página de switches Ethernet Cisco"^].
+
+As versões ONTAP e FASTPATH compatíveis com este procedimento estão listadas no link:http://support.netapp.com/NOW/download/software/cm_switches_ntap/.html["Página de switches NetApp CN1601 e CN1610"^].
+
+.Sobre os exemplos usados
+Os exemplos no procedimento de migração usam quatro nós:
+
+* Dois nós usam quatro portas de interconexão de cluster de 10 GbE: *e0a*, *e0b*, *e0c* e *e0d*.
+* Os outros dois nós usam dois cabos de fibra de interconexão de cluster de 40 GbE: *e4a* e *e4e*.
++
+link:https://hwu.netapp.com/["_Hardware Universe_"^]O tem informações sobre os cabos de fibra de cluster para suas plataformas.
+
+
+
+Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+
+* Os nós são *n1*, *n2*, *n3* e *n4*.
+* As saídas de comando podem variar dependendo de diferentes versões do software ONTAP.
+* Os CN1610 interrutores a substituir são *CL1* e *CL2*.
+* Os switches Nexus 3232C para substituir os switches CN1610 são *C1* e *C2*.
+* *n1_clus1* é a primeira interface lógica de cluster (LIF) conetada ao switch de cluster 1 (CL1 ou C1) para o nó *n1*.
+* *n1_clus2* é o primeiro LIF de cluster conetado ao switch de cluster 2 (CL2 ou C2) para o nó *n1*.
+* *n1_clus3* é o segundo LIF que está conetado ao switch de cluster 2 (CL2 ou C2) para o nó *n1*.
+* *n1_clus4* é o segundo LIF que está conetado ao switch de cluster 1 (CL1 ou C1) para o nó *n1*.
+* O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] página.
+
+
+.O que se segue?
+link:cn1610-prepare-to-migrate.html["Prepare-se para a migração"].

@@ -17,7 +17,7 @@ Siga estas etapas para atualizar o software Cisco NX-os e os arquivos de configu
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
 Certifique-se de que existem as seguintes condições antes de atualizar o software NX-os e os RCFs no comutador de armazenamento:
 
 * O interrutor está totalmente funcionando (não deve haver erros nos logs ou problemas semelhantes).
@@ -186,8 +186,6 @@ Quando verificar a saída para verificar se tem o RCF correto, certifique-se de 
 ** O banner RCF
 ** As configurações de nó e porta
 ** Personalizações
-
-
 +
 A saída varia de acordo com a configuração do seu site. Verifique as configurações da porta e consulte as notas de versão para ver se há alterações específicas ao RCF que você instalou.
 
@@ -242,6 +240,8 @@ S2#
 +
 
 NOTE: Ao aplicar o RCF pela primeira vez, a mensagem *ERROR: Failed to write VSH commands* é esperada e pode ser ignorada.
+
+
 
 . Depois de verificar se as versões do software e as definições do interrutor estão corretas, copie o `running-config` ficheiro para `startup-config` o ficheiro no interrutor S2.
 +
