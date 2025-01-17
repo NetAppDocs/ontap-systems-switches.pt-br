@@ -621,7 +621,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Repita os passos 1 a 10 no interrutor CS1.
+. Repita os passos 1 a 11 no interrutor CS1.
 . Ative a reversão automática nos LIFs do cluster.
 +
 .Mostrar exemplo

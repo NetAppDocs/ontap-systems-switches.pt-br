@@ -37,7 +37,7 @@ entries:
   - title: Instale o software NX-os
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html"
   - title: Instale o arquivo de configuração RCF
-    url: "/switch-cisco-9336c-fx2-storage/install-nxos-rcf-9336c-storage.html"
+    url: "/switch-cisco-9336c-fx2-storage/install-rcf-software-9336c-storage.html"
 - title: Substitua o interrutor de armazenamento
   pdf-filename: Replace_switch_9336c-FX2-storage
   url: "/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"

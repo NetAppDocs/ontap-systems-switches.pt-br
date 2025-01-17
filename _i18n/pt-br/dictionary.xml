@@ -1448,7 +1448,6 @@
   <block id="31c020d11cc321faf9c0793a662d1e53" category="list-text">Interrutor de reinicialização CS2. Você pode ignorar os eventos "portas de cluster para baixo" relatados nos nós enquanto o switch é reinicializado e a saída de erro<block ref="a9e34a08c2be7359540cbf7337dc5ce9" prefix=" " category="inline-code"></block>.</block>
   <block id="db82c22b5434946b4bc226a3b9b7888a" category="list-text">Aplique o mesmo RCF e salve a configuração em execução pela segunda vez. Isso é necessário, já que o RCF utiliza QoS e requer reconfiguração TCAM que envolve o carregamento do RCF duas vezes com o switch reinicializado no meio.</block>
   <block id="b6ec5ccd50e4a92a636c1dc432c89581" category="admonition">Pode levar até 5 minutos para que os nós de cluster relatem como íntegros.</block>
-  <block id="442f3bc68fd4ab1c760b482d02f7ca71" category="list-text">Repita os passos 1 a 10 no interrutor CS1.</block>
   <block id="53a0bfa393247902d9ea8fedde7e8132" category="list-text">Interrutor de reinicialização CS1. Você faz isso para acionar os LIFs do cluster para reverter para suas portas domésticas. Você pode ignorar os eventos "portas de cluster para baixo" relatados nos nós enquanto o switch é reinicializado.</block>
   <block id="9e9f720a4be60634e28d3a445f01d250" category="list-text">Verifique se as portas do switch conetadas às portas do cluster estão ativadas.</block>
   <block id="af4d9c4c765c5c1d9c279c35191c82da" category="paragraph"><block ref="e39b44798f52b1532971ab295180e1b0" prefix="" category="inline-code"></block></block>
@@ -3478,7 +3477,6 @@
   <block id="72ebeb1eaefeb8dcaddced548aa138a6" category="paragraph">Vá para <block ref="dbe1537ab2448f7ffd0bedd5a713fbd6" category="inline-link-macro-rx"></block>.</block>
   <block id="61c7408c0e623b660a741b6b2c143251" category="paragraph">Antes de começar, conclua o procedimento em <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="95eabbd5952ae314a23d3393bf46b6da" category="paragraph">Siga este procedimento para instalar o software NX-os no switch de cluster Nexus 9336C-FX2.</block>
-  <block id="afe6bd84cf9f314186e891843eba49cc" category="paragraph"><block ref="41aae7f405e62aa01d791efeede3f9c2" category="inline-link-macro-rx"></block>.</block>
   <block id="5b1bedb3dd2208af0449bbbfcc022136" category="paragraph">Se você tiver um ambiente de cluster _sem switch_ de dois nós, poderá migrar para um ambiente de cluster _comutado_ de dois nós usando os switches Cisco Nexus 9336C-FX2 para permitir que você escale além de dois nós no cluster.</block>
   <block id="5d9de0e2f02eef0f18faf016853f64f1" category="paragraph">É possível migrar os switches de cluster Cisco mais antigos para um cluster ONTAP para os switches de rede de storage Cisco Nexus 9336C-FX2. Este é um procedimento sem interrupções.</block>
   <block id="456a5c90687a021221cc54821a27d7f4" category="paragraph">Substituir um switch Nexus 9336C-FX2 defeituoso em uma rede de cluster é um procedimento sem interrupções (NDU).</block>
@@ -5176,4 +5174,15 @@
   <block id="6697bf1c75a0d4d8868afeab04858bc3" category="sidebar">Upgrade_switches_3232C</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_upgrade_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Instale ou atualize a visão geral do RCF</block>
+  <block id="b6503bc6a2e6ede86368a60473711626" category="list-text">Repita os passos 1 a 11 no interrutor CS1.</block>
+  <block id="604f0b8e46b056f4f2f05bb3ea87a5a7" category="inline-link-macro">Instale o RCF</block>
+  <block id="f398a91a8a2500b4ebd90095482c2638" category="paragraph"><block ref="032b77b792344ea711cbb6f8f0bfe3cc" category="inline-link-macro-rx"></block>.</block>
+  <block id="ea6719e8ba4a5a7aea0b4185afc5408b" category="summary">Você pode instalar o RCF depois de configurar o switch de armazenamento Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
+  <block id="fc3ebe0c41be566a2062e99eee81c6ba" category="paragraph">Você instala o arquivo de configuração de referência (RCF) depois de configurar o switch de armazenamento Nexus 9336C-FX2 pela primeira vez.</block>
+  <block id="0d54a8a99337a48199414ba38d122135" category="list-text">O switch CS1 e o switch CS2 são ativados e a configuração inicial do switch está concluída (o endereço IP de gerenciamento e o SSH estão configurados).</block>
+  <block id="f1de50ac922202c9581e806906499ae8" category="paragraph">Este exemplo mostra o RCF<block ref="fcd688c0fb8c0256c7fc0b5ca2fd673d" prefix=" " category="inline-code"></block> a ser instalado no interrutor CS1:</block>
+  <block id="a697c9a980376d3a62210b2b53d5b0b8" category="list-text">Examine a saída do banner a partir do<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> comando. Deve ler e seguir estas instruções para garantir a configuração e funcionamento corretos do interrutor.</block>
+  <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">Verifique se o RCF é a versão mais recente correta:</block>
+  <block id="7fd5f97719ed93b62ce57a2401ebb179" category="list-text">Depois de verificar se as versões do RCF e as configurações do switch estão corretas, copie o arquivo running-config para o arquivo startup-config:</block>
+  <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">O System Manager fornece um fluxo de trabalho simples e fácil para configuração e configuração de cluster, incluindo a atribuição de um endereço IP de gerenciamento de nós, a inicialização do cluster, a criação de um nível local, a configuração de protocolos e o provisionamento de armazenamento inicial.</block>
 </blocks>
