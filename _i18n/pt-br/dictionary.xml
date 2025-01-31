@@ -1273,12 +1273,7 @@
   <block id="c3e2e765c3744c1b19452b2f233fdd15" category="section-title">Método 1: Atualizar o EFOS</block>
   <block id="c117ec58c236a456904edaa76f1cc5a9" category="paragraph">Execute os seguintes passos para atualizar o software EFOS.</block>
   <block id="7f824481c3b83fffcad8abfa0af8b312" category="inline-link">Falha na atualização do NDU do comutador de cluster BES-53248 para o EFOS 3.7.0.4 e posterior</block>
-  <block id="cec6ec2be042120b7ff4b5d0f1e40dee" category="admonition">Observe que depois de atualizar os switches de cluster BES-53248 do EFOS 3,3.x.x ou 3,4.x.x para o EFOS 3.7.0.4 ou 3,8.0,2, os ISLs (Inter-Switch Links) e o canal de porta estão marcados no estado *para baixo*. Veja este artigo da KB:<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block> Para mais detalhes.</block>
   <block id="ba9e418ff064efca86945643e9b87680" category="list-text">Conete o switch de cluster BES-53248 à rede de gerenciamento.</block>
-  <block id="c95aaaacb482fe42dce56ee7cd8615a6" category="list-text">Faça uma cópia de segurança da imagem ativa atual no CS2:</block>
-  <block id="19cb75d1f662e01942f8d897534baeb7" category="list-text">Verifique a versão em execução do software EFOS:</block>
-  <block id="061be1b61be0d3e5b21e6a5912639344" category="admonition">Se tiver instalado quaisquer licenças, reveja o respetivo estado.</block>
-  <block id="84d3d1386241334d40a809878bbb05d9" category="list-text">Repita os passos 5 a 10 no interrutor CS1.</block>
   <block id="83b8a0042e3650c5af884c9601f53043" category="inline-link-macro">Reverter um LIF para sua porta inicial</block>
   <block id="870c6c263570c51afc056f510d552e1f" category="paragraph">Para obter mais detalhes, <block ref="b9ea844d3dd5520c7767de46f1c99a2b" category="inline-link-macro-rx"></block>consulte .</block>
   <block id="35f10bdee5903f907ec6a32e4e0f9d7b" category="section-title">Método 2: Atualizar o EFOS usando a instalação do sistema operacional ONIE</block>
@@ -2948,16 +2943,12 @@
   <block id="7e857aa8a0b068cc27d4b48a1e11e878" category="list-text"><block ref="7e857aa8a0b068cc27d4b48a1e11e878" category="inline-link-macro-rx"></block></block>
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">Consulte a tabela de compatibilidade de switch para ver as versões ONTAP e RCF suportadas no site de suporte da NetApp. Note que pode haver dependências de comando entre a sintaxe de comando no RCF e a sintaxe encontrada em versões específicas do NX-os.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
-  <block id="263b9f10fe7e073e656b08a5b6da7e5a" category="paragraph">Os exemplos neste procedimento usam quatro nós. Esses nós usam duas portas de interconexão de cluster 10GbE e0a e e0b. Consulte<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> para verificar as portas de cluster corretas nas suas plataformas.</block>
   <block id="853958821955886a4c9bfc1089defe86" category="inline-link-macro">Fluxo de trabalho de instalação do software</block>
   <block id="7abab77cb8cac2636cdea1300fe00dc4" category="paragraph">Para obter detalhes sobre as configurações de RCF disponíveis, <block ref="eec33f028810711693e15987e41f3b2a" category="inline-link-macro-rx"></block>consulte .</block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">Comandos utilizados</block>
-  <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">Opção 1: Instale o arquivo RCF em um novo switch</block>
   <block id="d061b4842fee7f503446ba29253d182f" category="paragraph">Você instala o arquivo de configuração de referência (RCF) depois de configurar o switch Nexus 9336C-FX2 pela primeira vez.</block>
-  <block id="121f18688d36f2438eb17eb52e61e7e8" category="section-title">Opção 2: Atualizar switches existentes com uma nova versão RCF</block>
   <block id="eba0713505eba2aab08d4d6fa9ca2cf7" category="paragraph">Você atualiza sua versão RCF quando você tem uma versão existente do arquivo RCF instalada em seus switches operacionais.</block>
   <block id="ddd0020a0684c14dbd50622f84d8917a" category="paragraph">Certifique-se de que tem o seguinte:</block>
-  <block id="ea4cd01e183524e8bbb487095fe3c5d9" category="list-text">O arquivo RCF atual.</block>
   <block id="28dbd722b252673fdce3f809670e34b8" category="list-text">Se você estiver atualizando sua versão do RCF, precisará de uma configuração de inicialização no RCF que reflita as imagens de inicialização desejadas.</block>
   <block id="5640915560bc663196a684ebfc6fa2ec" category="admonition">Antes de instalar uma nova versão do software do switch e RCFs, você deve apagar as configurações do switch e executar a configuração básica. Você deve estar conetado ao switch usando o console serial ou ter preservado as informações básicas de configuração antes de apagar as configurações do switch.</block>
   <block id="bbb9faab95e3e9af13430c6529221602" category="summary">Você pode usar este procedimento para instalar o software NX-os no switch de cluster Nexus 9336C-FX2.</block>
@@ -3221,7 +3212,6 @@
   <block id="0e20b420112310f5c09a775e13d5ec63" category="paragraph">Você pode instalar o RCF depois de configurar o switch Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="a321cd8baf442bb2bd9aee451d86f068" category="paragraph">Antes de começar, conclua o procedimento em <block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>.</block>
   <block id="21f31f792b72c310b4fd5aa9c2e35835" category="paragraph">Siga este procedimento para instalar o software NX-os no switch compartilhado Nexus 9336C-FX2.</block>
-  <block id="22eb01d1e7d6584a0da20f490dc5af77" category="paragraph"><block ref="22eb01d1e7d6584a0da20f490dc5af77" category="inline-link-macro-rx"></block></block>
   <block id="e100dc954517cdb4f6f664776708ea27" category="list-text">Para cada interrutor, você deve fornecer os oito parafusos 10-32 ou 12-24 e porcas de grampo para montar os suportes e trilhos deslizantes nos postes dianteiros e traseiros do gabinete.</block>
   <block id="e0b1867b2973b9301f251e42fca1cd4a" category="list-text">Você deve usar o kit de trilho padrão Cisco para instalar o switch em um gabinete NetApp.</block>
   <block id="24ea36eb9772fc34d1ce28d1e0a26064" category="paragraph">Reveja os requisitos iniciais de preparação, o conteúdo do kit e as precauções de segurança no<block ref="49a9b7c5f9a7c0a710f6a2b4ba7339c5" category="inline-link-rx"></block>.</block>
@@ -5133,7 +5123,6 @@
   <block id="5f9610f3409d9abe96cc344156486c5e" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="4c0a19683ab4dd37cd0517d25639fa78" category="inline-link-macro-rx"></block></block>
   <block id="e796841df950e342f76a5b538574f5f6" category="paragraph">Conclua a migração para um cluster comutado de dois nós.</block>
   <block id="e4ff582cba38e556dc88b3e74baf1ec1" category="paragraph">Diretiva não resolvida no &lt;stdin&gt; - inclua:../_include/install-rcf-software-9336c-cluster.adoc[]</block>
-  <block id="688523fe289426758745102b5d3ea37f" category="paragraph">Diretiva não resolvida no &lt;stdin&gt; - include:../_include/upgrade-rcf-software-9336c-cluster.adoc[]</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">O switch CS1 e o switch CS2 são ativados e a configuração inicial do switch está concluída (o endereço IP de gerenciamento e o SSH são configurados).</block>
   <block id="c3109b36f2c8edda93835ccefa0e4dc3" category="doc">Instale ou atualize a visão geral do ficheiro de configuração de referência (RCF)</block>
   <block id="6d7b8066e6c7166408cb61e68a705e7f" category="list-text">Os nomes dos dois switches Cisco são *CS1* e *CS2*.</block>
@@ -5142,7 +5131,6 @@
   <block id="1c319a6cce094508e045c5bb62d6664e" category="paragraph">Os exemplos neste procedimento usam quatro nós. Esses nós usam duas portas de interconexão de cluster 10GbE *e0a* e *e0b*. Consulte<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> para verificar as portas de cluster corretas nas suas plataformas.</block>
   <block id="88870df2dabeaf8bc50daf8d504498e0" category="inline-link-macro">Atualize seu RCF</block>
   <block id="d1d882c0929e664f5d3052ad227ecec9" category="paragraph"><block ref="51640e6af8359470cbd047034716b7ac" category="inline-link-macro-rx"></block> ou <block ref="d9cc2c4eec198e8f90466b5b89bfc33e" category="inline-link-macro-rx"></block>.</block>
-  <block id="fd7fe8bcb397a94d6c1c59e351072eac" category="doc">Atualizar o ficheiro de configuração de referência (RCF)</block>
   <block id="df73b0f89510f793b71a90bf50d82c10" category="list-text">O RCF atual.</block>
   <block id="85e086d364dc39fb9a01f1b57e7afc52" category="list-text">ONTAP 9.10.1P3 e posterior</block>
   <block id="e6645191453a89d37ca94dbd791a1499" category="paragraph">O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10.1P3 e posterior em diferentes pares de switches.</block>
@@ -5185,4 +5173,15 @@
   <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">Verifique se o RCF é a versão mais recente correta:</block>
   <block id="7fd5f97719ed93b62ce57a2401ebb179" category="list-text">Depois de verificar se as versões do RCF e as configurações do switch estão corretas, copie o arquivo running-config para o arquivo startup-config:</block>
   <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">O System Manager fornece um fluxo de trabalho simples e fácil para configuração e configuração de cluster, incluindo a atribuição de um endereço IP de gerenciamento de nós, a inicialização do cluster, a criação de um nível local, a configuração de protocolos e o provisionamento de armazenamento inicial.</block>
+  <block id="7ff4d12d3e81fb159ea571275dbbb3fd" category="admonition">Observe que depois de atualizar os switches de cluster BES-53248 do EFOS 3,3.x.x ou 3,4.x.x para o EFOS 3.7.0.4 ou 3,8.0,2, os ISLs (Inter-Switch Links) e os canais de porta estão marcados no estado *para baixo*. Este é o comportamento esperado e é seguro continuar com a atualização, a menos que você esteja tendo problemas com LIFs de reversão automática. Consulte o artigo da base de dados de Conhecimento:<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block> Para obter mais detalhes.</block>
+  <block id="4624388fca013386d1c7314566aa1510" category="list-text">Inicie o sistema a partir da configuração de cópia de segurança:</block>
+  <block id="ae791522c9f7834f0edc56277ffe2340" category="paragraph"><block ref="f2210f21804aee53def01718125f3f18" prefix="" category="inline-code"></block></block>
+  <block id="892854a85c10d8b7b832a094d0b2b95e" category="list-text">Repita os passos 5 a 11 no interrutor CS1.</block>
+  <block id="b0411eb90c7d5ca211940fcb5d8f219a" category="doc">Atualizar o seu ficheiro de configuração de referência (RCF)</block>
+  <block id="657454366cb4a451c5905310b7f4d2cc" category="paragraph">Você pode instalar o arquivo de configuração de referência (RCF) depois de configurar o switch Nexus 9336C-FX2 pela primeira vez.</block>
+  <block id="34b61fdbe20d7b5fdf2f4d5655d2dc71" category="list-text">As ligações entre interrutores (ISL) entre os interrutores estão ligadas.</block>
+  <block id="5e9fc634461251750aac2012c638665a" category="doc">Atualize seu arquivo de configuração de referência (RCF)</block>
+  <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">Antes de instalar uma nova versão do software do switch e RCFs, você deve apagar as configurações do switch e executar a configuração básica. Você deve estar conetado ao switch usando o console serial ou ter preservado as informações básicas de configuração antes de apagar as configurações do switch.</block>
+  <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">Para NX-os 10,2 e posterior, use o<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando para comparar com o arquivo RCF salvo no flash de inicialização. Caso contrário, use uma ferramenta de comparação ou comparação de terceiros.</block>
+  <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">Talvez seja necessário atualizar as entradas do arquivo host relacionadas às chaves SSH.</block>
 </blocks>

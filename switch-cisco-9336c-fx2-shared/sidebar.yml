@@ -34,8 +34,10 @@ entries:
     url: "/switch-cisco-9336c-fx2-shared/prepare-nxos-rcf-9336c-shared.html"
   - title: Instale o software NX-os
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-software-9336c-shared.html"
-  - title: Instale o arquivo de configuração RCF
+  - title: Instale o RCF
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-rcf-9336c-shared.html"
+  - title: Atualize sua versão RCF
+    url: "/switch-cisco-9336c-fx2-shared/upgrade-rcf-software-9336c-shared.html"
 - title: Migrar switches
   pdf-filename: Migrate_switches_9336c-FX2-shared
   entries:

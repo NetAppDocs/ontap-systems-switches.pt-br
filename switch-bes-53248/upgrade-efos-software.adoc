@@ -143,7 +143,7 @@ NOTE: Atualize o EFOS em um switch de cada vez para garantir a operação contí
 Execute os seguintes passos para atualizar o software EFOS.
 
 
-IMPORTANT: Observe que depois de atualizar os switches de cluster BES-53248 do EFOS 3,3.x.x ou 3,4.x.x para o EFOS 3.7.0.4 ou 3,8.0,2, os ISLs (Inter-Switch Links) e o canal de porta estão marcados no estado *para baixo*. Veja este artigo da KB: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["Falha na atualização do NDU do comutador de cluster BES-53248 para o EFOS 3.7.0.4 e posterior"^] Para mais detalhes.
+IMPORTANT: Observe que depois de atualizar os switches de cluster BES-53248 do EFOS 3,3.x.x ou 3,4.x.x para o EFOS 3.7.0.4 ou 3,8.0,2, os ISLs (Inter-Switch Links) e os canais de porta estão marcados no estado *para baixo*. Este é o comportamento esperado e é seguro continuar com a atualização, a menos que você esteja tendo problemas com LIFs de reversão automática. Consulte o artigo da base de dados de Conhecimento: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["Falha na atualização do NDU do comutador de cluster BES-53248 para o EFOS 3.7.0.4 e posterior"^] Para obter mais detalhes.
 
 .Passos
 . Conete o switch de cluster BES-53248 à rede de gerenciamento.
@@ -186,81 +186,10 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 --------------------------------------------------------------------
  unit      active      backup        current-active    next-active
 --------------------------------------------------------------------
-    1      3.7.0.4     3.4.4.6       3.7.0.4           3.7.0.4
+    1      3.7.0.4     3.4.4.6              3.7.0.4        3.7.0.4
 
 ----
 ====
-. Faça uma cópia de segurança da imagem ativa atual no CS2:
-+
-[source, cli]
-----
-copy active backup
-----
-+
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *copy active backup*
-Copying active to backup
-Management access will be blocked for the duration of the operation
-Copy operation successful
-
-(cs2)# *show bootvar*
-
-Image Descriptions
-
- active :
- backup :
- Images currently available on Flash
---------------------------------------------------------------------
- unit      active      backup      current-active    next-active
-------------------------------------------------------------------
-    1      3.7.0.4     3.4.4.6       3.7.0.4           3.7.0.4
-(cs2)#
-----
-====
-. Verifique a versão em execução do software EFOS:
-+
-`show version`
-
-+
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *show version*
-
-Switch: 1
-
-System Description............................. BES-53248A1, 3.7.0.4, Linux 4.4.117-ceeeb99d, 2016.05.00.05
-Machine Type................................... BES-53248A1
-Machine Model.................................. BES-53248
-Serial Number.................................. QTFCU38260014
-Maintenance Level.............................. A
-Manufacturer................................... 0xbc00
-Burned In MAC Address.......................... D8:C4:97:71:12:3D
-Software Version............................... 3.7.0.4
-Operating System............................... Linux 4.4.117-ceeeb99d
-Network Processing Device...................... BCM56873_A0
-CPLD Version................................... 0xff040c03
-
-Additional Packages............................ BGP-4
-...............................................	QOS
-...............................................	Multicast
-............................................... IPv6
-............................................... Routing
-............................................... Data Center
-............................................... OpEN API
-............................................... Prototype Open API
-----
-====
-+
-
-NOTE: Se tiver instalado quaisquer licenças, reveja o respetivo estado.
-
 . Transfira o ficheiro de imagem para o interrutor.
 +
 Copiar o arquivo de imagem para a imagem ativa significa que, quando você reiniciar, essa imagem estabelece a versão do EFOS em execução. A imagem anterior permanece disponível como cópia de segurança.
@@ -268,7 +197,7 @@ Copiar o arquivo de imagem para a imagem ativa significa que, quando você reini
 +
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://root@172.19.2.1//tmp/EFOS-3.10.0.3.stk active*
+(cs2)# *copy sftp://root@172.19.2.1//tmp/EFOS-3.10.0.3.stk backup*
 Remote Password:********
 
 Mode........................................... SFTP
@@ -276,7 +205,7 @@ Set Server IP.................................. 172.19.2.1
 Path........................................... //tmp/
 Filename....................................... EFOS-3.10.0.3.stk
 Data Type...................................... Code
-Destination Filename........................... active
+Destination Filename........................... backup
 
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
@@ -303,10 +232,65 @@ Image Descriptions
  backup :
 
  Images currently available on Flash
---------------------------------------------------------------------
+------------------------------------------------------------------
  unit      active      backup      current-active    next-active
---------------------------------------------------------------------
-    1      3.7.0.4     3.7.0.4     3.7.0.4           3.10.0.3
+------------------------------------------------------------------
+    1      3.7.0.4    3.7.0.4             3.7.0.4       3.10.0.3
+----
+====
+. Inicie o sistema a partir da configuração de cópia de segurança:
++
+`boot system backup`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *boot system backup*
+Activating image backup ..
+----
+. Apresentar as imagens de arranque para a configuração ativa e de cópia de segurança:
++
+`show bootvar`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show bootvar*
+
+Image Descriptions
+
+ active :
+ backup :
+
+ Images currently available on Flash
+------------------------------------------------------------------
+ unit      active      backup      current-active    next-active
+------------------------------------------------------------------
+    1    3.10.0.3    3.10.0.3            3.10.0.3       3.11.0.2
+----
+====
+. Salve a configuração em execução na configuração de inicialização:
++
+`write memory`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *write memory*
+This operation may take a few minutes.
+
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+Configuration Saved!
 ----
 ====
 . Reinicie o switch:
@@ -365,7 +349,7 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. Repita os passos 5 a 10 no interrutor CS1.
+. Repita os passos 5 a 11 no interrutor CS1.
 . Ative a reversão automática nos LIFs do cluster.
 +
 [source, cli]
