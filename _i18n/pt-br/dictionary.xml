@@ -3608,7 +3608,6 @@
   <block id="c76d1ab1bab3f2bc0c89856d8d6e3d40" category="paragraph">Siga este procedimento para configurar o SNMPv3 para seu switch específico, que suporta CSHM.</block>
   <block id="5fb3828593766d454e79a0dcf52fed9d" category="paragraph">Os comandos a seguir são usados para configurar um nome de usuário SNMPv3 nos switches *Broadcom*, *Cisco* e *NVIDIA*:</block>
   <block id="77f3beca20fcd78f77236507e8d9b4af" category="open-title">Switches Broadcom</block>
-  <block id="89fe808c6ef5fe301085b5abe4406d35" category="paragraph">Configure um OPERADOR DE REDE de nome de usuário SNMPv3 em switches Broadcom BES-53248.</block>
   <block id="c59df2c71925eefec8dc03aa685125c8" category="list-text">Para *sem autenticação*:</block>
   <block id="4c58055d9b16c25c354c591188cb27ae" category="list-text">Para *MD5/SHA autenticação*:</block>
   <block id="b00500f501ccb5c8ab2313d810b6ff29" category="list-text">Para autenticação *MD5/SHA com criptografia AES/DES*:</block>
@@ -5184,4 +5183,6 @@
   <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">Antes de instalar uma nova versão do software do switch e RCFs, você deve apagar as configurações do switch e executar a configuração básica. Você deve estar conetado ao switch usando o console serial ou ter preservado as informações básicas de configuração antes de apagar as configurações do switch.</block>
   <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">Para NX-os 10,2 e posterior, use o<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando para comparar com o arquivo RCF salvo no flash de inicialização. Caso contrário, use uma ferramenta de comparação ou comparação de terceiros.</block>
   <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">Talvez seja necessário atualizar as entradas do arquivo host relacionadas às chaves SSH.</block>
+  <block id="8b4a2ab0394283209f67c0b0e8ca9f94" category="list-text">Para coleta de logs com switches Broadcom e Cisco, um novo usuário deve ser criado no switch para cada configuração com coleta de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.</block>
+  <block id="1d768064a88b1cd8a98efaa14d7f9949" category="paragraph">Configure um nome de usuário SNMPv3 SNMPv3_USER em switches Broadcom BES-53248.</block>
 </blocks>

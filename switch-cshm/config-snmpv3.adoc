@@ -27,25 +27,25 @@ Os comandos a seguir são usados para configurar um nome de usuário SNMPv3 nos 
 ====
 .Switches Broadcom
 --
-Configure um OPERADOR DE REDE de nome de usuário SNMPv3 em switches Broadcom BES-53248.
+Configure um nome de usuário SNMPv3 SNMPv3_USER em switches Broadcom BES-53248.
 
 * Para *sem autenticação*:
 +
 [source, cli]
 ----
-snmp-server user SNMPv3UserNoAuth NETWORK-OPERATOR noauth
+snmp-server user SNMPv3UserNoAuth SNMPv3_USER noauth
 ----
 * Para *MD5/SHA autenticação*:
 +
 [source, cli]
 ----
-snmp-server user SNMPv3UserAuth NETWORK-OPERATOR [auth-md5|auth-sha]
+snmp-server user SNMPv3UserAuth SNMPv3_USER [auth-md5|auth-sha]
 ----
 * Para autenticação *MD5/SHA com criptografia AES/DES*:
 +
 [source, cli]
 ----
-snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [priv-aes128|priv-des]
+snmp-server user SNMPv3UserAuthEncrypt SNMPv3_USER [auth-md5|auth-sha] [priv-aes128|priv-des]
 ----
 
 
