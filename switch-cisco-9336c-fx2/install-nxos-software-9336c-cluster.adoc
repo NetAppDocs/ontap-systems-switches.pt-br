@@ -693,4 +693,4 @@ Se qualquer LIFs de cluster não retornar às portas iniciais, reverta-as manual
 
 
 .O que se segue?
-link:install-nxos-rcf-9336c-cluster.html["Instalar ou atualizar o ficheiro de configuração de referência (RCF)"]
+link:install-upgrade-rcf-overview-cluster.html["Instalar ou atualizar o ficheiro de configuração de referência (RCF)"]

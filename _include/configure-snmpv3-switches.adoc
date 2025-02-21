@@ -1,17 +1,6 @@
----
-permalink: switch-cshm/config-snmpv3.html 
-sidebar: sidebar 
-keywords: cshm, configure, snmpv3, switch logs, debugging, collection 
-summary: 'Você pode usar este procedimento para configurar o SNMPv3 para seu switch específico, que suporta monitoramento de integridade do switch Ethernet (CSHM).' 
----
-= Opcional: Configure o SNMPv3 para o seu switch
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-O SNMP é usado para monitorar os switches. O CSHM (Ethernet Switch Health Monitor) utiliza SNMP para monitorar a integridade e o desempenho dos switches de cluster e armazenamento. Por predefinição, o SNMPv2c é configurado automaticamente através do ficheiro de configuração de referência (RCF).
 
 O SNMPv3 é mais seguro do que o SNMPv2 porque introduz recursos de segurança robustos, como autenticação, criptografia e integridade de mensagens, que protegem contra acesso não autorizado e garantem a confidencialidade e integridade dos dados durante a transmissão.
 
