@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2/components-9336c-cluster.html
 keywords: shared storage cluster switch 
 summary: A partir do ONTAP 9.9,1, você pode usar os switches Cisco Nexus 9336C-FX2 para combinar a funcionalidade de armazenamento e cluster em um cenário de switch compartilhado. 
 ---
-= Componentes e números de peça para switches de cluster Cisco Nexus 9336C-FX2
+= Componentes e números de peça para switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,13 @@ summary: A partir do ONTAP 9.9,1, você pode usar os switches Cisco Nexus 9336C-
 
 
 [role="lead"]
-Para instalação e manutenção do switch Cisco Nexus 9336C-FX2, certifique-se de rever a lista de componentes e números de peça.
+Para instalação e manutenção do switch Cisco Nexus 9336C-FX2 e 9336C-FX2-T, certifique-se de rever a lista de componentes e números de peça.
 
-A tabela a seguir lista o número de peça e a descrição do interrutor 9336C-FX2, ventiladores e fontes de alimentação:
+
+
+== Detalhes do número de peça
+
+A tabela a seguir lista o número de peça e a descrição dos interrutores 9336C-FX2 e 9336C-FX2BASE-T, ventiladores e fontes de alimentação:
 
 [cols="1,2"]
 |===
@@ -26,28 +30,49 @@ A tabela a seguir lista o número de peça e a descrição do interrutor 9336C-F
  a| 
 X190200-CS-PE
  a| 
-N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28
+Interrutor de cluster, N9336C 36Pt PTSX 10/25/40/100g
 
 
 
  a| 
 X190200-CS-PI
  a| 
-N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28
+Comutador de cluster, N9336C 36Pt PSIN 10/25/40/100g
+
+
+
+ a| 
+X190212-CS-PE
+ a| 
+Interrutor de cluster, N9336C 12pt (9336C-FX2-T) PTSX 10/25/40/100g
+
+
+
+ a| 
+X190212-CS-PI
+ a| 
+Interrutor de cluster, N9336C 12pt (9336C-FX2-T) PSIN 10/25/40/100g
+
+
+
+ a| 
+SW-N9K-FX2-24P-UPG
+ a| 
+SW, Cisco 9336CFX2 24 portas POD licença
 
 
 
  a| 
 X190210-FE-PE
  a| 
-N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28
+N9K-9336C, FTE, PTSX, 36PT 10/25/40/100GQSFP28
 
 
 
  a| 
 X190210-FE-PI
  a| 
-N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28
+N9K-9336C, FTE, PSIN, 36PT 10/25/40/100GQSFP28
 
 
 
@@ -85,3 +110,15 @@ X-NXA-FAN-65CFM-PI
 N9K-9336C 65CFM, fluxo de ar de admissão do lado da porta
 
 |===
+
+
+== Licenças inteligentes da Cisco
+
+Para ativar mais de 12 portas em seu switch de cluster Cisco Nexus 9336C-FX-T, você deve comprar uma licença Cisco Smart. As licenças inteligentes da Cisco são gerenciadas por meio de contas inteligentes da Cisco.
+
+. Crie uma nova conta Smart, se necessário.  https://id.cisco.com/signin/register["Crie uma nova conta inteligente"^]Consulte para obter detalhes.
+. Solicitar acesso a uma conta inteligente existente.  https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Solicitar acesso a uma conta inteligente existente"^]Consulte para obter detalhes.
+
+
+
+NOTE: Depois de adquirir sua licença Smart, instale o RCF apropriado para habilitar e configurar todas as 36 portas disponíveis para uso.

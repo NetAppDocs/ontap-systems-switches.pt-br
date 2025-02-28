@@ -25,7 +25,7 @@ Siga estas instruções para configurar os switches compartilhados do Cisco Nexu
 .Passos
 . Rack os switches, controladores e NS224 compartimentos de storage NVMe.
 +
-Consulte o https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-install-cabinet/GUID-92287262-E7A6-4A62-B159-7F148097B33B.html["Instruções de estantes"] para saber como colocar o switch em rack em um gabinete NetApp.
+Consulte o link:../switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html["Instruções de estantes"] para saber como colocar o switch em rack em um gabinete NetApp.
 
 . Ligue os switches, as controladoras e as NS224 gavetas de storage NVMe.
 

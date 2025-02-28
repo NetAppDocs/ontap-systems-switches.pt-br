@@ -1,10 +1,10 @@
 ---
 permalink: switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html 
 sidebar: sidebar 
-keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
+keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2-t 
 summary: Se você quiser documentar as plataformas suportadas, você deve preencher a Planilha de cabeamento em branco usando a Planilha de cabeamento de amostra concluída como um guia. 
 ---
-= Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2
+= Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,9 +15,15 @@ Se você quiser documentar as plataformas suportadas, baixe um PDF desta página
 
 A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
 
+* <<Planilha de cabeamento de amostra 9336C-FX2>>
+* <<Folha de cálculo de cabeamento em branco 9336C-FX2>>
+* <<Folha de cálculo de cabeamento de amostra 9336C-FX2BASE-T (12 portas)>>
+* <<Folha de cálculo de cabeamento em branco 9336C-FX2BASE-T (12 portas)>>
 
 
-== Planilha de cabeamento de amostra
+
+
+== Planilha de cabeamento de amostra 9336C-FX2
 
 A definição de porta de amostra em cada par de switches é a seguinte:
 
@@ -327,7 +333,7 @@ Todos os direitos reservados
 |===
 
 
-== Folha de cálculo de cablagem em branco
+== Folha de cálculo de cabeamento em branco 9336C-FX2
 
 Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A seção _conexões de cluster suportadas_ da https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
 
@@ -560,6 +566,295 @@ Todos os direitos reservados
 25 a 34
  a| 
 Todos os direitos reservados
+
+
+
+ a| 
+35
+ a| 
+100GbE ISL para a porta 35 do interrutor B.
+ a| 
+35
+ a| 
+100GbE ISL para mudar A porta 35
+
+
+
+ a| 
+36
+ a| 
+100GbE ISL para a porta 36 do interrutor B.
+ a| 
+36
+ a| 
+100GbE ISL para mudar A porta 36
+
+|===
+
+
+== Folha de cálculo de cabeamento de amostra 9336C-FX2BASE-T (12 portas)
+
+A definição de porta de amostra em cada par de switches é a seguinte:
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+
+
+| Porta do switch | Uso de nó e porta | Porta do switch | Uso de nó e porta 
+
+
+ a| 
+1
+ a| 
+4x10GbE nó 1
+ a| 
+1
+ a| 
+4x10GbE nó 1
+
+
+
+ a| 
+2
+ a| 
+4x10GbE nó 2
+ a| 
+2
+ a| 
+4x10GbE nó 2
+
+
+
+ a| 
+3
+ a| 
+4x10GbE nó 3
+ a| 
+3
+ a| 
+4x10GbE nó 3
+
+
+
+ a| 
+4
+ a| 
+4x25GbE nó 4
+ a| 
+4
+ a| 
+4x25GbE nó 4
+
+
+
+ a| 
+5
+ a| 
+4x25GbE nó 5
+ a| 
+5
+ a| 
+4x25GbE nó 5
+
+
+
+ a| 
+6
+ a| 
+4x25GbE nó 6
+ a| 
+6
+ a| 
+4x25GbE nó 6
+
+
+
+ a| 
+7
+ a| 
+Nó 40/100GbE 7
+ a| 
+7
+ a| 
+Nó 40/100GbE 7
+
+
+
+ a| 
+8
+ a| 
+Nó 40/100GbE 8
+ a| 
+8
+ a| 
+Nó 40/100GbE 8
+
+
+
+ a| 
+9
+ a| 
+Nó 40/100GbE 9
+ a| 
+9
+ a| 
+Nó 40/100GbE 9
+
+
+
+ a| 
+10
+ a| 
+Nó 40/100GbE 10
+ a| 
+10
+ a| 
+Nó 40/100GbE 10
+
+
+
+ a| 
+11 a 34
+ a| 
+Requer licença
+ a| 
+11 a 34
+ a| 
+Requer licença
+
+
+
+ a| 
+35
+ a| 
+100GbE ISL para a porta 35 do interrutor B.
+ a| 
+35
+ a| 
+100GbE ISL para mudar A porta 35
+
+
+
+ a| 
+36
+ a| 
+100GbE ISL para a porta 36 do interrutor B.
+ a| 
+36
+ a| 
+100GbE ISL para mudar A porta 36
+
+|===
+
+
+== Folha de cálculo de cabeamento em branco 9336C-FX2BASE-T (12 portas)
+
+Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A seção _conexões de cluster suportadas_ da https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11 a 34
+ a| 
+Requer licença
+ a| 
+11 a 34
+ a| 
+Requer licença
 
 
 

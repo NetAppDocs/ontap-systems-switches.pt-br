@@ -45,14 +45,14 @@ Se o seu modelo ainda estiver mostrando *Other* depois de aplicar o arquivo de c
 +
 `ls /etc/cshm_nod/nod_sign`
 
-.. Exclua todos os arquivos NOD correspondentes aos modelos de switch conetados.
+.. Exclua todos os arquivos de configuração correspondentes aos modelos de switch conetados.
 +
-Se você não tiver certeza, remova todos os arquivos NOD para os modelos suportados listados acima e, em seguida, baixe e instale os arquivos NOD mais recentes para esses mesmos modelos.
+Se não tiver a certeza, remova todos os ficheiros de configuração para os modelos suportados listados acima e, em seguida, transfira e instale os ficheiros de configuração mais recentes para esses mesmos modelos.
 
 +
 `rm /etc/cshm_nod/nod_sign/<filename>`
 
-.. Confirme se os arquivos NOD excluídos não estão mais no diretório:
+.. Confirme se os arquivos de configuração excluídos não estão mais no diretório:
 +
 `ls /etc/cshm_nod/nod_sign`
 

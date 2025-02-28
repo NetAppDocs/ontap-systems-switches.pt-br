@@ -2833,7 +2833,6 @@
   <block id="50c3c6ae36d53e402b88d9a6222029a0" category="inline-link">As portas não se conetam no Cisco Nexus 9336C-FX2 devido aos recursos TCAM</block>
   <block id="293da448e2520766812e980a00821699" category="paragraph">Consulte o artigo da base de dados de Conhecimento<block ref="882efca0483fcef9d53236590b1d74e9" category="inline-link-rx"></block> para obter detalhes sobre como resolver este problema.</block>
   <block id="111819cdc8331282a1e7d94476ab33fd" category="summary">A partir do ONTAP 9.9,1, você pode usar os switches Cisco Nexus 9336C-FX2 para combinar a funcionalidade de armazenamento e cluster em um cenário de switch compartilhado.</block>
-  <block id="8d8cdf27c4804b6dda144a3406af3d6f" category="doc">Componentes e números de peça para switches de cluster Cisco Nexus 9336C-FX2</block>
   <block id="b8ab63249f7a1fc61438aae7a64f12e3" category="paragraph">Para instalação e manutenção do switch Cisco Nexus 9336C-FX2, certifique-se de rever a lista de componentes e números de peça.</block>
   <block id="5dfcb593b3c7fd66ae6fded55e29ddb1" category="paragraph">A tabela a seguir lista o número de peça e a descrição do interrutor 9336C-FX2, ventiladores e fontes de alimentação:</block>
   <block id="90dc16eea9a08fad9923a5ebde819373" category="paragraph">X190200-CS-PE</block>
@@ -3188,7 +3187,6 @@
   <block id="e7019c875b1e7fa7851e5b2570ff1637" category="list-text">Fichas de trabalho de cablagem concluídas. <block ref="8e79e8ba8c95547bae4fb86f4526b4fe" category="inline-link-macro-rx"></block>Consulte . Para obter mais informações sobre cabeamento, consulte o<block ref="e8018b6e740a667345f4bcc94e4023fc" category="inline-link-rx"></block>.</block>
   <block id="94f31b898786bbf285eb3f1766d2b846" category="list-text">Rack os switches, controladores e NS224 compartimentos de storage NVMe.</block>
   <block id="f1d2082f6b7e2fe0bd21c264b34b1db0" category="inline-link">Instruções de estantes</block>
-  <block id="85fdb4a8732610c4c52e8f55737378a6" category="paragraph">Consulte o<block ref="bbb1ee507d7be4aaba439496ffdc6801" category="inline-link-rx"></block> para saber como colocar o switch em rack em um gabinete NetApp.</block>
   <block id="33b51f739542d105d7c5028b7244b26e" category="list-text">Ligue os switches, as controladoras e as NS224 gavetas de storage NVMe.</block>
   <block id="d2fa93779a0f6b07d1717e02308c2fa6" category="inline-link">Configure o switch compartilhado Cisco Nexus 9336C-FX2</block>
   <block id="12bc639206c2ca12e8a65041a697e4fc" category="paragraph">Vá para<block ref="c686ee523547302c3fa5199eafd95753" category="inline-link-rx"></block>.</block>
@@ -4639,8 +4637,6 @@
   <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">Início rápido</block>
   <block id="626a7cbe056796bcb1c158b143866230" category="sidebar">Notas de versão do ONTAP</block>
   <block id="2d667925d48008850336e0d43e4d4306" category="sidebar">Switch de cluster - Broadcom BES-53248</block>
-  <block id="9013a0f95a05b68811cef544c6eea37b" category="sidebar">Switch de cluster - Cisco Nexus 9336C-FX2</block>
-  <block id="71740cccf1b838f9289aa8a38d080323" category="sidebar">Interrutor do grupo de instrumentos - NVIDIA SN2100</block>
   <block id="fc01f4074d379d0722eb2fa3b21e6af4" category="sidebar">Switch de armazenamento - Cisco Nexus 9336C-FX2</block>
   <block id="caf5170cbc1f4850f6d380c982fa61f9" category="sidebar">Interrutor de armazenamento - NVIDIA SN2100</block>
   <block id="6f738209e5071a9c22c8d336c6dec7a1" category="sidebar">Switch compartilhado - Cisco Nexus 9336C-FX2</block>
@@ -5190,10 +5186,7 @@
   <block id="04f8c8c881d9c66c4b51ab93a42ab746" category="paragraph"><block ref="37c965129cc09840500d7671b0accef3" prefix="" category="inline-code"></block></block>
   <block id="771d6c6c56d83746eaa82bd62e11363c" category="list-text">Liste os arquivos de configuração no<block ref="e4b3e6938bc5f3e3c811cf46ae8b7d53" prefix=" " category="inline-code"></block> diretório. Se o diretório existe e contém arquivos de configuração, ele lista os nomes dos arquivos.</block>
   <block id="6e89d35fb8a737baae7064c5ba2d6485" category="paragraph"><block ref="47f0187f585158fcdf3257a96c5d4bab" prefix="" category="inline-code"></block></block>
-  <block id="804c8f34f92745eacda3674d93c6ede1" category="list-text">Exclua todos os arquivos NOD correspondentes aos modelos de switch conetados.</block>
-  <block id="f938cfce39fe890a9f9b521c87a02106" category="paragraph">Se você não tiver certeza, remova todos os arquivos NOD para os modelos suportados listados acima e, em seguida, baixe e instale os arquivos NOD mais recentes para esses mesmos modelos.</block>
   <block id="ff9495347e1ccb9f937f04b4bbdd58bb" category="paragraph"><block ref="529be1cf6940ca38f1fda287a22c9fda" prefix="" category="inline-code"></block></block>
-  <block id="410e37690b6661c1eaeb818d9bed27c0" category="list-text">Confirme se os arquivos NOD excluídos não estão mais no diretório:</block>
   <block id="76bde9294ef84452f21b2745228ae290" category="list-text">MSN2100-CB2FC-v1.4.zip</block>
   <block id="85c07a49f236d7b33a2e8b48d076ed48" category="list-text">MSN2100-CB2RC-v1.4.zip</block>
   <block id="ae5e87300b042b85bdd2853f386265e7" category="list-text">X190006-PE-v1.4.zip</block>
@@ -5202,4 +5195,56 @@
   <block id="11ef8d241b319efa4a76430a0c6a78dd" category="list-text">MSN2100-CB2RC_PRIOR_R9.15.1-v1.4.zip</block>
   <block id="0179c8f8dd0b9cba4199d46bd95ddd3b" category="list-text">X190006-PE_PRIOR_9.15.1-v1.4.zip</block>
   <block id="3dd005cf004a39e1cb3e400094afa4c6" category="list-text">X190006-PI_PRIOR_9.15.1-v1.4.zip</block>
+  <block id="b9af6f54ffccbe5a5964a27a139b0b7a" category="list-text">Confirme se os arquivos de configuração de referência (RCFs) foram totalmente aplicados a quaisquer novos switches antes de migrar os LIFs para os novos switches.</block>
+  <block id="aab86cc7815bb8b75af6eb99f491f1ac" category="list-text">Verifique as configurações de execução e inicialização em ambos os switches antes de mudar o tráfego de rede.</block>
+  <block id="eab4beb6dced72a3b30ce6135ee5d1d4" category="section-title">Anúncios de fim de venda e fim de vida útil</block>
+  <block id="80a2f0887f61bb70c1929561266361c5" category="inline-link-macro">Anúncio de fim de venda e fim de vida útil do Cisco Nexus 3232C</block>
+  <block id="8f8980c9777dd0d346146e4dbfc23192" category="list-text"><block ref="8f8980c9777dd0d346146e4dbfc23192" category="inline-link-macro-rx"></block></block>
+  <block id="6133f717054b1b5c1c4e711ce691fbab" category="inline-link-macro">Anúncio de fim de venda e fim de vida útil para o Cisco Nexus 31108PC-V, 31108TC-V e Nexus 3132Q-V</block>
+  <block id="5f7e5f0b624d50336e8ca3bdbc07934f" category="list-text"><block ref="5f7e5f0b624d50336e8ca3bdbc07934f" category="inline-link-macro-rx"></block></block>
+  <block id="375f5e28ce989611bc4b141db2a793ec" category="inline-link-macro">Anúncio de fim de venda e fim de vida útil do Cisco N9K-C93120TX, N9K-C92300YC</block>
+  <block id="807c256ae9bedd9909bcb61b645dc7f6" category="list-text"><block ref="807c256ae9bedd9909bcb61b645dc7f6" category="inline-link-macro-rx"></block></block>
+  <block id="093490b8b7832b189936bc485586c659" category="inline-link-macro">Anúncio de fim de venda e fim de vida útil para os switches Cisco Nexus 5500 Series</block>
+  <block id="9a5f500ffaccd0b3009efe64697ec210" category="list-text"><block ref="9a5f500ffaccd0b3009efe64697ec210" category="inline-link-macro-rx"></block></block>
+  <block id="b28b35ae2bb0ba008baa07b20e30cb9b" category="inline-link-macro">Fim da disponibilidade: SKUs de interconexão de cluster NetApp CN1610</block>
+  <block id="3f802670007b812ad08c750c46d02d46" category="list-text"><block ref="3f802670007b812ad08c750c46d02d46" category="inline-link-macro-rx"></block></block>
+  <block id="fece371d4cb2229fdd5038868ac1dd4d" category="doc">Componentes e números de peça para switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T.</block>
+  <block id="e1041d2eebd055ab991b4e5acb893a64" category="paragraph">Para instalação e manutenção do switch Cisco Nexus 9336C-FX2 e 9336C-FX2-T, certifique-se de rever a lista de componentes e números de peça.</block>
+  <block id="0c535bea0ccf81dfb11cf214834c4fd6" category="section-title">Detalhes do número de peça</block>
+  <block id="c3c8898e3b8cf1bf9262fb0d9feefa54" category="paragraph">A tabela a seguir lista o número de peça e a descrição dos interrutores 9336C-FX2 e 9336C-FX2BASE-T, ventiladores e fontes de alimentação:</block>
+  <block id="06af6b2e91e8e98299954591bddb5f62" category="paragraph">Interrutor de cluster, N9336C 36Pt PTSX 10/25/40/100g</block>
+  <block id="8d6ba99f0f19dfe29b2c66cd39563652" category="paragraph">Comutador de cluster, N9336C 36Pt PSIN 10/25/40/100g</block>
+  <block id="0c025108047bff9c58978c87a86c7811" category="paragraph">X190212-CS-PE</block>
+  <block id="bd8408b657119da69686e286d6b7bcaa" category="paragraph">Interrutor de cluster, N9336C 12pt (9336C-FX2-T) PTSX 10/25/40/100g</block>
+  <block id="9ffd7de811cde03246db3a4665fac7b6" category="paragraph">X190212-CS-PI</block>
+  <block id="58a95daabfad4a2b64ff90749a4a3be9" category="paragraph">Interrutor de cluster, N9336C 12pt (9336C-FX2-T) PSIN 10/25/40/100g</block>
+  <block id="624a10db1af0d919eadbc61a37d3d1b9" category="paragraph">SW-N9K-FX2-24P-UPG</block>
+  <block id="66d6f96d0da80f49ed578ebd202f51eb" category="paragraph">SW, Cisco 9336CFX2 24 portas POD licença</block>
+  <block id="9bbde79a2adc27dd0834674a54511852" category="paragraph">N9K-9336C, FTE, PTSX, 36PT 10/25/40/100GQSFP28</block>
+  <block id="237dcc725007511d9264805769526146" category="paragraph">N9K-9336C, FTE, PSIN, 36PT 10/25/40/100GQSFP28</block>
+  <block id="583b0c4bec1745b4b73603decad8c614" category="section-title">Licenças inteligentes da Cisco</block>
+  <block id="fe08e509b48ab8777447aae93b7c5a8f" category="paragraph">Para ativar mais de 12 portas em seu switch de cluster Cisco Nexus 9336C-FX-T, você deve comprar uma licença Cisco Smart. As licenças inteligentes da Cisco são gerenciadas por meio de contas inteligentes da Cisco.</block>
+  <block id="7fe41b91378917f0081357562fc713a8" category="inline-link">Crie uma nova conta inteligente</block>
+  <block id="3cc71bb7c9c2b539e2bc7922ec688b44" category="list-text">Crie uma nova conta Smart, se necessário. <block ref="c236b6c467e9323cbdd95c549d9def1f" category="inline-link-rx"></block>Consulte para obter detalhes.</block>
+  <block id="120b6b80efeef7ca672a0b274b256083" category="inline-link">Solicitar acesso a uma conta inteligente existente</block>
+  <block id="8fbba80df6dcbd4d547347fd146e1b83" category="list-text">Solicitar acesso a uma conta inteligente existente. <block ref="f4476a827230258a80e0d6788d3c661e" category="inline-link-rx"></block>Consulte para obter detalhes.</block>
+  <block id="4363ac02ed8f94606b748a9c8093f0d1" category="admonition">Depois de adquirir sua licença Smart, instale o RCF apropriado para habilitar e configurar todas as 36 portas disponíveis para uso.</block>
+  <block id="20d4dc5b26b66af5b87062c8cb66e702" category="doc">Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.</block>
+  <block id="d34235ce3b8eeb56732eac003a8b80f5" category="list-text"><block ref="5f7d0a649ff80997d8ca88905c993bff" category="inline-xref-macro-rx"></block></block>
+  <block id="ade6c0cb61106114d61bca7ca65fe64c" category="list-text"><block ref="5e883d5b3902e61fee96d087a27d3028" category="inline-xref-macro-rx"></block></block>
+  <block id="2587e0d23b930dd34376e94aa18b04a3" category="list-text"><block ref="89e3d6d4f88a65d2e49a3b6dad3c2afd" category="inline-xref-macro-rx"></block></block>
+  <block id="4906e48b462c42127652c969091a3013" category="list-text"><block ref="d25614f5ce8d526a0a67b4e405554080" category="inline-xref-macro-rx"></block></block>
+  <block id="2dbed8ef9f0e291a4f3e95571e489dfa" category="section-title">Planilha de cabeamento de amostra 9336C-FX2</block>
+  <block id="0acd5880e2a4dde041c61de67d25683f" category="section-title">Folha de cálculo de cabeamento em branco 9336C-FX2</block>
+  <block id="084af706c38c7c432697d09f104163cb" category="section-title">Folha de cálculo de cabeamento de amostra 9336C-FX2BASE-T (12 portas)</block>
+  <block id="afcd5a2ec740515181747b7e9f4cfd93" category="paragraph">11 a 34</block>
+  <block id="17c2de625275ee631aeeb131bcf75439" category="paragraph">Requer licença</block>
+  <block id="811b4b7fb3b0d037ae140fe004831efe" category="section-title">Folha de cálculo de cabeamento em branco 9336C-FX2BASE-T (12 portas)</block>
+  <block id="7348f30fbfa4e5b2b4f9c3cdb9b9c7c7" category="paragraph">Consulte o <block ref="9ad94c677d9e1ab0aaffa9991490e940" category="inline-link-macro-rx"></block> para saber como colocar o switch em rack em um gabinete NetApp.</block>
+  <block id="cefefc2081d40fa592f23faffcb8f1e0" category="list-text">Exclua todos os arquivos de configuração correspondentes aos modelos de switch conetados.</block>
+  <block id="90842b83190886e90bf2403d6e93be1b" category="paragraph">Se não tiver a certeza, remova todos os ficheiros de configuração para os modelos suportados listados acima e, em seguida, transfira e instale os ficheiros de configuração mais recentes para esses mesmos modelos.</block>
+  <block id="77dab6429e3fe4aca5fa3d7f0cd46d71" category="list-text">Confirme se os arquivos de configuração excluídos não estão mais no diretório:</block>
+  <block id="a9fc37ffea4ac5fbd75f369d96c903f6" category="sidebar">Switch de cluster - Cisco Nexus 9336C-FX2 ou 9336C-FX2-T</block>
+  <block id="ed3dd7f516f69cf573ae79a1781bbcbf" category="sidebar">Interrutor do grupo de instrumentos - interrutor do grupo de instrumentos NVIDIA SN2100</block>
+  <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336CP-FX2 ou 9336CP-FX2BASE-T</block>
 </blocks>
