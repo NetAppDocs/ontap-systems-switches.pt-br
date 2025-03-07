@@ -426,6 +426,7 @@ Configuration Saved!
 (cs2)# *reload*
 Are you sure you would like to reset the system? (y/n) *y*
 ----
+.. Faça login no switch novamente usando SSH para concluir a instalação do RCF.
 
 
 . Observe o seguinte:
@@ -434,11 +435,78 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. Grave todas as personalizações que foram feitas no RCF anterior e aplique-as ao novo RCF. Por exemplo, definir velocidades de porta ou o modo FEC de codificação forçada.
 
 
+
+
+[role="tabbed-block"]
+====
+.EFOS versão 3,12.x e posterior
+--
 . Copie o RCF para o flash de inicialização do switch CS2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.
 +
 Este exemplo mostra que o SFTP está sendo usado para copiar um RCF para o flash de inicialização no switch CS2:
 
+
+
+[listing, subs="+quotes"]
+----
+(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt
+nvram:reference-config*
+Remote Password:**
+Mode........................................... TFTP
+Set Server IP.................................. 172.19.2.1
+Path........................................... //tmp/
+Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
+Data Type...................................... Config Script
+Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
+Management access will be blocked for the duration of the transfer
+Are you sure you want to start? (y/n) *y*
+TFTP Code transfer starting...
+File transfer operation completed successfully.
+----
+. Verifique se o script foi baixado e salvo sob o nome do arquivo que você deu:
 +
+`script list`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *script list*
+
+Configuration Script Name                  Size(Bytes)  Date of Modification
+-----------------------------------------  -----------  --------------------
+Reference-config.scr                       2680         2024 05 31 21:54:22
+2 configuration script(s) found.
+2042 Kbytes free.
+----
+. Aplique o script ao switch:
++
+`script apply`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *script apply reference-config.scr*
+
+Are you sure you want to apply the configuration script? (y/n) *y*
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+Config file 'startup-config' created successfully.
+Configuration Saved!
+
+Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
+----
+
+
+--
+.Todas as outras versões do EFOS
+--
+. Copie o RCF para o flash de inicialização do switch CS2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.
++
+Este exemplo mostra que o SFTP está sendo usado para copiar um RCF para o flash de inicialização no switch CS2:
+
+
+
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
@@ -460,9 +528,6 @@ File transfer operation completed successfully.
 `script list`
 
 +
-.Mostrar exemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script list*
@@ -473,15 +538,11 @@ BES-53248_RCF_v1.9-Cluster-HA.scr          2241         2020 09 30 05:41:00
 
 1 configuration script(s) found.
 ----
-====
 . Aplique o script ao switch:
 +
 `script apply`
 
 +
-.Mostrar exemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script apply BES-53248_RCF_v1.9-Cluster-HA.scr*
@@ -495,8 +556,11 @@ Configuration Saved!
 
 Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
 ----
+
+
+--
 ====
-. Examine a saída do banner a partir do `show clibanner` comando. Você deve ler e seguir estas instruções para garantir a configuração e o funcionamento corretos do switch.
+. [[step11]]examine a saída do banner a partir do `show clibanner` comando. Você deve ler e seguir estas instruções para garantir a configuração e o funcionamento corretos do switch.
 +
 `show clibanner`
 
@@ -1042,7 +1106,7 @@ RPC status:
 ----
 --
 ====
-. [[step6]]altere o nível de privilégio de volta para admin:
+. Altere o nível de privilégio de volta para admin:
 +
 [source, cli]
 ----

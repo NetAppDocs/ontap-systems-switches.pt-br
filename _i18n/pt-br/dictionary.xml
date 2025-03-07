@@ -840,7 +840,6 @@
   <block id="406bb351c55daa6b29920fa6ce644c29" category="paragraph"><block ref="b6bb909f15a4cebed583f578fc5afd2d" prefix="" category="inline-code"></block></block>
   <block id="b3d2ab282b59bbaad33610c1e37f6f97" category="list-text">Aplique o script ao switch:</block>
   <block id="02afa83850d1a1e555c0bc75967fef66" category="paragraph"><block ref="5590c26cbf8a14b147a1465a6168f701" prefix="" category="inline-code"></block></block>
-  <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">Examine a saída do banner a partir do<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Você deve ler e seguir estas instruções para garantir a configuração e o funcionamento corretos do switch.</block>
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">No switch, verifique se as portas licenciadas adicionais aparecem depois que o RCF é aplicado:</block>
   <block id="44204cecc6038ea77eba4b1c7fdb67ca" category="list-text">Verifique no switch se suas alterações foram feitas:</block>
   <block id="3f1cea616a4c65689c504a5493308910" category="list-text">Salve a configuração em execução para que ela se torne a configuração de inicialização quando você reiniciar o switch:</block>
@@ -2876,14 +2875,12 @@
   <block id="e1ef2bf589b36ef4fe890c1ce3f4414e" category="list-text"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block>.</block>
   <block id="629075dbdb9eff0fb95f99ab0fcd1967" category="paragraph">Baixe e instale ou atualize o software NX-os no switch de cluster Cisco Nexus 9336C-FX2.</block>
   <block id="11106314fe1d4dd5bee639afb348b915" category="inline-link-macro">Instale ou atualize o RCF</block>
-  <block id="c04285e0007809b2644676a723882b00" category="list-text"><block ref="1fe309bd8e626375dc4971f4edf77d2d" category="inline-link-macro-rx"></block>.</block>
   <block id="01a618717f01c55d9b54bedd7307a43f" category="paragraph">Instale ou atualize o RCF depois de configurar o switch Cisco Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="2e3301a364286013b9b29237fa347bb1" category="summary">O SSH é um requisito ao usar os recursos do Monitor de integridade do Cluster Switch (CSHM) e coleta de logs. Para ativar o SSH nos switches de cluster Cisco 9336c-FX2, você gera as chaves SSH primeiro e depois ativa o SSH.</block>
   <block id="b456d34c399e9d9889e4c0ac830ecb7a" category="summary">Visão geral da instalação e configuração para switches de cluster Cisco Nexus 9336C-FX2</block>
   <block id="a48d2f73b54f1c12d4039724748b5d7a" category="paragraph">O switch de cluster Cisco Nexus 9336C-FX2 faz parte da plataforma Cisco Nexus 9000 e pode ser instalado em um gabinete do sistema NetApp. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.</block>
   <block id="be4cd7f1969695f8e6e1f2c8040abcd4" category="paragraph">Para configurar inicialmente um switch Cisco Nexus 9336C-FX2 em sistemas que executam o ONTAP, siga estas etapas:</block>
   <block id="a525a0a5bd0337e90ed0f23d435c2ab0" category="inline-link-macro">Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2</block>
-  <block id="b002a5cd7db32a3dea22b0992712b264" category="list-text"><block ref="56a03b023ba50fb49738eaf20203f57a" category="inline-link-macro-rx"></block>.</block>
   <block id="ef44963f41cab6cd9db7a1c9e6197076" category="inline-link-macro">Instale o interrutor</block>
   <block id="959598166d06ebc7f87da7525f293a91" category="list-text"><block ref="0bc8e83d3cd2eebf0c2c5d2a7b54cc6c" category="inline-link-macro-rx"></block>.</block>
   <block id="df7bc1c04ccb094d3b474fc08a97d272" category="paragraph">Configure o hardware do switch.</block>
@@ -4693,7 +4690,6 @@
   <block id="73f7e96895a0ddf72a3e199ac5ae2247" category="sidebar">Substitua os interrutores de 3132Q V.</block>
   <block id="194d828d5f6903e0190e08180b8af056" category="sidebar">Substitua o interrutor do cluster</block>
   <block id="512f694616622dd7d0109c65f582ba21" category="sidebar">Substitua o interrutor de armazenamento</block>
-  <block id="742d7720a6bdc19b4810641f0c74ddd3" category="sidebar">Atualizar switches</block>
   <block id="2e46757c7b729d4910e07654cf41f7b0" category="sidebar">Overview_92300yc</block>
   <block id="ed84fc6478ac0d00e1e78977470c5fd5" category="sidebar">Install_hardware_92300yc</block>
   <block id="b6c306e6e3042fa0d66df82b85cdd615" category="sidebar">Configure_software_92300yc</block>
@@ -4770,7 +4766,6 @@
   <block id="2d7cd36455daea92f172ede16d765aae" category="list-text">[[step7]] Verifique se o cluster está saudável:</block>
   <block id="acdfe379cf0ed5868b119418e7d41b82" category="list-text">[[step11]] Configure a configuração sem switch para as portas no grupo 2.</block>
   <block id="a2f7ec2dd8feebc2c1e30e5f859d4497" category="list-text">[[step6]] se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:</block>
-  <block id="2f3040f570b3d77425ad0bf50fc7985c" category="list-text">[[step6]]altere o nível de privilégio de volta para admin:</block>
   <block id="4e4f70ba52e8cb595faa069991c5a9f4" category="list-text">[[step5]]se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:</block>
   <block id="c97fddef37af781b99f2bb564a90861d" category="list-text">[[step9]]altere o nível de privilégio de volta para admin:</block>
   <block id="991d705309210a9623a3f1d994c15150" category="list-text">[[step10]]desligue as portas ISL de 41 a 48 no switch Nexus 5596 ativo CL1:</block>
@@ -5130,7 +5125,6 @@
   <block id="f36aa89aee5a55633ce25b54c9a779d3" category="sidebar">Migrate_from_switch_clusters</block>
   <block id="c32aa48aa3b92b64c3a5ea6a1b2e9a1f" category="sidebar">Migre o fluxo de trabalho de clusters sem switch de dois nós</block>
   <block id="df8a9198280d88db538535b2609f0f83" category="sidebar">Replace_switches_3232C</block>
-  <block id="6697bf1c75a0d4d8868afeab04858bc3" category="sidebar">Upgrade_switches_3232C</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_upgrade_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Instale ou atualize a visão geral do RCF</block>
   <block id="b6503bc6a2e6ede86368a60473711626" category="list-text">Repita os passos 1 a 11 no interrutor CS1.</block>
@@ -5247,4 +5241,6 @@
   <block id="a9fc37ffea4ac5fbd75f369d96c903f6" category="sidebar">Switch de cluster - Cisco Nexus 9336C-FX2 ou 9336C-FX2-T</block>
   <block id="ed3dd7f516f69cf573ae79a1781bbcbf" category="sidebar">Interrutor do grupo de instrumentos - interrutor do grupo de instrumentos NVIDIA SN2100</block>
   <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336CP-FX2 ou 9336CP-FX2BASE-T</block>
+  <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[step11]]examine a saída do banner a partir do<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Você deve ler e seguir estas instruções para garantir a configuração e o funcionamento corretos do switch.</block>
+  <block id="8b084baecf96a692280d1a024d86081d" category="list-text"><block ref="cf3a409f8782a7944244632e6a1adb8e" category="inline-link-macro-rx"></block>.</block>
 </blocks>
