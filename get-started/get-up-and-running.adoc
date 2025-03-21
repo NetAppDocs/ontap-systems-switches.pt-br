@@ -15,37 +15,7 @@ Para começar a funcionar com cluster, armazenamento e switches compartilhados, 
 
 A implantação do switch envolve o seguinte fluxo de trabalho.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] Instalar controladores AFF/FAS
-[role="quick-margin-para"]
-Instale os controladores AFF/FAS no rack ou gabinete. Acesse as instruções de instalação e configuração do modelo da plataforma AFF/FAS.
-
-[cols="4,9,9,9"]
-|===
-
-
- a| 
- a| 
-.Sistemas AFF
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"^]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"^]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"^]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"^]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"^]
-
- a| 
-.Sistemas FAS
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"^]
-
- a| 
-
-|===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"] Instale o material de fixação do interrutor
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] Instale o material de fixação do interrutor
 [role="quick-margin-para"]
 Instale seus switches no rack ou gabinete. Acesse as instruções a seguir para o modelo do switch.
 
@@ -71,9 +41,28 @@ Instale seus switches no rack ou gabinete. Acesse as instruções a seguir para 
 
 
 |===
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"] Instale o sistema de storage e as gavetas de storage
+[role="quick-margin-para"]
+Instale seu sistema de armazenamento e prateleiras de armazenamento no gabinete ou rack. Acesse as instruções de instalação e configuração do modelo da sua plataforma.
+
+[cols="4,9,9,9"]
+|===
+
+
+ a| 
+ a| 
+* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemas AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemas ASA"^]
+* https://docs.netapp.com/us-en/asa-r2/index.html["Sistemas ASA r2"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Sistemas FAS"^]
+
+ a| 
+ a| 
+
+|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Ligue os interrutores aos controladores
 [role="quick-margin-para"]
-As instruções de instalação e configuração do AFF/FAS incluem instruções para o cabeamento das portas da controladora ao switch. No entanto, se você precisar de listas de cabos e transcetores suportados e informações detalhadas sobre as portas do host para o switch, acesse as instruções a seguir para o modelo do switch.
+As instruções de instalação e configuração dos sistemas ONTAP incluem instruções para o cabeamento das portas da controladora ao switch. No entanto, se você precisar de listas de cabos e transcetores suportados e informações detalhadas sobre as portas do host para o switch, acesse as instruções a seguir para o modelo do switch.
 
 [cols="2,9,9,9"]
 |===
@@ -151,7 +140,7 @@ Para instalar e configurar o software no switch, siga o fluxo de trabalho de ins
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"] Conclua a configuração do sistema
 [role="quick-margin-para"]
-Depois de configurar os switches e instalar o software necessário, acesse as instruções de instalação e configuração do modelo da plataforma AFF/FAS para concluir a configuração do sistema.
+Depois de configurar os switches e instalar o software necessário, acesse as instruções de instalação e configuração do modelo da plataforma de sistemas ONTAP para concluir a configuração do sistema.
 
 [cols="4,9,9,9"]
 |===
@@ -159,29 +148,18 @@ Depois de configurar os switches e instalar o software necessário, acesse as in
 
  a| 
  a| 
-.Sistemas AFF
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AFF A220"^]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"^]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"^]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"^]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemas AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemas ASA"^]
+* https://docs.netapp.com/us-en/asa-r2/index.html["Sistemas ASA r2"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Sistemas FAS"^]
 
  a| 
-.Sistemas FAS
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"]
-
  a| 
 
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sete"] Concluir a configuração do ONTAP
 [role="quick-margin-para"]
-Depois de instalar e configurar os controladores e switches AFF/FAS, você deve concluir a configuração do storage no ONTAP. Acesse as instruções a seguir de acordo com a configuração de implantação.
+Depois de instalar e configurar os controladores e switches dos sistemas ONTAP, você deverá concluir a configuração do storage no ONTAP. Acesse as instruções a seguir de acordo com a configuração de implantação.
 
 [role="quick-margin-list"]
 * Para implantações do ONTAP, https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurar o ONTAP"^] consulte .

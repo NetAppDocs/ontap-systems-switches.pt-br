@@ -412,36 +412,9 @@
   <block id="3a9c64dc96f245c802099a9777b1545f" category="paragraph">Para começar a funcionar com cluster, armazenamento e switches compartilhados, você instala componentes de hardware e configura o switch.</block>
   <block id="2c762f57a86f34384ae046788f79bbce" category="paragraph">A implantação do switch envolve o seguinte fluxo de trabalho.</block>
   <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">Um</block>
-  <block id="1488c7c37653a45223ebecdfabcefa04" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Instalar controladores AFF/FAS</block>
-  <block id="edc4a76e22711e26f2e103a32108feb0" category="paragraph">Instale os controladores AFF/FAS no rack ou gabinete. Acesse as instruções de instalação e configuração do modelo da plataforma AFF/FAS.</block>
   <block id="f3585daa539c5917b4fedd0eb7efb3f2" category="list-title">Sistemas AFF</block>
-  <block id="b6000f9eed7f8ea9ee4632bd2f77961a" category="inline-link">AFF C190</block>
-  <block id="3c8201758b6615445685550102a5ff2e" category="list-text"><block ref="3c8201758b6615445685550102a5ff2e" category="inline-link-rx"></block></block>
-  <block id="8fd3ca5f66dff5be16e79560dd28171e" category="inline-link">AFF A220</block>
-  <block id="0c07f07bcba8b53ce2dde87f64978389" category="list-text"><block ref="0c07f07bcba8b53ce2dde87f64978389" category="inline-link-rx"></block></block>
-  <block id="68b23d3f7da36f1f08be0727f515bcb1" category="inline-link">AFF A250</block>
-  <block id="ea4884694087f97f1414ff33591a92f4" category="list-text"><block ref="ea4884694087f97f1414ff33591a92f4" category="inline-link-rx"></block></block>
-  <block id="540dacfeb5577ce4282c41e9c7518680" category="inline-link">AFF A400</block>
-  <block id="70784375dfee5175e8d1aff452c387bb" category="list-text"><block ref="70784375dfee5175e8d1aff452c387bb" category="inline-link-rx"></block></block>
-  <block id="56c7968a1d140906ab8313162854322d" category="inline-link">AFF A700</block>
-  <block id="9944f9622785dbcdc4d7ccd16c885446" category="list-text"><block ref="9944f9622785dbcdc4d7ccd16c885446" category="inline-link-rx"></block></block>
-  <block id="53270fbfda62583949b287e08ae3d063" category="inline-link">AFF A800</block>
-  <block id="fe633e6d1d2b0e6ce4fb655cc1484ce6" category="list-text"><block ref="fe633e6d1d2b0e6ce4fb655cc1484ce6" category="inline-link-rx"></block></block>
-  <block id="ec5e81cea4c5ee83d635778e86350e80" category="inline-link">AFF A900</block>
-  <block id="53fcc9e92ee66f98454a4faa4f513b0f" category="list-text"><block ref="53fcc9e92ee66f98454a4faa4f513b0f" category="inline-link-rx"></block></block>
   <block id="d5d4923aa83e46af2152de920946ba41" category="list-title">Sistemas FAS</block>
-  <block id="9cce52969ddef317310e7d9d1c259895" category="inline-link">FAS500f</block>
-  <block id="78863e0132385416cfd531211fd33ae2" category="list-text"><block ref="78863e0132385416cfd531211fd33ae2" category="inline-link-rx"></block></block>
-  <block id="1752b126dd5e4219fbf53c09ee63d51e" category="inline-link">FAS8300</block>
-  <block id="94c4252b087ab60f8a4a9ffa3f5a1e59" category="list-text"><block ref="94c4252b087ab60f8a4a9ffa3f5a1e59" category="inline-link-rx"></block></block>
-  <block id="0588c4f1b58eac9f5062dc1da6e8435a" category="inline-link">FAS8700</block>
-  <block id="98d2b525bd9f4cea6db9ab1194e60210" category="list-text"><block ref="98d2b525bd9f4cea6db9ab1194e60210" category="inline-link-rx"></block></block>
-  <block id="ec5c696a4bc57321a5a79c91b886d5ff" category="inline-link">FAS9000</block>
-  <block id="85dbe4f93e89fc6f3ee146ffd5687c67" category="list-text"><block ref="85dbe4f93e89fc6f3ee146ffd5687c67" category="inline-link-rx"></block></block>
-  <block id="756d409209ace98589705774b5011aa0" category="inline-link">FAS9500</block>
-  <block id="85d166e992ca6f11afb6f8661ce70bf4" category="list-text"><block ref="85d166e992ca6f11afb6f8661ce70bf4" category="inline-link-rx"></block></block>
   <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">Dois</block>
-  <block id="d130f1dd19e93aaf9701cc968056061f" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Instale o material de fixação do interrutor</block>
   <block id="26d2e0bd267361cc8916e7e16faebcbb" category="paragraph">Instale seus switches no rack ou gabinete. Acesse as instruções a seguir para o modelo do switch.</block>
   <block id="f267a68fd1c8bddcc992701898021398" category="list-title">Interrutores do cluster</block>
   <block id="8821c03ea98d1edaf4b4b82c0aaf59dc" category="inline-link-macro">Instale o interrutor BES-53248</block>
@@ -457,7 +430,6 @@
   <block id="7436b337b55a342d63c3c141c8767f95" category="list-text"><block ref="7436b337b55a342d63c3c141c8767f95" category="inline-link-macro-rx"></block></block>
   <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">Três</block>
   <block id="a4ae5d0bd4e47ba267a8df1ceee51985" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block>Ligue os interrutores aos controladores</block>
-  <block id="427748ed6a44d0d6126050507a461881" category="paragraph">As instruções de instalação e configuração do AFF/FAS incluem instruções para o cabeamento das portas da controladora ao switch. No entanto, se você precisar de listas de cabos e transcetores suportados e informações detalhadas sobre as portas do host para o switch, acesse as instruções a seguir para o modelo do switch.</block>
   <block id="497781401f115451ecac27f7f2933cb3" category="inline-link-macro">Interrutor BES-53248 do cabo</block>
   <block id="9d56a49b99041f6f4671dc40ac94f1f8" category="list-text"><block ref="9d56a49b99041f6f4671dc40ac94f1f8" category="inline-link-macro-rx"></block></block>
   <block id="2586f55a2b9174f4cb4f6ba1d3074ad1" category="inline-link-macro">Cabo Cisco switch Nexus 9336C-FX2</block>
@@ -493,12 +465,8 @@
   <block id="89176363c7d28c567fb702f95f7eee23" category="list-text"><block ref="89176363c7d28c567fb702f95f7eee23" category="inline-link-macro-rx"></block></block>
   <block id="e6fbc0b9673f8c86726688d7607fc8f5" category="inline-image-macro">Seis</block>
   <block id="aea7345148c1589735242fc13ad81924" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block> Conclua a configuração do sistema</block>
-  <block id="8a19d1619bb8803d8a6b5d21556d87ad" category="paragraph">Depois de configurar os switches e instalar o software necessário, acesse as instruções de instalação e configuração do modelo da plataforma AFF/FAS para concluir a configuração do sistema.</block>
-  <block id="8e4eec704f9a8706e1a3cf96accb2c17" category="list-text"><block ref="8e4eec704f9a8706e1a3cf96accb2c17" category="inline-link-rx"></block></block>
-  <block id="2bf999bae7084da5db26c6b483ac44f0" category="list-text"><block ref="2bf999bae7084da5db26c6b483ac44f0" category="inline-link-rx"></block></block>
   <block id="12e67aac3e7f9227cc35f8f047d7dc74" category="inline-image-macro">Sete</block>
   <block id="8f5988d6d5abedb5da92f0fcbc79872d" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block> Concluir a configuração do ONTAP</block>
-  <block id="f0a39bebe9f0d59f6fc97c14de8b2a1a" category="paragraph">Depois de instalar e configurar os controladores e switches AFF/FAS, você deve concluir a configuração do storage no ONTAP. Acesse as instruções a seguir de acordo com a configuração de implantação.</block>
   <block id="549f827e07761bafef053e8ca7564a39" category="inline-link">Configurar o ONTAP</block>
   <block id="b54483c149c4951b43214e0e419d0882" category="list-text">Para implantações do ONTAP,<block ref="daad8f612ac7448a64fdb14518a581cb" category="inline-link-rx"></block> consulte .</block>
   <block id="10775dd39d5bac0a859a7c2aa804576e" category="inline-link">Configure o MetroCluster com o ONTAP</block>
@@ -618,7 +586,6 @@
   <block id="8f165dca42f321f16043254a0b0519b2" category="section-title">Requisitos da FEC</block>
   <block id="c54cb1d1758401e3642d17bb93a69d93" category="list-text">Para portas 25G com cabos de cobre, consulte a tabela a seguir para obter detalhes.</block>
   <block id="195cd18c7f8998650d35b4c351942586" category="paragraph">Se o lado do controlador for<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block>, o lado do interrutor é definido como FEC 25G.</block>
-  <block id="a00291ce16531c65ee398b6881feea1f" category="paragraph">Imagem::../media/FEC_copper_table.jpg[25G portas com cabos de cobre]</block>
   <block id="4acde917814132a561bfa4351ff46435" category="list-text">Para portas 25G com cabos de fibra/ótica, consulte a tabela a seguir para obter detalhes:</block>
   <block id="c6539246443696c8a670f430b739b72e" category="image-alt">25g portas com cabos de fibra/ótica</block>
   <block id="6e780ba970adeac360d7606298c46e9e" category="section-title">Implementação do Bootarg</block>
@@ -5149,7 +5116,6 @@
   <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">Antes de instalar uma nova versão do software do switch e RCFs, você deve apagar as configurações do switch e executar a configuração básica. Você deve estar conetado ao switch usando o console serial ou ter preservado as informações básicas de configuração antes de apagar as configurações do switch.</block>
   <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">Para NX-os 10,2 e posterior, use o<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando para comparar com o arquivo RCF salvo no flash de inicialização. Caso contrário, use uma ferramenta de comparação ou comparação de terceiros.</block>
   <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">Talvez seja necessário atualizar as entradas do arquivo host relacionadas às chaves SSH.</block>
-  <block id="8b4a2ab0394283209f67c0b0e8ca9f94" category="list-text">Para coleta de logs com switches Broadcom e Cisco, um novo usuário deve ser criado no switch para cada configuração com coleta de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.</block>
   <block id="89fe808c6ef5fe301085b5abe4406d35" category="paragraph">Configure um OPERADOR DE REDE de nome de usuário SNMPv3 em switches Broadcom BES-53248.</block>
   <block id="97e3bfa41185c29b8e204545b638d532" category="open-title">NVIDIA - CLI 5,11</block>
   <block id="3a5cc736f1918e798338d9e890393631" category="paragraph">Configure um nome de usuário SNMPv3 SNMPv3_USER em switches NVIDIA SN2100 executando CLI 5,11:</block>
@@ -5243,4 +5209,18 @@
   <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336CP-FX2 ou 9336CP-FX2BASE-T</block>
   <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[step11]]examine a saída do banner a partir do<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Você deve ler e seguir estas instruções para garantir a configuração e o funcionamento corretos do switch.</block>
   <block id="8b084baecf96a692280d1a024d86081d" category="list-text"><block ref="cf3a409f8782a7944244632e6a1adb8e" category="inline-link-macro-rx"></block>.</block>
+  <block id="a0483532706ba341300191e20cafc42e" category="list-text">Para coleta de logs com switches Broadcom e Cisco, um novo usuário deve ser criado no switch para cada configuração de cluster com coleta de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.</block>
+  <block id="1fcbc8802637b04b8fe9a86ac3d545c9" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Instale o material de fixação do interrutor</block>
+  <block id="b11226c776ec1b74f6a42f871e3194c9" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Instale o sistema de storage e as gavetas de storage</block>
+  <block id="130792cb3edc8d0afffb557e50b218c3" category="paragraph">Instale seu sistema de armazenamento e prateleiras de armazenamento no gabinete ou rack. Acesse as instruções de instalação e configuração do modelo da sua plataforma.</block>
+  <block id="2c7dd80f8eb9ec97988d14d8f239abf4" category="list-text"><block ref="2c7dd80f8eb9ec97988d14d8f239abf4" category="inline-link-rx"></block></block>
+  <block id="6476573ba5b973ad8ea01c57f5b30267" category="inline-link">Sistemas ASA</block>
+  <block id="f0a695bb3bd97a845db6783bb1ad3093" category="list-text"><block ref="f0a695bb3bd97a845db6783bb1ad3093" category="inline-link-rx"></block></block>
+  <block id="fde1abb5537b55c34521d414267b3f70" category="inline-link">Sistemas ASA r2</block>
+  <block id="7afb54114ad26df98fed07fb9d75ad31" category="list-text"><block ref="7afb54114ad26df98fed07fb9d75ad31" category="inline-link-rx"></block></block>
+  <block id="e4893c698185416732314b6f000f8765" category="list-text"><block ref="e4893c698185416732314b6f000f8765" category="inline-link-rx"></block></block>
+  <block id="40769a020df40a5750e36970bafcc36f" category="paragraph">As instruções de instalação e configuração dos sistemas ONTAP incluem instruções para o cabeamento das portas da controladora ao switch. No entanto, se você precisar de listas de cabos e transcetores suportados e informações detalhadas sobre as portas do host para o switch, acesse as instruções a seguir para o modelo do switch.</block>
+  <block id="1422bf436bfd810c807aacf3aab99615" category="paragraph">Depois de configurar os switches e instalar o software necessário, acesse as instruções de instalação e configuração do modelo da plataforma de sistemas ONTAP para concluir a configuração do sistema.</block>
+  <block id="ce85a54726781b89fe08c28de38285c0" category="paragraph">Depois de instalar e configurar os controladores e switches dos sistemas ONTAP, você deverá concluir a configuração do storage no ONTAP. Acesse as instruções a seguir de acordo com a configuração de implantação.</block>
+  <block id="674426100287eb3a5e16cf5705c524ea" category="image-alt">25g portas com cabos de cobre</block>
 </blocks>

@@ -1,0 +1,127 @@
+= 
+:allow-uri-read: 
+
+
+Siga este procedimento para instalar o arquivo de configuração aplicável para o monitoramento de integridade do switch Ethernet dos switches do cluster NVIDIA.
+
+Os modelos suportados são:
+
+* MSN2100-CB2FC
+* MSN2100-CB2RC
+* X190006-PE
+* X190006-PI
+
+
+
+NOTE: Este procedimento de instalação aplica-se ao ONTAP 9.10,1 e posterior.
+
+.Antes de começar
+* Verifique se é necessário fazer o download do arquivo de configuração executando `system switch ethernet show` e verificando se *OTHER* é mostrado para o seu modelo.
++
+Se o seu modelo ainda estiver mostrando *Other* depois de aplicar o arquivo de configuração, entre em Contato com o suporte da NetApp.
+
+* Certifique-se de que o cluster do ONTAP está ativo e em execução.
+* Ative o SSH para usar todos os recursos disponíveis no CSHM.
+* Limpe o `/mroot/etc/cshm_nod/nod_sign/` diretório em todos os nós:
++
+.. Entre no nodeshell:
++
+`system node run -node <name>`
+
+.. Alterar para privilégios avançados:
++
+`priv set advanced`
+
+.. Liste os arquivos de configuração no `/etc/cshm_nod/nod_sign` diretório. Se o diretório existe e contém arquivos de configuração, ele lista os nomes dos arquivos.
++
+`ls /etc/cshm_nod/nod_sign`
+
+.. Exclua todos os arquivos de configuração correspondentes aos modelos de switch conetados.
++
+Se não tiver a certeza, remova todos os ficheiros de configuração para os modelos suportados listados acima e, em seguida, transfira e instale os ficheiros de configuração mais recentes para esses mesmos modelos.
+
++
+`rm /etc/cshm_nod/nod_sign/<filename>`
+
+.. Confirme se os arquivos de configuração excluídos não estão mais no diretório:
++
+`ls /etc/cshm_nod/nod_sign`
+
+
+
+
+
+.Passos
+. Transfira o ficheiro zip de configuração do monitor de integridade do comutador Ethernet com base na versão de lançamento do ONTAP correspondente. Este arquivo está disponível na https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet NVIDIA"^] página.
++
+.. Na página de download do software NVIDIA SN2100, selecione *Arquivo CSHM NVIDIA*.
+.. Na página cuidado/deve ler, marque a caixa de seleção para concordar.
+.. Na página Contrato de Licença de Usuário final, marque a caixa de seleção para concordar e clique em *aceitar e continuar*.
+.. Na página Arquivo CSHM do NVIDIA - Download, selecione o arquivo de configuração aplicável. Estão disponíveis os seguintes ficheiros:
+
+
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.15,1 e posterior
+--
+* MSN2100-CB2FC-v1.4.zip
+* MSN2100-CB2RC-v1.4.zip
+* X190006-PE-v1.4.zip
+* X190006-PI-v1.4.zip
+
+
+--
+.ONTAP 9.11,1 até 9.14.1
+--
+* MSN2100-CB2FC_PRIOR_R9.15.1-v1.4.zip
+* MSN2100-CB2RC_PRIOR_R9.15.1-v1.4.zip
+* X190006-PE_PRIOR_9.15.1-v1.4.zip
+* X190006-PI_PRIOR_9.15.1-v1.4.zip
+
+
+--
+====
+. [[step2]]carregue o ficheiro zip aplicável para o seu servidor Web interno.
+. Aceda à definição do modo avançado a partir de um dos sistemas ONTAP no cluster.
++
+`set -privilege advanced`
+
+. Execute o comando de configuração do monitor de integridade do switch.
++
+[listing, subs="+quotes"]
+----
+cluster1::> *system cluster-switch configure-health-monitor -node * -package-url http://192.168.2.20/usr/download/_[filename.zip]_*
+----
+. Verifique se a saída do comando termina com o seguinte texto para sua versão do ONTAP:
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.15,1 e posterior
+--
+O monitoramento de integridade do switch Ethernet instalou o arquivo de configuração.
+
+--
+.ONTAP 9.11,1 até 9.14.1
+--
+SHM instalou o arquivo de configuração.
+
+--
+.ONTAP 9.10,1
+--
+O pacote baixado do CSHM foi processado com sucesso.
+
+--
+====
+Se ocorrer um erro, contacte o suporte da NetApp.
+
+. [[step6]]espere até o dobro do intervalo de polling do monitor de integridade do switch Ethernet, encontrado em execução `system switch ethernet polling-interval show`, antes de concluir a próxima etapa.
+. Execute o comando `system switch ethernet show` no sistema ONTAP e certifique-se de que os switches de cluster são descobertos com o campo monitorado definido como *True* e o campo de número de série não mostrando *desconhecido*.
++
+[listing, subs="+quotes"]
+----
+cluster1::> *system switch ethernet show*
+----
+

@@ -68,11 +68,11 @@ Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obter 
 == Requisitos da FEC
 
 * Para portas 25G com cabos de cobre, consulte a tabela a seguir para obter detalhes.
-
-
++
 Se o lado do controlador for `auto`, o lado do interrutor é definido como FEC 25G.
 
-Imagem::../media/FEC_copper_table.jpg[25G portas com cabos de cobre]
++
+image::../media/FEC_copper_table.jpg[25g portas com cabos de cobre]
 
 * Para portas 25G com cabos de fibra/ótica, consulte a tabela a seguir para obter detalhes:
 +
