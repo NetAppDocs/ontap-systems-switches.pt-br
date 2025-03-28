@@ -4156,7 +4156,6 @@
   <block id="8b0f0a4cede7fca6e2706f18eebf2e92" category="list-text">Verifique a versão Cumulus Linux:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
   <block id="e4476de08c6bf6f2b86938c20b3510bf" category="summary">Certifique-se de que os itens a seguir estão disponíveis no switch antes de instalar o script RCF</block>
   <block id="5a5096484954db754c9fdc1d20f50720" category="paragraph">Siga este procedimento para instalar o script RCF.</block>
-  <block id="2123b47f46a6b2a44de513e0c343098f" category="paragraph">Antes de instalar o script RCF, certifique-se de que o seguinte está disponível no switch:</block>
   <block id="be8d2db807f6ccc0599691b80f14b976" category="list-text">Cumulus Linux está instalado. Consulte<block ref="c043e01cdc55399f824e6d1e4eb8a5b5" category="inline-link-rx"></block> para obter as versões suportadas.</block>
   <block id="90bd80eefde443be8809a3edf64f7ef2" category="list-text">Endereço IP, máscara de sub-rede e gateway padrão definido via DHCP ou configurado manualmente.</block>
   <block id="28444591fb832d5dcae593ad2a8f56da" category="admonition">Você deve especificar um usuário no RCF (além do usuário admin) para ser usado especificamente para a coleção de logs.</block>
@@ -4495,10 +4494,7 @@
   <block id="b76e78139e129fd7b040b8c7c0c2cfe8" category="list-text">Na próxima tela exibida, selecione *ONIE: Install os*.</block>
   <block id="5bb8ca227d3f9b0b9fc45003bbe7d06c" category="list-text">Depois de concluída a instalação, inicie sessão no interrutor:</block>
   <block id="098d312f939d7511ad5f9bf80ccaea96" category="list-text">Verifique a versão Cumulus Linux:</block>
-  <block id="3722090c5c0b0496759b23b1db5566cd" category="doc">Instale o script RCF</block>
   <block id="8f77c20cd9bd8afa1521eb15ea44a8ef" category="list-text">Cumulus Linux 4.4.3 está instalado.</block>
-  <block id="d43ffd29b9c1918eacb74ce61ab9c93d" category="list-text">Clustering: *MSN2100-RCF-v1,8-Cluster*</block>
-  <block id="85948408e24eaebde36ef1a070afa259" category="list-text">Armazenamento: *MSN2100-RCF-v1,8-Storage*</block>
   <block id="57b0a80c5a3ed4944b5b9a4dee8543f0" category="list-text">Copie o script Python do RCF para o switch:</block>
   <block id="31f5d9c51b1172585d012a33be1bef72" category="list-text">Aplique o script Python RCF *MSN2100-RCF-v1,8-Cluster*:</block>
   <block id="458ab89f862895d8f5ce855c654868d6" category="paragraph">O script RCF completa as etapas listadas acima.</block>
@@ -5223,4 +5219,15 @@
   <block id="1422bf436bfd810c807aacf3aab99615" category="paragraph">Depois de configurar os switches e instalar o software necessário, acesse as instruções de instalação e configuração do modelo da plataforma de sistemas ONTAP para concluir a configuração do sistema.</block>
   <block id="ce85a54726781b89fe08c28de38285c0" category="paragraph">Depois de instalar e configurar os controladores e switches dos sistemas ONTAP, você deverá concluir a configuração do storage no ONTAP. Acesse as instruções a seguir de acordo com a configuração de implantação.</block>
   <block id="674426100287eb3a5e16cf5705c524ea" category="image-alt">25g portas com cabos de cobre</block>
+  <block id="ec65012ad6ac37ed9d5b425acfa4cdea" category="doc">Instale ou atualize o script RCF (Reference Configuration File)</block>
+  <block id="60db3c5b6db09c40831f96fad7f5b5c4" category="paragraph">Siga este procedimento para instalar ou atualizar o script RCF.</block>
+  <block id="a26beebaedce14e4e55b90d7a8d895f4" category="paragraph">Antes de instalar ou atualizar o script RCF, certifique-se de que o seguinte está disponível no switch:</block>
+  <block id="3a0aebe04bfa1f6aaf965b9c027512bc" category="open-title">Cumulus Linux 5.4.0</block>
+  <block id="9ec751f6f6fe23e217638410987b5aab" category="open-title">Cumulus Linux 5.11.0</block>
+  <block id="2340bc2649383727b40f4420d1b47844" category="doc">Atualize o script RCF (Reference Configuration File)</block>
+  <block id="8ab41648ed191efe1d9524e2535c7f4d" category="paragraph">Siga este procedimento para atualizar o script RCF.</block>
+  <block id="b3be7362d2d8f250dc5fcbfaf784efd0" category="paragraph">Antes de atualizar o script RCF, certifique-se de que o seguinte está disponível no switch:</block>
+  <block id="997f5023d76908d72d993d6b09390a5e" category="doc">Instale ou atualize o script RCF</block>
+  <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">Clustering: *MSN2100-RCF-v1._x_-Cluster*</block>
+  <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">Instale ou atualize o script RCF</block>
 </blocks>

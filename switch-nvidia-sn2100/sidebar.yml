@@ -36,7 +36,7 @@ entries:
     url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html"
   - title: Atualize a versão Cumulus Linux
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
-  - title: Instale o script RCF
+  - title: Instale ou atualize o script RCF
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
   - title: Instale o arquivo CSHM
     url: "/switch-nvidia-sn2100/setup-install-cshm-file.html"
