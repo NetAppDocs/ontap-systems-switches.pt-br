@@ -13,6 +13,8 @@ summary: Você pode instalar o RCF depois de configurar o switch de armazenament
 [role="lead"]
 Você instala o arquivo de configuração de referência (RCF) depois de configurar o switch de armazenamento Nexus 9336C-FX2 pela primeira vez.
 
+Consulte o artigo da base de dados de Conhecimento link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^]para obter mais informações ao instalar o RCF.
+
 .Antes de começar
 Verifique as seguintes instalações e conexões:
 

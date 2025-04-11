@@ -29,7 +29,12 @@ O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir 
 
 * O usuário deve ter acesso aos comandos do switch `show`. Se não estiverem disponíveis, crie um novo usuário e conceda as permissões necessárias ao usuário.
 * A monitorização do estado do interrutor tem de estar ativada para o interrutor. Verifique isso garantindo que o `Is Monitored:` campo esteja definido como *true* na saída do `system switch ethernet show` comando.
-* Para coleta de logs com switches Broadcom e Cisco, um novo usuário deve ser criado no switch para cada configuração de cluster com coleta de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.
+* Para coleta de logs com switches Broadcom e Cisco:
++
+** Os usuários devem ter Privileges de administrador de rede.
+** Um novo usuário deve ser criado no switch para cada configuração de cluster com a coleção de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.
+
+
 * Para a coleta de logs de suporte com switches NVIDIA, o _user_ para coleta de logs deve ter permissão para executar o `cl-support` comando sem ter que fornecer uma senha. Para permitir esse uso, execute o comando:
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`

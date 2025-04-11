@@ -5205,7 +5205,6 @@
   <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336CP-FX2 ou 9336CP-FX2BASE-T</block>
   <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[step11]]examine a saída do banner a partir do<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Você deve ler e seguir estas instruções para garantir a configuração e o funcionamento corretos do switch.</block>
   <block id="8b084baecf96a692280d1a024d86081d" category="list-text"><block ref="cf3a409f8782a7944244632e6a1adb8e" category="inline-link-macro-rx"></block>.</block>
-  <block id="a0483532706ba341300191e20cafc42e" category="list-text">Para coleta de logs com switches Broadcom e Cisco, um novo usuário deve ser criado no switch para cada configuração de cluster com coleta de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.</block>
   <block id="1fcbc8802637b04b8fe9a86ac3d545c9" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Instale o material de fixação do interrutor</block>
   <block id="b11226c776ec1b74f6a42f871e3194c9" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Instale o sistema de storage e as gavetas de storage</block>
   <block id="130792cb3edc8d0afffb557e50b218c3" category="paragraph">Instale seu sistema de armazenamento e prateleiras de armazenamento no gabinete ou rack. Acesse as instruções de instalação e configuração do modelo da sua plataforma.</block>
@@ -5230,4 +5229,9 @@
   <block id="997f5023d76908d72d993d6b09390a5e" category="doc">Instale ou atualize o script RCF</block>
   <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">Clustering: *MSN2100-RCF-v1._x_-Cluster*</block>
   <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">Instale ou atualize o script RCF</block>
+  <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">Para coleta de logs com switches Broadcom e Cisco:</block>
+  <block id="89f1dd995a5c07ea1e13abc5993d9d59" category="list-text">Os usuários devem ter Privileges de administrador de rede.</block>
+  <block id="60f743043272b873831b17c5e7290445" category="list-text">Um novo usuário deve ser criado no switch para cada configuração de cluster com a coleção de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.</block>
+  <block id="63229fc9218a5e1a57243ce033e91a3b" category="paragraph">Consulte o artigo da base de dados de Conhecimento <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>para obter mais informações ao instalar ou atualizar o RCF.</block>
+  <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">Consulte o artigo da base de dados de Conhecimento <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>para obter mais informações ao instalar o RCF.</block>
 </blocks>
