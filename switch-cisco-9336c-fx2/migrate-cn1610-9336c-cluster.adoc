@@ -313,6 +313,10 @@ RPC status:
 ====
 . [[step5]] no switch C2, encerre as portas conetadas às portas do cluster dos nós para fazer failover dos LIFs do cluster.
 +
+
+CAUTION: Não tente migrar manualmente as LIFs de cluster.
+
++
 [listing, subs="+quotes"]
 ----
 (C2)# *configure*

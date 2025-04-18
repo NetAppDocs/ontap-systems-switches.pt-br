@@ -19,6 +19,10 @@ entries:
   entries:
   - title: Visão geral da verificação de integridade
     url: "/switch-cshm/monitor-overview.html"
+  - title: Gerenciar o monitoramento do switch
+    url: "/switch-cshm/monitor-manage.html"
+  - title: Verifique a monitorização do interrutor
+    url: "/switch-cshm/monitor-verify.html"
   - title: Solucionar problemas de alertas
     url: "/switch-cshm/monitor-troubleshoot.html"
 - title: Recolha de registos
