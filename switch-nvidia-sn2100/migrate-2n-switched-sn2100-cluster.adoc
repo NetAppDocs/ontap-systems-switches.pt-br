@@ -151,11 +151,11 @@ Os comandos a seguir desativam as portas voltadas para o nó nos switches SW1 e 
 ----
 cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw1:~$ *nv config apply*
-cumulus@sw1:~$ *nv save*
+cumulus@sw1:~$ *nv config save*
 
 cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw2:~$ *nv config apply*
-cumulus@sw2:~$ *nv save*
+cumulus@sw2:~$ *nv config save*
 ----
 . Verifique se o ISL e as portas físicas no ISL entre os dois switches SN2100 SW1 e SW2 estão acima nas portas swp15 e swp16:
 +

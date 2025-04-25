@@ -4118,7 +4118,6 @@
   <block id="6fff52725ef1db2558a657c2f9a4a4c8" category="list-text">Instale o Cumulus Linux 5,4:</block>
   <block id="d3197ab8aed6376fa7796149e9bb5d76" category="paragraph">O instalador inicia a transferência. Digite *y* quando solicitado.</block>
   <block id="0d5b4669d0f67490dffe38df0a47c207" category="list-text">A instalação é iniciada automaticamente e as seguintes opções de tela GRUB são exibidas. *Não* faça nenhuma seleção.</block>
-  <block id="caf789a40cb327fa8f64258a010c13e0" category="list-text">Verifique se a versão Cumulus Linux é 5,4:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
   <block id="98c55fc089b2fa672409b12e60e96468" category="list-text">Verifique se os nós têm uma conexão com cada switch:</block>
   <block id="d592f003299c9790cf6b7880991e4552" category="list-text">Crie um novo usuário e adicione esse usuário ao<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> grupo. Este usuário só se torna efetivo após a sessão console/SSH ser reiniciada.</block>
   <block id="b190a0c0112c1b7ed7c1fe82d8072aa4" category="list-text">Adicione grupos de usuários adicionais para que o usuário admin acesse<block ref="f9eab7a52fbda6f4788f438ba1a8da94" prefix=" " category="inline-code"></block> comandos:</block>
@@ -5267,4 +5266,12 @@
   <block id="7d446387be9f1d7a1583327a693c81a1" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) tenta monitorar automaticamente os switches que ele descobre; no entanto, o monitoramento pode não acontecer automaticamente se os switches não estiverem configurados corretamente. Você deve verificar se o monitor de integridade está configurado corretamente para monitorar seus switches.</block>
   <block id="a6227aae637a0baad0de1335f2d71396" category="sidebar">Gerenciar o monitoramento do switch</block>
   <block id="5c46a4758dcc5f666eee202daef67af4" category="sidebar">Verifique a monitorização do interrutor</block>
+  <block id="41cda86775eebf53199061928eb39a74" category="list-text">Instale o Cumulus Linux 5,4.0:</block>
+  <block id="a731c9953cb3178b61fd688f2c10ea64" category="list-text">Verifique se a versão Cumulus Linux é 5,4.0:<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
+  <block id="7fe163201519200ade1c23cd052b6611" category="paragraph">Quando você faz login no switch pela primeira vez, ele requer o nome de usuário/senha do *Cumulus*/*Cumulus* com<block ref="d338b3f0f405eb5e51c8cc1e5ca66f02" prefix=" " category="inline-code"></block> o Privileges.</block>
+  <block id="b133f5ec9f6f691880079c684d878177" category="list-text">Instale o Cumulus Linux 5,11.0:</block>
+  <block id="528379fa0d040e8e6455094df07828d8" category="list-text">Verifique se a versão Cumulus Linux é 5,11.0:</block>
+  <block id="f90f747e373fe6ad78e15dd0d320ce66" category="paragraph"><block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix="" category="inline-code"></block></block>
+  <block id="fd5f0f669932a550ea7400efc749cfc5" category="list-text">Verifique se cada nó tem uma conexão com cada switch:</block>
+  <block id="2d3e15002e9f668635d184afe49a634e" category="paragraph">Consulte<block ref="9fa647797c0e0305f4f3b2116b6db003" category="inline-link-rx"></block> para obter mais informações.</block>
 </blocks>
