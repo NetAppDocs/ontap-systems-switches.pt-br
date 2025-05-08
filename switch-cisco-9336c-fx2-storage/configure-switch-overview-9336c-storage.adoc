@@ -20,12 +20,33 @@ O switch Cisco Nexus 9336C-FX2 faz parte da plataforma Cisco Nexus 9000 e pode s
 Para configurar inicialmente um switch Cisco Nexus 9336C-FX2 em sistemas que executam o ONTAP, siga estas etapas:
 
 . link:setup-worksheet-9336c-storage.html["Folha de cálculo de cablagem completa"].
++
+A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
+
 . link:install-9336c-storage.html["Instale o interrutor"].
++
+Configure o hardware do switch.
+
 . link:setup-switch-9336c-storage.html["Configure o interrutor"].
++
+Configure o switch de armazenamento Cisco Nexus 9336C-FX2.
+
 . link:install-switch-and-passthrough-panel-9336c-storage.html["Instale o interrutor em um gabinete NetApp"].
-. link:install-nxos-overview-9336c-storage.html["Prepare-se para instalar o NX-os e o RCF"].
-. link:install-nxos-software-9336c-storage.html["Instale o software NX-os"].
-. link:install-rcf-software-9336c-storage.html["Instale o arquivo de configuração do RCF"].
++
+Dependendo de sua configuração, você pode instalar o switch Cisco Nexus 9336C-FX2 e o painel pass-through em um gabinete NetApp com os suportes padrão que estão incluídos com o switch.
+
+. link:install-nxos-overview-9336c-storage.html["Prepare-se para instalar ou atualizar NX-os e RCF"].
++
+Siga os procedimentos preliminares em preparação para a instalação do software Cisco NX-os e arquivos de configuração de referência (RCFs).
+
+. link:install-nxos-software-9336c-storage.html["Instale ou atualize o software NX-os"].
++
+Instale ou atualize o software NX-os no switch de armazenamento Nexus 9336C-FX2.
+
+. link:install-rcf-software-9336c-storage.html["Instale ou atualize o arquivo de configuração do RCF"].
++
+Instale ou atualize o RCF depois de configurar o switch Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.
+
 
 
 

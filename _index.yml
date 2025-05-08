@@ -22,7 +22,7 @@ indexpage:
     - title: Interrutor do grupo de instrumentos - interrutor do grupo de instrumentos
         NVIDIA SN2100
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
-    - title: Switch de armazenamento - Cisco Nexus 9336C-FX2
+    - title: Switch de armazenamento - Cisco Nexus 9336C-FX2 ou 9336C-FX2-T
       url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
     - title: Interrutor de armazenamento - NVIDIA SN2100
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-storage.html"
