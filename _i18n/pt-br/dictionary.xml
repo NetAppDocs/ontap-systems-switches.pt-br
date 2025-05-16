@@ -2249,7 +2249,6 @@
   <block id="8cf2672ea5c13bbf0de6052b20c338ef" category="doc">Preparar para instalar o software NX-os e o ficheiro de configuração de referência (RCF)</block>
   <block id="8df6d09a602fca4aa18fe9e0b5e94fd4" category="list-text">Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:<block ref="d4f081f8f7b730c426160bfa9617a56a" prefix=" " category="inline-code"></block></block>
   <block id="4abcd2a6fe57e9f246dd326cae0ddb1b" category="list-text">Exibir informações sobre os LIFs:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="af586f672614707ef07031398b17fe29" category="paragraph"><block ref="af586f672614707ef07031398b17fe29" category="inline-link-macro-rx"></block></block>
   <block id="dd70194aaae821572e701e183663363b" category="summary">Você pode substituir sem interrupções um switch Cisco Nexus 3232C com defeito em um cluster executando uma sequência específica de tarefas.</block>
   <block id="0f8423ed5e0e5c2a15b9d97280628d07" category="doc">Substitua um switch de cluster Cisco Nexus 3232C</block>
   <block id="3b76b3384aebd8ed037018ce97b33004" category="paragraph">Siga estas etapas para substituir um switch Cisco Nexus 3232C com defeito em um cluster. Este é um procedimento sem interrupções.</block>
@@ -5289,4 +5288,5 @@
   <block id="20eed5f0dc87e5058308718e45381220" category="paragraph">11 a 36</block>
   <block id="000bf48a29e422b515b1396c1aac3f2c" category="paragraph">Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster.</block>
   <block id="af9181560cc346780cf6974ca9209401" category="sidebar">Switch de armazenamento - Cisco Nexus 9336C-FX2 ou 9336C-FX2-T</block>
+  <block id="d35b203e8fe0144f812f95e477dfc8ac" category="paragraph"><block ref="d35b203e8fe0144f812f95e477dfc8ac" category="inline-link-macro-rx"></block></block>
 </blocks>

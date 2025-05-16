@@ -457,7 +457,7 @@ Este exemplo mostra que o SFTP está sendo usado para copiar um RCF para o flash
 
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt nvram:reference-config.scr*
+(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt nvram:reference-config*
 Remote Password:**
 Mode........................................... TFTP
 Set Server IP.................................. 172.19.2.1
