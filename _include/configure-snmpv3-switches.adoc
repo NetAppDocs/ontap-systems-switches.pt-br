@@ -2,13 +2,18 @@
 :allow-uri-read: 
 
 
-O SNMPv3 é mais seguro do que o SNMPv2 porque introduz recursos de segurança robustos, como autenticação, criptografia e integridade de mensagens, que protegem contra acesso não autorizado e garantem a confidencialidade e integridade dos dados durante a transmissão.
+[NOTE]
+====
+* O SNMPv3 só é suportado no ONTAP 9.12,1 e posterior.
+* ONTAP 9.13.1P12, 9.14.1P9, 9.15.1P5, 9.16.1 e versões posteriores corrigem estes dois problemas:
++
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-82891["Para monitoramento de integridade ONTAP de switches Cisco, o tráfego SNMPv2 ainda pode ser visto após a mudança para SNMPv3 para monitoramento"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-119131["Alertas de energia e ventilador de switch falso-positivos quando ocorrem falhas de SNMP"^]
 
 
-NOTE: O SNMPv3 só é suportado no ONTAP 9.12,1 e posterior.
 
-Siga este procedimento para configurar o SNMPv3 para seu switch específico, que suporta CSHM.
 
+====
 .Sobre esta tarefa
 Os comandos a seguir são usados para configurar um nome de usuário SNMPv3 nos switches *Broadcom*, *Cisco* e *NVIDIA*:
 
@@ -123,7 +128,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
 ----
-. Verifique se o número de série a ser consultado com o usuário SNMPv3 recém-criado é o mesmo que detalhado na etapa anterior após o período de polling CSHM ter sido concluído.
+. Após aguardar o período de pesquisa do CSHM, verifique se o número de série do switch Ethernet está preenchido.
 +
 [source, cli]
 ----
@@ -311,9 +316,9 @@ cluster1::*>
 
 
 --
-.NVIDIA - CLI 5,4
+.NVIDIA - CL 5.4.0
 --
-Configure um nome de usuário SNMPv3 SNMPv3_USER em switches NVIDIA SN2100 executando CLI 5,4:
+Configure um nome de usuário SNMPv3 SNMPv3_USER em switches NVIDIA SN2100 executando CLI 5.4.0:
 
 * Para *sem autenticação*:
 +
@@ -507,9 +512,9 @@ DEPRECATED-Community String or SNMPv3 Username: -
 
 
 --
-.NVIDIA - CLI 5,11
+.NVIDIA - CL 5.11.0
 --
-Configure um nome de usuário SNMPv3 SNMPv3_USER em switches NVIDIA SN2100 executando CLI 5,11:
+Configure um nome de usuário SNMPv3 SNMPv3_USER em switches NVIDIA SN2100 executando CLI 5.11.0:
 
 * Para *sem autenticação*:
 +

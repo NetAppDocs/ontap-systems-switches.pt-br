@@ -2,26 +2,21 @@
 :allow-uri-read: 
 
 
-Siga este procedimento para instalar o arquivo de configuração aplicável para o monitoramento de integridade do switch Ethernet dos switches do cluster NVIDIA.
+Para configurar o monitoramento de integridade do switch Ethernet em switches Ethernet NVIDIA, siga este procedimento.
 
-Os modelos suportados são:
+Estas instruções se aplicam se os switches NVIDIA X190006-PE e X190006-PI não forem detectados corretamente, o que pode ser confirmado executando  `system switch ethernet show` e verificando se *OTHER* é exibido para o seu modelo. Para identificar o modelo do seu switch NVIDIA, encontre o número da peça com o comando  `nv show platform hardware` para NVIDIA CL 5.8 e anteriores ou  `nv show platform` para versões posteriores.
 
-* MSN2100-CB2FC
-* MSN2100-CB2RC
-* X190006-PE
-* X190006-PI
+[NOTE]
+====
+Essas etapas também são recomendadas se você deseja que o monitoramento de integridade e a coleta de logs funcionem conforme o esperado ao usar o NVIDIA CL 5.11.x com as seguintes versões do ONTAP. Embora o monitoramento de integridade e a coleta de logs ainda possam funcionar sem essas etapas, segui-las garante que tudo funcione corretamente.
+
+* 9.10.1P20, 9.11.1P18, 9.12.1P16, 9.13.1P8, 9.14.1, 9.15.1 e versões de patch posteriores
 
 
-
-NOTE: Este procedimento de instalação aplica-se ao ONTAP 9.10,1 e posterior.
-
+====
 .Antes de começar
-* Verifique se é necessário fazer o download do arquivo de configuração executando `system switch ethernet show` e verificando se *OTHER* é mostrado para o seu modelo.
-+
-Se o seu modelo ainda estiver mostrando *Other* depois de aplicar o arquivo de configuração, entre em Contato com o suporte da NetApp.
-
 * Certifique-se de que o cluster do ONTAP está ativo e em execução.
-* Ative o SSH para usar todos os recursos disponíveis no CSHM.
+* Habilite o SSH no switch para usar todos os recursos disponíveis no CSHM.
 * Limpe o `/mroot/etc/cshm_nod/nod_sign/` diretório em todos os nós:
 +
 .. Entre no nodeshell:
@@ -92,7 +87,7 @@ Se não tiver a certeza, remova todos os ficheiros de configuração para os mod
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system cluster-switch configure-health-monitor -node * -package-url http://192.168.2.20/usr/download/_[filename.zip]_*
+cluster1::> *system switch ethernet*
 ----
 . Verifique se a saída do comando termina com o seguinte texto para sua versão do ONTAP:
 
@@ -125,3 +120,6 @@ Se ocorrer um erro, contacte o suporte da NetApp.
 cluster1::> *system switch ethernet show*
 ----
 
+
+
+NOTE: Se o seu modelo ainda estiver mostrando *Other* depois de aplicar o arquivo de configuração, entre em Contato com o suporte da NetApp.

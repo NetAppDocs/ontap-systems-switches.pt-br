@@ -38,81 +38,11 @@ O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.14,1 e anteriores
---
-. Para configurar a coleção de logs, execute o seguinte comando para cada switch. Você será solicitado a digitar o nome do switch, nome de usuário e senha para a coleta de logs.
-+
-*OBSERVAÇÃO:* se responder `y` ao prompt de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias conforme descrito em <<Antes de começar>> .
-
-+
-[source, cli]
-----
-system switch ethernet log setup-password
-----
-+
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: <return>
-The switch name entered is not recognized.
-Choose from the following list:
-*cs1*
-*cs2*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs1*
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *cs2*
-
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-----
-. Para solicitar a coleta de log de suporte e ativar a coleta periódica, execute o seguinte comando. Isso inicia ambos os tipos de coleta de log: Os logs detalhados `Support` e uma coleta de dados por hora `Periodic`.
-+
-[source, cli]
-----
-system switch ethernet log modify -device <switch-name> -log-request true
-----
-+
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-----
-+
-Aguarde 10 minutos e, em seguida, verifique se a coleção de registos é concluída:
-
-+
-[source, cli]
-----
-system switch ethernet log show
-----
-
-
---
 .ONTAP 9.15,1 e posterior
 --
 . Para configurar a coleção de logs, execute o seguinte comando para cada switch. Você será solicitado a digitar o nome do switch, nome de usuário e senha para a coleta de logs.
 +
-*OBSERVAÇÃO:* se responder `y` ao prompt de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias conforme descrito em <<Antes de começar>>.
+*NOTA:* Se responder *y* ao prompt de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias, conforme descrito em <<Antes de começar>> .
 
 +
 [source, cli]
@@ -146,7 +76,12 @@ Would you like to specify a user other than admin for log collection? {y|n}: *n*
 Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
-. Ativar coleção de registos periódicos:
+
+
+
+NOTE: Para CL 5.11.1, crie o usuário *cumulus* e responda *y* ao seguinte prompt: Gostaria de especificar um usuário diferente de admin para coleta de logs? {y|n}: *y*
+
+. [[step2]]Habilitar coleta periódica de logs:
 +
 [source, cli]
 ----
@@ -231,6 +166,81 @@ cluster1::*> *system switch ethernet log show -instance*
      Last Support Log Timestamp: 3/11/2024 11:18:54
            Support Log Filename: cluster1:/mroot/etc/log/shm-cluster-log.tgz
 2 entries were displayed.
+----
+
+
+--
+.ONTAP 9.14,1 e anteriores
+--
+. Para configurar a coleção de logs, execute o seguinte comando para cada switch. Você será solicitado a digitar o nome do switch, nome de usuário e senha para a coleta de logs.
++
+*OBSERVAÇÃO:* se responder `y` ao prompt de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias conforme descrito em <<Antes de começar>>.
+
++
+[source, cli]
+----
+system switch ethernet log setup-password
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2*
+
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+----
+
+
+
+NOTE: Para CL 5.11.1, crie o usuário *cumulus* e responda *y* ao seguinte prompt: Gostaria de especificar um usuário diferente de admin para coleta de logs? {y|n}: *y*
+
+. [[step2]] Para solicitar a coleta de logs de suporte e habilitar a coleta periódica, execute o seguinte comando. Isso inicia ambos os tipos de coleta de log: Os logs detalhados `Support` e uma coleta de dados por hora `Periodic`.
++
+[source, cli]
+----
+system switch ethernet log modify -device <switch-name> -log-request true
+----
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+----
++
+Aguarde 10 minutos e, em seguida, verifique se a coleção de registos é concluída:
+
++
+[source, cli]
+----
+system switch ethernet log show
 ----
 
 

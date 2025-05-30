@@ -42,8 +42,34 @@ CAUTION: A senha padrão para a conta de usuário do Cumulus é *Cumulus*. A pri
 .Passos
 [role="tabbed-block"]
 ====
-.De Cumulus Linux 4,4.x para Cumulus Linux 5.x
+.Cumulus Linux 4.4.x para Cumulus Linux 5.4.0
 --
+. Conete o switch de cluster à rede de gerenciamento.
+. Use o comando ping para verificar a conectividade com o servidor que hospeda o Cumulus Linux e o RCF.
+. Exiba as portas do cluster em cada nó conetado aos switches do cluster:
++
+`network device-discovery show`
+
+. Verifique o status administrativo e operacional de cada porta de cluster.
++
+.. Verifique se todas as portas do cluster estão ativas com um status de integridade:
++
+`network port show -role cluster`
+
+.. Verifique se todas as interfaces de cluster (LIFs) estão na porta inicial:
++
+`network interface show -role cluster`
+
+.. Verifique se o cluster exibe informações para ambos os switches do cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+
+. Desative a reversão automática nos LIFs do cluster. Os LIFs de cluster fazem failover para o switch de cluster do parceiro e permanecem lá enquanto você executa o procedimento de atualização no switch de destino:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
 . Verifique a versão atual do Cumulus Linux e as portas conetadas:
 +
 [listing, subs="+quotes"]
@@ -81,7 +107,7 @@ UP     swp6    100G  9216   Trunk/L2    SHFFG1826000102 (e0b)   Master: bridge(U
 .
 .
 ----
-. Faça o download da imagem Cumulux Linux 5.x:tmp
+. Faça o download da imagem Cumulus Linux 5.4.0:
 +
 [listing, subs="+quotes"]
 ----
@@ -250,8 +276,34 @@ Consulte https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/S
 
 
 --
-.De Cumulus Linux 5.x para Cumulus Linux 5.x
+.Cumulus Linux 5.x para Cumulus Linux 5.4.0
 --
+. Conete o switch de cluster à rede de gerenciamento.
+. Use o comando ping para verificar a conectividade com o servidor que hospeda o Cumulus Linux e o RCF.
+. Exiba as portas do cluster em cada nó conetado aos switches do cluster:
++
+`network device-discovery show`
+
+. Verifique o status administrativo e operacional de cada porta de cluster.
++
+.. Verifique se todas as portas do cluster estão ativas com um status de integridade:
++
+`network port show -role cluster`
+
+.. Verifique se todas as interfaces de cluster (LIFs) estão na porta inicial:
++
+`network interface show -role cluster`
+
+.. Verifique se o cluster exibe informações para ambos os switches do cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+
+. Desative a reversão automática nos LIFs do cluster. Os LIFs de cluster fazem failover para o switch de cluster do parceiro e permanecem lá enquanto você executa o procedimento de atualização no switch de destino:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
 . Verifique a versão atual do Cumulus Linux e as portas conetadas:
 +
 [listing, subs="+quotes"]
@@ -449,6 +501,173 @@ Consulte https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/S
 
 
 --
+.Cumulus Linux 5.4.0 para Cumulus Linux 5.11.0
+--
+. Conete o switch de cluster à rede de gerenciamento.
+. Use o comando ping para verificar a conectividade com o servidor que hospeda o Cumulus Linux e o RCF.
+. Exiba as portas do cluster em cada nó conetado aos switches do cluster:
++
+`network device-discovery show`
+
+. Verifique o status administrativo e operacional de cada porta de cluster.
++
+.. Verifique se todas as portas do cluster estão ativas com um status de integridade:
++
+`network port show -role cluster`
+
+.. Verifique se todas as interfaces de cluster (LIFs) estão na porta inicial:
++
+`network interface show -role cluster`
+
+.. Verifique se o cluster exibe informações para ambos os switches do cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+
+. Desative a reversão automática nos LIFs do cluster. Os LIFs de cluster fazem failover para o switch de cluster do parceiro e permanecem lá enquanto você executa o procedimento de atualização no switch de destino:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
+. Verifique a versão atual do Cumulus Linux e as portas conetadas:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *nv show system*
+                    operational          applied
+------------------- -------------------- -----------------
+hostname            cumulus              cumulus
+build               Cumulus Linux 5.4.0
+uptime              6 days, 8:37:36
+timezone            Etc/UTC
+
+admin@sw1:mgmt:~$ *nv show interface*
+Interface     MTU   Speed State Remote Host         Remote Port- Type      Summary
+------------- ----- ----- ----- ------------------- ------------ --------- -------------
++ cluster_isl 9216  200G  up                                      bond
++ eth0        1500  100M  up    mgmt-sw1            Eth105/1/14   eth       IP Address: 10.231.80 206/22
+  eth0                                                                      IP Address: fd20:8b1e:f6ff:fe31:4a0e/64
++ lo          65536       up                                      loopback  IP Address: 127.0.0.1/8
+  lo                                                                        IP Address: ::1/128
++ swp1s0      9216 10G    up cluster01                e0b         swp
+.
+.
+.
++ swp15      9216 100G    up sw2                      swp15       swp
++ swp16      9216 100G    up sw2                      swp16       swp
+----
+. Faça o download da imagem Cumulus Linux 5.11.0:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo onie-install -a -i http://_<ip-to-webserver>_/path/to/cumulus-linux-5.11.0-mlx-amd64.bin*
+[sudo] password for cumulus:
+Fetching installer: http://_<ip-to-webserver>_/path/to/cumulus-linux-5.11.0-mlx-amd64.bin
+Downloading URL: http://_<ip-to-webserver>_/path/to/cumulus-linux-5.11.0-mlx-amd64.bin
+######################################################################### 100.0%
+Success: HTTP download complete.
+EFI variables are not supported on this system
+Warning: SecureBoot is not available.
+Image is signed.
+.
+.
+.
+Staging installer image...done.
+WARNING:
+WARNING: Activating staged installer requested.
+WARNING: This action will wipe out all system data.
+WARNING: Make sure to back up your data.
+WARNING:
+Are you sure (y/N)? *y*
+Activating staged installer...done.
+Reboot required to take effect.
+----
+. Reinicie o switch:
++
+[listing, subs="+quotes"]
+----
+admin@sw1:mgmt:~$ *sudo reboot*
+----
+. Alterar a palavra-passe:
++
+[listing, subs="+quotes"]
+----
+cumulus login: *cumulus*
+Password:
+You are required to change your password immediately (administrator enforced)
+Changing password for cumulus.
+Current password: *cumulus*
+New password: *<new_password>*
+Retype new password: *<new_password>*
+Linux cumulus 5.11.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+ZTP in progress. To disable, do 'ztp -d'
+----
+. Verifique a versão Cumulus Linux: `nv show system`
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show system*
+operational    applied
+-------------- ----------------
+hostname       cumulus cumulus
+build          Cumulus Linux 5.11.0
+uptime         14:07:08
+timezone       Etc/UTC
+----
+. Altere o nome do host:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+Warning: The following files have been changed since the last save, and they WILL be overwritten.
+- /etc/nsswitch.conf
+- /etc/synced/synced.conf
+.
+.
+----
+. Efetue logout e login no switch novamente para ver o nome do switch atualizado no prompt:
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *exit*
+logout
+
+Debian GNU/Linux 10 cumulus ttyS0
+
+cumulus login: *cumulus*
+Password:
+Last login: Tue Dec 15 21:43:13 UTC 2020 on ttyS0
+Linux cumulus 5.11.0-cl-1-amd64 #1 SMP Debian 5.10.162-1+cl5.4.0u1 (2023-01-20) x86_64
+
+Welcome to NVIDIA Cumulus (R) Linux (R)
+
+
+ZTP in progress. To disable, do 'ztp -d'
+
+cumulus@sw1:mgmt:~$
+----
+. Defina o endereço IP:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *nv unset interface eth0 ip address dhcp*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip address 10.231.80.206/22*
+cumulus@sw1:mgmt:~$ *nv set interface eth0 ip gateway 10.231.80.1*
+cumulus@sw1:mgmt:~$ *nv config apply*
+applied [rev_id: 2]
+cumulus@sw1:mgmt:~$ *ip route show vrf mgmt*
+default via 10.231.80.1 dev eth0 proto kernel
+unreachable default metric 4278198272
+10.231.80.0/22 dev eth0 proto kernel scope link src 10.231.80.206
+127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
+----
+
+
+--
 ====
 .O que se segue?
-link:install-rcf-sn2100-cluster.html["Instale o script RCF (Reference Configuration File)"].
+link:install-rcf-sn2100-cluster.html["Instale ou atualize o script RCF"].

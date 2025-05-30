@@ -40,6 +40,41 @@ Exemplo de saída de comando usa o endereço IP de gerenciamento de switch 10.23
 ====
 .Cumulus Linux 4.4.3
 --
+. Conete o switch de cluster à rede de gerenciamento.
+. Use o  `ping` comando para verificar a conectividade com o servidor que hospeda o Cumulus Linux e o RCF.
+. Exiba as portas do cluster em cada nó conetado aos switches do cluster:
++
+`network device-discovery show`
+
+. Verifique o status administrativo e operacional de cada porta de cluster.
++
+.. Verifique se todas as portas do cluster estão ativas com um status de integridade:
++
+`network port show -role cluster`
+
+.. Verifique se todas as interfaces de cluster (LIFs) estão na porta inicial:
++
+`network interface show -role cluster`
+
+.. Verifique se o cluster exibe informações para ambos os switches do cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+
+. Desative a reversão automática nos LIFs do cluster. Os LIFs de cluster fazem failover para o switch de cluster do parceiro e permanecem lá enquanto você executa o procedimento de atualização no switch de destino:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
++
+[NOTE]
+.Observe o seguinte:
+====
+** Se você estiver atualizando seu RCF, deverá desabilitar a reversão automática para esta etapa.
+** Se você acabou de atualizar sua versão do Cumulus Linux, não precisa desabilitar a reversão automática para esta etapa porque ela já está desabilitada.
+
+
+====
 . Apresentar as interfaces disponíveis no interrutor SN2100:
 +
 [listing, subs="+quotes"]
@@ -264,11 +299,55 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 ----
 
 
+. Verifique se o cluster está em bom estado:
++
+`cluster show`
+
+. Repita os passos 1 a 14 no segundo interruptor.
+. Ative a reversão automática nos LIFs do cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
 
 
 --
 .Cumulus Linux 5.4.0
 --
+. Conete o switch de cluster à rede de gerenciamento.
+. Use o  `ping` comando para verificar a conectividade com o servidor que hospeda o Cumulus Linux e o RCF.
+. Exiba as portas do cluster em cada nó conetado aos switches do cluster:
++
+`network device-discovery show`
+
+. Verifique o status administrativo e operacional de cada porta de cluster.
++
+.. Verifique se todas as portas do cluster estão ativas com um status de integridade:
++
+`network port show -role cluster`
+
+.. Verifique se todas as interfaces de cluster (LIFs) estão na porta inicial:
++
+`network interface show -role cluster`
+
+.. Verifique se o cluster exibe informações para ambos os switches do cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+
+. Desative a reversão automática nos LIFs do cluster. Os LIFs de cluster fazem failover para o switch de cluster do parceiro e permanecem lá enquanto você executa o procedimento de atualização no switch de destino:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
++
+[NOTE]
+.Observe o seguinte:
+====
+** Se você estiver atualizando seu RCF, deverá desabilitar a reversão automática para esta etapa.
+** Se você acabou de atualizar sua versão do Cumulus Linux, não precisa desabilitar a reversão automática para esta etapa porque ela já está desabilitada.
+
+
+====
 . Apresentar as interfaces disponíveis no interrutor SN2100:
 +
 [listing, subs="+quotes"]
@@ -586,11 +665,55 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 ----
 
 
+. Verifique se o cluster está em bom estado:
++
+`cluster show`
+
+. Repita os passos 1 a 14 no segundo interruptor.
+. Ative a reversão automática nos LIFs do cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
 
 
 --
 .Cumulus Linux 5.11.0
 --
+. Conete o switch de cluster à rede de gerenciamento.
+. Use o  `ping` comando para verificar a conectividade com o servidor que hospeda o Cumulus Linux e o RCF.
+. Exiba as portas do cluster em cada nó conetado aos switches do cluster:
++
+`network device-discovery show`
+
+. Verifique o status administrativo e operacional de cada porta de cluster.
++
+.. Verifique se todas as portas do cluster estão ativas com um status de integridade:
++
+`network port show -role cluster`
+
+.. Verifique se todas as interfaces de cluster (LIFs) estão na porta inicial:
++
+`network interface show -role cluster`
+
+.. Verifique se o cluster exibe informações para ambos os switches do cluster:
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
+
+
+. Desative a reversão automática nos LIFs do cluster. Os LIFs de cluster fazem failover para o switch de cluster do parceiro e permanecem lá enquanto você executa o procedimento de atualização no switch de destino:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
++
+[NOTE]
+.Observe o seguinte:
+====
+** Se você estiver atualizando seu RCF, deverá desabilitar a reversão automática para esta etapa.
+** Se você acabou de atualizar sua versão do Cumulus Linux, não precisa desabilitar a reversão automática para esta etapa porque ela já está desabilitada.
+
+
+====
 . Apresentar as interfaces disponíveis no interrutor SN2100:
 +
 [listing, subs="+quotes"]
@@ -907,6 +1030,15 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
     Version Source: LLDP
 ----
 
+
+. Verifique se o cluster está em bom estado:
++
+`cluster show`
+
+. Repita os passos 1 a 14 no segundo interruptor.
+. Ative a reversão automática nos LIFs do cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
 
 
 

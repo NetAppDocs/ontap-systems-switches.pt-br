@@ -16,6 +16,24 @@ summary:
 [role="lead"]
 Antes de instalar o software NX-os e o ficheiro de configuração de referência (RCF), siga este procedimento.
 
+.Documentação sugerida
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página do switch Ethernet Cisco"^]
++
+Consulte a tabela de compatibilidade do switch para ver as versões suportadas do ONTAP e NX-os.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guias de atualização e downgrade de software"^]
++
+Consulte os guias de software e atualização apropriados disponíveis no site da Cisco para obter a documentação completa sobre os procedimentos de atualização e downgrade do switch Cisco.
+
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Atualização do Cisco Nexus 9000 e 3000 e Matriz ISSU"^]
++
+Fornece informações sobre atualização/downgrade disruptiva para o software Cisco NX-os em switches Nexus 9000 Series com base em suas versões atuais e de destino.
+
++
+Na página, selecione *Atualização disruptiva* e selecione sua versão atual e liberação de destino na lista suspensa.
+
+
+
 .Sobre os exemplos
 Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
 
@@ -216,7 +234,7 @@ cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
 
           Logical
 Vserver   Interface           Auto-revert
---------- ––––––-------------- ------------
+--------- ------------------- ------------
 Cluster
           cluster1-01_clus1   true
           cluster1-01_clus2   true
