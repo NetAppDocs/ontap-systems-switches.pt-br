@@ -742,9 +742,7 @@
   <block id="d2a62ef21f835696a8c6261bed3c3040" category="list-text">controle de fluxo: nenhum</block>
   <block id="5774edcf06cc50000de075fa347fa292" category="list-text">Faça login no switch como<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block> e pressione *Enter* quando for solicitada uma senha. O nome padrão do switch é *routing*. No prompt, digite<block ref="208f156d4a803025c284bb595a7576b4" prefix=" " category="inline-code"></block>. Isso lhe dá acesso ao modo EXEC privilegiado para configuração de switch.</block>
   <block id="b51993b6b7e3ea50c17952db42c3a543" category="list-text">Altere o nome do switch para *CS2*.</block>
-  <block id="c04ce9c1c44c5e07bf7a73e79811a429" category="list-text">Para definir um endereço IP estático, use os<block ref="be61298f670927dc76b9ef87aec3538b" prefix=" " category="inline-code"></block> comandos ,<block ref="0b1b9820b62e4a0d7f72c76456845979" prefix=" " category="inline-code"></block> e ,<block ref="a14092a0fca1bb648cb5a74d7dfe7995" prefix=" " category="inline-code"></block> conforme mostrado no exemplo.</block>
   <block id="ed37a6a8028dc06785735d8c0a7178b4" category="paragraph">A porta de serviço está definida para usar DHCP por padrão. O endereço IP, a máscara de sub-rede e o endereço de gateway padrão são atribuídos automaticamente.</block>
-  <block id="433c21332379db77320fe7a821073bdc" category="list-text">Verifique os resultados usando o comando:</block>
   <block id="054f736f28a6918e0571caad3b5d1440" category="paragraph"><block ref="16e8f72947d7ec600259a2f0b5896bd0" prefix="" category="inline-code"></block></block>
   <block id="afac0a52c83984bf1020f56dd9df720f" category="list-text">Configure o domínio e o servidor de nomes:</block>
   <block id="8c886a759ea380875a589702bd1cdd92" category="list-text">Configure o servidor NTP.</block>
@@ -3153,7 +3151,6 @@
   <block id="33b51f739542d105d7c5028b7244b26e" category="list-text">Ligue os switches, as controladoras e as NS224 gavetas de storage NVMe.</block>
   <block id="d2fa93779a0f6b07d1717e02308c2fa6" category="inline-link">Configure o switch compartilhado Cisco Nexus 9336C-FX2</block>
   <block id="12bc639206c2ca12e8a65041a697e4fc" category="paragraph">Vá para<block ref="c686ee523547302c3fa5199eafd95753" category="inline-link-rx"></block>.</block>
-  <block id="0e20b420112310f5c09a775e13d5ec63" category="paragraph">Você pode instalar o RCF depois de configurar o switch Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="a321cd8baf442bb2bd9aee451d86f068" category="paragraph">Antes de começar, conclua o procedimento em <block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>.</block>
   <block id="21f31f792b72c310b4fd5aa9c2e35835" category="paragraph">Siga este procedimento para instalar o software NX-os no switch compartilhado Nexus 9336C-FX2.</block>
   <block id="e100dc954517cdb4f6f664776708ea27" category="list-text">Para cada interrutor, você deve fornecer os oito parafusos 10-32 ou 12-24 e porcas de grampo para montar os suportes e trilhos deslizantes nos postes dianteiros e traseiros do gabinete.</block>
@@ -5032,7 +5029,6 @@
   <block id="a631ed2f01f0a384874d92ecdaee2d1c" category="paragraph">Configure o cluster sem switch de dois nós para migração para um cluster comutado de dois nós.</block>
   <block id="5f9610f3409d9abe96cc344156486c5e" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="4c0a19683ab4dd37cd0517d25639fa78" category="inline-link-macro-rx"></block></block>
   <block id="e796841df950e342f76a5b538574f5f6" category="paragraph">Conclua a migração para um cluster comutado de dois nós.</block>
-  <block id="e4ff582cba38e556dc88b3e74baf1ec1" category="paragraph">Diretiva não resolvida no &lt;stdin&gt; - inclua:../_include/install-rcf-software-9336c-cluster.adoc[]</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">O switch CS1 e o switch CS2 são ativados e a configuração inicial do switch está concluída (o endereço IP de gerenciamento e o SSH são configurados).</block>
   <block id="c3109b36f2c8edda93835ccefa0e4dc3" category="doc">Instale ou atualize a visão geral do ficheiro de configuração de referência (RCF)</block>
   <block id="6d7b8066e6c7166408cb61e68a705e7f" category="list-text">Os nomes dos dois switches Cisco são *CS1* e *CS2*.</block>
@@ -5311,4 +5307,9 @@
   <block id="1793733c3fd6ed243dfcb1cd45582f6e" category="list-text">Faça o download da imagem Cumulus Linux 5.11.0:</block>
   <block id="3b17e95301e3d2dffb102ceff49ecd86" category="list-text">Efetue logout e login no switch novamente para ver o nome do switch atualizado no prompt:</block>
   <block id="7c7a0b76c488baaa82c48a846faa8727" category="paragraph"><block ref="0d353ea2e4037b21b3bb06f2b69f1c6c" category="inline-link-macro-rx"></block>.</block>
+  <block id="fc6063e37d3407a7d76fabb59f7a96a3" category="list-text">Para definir um endereço de gerenciamento IPv4 ou IPv6 estático para a porta de serviço do switch:</block>
+  <block id="42a9137a05a60eb752dcdf982e717626" category="open-title">IPv4</block>
+  <block id="fdb7cb8f657426e7c409bfd6d1a36ce4" category="open-title">IPv6</block>
+  <block id="eac292441a720b0a0f4b67dcb9db6398" category="list-text">[[step7]]Verifique os resultados usando o comando:</block>
+  <block id="c946088bdd01d4ceb54099911c69adbe" category="admonition">O número de portas exibidas varia de acordo com o número de nós no cluster.</block>
 </blocks>

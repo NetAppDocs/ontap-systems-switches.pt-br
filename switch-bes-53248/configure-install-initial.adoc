@@ -66,25 +66,40 @@ Password:
 (Routing)# *hostname cs2*
 (cs2)#
 ----
-. Para definir um endereço IP estático, use os `serviceport protocol` comandos , `network protocol` e , `serviceport ip` conforme mostrado no exemplo.
-+
+. Para definir um endereço de gerenciamento IPv4 ou IPv6 estático para a porta de serviço do switch:
+
+
+[role="tabbed-block"]
+====
+.IPv4
+--
 A porta de serviço está definida para usar DHCP por padrão. O endereço IP, a máscara de sub-rede e o endereço de gateway padrão são atribuídos automaticamente.
 
-+
 [listing, subs="+quotes"]
 ----
 (cs2)# *serviceport protocol none*
 (cs2)# *network protocol none*
-(cs2)# *serviceport ip ipaddr netmask gateway*
+(cs2)# *serviceport ip <ip-address> <netmask> <gateway>*
 ----
-. Verifique os resultados usando o comando:
+--
+.IPv6
+--
+A porta de serviço está definida para usar DHCP por padrão. O endereço IP, a máscara de sub-rede e o endereço de gateway padrão são atribuídos automaticamente.
+
+[listing, subs="+quotes"]
+----
+(cs2)# *serviceport protocol none*
+(cs2)# *network protocol none*
+(cs2)# *serviceport ipv6 <address>*
+(cs2)# *serviceport ipv6 <gateway>*
+----
+--
+====
+. [[step7]]Verifique os resultados usando o comando:
 +
 `show serviceport`
 
 +
-.Mostrar exemplo
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *show serviceport*
@@ -100,7 +115,6 @@ Configured IPv6 Protocol....................... None
 IPv6 AutoConfig Mode........................... Disabled
 Burned In MAC Address.......................... D8:C4:97:71:12:3C
 ----
-====
 . Configure o domínio e o servidor de nomes:
 +
 [source, cli]

@@ -55,7 +55,7 @@ Este exemplo verifica se o switch pode alcançar o servidor no endereço IP 172.
 
 [listing, subs="+quotes"]
 ----
-cs2# *ping 172.19.2.1*
+cs2# *ping 172.19.2.1 VRF management*
 Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.

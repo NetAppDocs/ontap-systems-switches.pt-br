@@ -206,9 +206,17 @@ Certifique-se de que a reversão automática esteja desativada após executar es
 +
 [listing, subs="+quotes"]
 ----
+cs2> *enable*
+cs2# *configure*
 cs2(config)# *interface eth1/1/1-2,eth1/7-8*
 cs2(config-if-range)# *shutdown*
+cs2(config-if-range)# *exit*
+cs2# *exit*
 ----
++
+
+NOTE: O número de portas exibidas varia de acordo com o número de nós no cluster.
+
 . Verifique se as portas de cluster migraram para as portas hospedadas no switch de cluster CS1. Isso pode levar alguns segundos.
 +
 `network interface show -vserver Cluster`
@@ -570,10 +578,18 @@ NOTE: Pode levar até 5 minutos para que os nós de cluster relatem como íntegr
 ====
 [listing, subs="+quotes"]
 ----
+cs1> *enable*
+cs1# *configure*
 cs1(config)# *interface eth1/1/1-2,eth1/7-8*
 cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# *exit*
+cs1# *exit*
 ----
 ====
++
+
+NOTE: O número de portas exibidas varia de acordo com o número de nós no cluster.
+
 . Verifique se os LIFs de cluster migraram para as portas hospedadas no switch CS2. Isso pode levar alguns segundos.
 +
 `network interface show -vserver Cluster`
