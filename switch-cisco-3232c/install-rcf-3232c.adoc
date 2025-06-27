@@ -606,13 +606,6 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-. Interrutor de reinicialização CS1. Você faz isso para acionar os LIFs do cluster para reverter para suas portas domésticas. Você pode ignorar os eventos "portas de cluster para baixo" relatados nos nós enquanto o switch é reinicializado.
-+
-[listing, subs="+quotes"]
-----
-cs1# *reload*
-This command will reboot the system. (y/n)?  [n] *y*
-----
 . Verifique se as portas do switch conetadas às portas do cluster estão ativadas.
 +
 .Mostrar exemplo

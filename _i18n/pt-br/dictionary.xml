@@ -933,7 +933,6 @@
   <block id="ddf98c782f1bf15e46a4c740b56426ff" category="paragraph"><block ref="031cb810fe7e12b44d30ad57badb18f9" prefix="" category="inline-code"></block></block>
   <block id="59ed8d797343a87748211be365bd1d90" category="list-text">Gerar as chaves SSH:</block>
   <block id="2986030ac2a2c3716611c3a1bcc0c093" category="paragraph"><block ref="0b8cf6b3656c259d9957a92e154a9d52" prefix="" category="inline-code"></block></block>
-  <block id="b6deba442a3eaadb05f02285eb6e8113" category="admonition">Certifique-se de que o SSH está desativado antes de modificar as chaves, caso contrário, um aviso é relatado no switch.</block>
   <block id="95baf91c437105360687405b916b57fa" category="list-text">Encripte as chaves SSH (apenas para o modo *FIPS*):</block>
   <block id="50a89ea25c124abad381209f29dd1817" category="admonition">No modo FIPS, as chaves devem ser criptografadas com uma senha para segurança. Na ausência de uma chave criptografada, o aplicativo não inicia. As chaves são criadas e criptografadas usando os seguintes comandos:</block>
   <block id="83a0e3bf9dd48caad05146cc29f81e6b" category="list-text">Verifique se o SSH está ativado:</block>
@@ -5319,4 +5318,8 @@
   <block id="de7ffa00f75520afd4312c03db0da03c" category="list-text"><block ref="de7ffa00f75520afd4312c03db0da03c" category="inline-link-macro-rx"></block></block>
   <block id="c409f8a3c1a31991297c71a6ef92dff2" category="inline-link-macro">Pânico de nó após migração de cluster comutado para cluster sem comutação</block>
   <block id="55f49c71e99a86d3514c015252eee468" category="list-text"><block ref="55f49c71e99a86d3514c015252eee468" category="inline-link-macro-rx"></block></block>
+  <block id="a9a5bde505ea573688279b9aed85b83d" category="paragraph">Se o SSH não estiver desabilitado, desabilite-o da seguinte maneira:</block>
+  <block id="1991f73b95765ab4d1861d2717ed45f2" category="admonition">Certifique-se de desabilitar o SSH antes de modificar as chaves, caso contrário, um aviso será reportado no switch.</block>
+  <block id="5046b85a70c9d571be19e2a0283d236b" category="admonition">No passo 3 *Atualizando o arquivo MOTD* acima, o comando<block ref="633fe61df4a2e20028fd063d6108557f" prefix=" " category="inline-code"></block> é executado. Isso permite verificar o nome do arquivo RCF, a versão RCF, as portas a usar e outras informações importantes no banner RCF.</block>
+  <block id="1767f5d7b100e3d4d6c5fea66216a39c" category="admonition">Na etapa 3 *Atualizando o arquivo MOTD* acima, o comando `cat /etc/issue.net é executado. Isso permite verificar o nome do arquivo RCF, a versão RCF, as portas a usar e outras informações importantes no banner RCF.</block>
 </blocks>

@@ -409,7 +409,7 @@ vlan database
 no vlan 17
 no vlan 18
 exit
-show-running-config
+show running-config
 ----
 .. Salve a configuração em execução na configuração de inicialização:
 +
@@ -657,7 +657,7 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 +
 [source, cli]
 ----
-show running config
+show running-config
 ----
 . Salve a configuração em execução para que ela se torne a configuração de inicialização quando você reiniciar o switch:
 +
