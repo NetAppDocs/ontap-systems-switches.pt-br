@@ -5322,4 +5322,6 @@
   <block id="1991f73b95765ab4d1861d2717ed45f2" category="admonition">Certifique-se de desabilitar o SSH antes de modificar as chaves, caso contrário, um aviso será reportado no switch.</block>
   <block id="5046b85a70c9d571be19e2a0283d236b" category="admonition">No passo 3 *Atualizando o arquivo MOTD* acima, o comando<block ref="633fe61df4a2e20028fd063d6108557f" prefix=" " category="inline-code"></block> é executado. Isso permite verificar o nome do arquivo RCF, a versão RCF, as portas a usar e outras informações importantes no banner RCF.</block>
   <block id="1767f5d7b100e3d4d6c5fea66216a39c" category="admonition">Na etapa 3 *Atualizando o arquivo MOTD* acima, o comando `cat /etc/issue.net é executado. Isso permite verificar o nome do arquivo RCF, a versão RCF, as portas a usar e outras informações importantes no banner RCF.</block>
+  <block id="86f7f66cb381cc46fe300e0c2c8f0499" category="inline-link-macro">A configuração do servidor NTP não está funcionando com os switches NVIDIA SN2100</block>
+  <block id="c77e68e056a1f231532a65076ed213f7" category="paragraph">Veja o artigo da Base de Conhecimento <block ref="54a4a8d8880601232d1c62bd5f55e05a" category="inline-link-macro-rx"></block> para mais detalhes.</block>
 </blocks>
