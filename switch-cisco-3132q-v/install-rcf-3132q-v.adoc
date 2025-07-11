@@ -417,7 +417,6 @@ NOTE: Para obter instruções sobre como colocar as portas 10GbE online após um
 
 
 
-. Reaplique quaisquer personalizações anteriores à configuração do switch. link:cabling-considerations-3132q-v.html["Analise as considerações sobre cabeamento e configuração"]Consulte para obter detalhes sobre quaisquer alterações adicionais necessárias.
 . Depois de verificar se as versões do RCF e as configurações do switch estão corretas, copie o arquivo running-config para o arquivo startup-config.
 +
 Para obter mais informações sobre comandos Cisco, consulte o guia apropriado https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referência de comando Cisco Nexus 3000 Series NX-os"^] nos guias.
@@ -453,6 +452,7 @@ cs2# copy Nexus_3132QV_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-comm
 cs2# copy running-config startup-config [########################################] 100% Copy complete
 ----
 ====
+. Reaplique quaisquer personalizações anteriores à configuração do switch. link:cabling-considerations-3132q-v.html["Analise as considerações sobre cabeamento e configuração"]Consulte para obter detalhes sobre quaisquer alterações adicionais necessárias.
 . Verifique a integridade das portas de cluster no cluster.
 +
 .. Verifique se as portas do cluster estão ativas e íntegras em todos os nós do cluster:
