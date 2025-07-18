@@ -22,7 +22,7 @@ O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir 
 * A monitorização do estado do interrutor tem de estar ativada para o interrutor. Verifique isso garantindo que o `Is Monitored:` campo esteja definido como *true* na saída do `system switch ethernet show` comando.
 * Para coleta de logs com switches Broadcom e Cisco:
 +
-** Os usuários devem ter Privileges de administrador de rede.
+** O usuário local deve ter privilégios de administrador de rede.
 ** Um novo usuário deve ser criado no switch para cada configuração de cluster com a coleção de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.
 
 

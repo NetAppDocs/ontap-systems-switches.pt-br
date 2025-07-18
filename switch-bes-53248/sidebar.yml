@@ -37,6 +37,8 @@ entries:
     url: "/switch-bes-53248/configure-install-rcf.html"
   - title: Ativar SSH para a coleção de registos
     url: "/switch-bes-53248/configure-ssh.html"
+  - title: Redefinir o switch para os padrões de fábrica
+    url: "/switch-bes-53248/reset-switch-bes-53248.html"
 - title: Interrutor de atualização
   pdf-filename: Upgrade_switches_bes53248
   entries:

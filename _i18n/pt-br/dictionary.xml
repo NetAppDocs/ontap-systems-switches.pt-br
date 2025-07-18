@@ -926,7 +926,6 @@
   <block id="1ad4f5dc9889f4859c43a213e21f389c" category="list-text">Se o SSH estiver ativo, você deve reativá-lo manualmente depois de executar o comando<block ref="1fb554759d9d32d450daa4da09330114" prefix=" " category="inline-code"></block> e reiniciar o switch.</block>
   <block id="d007743863da413e0445811c05d574db" category="summary">Reveja a visão geral do software.</block>
   <block id="93d9f7b647768c2633a5b9f8a68e2b52" category="doc">Fluxo de trabalho de instalação de software para switches BES-53248</block>
-  <block id="6dd4b5e58bd32b079e19b1dda5c2f1bc" category="paragraph">Para instalar e configurar inicialmente o software para um switch de cluster BES-53248, siga estas etapas:</block>
   <block id="e90d5ac1532bae79aa9f467efd13168c" category="summary">O SSH é um requisito ao usar os recursos do Monitor de integridade do Cluster Switch (CSHM) e coleta de logs. Para ativar o SSH nos switches de cluster BES-53248, você gera as chaves SSH primeiro e depois ativa o SSH.</block>
   <block id="ace8956d8976d528bf22aab3553d5953" category="paragraph">Se você estiver usando os recursos do Monitor de integridade do comutador Ethernet (CSHM) e da coleção de logs, será necessário gerar as chaves SSH e, em seguida, ativar o SSH nos switches do cluster.</block>
   <block id="5c60227e684a42ed2c4295981335965a" category="list-text">Verifique se o SSH está desativado:</block>
@@ -5199,7 +5198,6 @@
   <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">Clustering: *MSN2100-RCF-v1._x_-Cluster*</block>
   <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">Instale ou atualize o script RCF</block>
   <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">Para coleta de logs com switches Broadcom e Cisco:</block>
-  <block id="89f1dd995a5c07ea1e13abc5993d9d59" category="list-text">Os usuários devem ter Privileges de administrador de rede.</block>
   <block id="60f743043272b873831b17c5e7290445" category="list-text">Um novo usuário deve ser criado no switch para cada configuração de cluster com a coleção de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.</block>
   <block id="63229fc9218a5e1a57243ce033e91a3b" category="paragraph">Consulte o artigo da base de dados de Conhecimento <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>para obter mais informações ao instalar ou atualizar o RCF.</block>
   <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">Consulte o artigo da base de dados de Conhecimento <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>para obter mais informações ao instalar o RCF.</block>
@@ -5331,4 +5329,19 @@
   <block id="255946ce0bdffe025ba4bdaa710146e6" category="list-text">Verifique se o arquivo write_erase.cfg está preenchido conforme o esperado:</block>
   <block id="c8608e8042094ff03aff5d73acbce651" category="paragraph"><block ref="aa69f627a489063557f4707be7ba43f0" prefix="" category="inline-code"></block></block>
   <block id="90b56b330f7736518fea2723b6853482" category="list-text">Repita os passos 1 a 20 no interrutor CS2.</block>
+  <block id="fb945b959f6754639fad6c6e9e9469b9" category="list-text">O usuário local deve ter privilégios de administrador de rede.</block>
+  <block id="47547bd96a2d76e2174e671baccc263a" category="paragraph">Para instalar e configurar o software para um switch de cluster BES-53248, siga estas etapas:</block>
+  <block id="7a81f2c0648b303fec3fe1081158d0e3" category="inline-link-macro">Redefinir o switch para os padrões de fábrica</block>
+  <block id="842f57c662529f95b306feb653984af0" category="list-text"><block ref="6356dc79de453379cf58db845e7c3b08" category="inline-link-macro-rx"></block>.</block>
+  <block id="585a6fd0f28eaade2a16ccaba1bb9b0d" category="paragraph">Apague as configurações do switch do cluster BES-53248.</block>
+  <block id="b879f523acbbe3c8d6ea83060443367e" category="doc">Redefinir o switch de cluster BES-53248 para os padrões de fábrica</block>
+  <block id="7515349dce34258a6f65c5f9b6b0bc58" category="paragraph">Para redefinir o switch de cluster BES-53248 para os padrões de fábrica, você deve apagar as configurações do switch BES-53248.</block>
+  <block id="cf8c4cbc63a2e42b70c4b4beddd2e366" category="list-text">Você deve estar conetado ao switch usando o console serial.</block>
+  <block id="55b0c310e4703cc82f05f8c44c9d0d39" category="list-text">Esta tarefa repõe a configuração da rede de gestão.</block>
+  <block id="eceb40fbe3a93ae0c766b186cce3cba4" category="list-text">Mude para o prompt de comando elevado.</block>
+  <block id="8045e733034738065ca77d531de9666f" category="list-text">Apague a configuração de inicialização.</block>
+  <block id="91f81f9cd1a23a248e317b6b22a84ce3" category="paragraph"><block ref="1fb554759d9d32d450daa4da09330114" prefix="" category="inline-code"></block></block>
+  <block id="671537f32d06de75a977dc3008daeff5" category="admonition">Se o sistema perguntar se deseja salvar a configuração não salva ou alterada antes de recarregar o switch, selecione *não*.</block>
+  <block id="01abea5f71122f7491f5d67a54692187" category="list-text">[[step4]] Aguarde até que o switch seja recarregado e, em seguida, faça login nele.</block>
+  <block id="3298c6d813bb0262584ca3882273ff2a" category="paragraph">O usuário padrão é “admin” e nenhuma senha é definida. É apresentado um aviso semelhante ao seguinte:</block>
 </blocks>
