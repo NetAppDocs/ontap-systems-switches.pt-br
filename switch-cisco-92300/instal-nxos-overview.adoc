@@ -13,7 +13,9 @@ summary: O software Cisco NX-os e os arquivos de configuração de referência d
 [role="lead"]
 Antes de instalar o software NX-os e o ficheiro de configuração de referência (RCF), siga este procedimento.
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Um cluster totalmente funcional (sem erros nos logs ou problemas semelhantes).
 * Guias de software e atualização apropriados, disponíveis em https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Switches Cisco Nexus 9000 Series"^].
 

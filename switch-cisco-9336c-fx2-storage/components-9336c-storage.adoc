@@ -118,3 +118,6 @@ Para ativar mais de 12 portas em seu switch de armazenamento Cisco Nexus 9336C-F
 
 
 NOTE: Depois de adquirir sua licença Smart, instale o RCF apropriado para habilitar e configurar todas as 36 portas disponíveis para uso.
+
+.O que vem a seguir
+link:required-documentation-9336c-storage.html["Documentação necessária"] .

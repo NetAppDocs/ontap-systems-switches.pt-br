@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, cisco nexus 3232c switch, 
 summary: Antes de configurar os switches Cisco Nexus 3232c, revise uma visão geral do processo e da nomenclatura. 
 ---
-= Visão geral da instalação e configuração para switches Cisco Nexus 3232c
+= Fluxo de trabalho de instalação e configuração para switches Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,27 +13,24 @@ summary: Antes de configurar os switches Cisco Nexus 3232c, revise uma visão ge
 [role="lead"]
 Os switches Cisco Nexus 3232C podem ser usados como switches de cluster no seu cluster AFF ou FAS. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.
 
+Siga estas etapas do fluxo de trabalho para instalar e configurar seu switch Cisco Nexus 3232C.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:configure-reqs-3232c.html["Requisitos de configuração"]
+[role="quick-margin-para"]
+Revise os requisitos de configuração para o switch de cluster 3232C.
 
-== Visão geral da configuração inicial
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:required-documentation-3232c.html["Documentação necessária"]
+[role="quick-margin-para"]
+Revise a documentação específica do switch e do controlador para configurar seus switches 3232C e o cluster ONTAP .
 
-Para configurar inicialmente um switch Cisco Nexus 3232c em sistemas que executam o ONTAP, siga estas etapas:
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:smart-call-home-3232c.html["Requisitos para Smart Call Home"]
+[role="quick-margin-para"]
+Revise os requisitos do recurso Cisco Smart Call Home, usado para monitorar os componentes de hardware e software na sua rede.
 
-. link:setup_worksheet_3232c.html["Folha de cálculo completa de cabeamento do Cisco Nexus 3232C"]. A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
-. link:install-cisco-nexus-3232c.html["Instale um switch de cluster Cisco Nexus 3232C em um gabinete NetApp"]. Instale o switch de cluster Cisco Nexus 3232C e o painel de passagem em um gabinete NetApp com os suportes padrão que estão incluídos no switch.
-. link:setup-switch.html["Configure o switch do cluster 3232C"]. Configure e configure o switch Cisco Nexus 3232C.
-. link:prepare-install-cisco-nexus-3232c.html["Prepare-se para instalar o software NX-os e o ficheiro de configuração de referência"]. Prepare-se para instalar o software NX-os e o ficheiro de configuração de referência (RCF).
-. link:install-nx-os-software-3232c.html["Instale o software NX-os"]. Instale o software NX-os no switch de cluster Nexus 3232C.
-. link:install-rcf-3232c.html["Instalar o ficheiro de configuração de referência (RCF)"]. Instale o RCF depois de configurar o switch Nexus 3232C pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]link:install-hardware-workflow.html["Instale o hardware"]
+[role="quick-margin-para"]
+Instale o hardware do switch.
 
-
-
-
-== Informações adicionais
-
-Antes de iniciar a instalação ou manutenção, certifique-se de rever o seguinte:
-
-* link:configure-reqs-3232c.html["Requisitos de configuração"]
-* link:required-documentation-3232c.html["Documentação necessária"]
-* link:smart-call-home-3232c.html["Requisitos para Smart Call Home"]
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-software-overview-3232c-cluster.html["Configurar o software"]
+[role="quick-margin-para"]
+Configure o software do switch.

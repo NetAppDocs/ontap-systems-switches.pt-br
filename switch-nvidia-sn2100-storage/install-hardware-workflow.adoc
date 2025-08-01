@@ -1,0 +1,26 @@
+---
+permalink: switch-nvidia-sn2100-storage/install-hardware-workflow.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-nvidia-sn2100 switch 
+summary: Antes de configurar os switches de cluster NVIDIA SN2100, revise a visão geral da configuração. 
+---
+= Fluxo de trabalho de instalação de hardware para switches de armazenamento NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar e configurar o hardware de um switch de armazenamento SN2100, siga estas etapas:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:install-hardware-sn2100-storage.html["Instale o hardware"]
+[role="quick-margin-para"]
+Instale o hardware do switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:cabling-considerations-sn2100-storage.html["Analise as considerações sobre cabeamento e configuração"]
+[role="quick-margin-para"]
+Revise os requisitos para conexões óticas, o adaptador QSA e a velocidade do switchport.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-cable-shelves-sn2100-storage.html["Cable as NS224 prateleiras"]
+[role="quick-margin-para"]
+Siga os procedimentos de cabeamento se você tiver um sistema no qual os NS224 compartimentos de unidades precisam ser cabeados como storage conectado a switch (não storage com conexão direta).

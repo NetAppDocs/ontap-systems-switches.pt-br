@@ -1,0 +1,53 @@
+---
+permalink: switch-cisco-92300/install-switch-92300yc.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 92300YC 
+summary: Siga este procedimento para instalar o switch Cisco Nexus 92300YC. 
+---
+= Instalar o switch de cluster 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimento para configurar e configurar o switch Cisco Nexus 92300YC.
+
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
+* Acesso a um servidor HTTP, FTP ou TFTP no site de instalação para baixar as versões NX-os e Reference Configuration File (RCF) aplicáveis.
+* Versão NX-os aplicável, transferida a partir da https://software.cisco.com/download/home["Transferência do software Cisco"^] página.
+* Licenças aplicáveis, informações de rede e configuração e cabos.
+* Concluídolink:setup-worksheet-92300yc.html["fichas de trabalho de cablagem"] .
+* RCFs de rede de cluster e rede de gerenciamento NetApp aplicáveis baixados do site de suporte da NetApp em http://mysupport.netapp.com/["mysupport.NetApp.com"^]. Todos os switches de rede e rede de gerenciamento de cluster Cisco chegam com a configuração padrão de fábrica do Cisco. Esses switches também têm a versão atual do software NX-os, mas não têm os RCFs carregados.
+* link:required-documentation-92300.html["Documentação necessária do switch e do ONTAP"] .
+
+
+.Passos
+. Coloque em rack os switches e controladores de rede de gerenciamento e rede de cluster.
++
+[cols="1,2"]
+|===
+| Se você está instalando o... | Então... 
+
+
+ a| 
+Cisco Nexus 92300YC em um gabinete de sistema NetApp
+ a| 
+Consulte o guia _Instalação de um switch de cluster Cisco Nexus 92300YC e painel de passagem em um gabinete NetApp para obter instruções sobre como instalar o switch em um gabinete NetApp .
+
+
+
+ a| 
+Equipamento em um rack Telco
+ a| 
+Consulte os procedimentos fornecidos nos guias de instalação do hardware do switch e nas instruções de instalação e configuração do NetApp.
+
+|===
+. Faça o cabeamento dos switches de rede e rede de gerenciamento do cluster para os controladores usando as planilhas de cabeamento concluídas.
+. Ligue a rede do cluster e os controladores e switches de rede de gerenciamento.
+
+
+.O que se segue?
+Opcionalmente, você podelink:install-switch-netapp-cabinet-92300yc.html["instalar um switch Cisco Nexus 3223C em um gabinete NetApp"] .  Caso contrário, vá paralink:cabling-considerations-92300.html["Revise o cabeamento e a configuração"] .

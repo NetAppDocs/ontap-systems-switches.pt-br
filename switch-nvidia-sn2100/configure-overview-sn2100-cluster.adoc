@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
 summary: O switch NVIDIA SN2100 é um switch Ethernet de 10/25/40/100 GbE que executa o Cumulus Linux. O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10,1 em diferentes pares de switches. 
 ---
-= Visão geral da instalação e configuração dos switches NVIDIA SN2100
+= Fluxo de trabalho de instalação e configuração para switches NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,50 +13,24 @@ summary: O switch NVIDIA SN2100 é um switch Ethernet de 10/25/40/100 GbE que ex
 [role="lead"]
 O NVIDIA SN2100 é um switch de cluster que permite criar clusters do ONTAP com mais de dois nós.
 
+Siga estas etapas do fluxo de trabalho para instalar e configurar seus switches NVIDIA SN2100.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:configure-reqs-sn2100-cluster.html["Revise os requisitos de configuração"]
+[role="quick-margin-para"]
+Revise os requisitos de configuração para o switch de cluster SN2100.
 
-== Visão geral da configuração inicial
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:components-sn2100-cluster.html["Revise os componentes e números de peça"]
+[role="quick-margin-para"]
+Revise os componentes e números de peça do switch de cluster SN2100.
 
-Para configurar um switch NVIDIA SN2100 em sistemas que executam o ONTAP, siga estas etapas:
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:required-documentation-sn2100-cluster.html["Revise a documentação necessária"]
+[role="quick-margin-para"]
+Revise a documentação específica do switch e do controlador para configurar seus switches SN2100 e o cluster ONTAP .
 
-. link:install-hardware-sn2100-cluster.html["Instale o hardware do switch NVIDIA SN2100"].
-+
-As instruções estão disponíveis no _Guia de Instalação do comutador NVIDIA_.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]link:install-hardware-workflow.html["Instale o hardware"]
+[role="quick-margin-para"]
+Instale o hardware do switch.
 
-. link:configure-sn2100-cluster.html["Configure o interrutor"].
-+
-As instruções estão disponíveis na documentação do NVIDIA.
-
-. link:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração"].
-+
-Revise os requisitos para conexões óticas, o adaptador QSA e a velocidade do switchport.
-
-. link:install-cable-shelves-sn2100-cluster.html["Prenda as NS224 gavetas como storage conetado a switch"].
-+
-Siga os procedimentos de cabeamento se você tiver um sistema no qual os NS224 compartimentos de unidades precisam ser cabeados como storage conectado a switch (não storage com conexão direta).
-
-. link:install-cumulus-mode-sn2100-cluster.html["Instale o Cumulus Linux no modo Cumulus"] ou link:install-onie-mode-sn2100-cluster.html["Instale o Cumulus Linux no modo ONIE"].
-+
-Você pode instalar o SO Cumulus Linux (CL) quando o switch estiver executando o Cumulus Linux ou ONIE.
-
-. link:install-rcf-sn2100-cluster.html["Instale o script RCF (Reference Configuration File)"].
-+
-Existem dois scripts RCF disponíveis para aplicativos de agrupamento e armazenamento. O procedimento para cada um é o mesmo.
-
-. link:setup-install-cshm-file.html["Instale o arquivo CSHM"].
-+
-Você pode instalar o arquivo de configuração aplicável para o monitoramento de integridade do switch Ethernet dos switches de cluster NVIDIA.
-
-
-
-
-
-== Informações adicionais
-
-Antes de iniciar a instalação ou manutenção, certifique-se de rever o seguinte:
-
-* link:configure-reqs-sn2100-cluster.html["Requisitos de configuração"]
-* link:components-sn2100-cluster.html["Componentes e números de peça"]
-* link:required-documentation-sn2100-cluster.html["Documentação necessária"]
-* https://hwu.netapp.com["Hardware Universe"^] Para todas as versões suportadas do ONTAP.
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-software-overview-sn2100-cluster.html["Configurar o software"]
+[role="quick-margin-para"]
+Configure o software do switch.

@@ -59,3 +59,6 @@ Kit de calha, NVIDIA interrutor simples, profundidade curta
 |===
 
 NOTE: Consulte a documentação do NVIDIA para obter detalhes https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalar o seu kit de comutador e calha SN2100"^] sobre .
+
+.O que se segue?
+link:required-documentation-sn2100-cluster.html["Documentação necessária"] .

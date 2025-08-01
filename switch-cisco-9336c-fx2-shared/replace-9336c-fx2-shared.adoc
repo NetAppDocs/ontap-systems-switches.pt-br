@@ -16,7 +16,7 @@ summary:
 [role="lead"]
 Você pode substituir um switch compartilhado Nexus 9336C-FX2 com defeito. Este é um procedimento sem interrupções (NDU).
 
-.O que você vai precisar
+.Antes de começar
 Antes de efetuar a substituição do interrutor, certifique-se de que:
 
 * No cluster existente e infra-estrutura de rede:

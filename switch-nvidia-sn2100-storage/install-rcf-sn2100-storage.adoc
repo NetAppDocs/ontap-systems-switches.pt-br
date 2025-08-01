@@ -13,7 +13,7 @@ summary: Siga este procedimento para instalar o script RCF.
 [role="lead"]
 Siga este procedimento para instalar ou atualizar o script RCF.
 
-.O que você vai precisar
+.Antes de começar
 Antes de instalar ou atualizar o script RCF, certifique-se de que o seguinte está disponível no switch:
 
 * Cumulus Linux 4.4.3 está instalado.

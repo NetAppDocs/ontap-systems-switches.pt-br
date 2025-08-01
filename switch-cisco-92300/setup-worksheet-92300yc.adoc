@@ -1365,3 +1365,5 @@ ISL para a porta 66 do interrutor B.
 ISL para mudar A porta 66
 
 |===
+.O que vem a seguir
+link:install-switch-92300yc.html["Instale o interrutor"] .

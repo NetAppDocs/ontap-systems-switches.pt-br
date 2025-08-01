@@ -80,3 +80,6 @@ Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obter m
 * Se você comprar licenças adicionais, consulte link:configure-licenses.html["Ative as portas de licenças recentes"] para obter detalhes sobre como ativá-las.
 * Se o SSH estiver ativo, você deve reativá-lo manualmente depois de executar o comando `erase startup-config` e reiniciar o switch.
 
+
+.O que vem a seguir
+link:components-bes53248.html["Componentes e números de peça"] .

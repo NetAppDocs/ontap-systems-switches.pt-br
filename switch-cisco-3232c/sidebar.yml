@@ -5,7 +5,7 @@ entries:
 - title: Visão geral
   pdf-filename: Overview_3232C
   entries:
-  - title: Visão geral da configuração
+  - title: Início rápido
     url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
   - title: Requisitos de configuração
     url: "/switch-cisco-3232c/configure-reqs-3232c.html"
@@ -16,10 +16,12 @@ entries:
 - title: Instale o hardware
   pdf-filename: Install_hardware_3232C
   entries:
+  - title: Fluxo de trabalho de instalação de hardware
+    url: "/switch-cisco-3232c/install-hardware-workflow.html"
   - title: Folha de cálculo de cablagem completa
     url: "/switch-cisco-3232c/setup_worksheet_3232c.html"
-  - title: Configure o interrutor
-    url: "/switch-cisco-3232c/setup-switch.html"
+  - title: Instale o interrutor
+    url: "/switch-cisco-3232c/install-switch-3232c.html"
   - title: Instale o interrutor no gabinete do NetApp
     url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
   - title: Revise o cabeamento e a configuração
@@ -27,6 +29,10 @@ entries:
 - title: Configure o software
   pdf-filename: Configure_software_3232C
   entries:
+  - title: Fluxo de trabalho de instalação do software
+    url: "/switch-cisco-3232c/configure-software-overview-3232c-cluster.html"
+  - title: Configure o interrutor
+    url: "/switch-cisco-3232c/setup-switch.html"
   - title: Prepare-se para instalar o NX-os e o RCF
     url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
   - title: Instale o software NX-os

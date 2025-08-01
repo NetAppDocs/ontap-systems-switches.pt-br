@@ -13,7 +13,9 @@ summary: Conclua as etapas a seguir para atualizar sua versão do Cumulus Linux.
 [role="lead"]
 Conclua o procedimento a seguir para atualizar sua versão do Cumulus Linux conforme necessário.
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Conhecimento do Linux de nível intermediário.
 * Familiaridade com edição de texto básica, permissões de arquivo UNIX e monitoramento de processos. Uma variedade de editores de texto são pré-instalados, `vi` incluindo e `nano`.
 * Acesso a um shell Linux ou UNIX. Se você estiver executando o Windows, use um ambiente Linux como sua ferramenta de linha de comando para interagir com o Cumulus Linux.

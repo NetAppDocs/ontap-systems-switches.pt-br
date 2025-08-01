@@ -19,4 +19,4 @@ Para instalar o hardware SN2100, consulte a documentação do NVIDIA.
 
 
 .O que se segue?
-link:configure-sn2100-cluster.html["Configure o interrutor"].
+link:cabling-considerations-sn2100-cluster.html["Revise o cabeamento e a configuração"] .

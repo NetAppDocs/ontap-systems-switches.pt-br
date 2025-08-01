@@ -19,7 +19,9 @@ O processo de migração funciona para todos os nós que usam portas óticas ou 
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Para a configuração sem switch de dois nós:
 +
 ** A configuração sem switch de dois nós está corretamente configurada e funcionando.

@@ -6,7 +6,7 @@ entries:
 - title: Visão geral
   pdf-filename: Overview_sn2100-storage
   entries:
-  - title: Visão geral da configuração
+  - title: Início rápido
     url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
   - title: Requisitos de configuração
     url: "/switch-nvidia-sn2100-storage/configure-reqs-sn2100-storage.html"
@@ -17,10 +17,10 @@ entries:
 - title: Instale o hardware
   pdf-filename: Install_hardware_sn2100-storage
   entries:
+  - title: Fluxo de trabalho de instalação de hardware
+    url: "/switch-nvidia-sn2100-storage/install-hardware-workflow.html"
   - title: Instale o interrutor
     url: "/switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html"
-  - title: Configure o interrutor
-    url: "/switch-nvidia-sn2100-storage/configure-sn2100-storage.html"
   - title: Revise o cabeamento e a configuração
     url: "/switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html"
   - title: Cabo NS224 prateleiras
@@ -30,6 +30,8 @@ entries:
   entries:
   - title: Fluxo de trabalho de instalação do software
     url: "/switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
+  - title: Configure o interrutor
+    url: "/switch-nvidia-sn2100-storage/configure-sn2100-storage.html"
   - title: Instale o Cumulus Linux no modo Cumulus
     url: "/switch-nvidia-sn2100-storage/install-cumulus-mode-sn2100-storage.html"
   - title: Instale o Cumulus Linux no modo ONIE

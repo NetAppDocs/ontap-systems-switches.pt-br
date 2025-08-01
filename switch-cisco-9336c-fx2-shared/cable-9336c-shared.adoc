@@ -69,3 +69,6 @@ Local:
 * 100g ISL para a porta 35 do interrutor B.
 * 100g ISL para a porta 36 do interrutor B.
 
+
+.O que vem a seguir
+link:install-9336c-shared.html["Instale o interrutor"].

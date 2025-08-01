@@ -755,7 +755,6 @@
   <block id="049c9cde4c991381b8a286f75afc69c5" category="paragraph"><block ref="05531b19bb846b18c09f979eeb429ad3" prefix="" category="inline-code"></block></block>
   <block id="dc4251add178848c0334d3df799034e7" category="list-text">[[step11]]Salve a configuração em execução na configuração de inicialização:</block>
   <block id="05811097becdf827e7905c7085aac958" category="paragraph"><block ref="2dddacc5e6efaad8de6eb5a7e2c10d11" prefix="" category="inline-code"></block></block>
-  <block id="1233ecfc62f0bed40d830afa17eec2c7" category="paragraph"><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block></block>
   <block id="245b6d4f01047a24b306b9ff15a6f528" category="summary">Pode instalar o ficheiro de configuração de referência (RCF) depois de configurar a central de cluster BES-53248 e depois de aplicar as novas licenças.</block>
   <block id="2ad05b5c21ff6c71199a379622544a42" category="doc">Instalar o ficheiro de configuração de referência (RCF)</block>
   <block id="8223afdae134b0c100d55b445b94a7cd" category="inline-link">Switches de cluster Broadcom</block>
@@ -887,26 +886,14 @@
   <block id="d5c56d6c3abbb7dd20246c17ec16d101" category="inline-link-macro">Atualize o RCF</block>
   <block id="3ff8146e3852dfcba1cfd255ac4f5576" category="paragraph"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block> ou <block ref="885efaf124d7da00a7a60364582f6275" category="inline-link-macro-rx"></block>.</block>
   <block id="bb59d83c000dfcf9402cc7fe83382189" category="summary">Antes de configurar os switches de cluster BES-53248, consulte a visão geral da configuração.</block>
-  <block id="5397dcc92d377f4ebfbca5756b92d81f" category="doc">Visão geral da instalação e configuração dos switches BES-53248</block>
   <block id="84247410f9abb8ef1b7e190d6a0a0b48" category="paragraph">O BES-53248 é um switch bare metal projetado para funcionar em clusters ONTAP que variam de dois a 24 nós.</block>
-  <block id="aac9f267bacea6f425f8665241d6901e" category="section-title">Visão geral da configuração inicial</block>
-  <block id="d26749e6607016e99f01bc39d1671b57" category="paragraph">Para configurar inicialmente um switch de cluster BES-53248 em sistemas que executam o ONTAP, siga estas etapas:</block>
   <block id="07dc48432521e8881ac99696b791f50c" category="inline-link-macro">Instale o hardware do switch do cluster BES-53248</block>
-  <block id="cacc96166a33cf689a2b3e556a37bf40" category="list-text"><block ref="949c7bd82934f57f3d06056d5065442f" category="inline-link-macro-rx"></block>.</block>
-  <block id="0d43ac9863e3c78b4df62b7cf3843813" category="paragraph">As instruções estão disponíveis no Guia de instalação do comutador de cluster BES-53248 compatível com a Broadcom_.</block>
-  <block id="921a3f90728cb9d30beb8ec9a74ab1f2" category="list-text"><block ref="5d9dfcd78fc81899f18975b4b56b3ae1" category="inline-link-macro-rx"></block>.</block>
-  <block id="bddd350f57f122b08e2cb443bea291f8" category="paragraph">Execute uma configuração inicial do switch do cluster BES-53248.</block>
   <block id="62d8b9841abbee3c8d144371f887a783" category="list-text"><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block>.</block>
   <block id="fd280d62f276e98d2c1156b6a7cd8932" category="paragraph">Faça o download e instale o software do sistema operacional de malha Ethernet (EFOS) no switch de cluster BES-53248.</block>
-  <block id="a9ec10177705d18bc441b79924a01204" category="list-text"><block ref="0f9f654882514557e57b19641aa7b563" category="inline-link-macro-rx"></block>.</block>
   <block id="e5e0ceddda654af2c9e3c1386537e4f7" category="paragraph">Opcionalmente, adicione novas portas comprando e instalando mais licenças. O modelo base do switch é licenciado para 16 10GbE ou 25GbE portas e duas portas 100GbE.</block>
-  <block id="ce4c0c35cac0cafac061a49da52f93cd" category="list-text"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block>.</block>
   <block id="33446f9dc3d57cc65d0607602cea0067" category="paragraph">Instale ou atualize o RCF no switch de cluster BES-53248 e, em seguida, verifique as portas para uma licença adicional após a aplicação do RCF.</block>
   <block id="6839871c951e0451fa16484988485a69" category="paragraph">Se você usar os recursos do Monitor de integridade do comutador Ethernet (CSHM) e da coleção de logs, ative o SSH nos switches.</block>
-  <block id="0f68b904e33d9ac04605aecc958bcf52" category="section-title">Informações adicionais</block>
-  <block id="16bd9f785cf803befb40588a09dc4b7f" category="paragraph">Antes de iniciar a instalação ou manutenção, certifique-se de rever o seguinte:</block>
   <block id="a62b8b622fa4ab9cba37776a261a9067" category="inline-link-macro">Documentação necessária</block>
-  <block id="30bc59659410cfda61387b34e1612b7c" category="list-text"><block ref="30bc59659410cfda61387b34e1612b7c" category="inline-link-macro-rx"></block></block>
   <block id="8e4984bab9d1ed958d954b97ee853c52" category="summary">Você pode usar a tabela de atribuição de portas de switch de cluster BES-53248 como um guia para configurar seu cluster.</block>
   <block id="b5a925fc7db2ad87d052b8e842aaca5c" category="doc">Requisitos de configuração para switches de cluster BES-53248</block>
   <block id="647742b7ed5a74255a1cd295f9fd2fc9" category="paragraph">Para instalação e manutenção do switch BES-53248, certifique-se de rever os requisitos de suporte e configuração do EFOS e ONTAP.</block>
@@ -942,7 +929,6 @@
   <block id="f249686dfa625a48e16b61cc36dc2543" category="inline-link">Guia de instalação do comutador de cluster BES-53248 compatível com Broadcom</block>
   <block id="9343a353b1f82fabd9ee240e066471c9" category="list-text">Siga as instruções na<block ref="2499b40383e5eeae4a8e13c0ef2b5e8c" category="inline-link-rx"></block>.</block>
   <block id="f4959eb49cd0d468fb22d0fde13f93d1" category="inline-link-macro">Configure o interrutor</block>
-  <block id="2c313ef83d1daadd03ff286fd1bc25ab" category="paragraph"><block ref="b88c299eeb38820fb709454fcd144438" category="inline-link-macro-rx"></block>.</block>
   <block id="c91d3bedd07d88d5a148a4e0c0083a14" category="summary">Para substituir os switches de cluster CN1610 existentes em um cluster por switches de cluster BES-53248 compatíveis com Broadcom, você deve executar uma sequência específica de tarefas.</block>
   <block id="e1eb24039435030db0d5dbc4456a9bd9" category="doc">Migre os switches de cluster CN1610 para os switches de cluster BES-53248</block>
   <block id="88f0acfafa549f0c5c14861dac821fdd" category="paragraph">Para migrar os switches de cluster CN1610 em um cluster para switches de cluster BES-53248 compatíveis com Broadcom, revise os requisitos de migração e siga o procedimento de migração.</block>
@@ -1262,15 +1248,11 @@
   <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">No switch de cluster CS2, abra as portas conetadas às portas de cluster dos nós.</block>
   <block id="7271f66e0cb527adb71302d7377910b7" category="list-text">[[step21]]repita os passos 1 a 20 no interrutor CS1.</block>
   <block id="9b241cba96d2cafd3c0f5c9f7bf12560" category="list-text">. Verifique se os LIFs do cluster reverteram para sua porta inicial:</block>
-  <block id="3c3cc1e0aab8ce76690b98739e732e64" category="doc">Visão geral do processo de atualização para switches de cluster BES-53248</block>
   <block id="95731780fd3171c29b73f348e1722fda" category="paragraph">Siga estas etapas para atualizar o software EFOS e os arquivos de configuração de referência (RCFs) em switches de cluster Broadcom BES-54328, conforme aplicável.</block>
   <block id="80327dfe904174acefb3b256fa29ed5a" category="inline-link-macro">Atualize sua versão EFOS</block>
-  <block id="fea95d28df6c953ffdb2096099ec83e5" category="list-text"><block ref="fea95d28df6c953ffdb2096099ec83e5" category="inline-link-macro-rx"></block></block>
   <block id="b5a0d9a2c85a70413f40021328666fac" category="inline-link-macro">Atualize sua versão RCF</block>
-  <block id="b0d7a2164137f2036f3af1efcfb1968f" category="list-text"><block ref="b0d7a2164137f2036f3af1efcfb1968f" category="inline-link-macro-rx"></block></block>
   <block id="63fb347e8fe40dad0a57cfdb5a947748" category="paragraph">Atualize o RCF no switch de cluster BES-53248 e verifique as portas para obter uma licença adicional depois que o RCF for aplicado.</block>
   <block id="9f2e5f2b82e93a9ed81759ba8e3c2f05" category="inline-link-macro">Verifique a rede do cluster ONTAP após a atualização</block>
-  <block id="ee9cd451d5dc1debab0286f89e5c8301" category="list-text"><block ref="ee9cd451d5dc1debab0286f89e5c8301" category="inline-link-macro-rx"></block></block>
   <block id="4034571f0d4fb637512f42a4b084fea4" category="paragraph">Verifique a integridade da rede do cluster ONTAP após uma atualização do software EFOS ou RCF para switches de cluster BES-53248.</block>
   <block id="ae721238017915904e94acd87eddf78c" category="summary">Antes de configurar o switch Cisco 3132Q-V, revise as informações a seguir.</block>
   <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Antes de configurar seu switch Cisco 3132Q-V, revise as seguintes considerações.</block>
@@ -1361,21 +1343,10 @@
   <block id="ec8e2c0b6ca60727d2402a49b67315ac" category="list-text">Copie o software NX-os para o switch Nexus 3132Q-V usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP. Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no<block ref="d6b429c6adadc5e67023a0f5351e7ffd" category="inline-link-rx"></block>.</block>
   <block id="ced2c729b002b1db52a54a7e9056ae20" category="paragraph"><block ref="a230254c929e1946d5af4ce09f0d3fb2" category="inline-link-macro-rx"></block>.</block>
   <block id="76db3740211118dc35fb0fd88cf80881" category="summary">Antes de configurar os switches Cisco Nexus 3132Q-V, revise uma visão geral do processo e da nomenclatura.</block>
-  <block id="51948fff96d39879d6003ec3a473111b" category="doc">Visão geral da instalação e configuração para switches Cisco Nexus 3132Q-V.</block>
   <block id="fc9286ab35f04cf48b4c402b64077bfe" category="paragraph">Os switches Cisco Nexus 3132Q-V podem ser usados como switches de cluster em seu cluster AFF ou FAS. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.</block>
-  <block id="85ed1ee9f4201a216125c557ae3a7f55" category="paragraph">Para configurar inicialmente um switch Cisco Nexus 3132Q-V em sistemas que executam o ONTAP, siga estas etapas:</block>
   <block id="a48009e341ec5158a809b8ddefc65f61" category="inline-link-macro">Folha de cálculo completa de cabeamento Cisco Nexus 3132Q-V.</block>
-  <block id="2b4b02e189294d861923b97358dd2f5a" category="list-text"><block ref="23d1fa41a61ba507d26b61266d9bc561" category="inline-link-macro-rx"></block>. A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.</block>
-  <block id="3de316d04f9ddd9e9153f3bf9d611beb" category="list-text"><block ref="0f34072d0ab1c4a9db39b14366a38c31" category="inline-link-macro-rx"></block>. Instale o switch Cisco Nexus 3132Q-V e o painel de passagem em um gabinete NetApp com os suportes padrão que estão incluídos com o switch.</block>
   <block id="d33a1a3c4cea4496ac1583d929f95c2b" category="inline-link-macro">Configure o switch Cisco Nexus 3132Q-V.</block>
-  <block id="ab65b98e8410ac425fabe5d73b5e3eed" category="list-text"><block ref="6e21de03ac85481d2e774cd373205342" category="inline-link-macro-rx"></block>. Configure e configure o switch Cisco Nexus 3132Q-V.</block>
-  <block id="d6a0822a7c97bddf0c6c35c07c36f7b0" category="list-text"><block ref="c7d9f92acf90399e5467216f763af38e" category="inline-link-macro-rx"></block>. Prepare-se para instalar o software NX-os e o ficheiro de configuração de referência (RCF).</block>
-  <block id="6a4f98e05faf849092c98d5cf51294cb" category="list-text"><block ref="b41a039366e359642e7be006f7a5851f" category="inline-link-macro-rx"></block>. Siga este procedimento para instalar o software NX-os no switch de cluster Nexus 3132Q-V.</block>
-  <block id="e8e760c3679b559cdfdc166a92b33a36" category="list-text"><block ref="a230254c929e1946d5af4ce09f0d3fb2" category="inline-link-macro-rx"></block>. Siga este procedimento para instalar o RCF depois de configurar o interrutor Nexus 3132Q-V pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
-  <block id="b7849b8fb2657e254b2634895b6d222a" category="list-text"><block ref="b7849b8fb2657e254b2634895b6d222a" category="inline-link-macro-rx"></block></block>
-  <block id="3733ea959ea350d46ba403dfe4087bb4" category="list-text"><block ref="3733ea959ea350d46ba403dfe4087bb4" category="inline-link-macro-rx"></block></block>
   <block id="b33d390dde96efa203125553c0106997" category="inline-link-macro">Requisitos para Smart Call Home</block>
-  <block id="e25a52f8aae59a2992e22d409c64553b" category="list-text"><block ref="e25a52f8aae59a2992e22d409c64553b" category="inline-link-macro-rx"></block></block>
   <block id="0097132bac5d6c6b5abee712913401fa" category="summary">Você pode instalar o RCF depois de configurar o Nexus 3132Q-V switch pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="7a70cdeb40f157f9116e04abddab0733" category="paragraph">Siga este procedimento para instalar o RCF depois de configurar o interrutor Nexus 3132Q-V pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="8d4b5bf22d2dde04a178ea3a0409a1ea" category="list-text">O ficheiro de configuração de referência atual (RCF).</block>
@@ -1979,20 +1950,9 @@
   <block id="3f5e00dc10415204c495781f25039129" category="list-text">Após a reinicialização do switch, faça login para verificar se a nova versão do EPLD foi carregada com sucesso.</block>
   <block id="ec8855627efbb26afaa912164ff82dbd" category="inline-link-macro">Instale o arquivo de configuração RCF</block>
   <block id="4a91febaa4c24955d4b5a205fc4846e7" category="summary">Antes de configurar os switches Cisco Nexus 3232c, revise uma visão geral do processo e da nomenclatura.</block>
-  <block id="3d8c0d3afd6618c62321bcaf19ae1a50" category="doc">Visão geral da instalação e configuração para switches Cisco Nexus 3232c</block>
   <block id="d4d8b9ec23fdb4722400f56c58539809" category="paragraph">Os switches Cisco Nexus 3232C podem ser usados como switches de cluster no seu cluster AFF ou FAS. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.</block>
-  <block id="2ae936b48ca62e7eabcf5f17a1bdf469" category="paragraph">Para configurar inicialmente um switch Cisco Nexus 3232c em sistemas que executam o ONTAP, siga estas etapas:</block>
   <block id="3d4991c772277ad3b0de4a5a176285e3" category="inline-link-macro">Folha de cálculo completa de cabeamento do Cisco Nexus 3232C</block>
-  <block id="b15888e648a7a332b3c006c14909b9d4" category="list-text"><block ref="dfe65a54ddd9ca33e5e24e9ec5f1ebb5" category="inline-link-macro-rx"></block>. A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.</block>
-  <block id="d712f78e9b2a27a45fb9481e6b6db030" category="list-text"><block ref="cd071e749c265e9f4b3af48e625906ca" category="inline-link-macro-rx"></block>. Instale o switch de cluster Cisco Nexus 3232C e o painel de passagem em um gabinete NetApp com os suportes padrão que estão incluídos no switch.</block>
   <block id="5b2f13a0b30c9b49749eb02428be7342" category="inline-link-macro">Configure o switch do cluster 3232C</block>
-  <block id="7b69dbde6b0ecf1ef5d7b953825afb65" category="list-text"><block ref="ab35665c267fa570f19ad0ebf8386ab4" category="inline-link-macro-rx"></block>. Configure e configure o switch Cisco Nexus 3232C.</block>
-  <block id="36df0ecc992fe3683c201377fe700562" category="list-text"><block ref="1328cd9b336996848f07ffe4022b2fbf" category="inline-link-macro-rx"></block>. Prepare-se para instalar o software NX-os e o ficheiro de configuração de referência (RCF).</block>
-  <block id="aee20cf721b92e708e75b0acb153d341" category="list-text"><block ref="314dd1d996fbb9aca1be9c197bfb078b" category="inline-link-macro-rx"></block>. Instale o software NX-os no switch de cluster Nexus 3232C.</block>
-  <block id="4cb8a807b0f5d8a210334907d852e11b" category="list-text"><block ref="b7bad585691991d28d9b701a0039267f" category="inline-link-macro-rx"></block>. Instale o RCF depois de configurar o switch Nexus 3232C pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
-  <block id="f98da02f0354b9650f021d5be0d693ee" category="list-text"><block ref="f98da02f0354b9650f021d5be0d693ee" category="inline-link-macro-rx"></block></block>
-  <block id="1dbca34b24162eb59cc33616a1549705" category="list-text"><block ref="1dbca34b24162eb59cc33616a1549705" category="inline-link-macro-rx"></block></block>
-  <block id="fab4f252f5f3f34c327db7336393d285" category="list-text"><block ref="fab4f252f5f3f34c327db7336393d285" category="inline-link-macro-rx"></block></block>
   <block id="52b4047fc43b6917cd24a0ee369e839c" category="summary">Você pode instalar o RCF depois de configurar o switch Nexus 3232C pela primeira vez.você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="3bf967e4da79afd8ac10997dbbfb40be" category="paragraph">Siga este procedimento para instalar o RCF depois de configurar o switch Nexus 3232C pela primeira vez.</block>
   <block id="ce8d24a452c1c94c4680d7ce098325a9" category="inline-link">Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota</block>
@@ -2450,7 +2410,6 @@
   <block id="d4ca40c00226dd9154451b22e0c4d626" category="paragraph">Descreve o procedimento para substituir um switch Cisco Nexus 92300YC defeituoso em um cluster e fazer o download do sistema operacional do switch e do arquivo de configuração de referência.</block>
   <block id="249c296c1de730eddbe0ead3fe930200" category="summary">Antes de configurar o switch Cisco 92300YC, revise as informações a seguir.</block>
   <block id="709ea8965bb4964023cd6e82df0d3c62" category="paragraph">Antes de configurar o switch Cisco 92300YC, revise as seguintes considerações.</block>
-  <block id="06f7473ee7b667cf7e6c7384b4e91957" category="doc">Componentes para switches Cisco Nexus 92300YC</block>
   <block id="ed6ae629414abab8b0e9b2e8deadb8c2" category="paragraph">Para a instalação e manutenção do switch Cisco Nexus 92300YC, certifique-se de rever todos os componentes e números de peça do switch. Consulte<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> para obter detalhes.</block>
   <block id="26961e618ecd01e172d0cc2829344d09" category="list-text">Fluxo de ar do escape do lado do pórtico (ar padrão) -- o ar frio entra no chassi através dos módulos do ventilador e da fonte de alimentação no corredor frio e esgota através da extremidade do pórtico do chassi no corredor quente. Fluxo de ar do escape do lado da porta com coloração azul.</block>
   <block id="a65de0b2540eeae253ed86b6c80d5cd8" category="list-text">Fluxo de ar de entrada do lado do pórtico (ar reverso) -- o ar frio entra no chassi através da extremidade do pórtico no corredor frio e esgota através dos módulos do ventilador e da fonte de alimentação no corredor quente. Fluxo de ar de admissão do lado do porto com coloração Borgonha.</block>
@@ -2518,19 +2477,7 @@
   <block id="bb06ef3d1301c60ccc059da2e6365064" category="inline-link-macro">Instale o ficheiro de configuração de referência</block>
   <block id="9461b7a834c383c5538d97f8a173943a" category="paragraph"><block ref="9461b7a834c383c5538d97f8a173943a" category="inline-link-macro-rx"></block></block>
   <block id="255c4d8b5fe19006ce3e32d6abe4c5dd" category="summary">Antes de configurar os switches Cisco Nexus 92300, revise uma visão geral do processo e da nomenclatura.</block>
-  <block id="5501293605b4b8c8957b68e1854b0f11" category="doc">Visão geral da instalação e configuração para switches Cisco Nexus 92300YC</block>
-  <block id="c5fed3189b0ec4237029df463c0c1f64" category="paragraph">Antes de configurar os switches Cisco Nexus 92300YC, revise a visão geral do procedimento.</block>
-  <block id="109e216a5aa6e526f504483738dabc7b" category="paragraph">Para configurar inicialmente um switch Cisco Nexus 92300YC em sistemas que executam o ONTAP, siga estas etapas:</block>
   <block id="774ba8094c5cc02cee9829855a2d5641" category="inline-link-macro">Folha de cálculo completa de cabeamento do Cisco Nexus 92300YC</block>
-  <block id="ffbe1aba3ae8a278e4f28ac52b2be316" category="list-text"><block ref="d38e35e34a06630798f8736804a06d84" category="inline-link-macro-rx"></block>. A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.</block>
-  <block id="71be1affbed75bebb8eb96c3572e9f1b" category="list-text"><block ref="f0d24ec92e2951fca3ce05ded916eb30" category="inline-link-macro-rx"></block>. Configure e configure o switch Cisco Nexus 92300YC.</block>
-  <block id="1aaeb527f308dd42bbc5d35f0f59358b" category="list-text"><block ref="8b831959a634cc7821f2f066cbf13103" category="inline-link-macro-rx"></block>. Prepare-se para instalar o software NX-os e o ficheiro de configuração de referência (RCF).</block>
-  <block id="b5b10cb0dbd484e42a569d248c83e32e" category="list-text"><block ref="e98d73ae63150166bf4e60effb4ddb59" category="inline-link-macro-rx"></block>. Instale o software NX-os no switch Nexus 92300YC. NX-os é um sistema operacional de rede para a série Nexus de switches Ethernet e MDS série de switches de rede de área de armazenamento Fibre Channel (FC) fornecidos pela Cisco Systems.</block>
-  <block id="ce68eaea6d3aebc9dac3b36567521e43" category="list-text"><block ref="e53cf8a4f7691294ee3c87b6f9b478ef" category="inline-link-macro-rx"></block>. Instale o RCF depois de configurar o switch Nexus 92300YC pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
-  <block id="38fea660043776dff31d488d6f77d9bd" category="list-text"><block ref="38fea660043776dff31d488d6f77d9bd" category="inline-link-macro-rx"></block></block>
-  <block id="94f89641c24a2c5acf155cedb6b917d3" category="list-text"><block ref="94f89641c24a2c5acf155cedb6b917d3" category="inline-link-macro-rx"></block></block>
-  <block id="953b08a76549ddb5339056aaf68e6af4" category="list-text"><block ref="953b08a76549ddb5339056aaf68e6af4" category="inline-link-macro-rx"></block></block>
-  <block id="a2a393519d6030a855c14ef4686abf73" category="list-text"><block ref="a2a393519d6030a855c14ef4686abf73" category="inline-link-macro-rx"></block></block>
   <block id="b009bbd7f0cb4fd23e9e4309ea2fa6dd" category="paragraph">Siga este procedimento para instalar o RCF depois de configurar o switch Nexus 92300YC pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="03c93e08ed4f9a68f6b404202d454262" category="list-text">Uma configuração de inicialização no RCF que reflete as imagens de inicialização desejadas, necessária se você estiver instalando apenas NX-os e mantendo sua versão RCF atual. Se você precisar alterar a configuração de inicialização para refletir as imagens de inicialização atuais, você deve fazê-lo antes de reaplicar o RCF para que a versão correta seja instanciada em futuras reinicializações.</block>
   <block id="2b85c11758e0aa43ebfe299220ad905f" category="list-text">Os nomes de LIF do cluster são<block ref="efdc0a97303fb41897cab634f9381835" prefix=" " category="inline-code"></block>,<block ref="bd152ff09f603987e4c87a156b246966" prefix=" " category="inline-code"></block>,<block ref="a466bba1804a252e783c3e78c73981b0" prefix=" " category="inline-code"></block>,<block ref="e136e422a5bae645f7cdf8ea4cf1a818" prefix=" " category="inline-code"></block> e .</block>
@@ -2831,36 +2778,18 @@
   <block id="516362c97fc00136adc7a7ad2b7ad6da" category="doc">Fluxo de trabalho de instalação de software para switches de cluster Cisco Nexus 9336C-FX2</block>
   <block id="1b49e113d2db8aa6503efc6ca4257925" category="paragraph">Para instalar e configurar o software para um switch Cisco Nexus 9336C-FX2 e para instalar ou atualizar o arquivo de configuração de referência (RCF), siga estas etapas:</block>
   <block id="10bd81ac212ccc1de8787d82e4582e46" category="inline-link-macro">Prepare-se para instalar o software NX-os e o RCF</block>
-  <block id="5100b6db0c93d9851fab3b0b6ed72166" category="list-text"><block ref="0f24d169a2f575f17ba79644c46d3a03" category="inline-link-macro-rx"></block>.</block>
-  <block id="9b32aa934f364be9aa6cdf3bf05d15ee" category="paragraph">O software Cisco NX-os e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de cluster Cisco Nexus 9336C-FX2.</block>
   <block id="77486b34dc8c8bacbe90fd1ff1bd8f61" category="inline-link-macro">Instale ou atualize o software NX-os</block>
   <block id="e1ef2bf589b36ef4fe890c1ce3f4414e" category="list-text"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block>.</block>
-  <block id="629075dbdb9eff0fb95f99ab0fcd1967" category="paragraph">Baixe e instale ou atualize o software NX-os no switch de cluster Cisco Nexus 9336C-FX2.</block>
   <block id="11106314fe1d4dd5bee639afb348b915" category="inline-link-macro">Instale ou atualize o RCF</block>
-  <block id="01a618717f01c55d9b54bedd7307a43f" category="paragraph">Instale ou atualize o RCF depois de configurar o switch Cisco Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="2e3301a364286013b9b29237fa347bb1" category="summary">O SSH é um requisito ao usar os recursos do Monitor de integridade do Cluster Switch (CSHM) e coleta de logs. Para ativar o SSH nos switches de cluster Cisco 9336c-FX2, você gera as chaves SSH primeiro e depois ativa o SSH.</block>
   <block id="b456d34c399e9d9889e4c0ac830ecb7a" category="summary">Visão geral da instalação e configuração para switches de cluster Cisco Nexus 9336C-FX2</block>
   <block id="a48d2f73b54f1c12d4039724748b5d7a" category="paragraph">O switch de cluster Cisco Nexus 9336C-FX2 faz parte da plataforma Cisco Nexus 9000 e pode ser instalado em um gabinete do sistema NetApp. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.</block>
-  <block id="be4cd7f1969695f8e6e1f2c8040abcd4" category="paragraph">Para configurar inicialmente um switch Cisco Nexus 9336C-FX2 em sistemas que executam o ONTAP, siga estas etapas:</block>
   <block id="a525a0a5bd0337e90ed0f23d435c2ab0" category="inline-link-macro">Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2</block>
   <block id="ef44963f41cab6cd9db7a1c9e6197076" category="inline-link-macro">Instale o interrutor</block>
   <block id="959598166d06ebc7f87da7525f293a91" category="list-text"><block ref="0bc8e83d3cd2eebf0c2c5d2a7b54cc6c" category="inline-link-macro-rx"></block>.</block>
-  <block id="df7bc1c04ccb094d3b474fc08a97d272" category="paragraph">Configure o hardware do switch.</block>
   <block id="cde616a63686a24e0a12d2bf772daea1" category="inline-link-macro">Configure o interrutor do cluster 9336C-FX2</block>
-  <block id="a7682f7ee72405f79f40850a1dea900c" category="list-text"><block ref="93d08ab8d6c80a25299648349a7a616c" category="inline-link-macro-rx"></block>.</block>
-  <block id="a126004fd7782c98059de2e560db6f95" category="paragraph">Configure o switch Cisco Nexus 9336C-FX2.</block>
   <block id="b4bffe8778dc2cea1b8aade7fbf88459" category="inline-link-macro">Instale um switch Cisco Nexus 9336C-FX2 em um gabinete NetApp</block>
-  <block id="150103ea90f7632427a62d1282b69ab2" category="list-text"><block ref="8aff4253487da8e8b254faac9934a250" category="inline-link-macro-rx"></block>.</block>
-  <block id="279268b426208b389290aef165bbd309" category="paragraph">Dependendo de sua configuração, você pode instalar o switch Cisco Nexus 9336C-FX2 e o painel pass-through em um gabinete NetApp com os suportes padrão que estão incluídos com o switch.</block>
-  <block id="0ca3ca41c2905b8f6347613ad99abeda" category="paragraph">Siga os procedimentos preliminares em preparação para a instalação do software Cisco NX-os e arquivos de configuração de referência (RCFs).</block>
-  <block id="146fe7ba55f154a00f7fdd5bc0bc3b7f" category="paragraph">Instale ou atualize o software NX-os no switch de cluster Nexus 9336C-FX2.</block>
-  <block id="c2682a02fa235bb20233662aeba236ad" category="paragraph">Instale ou atualize o RCF depois de configurar o switch Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
-  <block id="a41964b84efbb7866cc12a9e798a3453" category="list-text"><block ref="a41964b84efbb7866cc12a9e798a3453" category="inline-link-macro-rx"></block></block>
-  <block id="169e5eca6121ce7f69a705f99619e75c" category="list-text"><block ref="169e5eca6121ce7f69a705f99619e75c" category="inline-link-macro-rx"></block></block>
-  <block id="19183173bd336c4a7349920f4bc23f03" category="list-text"><block ref="19183173bd336c4a7349920f4bc23f03" category="inline-link-macro-rx"></block></block>
-  <block id="7845322ccf047d30291b050b118b43f2" category="list-text"><block ref="7845322ccf047d30291b050b118b43f2" category="inline-link-macro-rx"></block></block>
   <block id="2436c6df17686f19f38ce6d35e26f6d3" category="summary">O software Cisco NX-os e os arquivos de configuração de referência devem ser instalados nos switches de cluster Cisco Nexus 9336C-FX2.</block>
-  <block id="0a41823d2a109b5dbd6f2fa1f8fe6689" category="paragraph"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block></block>
   <block id="d002eea8f83f99bafbbc5f36440edd41" category="summary">Você pode instalar o RCF depois de configurar o switch Nexus 9336C-FX2 pela primeira vez.você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="8413afd23c9d43c590d477ddf9c3812c" category="doc">Instalar ou atualizar o ficheiro de configuração de referência (RCF)</block>
   <block id="00e3af2dfc61e6af58ff8e0002338734" category="paragraph">Você instala o arquivo de configuração de referência (RCF) depois de configurar o switch Nexus 9336C-FX2 pela primeira vez. Você atualiza sua versão RCF quando você tem uma versão existente do arquivo RCF instalada no switch.</block>
@@ -2911,7 +2840,6 @@
   <block id="1db921080f27c802e2ff4a96ac787898" category="paragraph">Cisco Nexus 9336C-FX2 em um gabinete de sistema NetApp</block>
   <block id="4deac9ddd05fdb43480f30f97c99e121" category="paragraph">Consulte o guia _Instalando um switch de cluster Cisco Nexus 9336C-FX2 e o painel pass-through em um gabinete NetApp_ para obter instruções para instalar o switch em um gabinete NetApp.</block>
   <block id="88d4e4922c29eff797c809112d3dce0e" category="inline-link-macro">Configure o switch Cisco Nexus 9336C-FX2</block>
-  <block id="cec817ac128eb56a5786f0db80349903" category="paragraph">Vá para <block ref="ab999189278342fe22cdb57d13e768ab" category="inline-link-macro-rx"></block>.</block>
   <block id="1badeb97f43ea36c10469c15adb79096" category="summary">Você pode instalar o switch Cisco Nexus 9336C-FX2 e o painel de passagem em um gabinete NetApp com os suportes padrão que estão incluídos com o switch.</block>
   <block id="23ae0cfc19f9a70b45285f5d4b4ea4d1" category="paragraph">Dependendo da sua configuração, você pode precisar instalar o switch Cisco Nexus 9336C-FX2 e o painel pass-through em um gabinete NetApp. Os suportes padrão estão incluídos com o interrutor.</block>
   <block id="7a298dae32d29d6d4880c0d03618ae87" category="list-text">O kit de painel de passagem, que está disponível na NetApp (código de peça X8784-R6).</block>
@@ -3058,7 +2986,6 @@
   <block id="e6119e5e7b756f5ac645bab3bd6b7cf5" category="paragraph">Configurar o estado predefinido da interface da porta do switch (shut/noshut)</block>
   <block id="ddcc83d63cc173465ab257f25d480cfc" category="paragraph">Configurar o perfil do sistema CoPP (strict/moderate/lenient/dense)</block>
   <block id="95f749c32572d23c36c0f33b9f48fa88" category="inline-link-macro">Instale um switch Cisco Nexus 9336C-FX2 em um gabinete NetApp</block>
-  <block id="80f16525d7b1d7efe562fab354c53efe" category="paragraph">Opcionalmente, você pode <block ref="a8c82b142f94f7d62d6e984faba746ca" category="inline-link-macro-rx"></block>. Caso contrário, vá <block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block>para .</block>
   <block id="baaff3aaf11e952cd40c4070094f2177" category="paragraph">4x10GbE nó 1</block>
   <block id="15f57af6920bb4ff95becb721d335fb0" category="paragraph">4x10GbE nó 2</block>
   <block id="da2b2f890492d9cbcef49ea6f880fc13" category="paragraph">4x10GbE nó 3</block>
@@ -3126,18 +3053,8 @@
   <block id="e0f95538095f3006db4ec3d4d022f616" category="summary">Visão geral da instalação e configuração para switches compartilhados Cisco Nexus 9336C-FX2</block>
   <block id="c4081cf1ddd1a31c8c993d369968dbdb" category="paragraph">O switch compartilhado Cisco Nexus 9336C-FX2 faz parte da plataforma Cisco Nexus 9000 e pode ser instalado em um gabinete de sistema NetApp. Os switches compartilhados permitem combinar a funcionalidade de cluster e armazenamento em uma configuração de switch compartilhado, suportando o uso de arquivos de configuração de referência de cluster e armazenamento compartilhados.</block>
   <block id="5ac09e984471f320b2e8920ece32b03d" category="inline-link-macro">Folha de cálculo de cablagem completa</block>
-  <block id="77e50b9c28c254a30c6532cef05d409b" category="list-text"><block ref="791d44ab04841c1e3ddab1f7a28b754b" category="inline-link-macro-rx"></block>.</block>
   <block id="fd5531349e673e037070aacc3a802f37" category="list-text"><block ref="2d5ab056fce0957a1995d7dbefe2460c" category="inline-link-macro-rx"></block>.</block>
-  <block id="95d266841a36bd621358bb2987e0ecdd" category="list-text"><block ref="068ae9dc6825f9dcbe393c782d23d120" category="inline-link-macro-rx"></block>.</block>
   <block id="e495f3ec8dabfce7925d7c5053f55cbb" category="inline-link-macro">Instale o interrutor em um gabinete NetApp</block>
-  <block id="343d8858c5eef7adcd6fc983a90c4848" category="list-text"><block ref="cad0a32a1376b86b466dd6cf29c7e620" category="inline-link-macro-rx"></block>.</block>
-  <block id="d136348fb812c17c0d3c68bd85d3987f" category="inline-link-macro">Prepare-se para instalar o NX-os e o RCF</block>
-  <block id="cb097b1a250075c6d723557ad68fbeaf" category="list-text"><block ref="6c9c04e734b9c8edcddd8e6886267ef5" category="inline-link-macro-rx"></block>.</block>
-  <block id="45082651a479febeab25b63e58d36d5e" category="inline-link-macro">Instale o arquivo de configuração do RCF</block>
-  <block id="2aff03c3dbc05dcd1a7473fdae46a518" category="list-text"><block ref="ac0177a37e0d6a9d48948f0f0ce18138" category="inline-link-macro-rx"></block>.</block>
-  <block id="6b60b7ab5a3f661e97c0ea00594d9f2a" category="list-text"><block ref="6b60b7ab5a3f661e97c0ea00594d9f2a" category="inline-link-macro-rx"></block></block>
-  <block id="ce2926213e4f5e76e8b29ae87f344220" category="list-text"><block ref="ce2926213e4f5e76e8b29ae87f344220" category="inline-link-macro-rx"></block></block>
-  <block id="c05d7708e583b7d4b251d68f1130d2c6" category="list-text"><block ref="c05d7708e583b7d4b251d68f1130d2c6" category="inline-link-macro-rx"></block></block>
   <block id="1ee751725b7ef12e637c634b1e1148a4" category="doc">Instale os switches compartilhados Cisco Nexus 9336C-FX2</block>
   <block id="65586871755fbb99e201bbbad70f477b" category="paragraph">Siga estas instruções para configurar os switches compartilhados do Cisco Nexus 9336C-FX2.</block>
   <block id="03fa9a19d206c007aa0ae3d44c89a2cd" category="inline-link-macro">Requisitos de documentação para switches compartilhados Cisco Nexus 9336C-FX2</block>
@@ -3147,8 +3064,6 @@
   <block id="94f31b898786bbf285eb3f1766d2b846" category="list-text">Rack os switches, controladores e NS224 compartimentos de storage NVMe.</block>
   <block id="f1d2082f6b7e2fe0bd21c264b34b1db0" category="inline-link">Instruções de estantes</block>
   <block id="33b51f739542d105d7c5028b7244b26e" category="list-text">Ligue os switches, as controladoras e as NS224 gavetas de storage NVMe.</block>
-  <block id="d2fa93779a0f6b07d1717e02308c2fa6" category="inline-link">Configure o switch compartilhado Cisco Nexus 9336C-FX2</block>
-  <block id="12bc639206c2ca12e8a65041a697e4fc" category="paragraph">Vá para<block ref="c686ee523547302c3fa5199eafd95753" category="inline-link-rx"></block>.</block>
   <block id="a321cd8baf442bb2bd9aee451d86f068" category="paragraph">Antes de começar, conclua o procedimento em <block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>.</block>
   <block id="21f31f792b72c310b4fd5aa9c2e35835" category="paragraph">Siga este procedimento para instalar o software NX-os no switch compartilhado Nexus 9336C-FX2.</block>
   <block id="e100dc954517cdb4f6f664776708ea27" category="list-text">Para cada interrutor, você deve fornecer os oito parafusos 10-32 ou 12-24 e porcas de grampo para montar os suportes e trilhos deslizantes nos postes dianteiros e traseiros do gabinete.</block>
@@ -3367,22 +3282,13 @@
   <block id="cf0438cf1f16dd8541401b40f77b205f" category="list-text">[[step14]]Digite o tipo de chave SSH que você deseja gerar (dsa/rsa/rsa1). O padrão é rsa.</block>
   <block id="4affd6f79bcfe129021bccfab36973db" category="list-text">Introduza o número de bits de chave (1024- 2048).</block>
   <block id="63380e79f39db6a40b46be28e461cc74" category="paragraph">Você deve ver a nova configuração neste momento. Reveja e faça as alterações necessárias à configuração que acabou de introduzir. Responda com não no prompt se você estiver satisfeito com a configuração. Responda com *yes* se quiser editar as configurações.</block>
-  <block id="91e900250e74122a13484678f32eb0d2" category="inline-link-macro">Instale o interrutor no gabinete do NetApp</block>
-  <block id="6f773061a9b11739f4b04a8b170f8f8e" category="paragraph">Dependendo da sua configuração, pode <block ref="bd7e5f56c6474a1d0a59eeac0ce681d7" category="inline-link-macro-rx"></block>. Caso contrário, vá <block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>para .</block>
   <block id="67d5e20869589f0918ed05c9043d464e" category="doc">Requisitos de configuração para switches de storage Cisco Nexus 9336C-FX2</block>
   <block id="28bf994f815d27dac3c1004bf80f120f" category="summary">Visão geral da configuração de software para switches de storage Cisco Nexus 9336C-FX2</block>
   <block id="f9e6915ed9211156a642e6217fe3d08c" category="doc">Fluxo de trabalho de instalação de software para switches de storage Cisco Nexus 9336C-FX2</block>
   <block id="3e6dc141a56ffa03ce5afc78a5bbbef1" category="paragraph">Para instalar e configurar o software para um switch de storage Cisco Nexus 9336C-FX2, siga estas etapas:</block>
   <block id="e64b06ebdf8146ea2bc17ff7d5457eef" category="summary">Visão geral da instalação e configuração para switches de armazenamento Cisco Nexus 9336C-FX2</block>
   <block id="243847a87ff7e0cb67ee578c74d8ad1c" category="paragraph">O switch Cisco Nexus 9336C-FX2 faz parte da plataforma Cisco Nexus 9000 e pode ser instalado em um gabinete de sistema NetApp. O Nexus 9336C-FX2 é um switch Ethernet que permite alternar dados entre controladores e compartimentos de disco.</block>
-  <block id="8d9b5d4f25fe1897c088fde7c5ba650b" category="list-text"><block ref="cef14d0feb244958ea603547d0bd8a6e" category="inline-link-macro-rx"></block>.</block>
   <block id="be822dc3c2f09a2076f72c87018d7d7b" category="list-text"><block ref="8e341dc1e80127ca0dc2c12db6d0237a" category="inline-link-macro-rx"></block>.</block>
-  <block id="e9c6db9ee4edb08184a082916cf1f56f" category="list-text"><block ref="c49772a60328b39d671da109a076acd4" category="inline-link-macro-rx"></block>.</block>
-  <block id="5537a63af1d3d4f5a6ffcc2a8619a2f8" category="list-text"><block ref="d43bf43861b014b2f70de1c12cff1c76" category="inline-link-macro-rx"></block>.</block>
-  <block id="963382b42eb000171ee5f8379237c25e" category="list-text"><block ref="963382b42eb000171ee5f8379237c25e" category="inline-link-macro-rx"></block></block>
-  <block id="88abf51732f30f17b65def4d1747e28f" category="list-text"><block ref="88abf51732f30f17b65def4d1747e28f" category="inline-link-macro-rx"></block></block>
-  <block id="08712014b627ff0e1c01c2b7e6c49149" category="list-text"><block ref="08712014b627ff0e1c01c2b7e6c49149" category="inline-link-macro-rx"></block></block>
-  <block id="e8481427ca620a3937c98f902278bb34" category="list-text"><block ref="e8481427ca620a3937c98f902278bb34" category="inline-link-macro-rx"></block></block>
   <block id="0dbd44ca48760058c465f203895f8233" category="summary">Interrutores Cisco 9336-FX2'</block>
   <block id="470cefaa9702bc5da534dfcfab6d903d" category="doc">Visão geral e requisitos: Switches Cisco Nexus 9336C-FX2</block>
   <block id="c7bc672c5005e17eaf6387fbc19b5add" category="paragraph">Para instalação e manutenção do switch Cisco Nexus 9336C-FX2, certifique-se de revisar os requisitos de configuração e os requisitos de documentação.</block>
@@ -3398,8 +3304,6 @@
   <block id="bc6d2bd4e8f6199ec8866997a5f53523" category="list-text">Documentação necessária do interrutor. Consulte <block ref="08712014b627ff0e1c01c2b7e6c49149" category="inline-link-macro-rx"></block> para obter mais informações.</block>
   <block id="d33665f1bbad937646d20fe1a9b8ace8" category="inline-link-macro">Instale o interrutor no gabinete do NetApp</block>
   <block id="ce95af11062cb078ba299f574f2eb115" category="paragraph">Consulte <block ref="e635379a5d7f0e2ce1a042bff79838b6" category="inline-link-macro-rx"></block> para obter instruções sobre como instalar o switch em um gabinete NetApp.</block>
-  <block id="bc0630b5ddba535ff747f33d931d3694" category="inline-link-macro">Configurar o switch de storage Cisco Nexus 9336C-FX2</block>
-  <block id="72ebeb1eaefeb8dcaddced548aa138a6" category="paragraph">Vá para <block ref="dbe1537ab2448f7ffd0bedd5a713fbd6" category="inline-link-macro-rx"></block>.</block>
   <block id="61c7408c0e623b660a741b6b2c143251" category="paragraph">Antes de começar, conclua o procedimento em <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="95eabbd5952ae314a23d3393bf46b6da" category="paragraph">Siga este procedimento para instalar o software NX-os no switch de cluster Nexus 9336C-FX2.</block>
   <block id="5b1bedb3dd2208af0449bbbfcc022136" category="paragraph">Se você tiver um ambiente de cluster _sem switch_ de dois nós, poderá migrar para um ambiente de cluster _comutado_ de dois nós usando os switches Cisco Nexus 9336C-FX2 para permitir que você escale além de dois nós no cluster.</block>
@@ -3436,7 +3340,6 @@
   <block id="f7e805a3990d48e19a46ec4fde6da923" category="doc">Requisitos de documentação para switches de storage Cisco Nexus 9336C-FX2</block>
   <block id="f88ff492d9ac2b71b83a8f1cf903002f" category="paragraph"><block ref="f88ff492d9ac2b71b83a8f1cf903002f" category="inline-link-macro-rx"></block></block>
   <block id="a8619fc94e4c2f63e5e439fa6be6c256" category="doc">Configure o interrutor de armazenamento 9336C-FX2</block>
-  <block id="674dac01986b07db44266812735775f6" category="paragraph">Opcionalmente, você pode <block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block>. Caso contrário, vá <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>para .</block>
   <block id="486eb97bb381ec3410730c14043e7655" category="paragraph">4x100GbE nó 7</block>
   <block id="6d665f47559e0fc5d2dba7c4dd047577" category="paragraph">4x100GbE nó 8</block>
   <block id="38c6c5efaba603120a7e46034f6142b7" category="paragraph">4x100GbE nó 9</block>
@@ -4011,31 +3914,18 @@
   <block id="2e48063923d7005a1d5b4c086c0a902a" category="summary">O switch NVIDIA SN2100 é um switch Ethernet de 10/25/40/100 GbE que executa o Cumulus Linux. O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10,1 em diferentes pares de switches.</block>
   <block id="e868bded76541295e018b74bb15a7920" category="doc">Visão geral da instalação e configuração dos switches NVIDIA SN2100</block>
   <block id="17bac2b43f841c260ed0b0ae5bac894f" category="paragraph">O NVIDIA SN2100 é um switch de cluster que permite criar clusters do ONTAP com mais de dois nós.</block>
-  <block id="2ef7b00479266befed2783905ed9725e" category="paragraph">Para configurar um switch NVIDIA SN2100 em sistemas que executam o ONTAP, siga estas etapas:</block>
   <block id="c5e47af2eefc12b7d3685bd941d8a3d9" category="inline-link-macro">Instale o hardware do switch NVIDIA SN2100</block>
-  <block id="78a3145f7f81ea095cdce342b0eeb83a" category="list-text"><block ref="d4a90f7cd2b65eac1430336cfe2ee64b" category="inline-link-macro-rx"></block>.</block>
-  <block id="ddee9ddda45482f8b50a8ca3d914d59a" category="paragraph">As instruções estão disponíveis no _Guia de Instalação do comutador NVIDIA_.</block>
   <block id="0575b6ffe3df5337cb3759f533fd3151" category="list-text"><block ref="00e0372232f46e972c663d4404b271c3" category="inline-link-macro-rx"></block>.</block>
-  <block id="7091e2c750a185300a6b16e37ae123f6" category="paragraph">As instruções estão disponíveis na documentação do NVIDIA.</block>
-  <block id="829106baec07d32d260194a2527e041b" category="list-text"><block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block>.</block>
   <block id="b5cafb18c89d57d8df7255c9f420d2ca" category="paragraph">Revise os requisitos para conexões óticas, o adaptador QSA e a velocidade do switchport.</block>
   <block id="67dfd4b7e3a80a311bee6d3c67d73ba2" category="inline-link-macro">Prenda as NS224 gavetas como storage conetado a switch</block>
-  <block id="280f95118eded8b0219c276178c30e97" category="list-text"><block ref="5e0473d3f7899dd064d2b0943ad87ca5" category="inline-link-macro-rx"></block>.</block>
   <block id="b8cd88654eafece50754fca964cba8a1" category="paragraph">Siga os procedimentos de cabeamento se você tiver um sistema no qual os NS224 compartimentos de unidades precisam ser cabeados como storage conectado a switch (não storage com conexão direta).</block>
   <block id="7b3d3dc3c1c084f2a1b3b79612d49fdd" category="inline-link-macro">Instale o Cumulus Linux no modo Cumulus</block>
-  <block id="8043ee61c7f7379917235c3269fed7c9" category="inline-link-macro">Instale o Cumulus Linux no modo ONIE</block>
-  <block id="793086ebaed916943ac8fc5f192a1679" category="list-text"><block ref="770c77dd441cd3adc4139ccb3c0d491b" category="inline-link-macro-rx"></block> ou <block ref="28a30a7b340666b28d9a4222e714aaf7" category="inline-link-macro-rx"></block>.</block>
-  <block id="c9c417af7a858dfc220fb9facdaa5893" category="paragraph">Você pode instalar o SO Cumulus Linux (CL) quando o switch estiver executando o Cumulus Linux ou ONIE.</block>
   <block id="673b183eae1d985d3373995f15978e5b" category="inline-link-macro">Instale o script RCF (Reference Configuration File)</block>
   <block id="8dcb8ce87423e2f4276589483a457d92" category="list-text"><block ref="464fe9c0adfef54cfb4c6fe21ef12b08" category="inline-link-macro-rx"></block>.</block>
   <block id="526990b43ff7cafabc1a3c5dda4e8c9b" category="paragraph">Existem dois scripts RCF disponíveis para aplicativos de agrupamento e armazenamento. O procedimento para cada um é o mesmo.</block>
   <block id="96a5ba855b4ee3dba60ecf722a706b29" category="inline-link-macro">Instale o arquivo CSHM</block>
   <block id="54f593b53357d530cce6870c293a0379" category="list-text"><block ref="bc8e6b3d8a605e692bda90d2d873314b" category="inline-link-macro-rx"></block>.</block>
   <block id="446a9723b131c4606a1b6d581fef9f10" category="paragraph">Você pode instalar o arquivo de configuração aplicável para o monitoramento de integridade do switch Ethernet dos switches de cluster NVIDIA.</block>
-  <block id="1b634b8feab38e3bbd4e434301816457" category="list-text"><block ref="1b634b8feab38e3bbd4e434301816457" category="inline-link-macro-rx"></block></block>
-  <block id="e831ca446f09bd354bf76a86391af038" category="list-text"><block ref="e831ca446f09bd354bf76a86391af038" category="inline-link-macro-rx"></block></block>
-  <block id="fc89f8ef8daa08e9ffc121c5d5609d54" category="list-text"><block ref="fc89f8ef8daa08e9ffc121c5d5609d54" category="inline-link-macro-rx"></block></block>
-  <block id="f652bccf577477735d669989c28905ac" category="list-text"><block ref="ec4312d0db3bce928129e7e5c3a58d73" category="inline-link-rx"></block> Para todas as versões suportadas do ONTAP.</block>
   <block id="efeb406865c5500553bf0ee6711eb714" category="summary">Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar todos os requisitos e a documentação recomendada.</block>
   <block id="307bb6e6db61370dff65e50230d59a29" category="doc">Requisitos de configuração para switches NVIDIA SN2100</block>
   <block id="000b6bb5cbb57345f81524ec8fea7ef3" category="paragraph">Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar todos os requisitos de configuração.</block>
@@ -4062,7 +3952,6 @@
   <block id="4aaebba2a5287c74eb41bf080e6d1fe4" category="list-text">Confirme o hardware suportado, como switches de armazenamento e cabos, para o modelo da sua plataforma:</block>
   <block id="4c1c93397a0ad82f0b80502a6c7c0799" category="paragraph"><block ref="4c1c93397a0ad82f0b80502a6c7c0799" category="inline-link-rx"></block></block>
   <block id="5c336d9150225836a1bf47b21339dedc" category="inline-link-macro">Instale o Cumulus Linux no modo ONIE</block>
-  <block id="c8d246332e46cb12e9f724a357ad817f" category="paragraph"><block ref="770c77dd441cd3adc4139ccb3c0d491b" category="inline-link-macro-rx"></block> ou <block ref="bba3ec5e6ca5e4f48b010488a5229b2c" category="inline-link-macro-rx"></block>.</block>
   <block id="4e4a4a02911e122627365a67b690270e" category="summary">O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando Cumulus Linux ou ONIE.</block>
   <block id="c1bbeec855d76242340c5bdf0a270fb1" category="paragraph">Siga este procedimento para instalar o SO Cumulus Linux (CL) quando o switch estiver em execução no modo Cumulus.</block>
   <block id="eaeaa3cbb68f870319145c61053e1d67" category="inline-link-macro">Instale no modo ONIE</block>
@@ -4428,19 +4317,7 @@
   <block id="af3bf35952bf379b9c77580834f0ccea" category="paragraph">Interrutor, NVIDIA SN2100, 16pt 100g, PTSX, extremidade dianteira</block>
   <block id="89e63d10029caf2d14bf259863a398e7" category="paragraph">Interrutor, NVIDIA SN2100, 16pt 100g, PSIN, extremidade dianteira</block>
   <block id="005ec29dde0262dd01b006d4e9c03abf" category="summary">Antes de configurar os interrutores NVIDIA SN2100, reveja a descrição geral do procedimento.</block>
-  <block id="9aec7a1df32bc7a3da0beba803646322" category="doc">Visão geral do processo de configuração para switches de armazenamento NVIDIA SN2100</block>
   <block id="d97cf4e1b3c59ab22fc281643864890d" category="paragraph">O NVIDIA SN2100 é um switch Ethernet que permite alternar dados entre controladores e compartimentos de disco.</block>
-  <block id="d04983d9bd489fd4f53e439238800094" category="list-text"><block ref="5f708dbff4511d944b6c35289a542f62" category="inline-link-macro-rx"></block>.</block>
-  <block id="26579e78de73f5546f69f3f79a7b8f48" category="list-text"><block ref="d639995fde516a3ba2e60963b02aecc1" category="inline-link-macro-rx"></block>.</block>
-  <block id="5845d3fca01cce4672ef2b7e32409ff8" category="paragraph">As instruções estão disponíveis na documentação do NVIDIA.</block>
-  <block id="a73237369b19930fe70e6df63872cf5c" category="list-text"><block ref="75ce5666fba6992a0719935651dd5b1b" category="inline-link-macro-rx"></block>.</block>
-  <block id="dc2bbc38ec9887a7f4fa50b23f2c0a3d" category="paragraph">Siga estes procedimentos se você tiver um sistema no qual os NS224 compartimentos de unidades precisem ser cabeados como storage conectado ao switch (não storage com conexão direta).</block>
-  <block id="cee17d3de1bd4e10ffb4f75ffbd430da" category="list-text"><block ref="3041b5118a03f510955dbbcc0f577290" category="inline-link-macro-rx"></block> ou <block ref="ac50052da6099ecd2d2a2ee1cd713de9" category="inline-link-macro-rx"></block>.</block>
-  <block id="516d8e9da45554d526faa978810dc178" category="inline-link-macro">Instale o script Reference Configuration File (ficheiro de configuração de referência)</block>
-  <block id="02c867e49effa332687b835abcbc2abe" category="list-text"><block ref="ef1c46298c43687118873cf83b7acf6b" category="inline-link-macro-rx"></block>.</block>
-  <block id="c945ea7b3efde1e618122f92507cc502" category="paragraph">Existem dois scripts RCF disponíveis para aplicativos de agrupamento e armazenamento.</block>
-  <block id="360d0c63a0ad1a96000d716977ec9b5a" category="list-text"><block ref="360d0c63a0ad1a96000d716977ec9b5a" category="inline-link-macro-rx"></block></block>
-  <block id="6f29ea203d7917d9d35a7a8e4664773a" category="list-text"><block ref="6f29ea203d7917d9d35a7a8e4664773a" category="inline-link-macro-rx"></block></block>
   <block id="b4874fc318a2d2906865491ec45c2419" category="list-text"><block ref="b4874fc318a2d2906865491ec45c2419" category="inline-link-macro-rx"></block></block>
   <block id="26d790640d24187551f77f4682a9f781" category="summary">Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de rever todos os requisitos.</block>
   <block id="1d9152605063cf1b257a36675cece81c" category="inline-link-macro">Considerações sobre cabeamento e configuração</block>
@@ -4463,8 +4340,6 @@
   <block id="9f4f33c5c40ac522549c3e58d187e0a0" category="list-text">A instalação é iniciada automaticamente e as seguintes telas do GRUB aparecem. *Não* faça seleções:</block>
   <block id="d639f69fd7b303cd7aefe025e7d76848" category="list-text">Verifique se a versão Cumulus Linux é 4,4.3:</block>
   <block id="738a5885a3f1e978619a10d76a3f0d58" category="paragraph"><block ref="98f5dff8534e8c39673b544f567273e7" prefix="" category="inline-code"></block></block>
-  <block id="3b80c5e6692ed1f78b0c7bf3e17d188a" category="inline-link-macro">Instale o script RCF</block>
-  <block id="91d50e6f1ffd307a9108d54a247f7d55" category="paragraph"><block ref="763f0b96028529aeaf5b60372a2f7565" category="inline-link-macro-rx"></block>.</block>
   <block id="bcef27e6ee4d7b0cfadf8dab3f3c4b0a" category="admonition">O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando o Cumulus Linux ou ONIE (<block ref="0bb74764c4aee6316512b3110279fce2" category="inline-link-macro-rx"></block>consulte ).</block>
   <block id="4937b958fd592ecf33cfd084ea040c92" category="paragraph">Você pode instalar o Cumulus Linux usando o Open Network Install Environment (ONIE) que permite a descoberta automática de uma imagem do instalador de rede. Isso facilita o modelo de sistema de proteção de switches com uma escolha de sistema operacional, como o Cumulus Linux. A maneira mais fácil de instalar o Cumulus Linux com ONIE é com descoberta HTTP local.</block>
   <block id="36f831960326f190db5b27c1556e1475" category="list-text">Baixe o arquivo de instalação Cumulus Linux para o diretório raiz do servidor web. Renomeie este arquivo<block ref="ad3b7e04b0013d13df088435d2fc4760" prefix=" " category="inline-code"></block>.</block>
@@ -4602,14 +4477,10 @@
   <block id="a393cd4f170aafc6db54b17ca62ffb74" category="sidebar">BES-53248 com suporte Broadcom</block>
   <block id="68ca17cd44d275d22b0f2d0dda57897a" category="sidebar">Overview_bes53248</block>
   <block id="380eb1e05db1f71a5022bd03843c5aba" category="sidebar">Install_hardware_bes53248</block>
-  <block id="7f8f9fd297c670e19fcb103b3ff3693a" category="sidebar">Instale o interrutor</block>
   <block id="fda45ed29ff5c085175df6a3a370ee1e" category="sidebar">Configure o software</block>
   <block id="8a3982b437db5ff2a2a68b47d8633581" category="sidebar">Configure_software_bes53248</block>
-  <block id="5990fb757a59a934aeb2786bac162e97" category="sidebar">Instale o software EFOS</block>
   <block id="322cf54023dcfab56a26576123959d58" category="sidebar">Ativar SSH para a coleção de registos</block>
-  <block id="ae0a7918183889538c2a432f5a54afa6" category="sidebar">Interrutor de atualização</block>
   <block id="ae6de81182adfafa064980e2532e7279" category="sidebar">Upgrade_switches_bes53248</block>
-  <block id="71f5771dab663d80ba4dad1627e3386a" category="sidebar">Visão geral da atualização</block>
   <block id="6bdce5afe823363897535ce22aa832a0" category="sidebar">Atualize a versão do EFOS</block>
   <block id="4dc6f468164162b89152d6960a79b9d0" category="sidebar">Atualize a versão RCF</block>
   <block id="24778145f75ec14966b06f3682e616c4" category="sidebar">Verifique o cluster após a atualização</block>
@@ -4630,7 +4501,6 @@
   <block id="f6f9cd29c4bb13f6a16119d82ca6fb1f" category="sidebar">Replace_switches_3132q-v.</block>
   <block id="73f7e96895a0ddf72a3e199ac5ae2247" category="sidebar">Substitua os interrutores de 3132Q V.</block>
   <block id="194d828d5f6903e0190e08180b8af056" category="sidebar">Substitua o interrutor do cluster</block>
-  <block id="512f694616622dd7d0109c65f582ba21" category="sidebar">Substitua o interrutor de armazenamento</block>
   <block id="2e46757c7b729d4910e07654cf41f7b0" category="sidebar">Overview_92300yc</block>
   <block id="ed84fc6478ac0d00e1e78977470c5fd5" category="sidebar">Install_hardware_92300yc</block>
   <block id="b6c306e6e3042fa0d66df82b85cdd615" category="sidebar">Configure_software_92300yc</block>
@@ -4731,9 +4601,6 @@
   <block id="2ddf49eb6c3fafb7644444a8f6985876" category="list-text">[[step8]] se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:</block>
   <block id="22265ef643cb758bbeafeae6b9005960" category="list-text">[[step3]] se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:</block>
   <block id="f7e86b0278da2d0f23dfd04e64f68478" category="list-text">[[step2]] Confirme a seguinte configuração de rede de cluster:</block>
-  <block id="cb9e3eca5ee8f7c34a9beb30eb78e80e" category="inline-link-macro">Verifique a configuração do SSH nos switches de cluster Nexus 9336C-FX2</block>
-  <block id="9d35e90712940df4e7dd724e3a99eb05" category="list-text"><block ref="174530f10d1b6584efbd4bb64a5325d0" category="inline-link-macro-rx"></block>.</block>
-  <block id="1de33421daf77940fdd8929e277ba937" category="paragraph">Se você usar os recursos do Monitor de integridade do comutador Ethernet (CSHM) e coleta de logs, verifique se o SSH está habilitado nos switches.</block>
   <block id="51ad33f87e9af3baac880cb70771fe46" category="list-text">[[step5]] no switch C2, encerre as portas conetadas às portas do cluster dos nós para fazer failover dos LIFs do cluster.</block>
   <block id="09b863ebe2485d0260db2694f545c132" category="doc">Migre de um switch Cisco mais antigo para um switch Cisco Nexus 9336C-FX2</block>
   <block id="52f52fe5595841a94d975238199fecfa" category="list-text">[[step25]] altere o nível de privilégio de volta para admin:</block>
@@ -5093,8 +4960,6 @@
   <block id="ca0787e835ac5a719db1548573613d0f" category="inline-xref">Passo. 4</block>
   <block id="bee24c21734f4c3230186de99029991e" category="list-text">Depois de restaurar o LIF e a integridade do cluster, reinicie o processo a partir <block ref="6f1447d50cf784e5bfe7d2099a4e4237" category="inline-xref-macro-rx"></block>do .</block>
   <block id="701f1b96f3c7f1e9d631ebd244cb5751" category="list-text">[[STEP_10]]mova todos os cabos de conexão de nó do cluster do antigo switch CS2 para o novo switch de CS2 novos.</block>
-  <block id="e443d0981e8ed96d62afd1a1990bd924" category="list-text"><block ref="e1c53d78ceb09f1d765f98cd902707bb" category="inline-link-macro-rx"></block>.</block>
-  <block id="dbe9b3c650ae4dca2117921c884a54d2" category="paragraph"><block ref="dbe9b3c650ae4dca2117921c884a54d2" category="inline-link-macro-rx"></block></block>
   <block id="4e83c3d43e8660c85f2e2b6e1374c91c" category="inline-link">Transferência do software NVIDIA SN2100</block>
   <block id="618905d758007147320232ab81a98bf3" category="paragraph">Há dois scripts RCF disponíveis para aplicativos de cluster e armazenamento. Baixe RCFs<block ref="5baf2e10c7d5342617f6966efa0bb2fe" category="inline-link-rx"></block> da página. O procedimento para cada um é o mesmo.</block>
   <block id="ad1d45bcb656bf91a079869a2361d735" category="open-title">Cumulus Linux 5,4</block>
@@ -5172,7 +5037,6 @@
   <block id="ed3dd7f516f69cf573ae79a1781bbcbf" category="sidebar">Interrutor do grupo de instrumentos - interrutor do grupo de instrumentos NVIDIA SN2100</block>
   <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336CP-FX2 ou 9336CP-FX2BASE-T</block>
   <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[step11]]examine a saída do banner a partir do<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Você deve ler e seguir estas instruções para garantir a configuração e o funcionamento corretos do switch.</block>
-  <block id="8b084baecf96a692280d1a024d86081d" category="list-text"><block ref="cf3a409f8782a7944244632e6a1adb8e" category="inline-link-macro-rx"></block>.</block>
   <block id="1fcbc8802637b04b8fe9a86ac3d545c9" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Instale o material de fixação do interrutor</block>
   <block id="b11226c776ec1b74f6a42f871e3194c9" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Instale o sistema de storage e as gavetas de storage</block>
   <block id="130792cb3edc8d0afffb557e50b218c3" category="paragraph">Instale seu sistema de armazenamento e prateleiras de armazenamento no gabinete ou rack. Acesse as instruções de instalação e configuração do modelo da sua plataforma.</block>
@@ -5246,16 +5110,7 @@
   <block id="666618fc10fce8f3b4f820a79b261925" category="paragraph">Para instalação e manutenção do switch de armazenamento Cisco Nexus 9336C-FX2 e 9336C-FX2-T, certifique-se de rever a lista de componentes e números de peça.</block>
   <block id="bcf1c9a6a953488392920f911a4c6e27" category="paragraph">A tabela a seguir lista o número de peça e a descrição dos interrutores de armazenamento 9336C-FX2 e 9336C-FX2BASE-T, ventiladores e fontes de alimentação:</block>
   <block id="6aea76bb63b89b76edb29df0b9ec6a5c" category="paragraph">Para ativar mais de 12 portas em seu switch de armazenamento Cisco Nexus 9336C-FX-T, você deve comprar uma licença Cisco Smart. As licenças inteligentes da Cisco são gerenciadas por meio de contas inteligentes da Cisco.</block>
-  <block id="486f6cef9658a94ea0e8481d338c8731" category="inline-link-macro">Prepare-se para instalar ou atualizar NX-os e RCF</block>
-  <block id="cf4832dd28d118309d2f6c0876305046" category="list-text"><block ref="e5f492b430e8de7875c503f2b852cd3a" category="inline-link-macro-rx"></block>.</block>
-  <block id="705b6850dddbfe6b367ca004cdb81e84" category="paragraph">O software Cisco NX-os e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de armazenamento Cisco Nexus 9336C-FX2.</block>
   <block id="a6a461c906e8688722889f2c90a05dc6" category="list-text"><block ref="6dc839faa17719bf6b40745660551f1b" category="inline-link-macro-rx"></block>.</block>
-  <block id="70063dc155fa44f702c217b40ef8728d" category="paragraph">Baixe e instale ou atualize o software NX-os no switch de armazenamento Cisco Nexus 9336C-FX2.</block>
-  <block id="8a02ca115681b126dca577f1f6f131d2" category="inline-link-macro">Instale ou atualize o arquivo de configuração do RCF</block>
-  <block id="fa9c04836ba5db2ddb9b054eaadde9fb" category="list-text"><block ref="57ef8950ea8b8ce917fe71b18539d249" category="inline-link-macro-rx"></block>.</block>
-  <block id="acad94fe6722949aaca018960b96e0c5" category="paragraph">Instale ou atualize o RCF depois de configurar o switch de armazenamento Cisco Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
-  <block id="a143b24cc23f6618527f9d83f617bfbb" category="paragraph">Configure o switch de armazenamento Cisco Nexus 9336C-FX2.</block>
-  <block id="438daf8c6636a41fd3ae27035a449b5e" category="paragraph">Instale ou atualize o software NX-os no switch de armazenamento Nexus 9336C-FX2.</block>
   <block id="0da3cc28f42ccf09143f2cd285547a2a" category="doc">Prepare-se para instalar ou atualizar o software NX-os e o RCF</block>
   <block id="7246a16d8a655c05a2c1f478efbf9e66" category="inline-link-macro">Instale ou atualize o RCF</block>
   <block id="223e0b1e9b4b36b5a5ac5856c9d2b263" category="paragraph"><block ref="54d6784a897a7a3dfd3c9197dcd4475c" category="inline-link-macro-rx"></block>.</block>
@@ -5264,7 +5119,6 @@
   <block id="20eed5f0dc87e5058308718e45381220" category="paragraph">11 a 36</block>
   <block id="000bf48a29e422b515b1396c1aac3f2c" category="paragraph">Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster.</block>
   <block id="af9181560cc346780cf6974ca9209401" category="sidebar">Switch de armazenamento - Cisco Nexus 9336C-FX2 ou 9336C-FX2-T</block>
-  <block id="d35b203e8fe0144f812f95e477dfc8ac" category="paragraph"><block ref="d35b203e8fe0144f812f95e477dfc8ac" category="inline-link-macro-rx"></block></block>
   <block id="8922abf783ebcd2485e871d83f810001" category="paragraph">*NOTA:* Se responder *y* ao prompt de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias, conforme descrito em <block ref="c36e4b8d8c2789dd7986c4af4bd3d942" category="inline-xref-macro-rx"></block> .</block>
   <block id="0af41f793380f36203c150e88680ae0d" category="admonition">Para CL 5.11.1, crie o usuário *cumulus* e responda *y* ao seguinte prompt: Gostaria de especificar um usuário diferente de admin para coleta de logs? {y|n}: *y*</block>
   <block id="9516895d06a737348108b47f990aebff" category="list-text">[[step2]]Habilitar coleta periódica de logs:</block>
@@ -5332,7 +5186,6 @@
   <block id="fb945b959f6754639fad6c6e9e9469b9" category="list-text">O usuário local deve ter privilégios de administrador de rede.</block>
   <block id="47547bd96a2d76e2174e671baccc263a" category="paragraph">Para instalar e configurar o software para um switch de cluster BES-53248, siga estas etapas:</block>
   <block id="7a81f2c0648b303fec3fe1081158d0e3" category="inline-link-macro">Redefinir o switch para os padrões de fábrica</block>
-  <block id="842f57c662529f95b306feb653984af0" category="list-text"><block ref="6356dc79de453379cf58db845e7c3b08" category="inline-link-macro-rx"></block>.</block>
   <block id="585a6fd0f28eaade2a16ccaba1bb9b0d" category="paragraph">Apague as configurações do switch do cluster BES-53248.</block>
   <block id="b879f523acbbe3c8d6ea83060443367e" category="doc">Redefinir o switch de cluster BES-53248 para os padrões de fábrica</block>
   <block id="7515349dce34258a6f65c5f9b6b0bc58" category="paragraph">Para redefinir o switch de cluster BES-53248 para os padrões de fábrica, você deve apagar as configurações do switch BES-53248.</block>
@@ -5344,4 +5197,314 @@
   <block id="671537f32d06de75a977dc3008daeff5" category="admonition">Se o sistema perguntar se deseja salvar a configuração não salva ou alterada antes de recarregar o switch, selecione *não*.</block>
   <block id="01abea5f71122f7491f5d67a54692187" category="list-text">[[step4]] Aguarde até que o switch seja recarregado e, em seguida, faça login nele.</block>
   <block id="3298c6d813bb0262584ca3882273ff2a" category="paragraph">O usuário padrão é “admin” e nenhuma senha é definida. É apresentado um aviso semelhante ao seguinte:</block>
+  <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">O que vem a seguir</block>
+  <block id="d29ee2143986e1790a9cd170344db5a2" category="paragraph"><block ref="30bc59659410cfda61387b34e1612b7c" category="inline-link-macro-rx"></block> .</block>
+  <block id="d7644dedcbfb5c562e4684e77d00a009" category="paragraph"><block ref="cc83c245da410495a294f033719b1669" category="inline-link-macro-rx"></block> .</block>
+  <block id="30f6afd41919b41a456c94f0f66fa5d3" category="doc">Fluxo de trabalho de instalação e configuração para switches BES-53248</block>
+  <block id="a8707fcc977da1a092531cdd197f8ba9" category="paragraph">Siga estas etapas do fluxo de trabalho para instalar e configurar seus switches BES-53248.</block>
+  <block id="a83565177e04591255a835fde719da37" category="inline-link-macro">Revise os requisitos de configuração</block>
+  <block id="429388d6c44b7afc7d120f3bfe282564" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="0451d81c5b818520197dbb9120895fc0" category="inline-link-macro-rx"></block></block>
+  <block id="218fbb7219f762cbdbb831038fd38540" category="paragraph">Revise os requisitos de configuração para o switch de cluster BES-53248.</block>
+  <block id="20c231267822b8a8692827ee2e171610" category="inline-link-macro">Revise os componentes e números de peça</block>
+  <block id="a9475a16ba06b4219d57eddd883dd07f" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="8d964d6ba392382de979d8f2722972ba" category="inline-link-macro-rx"></block></block>
+  <block id="7ffa7cc3f7bcaaf809ca8770c5abe16f" category="paragraph">Revise os componentes e números de peça do switch de cluster BES-53248.</block>
+  <block id="7e52bd0b19f223e57d4d585b11f1ccaf" category="inline-link-macro">Revise a documentação necessária</block>
+  <block id="1845fdbe98420bdb3455ca1fc8f74d30" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="1feee20e6e623a2e4804c38792804c17" category="inline-link-macro-rx"></block></block>
+  <block id="8835d8419d7cf09508aaffec9ad03cb4" category="paragraph">Revise a documentação específica do switch e do controlador para configurar seus switches BES-53248 e o cluster ONTAP .</block>
+  <block id="b05122283953ee861f964e6f4b8180ac" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="76d32253af9ac9d977c88af48dee7d29" category="inline-link-macro-rx"></block></block>
+  <block id="7b0ce00f5b71d5c2542d6d5c4fb0b5d7" category="paragraph">Instale o hardware do switch.</block>
+  <block id="cc6a7a00f2331df56d127235ab712a53" category="inline-link-macro">Configurar o software</block>
+  <block id="09e3ea1c9ed929b9d5ba65aa0e1a2e57" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="cc407d015acb61c0e32d43737b9a7b52" category="inline-link-macro-rx"></block></block>
+  <block id="50684e38d3c3e950bc58738bb16d0843" category="paragraph">Configure o software do switch.</block>
+  <block id="e17e6fce1c9267a06663c214d3364910" category="paragraph"><block ref="8b21286de1f0b27e78e54a55a69f517f" category="inline-link-macro-rx"></block> .</block>
+  <block id="a37cc2eef24d556279f24156644d2f76" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="b88c299eeb38820fb709454fcd144438" category="inline-link-macro-rx"></block></block>
+  <block id="17fc3f3ff88ac99f3928ed20888ee5ad" category="paragraph">Configurar o switch de cluster BES-53248.</block>
+  <block id="2fdc035f31f6f8e5dc2cc860f7ac2b5e" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block></block>
+  <block id="d2fbaa7f212d11bb223bcb79e99d25a5" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="0f9f654882514557e57b19641aa7b563" category="inline-link-macro-rx"></block></block>
+  <block id="039ac036dd5126741513b6ff02740aa3" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block></block>
+  <block id="ba4ab00920641dfd5423a47fe9d7f3c9" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block></block>
+  <block id="e0c4a4604e9c598a73beb01178396611" category="inline-link-macro">Redefinir o switch para os padrões de fábrica</block>
+  <block id="ae2325ba8e46103566cfcf760e724aea" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="6c812119d579c9718456d0d0cb09a418" category="inline-link-macro-rx"></block></block>
+  <block id="b072aeefadd5f4debb10448ed0f78d3d" category="paragraph"><block ref="6750c4dc9d2505a8ea19f483ac83a6d9" category="inline-link-macro-rx"></block> .</block>
+  <block id="df262d72a3f24d806e5173e9cf649e77" category="doc">Fluxo de trabalho de instalação de hardware para switches BES-53248</block>
+  <block id="28a0c60fdf5ca57b39720c3a8d882046" category="paragraph">Para instalar e configurar o hardware de um switch de cluster BES-53248, siga estas etapas:</block>
+  <block id="cf1d9d7a26637db18765ddf010f65be6" category="inline-link-macro">Instalar o hardware do switch</block>
+  <block id="0b8a27d3a1c0a5dd1272b8c9805cbaf1" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="a3a8ecb086e70a616c3aea22be18ca2e" category="inline-link-macro-rx"></block></block>
+  <block id="b2413040143a77d07ccac6969201380a" category="paragraph">Instalar e configurar o hardware do switch BES-53248.</block>
+  <block id="5ce319fd5475b6c82c032009a68c584c" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="6750c4dc9d2505a8ea19f483ac83a6d9" category="inline-link-macro-rx"></block></block>
+  <block id="1105e42e259e21fce073c8424bb1d1c3" category="paragraph">Revise as considerações de cabeamento e configuração para o switch de cluster BES-53248.</block>
+  <block id="510290e42c307729b66d338637599287" category="doc">Fluxo de trabalho de atualização para switches de cluster BES-53248</block>
+  <block id="e0a521d00ae74b0c84db0c847fddb6ad" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="fea95d28df6c953ffdb2096099ec83e5" category="inline-link-macro-rx"></block></block>
+  <block id="96fb740240c8f1bf5739883588c34128" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="b0d7a2164137f2036f3af1efcfb1968f" category="inline-link-macro-rx"></block></block>
+  <block id="0c6171d657f447db9f7b65ec421619f2" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="ee9cd451d5dc1debab0286f89e5c8301" category="inline-link-macro-rx"></block></block>
+  <block id="4deb9a9ff2057f7c893692587e556260" category="paragraph"><block ref="3733ea959ea350d46ba403dfe4087bb4" category="inline-link-macro-rx"></block> .</block>
+  <block id="926ea8223c35e0974ecfabb2c02ad4ff" category="summary">Visão geral da configuração de software para switches de cluster Cisco Nexus 3132Q-V</block>
+  <block id="fddd0032cd4149fb7bfea4114a217072" category="doc">Fluxo de trabalho de instalação de software para switches de cluster Cisco Nexus 3132Q-V</block>
+  <block id="e87559d7fe5ea552cfe4b62d24bc8ae6" category="paragraph">Para instalar e configurar o software para um switch Cisco Nexus 3132Q-V e instalar ou atualizar o arquivo de configuração de referência (RCF), siga estas etapas:</block>
+  <block id="0e192221b589d529dcb6c24018c169db" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="5904774d404af34d4c98f27112d7e996" category="inline-link-macro-rx"></block></block>
+  <block id="6fd83e5aa94c307f52c8355354d6ff96" category="paragraph">Configure o switch de cluster 3132Q-V.</block>
+  <block id="72b3f7cbb15c0abaaa6a37694bba082b" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="2602d37bf83d9d8f0155e42f9d92c2aa" category="inline-link-macro-rx"></block></block>
+  <block id="e4594685a63305c9410a714bce12965d" category="paragraph">O software Cisco NX-OS e o RCF devem ser instalados nos switches de cluster Cisco 3132Q-V.</block>
+  <block id="dfcf2a586320c174c0f0f72098c1ed2a" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="0c1c3c2834af58f16c322794f361a5d3" category="inline-link-macro-rx"></block></block>
+  <block id="5e4bd304ccd5d3dec08fc2c5ecaecfa8" category="paragraph">Baixe e instale ou atualize o software NX-OS no switch de cluster Cisco 3132Q-V.</block>
+  <block id="6975b7df6e1f7b5b06f111de80008d57" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="fbbb5b6e99c6bc99f3e5627f226b3afd" category="inline-link-macro-rx"></block></block>
+  <block id="1da50282246b244ed4ad2b87ca491bec" category="paragraph">Instale o RCF após configurar o switch Cisco 3132Q-V pela primeira vez.</block>
+  <block id="98e2c8057648b4deb6fd5ef4edfc71b6" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block></block>
+  <block id="0cdecee05dd24db66522b190c7038cbc" category="paragraph">Verifique se o SSH está habilitado nos switches para usar o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs.</block>
+  <block id="5d3a5b482bfff31585b306d482bcf3bd" category="summary">Antes de configurar os switches de cluster Cisco Nexus 3132Q-V, revise a visão geral da configuração.</block>
+  <block id="d4efb0e9c28005734b2cd25f396c4a48" category="doc">Fluxo de trabalho de instalação de hardware para switches Cisco Nexus 3132Q-V</block>
+  <block id="5f8a048748aa7a1283276d1b0da8b301" category="paragraph">Para instalar e configurar o hardware de um switch de cluster 3132Q-V, siga estas etapas:</block>
+  <block id="4c915003076a6d86a9620d6756fba2c2" category="inline-link-macro">Preencha a planilha de cabeamento</block>
+  <block id="670b8bcb0f55091123c6ed29714c3705" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="53357c7c5c3be35085bc708441ee4e98" category="inline-link-macro-rx"></block></block>
+  <block id="1678bed7696215f8954f4b86a7e8545c" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="207ad0352300a36b0c0e92c58f1c94c7" category="inline-link-macro-rx"></block></block>
+  <block id="383ec28e4a088a104d47579bdb8c4764" category="paragraph">Instale o switch 3132Q-V.</block>
+  <block id="9da628940cacc721b9a48c0819528e51" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="1f00ece542bc54197fbab1596f438e3d" category="inline-link-macro-rx"></block></block>
+  <block id="03933a7ae278f1eee06cb9ca0ea9a092" category="paragraph">Instale o switch 3132Q-V e o painel de passagem em um gabinete NetApp , conforme necessário.</block>
+  <block id="9a6628d1cf1dda04a0c091e3a8b6d60d" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="d0781e7a35581c9e242db456a8edbe98" category="inline-link-macro-rx"></block></block>
+  <block id="10c6e4e5f7edc054393b1cc7cf2c7648" category="paragraph">Revise o suporte para portas Ethernet NVIDIA .</block>
+  <block id="bbb9385b96ce8e8f60920fb86dbb9223" category="doc">Fluxo de trabalho de instalação e configuração para switches Cisco Nexus 3132Q-V</block>
+  <block id="bc2feeecfd3ca8367736e36203e22e39" category="paragraph">Siga estas etapas do fluxo de trabalho para instalar e configurar seu switch Cisco Nexus 3132Q-V.</block>
+  <block id="1555d645754cb1bffb1bd71540b40f10" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="b7849b8fb2657e254b2634895b6d222a" category="inline-link-macro-rx"></block></block>
+  <block id="7d09c01b1fc943996b0c181c124ba53f" category="paragraph">Revise os requisitos de configuração para o switch de cluster 3132Q-V.</block>
+  <block id="879159fbe2c6233aac60828a5df56657" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="3733ea959ea350d46ba403dfe4087bb4" category="inline-link-macro-rx"></block></block>
+  <block id="e75aa8c760076a741c3918f29c98159b" category="paragraph">Revise a documentação específica do switch e do controlador para configurar seus switches 3132Q-V e o cluster ONTAP .</block>
+  <block id="fc75d35af4aab364734bb7907f9e6f47" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="e25a52f8aae59a2992e22d409c64553b" category="inline-link-macro-rx"></block></block>
+  <block id="4e812a10246df32dd66fe0611501f478" category="paragraph">Revise os requisitos do recurso Cisco Smart Call Home, usado para monitorar os componentes de hardware e software na sua rede.</block>
+  <block id="c92898e16387125646f364c22fd10ae2" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="c89123a4361d25247adbe917d9d89fa4" category="inline-link-macro-rx"></block></block>
+  <block id="5cdb75f0116a2d09e557844a8a270750" category="summary">Siga este procedimento para instalar o switch Cisco Nexus 3132Q-V.</block>
+  <block id="3a910787d96ae9dd87fecd28ac8f7d6e" category="doc">Instalar o switch de cluster 3132Q-V</block>
+  <block id="0a28c93dfa9e5b233131e15f712622c9" category="paragraph">Siga este procedimento para instalar e configurar o switch Cisco Nexus 3132Q-V.</block>
+  <block id="59f8816adc68d17a564a2adcb32f6df2" category="list-text">Concluído<block ref="e253afe6db79a1011e9ed137315b003b" category="inline-link-macro-rx"></block> .</block>
+  <block id="0941c5c2195dd31d0727420366f92c3a" category="list-text"><block ref="eb114e7f9419da2ed2795f56bdba3e97" category="inline-link-macro-rx"></block> .</block>
+  <block id="0f4ae3cf88771c7467206da3010f8d36" category="inline-link-macro">instalar um switch Cisco Nexus 3132Q-V em um gabinete NetApp</block>
+  <block id="e20ca246755989fe82bdc30b472d4045" category="paragraph">Opcionalmente, você pode<block ref="18420978bb95dbc58537866fa2d7958a" category="inline-link-macro-rx"></block> .  Caso contrário, vá para<block ref="d0781e7a35581c9e242db456a8edbe98" category="inline-link-macro-rx"></block> .</block>
+  <block id="6f2cc65e666a9e05689591993e20b041" category="paragraph"><block ref="207ad0352300a36b0c0e92c58f1c94c7" category="inline-link-macro-rx"></block> .</block>
+  <block id="f84a74725677310e72a17907322dd85b" category="paragraph"><block ref="1dbca34b24162eb59cc33616a1549705" category="inline-link-macro-rx"></block> .</block>
+  <block id="8a621cac0318aad5331388c261fff40d" category="summary">Visão geral da configuração de software para switches de cluster Cisco Nexus 3232C</block>
+  <block id="d0e2537bdd90951e7c488815de10574a" category="doc">Fluxo de trabalho de instalação de software para switches de cluster Cisco Nexus 3232C</block>
+  <block id="7b97f12b51fcbcc014add4de101dcc01" category="paragraph">Para instalar e configurar o software para um switch Cisco Nexus 3232C e instalar ou atualizar o arquivo de configuração de referência (RCF), siga estas etapas:</block>
+  <block id="79a68bf5a31c184aa519c12e6bbfe361" category="paragraph">Configurar o switch de cluster 3232C.</block>
+  <block id="86fd63631522ff11a4c24046d70f1ad2" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="4e2168d12a767e7a5d0be7402bc34f9c" category="inline-link-macro-rx"></block></block>
+  <block id="02395d11e984d3a9d7041811721a6d54" category="paragraph">O software Cisco NX-OS e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de cluster Cisco 3232C.</block>
+  <block id="56f2ef5ffb432ee44c98a0218e222f47" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="8334ca90d87d9ff936e99fb272bf75c8" category="inline-link-macro-rx"></block></block>
+  <block id="c889c735571a7832007a4ea663bbbb54" category="paragraph">Baixe e instale ou atualize o software NX-OS no switch de cluster Cisco 3232C.</block>
+  <block id="e77ca82337609b67c379c3f9592b0987" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="23b3385327d0e192a837e8de4bc1cc0a" category="inline-link-macro-rx"></block></block>
+  <block id="09bfbd56c3552e97c604a7997c5b2b58" category="paragraph">Instale o RCF depois de configurar o switch Cisco 3232C pela primeira vez.</block>
+  <block id="375c5712b837a848448c3beebb3d3b2c" category="summary">Antes de configurar os switches de cluster Cisco Nexus 3232C, revise a visão geral da configuração.</block>
+  <block id="c324ecc5767379ec38a0b98ea84a392c" category="doc">Fluxo de trabalho de instalação de hardware para switches Cisco Nexus 3232C</block>
+  <block id="c83956f2835dd21c634e3ea9cb076cc8" category="paragraph">Para instalar e configurar o hardware de um switch de cluster 3232C, siga estas etapas:</block>
+  <block id="488d52fd4e67e3658a2736f4f5baf6a5" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="36c81454c79fb4662d46898f96d8ab42" category="inline-link-macro-rx"></block></block>
+  <block id="4762efa89f72255be51c1d0825e428be" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="6fb43cd5c831afd08ed62ea7c301589a" category="inline-link-macro-rx"></block></block>
+  <block id="fc3c6bd26fef194ce2f36e76eb0b1ac7" category="paragraph">Instale o switch 3232C.</block>
+  <block id="ca14e5a44465dc77868bc93c772326ee" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="fb5dab0336d3cae367cb88d5b65bebf3" category="inline-link-macro-rx"></block></block>
+  <block id="ec6f6c215f040a396fd973e7136a812c" category="paragraph">Instale o switch 3232C e o painel de passagem em um gabinete NetApp , conforme necessário.</block>
+  <block id="ae93ed58d7575c5c70b27cf4137f8eea" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block></block>
+  <block id="a4ab042b047af1032e8f32eb55798abb" category="doc">Fluxo de trabalho de instalação e configuração para switches Cisco Nexus 3232C</block>
+  <block id="8434a6261c6e2022e9770fa7d8138c16" category="paragraph">Siga estas etapas do fluxo de trabalho para instalar e configurar seu switch Cisco Nexus 3232C.</block>
+  <block id="1a5f7fd8e8d78a257cac8d35257ebfb4" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="f98da02f0354b9650f021d5be0d693ee" category="inline-link-macro-rx"></block></block>
+  <block id="5a498fe944cd4d31b9bf98a35aab8b85" category="paragraph">Revise os requisitos de configuração para o switch de cluster 3232C.</block>
+  <block id="bd426f3692822767dd8d75e5925d12dc" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="1dbca34b24162eb59cc33616a1549705" category="inline-link-macro-rx"></block></block>
+  <block id="05c7dfbf89de92ac0ba731fe57579e26" category="paragraph">Revise a documentação específica do switch e do controlador para configurar seus switches 3232C e o cluster ONTAP .</block>
+  <block id="1308bf8650051a06854397380c43b8d1" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="fab4f252f5f3f34c327db7336393d285" category="inline-link-macro-rx"></block></block>
+  <block id="efe94d139a813461a20f2ba77272f193" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="90090934dcdd9f90bf31e3e10dd5083d" category="inline-link-macro-rx"></block></block>
+  <block id="a466e3d58704dbe45d127330f13a5f83" category="summary">Siga este procedimento para instalar o switch Cisco Nexus 3232C.</block>
+  <block id="f66b7080792725ee57ea7f7b02c7d38b" category="doc">Instalar o switch de cluster 3232C</block>
+  <block id="0080e9b38d76082768d1a676b91f697b" category="list-text">Concluído<block ref="6d626c9a6b498f94526e14b544d04817" category="inline-link-macro-rx"></block> .</block>
+  <block id="422598dd3d31832bfe941edd56d7d1bd" category="list-text"><block ref="405e8e3e93d725761176a326f99e4751" category="inline-link-macro-rx"></block> .</block>
+  <block id="abdf142c465e75d188665a07134160d1" category="inline-link-macro">instalar um switch Cisco Nexus 3223C em um gabinete NetApp</block>
+  <block id="1e6e456a14b9d3e18e246a85940b6a59" category="paragraph">Opcionalmente, você pode<block ref="2cea7f88b524cc550d065cf33c8d1c58" category="inline-link-macro-rx"></block> .  Caso contrário, vá para<block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block> .</block>
+  <block id="9dc1ae98b1a9d05149e769f392412112" category="paragraph"><block ref="d35b203e8fe0144f812f95e477dfc8ac" category="inline-link-macro-rx"></block> .</block>
+  <block id="dddd09d86cdbd9ad27e95c11d655ffd2" category="paragraph"><block ref="6fb43cd5c831afd08ed62ea7c301589a" category="inline-link-macro-rx"></block> .</block>
+  <block id="ce6bf7cd47eb09b6a69cb1199b0e124b" category="doc">Componentes e números de peça para switches Cisco Nexus 92300YC</block>
+  <block id="374e26b57d48a3f53edf0eed7b8b9a0a" category="paragraph"><block ref="953b08a76549ddb5339056aaf68e6af4" category="inline-link-macro-rx"></block> .</block>
+  <block id="6518e087ea131b7bbb106dea2f0c4eaf" category="paragraph"><block ref="94f89641c24a2c5acf155cedb6b917d3" category="inline-link-macro-rx"></block> .</block>
+  <block id="76528b3388026fec8ee0da8f409827b8" category="summary">Visão geral da configuração de software para switches de cluster Cisco Nexus 92300YC</block>
+  <block id="6d667de9d7fb01a21a6dead01c80f651" category="doc">Fluxo de trabalho de instalação de software para switches de cluster Cisco Nexus 92300YC</block>
+  <block id="bea3ba57a9f680b5a5369f4a4684f874" category="paragraph">Para instalar e configurar o software para um switch Cisco Nexus 92300YC e instalar ou atualizar o arquivo de configuração de referência (RCF), siga estas etapas:</block>
+  <block id="5543d6e76f263bdbd671a4d1fbaa49f6" category="paragraph">Configurar o switch de cluster 92300YC.</block>
+  <block id="b1de4923af2356e23f4c8c2c65a008da" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="50c428dcd6e7c20cdbb48b3d50c2a9da" category="inline-link-macro-rx"></block></block>
+  <block id="0d5ca88db3a1f30b7d37dadb8fd01d41" category="paragraph">O software Cisco NX-OS e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de cluster Cisco 92300YC.</block>
+  <block id="793471b2fed49043c06f1a087870f6d2" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="22465f28856801a04c09bd50ffee7d62" category="inline-link-macro-rx"></block></block>
+  <block id="583331a6c28ce2778c6146a59452a345" category="paragraph">Baixe e instale ou atualize o software NX-OS no switch de cluster Cisco 392300YC.</block>
+  <block id="fae4c180e898c8a439235a5e778d2549" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="246418de61c3ec41b5c3a3cca9731fd8" category="inline-link-macro-rx"></block></block>
+  <block id="c1369f0644c2b0550f6997021719c459" category="paragraph">Instale o RCF após configurar o switch Cisco 92300YC pela primeira vez.</block>
+  <block id="34cd90939ddc2d9ad86fb102a2041314" category="summary">Antes de configurar os switches de cluster Cisco Nexus 92300YC, revise a visão geral da configuração.</block>
+  <block id="95396888979c65e602f693334da7e07d" category="doc">Fluxo de trabalho de instalação de hardware para switches Cisco Nexus 92300YC</block>
+  <block id="6afc705e1b933b4766d87b856c3221cf" category="paragraph">Para instalar e configurar o hardware de um switch de cluster 92300YC, siga estas etapas:</block>
+  <block id="4047a5ff7001d81b6431b807127ad12c" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="b0854dd71ac1563be2bdb3fe5ff122e4" category="inline-link-macro-rx"></block></block>
+  <block id="f94424d6c3c912027184843b039a6d8c" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="4a918828ff9ec1128ca567fb62079d76" category="inline-link-macro-rx"></block></block>
+  <block id="95c11aa280b3a4af2d6796be0cc6e2bc" category="paragraph">Instale o switch 92300YC.</block>
+  <block id="9bc4448eb31aa993c138c699e2f63e4f" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="f395413a0179bce929cdb94ae83dcac4" category="inline-link-macro-rx"></block></block>
+  <block id="f8e39c49855138fc925b248dd42b44d2" category="paragraph">Instale o switch 92300YC e o painel de passagem em um gabinete NetApp , conforme necessário.</block>
+  <block id="3a3eef3e2d1c73e82a0a67e125e3f967" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="25a280eed05d50e4a92942cf78681f99" category="inline-link-macro-rx"></block></block>
+  <block id="9bd04d9eb8fe7af3717bd79fdc4dd16f" category="doc">Fluxo de trabalho de instalação e configuração para switches Cisco Nexus 92300YC</block>
+  <block id="312162ac34f340f4565474922d210693" category="paragraph">Os switches Cisco Nexus 92300YC podem ser usados como switches de cluster no seu cluster AFF ou FAS .  Os switches de cluster permitem que você crie clusters ONTAP com mais de dois nós.</block>
+  <block id="22870eb17147f96ef50b234ba22925d5" category="paragraph">Siga estas etapas do fluxo de trabalho para instalar e configurar seu switch Cisco Nexus 92300YC.</block>
+  <block id="62d45927f68981009a6d2265c3072e6d" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="38fea660043776dff31d488d6f77d9bd" category="inline-link-macro-rx"></block></block>
+  <block id="626eb1a41f73801dcb6cc01d9eda756f" category="paragraph">Revise os requisitos de configuração para o switch de cluster 92300YC.</block>
+  <block id="0a72e8de625b21478fed93aac691d8fd" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="953b08a76549ddb5339056aaf68e6af4" category="inline-link-macro-rx"></block></block>
+  <block id="ba784914a11fd4eae829cff16f7c39ac" category="paragraph">Revise a documentação específica do switch e do controlador para configurar seus switches 92300YC e o cluster ONTAP .</block>
+  <block id="1b112832cbe8543bcf6820ae229956b6" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="a2a393519d6030a855c14ef4686abf73" category="inline-link-macro-rx"></block></block>
+  <block id="e567e2e12139ab76efc3df6a83cd8d37" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="f179278a727b470dd5b08cfb9269de5d" category="inline-link-macro-rx"></block></block>
+  <block id="3c93c69a9702046763f5f373b37e891b" category="summary">Siga este procedimento para instalar o switch Cisco Nexus 92300YC.</block>
+  <block id="04eabb1c52dfa47f6aac94cae4e12b16" category="doc">Instalar o switch de cluster 92300YC</block>
+  <block id="b53d417c5b5c05099e7a4a83ac804e87" category="list-text">Concluído<block ref="6fdaefcdc18bef0b06f1504ab9c9f258" category="inline-link-macro-rx"></block> .</block>
+  <block id="40bd63330d20c0b3cd3a02b0a6968178" category="list-text"><block ref="77aa1caeab88b7d73105c89a830c0132" category="inline-link-macro-rx"></block> .</block>
+  <block id="28a6bdac5b3883f8e5487f5f3aeac8d2" category="paragraph">Cisco Nexus 92300YC em um gabinete de sistema NetApp</block>
+  <block id="aff406b983c2d35ad821428e64d8299a" category="paragraph">Consulte o guia _Instalação de um switch de cluster Cisco Nexus 92300YC e painel de passagem em um gabinete NetApp para obter instruções sobre como instalar o switch em um gabinete NetApp .</block>
+  <block id="7c9fbe03753f30b452627fae46b1bfd4" category="paragraph">Opcionalmente, você pode<block ref="af6aa036b5bd64b8fef5c4838ed93b5f" category="inline-link-macro-rx"></block> .  Caso contrário, vá para<block ref="25a280eed05d50e4a92942cf78681f99" category="inline-link-macro-rx"></block> .</block>
+  <block id="03d9c70dc4ad4079fc03423950b4c07c" category="summary">Você pode instalar o switch Cisco Nexus 92300YC e o painel de passagem em um gabinete NetApp com os suportes padrão incluídos com o switch.</block>
+  <block id="518325300d482a782e3b6ee658fbd046" category="doc">Instalar um switch de cluster Cisco Nexus 92300YC em um gabinete NetApp</block>
+  <block id="55f6483502ca85b4411fe62f1f73d031" category="paragraph">Dependendo da sua configuração, pode ser necessário instalar o switch de cluster Cisco Nexus 92300YC e o painel de passagem em um gabinete NetApp com os suportes padrão incluídos com o switch.</block>
+  <block id="4550b8f1110dd92221b72ceee5f2776b" category="list-text">Os requisitos de preparação inicial, o conteúdo do kit e as precauções de segurança no<block ref="26b60d0a74ebc6e34e2fc4c021cb1968" category="inline-link-macro-rx"></block> .</block>
+  <block id="f4c3dc1d71b75c5d9dc1cbaa9e918427" category="list-text">Instale os suportes de montagem em rack no chassi do switch Nexus 92300YC.</block>
+  <block id="e59b5480af0f23e17cb6ad95f898309a" category="paragraph">Os dois switches 92300YC sempre serão montados no 2U superior do gabinete RU41 e 42.</block>
+  <block id="5a51de7a8bd29e14350d005020bdb5de" category="image-alt">Posicionamento 92300YC em U39-40</block>
+  <block id="8d44600231ff60a86380b8c1228e5f6c" category="list-text">Conecte a porta de gerenciamento em cada switch 92300YC a qualquer um dos switches de gerenciamento (se solicitado) ou conecte-os diretamente à sua rede de gerenciamento.</block>
+  <block id="57b82df28fc00080790149c86d895c6b" category="paragraph"><block ref="4a918828ff9ec1128ca567fb62079d76" category="inline-link-macro-rx"></block> .</block>
+  <block id="140be3eb4b08ba5b7033057d8fddcd9a" category="paragraph"><block ref="19183173bd336c4a7349920f4bc23f03" category="inline-link-macro-rx"></block> .</block>
+  <block id="15a40d3f35d3512d3c97521e2c1f5b0b" category="paragraph"><block ref="169e5eca6121ce7f69a705f99619e75c" category="inline-link-macro-rx"></block> .</block>
+  <block id="65e3a9c19dd89d3a7115a3ba02c522b3" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="72451cd49e503d9ae924f8d1ab1ef595" category="inline-link-macro-rx"></block></block>
+  <block id="714034d2b8f5ebe644155de85884bbca" category="paragraph">Configure o switch de cluster 9336C-FX2.</block>
+  <block id="b5fe56b5ff32cd8130c6ef4f84c1e62d" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="0f24d169a2f575f17ba79644c46d3a03" category="inline-link-macro-rx"></block></block>
+  <block id="83aa01662b8f0e70e050f34d0a2b112e" category="paragraph">O software Cisco NX-OS e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de cluster Cisco 9336C-FX2.</block>
+  <block id="14b3b17f755689e5a5fab89b6ae63211" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block></block>
+  <block id="d35302c6c324ed27400a5e058dffad94" category="paragraph">Baixe e instale ou atualize o software NX-OS no switch de cluster Cisco 9336C-FX2.</block>
+  <block id="422c274743fd52a13b84466925d9ae14" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="e1c53d78ceb09f1d765f98cd902707bb" category="inline-link-macro-rx"></block></block>
+  <block id="2bf3a21c18727d14d13236cbe24f6d43" category="paragraph">Instale ou atualize o RCF após configurar o switch Cisco 9336C-FX2 pela primeira vez.  Você também pode usar este procedimento para atualizar sua versão do RCF.</block>
+  <block id="002bff3b4f7078117e350533031df203" category="doc">Fluxo de trabalho de instalação e configuração para switches de cluster Cisco Nexus 9336C-FX2</block>
+  <block id="bbdce1985f06c788c19e6e5d3566bb0f" category="paragraph">Siga estas etapas do fluxo de trabalho para instalar e configurar seus switches Cisco 9336C-FX2.</block>
+  <block id="5e614d5b678df1fbbb94c348b708979f" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="2fca12e846c6ba3593809ac51401fa0b" category="inline-link-macro-rx"></block></block>
+  <block id="2e6a7a855e2ff2a1220730eae748ad87" category="paragraph">Revise os requisitos de configuração para o switch de cluster 9336C-FX2.</block>
+  <block id="be6f9e475f9adc72ec6526d5adc70b26" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="a722a5598ccd16c1bff100542b2e44aa" category="inline-link-macro-rx"></block></block>
+  <block id="cfa7ea6652b44d2de47b01b454c44812" category="paragraph">Revise os componentes e números de peça do switch de cluster 9336C-FX2.</block>
+  <block id="c89d2b1be1c059d7732385c7f48d8f19" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="5fc1ad7e6f051f8474e7a142c51a615c" category="inline-link-macro-rx"></block></block>
+  <block id="08150807a0da3147bf1651a1c37ec583" category="paragraph">Revise a documentação específica do switch e do controlador para configurar seus switches 9336C-FX2 e o cluster ONTAP .</block>
+  <block id="d30328a6d5e1df1f7adce35c405878cc" category="inline-link-macro">Revise os requisitos do Smart Call Home</block>
+  <block id="d46ea71679057077dc352afdf51795fc" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="6927e852c82055842728774484f4f269" category="inline-link-macro-rx"></block></block>
+  <block id="a97ad1ae552ab2e354f5e67d916ccaf2" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="76d32253af9ac9d977c88af48dee7d29" category="inline-link-macro-rx"></block></block>
+  <block id="a7bb68ddac6d399034ea468debf7fab7" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="38c1f149ff23c79ed448add9563e5d5b" category="inline-link-macro-rx"></block></block>
+  <block id="f9509470d72439cbfa8243fa94c09f2f" category="summary">Antes de configurar os switches de cluster Cisco Nexus 9336C-FX2, revise a visão geral da configuração.</block>
+  <block id="6a8d17d47732d0a86c81e84f3572622d" category="doc">Fluxo de trabalho de instalação de hardware para switches Cisco Nexus 9336C-FX2</block>
+  <block id="ded6c98ad9f7b4bfae9804f20f7e2767" category="paragraph">Para instalar e configurar o hardware de um switch de cluster 9336C-FX2, siga estas etapas:</block>
+  <block id="8f94ffb31a7b1c0eb7ef89c26c20fdbc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="995440708d7ef2f5dc1b0fa1faef9d09" category="inline-link-macro-rx"></block></block>
+  <block id="3aa51d17c39fbe6617a960cd893c9147" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="0bc8e83d3cd2eebf0c2c5d2a7b54cc6c" category="inline-link-macro-rx"></block></block>
+  <block id="ab3371c33572fbb955f1dd5b9b37cf9b" category="paragraph">Instale o switch 9336C-FX2.</block>
+  <block id="5420b49f6bb2b4c6cd29f1d04f886142" category="paragraph">Instale o switch 9336C-FX2 e o painel de passagem em um gabinete NetApp , conforme necessário.</block>
+  <block id="1a93d578061f1724e84a74106f164f03" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="f31e2218f7cf08b190abb8563911bffd" category="inline-link-macro-rx"></block></block>
+  <block id="8608163382dad3a40accd48496936aa9" category="paragraph">Revise o suporte para portas Ethernet NVIDIA , requisitos de FEC de 25 GbE e informações sobre recursos TCAM.</block>
+  <block id="710e5bf52faa736ff3e38fd233e59618" category="paragraph"><block ref="dbe9b3c650ae4dca2117921c884a54d2" category="inline-link-macro-rx"></block> .</block>
+  <block id="f9c15e83a38fe90272c22c0bd257b581" category="paragraph">Opcionalmente, você pode<block ref="a8c82b142f94f7d62d6e984faba746ca" category="inline-link-macro-rx"></block> .  Caso contrário, vá para<block ref="756775b1ef62b4e4ac6c4df72f0cf918" category="inline-link-macro-rx"></block> .</block>
+  <block id="7be1885a02922674638042ed6280ba6b" category="paragraph"><block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block></block>
+  <block id="be706a7a12c76624a9ad7568f3b79f1f" category="paragraph"><block ref="c05d7708e583b7d4b251d68f1130d2c6" category="inline-link-macro-rx"></block> .</block>
+  <block id="d91ea354659a63a988e9a43bfe660ac0" category="paragraph"><block ref="ce2926213e4f5e76e8b29ae87f344220" category="inline-link-macro-rx"></block> .</block>
+  <block id="e2715c3387d9508dc033488d6e43c425" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="068ae9dc6825f9dcbe393c782d23d120" category="inline-link-macro-rx"></block></block>
+  <block id="532d48076326d08b06c875806937e7fd" category="paragraph">Configure o switch compartilhado 9336C-FX2.</block>
+  <block id="876fcd8ffe61bb8affbdbb68b1e10baf" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="a56c4df2c3d1cf8a69dff5f1adb2c643" category="inline-link-macro-rx"></block></block>
+  <block id="1c3991e906e3518bc7f4634d3c581e25" category="paragraph">O software Cisco NX-OS e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches compartilhados Cisco 9336C-FX2.</block>
+  <block id="5ade5096d23063966630221580a6cc38" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="4cb2f34e71258a797d79030b4c4ec41e" category="inline-link-macro-rx"></block></block>
+  <block id="a2402c235c59a3a17c337288e6659de1" category="paragraph">Baixe e instale ou atualize o software NX-OS no switch compartilhado Cisco 9336C-FX2.</block>
+  <block id="4b7edc68e20fba5cfd2b6f8bfc99d9ef" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="47109c7943148b2a9617cfcb4b49a79f" category="inline-link-macro-rx"></block></block>
+  <block id="bbd3308be5def70ece27aceced0a2e1e" category="paragraph">Instale o RCF após configurar o switch compartilhado Cisco 9336C-FX2 pela primeira vez.</block>
+  <block id="cbbdea3331f10374f61c84357a44c1ee" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="0f9cb6d39d312b3019fa328b8711b803" category="inline-link-macro-rx"></block></block>
+  <block id="b3d78cbd39aa8a48f684a072276fafaf" category="paragraph">Atualize sua versão do RCF quando tiver uma versão existente do arquivo RCF instalada em seus switches operacionais.</block>
+  <block id="8da3411bb1ff261be5f286a3dc9eb98e" category="doc">Fluxo de trabalho de instalação e configuração para switches compartilhados Cisco Nexus 9336C-FX2</block>
+  <block id="b6ab47306ee386f13460325ec248b939" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="995dc0b4b3db395b1cdffbcd63b7e068" category="inline-link-macro-rx"></block></block>
+  <block id="ee4f53cee164a2a4adbc95c707f09c0d" category="paragraph">Revise os requisitos de configuração para o switch compartilhado 9336C-FX2.</block>
+  <block id="be463e5884b9bccdd0ec548486ad492c" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="623ea5a7c9216ace3194f7932615e231" category="inline-link-macro-rx"></block></block>
+  <block id="4bc51c9336ea3c0df7dcbfbb00c87a7c" category="paragraph">Revise os componentes e números de peça do switch compartilhado 9336C-FX2.</block>
+  <block id="6c459c762f5c42994b19594b6f666c3d" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="a0bdf7d987e6898c86fc98570a0109d9" category="inline-link-macro-rx"></block></block>
+  <block id="b27818907748c2b9848411018ec5376e" category="paragraph">Opcionalmente, você pode<block ref="79869856cf39344d5034cad3eccc5e36" category="inline-link-macro-rx"></block> .  Caso contrário, vá para<block ref="068ae9dc6825f9dcbe393c782d23d120" category="inline-link-macro-rx"></block> .</block>
+  <block id="ea638d2c350905a9e9de65f5eb65b878" category="summary">Antes de configurar os switches Cisco Nexus 9336C-FX2, revise a visão geral da configuração.</block>
+  <block id="3bd99b5e505a2e577b8eea02fc512fd5" category="doc">Fluxo de trabalho de instalação de hardware para switches compartilhados Cisco Nexus 9336C-FX2</block>
+  <block id="208039781cc1c999add6d93badc0bd8c" category="paragraph">Para instalar e configurar o hardware de um switch compartilhado 9336C-FX2, siga estas etapas:</block>
+  <block id="86584e4af92c1ecd7bcb5c967ce4d039" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="b1dd11b8c652a20dabb45a8711624a03" category="inline-link-macro-rx"></block></block>
+  <block id="03721c018f3b57daf8190e64a5816d8c" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="2d5ab056fce0957a1995d7dbefe2460c" category="inline-link-macro-rx"></block></block>
+  <block id="b1b40e86080e8933ddf9741d5a54d4c1" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="cad0a32a1376b86b466dd6cf29c7e620" category="inline-link-macro-rx"></block></block>
+  <block id="65f37da1c9f83bc599bdd37869996437" category="paragraph"><block ref="08712014b627ff0e1c01c2b7e6c49149" category="inline-link-macro-rx"></block> .</block>
+  <block id="e5e4c33167ef65ecfcf3ddcdc83d7f53" category="paragraph"><block ref="88abf51732f30f17b65def4d1747e28f" category="inline-link-macro-rx"></block> .</block>
+  <block id="1130d64161a0e7dd5dc134ca8eeed3bc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="c49772a60328b39d671da109a076acd4" category="inline-link-macro-rx"></block></block>
+  <block id="409451caa6f3704a685f20d68c99aca5" category="paragraph">Configure o switch de armazenamento 9336C-FX2.</block>
+  <block id="2cb440b90b3a2604826ca6513ffc0e42" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="cc92556d54e7bbc14c83aad61946e82d" category="inline-link-macro-rx"></block></block>
+  <block id="cb3b28101a5ee802ee9339ebb8595afa" category="paragraph">O software Cisco NX-OS e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de armazenamento Cisco 9336C-FX2.</block>
+  <block id="96c0f9b9f35ec112769fb42b69304b92" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="6dc839faa17719bf6b40745660551f1b" category="inline-link-macro-rx"></block></block>
+  <block id="2c56d0852bbb1c59cd064306c261c65c" category="paragraph">Baixe e instale ou atualize o software NX-OS no switch de armazenamento Cisco 9336C-FX2.</block>
+  <block id="102c54c666c08f4173fa519e6ff129bc" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="7c940c5373653de732f444e5b7d2c3dd" category="inline-link-macro-rx"></block></block>
+  <block id="f49fe2ad250c9850f946f4a76e70f6ee" category="doc">Fluxo de trabalho de instalação e configuração para switches de armazenamento Cisco Nexus 9336C-FX2</block>
+  <block id="1b3b19f43be6e28ee8c396fbe7b03fbc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="aaff47cc4c157f05f1c45463332a8bad" category="inline-link-macro-rx"></block></block>
+  <block id="1ff3ca27c084b3d98dd546bd6424b82f" category="paragraph">Revise os requisitos de configuração para o switch de armazenamento 9336C-FX2.</block>
+  <block id="afa756f05eda52021550fbc6716553fa" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="77ca0bf349d1638c9c1dd8a9b3a241bc" category="inline-link-macro-rx"></block></block>
+  <block id="6271aa8c6c06ded4463e51995158862e" category="paragraph">Revise os componentes e números de peça do switch de armazenamento 9336C-FX2.</block>
+  <block id="d815e2d84c80deace1c71e359ea4539c" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="892235a4ff1b7daae2f665bdf48836dc" category="inline-link-macro-rx"></block></block>
+  <block id="2fd9e620c63ad097fef0f86dc0431f01" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="a370603fc77b0cda75c52a1c0cd9ca04" category="inline-link-macro-rx"></block></block>
+  <block id="e93d94e53563c8aa9753cd21058b0e16" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="17b105a40f24618917c9d67c7deca182" category="inline-link-macro-rx"></block></block>
+  <block id="c4334426d3952d12cd31cf51ea4bc4e9" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="6513be43714f8e4178a60e8447e307b1" category="inline-link-macro-rx"></block></block>
+  <block id="2506c3178340c6f497905a5c7374857c" category="paragraph">Opcionalmente, você pode<block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block> .  Caso contrário, vá para<block ref="c49772a60328b39d671da109a076acd4" category="inline-link-macro-rx"></block> .</block>
+  <block id="b5df828135197ab853d0a801d8eb009b" category="doc">Fluxo de trabalho de instalação de hardware para switches de armazenamento Cisco Nexus 9336C-FX2</block>
+  <block id="14babb76f4d9c746d4dfc66f424b6b9a" category="paragraph">Para instalar e configurar o hardware de um switch de armazenamento 9336C-FX2, siga estas etapas:</block>
+  <block id="e89feb45a019aae43e7072a7606f97d8" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="35e16e47f4129ca15f5a4cfe7b290909" category="inline-link-macro-rx"></block></block>
+  <block id="0f2fc5abf269bcd430c8f35e0203b2bd" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="8e341dc1e80127ca0dc2c12db6d0237a" category="inline-link-macro-rx"></block></block>
+  <block id="6d5d1abae5e843681d56ffe17b1d5796" category="paragraph">Instale o switch de armazenamento 9336C-FX2.</block>
+  <block id="986b831325814d3f0225e51df098b72b" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="d43bf43861b014b2f70de1c12cff1c76" category="inline-link-macro-rx"></block></block>
+  <block id="4767a0bcf3ab94aeda87c79dd4096ef4" category="paragraph"><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block></block>
+  <block id="04d079026b4a7b63a084b7ab24426723" category="paragraph"><block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block> .</block>
+  <block id="a7ba132631b64c7d74d24b772aacd919" category="paragraph"><block ref="fc89f8ef8daa08e9ffc121c5d5609d54" category="inline-link-macro-rx"></block> .</block>
+  <block id="4e66bc15577ca34b137ec086186da6aa" category="doc">Fluxo de trabalho de instalação e configuração para switches NVIDIA SN2100</block>
+  <block id="84a9509b45afdd4f172c9e97fb33aeae" category="paragraph">Siga estas etapas do fluxo de trabalho para instalar e configurar seus switches NVIDIA SN2100.</block>
+  <block id="5f8f57ce76aa4b127e0ea13abdf1345e" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="1d6fb5d005264e31a2bce3661d73104a" category="inline-link-macro-rx"></block></block>
+  <block id="f4f81157fc6fac337f09bd9d4dedf3e4" category="paragraph">Revise os requisitos de configuração para o switch de cluster SN2100.</block>
+  <block id="101b1ef92ed878ba9dd2661cea7ae2d4" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="1f38da81fb5d0c94c5e8f8b6ccb01b64" category="inline-link-macro-rx"></block></block>
+  <block id="1e43785dc8650999c99981b0cc8ce52c" category="paragraph">Revise os componentes e números de peça do switch de cluster SN2100.</block>
+  <block id="22b898a802e6ecf1efe4fd8447155ff8" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="02de3235c7d60510b0e45690ce72f0ca" category="inline-link-macro-rx"></block></block>
+  <block id="de38f5bc18224a904a9da613e9e951b0" category="paragraph">Revise a documentação específica do switch e do controlador para configurar seus switches SN2100 e o cluster ONTAP .</block>
+  <block id="386ced704d131539551d82f287c24e19" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="f1c1619f8b1ed1d1d5c236b6f88e9555" category="inline-link-macro-rx"></block></block>
+  <block id="0b31070981ebc881be6e243852a30cab" category="paragraph"><block ref="e831ca446f09bd354bf76a86391af038" category="inline-link-macro-rx"></block> .</block>
+  <block id="db0d76db0abfe2ece0fea7cc312897cd" category="paragraph"><block ref="770c77dd441cd3adc4139ccb3c0d491b" category="inline-link-macro-rx"></block>ou<block ref="bba3ec5e6ca5e4f48b010488a5229b2c" category="inline-link-macro-rx"></block> .</block>
+  <block id="713d4f97a0409024a758cf7996d847d7" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="00e0372232f46e972c663d4404b271c3" category="inline-link-macro-rx"></block></block>
+  <block id="476f34e9325d1f5ca4e7f6764f1c37c4" category="paragraph">Configurar o switch NVIDIA SN2100.</block>
+  <block id="51f9c4931826853711f81f0086b1be28" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="770c77dd441cd3adc4139ccb3c0d491b" category="inline-link-macro-rx"></block></block>
+  <block id="3b9f73c0730af398d911853b213bfb36" category="paragraph">Você pode instalar o sistema operacional Cumulus Linux (CL) quando o switch estiver executando o Cumulus Linux.</block>
+  <block id="7f00e51a54f545ab163f2e82653bbf13" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="bba3ec5e6ca5e4f48b010488a5229b2c" category="inline-link-macro-rx"></block></block>
+  <block id="f682fdce414d2ddd65d60d8d505e17ec" category="paragraph">Como alternativa, você pode instalar o sistema operacional Cumulus Linux (CL) quando o switch estiver executando o Cumulus Linux no modo ONIE.</block>
+  <block id="f3773be3f537ec7e9445b37809101da2" category="inline-link-macro">Atualize sua versão do Cumulus Linux, conforme necessário</block>
+  <block id="cb5e063f4e304ba43b8ba58685bd1322" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="a3cdbbe9606c8c77342c08905091d58a" category="inline-link-macro-rx"></block></block>
+  <block id="4f5cad90763c2ce535c7e96c7cccdc28" category="paragraph">Você pode atualizar seu sistema operacional Cumulus Linux (CL) conforme necessário.</block>
+  <block id="6644a96995b52c5a8f8a5e5ce0f802e0" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="3d9967042c3cdfc5d68365a8b89192b1" category="inline-link-macro-rx"></block></block>
+  <block id="a87966bc5780610e7f2d0b7124159db7" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="bc8e6b3d8a605e692bda90d2d873314b" category="inline-link-macro-rx"></block></block>
+  <block id="a30be21f198530b5b6b8978b4ae21e1f" category="paragraph"><block ref="586358657da9582be98d1a15e5fd7854" category="inline-link-macro-rx"></block> .</block>
+  <block id="c7a001e5237d88fee0ed6a186bf5042e" category="summary">Antes de configurar os switches de cluster NVIDIA SN2100, revise a visão geral da configuração.</block>
+  <block id="19613dba5f729ac14e1b40a3e61a1ab9" category="doc">Fluxo de trabalho de instalação de hardware para switches NVIDIA SN2100</block>
+  <block id="aa93083325d3660d1aed75b314e1270e" category="paragraph">Para instalar e configurar o hardware de um switch de cluster SN2100, siga estas etapas:</block>
+  <block id="daec56e72d461515558a3d935c95a4fe" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="aa45643ca8651ba3a9c3767013bc801d" category="inline-link-macro-rx"></block></block>
+  <block id="2ee11f51bd36f5e7428d6b2344092e58" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block></block>
+  <block id="5683254bc2bec77f9a85300f204c6bbd" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="80fb20cce25ca0da251a9120933c758d" category="inline-link-macro-rx"></block></block>
+  <block id="ef13a953c3ab129dcc576e769c122f80" category="paragraph">Siga estas etapas do fluxo de trabalho para instalar e configurar seus switches SN2100.</block>
+  <block id="0d508cad56c14d168b856e4c53ac2007" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="6370bb97bd6b7b10cfdf3c98b908d48b" category="inline-link-macro-rx"></block></block>
+  <block id="30d492d34db3234f2c3610b47ee1a45f" category="paragraph">Revise os requisitos de configuração para o switch de armazenamento SN2100.</block>
+  <block id="383e295296a8a839fca94152a8e44e78" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="3b0ecc255c9296121fc728f8efacb726" category="inline-link-macro-rx"></block></block>
+  <block id="9fe54b1584b269535a10ca9757e0d633" category="paragraph">Revise os componentes e números de peça do switch de armazenamento SN2100.</block>
+  <block id="5c48143a21829dd93210328cf347b174" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="13fcbddd528de4209e7d23a68d1b9854" category="inline-link-macro-rx"></block></block>
+  <block id="cf432b832643aab203cf324c0cdd3d2a" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="262cec1150ef38c9ea7540d7ae3a4889" category="inline-link-macro-rx"></block></block>
+  <block id="ed769f33f5e6396a5350c26d00e10952" category="paragraph"><block ref="6f29ea203d7917d9d35a7a8e4664773a" category="inline-link-macro-rx"></block> .</block>
+  <block id="0f017a1e017594e935437ab5c77ea9cf" category="paragraph"><block ref="3041b5118a03f510955dbbcc0f577290" category="inline-link-macro-rx"></block>ou<block ref="a2ff852c84f89fa9e1b524e12735250e" category="inline-link-macro-rx"></block> .</block>
+  <block id="fcdc3fbb546ffe8444175e226eb7d6d8" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="d639995fde516a3ba2e60963b02aecc1" category="inline-link-macro-rx"></block></block>
+  <block id="625b196242864fb625e827a05ba0ca8b" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="3041b5118a03f510955dbbcc0f577290" category="inline-link-macro-rx"></block></block>
+  <block id="9d9be89e305913aa4f5fc1db511581ef" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="a2ff852c84f89fa9e1b524e12735250e" category="inline-link-macro-rx"></block></block>
+  <block id="a29cf60e6a27ba607f38c03d72584ed6" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="042936408f11a0ab2085068400be81ab" category="inline-link-macro-rx"></block></block>
+  <block id="5ec621045cf8b59339b967f20e718f17" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="bc8e6b3d8a605e692bda90d2d873314b" category="inline-link-macro-rx"></block></block>
+  <block id="dc6a92646e360d6aebcb4ffde88fdaa1" category="paragraph">Certifique-se de que o seguinte esteja disponível:</block>
+  <block id="d59b6c21553d166822815063268759a9" category="paragraph"><block ref="02bab6a93984b80dbf6d1f4b3c04e68a" category="inline-link-macro-rx"></block> .</block>
+  <block id="0e245f17e1a2edaaad55998a79c7ba51" category="paragraph"><block ref="ec7a39e14153ae248be0af2fdfe579b9" category="inline-link-macro-rx"></block> .</block>
+  <block id="9becc6b0b1c7536b40d8c1cc61107fca" category="doc">Fluxo de trabalho de instalação de hardware para switches de armazenamento NVIDIA SN2100</block>
+  <block id="aca9675b14d96b37e8250c7e8e7ee607" category="paragraph">Para instalar e configurar o hardware de um switch de armazenamento SN2100, siga estas etapas:</block>
+  <block id="928d9ac7d5d1c965d93fe4d3435b9692" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="1fbc6a97823ab47111a560b4ffbc73ac" category="inline-link-macro-rx"></block></block>
+  <block id="2ddbe786fed78c8ba3477ee17347bafb" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="75ce5666fba6992a0719935651dd5b1b" category="inline-link-macro-rx"></block></block>
+  <block id="c2f5a89812531f706189afb1d2d88afc" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="6c129e88cb5cbf6304a97d9174a6a7c1" category="inline-link-macro-rx"></block></block>
+  <block id="1f0ea2e5572ed3e4e3172467e737eda1" category="paragraph">Certifique-se de ter o seguinte:</block>
+  <block id="9e7cb6d6260b45f39a322192786be675" category="sidebar">Fluxo de trabalho de instalação de hardware</block>
+  <block id="1f23e03e99812c23b47ad60d475647df" category="sidebar">Atualize o switch</block>
+  <block id="5b416e1633d16aad217a2e0fc2d097f8" category="sidebar">Fluxo de trabalho de atualização</block>
+  <block id="b774573b632fe390095c073d1383dbd2" category="sidebar">Substitua os interruptores</block>
+  <block id="e791d1fac76c3ff6efed9115a50da70d" category="sidebar">Instalar o switch no gabinete NetApp</block>
+  <block id="69d7fe49f7c3685a4d25747f5ee8b18b" category="sidebar">Substituir o interruptor de armazenamento</block>
 </blocks>

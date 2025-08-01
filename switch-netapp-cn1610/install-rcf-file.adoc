@@ -19,7 +19,9 @@ Antes de instalar um RCF, você deve primeiro migrar os LIFs do cluster para lon
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Um backup atual da configuração do switch.
 * Um cluster totalmente funcional (sem erros nos logs e sem placas de interface de rede de cluster (NICs) defeituosas ou problemas semelhantes).
 * Conexões de porta totalmente funcionais no switch de cluster.

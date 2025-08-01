@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco nexus 92300YC 
 summary: Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis. Você pode usar switches de gerenciamento adicionais, que são opcionais. 
 ---
-= Componentes para switches Cisco Nexus 92300YC
+= Componentes e números de peça para switches Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -66,3 +66,6 @@ Detalhes do fluxo de ar do switch Cisco Nexus 92300YC:
 * Fluxo de ar do escape do lado do pórtico (ar padrão) -- o ar frio entra no chassi através dos módulos do ventilador e da fonte de alimentação no corredor frio e esgota através da extremidade do pórtico do chassi no corredor quente. Fluxo de ar do escape do lado da porta com coloração azul.
 * Fluxo de ar de entrada do lado do pórtico (ar reverso) -- o ar frio entra no chassi através da extremidade do pórtico no corredor frio e esgota através dos módulos do ventilador e da fonte de alimentação no corredor quente. Fluxo de ar de admissão do lado do porto com coloração Borgonha.
 
+
+.O que vem a seguir
+link:required-documentation-92300.html["Documentação necessária"] .

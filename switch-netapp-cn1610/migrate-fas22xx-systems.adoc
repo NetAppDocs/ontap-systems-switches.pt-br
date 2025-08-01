@@ -17,7 +17,9 @@ Se você tiver sistemas FAS22xx em um cluster sem switch de dois nós existente 
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Duas conexões de cluster para migrar de uma configuração sem switch para uma configuração comutada.
 * O cluster está íntegro e consiste em dois nós conectados com conectividade back-to-back.
 * Os nós estão executando o ONTAP 8,2 ou posterior.

@@ -589,3 +589,5 @@ Todos os direitos reservados
 100GbE ISL para mudar A porta 32
 
 |===
+.O que vem a seguir
+link:install-switch-3232c.html["Instale o interrutor"] .

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
 summary: Visão geral da instalação e configuração para switches de cluster Cisco Nexus 9336C-FX2 
 ---
-= Visão geral da instalação e configuração para switches de cluster Cisco Nexus 9336C-FX2
+= Fluxo de trabalho de instalação e configuração para switches de cluster Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,54 +13,28 @@ summary: Visão geral da instalação e configuração para switches de cluster 
 [role="lead"]
 O switch de cluster Cisco Nexus 9336C-FX2 faz parte da plataforma Cisco Nexus 9000 e pode ser instalado em um gabinete do sistema NetApp. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.
 
+Siga estas etapas do fluxo de trabalho para instalar e configurar seus switches Cisco 9336C-FX2.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:configure-reqs-9336c-cluster.html["Revise os requisitos de configuração"]
+[role="quick-margin-para"]
+Revise os requisitos de configuração para o switch de cluster 9336C-FX2.
 
-== Visão geral da configuração inicial
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:components-9336c-cluster.html["Revise os componentes e números de peça"]
+[role="quick-margin-para"]
+Revise os componentes e números de peça do switch de cluster 9336C-FX2.
 
-Para configurar inicialmente um switch Cisco Nexus 9336C-FX2 em sistemas que executam o ONTAP, siga estas etapas:
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:required-documentation-9336c-cluster.html["Revise a documentação necessária"]
+[role="quick-margin-para"]
+Revise a documentação específica do switch e do controlador para configurar seus switches 9336C-FX2 e o cluster ONTAP .
 
-. link:setup-worksheet-9336c-cluster.html["Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2 ou 9336C-FX2-T."].
-+
-A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]link:smart-call-9336c-cluster.html["Revise os requisitos do Smart Call Home"]
+[role="quick-margin-para"]
+Revise os requisitos do recurso Cisco Smart Call Home, usado para monitorar os componentes de hardware e software na sua rede.
 
-. link:install-switch-9336c-cluster.html["Instale o interrutor"].
-+
-Configure o hardware do switch.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:install-hardware-workflow.html["Instale o hardware"]
+[role="quick-margin-para"]
+Instale o hardware do switch.
 
-. link:setup-switch-9336c-cluster.html["Configure o interrutor do cluster 9336C-FX2"].
-+
-Configure o switch Cisco Nexus 9336C-FX2.
-
-. link:install-switch-and-passthrough-panel-9336c-cluster.html["Instale um switch Cisco Nexus 9336C-FX2 em um gabinete NetApp"].
-+
-Dependendo de sua configuração, você pode instalar o switch Cisco Nexus 9336C-FX2 e o painel pass-through em um gabinete NetApp com os suportes padrão que estão incluídos com o switch.
-
-. link:install-nxos-overview-9336c-cluster.html["Prepare-se para instalar o software NX-os e o RCF"].
-+
-Siga os procedimentos preliminares em preparação para a instalação do software Cisco NX-os e arquivos de configuração de referência (RCFs).
-
-. link:install-nxos-software-9336c-cluster.html["Instale ou atualize o software NX-os"].
-+
-Instale ou atualize o software NX-os no switch de cluster Nexus 9336C-FX2.
-
-. link:install-upgrade-rcf-overview-cluster.html["Instale ou atualize o RCF"].
-+
-Instale ou atualize o RCF depois de configurar o switch Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.
-
-. link:configure-ssh-keys.html["Verifique a configuração do SSH nos switches de cluster Nexus 9336C-FX2"].
-+
-Se você usar os recursos do Monitor de integridade do comutador Ethernet (CSHM) e coleta de logs, verifique se o SSH está habilitado nos switches.
-
-
-
-
-
-== Informações adicionais
-
-Antes de iniciar a instalação ou manutenção, certifique-se de rever o seguinte:
-
-* link:configure-reqs-9336c-cluster.html["Requisitos de configuração"]
-* link:components-9336c-cluster.html["Componentes e números de peça"]
-* link:required-documentation-9336c-cluster.html["Documentação necessária"]
-* link:smart-call-9336c-cluster.html["Requisitos para Smart Call Home"]
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:configure-software-overview-9336c-cluster.html["Configurar o software"]
+[role="quick-margin-para"]
+Configure o software do switch.

@@ -17,7 +17,9 @@ Se você tiver um ambiente de cluster sem switch de dois nós existente, poderá
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 Para uma configuração sem switch de dois nós, certifique-se de que:
 
 * A configuração sem switch de dois nós está corretamente configurada e funcionando.

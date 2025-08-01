@@ -25,7 +25,9 @@ Reveja as seguintes diretrizes:
 * Se você tiver um cluster de dois nós existente que usa switches de interconexão de cluster e estiver executando o ONTAP 9.3 ou posterior, poderá substituir os switches por conexões diretas e de retorno entre os nós.
 
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Um cluster íntegro que consiste em dois nós conectados por switches de cluster. Os nós devem estar executando a mesma versão do ONTAP.
 * Cada nó com o número necessário de portas de cluster dedicadas, que fornecem conexões redundantes de interconexão de cluster para oferecer suporte à configuração do sistema. Por exemplo, há duas portas redundantes para um sistema com duas portas de interconexão de cluster dedicadas em cada nó.
 

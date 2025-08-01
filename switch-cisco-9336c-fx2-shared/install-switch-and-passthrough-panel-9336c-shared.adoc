@@ -13,7 +13,9 @@ summary: Você pode instalar o switch Cisco Nexus 9336C-FX2 e o painel de passag
 [role="lead"]
 Dependendo da sua configuração, você pode precisar instalar o switch Cisco Nexus 9336C-FX2 e o painel pass-through em um gabinete NetApp. Os suportes padrão estão incluídos com o interrutor.
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Para cada interrutor, você deve fornecer os oito parafusos 10-32 ou 12-24 e porcas de grampo para montar os suportes e trilhos deslizantes nos postes dianteiros e traseiros do gabinete.
 * Você deve usar o kit de trilho padrão Cisco para instalar o switch em um gabinete NetApp.
 

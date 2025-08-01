@@ -13,7 +13,7 @@ summary: 'Substituição de um switch de armazenamento NVIDIA SN2100 com defeito
 [role="lead"]
 Você pode substituir um switch de armazenamento NVIDIA SN2100 com defeito. Este é um procedimento sem interrupções.
 
-.O que você vai precisar
+.Antes de começar
 Antes de instalar o software Cumulus e os RCFs em um switch de armazenamento NVIDIA SN2100, certifique-se de que:
 
 * Seu sistema pode suportar switches de armazenamento NVIDIA SN2100.

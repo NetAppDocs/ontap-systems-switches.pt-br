@@ -19,4 +19,4 @@ Para configurar o switch SN2100, consulte a documentação do NVIDIA.
 
 
 .O que se segue?
-link:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração"].
+link:install-cumulus-mode-sn2100-cluster.html["Instale o Cumulus Linux no modo Cumulus"]oulink:install-onie-mode-sn2100-cluster.html["Instale o Cumulus Linux no modo ONIE"] .

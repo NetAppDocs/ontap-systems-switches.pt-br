@@ -13,7 +13,7 @@ summary: Certifique-se de que os itens a seguir estão disponíveis no switch an
 [role="lead"]
 Siga este procedimento para instalar ou atualizar o script RCF.
 
-.O que você vai precisar
+.Antes de começar
 Antes de instalar ou atualizar o script RCF, certifique-se de que o seguinte está disponível no switch:
 
 * Cumulus Linux está instalado. Consulte https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obter as versões suportadas.

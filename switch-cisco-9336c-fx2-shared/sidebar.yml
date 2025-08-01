@@ -6,7 +6,7 @@ entries:
 - title: Visão geral
   pdf-filename: Overview_9336c-FX2-shared
   entries:
-  - title: Visão geral da configuração
+  - title: Início rápido
     url: "/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
   - title: Requisitos de configuração
     url: "/switch-cisco-9336c-fx2-shared/configure-reqs-9336c-shared.html"
@@ -17,19 +17,21 @@ entries:
 - title: Instale o hardware
   pdf-filename: Install_hardware_9336c-FX2-shared
   entries:
+  - title: Fluxo de trabalho de instalação de hardware
+    url: "/switch-cisco-9336c-fx2-shared/install-hardware-workflow.html"
   - title: Folha de cálculo de cablagem completa
     url: "/switch-cisco-9336c-fx2-shared/cable-9336c-shared.html"
   - title: Instale o interrutor
     url: "/switch-cisco-9336c-fx2-shared/install-9336c-shared.html"
-  - title: Configure o interrutor
-    url: "/switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html"
   - title: Instale o interrutor no gabinete do NetApp
     url: "/switch-cisco-9336c-fx2-shared/install-switch-and-passthrough-panel-9336c-shared.html"
-- title: Configure o software
+- title: Configurar o software
   pdf-filename: Configure_software_9336c-FX2-shared
   entries:
   - title: Fluxo de trabalho de instalação do software
     url: "/switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html"
+  - title: Configure o interrutor
+    url: "/switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html"
   - title: Prepare-se para instalar o software NX-os e o RCF
     url: "/switch-cisco-9336c-fx2-shared/prepare-nxos-rcf-9336c-shared.html"
   - title: Instale o software NX-os

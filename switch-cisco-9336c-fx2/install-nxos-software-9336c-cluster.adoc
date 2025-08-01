@@ -19,7 +19,9 @@ Antes de começar, conclua o procedimento em link:install-nxos-overview-9336c-cl
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Um backup atual da configuração do switch.
 * Um cluster totalmente funcional (sem erros nos logs ou problemas semelhantes).
 
@@ -693,4 +695,4 @@ Se qualquer LIFs de cluster não retornar às portas iniciais, reverta-as manual
 
 
 .O que se segue?
-link:install-upgrade-rcf-overview-cluster.html["Instalar ou atualizar o ficheiro de configuração de referência (RCF)"]
+link:install-upgrade-rcf-overview-cluster.html["Instalar ou atualizar o ficheiro de configuração de referência (RCF)"] .

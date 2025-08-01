@@ -20,7 +20,9 @@ NOTE: Após a conclusão da migração, talvez seja necessário instalar o arqui
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Um cluster existente totalmente funcional.
 * Conectividade de 10 GbE e 40 GbE de nós para switches de cluster Nexus 92300YC.
 * Todas as portas de cluster estão no estado up para garantir operações ininterruptas.

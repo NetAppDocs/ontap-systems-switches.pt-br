@@ -1,0 +1,22 @@
+---
+permalink: switch-bes-53248/install-hardware-workflow.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
+summary: Antes de configurar os switches de cluster BES-53248, consulte a visão geral da configuração. 
+---
+= Fluxo de trabalho de instalação de hardware para switches BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar e configurar o hardware de um switch de cluster BES-53248, siga estas etapas:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:install-hardware-bes53248.html["Instalar o hardware do switch"]
+[role="quick-margin-para"]
+Instalar e configurar o hardware do switch BES-53248.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:cabling-considerations-bes-53248.html["Revise o cabeamento e a configuração"]
+[role="quick-margin-para"]
+Revise as considerações de cabeamento e configuração para o switch de cluster BES-53248.

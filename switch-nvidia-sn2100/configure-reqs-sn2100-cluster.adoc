@@ -43,3 +43,6 @@ O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10.1P3 e
 
 * Você pode instalar o Cumulus Linux quando o switch estiver executando Cumulus Linux ou ONIE.
 
+
+.O que se segue?
+link:components-sn2100-cluster.html["Componentes e números de peça"] .

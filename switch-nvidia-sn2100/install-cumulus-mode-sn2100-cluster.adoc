@@ -16,7 +16,9 @@ Siga este procedimento para instalar o SO Cumulus Linux (CL) quando o switch est
 
 NOTE: O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando o Cumulus Linux ou ONIE (link:install-onie-mode-sn2100-cluster.html["Instale no modo ONIE"]consulte ).
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 * Conhecimento do Linux de nível intermediário.
 * Familiaridade com edição de texto básica, permissões de arquivo UNIX e monitoramento de processos. Uma variedade de editores de texto são pré-instalados, `vi` incluindo e `nano`.
 * Acesso a um shell Linux ou UNIX. Se você estiver executando o Windows, use um ambiente Linux como sua ferramenta de linha de comando para interagir com o Cumulus Linux.

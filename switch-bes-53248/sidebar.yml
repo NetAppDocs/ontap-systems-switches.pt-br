@@ -5,7 +5,7 @@ entries:
 - title: Visão geral
   pdf-filename: Overview_bes53248
   entries:
-  - title: Visão geral da configuração
+  - title: Início rápido
     url: "/switch-bes-53248/configure-new-switch-overview.html"
   - title: Requisitos de configuração
     url: "/switch-bes-53248/configure-reqs-bes53248.html"
@@ -16,17 +16,19 @@ entries:
 - title: Instale o hardware
   pdf-filename: Install_hardware_bes53248
   entries:
+  - title: Fluxo de trabalho de instalação de hardware
+    url: "/switch-bes-53248/install-hardware-workflow.html"
   - title: Instale o interrutor
     url: "/switch-bes-53248/install-hardware-bes53248.html"
-  - title: Configure o interrutor
-    url: "/switch-bes-53248/configure-install-initial.html"
   - title: Revise o cabeamento e a configuração
     url: "/switch-bes-53248/cabling-considerations-bes-53248.html"
-- title: Configure o software
+- title: Configurar o software
   pdf-filename: Configure_software_bes53248
   entries:
   - title: Fluxo de trabalho de instalação do software
     url: "/switch-bes-53248/configure-software-overview-bes53248.html"
+  - title: Configure o interrutor
+    url: "/switch-bes-53248/configure-install-initial.html"
   - title: Instale o software EFOS
     url: "/switch-bes-53248/configure-efos-software.html"
   - title: Instale o RCF e o ficheiro de licença para o EFOS 3,12 e posterior
@@ -39,10 +41,10 @@ entries:
     url: "/switch-bes-53248/configure-ssh.html"
   - title: Redefinir o switch para os padrões de fábrica
     url: "/switch-bes-53248/reset-switch-bes-53248.html"
-- title: Interrutor de atualização
+- title: Atualize o switch
   pdf-filename: Upgrade_switches_bes53248
   entries:
-  - title: Visão geral da atualização
+  - title: Fluxo de trabalho de atualização
     url: "/switch-bes-53248/upgrade-switch-overview.html"
   - title: Atualize a versão do EFOS
     url: "/switch-bes-53248/upgrade-efos-software.html"
@@ -50,14 +52,14 @@ entries:
     url: "/switch-bes-53248/upgrade-rcf.html"
   - title: Verifique o cluster após a atualização
     url: "/switch-bes-53248/replace-verify.html"
-- title: Migrar switches
+- title: Migrar os switches
   pdf-filename: Migrate_switches_bes53248
   entries:
   - title: Migrar de CN1610 switches
     url: "/switch-bes-53248/migrate-cn1610.html"
   - title: Migrar para dois nós comutados
     url: "/switch-bes-53248/migrate-to-2n-switched.html"
-- title: Substitua os interrutores
+- title: Substitua os interruptores
   pdf-filename: Replace_switches_bes53248
   entries:
   - title: Requisitos de substituição

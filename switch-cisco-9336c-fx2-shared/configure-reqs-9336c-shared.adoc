@@ -45,3 +45,6 @@ Você precisa das seguintes informações de rede para todas as configurações 
 
 
 Para obter mais informações sobre a configuração inicial do switch, consulte o seguinte guia: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guia de instalação e atualização do Cisco Nexus 9336C-FX2"].
+
+.O que vem a seguir
+link:components-9336c-shared.html["Componentes e números de peça"] .
