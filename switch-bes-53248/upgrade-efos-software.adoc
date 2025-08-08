@@ -192,7 +192,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 ====
 . Transfira o ficheiro de imagem para o interrutor.
 +
-Copiar o arquivo de imagem para a imagem ativa significa que, quando você reiniciar, essa imagem estabelece a versão do EFOS em execução. A imagem anterior permanece disponível como cópia de segurança.
+Copiar o arquivo de imagem para a imagem de backup significa que, quando você reinicializar, essa imagem estabelecerá a versão do EFOS em execução, concluindo a atualização.
 
 +
 [listing, subs="+quotes"]
@@ -269,7 +269,7 @@ Image Descriptions
 ------------------------------------------------------------------
  unit      active      backup      current-active    next-active
 ------------------------------------------------------------------
-    1    3.10.0.3    3.10.0.3            3.10.0.3       3.11.0.2
+    1    3.10.0.3    3.10.0.3            3.10.0.3       3.10.0.3
 ----
 ====
 . Salve a configuração em execução na configuração de inicialização:

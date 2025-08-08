@@ -23,6 +23,22 @@ Antes de instalar ou atualizar o script RCF, certifique-se de que o seguinte est
 
 NOTE: Você deve especificar um usuário no RCF (além do usuário admin) para ser usado especificamente para a coleção de logs.
 
+.Configurações do cliente
+As seguintes categorias de configuração de referência estão disponíveis:
+
+[cols="1,2"]
+|===
+
+
+| Cluster | Em portas configuradas para breakout 4x10GbE, uma porta é configurada para breakout 4x25GbE e as outras portas são configuradas para 40/100GbE.  Suporta tráfego de cluster/HA compartilhado em portas para nós que usam portas de cluster/HA compartilhadas.  Veja a tabela de plataformas no artigo da Base de Conhecimento https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["Quais plataformas AFF, ASA e FAS usam portas Ethernet de cluster e HA compartilhadas?"^] .  Todas as portas também podem ser usadas como portas de cluster dedicadas. 
+
+
+ a| 
+Armazenamento
+ a| 
+Todas as portas configuradas para conexões de armazenamento NVMe de 100 GbE.
+
+|===
 .Versões de script RCF atuais
 Há dois scripts RCF disponíveis para aplicativos de cluster e armazenamento. Baixe RCFs https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Transferência do software NVIDIA SN2100"^] da página. O procedimento para cada um é o mesmo.
 

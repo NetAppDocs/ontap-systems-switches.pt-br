@@ -1,0 +1,37 @@
+= 
+:allow-uri-read: 
+
+
+.Sobre esta tarefa
+* Você deve estar conetado ao switch usando o console serial.
+* Esta tarefa repõe a configuração da rede de gestão.
+
+
+.Passos
+. Apagar a configuração existente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Recarregue o software do switch:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+O sistema é reinicializado e entra no assistente de configuração.  Durante a inicialização, se você receber o prompt “Abortar provisionamento automático e continuar com a configuração normal?  (sim/não)[n]”, você deve responder *sim* para prosseguir.
+
+

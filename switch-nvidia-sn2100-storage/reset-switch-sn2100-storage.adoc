@@ -1,0 +1,78 @@
+---
+permalink: switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html 
+sidebar: sidebar 
+keywords: SN2100 reset switch to factory defaults, SN2100 switches configuration, efos 
+summary: Antes de configurar seu switch Cisco Nexus SN2100, revise as seguintes informações. 
+---
+= Redefinir o switch de armazenamento SN2100 para os padrões de fábrica
+:allow-uri-read: 
+
+
+[role="lead"]
+Para redefinir o switch de armazenamento SN2100 para os padrões de fábrica:
+
+* Para o Cumulus Linux 5.10 e anteriores, aplique a imagem Cumulus.
+* Para Cumulus Linux 5.11 e posterior, você usa o `nv action reset system factory-default` comando.
+
+
+.Sobre esta tarefa
+* Você deve estar conetado ao switch usando o console serial.
+* Você precisa ter a senha de root para ter acesso sudo aos comandos.
+
+
+
+NOTE: Para obter mais informações sobre a instalação do Cumulus Linux, consultelink:configure-software-overview-sn2100-cluster.html["Fluxo de trabalho de instalação de software para switches NVIDIA SN2100"] .
+
+.Passos
+[role="tabbed-block"]
+====
+.Cumulus Linux 5.10 e anteriores
+--
+. No console Cumulus, baixe e coloque na fila a instalação do software do switch com o comando `onie-install -a -i` seguido pelo caminho do arquivo para o software do switch, por exemplo:
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://<web-server>/<path>/cumulus-linux-5.10.0-mlx-amd64.bin*
+----
+. O instalador inicia o download.  Digite *y* quando solicitado para confirmar a instalação quando a imagem for baixada e verificada.
+. Reinicie o switch para instalar o novo software.
++
+`sudo reboot`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:mgmt:~$ *sudo reboot*
+----
++
+
+NOTE: O switch é reinicializado e entra na instalação do software do switch, o que leva algum tempo.  Quando a instalação estiver concluída, o switch será reinicializado e permanecerá no estado `log-in` incitar.
+
+
+
+--
+.Cumulus Linux 5.11 e posterior
+--
+. Para redefinir o switch para os padrões de fábrica e remover todas as configurações, arquivos de sistema e arquivos de log, execute:
++
+`nv action reset system factory-default`
+
++
+Por exemplo:
+
++
+[listing, subs="+quotes"]
+----
+cumulus@switch:~$ *nv action reset system factory-default*
+
+This operation will reset the system configuration, delete the log files and reboot the switch.
+Type [y] continue.
+Type [n] to abort.
+Do you want to continue? [y/n] *y*
+----
+
+
+Veja a NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Redefinição de fábrica"^] documentação para mais detalhes.
+
+--
+====

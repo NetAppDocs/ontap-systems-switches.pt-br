@@ -32,3 +32,7 @@ Instale o RCF depois de configurar o switch Cisco 3232C pela primeira vez.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verifique a configuração do SSH"]
 [role="quick-margin-para"]
 Verifique se o SSH está habilitado nos switches para usar o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-3232c.html["Redefinir o switch para os padrões de fábrica"]
+[role="quick-margin-para"]
+Apague as configurações do switch do cluster 3232C.

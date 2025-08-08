@@ -40,6 +40,8 @@ entries:
     url: "/switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html"
   - title: Instale o arquivo CSHM
     url: "/switch-nvidia-sn2100-storage/setup-install-cshm-file.html"
+  - title: Redefinir o switch para os padrões de fábrica
+    url: "/switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"
 - title: Migrar switches
   pdf-filename: Migrar_switches_sn2100-storage
   entries:
