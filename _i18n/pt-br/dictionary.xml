@@ -60,12 +60,10 @@
   <block id="a194a4ea8dc4dc236627221cad9344d4" category="inline-link-macro">Analise as considerações sobre cabeamento e configuração</block>
   <block id="e019eb42e4f42756266b23abef92e1dd" category="list-text">Reaplique quaisquer personalizações anteriores à configuração do switch. <block ref="45429bb8a97f1efddbc53c789578d613" category="inline-link-macro-rx"></block>Consulte para obter detalhes sobre quaisquer alterações adicionais necessárias.</block>
   <block id="f84dbe517c4cab37d96220b08c6a7430" category="list-text">Depois de verificar se as versões do RCF e as configurações do switch estão corretas, copie o arquivo running-config para o arquivo startup-config.</block>
-  <block id="1d46b4d726541133306aadb791fbac06" category="paragraph"><block ref="dfc31c90abcf8c7a53e718b270cdf0aa" prefix="" category="inline-code"></block></block>
   <block id="b49fe5d89ca32aff6d41fc29d768d68c" category="paragraph">Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no<block ref="dba0e49fdfeab9433bb71da6c505aa34" category="inline-link-rx"></block>.</block>
   <block id="758d64d19fd5c7f49ed73e0b94a6f13f" category="list-text">Interrutor de reinicialização CS1.</block>
   <block id="c55a2ac1185a6d9fa389abde666b6620" category="paragraph"><block ref="47b50d91942746c6b7da7bcb3a3898ea" prefix="" category="inline-code"></block></block>
   <block id="d692b83806892fb177d501de252dd5bc" category="paragraph"><block ref="b62877e87bc2393ec2c608f3105d0333" prefix="" category="inline-code"></block></block>
-  <block id="b1c7d54c4a64389501f56df63a9cb2b8" category="list-text">Repita os passos 1 a 7 no interrutor CS2.</block>
   <block id="bdd2caa835c08370cb1ccd414ffee5e1" category="list-text">Conecte as portas do cluster de todos os nós do cluster ONTAP aos switches CS1 e CS2.</block>
   <block id="40a4ddeef3e9ca8e912f65eb91474da3" category="section-title">Etapa 2: Verifique as conexões do interrutor</block>
   <block id="28f363620ef0b78f100aebcc28cca7da" category="list-text">Verifique se as portas do switch conetadas às portas do cluster estão *up*.</block>
@@ -375,19 +373,10 @@
   <block id="b77c6d3e350c043b8f790e806e7bc521" category="list-text">Registre quaisquer adições personalizadas entre o atual running-config e o arquivo RCF em uso (como uma configuração SNMP para sua organização).</block>
   <block id="085ebea59269f171d2893f7c9fd27a56" category="list-text">Para NX-os 10,2 e mais recentes, use o<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando para comparar com o arquivo RCF salvo no flash de inicialização. Caso contrário, use uma ferramenta de comparação/comparação de terceira parte.</block>
   <block id="7a1b725f171ccc55c2b6a943c968b20f" category="list-text">Salve os detalhes básicos de configuração no arquivo write_erase.cfg no flash de inicialização.</block>
-  <block id="39a62c1e7dfb4ebb50f79d526c4b3b41" category="paragraph"><block ref="a21819917a390159ce4a3fc4cabe324f" prefix="" category="inline-code"></block></block>
-  <block id="e08fd1b6e2dcb2a7248eed4e8ddd7c7b" category="paragraph"><block ref="29620a94cb1ba65f2a65d98c6830535b" prefix="" category="inline-code"></block></block>
-  <block id="6f88c4f0ef85a211d5223ff2604d28e0" category="paragraph"><block ref="39e41c7158b7217359d1d024d442d826" prefix="" category="inline-code"></block></block>
-  <block id="eaa6f7b071ff32e6edcef64256d0871f" category="paragraph"><block ref="ad01ff5bd18b23321f4a5f80b714f692" prefix="" category="inline-code"></block></block>
   <block id="62fcaa3e0af91f6b966bcf398e3e6086" category="list-text">Emita o comando write erase para apagar a configuração salva atual:</block>
-  <block id="dc6fc35df489bd6bb938c2c7b2d410c5" category="paragraph"><block ref="8b6d14a918e69565b7089260305efbc6" prefix="" category="inline-code"></block></block>
   <block id="f455f9d17674cb5efba0664c003ad484" category="paragraph"><block ref="7812e68ffa4111ad9046c1ab43dcaf2c" prefix="" category="inline-code"></block></block>
-  <block id="e2288282565e302230f8a37041768ed2" category="paragraph"><block ref="a8fd1d47e1eed37a3bc905f1c0e383a9" prefix="" category="inline-code"></block></block>
   <block id="459d1bc967bf4f56f677e29979bb87fd" category="list-text">Copie a configuração básica salva anteriormente na configuração de inicialização.</block>
-  <block id="e2409a8cab7026a9fcbcf9839a3cf49d" category="paragraph"><block ref="eb00d852fdfa84462bda944d2348d9a5" prefix="" category="inline-code"></block></block>
   <block id="b48ffac2fb8952951818ab2ce539c1d3" category="list-text">Execute uma reinicialização do switch:</block>
-  <block id="1691d1c0e9b3cc92b3ba388f00d859e2" category="paragraph"><block ref="2dde6c3abd7b2f462a4f2162fae48851" prefix="" category="inline-code"></block></block>
-  <block id="cd05c6b0946147cbb3f39299b8dcdeed" category="paragraph"><block ref="320348c7039a92322f8ae8aa6b9548b3" prefix="" category="inline-code"></block></block>
   <block id="e90414dab5eca6b338b4136c697db6b5" category="list-text">Depois que o endereço IP de gerenciamento for acessível novamente, faça login no switch através de SSH.</block>
   <block id="c91e8b7706844bcabdc205a7e43be636" category="paragraph">Talvez seja necessário atualizar as entradas do arquivo host relacionadas às chaves SSH.</block>
   <block id="75d60e24abda3d2be5719b222283e4ab" category="list-text">Depois de verificar se as versões RCF, adições personalizadas e configurações de switch estão corretas, copie o arquivo running-config para o arquivo startup-config.</block>
@@ -399,7 +388,6 @@
   <block id="1998c6d3154f5a2c373da0aeca0fd3ff" category="paragraph"><block ref="856f897c52a15ad9c779d1f7b82c2593" prefix="" category="inline-code"></block></block>
   <block id="5d1ccfeff69430937e33ed02e46dbd94" category="list-text">Verifique a integridade do switch a partir do cluster.</block>
   <block id="5fce64183093b6e715f9c2c0872112ef" category="paragraph">Você pode observar a seguinte saída no console do switch CS1, dependendo da versão RCF carregada anteriormente no switch:</block>
-  <block id="9743e816fbdd9c60a2c9c6f91cbe208b" category="list-text">Repita os passos 1 a 18 no interrutor CS2.</block>
   <block id="8e74fc1d82f0252ff302e728b8ef84b7" category="paragraph"><block ref="fefdb12e2547581b07493ad4416e36ba" prefix="" category="inline-code"></block></block>
   <block id="47de5e0c657f20c6f281aea421f423db" category="section-title">Etapa 3: Verifique a configuração da rede do cluster e a integridade do cluster</block>
   <block id="332a7a8d77748a421e7945cefc8ccf89" category="list-text">Verifique se os nós esperados ainda estão conetados:</block>
@@ -1363,7 +1351,6 @@
   <block id="5567fb27456995b9005b168c9dd39c7e" category="list-text">No switch de cluster CS2, encerre as portas conetadas às portas de cluster dos nós.</block>
   <block id="835044aeea65c8864816e5160f4d5f92" category="list-text">Verifique se as portas de cluster migraram para as portas hospedadas no switch de cluster CS1. Isso pode levar alguns segundos.</block>
   <block id="d08074ca4afc3cad1b1b41c1134b3f1e" category="section-title">Passo 2: Configure e verifique a configuração</block>
-  <block id="83ad3b6efa173a2560e396a36d6ac2f0" category="admonition">Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e executar a configuração básica. Você *deve* estar conetado à porta do console serial do switch para configurar o switch novamente. No entanto, esse requisito é opcional se você tiver usado o artigo da base de dados de Conhecimento<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> para limpar a configuração de antemão.</block>
   <block id="2df26e386d021172b261bcb47e157019" category="list-text">Limpar a configuração:</block>
   <block id="b0c43589a498f27ca141cd4db101283e" category="inline-link">Referência de comando Cisco Nexus 3000 Series NX-os</block>
   <block id="8b205e91662e46037aa9052c6d1ff328" category="list-text">Copie o RCF para o flash de inicialização do switch CS2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP. Para obter mais informações sobre comandos Cisco, consulte o guia apropriado<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> nos guias.</block>
@@ -1959,9 +1946,7 @@
   <block id="e5f3c3d2c754cc48938d50b1782093ac" category="paragraph">Você também pode usar este procedimento para atualizar sua versão RCF. Consulte o artigo da base de dados de Conhecimento<block ref="c3cf8dee5fd4e009c0e2b38bfb97fe4d" category="inline-link-rx"></block> para obter mais informações ao atualizar o RCF.</block>
   <block id="a0f6e8eb6b5f6a47b9079727da7ff23a" category="list-text">Uma ligação de consola ao interrutor, necessária ao instalar o RCF.</block>
   <block id="10d146c112c5b50595149d6af52fe222" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block> Consulte a tabela de compatibilidade do switch para as versões ONTAP e RCF suportadas. Note que pode haver dependências de comando entre a sintaxe de comando no RCF e aquela encontrada em versões do NX-os.</block>
-  <block id="d69d8c23518c3e983c5799321eb27404" category="list-text">Limpe a configuração no interrutor CS2 e reinicie o interrutor.</block>
   <block id="0fb51802ddab454289d99db889475b22" category="admonition">Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e executar a configuração básica. Você deve estar conetado à porta do console serial do switch para configurar o switch novamente.</block>
-  <block id="a3d5cbedb318ff78ae8c3f9bced7661b" category="list-text">Execute uma configuração básica do switch. <block ref="ab35665c267fa570f19ad0ebf8386ab4" category="inline-link-macro-rx"></block>Consulte para obter detalhes.</block>
   <block id="eb22df33c22805be63e48e35c956a5be" category="paragraph">Este exemplo mostra TFTP sendo usado para copiar um RCF para o flash de inicialização no switch CS2:</block>
   <block id="bec2d779818d6e0e0e9ff7a66a88bdcf" category="paragraph">Este exemplo mostra o arquivo RCF<block ref="e295b0f2672f0fdfe2c8addbed904770" prefix=" " category="inline-code"></block> sendo instalado no switch CS2:</block>
   <block id="319869b1ac41d35b8bb0654bf94a816d" category="list-text">Examine a saída do banner a partir do<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> comando. Você deve ler e seguir as instruções em *Notas importantes* para garantir a configuração e o funcionamento corretos do switch.</block>
@@ -4588,7 +4573,6 @@
   <block id="2599d5f1ece8078590877d15b717f346" category="list-text">[[step9]]desligue as portas 1/31 e 1/32 no CL1 e o switch Nexus 3132Q-V ativo:</block>
   <block id="e24c0f89ee0b0fb577ecce66e38a9e4d" category="list-text">[[step10]] encerre as portas ISL 13 a 16 no interrutor CN1610 ativo CL1:</block>
   <block id="8401a156e54d36682ab941dd51ed3e9d" category="list-text">[[step12]] em cada nó no cluster, migre as interfaces associadas ao primeiro switch CN1610 CL1, para serem substituídas:</block>
-  <block id="a1362b00e7776e62ab541ebf090bf150" category="list-text">Repita os passos 7 a 17 no interrutor CS1.</block>
   <block id="09c97f0f4f7a646915b2abf749bc1d6f" category="list-text">[[step3]] encerre as portas ISL 13 a 16 no interrutor CN1610 ativo CL1 usando o comando apropriado.</block>
   <block id="e2ad2b2cb346f8abd448d557881c7dd5" category="list-text">[[step16]] migre os LIFs associados ao primeiro switch CN1610 CL1:</block>
   <block id="e542ca85e220af35c4b3a82c0642077a" category="list-text">[[step4]] expanda o cluster adicionando nós aos switches de cluster Nexus 3232C.</block>
@@ -4932,14 +4916,12 @@
   <block id="df8a9198280d88db538535b2609f0f83" category="sidebar">Replace_switches_3232C</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_upgrade_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Instale ou atualize a visão geral do RCF</block>
-  <block id="b6503bc6a2e6ede86368a60473711626" category="list-text">Repita os passos 1 a 11 no interrutor CS1.</block>
   <block id="ea6719e8ba4a5a7aea0b4185afc5408b" category="summary">Você pode instalar o RCF depois de configurar o switch de armazenamento Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="fc3ebe0c41be566a2062e99eee81c6ba" category="paragraph">Você instala o arquivo de configuração de referência (RCF) depois de configurar o switch de armazenamento Nexus 9336C-FX2 pela primeira vez.</block>
   <block id="0d54a8a99337a48199414ba38d122135" category="list-text">O switch CS1 e o switch CS2 são ativados e a configuração inicial do switch está concluída (o endereço IP de gerenciamento e o SSH estão configurados).</block>
   <block id="f1de50ac922202c9581e806906499ae8" category="paragraph">Este exemplo mostra o RCF<block ref="fcd688c0fb8c0256c7fc0b5ca2fd673d" prefix=" " category="inline-code"></block> a ser instalado no interrutor CS1:</block>
   <block id="a697c9a980376d3a62210b2b53d5b0b8" category="list-text">Examine a saída do banner a partir do<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> comando. Deve ler e seguir estas instruções para garantir a configuração e funcionamento corretos do interrutor.</block>
   <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">Verifique se o RCF é a versão mais recente correta:</block>
-  <block id="7fd5f97719ed93b62ce57a2401ebb179" category="list-text">Depois de verificar se as versões do RCF e as configurações do switch estão corretas, copie o arquivo running-config para o arquivo startup-config:</block>
   <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">O System Manager fornece um fluxo de trabalho simples e fácil para configuração e configuração de cluster, incluindo a atribuição de um endereço IP de gerenciamento de nós, a inicialização do cluster, a criação de um nível local, a configuração de protocolos e o provisionamento de armazenamento inicial.</block>
   <block id="7ff4d12d3e81fb159ea571275dbbb3fd" category="admonition">Observe que depois de atualizar os switches de cluster BES-53248 do EFOS 3,3.x.x ou 3,4.x.x para o EFOS 3.7.0.4 ou 3,8.0,2, os ISLs (Inter-Switch Links) e os canais de porta estão marcados no estado *para baixo*. Este é o comportamento esperado e é seguro continuar com a atualização, a menos que você esteja tendo problemas com LIFs de reversão automática. Consulte o artigo da base de dados de Conhecimento:<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block> Para obter mais detalhes.</block>
   <block id="4624388fca013386d1c7314566aa1510" category="list-text">Inicie o sistema a partir da configuração de cópia de segurança:</block>
@@ -5177,9 +5159,6 @@
   <block id="86f7f66cb381cc46fe300e0c2c8f0499" category="inline-link-macro">A configuração do servidor NTP não está funcionando com os switches NVIDIA SN2100</block>
   <block id="c77e68e056a1f231532a65076ed213f7" category="paragraph">Veja o artigo da Base de Conhecimento <block ref="54a4a8d8880601232d1c62bd5f55e05a" category="inline-link-macro-rx"></block> para mais detalhes.</block>
   <block id="18e6dddff6b5dbe3698443f6bf547259" category="list-text">Para RCF versão 1.12 e posteriores, execute os seguintes comandos:</block>
-  <block id="b9290d13c5441920a725478322d847bc" category="paragraph"><block ref="fd00e81f5f0cef46bffcdca10e8bb0be" prefix="" category="inline-code"></block></block>
-  <block id="34425e3277b6cd10529c78a1067175a7" category="paragraph"><block ref="56f6c12b458176a1c5a0b7f219fc582f" prefix="" category="inline-code"></block></block>
-  <block id="36e8b4b3d01f5fa01bc38b742b7adae1" category="paragraph"><block ref="ceccb5672696bf7833b4da32e595b96e" prefix="" category="inline-code"></block></block>
   <block id="255946ce0bdffe025ba4bdaa710146e6" category="list-text">Verifique se o arquivo write_erase.cfg está preenchido conforme o esperado:</block>
   <block id="c8608e8042094ff03aff5d73acbce651" category="paragraph"><block ref="aa69f627a489063557f4707be7ba43f0" prefix="" category="inline-code"></block></block>
   <block id="90b56b330f7736518fea2723b6853482" category="list-text">Repita os passos 1 a 20 no interrutor CS2.</block>
@@ -5565,4 +5544,40 @@
   <block id="1be93b4b1346481ccfcdf6a6bd2008e8" category="paragraph">Apague as configurações do switch de armazenamento SN2100.</block>
   <block id="8bd633b356e38314c746a25f8da3b76b" category="doc">Redefinir o switch de armazenamento SN2100 para os padrões de fábrica</block>
   <block id="c3b2428233cf84612f16bff57a3bfb02" category="paragraph">Para redefinir o switch de armazenamento SN2100 para os padrões de fábrica:</block>
+  <block id="5667ca92a697e03bc95d429bfe20fda5" category="inline-link">switch de sistema ethernet configurar-monitor-de-saúde</block>
+  <block id="a7692359e6ab53408219d1f4fbab4614" category="paragraph">Veja o<block ref="e8f3e733a7456e37aaeb3c329fac3e94" category="inline-link-rx"></block> comando para mais detalhes.</block>
+  <block id="562153472d2b6000e72406f01051792a" category="list-text">Registre quaisquer adições personalizadas entre a configuração atual e o arquivo RCF em uso.</block>
+  <block id="1cc7482dc94a503d163babfacdc05d90" category="admonition">Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e executar a configuração básica.  Você deve estar conectado à porta serial do console do switch para configurá-lo novamente.</block>
+  <block id="4232320468cc891ca1def7307234fdab" category="paragraph"><block ref="6ed0af64cbf818bf56b147579b24eab3" prefix="" category="inline-code"></block></block>
+  <block id="8ca0b900e4290328d2b41984aafe90e7" category="paragraph"><block ref="c95ad3fed420195ce350910275648421" prefix="" category="inline-code"></block></block>
+  <block id="023d3cea21f793fbb3e2e5d28e57a72b" category="paragraph"><block ref="9ce063e5d5eba89cfe73c4a7aa644c03" prefix="" category="inline-code"></block></block>
+  <block id="028ec7d09f77a158fe61f03d83610921" category="paragraph"><block ref="cb92f45d862d75a23e3fac8a5fd092f8" prefix="" category="inline-code"></block></block>
+  <block id="717d34c223b104b615a461bc9992fec2" category="paragraph"><block ref="7a6b9b4916c4b73908fdd869ba141f50" prefix="" category="inline-code"></block></block>
+  <block id="5874439536649fa36cb953afac4bdfc9" category="paragraph"><block ref="515277b58830c3c4e31f38d9f9963be8" prefix="" category="inline-code"></block></block>
+  <block id="f44d2548870db270213e5ffe209b4689" category="paragraph"><block ref="6a2fde838f43d6496891962036acd77d" prefix="" category="inline-code"></block></block>
+  <block id="19bc101773ab2f0483029be1ff96054c" category="paragraph"><block ref="0ea7b23ad779f4f48bd0160828e3c364" prefix="" category="inline-code"></block></block>
+  <block id="ef7b355e739842b9c934aa44f9d23a94" category="paragraph"><block ref="b919614541ccef30710bff6c217f0c43" prefix="" category="inline-code"></block></block>
+  <block id="d28ac33ba46b5ee3d2d06276a2e27ed6" category="paragraph">Veja o artigo da Base de Conhecimento<block ref="b46f374ac5dd40f108fec29ae35860ee" category="inline-link-rx"></block> para mais detalhes.</block>
+  <block id="51ed24b6228c8b36770dd39391d8bc7e" category="list-text">Emitir o<block ref="ed3fe2a45ef033acf306fc90fbafdd66" prefix=" " category="inline-code"></block> comando para apagar a configuração salva atual:</block>
+  <block id="a60beffd34bc0a1af921bd1718bcdace" category="paragraph"><block ref="34032a1bb449f32c9fcbb7ff1cfe5bd5" prefix="" category="inline-code"></block></block>
+  <block id="1919cf67cee23cb44c0e96cb3fc4c876" category="paragraph"><block ref="efdac8d32d2f272bc15624cc43f8f294" prefix="" category="inline-code"></block></block>
+  <block id="fed74a4623bde0237a1b3be8e8042cbc" category="paragraph"><block ref="5df914552885278ba9e8a73fcaf7994a" prefix="" category="inline-code"></block></block>
+  <block id="ec29d2d5a1b4f802e07ac896a15e5624" category="paragraph"><block ref="02c29bd72975e1a289eaf536ccb4ac05" prefix="" category="inline-code"></block></block>
+  <block id="684a4c2862f5fef1f6d28303a5df57cb" category="list-text">Repita os passos 1 a 19 no switch cs1.</block>
+  <block id="770d2d8ee323646f71bd836e04b6bcf1" category="paragraph"><block ref="c76e6e9e0613f45a95bce39f19a419a9" prefix="" category="inline-code"></block></block>
+  <block id="3a950462bc76b1e9a5ad74b10ff9376a" category="list-text">Repita os passos 7 a 20 no switch cs1.</block>
+  <block id="0cf70822d9949e4c6758e918643273c8" category="paragraph"><block ref="a11ecf52d39ead0e156683247ccf2127" prefix="" category="inline-code"></block></block>
+  <block id="509c8307041a8ec518033cbc63e3c50b" category="paragraph"><block ref="8c3437ea3e27545ca4b0d2b43011cd70" prefix="" category="inline-code"></block></block>
+  <block id="f754809a548cd76d671cc491b7eec29b" category="paragraph"><block ref="6bcd94cf62d325392b1785ec7c4d0b4f" prefix="" category="inline-code"></block></block>
+  <block id="ebe26990aabba87fe33eb909a21ad9b9" category="paragraph"><block ref="a4807a2f59573034bf9e433b7f092ac2" prefix="" category="inline-code"></block></block>
+  <block id="620dbb76acb886552dbf90beae61a089" category="paragraph"><block ref="c7bad43350d7f24c8f6009f19bfb7ac2" prefix="" category="inline-code"></block></block>
+  <block id="a8a84368cc5da872ee27b5aa916012bf" category="paragraph"><block ref="c504e3bbf97ff14f7b88da0a3b4bed45" prefix="" category="inline-code"></block></block>
+  <block id="92a263f83655527a8570ddfd3130dcf6" category="paragraph"><block ref="141e63272914863fc9c959b427fdacd7" prefix="" category="inline-code"></block></block>
+  <block id="002be8e67a0ddc666dd0ab6ed8d9b723" category="paragraph"><block ref="8c066b528dcbc1486476e4154920e286" prefix="" category="inline-code"></block></block>
+  <block id="baa9d9b44ef34df5ca5f98884d0608d3" category="paragraph"><block ref="603fb14344e659fed2e403db2df24a4a" prefix="" category="inline-code"></block></block>
+  <block id="99dac37d19301bd793cd70886317bb05" category="list-text">Repita os passos 1 a 12 no switch cs2.</block>
+  <block id="432ba1ee34f738963470ac6a7bb24dee" category="paragraph"><block ref="c43d8f1df82823c11979a10dcc012390" prefix="" category="inline-code"></block></block>
+  <block id="bc19795a1e2342c4b6ced06c4d40bf1f" category="paragraph"><block ref="06ea8c0ad9680ca72f21fb9acf4190a7" prefix="" category="inline-code"></block></block>
+  <block id="c0203a2fdd4f105bd33b18aba6317c1b" category="paragraph"><block ref="13a92d9b51e90b702df63253eaabc9ad" prefix="" category="inline-code"></block></block>
+  <block id="473d16af00e46c61faa5f7ae956e2c65" category="paragraph"><block ref="02a3315103301dc60f71538670f8e63e" prefix="" category="inline-code"></block></block>
 </blocks>

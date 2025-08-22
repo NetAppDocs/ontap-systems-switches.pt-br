@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install rcf 
 summary: Você pode instalar o RCF depois de configurar o Nexus 3132Q-V switch pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF. 
 ---
-= Instalar o ficheiro de configuração de referência (RCF)
+= Instalar ou atualizar o ficheiro de configuração de referência (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -273,40 +273,67 @@ cluster1::*>
 +
 `show running-config`
 
-. Limpe a configuração no interrutor CS2 e execute uma configuração básica.
+. Registre quaisquer adições personalizadas entre a configuração atual e o arquivo RCF em uso.
+. Salve os detalhes básicos de configuração no arquivo write_erase.cfg no flash de inicialização.
 +
 
-WARNING: Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e executar a configuração básica. Você *deve* estar conetado à porta do console serial do switch para configurar o switch novamente. No entanto, esse requisito é opcional se você tiver usado o artigo da base de dados de Conhecimento https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^] para limpar a configuração de antemão.
+NOTE: Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e executar a configuração básica.  Você deve estar conectado à porta serial do console do switch para configurá-lo novamente.
 
 +
-.. Limpar a configuração:
+`cs2# show run | section "switchname" > bootflash:write_erase.cfg`
+
 +
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *write erase*
+`cs2# show run | section "hostname" >> bootflash:write_erase.cfg`
 
-Warning: This command will erase the startup-configuration.
-
-Do you wish to proceed anyway? (y/n)  [n]  *y*
-----
-====
-.. Execute uma reinicialização do switch:
 +
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *reload*
+`cs2# show run | i "username admin password" >> bootflash:write_erase.cfg`
 
-Are you sure you would like to reset the system? (y/n) *y*
++
+`cs2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
-----
-====
++
+`cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
+. Para RCF versão 1.12 e posteriores, execute os seguintes comandos:
++
+`cs2# echo "hardware access-list tcam region vpc-convergence 256" > bootflash:write_erase.cfg`
+
++
+`cs2# echo "hardware access-list tcam region racl 256" >> bootflash:write_erase.cfg`
+
++
+`cs2# echo "hardware access-list tcam region e-racl 256" >> bootflash:write_erase.cfg`
+
++
+`cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
+
++
+Veja o artigo da Base de Conhecimento https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^] para mais detalhes.
+
+. Verifique se o arquivo write_erase.cfg está preenchido conforme o esperado:
++
+`show file bootflash:write_erase.cfg`
+
+. Emitir o `write erase` comando para apagar a configuração salva atual:
++
+`cs2# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. Copie a configuração básica salva anteriormente na configuração de inicialização.
++
+`cs2# *copy write_erase.cfg startup-config*`
+
+. Execute uma reinicialização do switch:
++
+`cs2# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
 
 . Copie o RCF para o flash de inicialização do switch CS2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP. Para obter mais informações sobre comandos Cisco, consulte o guia apropriado https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referência de comando Cisco Nexus 3000 Series NX-os"^] nos guias.
 +
@@ -637,7 +664,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Repita os passos 1 a 11 no interrutor CS1.
+. Repita os passos 1 a 19 no switch cs1.
 . Ative a reversão automática nos LIFs do cluster.
 +
 .Mostrar exemplo

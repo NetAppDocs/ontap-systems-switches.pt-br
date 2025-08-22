@@ -37,7 +37,7 @@ entries:
     url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
   - title: Instale o software NX-os
     url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
-  - title: Instale o arquivo de configuração RCF
+  - title: Instale ou atualize o RCF
     url: "/switch-cisco-3232c/install-rcf-3232c.html"
   - title: Verifique a configuração do SSH
     url: "/switch-cisco-3232c/configure-ssh-keys.html"
