@@ -905,7 +905,6 @@
   <block id="ace8956d8976d528bf22aab3553d5953" category="paragraph">Se você estiver usando os recursos do Monitor de integridade do comutador Ethernet (CSHM) e da coleção de logs, será necessário gerar as chaves SSH e, em seguida, ativar o SSH nos switches do cluster.</block>
   <block id="5c60227e684a42ed2c4295981335965a" category="list-text">Verifique se o SSH está desativado:</block>
   <block id="ddf98c782f1bf15e46a4c740b56426ff" category="paragraph"><block ref="031cb810fe7e12b44d30ad57badb18f9" prefix="" category="inline-code"></block></block>
-  <block id="59ed8d797343a87748211be365bd1d90" category="list-text">Gerar as chaves SSH:</block>
   <block id="2986030ac2a2c3716611c3a1bcc0c093" category="paragraph"><block ref="0b8cf6b3656c259d9957a92e154a9d52" prefix="" category="inline-code"></block></block>
   <block id="95baf91c437105360687405b916b57fa" category="list-text">Encripte as chaves SSH (apenas para o modo *FIPS*):</block>
   <block id="50a89ea25c124abad381209f29dd1817" category="admonition">No modo FIPS, as chaves devem ser criptografadas com uma senha para segurança. Na ausência de uma chave criptografada, o aplicativo não inicia. As chaves são criadas e criptografadas usando os seguintes comandos:</block>
@@ -3956,11 +3955,6 @@
   <block id="91dcca4278a428afbccb2f118d523e13" category="admonition">Não use um sublinhado (_), apóstrofo (') ou carateres não-ASCII no nome do host.</block>
   <block id="5e82a0b4b15e3bfeac2a57b4a294a39c" category="paragraph">Este comando modifica os<block ref="a69c84a628c199bc14f166b95b055c4a" prefix=" " category="inline-code"></block> ficheiros e<block ref="ad942c725cd0cae65ca4c63717ec464c" prefix=" " category="inline-code"></block>.</block>
   <block id="81ed2a4b4b4f78c31401892f676d00f6" category="list-text">Confirme se o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão foram atualizados.</block>
-  <block id="6c42fa7e4c3302fb56f4374e70b97fc2" category="list-text">Configure o fuso horário usando o modo interativo NTP.</block>
-  <block id="3f13db29081af25b57d3e76ea324a03b" category="list-text">Em um terminal, execute o seguinte comando:</block>
-  <block id="83d1563d45527134091bdab8d6e5072d" category="list-text">Siga as opções do menu no ecrã para selecionar a área geográfica e a região.</block>
-  <block id="fe0f6a5f9b992c1eea817100a2c1c148" category="list-text">Para definir o fuso horário para todos os serviços e daemons, reinicie o switch.</block>
-  <block id="61d6aab01fc093c66c1e769d05c39812" category="list-text">Verifique se a data e a hora do switch estão corretas e atualize, se necessário.</block>
   <block id="2da5e3ee5bdcbc1a5443b42db962c1bb" category="list-text">Instale o Cumulus Linux 4,4.3:</block>
   <block id="9a828cf107e0b55e82b0e52b871aa982" category="paragraph">O instalador inicia a transferência. Digite *y* quando solicitado.</block>
   <block id="b64202cf747d1cf1ed877a2b16051b9b" category="list-text">Reinicie o switch NVIDIA SN2100:</block>
@@ -4320,10 +4314,6 @@
   <block id="008b8867712161228bd794977fcd0d4b" category="paragraph"><block ref="008b8867712161228bd794977fcd0d4b" category="inline-link-rx"></block></block>
   <block id="2bd6b04685be21d642d6c3c0f9a3da8e" category="admonition">O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando o Cumulus Linux ou ONIE (<block ref="e02d2e19cbeb033ae1227a02a219a032" category="inline-link-macro-rx"></block>consulte ).</block>
   <block id="06c2ede7dabacb6c8f4f628bf6b1de39" category="list-text">O requisito de taxa de transmissão deve ser definido como 115200 no switch do console serial para acesso ao console do switch NVIDIA SN2100, como segue:</block>
-  <block id="9e6b336700c1d2e767e05525b2b57ef3" category="list-text">Verifique a versão Cumulus Linux:</block>
-  <block id="cbb09f555687650b38fcf6ac05ce4978" category="paragraph"><block ref="518227d11c3d0b4ad2468e4272be661a" prefix="" category="inline-code"></block></block>
-  <block id="9f4f33c5c40ac522549c3e58d187e0a0" category="list-text">A instalação é iniciada automaticamente e as seguintes telas do GRUB aparecem. *Não* faça seleções:</block>
-  <block id="d639f69fd7b303cd7aefe025e7d76848" category="list-text">Verifique se a versão Cumulus Linux é 4,4.3:</block>
   <block id="738a5885a3f1e978619a10d76a3f0d58" category="paragraph"><block ref="98f5dff8534e8c39673b544f567273e7" prefix="" category="inline-code"></block></block>
   <block id="bcef27e6ee4d7b0cfadf8dab3f3c4b0a" category="admonition">O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando o Cumulus Linux ou ONIE (<block ref="0bb74764c4aee6316512b3110279fce2" category="inline-link-macro-rx"></block>consulte ).</block>
   <block id="4937b958fd592ecf33cfd084ea040c92" category="paragraph">Você pode instalar o Cumulus Linux usando o Open Network Install Environment (ONIE) que permite a descoberta automática de uma imagem do instalador de rede. Isso facilita o modelo de sistema de proteção de switches com uma escolha de sistema operacional, como o Cumulus Linux. A maneira mais fácil de instalar o Cumulus Linux com ONIE é com descoberta HTTP local.</block>
@@ -5580,4 +5570,12 @@
   <block id="bc19795a1e2342c4b6ced06c4d40bf1f" category="paragraph"><block ref="06ea8c0ad9680ca72f21fb9acf4190a7" prefix="" category="inline-code"></block></block>
   <block id="c0203a2fdd4f105bd33b18aba6317c1b" category="paragraph"><block ref="13a92d9b51e90b702df63253eaabc9ad" prefix="" category="inline-code"></block></block>
   <block id="473d16af00e46c61faa5f7ae956e2c65" category="paragraph"><block ref="02a3315103301dc60f71538670f8e63e" prefix="" category="inline-code"></block></block>
+  <block id="a857d7fbcfec4b7266d8ae96e74feaff" category="list-text">No modo de configuração, gere as chaves SSH:</block>
+  <block id="e7a2f981aa0484adea9bedbd78c1087b" category="list-text">No modo de configuração, defina a autorização AAA para coleta de logs ONTAP :</block>
+  <block id="4f4336771d0733889f26dc02ed32b5b4" category="paragraph"><block ref="160edba9b79d23472e05dab56e0f0cfa" prefix="" category="inline-code"></block></block>
+  <block id="558547888dbf1ed9cea97d962f5a635c" category="list-text">Reative o SSH/SCP.</block>
+  <block id="a2c7fa8f383a047f3591230c9b0234c9" category="list-text">Salve essas alterações no startup-config:</block>
+  <block id="7411e9f163d9baab36b5ebc3f80bda73" category="admonition">Enquanto<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> é usado no exemplo, você pode usar seu método preferido de transferência de arquivos, por exemplo SFTP, HTTPS ou FTP.</block>
+  <block id="5b9b8dea15de063806f0306fe78872c8" category="admonition">Embora<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> é usado no exemplo, você pode usar seu método preferido de transferência de arquivos, por exemplo SFTP, HTTPS ou FTP.</block>
+  <block id="bea4eb9c3f61f6fc9076a215ac1173fe" category="paragraph"><block ref="c1b3921cc8c2b4b51a888d2dc803623c" category="inline-link-macro-rx"></block> .</block>
 </blocks>

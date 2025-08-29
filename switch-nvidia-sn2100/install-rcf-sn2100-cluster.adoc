@@ -129,7 +129,7 @@ MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP         100% 8607   111.2KB/s       
 ----
 +
 
-NOTE: Enquanto `scp` for usado no exemplo, você pode usar o método preferido de transferência de arquivos.
+NOTE: Enquanto `scp` é usado no exemplo, você pode usar seu método preferido de transferência de arquivos, por exemplo SFTP, HTTPS ou FTP.
 
 . Aplique o script Python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.
 +
@@ -394,7 +394,7 @@ MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s        
 ----
 +
 
-NOTE: Enquanto `scp` for usado no exemplo, você pode usar o método preferido de transferência de arquivos.
+NOTE: Enquanto `scp` é usado no exemplo, você pode usar seu método preferido de transferência de arquivos, por exemplo SFTP, HTTPS ou FTP.
 
 . Aplique o script Python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.
 +
@@ -760,7 +760,7 @@ MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s        
 ----
 +
 
-NOTE:  `scp`Embora seja usado no exemplo, você pode usar seu método preferido de transferência de arquivos.
+NOTE: Embora `scp` é usado no exemplo, você pode usar seu método preferido de transferência de arquivos, por exemplo SFTP, HTTPS ou FTP.
 
 . Aplique o script Python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.
 +
