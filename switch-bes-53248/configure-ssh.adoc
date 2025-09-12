@@ -43,14 +43,18 @@ SCP server Administrative Mode: ............... Disabled
 +
 ** Se o SSH não estiver desabilitado, desabilite-o da seguinte maneira:
 +
-.Mostrar exemplo
-[%collapsible]
+`no ip ssh server enable`
+
++
+`no ip scp server enable`
+
++
+[NOTE]
 ====
-[listing, subs="+quotes"]
-----
-(switch)# *ip ssh server disable*
-(switch)# *ip scp server disable*
-----
+*** Para EFOS 3.12 e posteriores, o acesso ao console é necessário, pois as sessões SSH ativas são perdidas quando o SSH é desabilitado.
+*** Para EFOS 3.11 e versões anteriores, as sessões SSH atuais são mantidas abertas após a desativação do servidor SSH.
+
+
 ====
 +
 

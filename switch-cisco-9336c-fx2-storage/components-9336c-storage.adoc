@@ -108,7 +108,7 @@ N9K-9336C 65CFM, fluxo de ar de admissão do lado da porta
 |===
 
 
-== Licenças inteligentes da Cisco
+== Licenças Cisco Smart somente para portas 9336C-FX2-T
 
 Para ativar mais de 12 portas em seu switch de armazenamento Cisco Nexus 9336C-FX-T, você deve comprar uma licença Cisco Smart. As licenças inteligentes da Cisco são gerenciadas por meio de contas inteligentes da Cisco.
 
@@ -120,4 +120,4 @@ Para ativar mais de 12 portas em seu switch de armazenamento Cisco Nexus 9336C-F
 NOTE: Depois de adquirir sua licença Smart, instale o RCF apropriado para habilitar e configurar todas as 36 portas disponíveis para uso.
 
 .O que vem a seguir
-link:required-documentation-9336c-storage.html["Documentação necessária"] .
+Depois de confirmar seus componentes e números de peça, revise olink:required-documentation-9336c-storage.html["documentação necessária"] .

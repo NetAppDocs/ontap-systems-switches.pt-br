@@ -11,11 +11,11 @@ summary: Se você quiser criar clusters do ONTAP com mais de dois nós, precisar
 
 
 [role="lead"]
-Para usar o recurso Smart Call Home, revise as diretrizes a seguir.
+Para usar o Smart Call Home, você deve configurar um switch de rede de cluster para se comunicar por e-mail com o sistema Smart Call Home. Além disso, você pode opcionalmente configurar seu switch de rede de cluster para aproveitar o recurso de suporte Smart Call Home incorporado da Cisco.
 
-O Smart Call Home monitora os componentes de hardware e software da rede. Quando ocorre uma configuração crítica do sistema, ela gera uma notificação baseada em e-mail e gera um alerta para todos os destinatários configurados no perfil de destino. Para usar o Smart Call Home, você deve configurar um switch de rede de cluster para se comunicar usando e-mail com o sistema Smart Call Home. Além disso, você pode configurar opcionalmente o switch de rede de cluster para aproveitar o recurso de suporte integrado ao Smart Call Home da Cisco.
+O Smart Call Home monitora os componentes de hardware e software na sua rede. Quando ocorre uma configuração crítica do sistema, ele gera uma notificação por e-mail e envia um alerta para todos os destinatários configurados no seu perfil de destino.
 
-Antes de poder utilizar a Smart Call Home, tenha em atenção as seguintes considerações:
+Antes de usar o Smart Call Home, esteja ciente dos seguintes requisitos:
 
 * Um servidor de e-mail deve estar no lugar.
 * O switch deve ter conetividade IP com o servidor de e-mail.

@@ -11,7 +11,7 @@ summary: Se você tiver um ambiente de cluster sem switch de dois nós existente
 
 
 [role="lead"]
-Se você tiver um ambiente de cluster _sem switch_ de dois nós, poderá migrar para um ambiente de cluster _comutado_ de dois nós usando os switches Cisco Nexus 9336C-FX2.
+Se você tiver um ambiente de cluster _sem switch_ de dois nós existente, poderá migrar para um ambiente de cluster _com switch_ de dois nós usando os switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T.
 
 O processo de migração funciona para todos os nós que usam portas óticas ou Twinax, mas não é suportado neste switch se os nós estiverem usando portas integradas 10Gb BASE-T RJ45 para as portas de cluster-rede.
 
@@ -629,4 +629,4 @@ RPC status:
 
 
 .O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+Depois de migrar seus switches, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

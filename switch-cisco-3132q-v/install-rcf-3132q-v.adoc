@@ -296,7 +296,7 @@ NOTE: Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações 
 
 . Para RCF versão 1.12 e posteriores, execute os seguintes comandos:
 +
-`cs2# echo "hardware access-list tcam region vpc-convergence 256" > bootflash:write_erase.cfg`
+`cs2# echo "hardware access-list tcam region vpc-convergence 256" >> bootflash:write_erase.cfg`
 
 +
 `cs2# echo "hardware access-list tcam region racl 256" >> bootflash:write_erase.cfg`

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: migrate, switchless cluster interconnect, cisco nexus switch 9336C-FX2 
 summary: É possível migrar de um cluster com uma rede de cluster comutada para um em que dois nós estejam diretamente conetados para o ONTAP 9.3 e posterior. 
 ---
-= Substitua os switches de cluster Cisco Nexus 9336C-FX2 por conexões sem switch
+= Substituir os switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T por conexões sem switch
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,26 +4,27 @@ sidebar: sidebar
 keywords: migrate cluster Cisco Nexus 9336C-FX2 cluster switches cn1610 
 summary: Você pode migrar switches de cluster NetApp CN1610 sem interrupções para um cluster ONTAP para os switches de rede de cluster Cisco Nexus 9336C-FX2X. 
 ---
-= Migre de um switch de cluster NetApp CN1610 para um switch de cluster Cisco 9336C-FX2
+= Migrar de switches de cluster NetApp CN1610 para switches de cluster Cisco 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-É possível migrar os switches de cluster do NetApp CN1610 para um cluster do ONTAP para os switches de cluster do Cisco 9336C-FX2. Este é um procedimento sem interrupções.
+Você pode migrar switches de cluster NetApp CN1610 para um cluster ONTAP para switches de cluster Cisco 9336C-FX2 e 9336C-FX2-T. Este é um procedimento não disruptivo.
 
 
 
 == Rever os requisitos
 
-Você deve estar ciente de certas informações de configuração, conexões de portas e requisitos de cabeamento ao substituir os switches de cluster NetApp CN1610 por switches de cluster Cisco 9336C-FX2. Além disso, verifique o número de série do switch para garantir que o switch correto seja migrado.
+Você deve estar ciente de determinadas informações de configuração, conexões de porta e requisitos de cabeamento ao substituir switches de cluster NetApp CN1610 por switches de cluster Cisco 9336C-FX2 e 9336C-FX2-T. Você também deve verificar o número de série do switch para garantir que o switch correto seja migrado.
 
 .Interrutores suportados
 Os seguintes switches de cluster são suportados:
 
 * NetApp CN1610
 * Cisco 9336C-FX2
+* Cisco 9336C-FX2-T
 
 
 Para obter detalhes sobre as portas suportadas e suas configurações, consulte o https://hwu.netapp.com/["Hardware Universe"^].
@@ -33,7 +34,7 @@ Verifique se sua configuração atende aos seguintes requisitos:
 
 * O cluster existente está corretamente configurado e funcionando.
 * Todas as portas de cluster estão no estado *up* para garantir operações ininterruptas.
-* Os switches de cluster Cisco 9336C-FX2 são configurados e operando sob a versão correta do NX-os instalado com o arquivo de configuração de referência (RCF) aplicado.
+* Os switches de cluster Cisco 9336C-FX2 e 9336C-FX2-T estão configurados e operando sob a versão correta do NX-OS instalada com o arquivo de configuração de referência (RCF) aplicado.
 * A configuração de rede de cluster existente tem o seguinte:
 +
 ** Um cluster NetApp redundante e totalmente funcional usando switches NetApp CN1610.
@@ -41,8 +42,8 @@ Verifique se sua configuração atende aos seguintes requisitos:
 ** Todas as LIFs de cluster no estado up com os LIFs de cluster estão em suas portas residenciais.
 
 
-* Algumas das portas são configuradas nos switches Cisco 9336C-FX2 para serem executadas em 40GbE ou 100GbE.
-* Você planejou, migrou e documentou a conectividade 40GbE e 100GbE de nós para os switches de cluster Cisco 9336C-FX2.
+* Algumas portas são configuradas nos switches Cisco 9336C-FX2 e 9336C-FX2-T para operar em 40GbE ou 100GbE.
+* Você planejou, migrou e documentou a conectividade de 40 GbE e 100 GbE dos nós para os switches de cluster Cisco 9336C-FX2 e 9336C-FX2-T.
 
 
 
@@ -325,7 +326,7 @@ CAUTION: Não tente migrar manualmente as LIFs de cluster.
 (C2)(Interface 0/1-0/12)# *exit*
 (C2)(Config)# *exit*
 ----
-. Mova as portas do cluster de nós do switch antigo C2 para o novo switch CS2, usando o cabeamento apropriado suportado pelo Cisco 9336C-FX2.
+. Mova as portas do cluster de nós do antigo switch C2 para o novo switch cs2, usando o cabeamento apropriado suportado pelo Cisco 9336C-FX2 e 9336C-FX2-T.
 . Exibir os atributos da porta de rede:
 +
 `network port show -ipspace Cluster`
@@ -409,7 +410,7 @@ Cluster
 (C1)(Interface 0/1-0/12)# *exit*
 (C1)(Config)# *exit*
 ----
-. Mova as portas do cluster de nós do switch antigo C1 para o novo switch CS1, usando o cabeamento apropriado suportado pelo Cisco 9336C-FX2.
+. Mova as portas do cluster de nós do antigo switch C1 para o novo switch cs1, usando o cabeamento apropriado suportado pelo Cisco 9336C-FX2 e 9336C-FX2-T.
 . Verifique a configuração final do cluster:
 +
 `network port show -ipspace Cluster`
@@ -562,4 +563,4 @@ Cluster
 
 
 .O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+Depois de migrar seus switches, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

@@ -4,30 +4,30 @@ sidebar: sidebar
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
 summary: Visão geral da configuração de software para switches de storage Cisco Nexus 9336C-FX2 
 ---
-= Fluxo de trabalho de instalação de software para switches de storage Cisco Nexus 9336C-FX2
+= Fluxo de trabalho de instalação de software para switches de armazenamento Cisco Nexus 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para instalar e configurar o software para um switch de storage Cisco Nexus 9336C-FX2, siga estas etapas:
+Para instalar e configurar o software para os switches de armazenamento Cisco Nexus 9336C-FX2 e 9336C-FX2-T, siga estas etapas:
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:setup-switch-9336c-storage.html["Configure o interrutor"]
 [role="quick-margin-para"]
-Configure o switch de armazenamento 9336C-FX2.
+Configure os switches de armazenamento 9336C-FX2 e 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:install-nxos-overview-9336c-storage.html["Prepare-se para instalar o software NX-os e o RCF"]
 [role="quick-margin-para"]
-O software Cisco NX-OS e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de armazenamento Cisco 9336C-FX2.
+O software Cisco NX-OS e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de armazenamento Cisco 9336C-FX2 e 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nxos-software-9336c-storage.html["Instale ou atualize o software NX-os"]
 [role="quick-margin-para"]
-Baixe e instale ou atualize o software NX-OS no switch de armazenamento Cisco 9336C-FX2.
+Baixe e instale ou atualize o software NX-OS nos switches de armazenamento Cisco 9336C-FX2 e 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]link:install-rcf-software-9336c-storage.html["Instale ou atualize o RCF"]
 [role="quick-margin-para"]
-Instale ou atualize o RCF após configurar o switch Cisco 9336C-FX2 pela primeira vez.  Você também pode usar este procedimento para atualizar sua versão do RCF.
+Instale ou atualize o RCF após configurar os switches Cisco 9336C-FX2 e 9336C-FX2-T pela primeira vez. Você também pode usar este procedimento para atualizar sua versão do RCF.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verifique a configuração do SSH"]
 [role="quick-margin-para"]
@@ -35,4 +35,4 @@ Verifique se o SSH está habilitado nos switches para usar o Ethernet Switch Hea
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-9336c-storage.html["Redefinir o switch para os padrões de fábrica"]
 [role="quick-margin-para"]
-Apague as configurações do switch de armazenamento 9336C-FX2.
+Apague as configurações dos switches de armazenamento 9336C-FX2 e 9336C-FX2-T.
