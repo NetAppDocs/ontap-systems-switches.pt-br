@@ -33,7 +33,7 @@ Instale seus switches no rack ou gabinete. Acesse as instruções a seguir para 
  a| 
 .Interrutores de armazenamento
 * link:../switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Instale o switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/install-hardware-sn2100-storage.html["Instale o interrutor NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html["Instale o interrutor NVIDIA SN2100"]
 
  a| 
 .Switches compartilhados
@@ -78,7 +78,7 @@ As instruções de instalação e configuração dos sistemas ONTAP incluem inst
  a| 
 .Interrutores de armazenamento
 * link:../switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Cabo Cisco switch Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html["Interrutor do cabo NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html["Interrutor do cabo NVIDIA SN2100"]
 
  a| 
 .Switches compartilhados
@@ -104,7 +104,7 @@ Execute uma configuração inicial de seus switches. Acesse as instruções a se
  a| 
 .Interrutores de armazenamento
 * link:../switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html["Configurar o switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/configure-sn2100-storage.html["Configure o switch NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/configure-sn2100-storage.html["Configure o switch NVIDIA SN2100"]
 
  a| 
 .Switches compartilhados
@@ -130,7 +130,7 @@ Para instalar e configurar o software no switch, siga o fluxo de trabalho de ins
  a| 
 .Interrutores de armazenamento
 * link:../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Instale o software para o switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/configure-software-sn2100-storage.html["Instale o software para o switch NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html["Instale o software para o switch NVIDIA SN2100"]
 
  a| 
 .Switches compartilhados

@@ -274,7 +274,7 @@ cluster1::*>
 `show running-config`
 
 . Registre quaisquer adições personalizadas entre a configuração atual e o arquivo RCF em uso.
-. Salve os detalhes básicos de configuração no arquivo write_erase.cfg no flash de inicialização.
+. Salve os detalhes básicos da configuração em `write_erase.cfg` arquivo no bootflash.
 +
 
 NOTE: Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e executar a configuração básica.  Você deve estar conectado à porta serial do console do switch para configurá-lo novamente.
@@ -308,9 +308,9 @@ NOTE: Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações 
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Veja o artigo da Base de Conhecimento https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^] para mais detalhes.
+Veja o artigo da Base de Conhecimentolink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^] para mais detalhes.
 
-. Verifique se o arquivo write_erase.cfg está preenchido conforme o esperado:
+. Verifique se o `write_erase.cfg` o arquivo é preenchido conforme o esperado:
 +
 `show file bootflash:write_erase.cfg`
 
@@ -326,7 +326,7 @@ Veja o artigo da Base de Conhecimento https://kb.netapp.com/on-prem/Switches/Cis
 
 . Copie a configuração básica salva anteriormente na configuração de inicialização.
 +
-`cs2# *copy write_erase.cfg startup-config*`
+`cs2# *copy bootflash:write_erase.cfg startup-config*`
 
 . Execute uma reinicialização do switch:
 +
@@ -335,7 +335,7 @@ Veja o artigo da Base de Conhecimento https://kb.netapp.com/on-prem/Switches/Cis
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Copie o RCF para o flash de inicialização do switch CS2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP. Para obter mais informações sobre comandos Cisco, consulte o guia apropriado https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referência de comando Cisco Nexus 3000 Series NX-os"^] nos guias.
+. Copie o RCF para o bootflash do switch cs2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.  Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado nolink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referência de comando Cisco Nexus 3000 Series NX-os"^] guias.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -352,7 +352,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Aplique o RCF baixado anteriormente ao flash de inicialização.
 +
-Para obter mais informações sobre comandos Cisco, consulte o guia apropriado https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referência de comando Cisco Nexus 3000 Series NX-os"^] nos guias.
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado nolink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referência de comando Cisco Nexus 3000 Series NX-os"^] guias.
 
 +
 .Mostrar exemplo
@@ -664,7 +664,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Repita os passos 1 a 19 no switch cs1.
+. Repita os passos 1 a 17 no switch cs1.
 . Ative a reversão automática nos LIFs do cluster.
 +
 .Mostrar exemplo
@@ -832,8 +832,7 @@ Cluster cluster1-02_clus2 169.254.19.183 cluster1-02     e0b
 Local = 169.254.47.194 169.254.19.183
 Remote = 169.254.209.69 169.254.49.125
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 4 path(s)
 Basic connectivity fails on 0 path(s)
 ................

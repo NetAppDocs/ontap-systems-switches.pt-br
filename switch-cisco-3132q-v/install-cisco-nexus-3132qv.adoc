@@ -42,7 +42,7 @@ Neste procedimento, o painel obturador será instalado em U40.
 .. Centralize o painel verticalmente para evitar a intrusão no espaço adjacente do rack e, em seguida, aperte os parafusos.
 .. Insira os conetores fêmea de ambos os cabos de ligação em ponte de 48 polegadas a partir da parte traseira do painel e através do conjunto da escova.
 +
-image::../media/cisco_9148_jumper_cords.gif[cabos de ligação em ponte do Cisco 9148]
+image::../media/cisco_9148_jumper_cords.gif[]
 
 +
 _(1) conetor fêmea do cabo de ligação em ponte._
@@ -62,7 +62,7 @@ image::../media/3132q_front_bracket.gif[suporte dianteiro]
 
 . Instale as porcas de mola nas localizações dos orifícios quadrados para os quatro postes IEA.
 +
-image::../media/ru_locations_for_3132q_v.gif[localizações ru para 3132q v]
+image::../media/ru_locations_for_3132q_v.gif[]
 
 +
 Os dois interrutores de 3132Q V serão sempre montados no topo 2U do gabinete RU41 e 42.
@@ -71,7 +71,7 @@ Os dois interrutores de 3132Q V serão sempre montados no topo 2U do gabinete RU
 +
 .. Posicione o primeiro trilho deslizante na marca RU42 na parte traseira do poste esquerdo traseiro, insira os parafusos com o tipo de rosca correspondente e aperte os parafusos com os dedos.
 +
-image::../media/3132q_v_slider_rails.gif[calhas deslizantes de 3132q v.]
+image::../media/3132q_v_slider_rails.gif[]
 
 +
 _(1) enquanto desliza suavemente o trilho deslizante, alinhe-o com os orifícios dos parafusos no rack._
@@ -101,7 +101,7 @@ _(2) deslize suavemente o interrutor até que os suportes de montagem em rack di
 
 .. Ligue o interrutor ao armário.
 +
-image::../media/3132q_attaching.gif[3132q fixação]
+image::../media/3132q_attaching.gif[]
 
 +
 _(1) com uma pessoa segurando a frente do nível do chassi, a outra pessoa deve apertar totalmente os quatro parafusos traseiros aos postes do gabinete._

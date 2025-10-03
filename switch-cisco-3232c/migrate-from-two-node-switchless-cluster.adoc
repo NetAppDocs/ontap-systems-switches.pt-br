@@ -60,7 +60,7 @@ Os exemplos deste procedimento usam dois nós, cada um utilizando duas portas de
 * N1_clus2 é o primeiro LIF de cluster a ser conetado ao switch de cluster C2 para o nó n1.
 * N2_clus1 é o primeiro LIF de cluster a ser conetado ao switch de cluster C1 para o nó n2.
 * N2_clus2 é o segundo LIF de cluster a ser conetado ao switch de cluster C2 para o nó n2.
-* O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] página.
+* O número de portas de 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] .
 
 
 [NOTE]
@@ -165,14 +165,14 @@ Neste momento, tem de preparar ambos os interrutores. Se você precisar atualiza
 +
 .. Vá para a página _switches Ethernet Cisco_ no site de suporte da NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^]
 
 .. Observe o switch e as versões de software necessárias na tabela nessa página.
 .. Baixe a versão apropriada do RCF.
 .. Clique em *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
 .. Transfira a versão apropriada do software de imagem.
 +
-https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Página de download do ficheiro de configuração de referência do comutador de rede de gestão e cluster do Cisco"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do Cisco Cluster and Management Network Switch"^] .
 
 
 

@@ -35,7 +35,7 @@ Para a configuração do interrutor do cluster CN1610:
 * Existe acesso à consola aos interrutores do cluster.
 * As conexões de switch de nó para nó CN1610 e switch para switch usam cabos twinax ou de fibra.
 +
-O https://hwu.netapp.com/["Hardware Universe"^] contém mais informações sobre cabeamento.
+Olink:https://hwu.netapp.com/["Hardware Universe"^] contém mais informações sobre cabeamento.
 
 * Os cabos ISL (Inter-Switch Link) são conetados às portas 13 a 16 em ambos os switches CN1610.
 * A personalização inicial de ambos os CN1610 switches está concluída.
@@ -45,10 +45,10 @@ Qualquer personalização anterior do site, como SMTP, SNMP e SSH, deve ser copi
 
 
 .Informações relacionadas
-* http://hwu.netapp.com["Hardware Universe"^]
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Página de descrição do NetApp CN1601 e CN1610"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guia de configuração e configuração do switch CN1601 e CN1610"^]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["NetApp KB artigo 1010449: Como suprimir a criação automática de casos durante janelas de manutenção programada"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 e CN1610"]
+* link:https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Configuração e instalação do switch CN1601 e CN1610"^]
+* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["NetApp KB artigo 1010449: Como suprimir a criação automática de casos durante janelas de manutenção programada"^]
 
 
 
@@ -64,7 +64,7 @@ Os exemplos deste procedimento utilizam a seguinte nomenclatura de nó e switch 
 * O `cluster::*>` prompt indica o nome do cluster.
 * As portas do cluster usadas neste procedimento são e1a e E2A.
 +
-O https://hwu.netapp.com/["Hardware Universe"^] contém as informações mais recentes sobre as portas de cluster reais para as suas plataformas.
+Olink:https://hwu.netapp.com/["Hardware Universe"^] contém as informações mais recentes sobre as portas de cluster reais para suas plataformas.
 
 
 

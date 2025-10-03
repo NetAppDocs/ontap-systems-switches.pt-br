@@ -123,8 +123,14 @@ A saída varia de acordo com a configuração do seu site. Verifique as configur
 
 
 
-. Reaplique quaisquer personalizações anteriores à configuração do switch. link:cabling-considerations-9336c-fx2.html["Analise as considerações sobre cabeamento e configuração"]Consulte para obter detalhes sobre quaisquer alterações adicionais necessárias.
-. Salve os detalhes básicos de configuração no arquivo write_erase.cfg no flash de inicialização.
+. Registre quaisquer adições personalizadas entre o atual `running-config` arquivo e o arquivo RCF em uso.
+. Depois de verificar se as versões RCF e as configurações do switch estão corretas, copie o `running-config` arquivo para o `startup-config` arquivo.
++
+[listing]
+----
+cs1# copy running-config startup-config [########################################] 100% Copy complete
+----
+. Salve os detalhes básicos da configuração em `write_erase.cfg` arquivo no bootflash.
 +
 `cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
 
@@ -148,9 +154,9 @@ A saída varia de acordo com a configuração do seu site. Verifique as configur
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
 
 +
-Veja o artigo da Base de Conhecimento https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^] para mais detalhes.
+Veja o artigo da Base de Conhecimentolink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^] para mais detalhes.
 
-. Verifique se o arquivo write_erase.cfg está preenchido conforme o esperado:
+. Verifique se o `write_erase.cfg` o arquivo é preenchido conforme o esperado:
 +
 `show file bootflash:write_erase.cfg`
 
@@ -175,7 +181,7 @@ Veja o artigo da Base de Conhecimento https://kb.netapp.com/on-prem/Switches/Cis
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Repita os passos 1 a 12 no switch cs2.
+. Repita os passos 1 a 13 no switch cs2.
 . Conecte as portas do cluster de todos os nós do cluster ONTAP aos switches CS1 e CS2.
 
 

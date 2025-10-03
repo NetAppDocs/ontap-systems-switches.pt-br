@@ -313,7 +313,6 @@
   <block id="101ead84905a0da72281347a2d3e5846" category="paragraph"><block ref="3c9df67ecefdc0250ea054cef3d4555b" prefix="" category="inline-code"></block></block>
   <block id="d4475e3da8fe61fab11f25995297f76e" category="paragraph">A coluna "dispositivo descoberto" deve ser o nome do switch de cluster ao qual a porta está conetada.</block>
   <block id="917f78c98a8af8b85b002bccf27ea287" category="paragraph">O exemplo a seguir mostra que as portas do cluster "e0a" e "e0b" estão corretamente conetadas aos switches do cluster "CS1" e "CS2".</block>
-  <block id="8373a0e3c0b4dc721962528833224ea1" category="paragraph"><block ref="6d931e460f3e419ca5bc874e47132b6d" prefix="" category="inline-code"></block></block>
   <block id="e477c0774c6014b5173ffa6810d512ab" category="paragraph"><block ref="484f24f8e4da80a1185aa63fa1d5fc08" prefix="" category="inline-code"></block></block>
   <block id="c992f99b79e71a5eb5127e5f190fab4e" category="paragraph">Todas as unidades devem ser principais ou secundárias.</block>
   <block id="048592cc00af171e1fa6348b090a6c78" category="list-text">Configure a configuração sem switch para as portas do grupo 1.</block>
@@ -369,7 +368,6 @@
   <block id="e6ab3c0f7886a69b4cd4dc70d1d4afa9" category="admonition">Certifique-se de encerrar *todas* portas de cluster conetadas para evitar quaisquer problemas de conexão de rede. Consulte o artigo da base de dados de Conhecimento<block ref="c9b140831402716d03d51afcd09ff177" category="inline-link-rx"></block> para obter mais detalhes.</block>
   <block id="d23e0ef648ea8ae58d49d4170d37c221" category="list-text">Se você ainda não fez isso, salve uma cópia da configuração atual do switch copiando a saída do seguinte comando para um arquivo de texto:</block>
   <block id="b77c6d3e350c043b8f790e806e7bc521" category="list-text">Registre quaisquer adições personalizadas entre o atual running-config e o arquivo RCF em uso (como uma configuração SNMP para sua organização).</block>
-  <block id="085ebea59269f171d2893f7c9fd27a56" category="list-text">Para NX-os 10,2 e mais recentes, use o<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando para comparar com o arquivo RCF salvo no flash de inicialização. Caso contrário, use uma ferramenta de comparação/comparação de terceira parte.</block>
   <block id="7a1b725f171ccc55c2b6a943c968b20f" category="list-text">Salve os detalhes básicos de configuração no arquivo write_erase.cfg no flash de inicialização.</block>
   <block id="62fcaa3e0af91f6b966bcf398e3e6086" category="list-text">Emita o comando write erase para apagar a configuração salva atual:</block>
   <block id="f455f9d17674cb5efba0664c003ad484" category="paragraph"><block ref="7812e68ffa4111ad9046c1ab43dcaf2c" prefix="" category="inline-code"></block></block>
@@ -392,7 +390,6 @@
   <block id="3b531e8aedc797f24eddd25bc7833fc7" category="list-text">Verifique se os LIFs do cluster reverteram para sua porta inicial:</block>
   <block id="bf7f666145d20a64bc0df89aff1412b4" category="paragraph">Se qualquer LIFs de cluster não retornar às portas iniciais, reverta-as manualmente do nó local:</block>
   <block id="0ce224cf5d247a74b5df5578645cdfb1" category="paragraph"><block ref="33701a452aed8ed903e7f7050b36c9ad" prefix="" category="inline-code"></block></block>
-  <block id="267f1ed8b151f71d65617eef7427084e" category="list-text">Faça ping nas interfaces do cluster remoto para verificar a conetividade:</block>
   <block id="fce19ec530a1bf3939170ecba385645b" category="summary">Saiba mais sobre cluster, armazenamento e switches compartilhados.</block>
   <block id="2027518664727205d8bb71d3a3948f25" category="doc">Comece a trabalhar com Cluster, Storage e switches compartilhados</block>
   <block id="3a9c64dc96f245c802099a9777b1545f" category="paragraph">Para começar a funcionar com cluster, armazenamento e switches compartilhados, você instala componentes de hardware e configura o switch.</block>
@@ -411,7 +408,6 @@
   <block id="3242a18fe935dc71f191359774c22fb6" category="list-text"><block ref="3242a18fe935dc71f191359774c22fb6" category="inline-link-macro-rx"></block></block>
   <block id="403284bd44beda112195a484c8a76421" category="list-title">Interrutores de armazenamento</block>
   <block id="4366b3f93a7547f210bc3135e6a37f4d" category="list-text"><block ref="4366b3f93a7547f210bc3135e6a37f4d" category="inline-link-macro-rx"></block></block>
-  <block id="b99e44756b04f570f86a9050cdc35340" category="list-text"><block ref="b99e44756b04f570f86a9050cdc35340" category="inline-link-macro-rx"></block></block>
   <block id="bc8a2cd252a5beb1dbf4f209baea67eb" category="list-title">Switches compartilhados</block>
   <block id="7436b337b55a342d63c3c141c8767f95" category="list-text"><block ref="7436b337b55a342d63c3c141c8767f95" category="inline-link-macro-rx"></block></block>
   <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">Três</block>
@@ -423,7 +419,6 @@
   <block id="52f7a5e6d4c023e5fef53f473f22b20a" category="inline-link-macro">Interrutor do cabo NVIDIA SN2100</block>
   <block id="b0ff3737a51bb85f507c901b0ea271e3" category="list-text"><block ref="b0ff3737a51bb85f507c901b0ea271e3" category="inline-link-macro-rx"></block></block>
   <block id="e2ddd64a6d2b22c319d5b3c756a0f461" category="list-text"><block ref="e2ddd64a6d2b22c319d5b3c756a0f461" category="inline-link-macro-rx"></block></block>
-  <block id="f5ede07e12892122f068d8cd7b9bf079" category="list-text"><block ref="f5ede07e12892122f068d8cd7b9bf079" category="inline-link-macro-rx"></block></block>
   <block id="aa9a4b60787c3af9e16088797a91e78c" category="list-text"><block ref="aa9a4b60787c3af9e16088797a91e78c" category="inline-link-macro-rx"></block></block>
   <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">Quatro</block>
   <block id="2d51a4c0647f6c33eb1618ae2b75bbbf" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block>Configure o interrutor</block>
@@ -435,7 +430,6 @@
   <block id="7bfd713e089f5e59b6c1826b2af39c2a" category="inline-link-macro">Configure o switch NVIDIA SN2100</block>
   <block id="3252aba36441d5c9fa115c475cb266d7" category="list-text"><block ref="3252aba36441d5c9fa115c475cb266d7" category="inline-link-macro-rx"></block></block>
   <block id="32eee6e549e4f493fc9773e083b2380d" category="list-text"><block ref="32eee6e549e4f493fc9773e083b2380d" category="inline-link-macro-rx"></block></block>
-  <block id="65e80b318a152dc28917d50c1ff2ad1f" category="list-text"><block ref="65e80b318a152dc28917d50c1ff2ad1f" category="inline-link-macro-rx"></block></block>
   <block id="fb9447615c522a0b82b9452f60e71bbc" category="list-text"><block ref="fb9447615c522a0b82b9452f60e71bbc" category="inline-link-macro-rx"></block></block>
   <block id="e5d9de39f7ca1ba2637e5640af3ae8aa" category="inline-image-macro">Cinco</block>
   <block id="64637562d7e27f62620328710451f9ca" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Instale o software do interrutor</block>
@@ -447,7 +441,6 @@
   <block id="3437ca96f916be870bf8b2b922d6299d" category="inline-link-macro">Instale o software para o switch NVIDIA SN2100</block>
   <block id="e146a01f183a5d149c1cbd22bd0299b2" category="list-text"><block ref="e146a01f183a5d149c1cbd22bd0299b2" category="inline-link-macro-rx"></block></block>
   <block id="0cc464fe26f2dccabb9644f27a14d078" category="list-text"><block ref="0cc464fe26f2dccabb9644f27a14d078" category="inline-link-macro-rx"></block></block>
-  <block id="00266598571441926f1f10292cbdf9fc" category="list-text"><block ref="00266598571441926f1f10292cbdf9fc" category="inline-link-macro-rx"></block></block>
   <block id="89176363c7d28c567fb702f95f7eee23" category="list-text"><block ref="89176363c7d28c567fb702f95f7eee23" category="inline-link-macro-rx"></block></block>
   <block id="e6fbc0b9673f8c86726688d7607fc8f5" category="inline-image-macro">Seis</block>
   <block id="aea7345148c1589735242fc13ad81924" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block> Conclua a configuração do sistema</block>
@@ -474,7 +467,6 @@
   <block id="f8215ac1ab39569e2ede8f10c0a8405a" category="list-text">Cisco Nexus 92300YC</block>
   <block id="280107a5f53cc09efecfd6d30a3b7ebc" category="list-text">NetApp CN1610</block>
   <block id="296d00e3f1c056ceb3df91d743049f0c" category="summary">Use os documentos neste site para instalar, atualizar e manter seu cluster, armazenamento compartilhado e switches MetroCluster.</block>
-  <block id="6015ba5fcef1f3caa77869608d6c2789" category="doc">Documentação do switch para sistemas de hardware ONTAP</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Avisos legais</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Avisos legais fornecem acesso a declarações de direitos autorais, marcas registradas, patentes e muito mais.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Direitos de autor</block>
@@ -493,7 +485,6 @@
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="21ee2e5e51f0485744f531669814fed3" category="summary">Você pode usar esses links para outros modelos de switch.</block>
   <block id="fcd690b297e7e3c7cf5c4f955d666313" category="doc">Modelos anteriores</block>
-  <block id="1a92cf34ae749613ec6e73e2cb76ed75" category="paragraph">Você pode usar esses links para encontrar documentação para modelos anteriores de switches de cluster e stprage. Os links levam você a um site de documentação diferente.</block>
   <block id="9d3ddf8ecb98c38bfdcd1e61cc35f860" category="inline-link">Cisco Nexus 5596</block>
   <block id="d1059cc15870b94d15f8576dff3bde50" category="list-text"><block ref="b450a925c158be20e54006429377daec" category="inline-link-rx"></block></block>
   <block id="1829a6378e29fdb2a01976800d3ca60e" category="inline-link">CN1601</block>
@@ -585,17 +576,8 @@
   <block id="c5a74ce2f4585cd46c311a5822607b9f" category="list-text">Um novo<block ref="4b077bb4cc781686a7abd72c8354ba70" prefix=" " category="inline-code"></block> é criado com o valor definido como "verdadeiro".</block>
   <block id="72477c9fa5c7321db80c98ce8db97acf" category="list-text">Após uma reinicialização,<block ref="e0a64c365feb7b2f913e6a4048472af6" prefix=" " category="inline-code"></block> a configuração permanece no lugar para o código do driver usar.</block>
   <block id="16d074a2c9c574f7e8d9dbc312b16d88" category="summary">Antes de configurar os switches de cluster BES-53248, reveja uma visão geral do processo e da nomenclatura.</block>
-  <block id="1495155f2e7e92d92ddf31be3469d984" category="doc">Conclua a atualização do switch de cluster BES-53248</block>
-  <block id="0ba1ff2c4fedf820129253f3d3d33058" category="paragraph">Siga estas etapas para concluir a atualização dos switches de cluster BES-54328, conforme aplicável.</block>
   <block id="850f5123d6e90a3f43933cb2bcb88fe1" category="inline-link-macro">Ative o SSH nos switches de cluster BES-53248</block>
-  <block id="b983f14988f359bc65d91f081089597f" category="list-text"><block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block>.</block>
-  <block id="874b218fc41a6956a440db02a0f0cc5a" category="paragraph">Se você usar os recursos do Monitor de integridade do comutador de cluster (CSHM) e da coleção de logs, ative o SSH nos switches.</block>
-  <block id="d2f12128e27dfad7c1136524f6c54833" category="inline-link-macro">Ative o recurso de coleta de logs</block>
-  <block id="39f8cf052b0d97632dd50442183acc08" category="list-text"><block ref="42a9a40a2570039f7bbb890cc28e41e6" category="inline-link-macro-rx"></block>.</block>
-  <block id="067297cae08e3bd57831d980bc629dab" category="paragraph">Use esse recurso para coletar arquivos de log relacionados ao switch no ONTAP.</block>
   <block id="d185f7c4f8a7ee7fcc5143d7f639a45b" category="inline-link-macro">Configure o SNMPv3 para monitoramento</block>
-  <block id="894989f86e54fb4105389f59b2f248db" category="list-text"><block ref="c4cd7ec23f215e2259f91b6eb6e7cbc1" category="inline-link-macro-rx"></block>.</block>
-  <block id="a7c2dadcda7e0fed9bab7be4dbeee8e1" category="paragraph">Se você usar o recurso Monitor de integridade do comutador de cluster (CSHM), configure o SNMPv3, que suporta o monitoramento de integridade do comutador Ethernet (CSHM).</block>
   <block id="6e542d7f228623e0d93cb14b578964d6" category="summary">Para instalação e manutenção do comutador BES-53248, certifique-se de que lê a lista de componentes e números de peça.</block>
   <block id="d243834ab21b34f6cc60b0c0c7b6ef45" category="doc">Componentes e números de peça para comutadores de cluster BES-53248</block>
   <block id="1ad47980611dd1ee749c3478e99b4edd" category="paragraph">A tabela a seguir lista o número de peça, a descrição e as versões mínimas EFOS e ONTAP para os componentes do switch de cluster BES-53248, incluindo detalhes do kit de trilho de montagem em rack.</block>
@@ -1092,39 +1074,8 @@
   <block id="47cd03a2fa721b9f4f83dca38829afea" category="paragraph"><block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix="" category="inline-code"></block></block>
   <block id="6485b14c0e329aebda0c4dcd7d09dbd0" category="paragraph"><block ref="16fdd92def5a71313d6535c74ef67b81" prefix="" category="inline-code"></block></block>
   <block id="2cd4380b5e2f37a31f26485593e92e6a" category="list-text">Verifique se a rede do cluster está em bom estado:</block>
-  <block id="9486f276b196ea9042dc3f0bfb576743" category="summary">A atualização dos switches de cluster BES-53248 começa com a preparação do controlador para atualização, a instalação do software EFOS, licenças e arquivo de configuração de referência (RCF). Após a instalação, você pode restaurar a configuração do controlador em um ambiente de atualização sem interrupções (NDU) e operação sem interrupções (NDO).</block>
-  <block id="9302ce88c481ebfe72d64373c7b0d0e5" category="doc">Atualize o switch de cluster BES-53248</block>
-  <block id="db3a43c92e9a5ccc39b5fabb1bd97719" category="paragraph">Siga estas etapas para atualizar o switch de cluster BES-53248.</block>
-  <block id="5cb232b7121572a8cd994eb78f5bf42e" category="inline-link">Como preparar o ONTAP para uma atualização do switch de cluster</block>
-  <block id="2c6ae2b5ab15a868c020423af475ce29" category="paragraph">Este procedimento aplica-se a um cluster em funcionamento e permite um ambiente de atualização sem interrupções (NDU) e operação sem interrupções (NDO). Consulte o artigo da base de dados de Conhecimento<block ref="af19c072276b7cd7ef0c29b032a9fe34" category="inline-link-rx"></block> .</block>
-  <block id="8ac36f1d8b0fc917225a100d2cd4a4c3" category="paragraph">Antes de instalar o software EFOS, as licenças e o arquivo RCF em um switch de cluster NetApp BES-53248 existente, certifique-se de que:</block>
-  <block id="8e95d65cfa987ac59e9edd2e01c3a5f8" category="list-text">O cluster é um cluster totalmente funcional (sem mensagens de log de erro ou outros problemas).</block>
-  <block id="39268a4fe5b4dbf6e58a5a1147276955" category="list-text">O cluster não contém placas de interface de rede (NICs) de cluster com defeito.</block>
-  <block id="ec47b81e8bf4486497c8ada4032f9afa" category="list-text">Todas as portas conetadas em ambos os switches do cluster estão funcionais.</block>
   <block id="ce02a87591048d5ecf5c60336d69f7c3" category="list-text">Todas as portas do cluster estão ativas.</block>
-  <block id="1bd3381e575020334d423480f02f6fad" category="list-text">Todos os LIFs de cluster são administrativamente e operacionalmente ativos e em suas portas domésticas.</block>
-  <block id="1fda316fd22b1dc5573ff3e314a0a42d" category="list-text">As duas primeiras LIFs de cluster em cada nó são configuradas em NICs separadas e conetadas a portas de switch de cluster separadas.</block>
-  <block id="ecb3ad928d8fad0c4606292a33e1c818" category="list-text">O comando ONTAP<block ref="558546ca6f1501c71a2b7ed45d9e530d" prefix=" " category="inline-code"></block> Advanced Privilege indica que<block ref="37f72067423c56a3c1f95cc92e8b9c93" prefix=" " category="inline-code"></block> é bem-sucedido em todos os caminhos.</block>
-  <block id="35b8787b3c7d1523bc42aa8f180a1ed1" category="admonition">Pode haver dependências de comando entre sintaxe de comando nas versões RCF e EFOS.</block>
   <block id="088d99e43c55d66d91452773ea081e66" category="inline-link">Switches de cluster Broadcom</block>
-  <block id="a8174da6cc04ea058959150b0ccfaff8" category="admonition">Para compatibilidade de switch, consulte a tabela de compatibilidade<block ref="b8acb4249a66006a8b7a09c2c6555b42" category="inline-link-rx"></block> na página para as versões EFOS, RCF e ONTAP suportadas.</block>
-  <block id="31714f8663c6dc67f31bca71f386b811" category="section-title">Prepare o controlador</block>
-  <block id="8e9f9fc66815e0a24437fc914316825c" category="paragraph">Siga este procedimento para preparar o controlador para uma atualização do switch do cluster BES-53248.</block>
-  <block id="09b8dd35e8fef3e8e5d41f09345fb4d1" category="list-text">Use o comando ping para verificar a conetividade com o servidor que hospeda EFOS, licenças e RCF.</block>
-  <block id="8ec7bf1c1cace707d0a14358cd91829c" category="paragraph">Se este for um problema, use uma rede não roteada e configure a porta de serviço usando o endereço IP 192,168.x ou 172,19.x. Você pode reconfigurar a porta de serviço para o endereço IP de gerenciamento de produção mais tarde.</block>
-  <block id="31520dd193e3b7aa531864090b171dab" category="list-text">Verifique se as portas do cluster estão íntegras e têm um link usando o comando:</block>
-  <block id="3057240383fba0d2819840ddd72afb79" category="paragraph">O exemplo a seguir mostra o tipo de saída com todas as portas com um<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> valor de up e a<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block> de saudável:</block>
-  <block id="2580ed4d902c7a1d84f2effe38f4d5ab" category="list-text">Verifique se os LIFs de cluster estão administrativamente e operacionalmente ativos e residem em suas portas residenciais, usando o comando:</block>
-  <block id="d5fbb9cb1715ba5a21b66c0aa1b67707" category="paragraph">Neste exemplo, o<block ref="b058e17241aaaab6fd881949dfb6df3e" prefix=" " category="inline-code"></block> parâmetro exibe informações sobre os LIFs associados às portas de cluster.<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> deve estar em cima e<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> deve ser verdade:</block>
-  <block id="9efd141074c40d8320c19fd4a45b33a9" category="section-title">Instale o software</block>
-  <block id="c1321e94fa70c8284c7eb8048b1e5076" category="paragraph">Siga estas instruções para instalar o software.</block>
-  <block id="0ac27d8c913a06ae10bafaf9b4fd01d6" category="list-text"><block ref="1233ecfc62f0bed40d830afa17eec2c7" category="inline-link-macro-rx"></block>. Faça o download e instale o software do sistema operacional de malha Ethernet (EFOS) no switch de cluster BES-53248.</block>
-  <block id="ddda49e1f4684a46c990b945e884cb51" category="list-text"><block ref="0f9f654882514557e57b19641aa7b563" category="inline-link-macro-rx"></block>. Opcionalmente, adicione novas portas comprando e instalando mais licenças. O modelo base do switch é licenciado para 16 10GbE ou 25GbE portas e duas portas 100GbE.</block>
-  <block id="5d7a0a98b05cfb809893bdd4833d5fbc" category="list-text"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block>. Instale ou atualize o RCF no switch de cluster BES-53248 e, em seguida, verifique as portas para uma licença adicional após a aplicação do RCF.</block>
-  <block id="82c7b5069d64f95a2a115dff1c9ad171" category="inline-link-macro">Instale o arquivo de configuração do Monitor de integridade do interrutor de cluster (CSHM)</block>
-  <block id="229c0857c9446d49c77cc56bc33eaced" category="list-text"><block ref="22274518ab78de16bd162dd23a69479d" category="inline-link-macro-rx"></block>. Instale o arquivo de configuração aplicável para monitoramento de integridade do switch de cluster.</block>
-  <block id="85d353ef45b72af4e229ccdf19ef9d0d" category="list-text"><block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block>. Se você usar os recursos do Monitor de integridade do comutador de cluster (CSHM) e da coleção de logs, ative o SSH nos switches.</block>
-  <block id="0a35a048208806b2de5ad56aa78ce1da" category="list-text"><block ref="42a9a40a2570039f7bbb890cc28e41e6" category="inline-link-macro-rx"></block>. Use esse recurso para coletar arquivos de log relacionados ao switch no ONTAP.</block>
   <block id="418e7af0f19846dd2ad5f09dfc7d56a0" category="summary">Você pode usar os comandos fornecidos aqui para verificar se tudo está operacional após uma atualização do switch de cluster BES-53248.</block>
   <block id="7b0ac22c525a61eb6a12e2267bf6ddea" category="doc">Verifique a rede do cluster ONTAP após uma atualização do software EFOS ou RCF dos switches do cluster BES-53248</block>
   <block id="45f43daecf76cec34b1fa9cb5925aa48" category="paragraph">Você pode usar os seguintes comandos para verificar a integridade da rede de cluster ONTAP após uma atualização do software EFOS ou RCF para switches de cluster BES-53248.</block>
@@ -1278,7 +1229,6 @@
   <block id="eca4fd64fa30887cca883fb2a8f5e9b3" category="list-text">Instale duas porcas de mola em cada lado nos orifícios quadrados apropriados para os trilhos dianteiros do gabinete.</block>
   <block id="f830cc225c24ec543abaed8a0e1cd6e1" category="list-text">Centralize o painel verticalmente para evitar a intrusão no espaço adjacente do rack e, em seguida, aperte os parafusos.</block>
   <block id="49b045efb7e7fb564136877b99b17e71" category="list-text">Insira os conetores fêmea de ambos os cabos de ligação em ponte de 48 polegadas a partir da parte traseira do painel e através do conjunto da escova.</block>
-  <block id="43ed93036a7487f0b7bf4360d4755fcf" category="image-alt">cabos de ligação em ponte do Cisco 9148</block>
   <block id="41ab883f19863dd756db5d7f017fd458" category="paragraph">_(1) conetor fêmea do cabo de ligação em ponte._</block>
   <block id="f7ad0a2648b0185763a6a88e903a53ac" category="list-text">Instale os suportes de montagem em rack no chassi do switch Nexus 3132Q-V.</block>
   <block id="9d192644baefaa9cadbacfe7cb846df1" category="list-text">Posicione um suporte dianteiro de montagem em rack em um lado do chassi do interrutor de modo que a orelha de montagem fique alinhada com a placa frontal do chassi (no lado da PSU ou do ventilador) e, em seguida, use quatro parafusos M4 para prender o suporte ao chassi.</block>
@@ -1287,11 +1237,9 @@
   <block id="d3a2f82f1368d3b2401cf3b32d391773" category="list-text">Instale o suporte traseiro do suporte do suporte do rack no chassis do interrutor.</block>
   <block id="8fc6bd7c64a7bf0e8ca93ce43c3b4773" category="list-text">Repita o passo 2c com o outro suporte de montagem em rack traseiro do outro lado do interrutor.</block>
   <block id="a12951a873ab60e04d9e47e350c35048" category="list-text">Instale as porcas de mola nas localizações dos orifícios quadrados para os quatro postes IEA.</block>
-  <block id="d78f1ce6234c31afbdd1f1025a96e3c7" category="image-alt">localizações ru para 3132q v</block>
   <block id="6ad1d78b8f0ab3aa63359c683f081e14" category="paragraph">Os dois interrutores de 3132Q V serão sempre montados no topo 2U do gabinete RU41 e 42.</block>
   <block id="39cefeb8f3cb08284de2d767284143aa" category="list-text">Instale os trilhos deslizantes no gabinete.</block>
   <block id="dcb8ea721bdbaaeb0bef0a3bf0111b48" category="list-text">Posicione o primeiro trilho deslizante na marca RU42 na parte traseira do poste esquerdo traseiro, insira os parafusos com o tipo de rosca correspondente e aperte os parafusos com os dedos.</block>
-  <block id="5b8f17476b9e83bafb2edc6052ccd256" category="image-alt">calhas deslizantes de 3132q v.</block>
   <block id="2a02f97dd4d77c9d63cdf9df762cd142" category="paragraph">_(1) enquanto desliza suavemente o trilho deslizante, alinhe-o com os orifícios dos parafusos no rack._</block>
   <block id="80c3d1e72b506606be8d403082515e7c" category="paragraph">_(2) aperte os parafusos dos trilhos deslizantes nos postes do gabinete._</block>
   <block id="f2b53322996b653d8514a1a9e8c6bd12" category="list-text">Repita o passo 4a para a coluna traseira do lado direito.</block>
@@ -1303,7 +1251,6 @@
   <block id="0b220a754a524416fc438674a1d0d5e6" category="paragraph">_(1) à medida que o chassis é empurrado para os postes traseiros, alinhe as duas guias de montagem em rack traseiras com os trilhos deslizantes._</block>
   <block id="ff6383f56c8c18a0b2f7f28db4cd309e" category="paragraph">_(2) deslize suavemente o interrutor até que os suportes de montagem em rack dianteiros estejam alinhados com os postes dianteiros._</block>
   <block id="878b968ae7ba1068592ac6cfc693d74c" category="list-text">Ligue o interrutor ao armário.</block>
-  <block id="7c0f08cdb469d996e8230ff754de36bd" category="image-alt">3132q fixação</block>
   <block id="9d65a726db9bdd22eaad7c26b40123f7" category="paragraph">_(1) com uma pessoa segurando a frente do nível do chassi, a outra pessoa deve apertar totalmente os quatro parafusos traseiros aos postes do gabinete._</block>
   <block id="dbcac8d4f8b58a195ce24afb90c0ad01" category="list-text">Com o chassis agora suportado sem assistência, aperte totalmente os parafusos dianteiros nos postes.</block>
   <block id="ee6825cf6a234dbddc2afae6b53b354a" category="list-text">Repita os passos 5a a 5c para o segundo interrutor na localização RU42.</block>
@@ -1350,7 +1297,6 @@
   <block id="d08074ca4afc3cad1b1b41c1134b3f1e" category="section-title">Passo 2: Configure e verifique a configuração</block>
   <block id="2df26e386d021172b261bcb47e157019" category="list-text">Limpar a configuração:</block>
   <block id="b0c43589a498f27ca141cd4db101283e" category="inline-link">Referência de comando Cisco Nexus 3000 Series NX-os</block>
-  <block id="8b205e91662e46037aa9052c6d1ff328" category="list-text">Copie o RCF para o flash de inicialização do switch CS2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP. Para obter mais informações sobre comandos Cisco, consulte o guia apropriado<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> nos guias.</block>
   <block id="f22797e59a4f9df1be6a7bd93495674d" category="paragraph">Para obter mais informações sobre comandos Cisco, consulte o guia apropriado<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> nos guias.</block>
   <block id="3e671871acf365e09e492c2fd833d14f" category="list-text">Examine a saída do banner a partir do<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> comando. Você deve ler e seguir as instruções em *Notas importantes* para garantir a configuração e o funcionamento corretos do switch.</block>
   <block id="427c15bca394e9d3b5f203c35b96c743" category="inline-link">As portas de 10GbE GbE em um switch de cluster Cisco 3132Q não estão online</block>
@@ -1362,37 +1308,24 @@
   <block id="53a0bfa393247902d9ea8fedde7e8132" category="list-text">Interrutor de reinicialização CS1. Você faz isso para acionar os LIFs do cluster para reverter para suas portas domésticas. Você pode ignorar os eventos "portas de cluster para baixo" relatados nos nós enquanto o switch é reinicializado.</block>
   <block id="9e9f720a4be60634e28d3a445f01d250" category="list-text">Verifique se as portas do switch conetadas às portas do cluster estão ativadas.</block>
   <block id="af4d9c4c765c5c1d9c279c35191c82da" category="paragraph"><block ref="e39b44798f52b1532971ab295180e1b0" prefix="" category="inline-code"></block></block>
-  <block id="6de42699e499fd1e22f3dba2b9245b8b" category="summary">Para substituir um switch de cluster Nexus 5596 existente por um switch de cluster Nexus 3132Q-V, você deve executar uma sequência específica de tarefas.</block>
-  <block id="0ae7af765bea22243f2f0d22cbd558db" category="doc">Migre um switch de cluster Cisco Nexus 5596 para um switch de cluster Cisco Nexus 3132Q-V.</block>
-  <block id="e1b10a45ea0ae3c414f25517bb673cf2" category="paragraph">Siga este procedimento para substituir um switch de cluster Nexus 5596 existente por um switch de cluster Nexus 3132Q-V.</block>
   <block id="077662abda369797cf161b3c680959fa" category="inline-link-macro">Requisitos para a substituição de switches de cluster Cisco Nexus 3132Q-V.</block>
-  <block id="6f36587c0914b621e91edeb0829de1d4" category="paragraph">Reveja os requisitos do Cisco Nexus 5596 em <block ref="e02fb67277400e729fb31d4ea6e688c9" category="inline-link-macro-rx"></block>.</block>
   <block id="c6adba6217951ed0e1a8ae3a9a50e632" category="paragraph">Para obter mais informações, consulte:</block>
   <block id="f775db4015a6969e3d7826094686747b" category="inline-link">Página de descrição do comutador Ethernet Cisco</block>
-  <block id="fb80612154aea33b3943669136f170ab" category="list-text"><block ref="fb80612154aea33b3943669136f170ab" category="inline-link-rx"></block></block>
   <block id="c611db29cc6e6a239383ecd8e657d54c" category="list-text"><block ref="c611db29cc6e6a239383ecd8e657d54c" category="inline-link-rx"></block></block>
   <block id="d98767ee779e3271429ef60fcaddeacd" category="section-title">Substitua o interrutor</block>
-  <block id="d281f0a718beea3880dd7d75952976af" category="paragraph">Os exemplos neste procedimento descrevem a substituição de switches Nexus 5596 por switches Nexus 3132Q-V. Você pode usar estas etapas (com modificações) para substituir outros switches Cisco mais antigos.</block>
-  <block id="5ea2a322aa44d8d48fd22b63c099af99" category="paragraph">O procedimento usa a seguinte nomenclatura de switch e nó:</block>
   <block id="ba0aeff0757e53b1be2f02ce22967fe1" category="list-text">Os switches Nexus 5596 a serem substituídos são CL1 e CL2.</block>
-  <block id="756e6368314b2aa356f2a920d85b43b2" category="list-text">Os switches Nexus 3132Q-V para substituir os switches Nexus 5596 são C1 e C2.</block>
   <block id="f443773aa59e1d770aa0a48d6633130c" category="list-text">N1_clus1 é a primeira interface lógica de cluster (LIF) conetada ao switch de cluster 1 (CL1 ou C1) para o nó n1.</block>
   <block id="856e0bef52621c214c52e2d1b05f7f43" category="list-text">N1_clus2 é o primeiro cluster de LIF conetado ao switch de cluster 2 (CL2 ou C2) para o nó n1.</block>
   <block id="2e9e047830321191ee009b7cb5fa1f3f" category="list-text">N1_clus3 é o segundo LIF conetado ao switch de cluster 2 (CL2 ou C2) para o nó n1.</block>
-  <block id="7e9c976d51f9e7d03f54a6d8a50f63fa" category="list-text">N1_clus4 é o segundo LIF conetado ao switch de cluster 1 (CL1 ou C1) para o nó n1.</block>
   <block id="875caff1de12674a95161084b4897d33" category="list-text">Os nós são n1, n2, n3 e n4.</block>
   <block id="cfe31ca921d74cd993703a61d1e43033" category="inline-link">Download do arquivo de configuração de referência do comutador de rede de cluster Cisco</block>
   <block id="48bce5ec820f8f37a68ba6bb2b9d8b81" category="list-text">O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na<block ref="cce23acfce4c9bc9bb74fd35873aedf2" category="inline-link-rx"></block> página.</block>
   <block id="9471c7c21cedfdb98486495bd0b6245b" category="paragraph">Este procedimento abrange os seguintes cenários:</block>
-  <block id="0dbe0249901477061ecd83c20ecd0e9c" category="list-text">O cluster começa com dois nós conectados e funcionando em 2 switches de cluster Nexus 5596.</block>
-  <block id="34de640daae00968b964a68033ca6358" category="inline-xref">Passos 1</block>
   <block id="1f0e3dad99908345f7439f8ffabdffc4" category="inline-xref">19</block>
-  <block id="e86ea01e700780ea92b3789d44f4c23c" category="list-text">O interrutor de cluster CL2 a ser substituído por C2 (<block ref="55f08534725327744dab814bb2ce3ba4" category="inline-xref-macro-rx"></block> - <block ref="758db5a2604e6f852c33eb0fa872c37e" category="inline-xref-macro-rx"></block>)</block>
   <block id="1d85af6debfc52bfafe3723ca3d53ede" category="list-text">O tráfego em todas as portas de cluster e LIFs em todos os nós conectados ao CL2 é migrado para as primeiras portas de cluster e LIFs conetadas ao CL1.</block>
   <block id="c60594fd2a4887f5b18ebc8ee0103c2d" category="list-text">Desconete o cabeamento de todas as portas de cluster em todos os nós conectados ao CL2 e use o cabeamento de saída compatível para reconetar as portas ao novo switch de cluster C2.</block>
   <block id="0c03a81f65ecd80fac8d9c0c98a91d57" category="list-text">Desconete o cabeamento entre as portas ISL entre CL1 e CL2 e, em seguida, use o cabeamento de saída suportado para reconetar as portas de CL1 a C2.</block>
   <block id="7fe5e02bcbbae7e02a1da8ec0deed72c" category="list-text">O tráfego em todas as portas de cluster e LIFs conetadas ao C2 em todos os nós é revertido.</block>
-  <block id="3d49ffc9620c1c54c6ede5a7b57f870a" category="list-text">O interrutor do cluster CL2 a ser substituído por C2</block>
   <block id="0254b13545aeed63a4625acc6d30ae80" category="list-text">O tráfego em todas as portas de cluster ou LIFs em todos os nós conectados ao CL1 é migrado para as segundas portas de cluster ou LIFs conetadas ao C2.</block>
   <block id="012d2075795af04cb02e161b5e3a6057" category="list-text">Desconete o cabeamento de todas as portas de cluster em todos os nós conectados ao CL1 e reconete, usando o cabeamento de saída compatível, ao novo switch de cluster C1.</block>
   <block id="376d9754d8bf6cc760dbf7cec0de5688" category="list-text">Desconete o cabeamento entre as portas ISL entre CL1 e C2 e reconete usando o cabeamento suportado, de C1 a C2.</block>
@@ -1413,12 +1346,10 @@
   <block id="453a6890d60e4080c71b10898159e292" category="paragraph"><block ref="141f671a5edc94f5cc9316f953bc9ffb" prefix="" category="inline-code"></block></block>
   <block id="f4ea8698e3058f3f13b97ef311024a01" category="list-text">Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3132Q-V conforme necessário para seus requisitos e faça as personalizações essenciais do site, como usuários e senhas, endereços de rede, etc.</block>
   <block id="62a32a8da5c635f011843056ed2be49c" category="paragraph">Neste momento, tem de preparar ambos os interrutores. Se você precisar atualizar o RCF e a imagem, siga estas etapas:</block>
-  <block id="199c448280caf4b3d38b86cfdc4d67e9" category="list-text">Vá para a <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block> página no site de suporte da NetApp.</block>
   <block id="690cd80190ecafe95c1bad59ef6e05e9" category="list-text">Observe o switch e as versões de software necessárias na tabela nessa página.</block>
   <block id="75a2d93cb4e527c0e286f843787fab5e" category="list-text">Baixe a versão apropriada do RCF.</block>
   <block id="818a7942927b20b0aa08e065a4f8a89e" category="list-text">Clique em *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.</block>
   <block id="64382be6f4f3f33c4cddf77b7e43a871" category="list-text">Transfira a versão apropriada do software de imagem.</block>
-  <block id="64d9658c6e0a01fd09972bb8e3bf80d8" category="paragraph">Consulte a página __ONTAP 8.x ou mais recente Cluster and Management Network Switch Reference Configuration Files__Download e, em seguida, clique na versão apropriada.</block>
   <block id="3765c5d59205afeccadd8e5bd55e38e9" category="paragraph">Para encontrar a versão correta, consulte a página de download do comutador de rede de cluster _ONTAP 8.x ou posterior_.</block>
   <block id="dd3fa644952a65f1f6502b594da8056e" category="list-text">Migrar os LIFs associados ao segundo switch Nexus 5596 a ser substituído:</block>
   <block id="b6657e7f15b6ced09b43b9a70f94abe8" category="paragraph"><block ref="b25040194b5c780d571a8835507279e9" prefix="" category="inline-code"></block></block>
@@ -1486,10 +1417,6 @@
   <block id="875f7e7648c993f0e954e0bebec605a3" category="list-text">Configure os clusters clus1 e clus2 para reverter automaticamente em cada nó e confirmar.</block>
   <block id="ea07c00f9576f4476947cdd532e4de56" category="list-text">Verifique se os switches de cluster adequados são monitorados:</block>
   <block id="5b8b393a675dcaaee97c02828356657c" category="paragraph"><block ref="5b8b393a675dcaaee97c02828356657c" category="inline-link-macro-rx"></block></block>
-  <block id="ce2661fa29f176161a85d160887a17ef" category="summary">Se você tiver um cluster sem switch de dois nós, poderá migrar sem interrupções para um cluster comutado de dois nós que inclui os switches de rede de cluster Cisco Nexus 3132Q-V.</block>
-  <block id="b2f14cb323092f99e5dc903db24f7b59" category="doc">Migre de um cluster sem switch para um cluster comutado de dois nós</block>
-  <block id="d77976c37f0905ead2cec6b14a961b3d" category="paragraph">Se você tiver um cluster sem switch de dois nós, siga este procedimento para migrar para um cluster comutado de dois nós que inclui os switches de rede de cluster Cisco Nexus 3132Q-V. O procedimento de substituição é um procedimento sem interrupções (NDO).</block>
-  <block id="d864686a9a8c19574f54bab270afc92e" category="paragraph-title">Portas e conexões de nós</block>
   <block id="1e7adbcd77a17bde5f2f970332192c58" category="paragraph">Certifique-se de entender os requisitos de cabeamento e conexões de nó e porta ao migrar para um cluster comutado de dois nós com os switches de cluster Cisco Nexus 3132Q-V.</block>
   <block id="dd21090e5d1cd428ffa6730ee85b51b9" category="list-text">Os switches do cluster usam as portas ISL (Inter-Switch Link) E1/31-32.</block>
   <block id="dd91c3681cdde4bc7616a4b3ec5f7e72" category="list-text">O <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> contém informações sobre cabeamento compatível com switches Nexus 3132Q-V:</block>
@@ -1507,7 +1434,6 @@
   <block id="8bd7a2e2adba3a2891e30cfe6cd673be" category="list-text">A configuração de rede de cluster existente tem:</block>
   <block id="4dd112d6804b4f82a4602d3778c99cdb" category="list-text">A infraestrutura de cluster do Nexus 3132 que é redundante e totalmente funcional em ambos os switches.</block>
   <block id="562c64546c069c9f72cfdcfa74fb7f82" category="list-text">As versões mais recentes do RCF e NX-os em seus switches.</block>
-  <block id="2b6f3ab875b845c218e00770e3512d7b" category="paragraph">A <block ref="bd4121ea0586524602af8d06c17dcfca" category="inline-link-macro-rx"></block> página tem informações sobre as versões ONTAP e NX-os suportadas neste procedimento.</block>
   <block id="6a949e67bd3e05d573dcf380fa5fd091" category="list-text">Conetividade de gerenciamento em ambos os switches.</block>
   <block id="b1f28b14d768b6948c010a7ec4d9d0e2" category="list-text">Acesso ao console a ambos os switches.</block>
   <block id="11020cbfca4de093a60bf8701b8613a7" category="list-text">Todas as interfaces lógicas de cluster (LIFs) no<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> estado sem serem migradas.</block>
@@ -1528,7 +1454,6 @@
   <block id="1712b5c25d5eef605b7adb3dc4669678" category="list-text">Verifique se os RCFs e a imagem apropriados estão instalados nos novos switches 3132Q-V, conforme necessário, e faça qualquer personalização essencial do site, como usuários e senhas, endereços de rede, etc.</block>
   <block id="7fc53d89993e2d6e34cba80e8554d2af" category="paragraph">Neste momento, tem de preparar ambos os interrutores. Se você precisar atualizar o RCF e o software de imagem, siga estas etapas:</block>
   <block id="f70890a113f7fa0b08aa6d3f7eadf768" category="list-text">Baixe a versão apropriada do RCF.</block>
-  <block id="ac1d56028560473146e8ab0052c666c0" category="section-title">Passo 2: Mova a primeira porta de cluster para C1</block>
   <block id="c89bad0c9adc1b5e838592024ec51426" category="list-text">Nos switches Nexus 3132Q-V C1 e C2, desative todas as portas C1 e C2 voltadas para o nó, mas não desative as portas ISL.</block>
   <block id="1b652c9ae3dcaba04d021245a1dbdb58" category="paragraph">O exemplo a seguir mostra que as portas 1 a 30 estão sendo desativadas nos switches de cluster Nexus 3132Q-V C1 e C2 usando uma configuração suportada no RCF :<block ref="47946c28c44baaa70f022aed25bfa4f4" prefix=" " category="inline-code"></block></block>
   <block id="bc2edf86e8b68f6605b760d537b54b0c" category="list-text">Conete as portas 1/31 e 1/32 no C1 às mesmas portas no C2 usando cabeamento compatível.</block>
@@ -1552,7 +1477,6 @@
   <block id="11a7c7862d1052ae9a1e3852a8d8aca2" category="paragraph">O exemplo a seguir mostra os LIFs migrados sendo revertidos para suas portas residenciais.</block>
   <block id="19e4ac4d66c41da057024c24b73cb914" category="list-text">Verifique se todas as portas de interconexão de cluster estão agora revertidas para suas portas iniciais:</block>
   <block id="d332234a65b23b2fca87d090fef16bbc" category="paragraph">A<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> coluna deve exibir um valor de<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> para todas as portas listadas na<block ref="532d46eca86446fb8b3303e1256413d1" prefix=" " category="inline-code"></block> coluna. Se o valor exibido for<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>, a porta não foi revertida.</block>
-  <block id="79484c9819f97f07d75e1d8ec970489f" category="section-title">Passo 3: Mova a segunda porta de cluster para C2</block>
   <block id="7ef8ed1afaa38e8b45b9c49b2fe7bf94" category="list-text">No console de cada nó, migre clus2 para a porta e4a:</block>
   <block id="ddf361472a32642920ae48385f037ecb" category="list-text">Encerre as portas de cluster clus2 LIF em ambos os nós:</block>
   <block id="93a2bdba55163a4102a682be96ce82d5" category="paragraph">O exemplo a seguir mostra as portas especificadas sendo fechadas em ambos os nós:</block>
@@ -1566,13 +1490,11 @@
   <block id="711187d3990138a0dd2317c3c829ca0d" category="list-text">Ative a segunda porta do cluster, e4e, em cada nó:</block>
   <block id="1d56491a4b8f4780b32e1db3c1d7888b" category="paragraph">O exemplo a seguir mostra as portas especificadas sendo criadas:</block>
   <block id="64e13957a98ef905c099c4d18c6c4550" category="list-text">Verifique se todas as portas de interconexão de cluster estão no<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> estado.</block>
-  <block id="1416a1ce598e4eaa078efbdac0c53439" category="section-title">Etapa 4: Desative a opção de cluster sem switch de dois nós</block>
   <block id="0488c5e5c26cb3d6f5cfde92356b627b" category="list-text">Exibir os números da porta do switch de cluster a que cada porta do cluster está conetada em cada nó:</block>
   <block id="7fbe36e7b38952dc46731c684727d49d" category="list-text">Exibir switches do cluster descobertos e monitorados:</block>
   <block id="8f6507ec72cb3fedcd155ae7e123eef2" category="list-text">Desative as configurações sem switch de dois nós em qualquer nó:</block>
   <block id="ab9ad56c2025256691b37f4999bd0be5" category="paragraph"><block ref="4390e2041ad5aa4a37bb1b20b30030d8" prefix="" category="inline-code"></block></block>
   <block id="5d139da24ba0eb9134b0d41ac5bd7c29" category="list-text">Verifique se a<block ref="11effc69c8ed84831bf26363e7e9c2cc" prefix=" " category="inline-code"></block> opção foi desativada.</block>
-  <block id="a62026595f014b4570187bd5c897b67b" category="section-title">Etapa 5: Verifique a configuração</block>
   <block id="a1e3722d1b72e15c4741491bfdfdb45c" category="doc">Substitua os switches de cluster Cisco Nexus 3132Q-V por conexões sem switch</block>
   <block id="dd7ac721959b4aaa170786e82881ae7b" category="summary">O software Cisco NX-os e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de cluster Cisco Nexus 3132Q-V.</block>
   <block id="ccdb01c4cd8e253f3a70d7d150d9bc95" category="paragraph">Antes de instalar o software NX-os e o ficheiro de configuração de referência (RCF), siga este procedimento.</block>
@@ -1591,7 +1513,6 @@
   <block id="5889120800380fb946a625a93fde4b89" category="list-text">O cluster e a configuração de rede existentes têm:</block>
   <block id="0bbac2a52da2febcef5fe6db95287772" category="list-text">A infraestrutura de cluster Nexus 3132Q-V é redundante e totalmente funcional em ambos os switches.</block>
   <block id="62791e1f76f82dd4c5d54b4700356919" category="inline-link-macro">Switch Ethernet Cisco</block>
-  <block id="9f4145c2033b757fa6ab70b7abd75c3a" category="paragraph">A <block ref="9695fe01247a31a02b295ce8d21e5fd0" category="inline-link-macro-rx"></block> página tem as últimas versões RCF e NX-os em seus switches.</block>
   <block id="412b6e09f4703c00e2e7ac3619a606aa" category="list-text">Todas as portas do cluster estão<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> no estado.</block>
   <block id="e43ebc94f16886d57ca6e6669da32007" category="list-text">A conetividade de gerenciamento existe em ambos os switches.</block>
   <block id="2f521b8aa2466fa78653c820d56daab6" category="list-text">Todas as interfaces lógicas de cluster (LIFs) estão no<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> estado e foram migradas.</block>
@@ -1612,7 +1533,6 @@
   <block id="57e00aef805575866308e1c26584d645" category="list-text">Exiba as informações nos switches do cluster descobertos:</block>
   <block id="20da49950918f66c6a6977bfaad44d29" category="list-text">Verifique se o RCF e a imagem apropriados estão instalados no novo switch Nexus 3132Q-V, conforme necessário, e faça qualquer personalização essencial do site.</block>
   <block id="4853b9fcefa452337fe58bba63b2ffda" category="paragraph">Neste momento, tem de preparar o interrutor de substituição. Se você precisar atualizar o RCF e a imagem, siga estas etapas:</block>
-  <block id="1a814209dc9d61786687170c6f1e1090" category="list-text">No site de suporte da NetApp, vá para a <block ref="9695fe01247a31a02b295ce8d21e5fd0" category="inline-link-macro-rx"></block> página.</block>
   <block id="e9dc3a72ba03ca123d33ffd76da3d0b1" category="list-text">Migre os LIFs associados às portas de cluster conetadas ao switch C2:</block>
   <block id="7fd77ba3dd5e636631a1eb65009f8b8d" category="paragraph">Este exemplo mostra que a migração de LIF é feita em todos os nós:</block>
   <block id="43708903ed29a6b8f36b2d2012c5cd07" category="list-text">Verifique a integridade do cluster:</block>
@@ -1636,7 +1556,6 @@
   <block id="5df649542c57202f02bfbe07032d6c7c" category="paragraph">Siga este procedimento para substituir os switches de cluster CN1610 existentes por switches de cluster Cisco Nexus 3132Q-V.</block>
   <block id="a5ef8c2d5ef6762246ebb7d49927df91" category="paragraph">Revise os requisitos do NetApp CN1610 em <block ref="e02fb67277400e729fb31d4ea6e688c9" category="inline-link-macro-rx"></block>.</block>
   <block id="2c6231c37aa5eee842fb3faba0147be9" category="inline-link">Página de descrição do NetApp CN1601 e CN1610</block>
-  <block id="0803f35d5dc3f3e8df23256cad8a1810" category="list-text"><block ref="0803f35d5dc3f3e8df23256cad8a1810" category="inline-link-rx"></block></block>
   <block id="2563a96fdb66dda5382058af89e8a58c" category="paragraph-title">Nomenclatura de switch e nó</block>
   <block id="0b2342552013f3c2238c3e35e200689f" category="list-text">Os CN1610 interrutores a serem substituídos são CL1 e CL2.</block>
   <block id="bc01d49ccd216cbb296208344af71590" category="list-text">Os switches Nexus 3132Q-V para substituir os switches CN1610 são C1 e C2.</block>
@@ -1660,9 +1579,7 @@
   <block id="af2ff68d08b3fb88cb6382bbba112b88" category="list-text">Exibir informações sobre os switches de cluster descobertos:</block>
   <block id="0aa324cec8174de7857145b129b4eb71" category="list-text">Defina<block ref="28c988ac956ff7a16325cde07547fef0" prefix=" " category="inline-code"></block> o parâmetro como false em LIFs de cluster clus1 e clus4 em ambos os nós:</block>
   <block id="e75185bd3368ee464150b091fadaea64" category="list-text">Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3132Q-V conforme necessário para seus requisitos e faça qualquer personalização essencial do site, como usuários e senhas, endereços de rede, etc.</block>
-  <block id="5f6af1e958a3701a7602a4d2261afe6d" category="list-text">Consulte <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block>a página no site de suporte da NetApp.</block>
   <block id="3d8dff955662cfeaf1bbd38f49a7762a" category="inline-link">Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco</block>
-  <block id="32314c4d0766541b8603617d61e16414" category="paragraph"><block ref="32314c4d0766541b8603617d61e16414" category="inline-link-rx"></block></block>
   <block id="7ce02bd6a5e67e04f7cac449dc854124" category="list-text">Migrar os LIFs associados ao segundo switch CN1610 a ser substituído:</block>
   <block id="e8b36898a14025655c5bbcd25316af3f" category="paragraph">É necessário migrar as LIFs de cluster de uma conexão para o nó, seja por meio do processador de serviços ou da interface de gerenciamento de nós, que possui o LIF do cluster que está sendo migrado.</block>
   <block id="92c7135f045da2103cc2998aaea78fe4" category="paragraph">O exemplo a seguir mostra n1 e n2, mas a migração de LIF deve ser feita em todos os nós:</block>
@@ -1734,8 +1651,6 @@
   <block id="212068d19d629b1853fde3c9e29d9681" category="paragraph">Informações regulamentares, de conformidade e de segurança para o Cisco Nexus 6000, Cisco Nexus 5000 Series, Cisco Nexus 3000 Series e Cisco Nexus 2000 Series</block>
   <block id="5595c64bce691b64643e83cf6e179106" category="paragraph">Fornece informações legais, de conformidade, segurança e conformidade de agências internacionais para os switches da série Nexus 3000.</block>
   <block id="aaf23d643347b5921ba9716fa4c13f83" category="section-title">Documentação de sistemas ONTAP</block>
-  <block id="774a065cb3548cc61fb0ec3bc1494fbe" category="inline-link">Centro de Documentação do ONTAP 9</block>
-  <block id="dc6d63cd7343677c50d9571794ed38e4" category="paragraph">Para configurar um sistema ONTAP, você precisa dos seguintes documentos para a sua versão do sistema operacional a partir do<block ref="eb1214e3900207403ada8715d3d4c764" category="inline-link-rx"></block>.</block>
   <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="paragraph">Documentação do ONTAP</block>
   <block id="70897bfd7df2c79fe08ac3c614785bc5" category="paragraph">Fornece informações detalhadas sobre todos os aspetos das versões do ONTAP.</block>
   <block id="ec4312d0db3bce928129e7e5c3a58d73" category="paragraph"><block ref="ec4312d0db3bce928129e7e5c3a58d73" category="inline-link-rx"></block></block>
@@ -1888,7 +1803,6 @@
   <block id="6c28101de4bc69c38814cc5f0a5cdcb4" category="paragraph">Por padrão, o RCF é estruturado para usar a porta QSFP28.</block>
   <block id="5e51bdc54f5dd33d30418aa5b91af8ad" category="admonition">Você pode tornar 4x portas SFP mais ativas em vez de uma porta QSFP para switches Nexus 3132Q-V usando o<block ref="816766858f7c77e99416829d259d7126" prefix=" " category="inline-code"></block> comando. Da mesma forma, você pode redefinir os switches Nexus 3132Q-V para usar uma porta QSFP em vez de 4x portas SFP usando o<block ref="2ff5d8d38bfd26eb90e911e02e837791" prefix=" " category="inline-code"></block> comando.</block>
   <block id="9043114d5258d60e49a6ff62966f1f4d" category="admonition">Você pode dividir as primeiras seis portas no modo 4x10 GbE usando o<block ref="08aac397a11274cd898dfbb3a635cf19" prefix=" " category="inline-code"></block> comando. Da mesma forma, você pode reagrupar as primeiras seis portas QSFP a partir da configuração de breakout usando o<block ref="9437e02f9ec4a8d602d396abd2c360b4" prefix=" " category="inline-code"></block> comando.</block>
-  <block id="f31feccfa3205f46547d83274bdfbcbd" category="list-text">As versões ONTAP e NX-os suportadas neste procedimento estão <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block>na página.</block>
   <block id="401f989556f238d07b2eafd80fc659ea" category="section-title">Requisitos do NetApp CN1610</block>
   <block id="59f69cc7526dca532d61c11acf92ab1b" category="list-text">NetApp CN1610: Portas de 0/1 a 0/12 (10 GbE)</block>
   <block id="d85b5de5ebd96ca279df638f293965ec" category="list-text">NetApp CN1610: Portas de 0/13 a 0/16 (10 GbE)</block>
@@ -1902,9 +1816,7 @@
   <block id="68f609cf0d26657ca331984cb655e187" category="paragraph">Por padrão, o arquivo de configuração de referência (RCF) é estruturado para usar a primeira porta QSFP.</block>
   <block id="93b0e80a036070a07fd0baf72e679cd3" category="paragraph">Você pode ativar quatro portas SFP em vez de uma porta QSFP para switches Nexus 3132Q-V usando o<block ref="816766858f7c77e99416829d259d7126" prefix=" " category="inline-code"></block> comando. Da mesma forma, você pode redefinir os switches Nexus 3132Q-V para usar uma porta QSFP em vez de quatro portas SFP usando o<block ref="2ff5d8d38bfd26eb90e911e02e837791" prefix=" " category="inline-code"></block> comando.</block>
   <block id="62773ff807cea7c5201a77e34fd71617" category="admonition">Quando você usa as primeiras quatro portas SFP, ele desativará a primeira porta QSFP de 40GbE GbE.</block>
-  <block id="82638f9455b90aac4ecd3473c4abd282" category="list-text">As versões ONTAP e NX-os que são suportadas neste procedimento estão listadas na <block ref="bea6a113c7846200412c9ca0694f7009" category="inline-link-macro-rx"></block> página.</block>
   <block id="caa7a1b509ffae6e49682160486b956b" category="inline-link-macro">Switches NetApp CN1601 e CN1610</block>
-  <block id="a002527eadfaaff725e2967fe87378fd" category="list-text">As versões ONTAP e FASTPATH que são suportadas neste procedimento estão listadas na <block ref="02204714444b8dc050a0e8cdbf247292" category="inline-link-macro-rx"></block> página.</block>
   <block id="b6dd8221599de3110a6be11272b8d643" category="summary">Antes de configurar o switch Cisco 3232C, revise as informações a seguir.</block>
   <block id="855541c4370cb556c283600de9f0d1df" category="paragraph">Antes de configurar o switch Cisco 3232C, revise as seguintes considerações.</block>
   <block id="3447206e4790bd39c75003aa974a1695" category="summary">Você pode usar os switches Cisco Nexus 3232C como switches de cluster no seu cluster AFF ou FAS.</block>
@@ -1967,8 +1879,6 @@
   <block id="51b92e50103faa05aefa082268abbfd6" category="paragraph">O exemplo a seguir exibe os switches de cluster que são conhecidos pelo cluster junto com seus endereços IP de gerenciamento:</block>
   <block id="6864fdd0f6ad89e3fc724deeacd7576c" category="list-text">Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3232C conforme necessário para seus requisitos e faça as personalizações essenciais do site.</block>
   <block id="bd8bc538541d81e289ef66a8873145af" category="paragraph">Você deve preparar ambos os interrutores neste momento. Se necessitar de atualizar o RCF e a imagem, tem de concluir o seguinte procedimento:</block>
-  <block id="67dbd130b7f97be2f3adeeb97692aa5d" category="list-text">Consulte <block ref="03c4e3201f2c647c804c56964354a408" category="inline-link-macro-rx"></block>a página no site de suporte da NetApp.</block>
-  <block id="ef84127d5ef060917ce0f8f8ec03bf82" category="list-text">Faça o download da versão apropriada do software de imagem em <block ref="a1b5971027192ba8f103906f3e0c5af3" category="inline-link-macro-rx"></block>.</block>
   <block id="a2d242366fa878251941b37993d9c788" category="list-text">Migre os LIFs associados ao segundo switch CN1610 que você planeja substituir:</block>
   <block id="bac3eff3de1438929f64e35c9c1d753e" category="paragraph"><block ref="44d01163c6b63fd73868a8216bae200c" prefix="" category="inline-code"></block></block>
   <block id="98eb99fcc0ed94997a2ab2be00fd87f8" category="paragraph">Você deve migrar cada LIF individualmente, conforme mostrado no exemplo a seguir:</block>
@@ -2045,7 +1955,6 @@
   <block id="db39960670bd5a0afd6aa3f81f3ba73d" category="paragraph">Neste momento, tem de preparar ambos os interrutores.</block>
   <block id="1e59f27afab544486b3444c5591d4f53" category="paragraph">Se você precisar atualizar o RCF e a imagem, você deve concluir as seguintes etapas:</block>
   <block id="e6f83bff1ab8bd0edb5a79370ff0af31" category="list-text">Vá para a página _switches Ethernet Cisco_ no site de suporte da NetApp.</block>
-  <block id="d631e277d977d88a20a9eaedfa83bd83" category="paragraph"><block ref="d631e277d977d88a20a9eaedfa83bd83" category="inline-link-rx"></block></block>
   <block id="75f25895ca6e2ae979bdd258523b64d8" category="paragraph">Consulte a página __ONTAP 8.x ou mais recente de transferência de ficheiros de configuração de comutador de rede de gestão e cluster e, em seguida, clique na versão apropriada.</block>
   <block id="266daf0ca11ec57d9d3cb7598fd930b3" category="paragraph"><block ref="d14f00174ffa33ec8f559ffde7a52484" prefix="" category="inline-code"></block></block>
   <block id="23cd51d657266665ae8f8c9d2a2ae14f" category="paragraph">O exemplo a seguir mostra as LIFs sendo migradas para os nós n1 e n2; a migração de LIF deve ser feita em todos os nós:</block>
@@ -2109,8 +2018,6 @@
   <block id="3f56c1e4373cfcb083c7e65d2e927921" category="paragraph"><block ref="c814f5c275557d23820bdc590a7851b0" prefix="" category="inline-code"></block></block>
   <block id="0adb89344fcb49a384ba5f4094796fed" category="paragraph">A saída no exemplo a seguir mostra que a deteção de cluster sem switch está ativada:</block>
   <block id="9e65854a93d932890006ce3e5a43b7c9" category="list-text">Verifique se os RCFs e a imagem apropriados estão instalados nos novos switches 3232C e faça as personalizações necessárias do site, como adicionar usuários, senhas e endereços de rede.</block>
-  <block id="0a8e7bbd596e9188815027f4bc040f71" category="inline-link">Página de download do ficheiro de configuração de referência do comutador de rede de gestão e cluster do Cisco</block>
-  <block id="ffe3d41e3eed4440d01c032595a2ba86" category="paragraph"><block ref="ffe3d41e3eed4440d01c032595a2ba86" category="inline-link-rx"></block></block>
   <block id="2fa6c361b2a32bf8df84c83e1b2ae648" category="list-text">Nos switches Nexus 3232C C1 e C2, desative todas as portas C1 e C2 voltadas para o nó, mas não desative as portas ISL E1/31-32.</block>
   <block id="b97f0c5187713a3c47d3f4797233bac4" category="paragraph">O exemplo a seguir mostra que as portas 1 a 30 estão sendo desativadas nos switches de cluster Nexus 3232C C1 e C2 usando uma configuração suportada no RCF :<block ref="eb51811b0f0be4efd6092bdf769457a5" prefix=" " category="inline-code"></block></block>
   <block id="46b4d9afd1f4989b17e11a8eb8ca32c2" category="paragraph">O exemplo a seguir mostra o comando Cisco<block ref="2f9f4462a41014889ceaf0991f774466" prefix=" " category="inline-code"></block> que está sendo usado para verificar se as portas ISL estão operacionais no C1 e no C2:</block>
@@ -2163,11 +2070,6 @@
   <block id="beae421a14a34f831c113f61323d1ab3" category="paragraph">Final</block>
   <block id="d11a624a3634c7a267c0cc0410c4beb4" category="paragraph">3232C GbE a 3232C GbE (QSFP para QSFP)</block>
   <block id="06ecece0e268aedb2f7273751c5008b3" category="paragraph">Cabos de conexão direta de fibra ótica de 2 QSFP ou cobre</block>
-  <block id="2dc7f07b4b3a3488db0d1c19d72a0acf" category="paragraph">Você deve ter baixado os arquivos de configuração de referência (RCFs) aplicáveis. O número de portas 10 GbE e 40/100 GbE é definido nos RCFs disponíveis na<block ref="cce23acfce4c9bc9bb74fd35873aedf2" category="inline-link-rx"></block> página.</block>
-  <block id="0bb71d16588bbda61c53d6705fca9dd9" category="inline-link-macro">Página de switches Ethernet Cisco</block>
-  <block id="a5eff91abbac72f1158379afb179f225" category="paragraph">As versões ONTAP e NX-os compatíveis com este procedimento estão listadas no <block ref="515bc0a985a34a7714f4de685b458a93" category="inline-link-macro-rx"></block>.</block>
-  <block id="e882002249e424303a299ba5594ff638" category="inline-link-macro">Página de switches NetApp CN1601 e CN1610</block>
-  <block id="64dd5bad45498d05f307e08c9f19880b" category="paragraph">As versões ONTAP e FASTPATH compatíveis com este procedimento estão listadas no <block ref="acfeb8155f68df4df203d94d0c9b27a2" category="inline-link-macro-rx"></block>.</block>
   <block id="369ed6edaa9572a7957dc5452590d541" category="section-title">CN5596 requisitos</block>
   <block id="53921d7acfd1100601522f5bac05f37c" category="list-text">Portas E1/1-30 (10/40/100 GbE): Nexus 3232C</block>
   <block id="ff40315daa8444e010ab8f52f7dc5503" category="list-text">Portas E1/31-32 (40/100 GbE): Nexus 3232C</block>
@@ -2181,7 +2083,6 @@
   <block id="0f96a697ae134d57729e6bc11209f059" category="list-text">No lado esquerdo dos switches Nexus 3232C estão 2 portas SFP mais, chamadas 1/33 e 1/34.</block>
   <block id="4b8669b057c65ee1cad19a530029936e" category="list-text">Você configurou algumas das portas nos switches Nexus 3232C para serem executadas a 10 GbE ou 40/100 GbE.</block>
   <block id="602a4b60cc5ad4be9e63d89704b18e8e" category="list-text">Você fez o Planejamento, a migração e leu a documentação necessária sobre a conectividade de 10 GbE e 40/100 GbE dos nós para os switches de cluster Nexus 3232C.</block>
-  <block id="7b6ff18fcd7bcccf15479952d46c3045" category="list-text">As versões ONTAP e NX-os suportadas neste procedimento estão no <block ref="6fcc01e37a7dd69c8ffb5466943697e1" category="inline-link-macro-rx"></block>.</block>
   <block id="6772e4d59dd062c5a9260242b751786f" category="doc">Substitua os switches de cluster Cisco Nexus 3232C por conexões sem switch</block>
   <block id="f435abab4c17d94cf8603815dbd871f9" category="summary">O software Cisco NX-os e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de cluster Cisco Nexus 3232C.</block>
   <block id="8cf2672ea5c13bbf0de6052b20c338ef" category="doc">Preparar para instalar o software NX-os e o ficheiro de configuração de referência (RCF)</block>
@@ -2219,7 +2120,6 @@
   <block id="a1a90dff83c0faf191818ad546b59252" category="list-text">Vá para o site de suporte da NetApp.</block>
   <block id="4729966d1b42f799e14eba4dd6dedbdb" category="paragraph"><block ref="4729966d1b42f799e14eba4dd6dedbdb" category="inline-link-rx"></block></block>
   <block id="46d4d8d1d2a70c0004e36f14a3cee752" category="list-text">Vá para a página *switches Ethernet Cisco* e anote as versões de software necessárias na tabela.</block>
-  <block id="0740f482c396fcd9b03ac9888aa7401c" category="paragraph"><block ref="0740f482c396fcd9b03ac9888aa7401c" category="inline-link-rx"></block></block>
   <block id="4617b3d3dcf4f5abced4e558fa0b277d" category="list-text">Clique em *CONTINUAR* na página *Descrição*, aceite o contrato de licença e navegue até a página *Download*.</block>
   <block id="61bcf7a5eda4d122b02fd04b33e7755b" category="list-text">Transfira a versão correta do software de imagem a partir da página de transferência do ficheiro de configuração de referência do comutador de rede de gestão e de Cluster *Cisco*.</block>
   <block id="3f193f35123de159859633b1b5db0152" category="list-text">Migre as LIFs de cluster para as portas de nó físico conetadas ao switch de substituição C2:</block>
@@ -2460,33 +2360,15 @@
   <block id="9461b7a834c383c5538d97f8a173943a" category="paragraph"><block ref="9461b7a834c383c5538d97f8a173943a" category="inline-link-macro-rx"></block></block>
   <block id="255c4d8b5fe19006ce3e32d6abe4c5dd" category="summary">Antes de configurar os switches Cisco Nexus 92300, revise uma visão geral do processo e da nomenclatura.</block>
   <block id="774ba8094c5cc02cee9829855a2d5641" category="inline-link-macro">Folha de cálculo completa de cabeamento do Cisco Nexus 92300YC</block>
-  <block id="b009bbd7f0cb4fd23e9e4309ea2fa6dd" category="paragraph">Siga este procedimento para instalar o RCF depois de configurar o switch Nexus 92300YC pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
-  <block id="03c93e08ed4f9a68f6b404202d454262" category="list-text">Uma configuração de inicialização no RCF que reflete as imagens de inicialização desejadas, necessária se você estiver instalando apenas NX-os e mantendo sua versão RCF atual. Se você precisar alterar a configuração de inicialização para refletir as imagens de inicialização atuais, você deve fazê-lo antes de reaplicar o RCF para que a versão correta seja instanciada em futuras reinicializações.</block>
   <block id="2b85c11758e0aa43ebfe299220ad905f" category="list-text">Os nomes de LIF do cluster são<block ref="efdc0a97303fb41897cab634f9381835" prefix=" " category="inline-code"></block>,<block ref="bd152ff09f603987e4c87a156b246966" prefix=" " category="inline-code"></block>,<block ref="a466bba1804a252e783c3e78c73981b0" prefix=" " category="inline-code"></block>,<block ref="e136e422a5bae645f7cdf8ea4cf1a818" prefix=" " category="inline-code"></block> e .</block>
   <block id="4a07f902b1949e45ece7e6201b5ed48a" category="paragraph">O procedimento requer a utilização de ambos os comandos ONTAP e<block ref="8cf592c671d256b1fe33924853db0b89" category="inline-link-rx"></block>; os comandos ONTAP são utilizados, salvo indicação em contrário.</block>
-  <block id="ff610701b925f91aacd004675b32b04c" category="list-text">Verifique se todas as interfaces de cluster (LIFs) estão na porta inicial<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="1e687701660dbf5ad2b4f4bc764cf870" category="list-text">Verifique se o cluster exibe informações para ambos os switches do cluster<block ref="7ca607e345a217b6fb9148234fe84d0c" prefix=" " category="inline-code"></block></block>
-  <block id="c291fea66565616d9e881666325c1ee2" category="list-text">Se você ainda não tiver um backup atual do switch, você pode salvar a configuração atual do switch copiando a saída do seguinte comando para um arquivo de log:</block>
-  <block id="1504cf88a17b3708e24bb6d08d1219aa" category="list-text">Limpe a configuração. Esta etapa requer uma conexão de console com o switch.</block>
-  <block id="a60e6126941c3f2e1aeab2b7f1fd5da6" category="list-text">Execute uma configuração básica do switch.</block>
   <block id="ea0682ea1f2ae756bec0f630a5158cc9" category="list-text">Copie o RCF para o flash de inicialização do switch CS2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP. Para obter mais informações sobre comandos Cisco, consulte o guia apropriado<block ref="8cf592c671d256b1fe33924853db0b89" category="inline-link-rx"></block> nos guias.</block>
   <block id="4808008925bc79a710baa7a191901060" category="paragraph">Para obter mais informações sobre comandos Cisco, consulte o guia apropriado<block ref="8cf592c671d256b1fe33924853db0b89" category="inline-link-rx"></block> nos guias.</block>
   <block id="93bd51f238944c9338cdde2082538910" category="paragraph">Este exemplo mostra o arquivo RCF<block ref="8749b604b31fccaea2fa775c5ecf4fdc" prefix=" " category="inline-code"></block> sendo instalado no switch CS2:</block>
-  <block id="af74651fd54d1a859abc5fc23fd0bb22" category="list-text">[[step12]]Verifique se o arquivo RCF é a versão mais recente correta:</block>
   <block id="41b08f66ec0303ffe518bbdc4d5527ad" category="list-text">Verifique a integridade das portas do cluster no cluster.</block>
   <block id="f23c856b4e6549c08ee780dcad3fc85c" category="list-text">Verifique se os LIFs de cluster migraram para as portas hospedadas no switch CS2. Isso pode levar alguns segundos.<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
   <block id="682b2767f6c6f1c70e03739d417441e3" category="list-text">Repita os passos 7 a 14 no interrutor CS1.</block>
-  <block id="53c5b9bd181f1473f498076dceb33fdd" category="open-title">Para o ONTAP 9.8 e posterior</block>
-  <block id="d9ede0cfb7182a5668cc6e90c80efb6d" category="paragraph">Para o ONTAP 9.8 e posterior, ative o recurso de coleta de logs do monitor de integridade do switch para coletar arquivos de log relacionados ao switch, usando os comandos:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block> E.<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
-  <block id="e430037525fdc395a913568c2bcc487b" category="paragraph">Introduza: <block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix="" category="inline-code"></block></block>
   <block id="2f5a71a01aead6e90af425024624aa8b" category="paragraph">Seguido por:</block>
-  <block id="6ecbdc4333fb3533b09315c93f95b3fe" category="paragraph"><block ref="ff5aaae616b6f326cad680284f32b588" prefix="" category="inline-code"></block></block>
-  <block id="83bd7d6d3bceee06d3d796e3ff2402d4" category="open-title">Para o ONTAP 9.4 e posterior</block>
-  <block id="07d9b89ec6258781d7ac664bc095c5af" category="paragraph">Para o ONTAP 9.4 e posterior, ative o recurso de coleta de logs do monitor de integridade do switch para coletar arquivos de log relacionados ao switch usando os comandos:</block>
-  <block id="f596e32c8f97761d44eedfe73defefd2" category="paragraph">Introduza:<block ref="bbe141170e1456bfc88d5bf7571880dd" prefix=" " category="inline-code"></block></block>
-  <block id="2c4c153a7b33232a2908fa789336a2ee" category="paragraph"><block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix="" category="inline-code"></block></block>
-  <block id="e617d80a2294adb5c3c62b25af747e57" category="inline-link-macro">Instale o arquivo de configuração do Monitor de integridade do interrutor de cluster (CSHM)</block>
-  <block id="a08609130428631761bac82d994b04c7" category="paragraph"><block ref="6f694a83f3a80cbdd0707c7c90c80946" category="inline-link-macro-rx"></block>.</block>
   <block id="06ca91732493d122c261ce88fd963f4f" category="paragraph">Você pode instalar o RCF depois de configurar o switch Nexus 92300YC pela primeira vez. Você também pode usar este procedimento para atualizar sua versão RCF.</block>
   <block id="1d70d7c880f9a4b8e9ccbd4cbaeefcd8" category="list-text">Antes de executar este procedimento, certifique-se de que tem uma cópia de segurança atual da configuração do comutador.</block>
   <block id="0de7361a3806359fb91d378df5f931cd" category="list-text">Exiba as portas do cluster em cada nó conetado aos switches do cluster:<block ref="633709925611b54d23e52bde1cb56811" prefix=" " category="inline-code"></block></block>
@@ -2500,18 +2382,11 @@
   <block id="8939c03fb033b2c9a57e27fdec9078a0" category="list-text">Verifique se as portas e0d estão ativas e íntegras em todos os nós do cluster:<block ref="7fcda764b68d3ee8ce2b37f3a72bab05" prefix=" " category="inline-code"></block></block>
   <block id="de5961cc4ba4008f669b392dba74a8da" category="list-text">Verifique se o ISL entre CS1 e CS2 está funcional:<block ref="2f9f4462a41014889ceaf0991f774466" prefix=" " category="inline-code"></block></block>
   <block id="97283617aa91dff9f5c3768547ba0d7c" category="list-text">Verifique se os LIFs do cluster reverteram para sua porta inicial:<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="88a0b3df07cdb106fc7a25b0182e181c" category="summary">Você precisa estar ciente de certas informações de configuração, conexões de porta e requisitos de cabeamento ao migrar um cluster sem switch de dois nós, sem interrupções, para um cluster com switches de cluster Cisco Nexus 92300YC.</block>
-  <block id="a10b4806eeb3d2769c64b74810fd2730" category="doc">Migre para um cluster comutado de dois nós com os switches Cisco Nexus 92300YC</block>
-  <block id="5763545af30d991e7fec280eebb750f9" category="paragraph">O procedimento usado depende se você tem duas portas de rede de cluster dedicadas em cada controlador ou uma única porta de cluster em cada controlador. O processo documentado funciona para todos os nós que usam portas óticas ou twinax, mas não é suportado neste switch se os nós estiverem usando portas integradas 10Gb BASE-T RJ45 para as portas de cluster-rede.</block>
   <block id="3bb5f52e05a05dc888185ec616dd0442" category="paragraph">A maioria dos sistemas requer duas portas de rede de cluster dedicadas em cada controlador.</block>
-  <block id="c550ee824967bc436f44d06626836b46" category="inline-link-macro">Configuração</block>
-  <block id="8ff9d0cfccbeac0c0adcad29724c3f89" category="admonition">Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para suportar o Monitor de integridade do comutador de cluster (CSHM) para switches de cluster 92300YC. Consulte _Instalação do arquivo de configuração do Monitor de integridade do interrutor de cluster (CSHM) para os switches 92300YC_ no <block ref="951c5b05e32ea1a8e5f5caee984719ee" category="inline-link-macro-rx"></block> guia.</block>
   <block id="661270741d4b9ee98072782fd9c54b20" category="summary">Se você tiver um ambiente de cluster sem switch de dois nós existente, poderá migrar para um ambiente de cluster comutado de dois nós usando os switches Cisco Nexus 92300YC para permitir que você escale além de dois nós no cluster.</block>
   <block id="d4e1936831cfaebc87e3a86531309354" category="doc">Migre para um cluster comutado de dois nós com um switch Cisco Nexus 92300YC</block>
   <block id="00e7e4df003eed991b5440311022278d" category="paragraph">Se você tiver um ambiente de cluster _sem switch_ de dois nós, poderá migrar para um ambiente de cluster _comutado_ de dois nós usando os switches Cisco Nexus 92300YC para permitir que você escale além de dois nós no cluster.</block>
   <block id="b741d0ed63a98c36d9027b883109e1c6" category="paragraph">O procedimento usado depende se você tem duas portas de rede de cluster dedicadas em cada controlador ou uma única porta de cluster em cada controlador. O processo documentado funciona para todos os nós que usam portas óticas ou twinax, mas não é suportado neste switch se os nós estiverem usando portas integradas 10Gb BASE-T RJ45 para as portas de cluster-rede.</block>
-  <block id="831c7097602d84295a892b4ccd5c5664" category="inline-link-macro">Instale o Monitor de integridade do interrutor do cluster (CSHM)</block>
-  <block id="17e1d00a9131d9f058b84ad1031fd90f" category="admonition">Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para suportar o Monitor de integridade do comutador de cluster (CSHM) para switches de cluster 92300YC. <block ref="aac78884bec8830a7d19e050396f31af" category="inline-link-macro-rx"></block>Consulte .</block>
   <block id="e0215763fc22d0e0e94c36c8c7b82644" category="paragraph">Para uma configuração sem switch de dois nós, certifique-se de que:</block>
   <block id="abf295460f63731ba02572b4e1ef09db" category="list-text">Os nós estão executando o ONTAP 9.6 e posterior.</block>
   <block id="5c37449158bc1fc8d9b3425cada95d47" category="paragraph">Para a configuração do switch Cisco Nexus 92300YC:</block>
@@ -2538,12 +2413,9 @@
   <block id="dfc123ec927caaa85a7ce9bf4c66fe70" category="list-text">Desconete o cabo da porta de cluster e0b no node1 e conete o e0b à porta 1 no switch de cluster CS2, usando o cabeamento apropriado suportado pelos switches 92300YC.</block>
   <block id="a5ba084a16f4288f9dbb11676c16a481" category="list-text">Desconete o cabo da porta de cluster e0b no node2 e conete o e0b à porta 2 no switch de cluster CS2, usando o cabeamento apropriado suportado pelos switches 92300YC.</block>
   <block id="5092d42ca2315a935e2e3c56036b8a27" category="paragraph">O exemplo a seguir mostra que as portas 1/1 a 1/64 estão ativadas no switch CS2:</block>
-  <block id="33487880ee5d3cff6333b1c6471b70ba" category="summary">Você deve estar ciente de certas informações de configuração, conexões de portas e requisitos de cabeamento ao substituir alguns switches de cluster Cisco Nexus antigos por switches de cluster Cisco Nexus 92300YC.</block>
   <block id="96b8ff1634f6f4a5cc62e8b2c11e4a44" category="doc">Migre de um switch Cisco para um switch Cisco Nexus 92300YC</block>
   <block id="ec9075e868d0eebd9799fcc4766f5d89" category="list-text">Nexus 92300YC</block>
   <block id="b0bb7659445eb61beb7427b7c81bc7b3" category="list-text">Nexus 5596UP</block>
-  <block id="6ebe57c0a9d06f5e953e68c100387d0b" category="list-text">Nexus 5020</block>
-  <block id="d90447f83168b8d2c862e40595756965" category="list-text">Nexus 5010</block>
   <block id="3050fa444ab7c4607b3b7d02616c51eb" category="list-text">Portas E1/1-48 (10/25 GbE), E1/49-64 (40/100 GbE): Nexus 92300YC</block>
   <block id="de33a0a4a16e5fee7f1826829adfff72" category="list-text">Portas E1/1-40 (10 GbE): Nexus 5596UP</block>
   <block id="93c9d1eb87fa5f9c3bc749094f50da72" category="list-text">Portas E1/1-32 (10 GbE): Nexus 5020</block>
@@ -2552,11 +2424,6 @@
   <block id="188bd851b27016e87d25d2c042f67ff8" category="list-text">Portas E1/41-48 (10 GbE): Nexus 5596UP</block>
   <block id="f9aee2e068bb28aa4c5deecd96b8027c" category="list-text">Portas E1/33-40 (10 GbE): Nexus 5020</block>
   <block id="c0f9b028477a4c90905b2a666cab2349" category="list-text">Portas E1/13-20 (10 GbE): Nexus 5010</block>
-  <block id="5f165828e6700ebf88d288359161875f" category="list-text">O<block ref="abaf454a950eaeabe7c7af627e77fec0" category="inline-link-rx"></block> contém informações sobre o cabeamento suportado para todos os switches de cluster.</block>
-  <block id="d306c65b7a5bf89e23b10fd4ed74fdb0" category="list-text">Você configurou algumas das portas nos switches Nexus 92300YC para serem executadas a 10 GbE ou 40 GbE.</block>
-  <block id="a74a9eec314ae8f04ef4a015ed400160" category="list-text">Você planejou, migrou e documentou a conectividade de 10 GbE e 40 GbE de nós para os switches de cluster Nexus 92300YC.</block>
-  <block id="e8557f973b099c826710d355316b675c" category="list-text">As versões ONTAP e NX-os suportadas neste procedimento estão<block ref="91aaf2f14ce017094691ed108f35b756" category="inline-link-rx"></block> na página.</block>
-  <block id="df45f84b5087e66d03f27b014107fca6" category="admonition">Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para suportar o Monitor de integridade do comutador de cluster (CSHM) para switches de cluster 92300YC. <block ref="7548ef470ae7a4b5446d2e75f973e9c7" category="inline-link-macro-rx"></block>Consulte para obter detalhes.</block>
   <block id="0087b0de389e5b9f017430f157337f28" category="summary">Você pode migrar os switches de cluster Cisco mais antigos sem interrupções para um cluster ONTAP para os switches de rede de cluster Cisco Nexus 92300YC.</block>
   <block id="c24412eff0fdd364ed38f42c78180f6d" category="list-text">Um cluster existente totalmente funcional.</block>
   <block id="72f6fbf7a37a5a7a645211259132da5b" category="list-text">Conectividade de 10 GbE e 40 GbE de nós para switches de cluster Nexus 92300YC.</block>
@@ -2641,7 +2508,6 @@
   <block id="dd40bddc31ce123b4feabbebf590e1c9" category="list-text">Verifique se todas as portas de cluster físico estão ativas:</block>
   <block id="17a362f8ddaca58854249da2fdd79c74" category="summary">Para instalação e manutenção do switch Cisco Nexus 92300YC, certifique-se de rever toda a documentação recomendada.</block>
   <block id="4ebdda488f805c9ab0a258700a488e0b" category="doc">Requisitos de documentação para switches Cisco Nexus 92300YC</block>
-  <block id="4f6bac6c0b1a5da139b3d40b1f27d66c" category="paragraph">Para configurar os switches Cisco Nexus 92300YC, você precisa da seguinte documentação na<block ref="f4fbe3bed062fba5aa150f0db2ededbd" category="inline-link-rx"></block> página:</block>
   <block id="2e6a7eae59625459204f2a277f1b29f1" category="paragraph">_Guia de Instalação de hardware da Série Nexus 9000_</block>
   <block id="4d011dc044b35a05417f4af9fbfd1a28" category="paragraph">_Guias de configuração do software de comutador da série Cisco Nexus 9000_ (escolha o guia para a versão NX-os instalada em seus switches)</block>
   <block id="68d29596d9bab9be1a636d28abd6d827" category="paragraph">_Guia de atualização e downgrade do software NX-os da série Cisco Nexus 9000_ (escolha o guia para a versão NX-os instalada em seus switches)</block>
@@ -2655,8 +2521,6 @@
   <block id="3a9c214d82ea0f7f835b71b5f4850c6b" category="paragraph">Conformidade regulamentar e informações de segurança para a série Cisco Nexus 9000</block>
   <block id="fdffc0fdf626802f6fc29cff36498ecf" category="paragraph">Fornece informações legais, de conformidade, segurança e conformidade de agências internacionais para os switches da série Nexus 9000.</block>
   <block id="1bae6202d6745d172ebce83b73e80d17" category="paragraph">Para instalar um switch Cisco Nexus 92300YC em um gabinete NetApp, consulte a documentação de hardware a seguir.</block>
-  <block id="85e1bd0d0188ca0339d3e60bb2a7e065" category="inline-link-macro">[Instale um switch Cisco Nexus 92300YC em um gabinete NetApp</block>
-  <block id="a3eb3beddbb43f454ab9432019c1c2ba" category="paragraph"><block ref="a3eb3beddbb43f454ab9432019c1c2ba" category="inline-link-macro-rx"></block></block>
   <block id="1c246914de63b585e3ac51879ee3dc8f" category="paragraph">Descreve como instalar um switch Cisco Nexus 92300YC em um gabinete NetApp de quatro colunas.</block>
   <block id="f4041989c699a535116c689437df5c7f" category="inline-link">Download do software NetApp</block>
   <block id="87a71c7310f603842228cb9ab1b19ec2" category="list-text">Na página de download de software, selecione *Switch Health Monitor Configuration Files*</block>
@@ -2727,9 +2591,7 @@
   <block id="f1d41ec97ee9c525034c6804bfbb8e9a" category="paragraph">X190200-CS-PI</block>
   <block id="2dec7a1b3423c75b9d0606e9404dbc31" category="paragraph">N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28</block>
   <block id="0f554c96d2e3a75bed7665e692c123a2" category="paragraph">X190210-FE-PE</block>
-  <block id="2c658a7cb78d78536a7a4d6a7ac007d7" category="paragraph">N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28</block>
   <block id="06bdfa4eeb4673a88109b189e8032086" category="paragraph">X190210-FE-PI</block>
-  <block id="9067c6465253e023e1e8646348d031f3" category="paragraph">N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28</block>
   <block id="40e4cea49f9ea9bc784da2baf73a6aca" category="paragraph">X190002</block>
   <block id="6f68e5248a6396152e6ecda783007cf8" category="paragraph">Kit de acessórios X190001/X190003</block>
   <block id="ea7579a6b12b271555314d6a489bd89e" category="paragraph">X-NXA-PAC-1100W-PE2</block>
@@ -2817,18 +2679,7 @@
   <block id="e3101591ca026d016bd42eff8e550754" category="list-text">Para obter os requisitos iniciais de preparação, o conteúdo do kit e as precauções de segurança,<block ref="49a9b7c5f9a7c0a710f6a2b4ba7339c5" category="inline-link-rx"></block> consulte .</block>
   <block id="272ea0fb422a2e0e195576a0b2eee8b5" category="paragraph">Neste procedimento, o painel obturador é instalado no U40.</block>
   <block id="77410fa141e1c98dd876cc864db7e774" category="list-text">Instale os suportes de montagem em rack no chassi do switch Nexus 9336C-FX2.</block>
-  <block id="e36314e624d2b2ca257e1f1ecb381f93" category="inline-xref">2a</block>
-  <block id="3a3dec182019a5c0eab807550cf927ec" category="list-text">Repita o passo <block ref="0664fdfd3906c78ab88efdffc94a7a0b" category="inline-xref-macro-rx"></block> com o outro suporte dianteiro de montagem em rack no outro lado do interrutor.</block>
-  <block id="073169ca5cb4d45b1d0e56246c004216" category="inline-xref">2c</block>
-  <block id="71b8a5fd8777abf636d2889540c42f99" category="list-text">Repita o passo <block ref="3e67d0b9c49d80d31fc72447f2ee490a" category="inline-xref-macro-rx"></block> com o outro suporte de montagem em rack traseiro no outro lado do interrutor.</block>
-  <block id="21e1dcd96ade2d871bb13381006a5f67" category="inline-xref">4a</block>
-  <block id="d372b5993852e5fcd13774ff6d442ef6" category="list-text">Repita o passo <block ref="aa6048c113ff8f7e2716bc5a5cbbd5d4" category="inline-xref-macro-rx"></block> para a coluna traseira do lado direito.</block>
-  <block id="b99aeb1f6ed83efbe5042fb3a4318cb3" category="inline-xref">4b</block>
-  <block id="77a87d285c4bd07c59809dd8fd102719" category="list-text">Repita as etapas <block ref="aa6048c113ff8f7e2716bc5a5cbbd5d4" category="inline-xref-macro-rx"></block> e <block ref="cfe7090183c44c1416c616ed627fb17d" category="inline-xref-macro-rx"></block>nos RU41 locais no gabinete.</block>
   <block id="bca1ec7e101b6f013bc7eecb3a4e9ceb" category="paragraph">_(2) deslize suavemente o interrutor até que os suportes de montagem em rack dianteiros estejam alinhados com os postes dianteiros._</block>
-  <block id="3409e388c033669e35c3e7de75186d22" category="inline-xref">5a</block>
-  <block id="7ad1cbe4ced7dd199dc4f769b8df9d1a" category="inline-xref">5c</block>
-  <block id="ebc95c21aa096fd48d51c144480f763f" category="list-text">Repita os passos <block ref="d7f2ade498646252de9ee95cb7adb7b4" category="inline-xref-macro-rx"></block> a <block ref="d066d9ea07bf97cc1140f6d828495d9f" category="inline-xref-macro-rx"></block> para o segundo interrutor na localização RU42.</block>
   <block id="8d3c713fd790b13fdf85dc62dbeb35a2" category="list-text">Conete a porta de gerenciamento de cada switch 9336C-FX2 a um dos switches de gerenciamento (se solicitado) ou conete-os diretamente à sua rede de gerenciamento.</block>
   <block id="0f2a4526602865cc9158a56028bf97de" category="summary">Você pode migrar switches de cluster NetApp CN1610 sem interrupções para um cluster ONTAP para os switches de rede de cluster Cisco Nexus 9336C-FX2X.</block>
   <block id="ccd67995cab28bf139c1e242119020df" category="paragraph-title">Interrutores suportados</block>
@@ -2870,7 +2721,6 @@
   <block id="f5b758910e77ef4f56db9cc19f96d706" category="paragraph"><block ref="f5b758910e77ef4f56db9cc19f96d706" category="inline-link-rx"></block></block>
   <block id="ec9e474afc999353343db9439e541082" category="summary">Você pode migrar os switches de cluster Cisco mais antigos sem interrupções para um cluster ONTAP para os switches de rede de cluster Cisco Nexus 9336C-FX2.</block>
   <block id="79a952b12f7cf9e1b52379a8980a2482" category="summary">Substituir um switch Nexus 9336C-FX2 defeituoso em uma rede de cluster é um procedimento sem interrupções (NDU).</block>
-  <block id="556e297f9def6449d3bf99acff84b641" category="doc">Substitua um switch de cluster Cisco Nexus 9336C-FX2</block>
   <block id="e1d51624c9462dce3c8cb21ee2541c35" category="paragraph">Antes de efetuar a substituição do interrutor, certifique-se de que:</block>
   <block id="87a5e94476d6bdcbe9c972165d34090a" category="list-text">Você verificou o número de série do switch para garantir que o switch correto seja substituído.</block>
   <block id="e27994329a256d12f62765df177ff9a8" category="list-text">No cluster existente e na infra-estrutura de rede:</block>
@@ -3020,7 +2870,6 @@
   <block id="e0b1867b2973b9301f251e42fca1cd4a" category="list-text">Você deve usar o kit de trilho padrão Cisco para instalar o switch em um gabinete NetApp.</block>
   <block id="24ea36eb9772fc34d1ce28d1e0a26064" category="paragraph">Reveja os requisitos iniciais de preparação, o conteúdo do kit e as precauções de segurança no<block ref="49a9b7c5f9a7c0a710f6a2b4ba7339c5" category="inline-link-rx"></block>.</block>
   <block id="1526df7c41c0aa65773a79190fc3693f" category="paragraph">Os dois interrutores 9336C-FX2 sempre serão montados no topo 2U do gabinete RU41 e 42.</block>
-  <block id="f0fe42897185726e4161d7cffeacfa3e" category="list-text">Repita o passo <block ref="aa6048c113ff8f7e2716bc5a5cbbd5d4" category="inline-xref-macro-rx"></block> para a coluna traseira do lado direito.</block>
   <block id="8899b5a1c597241a90b454a6466879e6" category="doc">Migre de um cluster comutado com storage conectado a switch</block>
   <block id="c7b8e40be77126b5eacc99bd6f348ab5" category="paragraph">É possível migrar de um cluster comutado com storage conectado ao switch reutilizando os switches.</block>
   <block id="cefbbf170aba376687f45f7fe2244b89" category="paragraph">Ao reutilizar os switches de storage, os switches de storage do par de HA 1 se tornam os switches compartilhados, conforme mostrado na figura a seguir.</block>
@@ -3212,7 +3061,6 @@
   <block id="4e404eb7ac7195fae9c37d2b922bc5a6" category="inline-link-macro">Índice mestre de referência de comando Cisco Nexus 9000 Series NX-os</block>
   <block id="7d533cfa6de3a4dfd1037ee47cb73507" category="cell"><block ref="7d533cfa6de3a4dfd1037ee47cb73507" category="inline-link-macro-rx"></block></block>
   <block id="c3853edf42a69088b4d9bbbac526c549" category="inline-link-macro">Referência de MIBs Cisco Nexus 9000</block>
-  <block id="715d43e03b2e674edf8ceffb487a5160" category="cell"><block ref="715d43e03b2e674edf8ceffb487a5160" category="inline-link-macro-rx"></block></block>
   <block id="6df290f9dcd0fa9e4528333108190ed0" category="inline-link-macro">Referência de mensagem do sistema Nexus 9000 Series NX-os</block>
   <block id="e6470039e9bf2059219eca51f0ff61d8" category="cell"><block ref="e6470039e9bf2059219eca51f0ff61d8" category="inline-link-macro-rx"></block></block>
   <block id="c561c2d54fd2bd6a81edc6ce1b0c7d7d" category="inline-link-macro">Notas de lançamento do Cisco 9000 NX-os</block>
@@ -3234,41 +3082,14 @@
   <block id="63380e79f39db6a40b46be28e461cc74" category="paragraph">Você deve ver a nova configuração neste momento. Reveja e faça as alterações necessárias à configuração que acabou de introduzir. Responda com não no prompt se você estiver satisfeito com a configuração. Responda com *yes* se quiser editar as configurações.</block>
   <block id="28bf994f815d27dac3c1004bf80f120f" category="summary">Visão geral da configuração de software para switches de storage Cisco Nexus 9336C-FX2</block>
   <block id="e64b06ebdf8146ea2bc17ff7d5457eef" category="summary">Visão geral da instalação e configuração para switches de armazenamento Cisco Nexus 9336C-FX2</block>
-  <block id="0dbd44ca48760058c465f203895f8233" category="summary">Interrutores Cisco 9336-FX2'</block>
-  <block id="470cefaa9702bc5da534dfcfab6d903d" category="doc">Visão geral e requisitos: Switches Cisco Nexus 9336C-FX2</block>
-  <block id="c7bc672c5005e17eaf6387fbc19b5add" category="paragraph">Para instalação e manutenção do switch Cisco Nexus 9336C-FX2, certifique-se de revisar os requisitos de configuração e os requisitos de documentação.</block>
-  <block id="7a132c4084cb90373827f0625aad2cb0" category="paragraph">Você pode instalar o switch Cisco Nexus 9336C-FX2 (X190200/X190210) em um gabinete de sistema NetApp ou gabinete de terceiros com os suportes padrão que estão incluídos com o switch.</block>
-  <block id="c7c3b8d53ffb83548ff8a021ca0fa284" category="section-title">Componentes do interrutor</block>
-  <block id="869c1820533f03424b7373120a0eed8f" category="paragraph">Você deve configurar um switch de rede de cluster para se comunicar usando e-mail com o sistema Smart Call Home. Opcionalmente, você pode configurar seu switch de rede de cluster para aproveitar o recurso de suporte de chamada inteligente incorporado do Cisco.</block>
-  <block id="4697012720f5f4269c1b9795a2e8ff34" category="paragraph">Antes de poder utilizar a funcionalidade Smart Call Home, tem de estar ciente das seguintes considerações:</block>
-  <block id="bee779afa1809b42b389d2b1be4fa4b9" category="paragraph">Você precisa de documentação específica de switch e controlador para configurar seus switches Cisco 9336-FX2 e cluster ONTAP.</block>
-  <block id="e2ddd363542b38c0aea13e72b5ddee3b" category="paragraph"><block ref="e2ddd363542b38c0aea13e72b5ddee3b" category="inline-link-macro-rx"></block></block>
   <block id="a9f489f685a75f04be9a5cd27fff516b" category="list-text"><block ref="5a3227d5bec623ce7f962d3727d7312f" category="inline-link-macro-rx"></block>Concluído .</block>
   <block id="bc6d2bd4e8f6199ec8866997a5f53523" category="list-text">Documentação necessária do interrutor. Consulte <block ref="08712014b627ff0e1c01c2b7e6c49149" category="inline-link-macro-rx"></block> para obter mais informações.</block>
   <block id="d33665f1bbad937646d20fe1a9b8ace8" category="inline-link-macro">Instale o interrutor no gabinete do NetApp</block>
   <block id="ce95af11062cb078ba299f574f2eb115" category="paragraph">Consulte <block ref="e635379a5d7f0e2ce1a042bff79838b6" category="inline-link-macro-rx"></block> para obter instruções sobre como instalar o switch em um gabinete NetApp.</block>
   <block id="61c7408c0e623b660a741b6b2c143251" category="paragraph">Antes de começar, conclua o procedimento em <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="5b1bedb3dd2208af0449bbbfcc022136" category="paragraph">Se você tiver um ambiente de cluster _sem switch_ de dois nós, poderá migrar para um ambiente de cluster _comutado_ de dois nós usando os switches Cisco Nexus 9336C-FX2 para permitir que você escale além de dois nós no cluster.</block>
-  <block id="456a5c90687a021221cc54821a27d7f4" category="paragraph">Substituir um switch Nexus 9336C-FX2 defeituoso em uma rede de cluster é um procedimento sem interrupções (NDU).</block>
-  <block id="c4ceb27b488ee8c76dddf465a267e6fb" category="paragraph">As seguintes condições devem existir antes de efetuar a substituição do interrutor no ambiente atual e no interrutor de substituição.</block>
-  <block id="60a085daee18baa4f76424f459638014" category="list-text">Infraestrutura de rede e cluster existente:</block>
   <block id="bed48f8d78fae83f8dbfe9776b8a6b05" category="list-text">O cluster existente deve ser verificado como completamente funcional, com pelo menos um switch de cluster totalmente conetado.</block>
   <block id="ee7f21b20e16030e30af3ec56df82406" category="list-text">Todas as portas do cluster devem estar ativas.</block>
-  <block id="43299cd1959f7ceb155c4323d68578a3" category="list-text">Todas as interfaces lógicas de cluster (LIFs) devem estar ativas e em suas portas domésticas.</block>
-  <block id="6f523f9e785067d3925b0aec1c87ae91" category="list-text">Interrutor de substituição Nexus 9336C-FX2:</block>
-  <block id="ff47b0585e566a73f653682a2d21e5b0" category="list-text">A conetividade de rede de gerenciamento no switch de substituição deve estar funcional.</block>
-  <block id="22886c387dcbb159cf76a09acea002be" category="list-text">Todas as portas ISL (Inter-Switch Link) devem ser desativadas nas portas 1/35 e 1/36.</block>
-  <block id="8d0dde131d3467b69599db1c22cbb114" category="list-text">O arquivo de configuração de referência desejado (RCF) e o switch de imagem do sistema operacional NX-os devem ser carregados no switch.</block>
-  <block id="c5cfb6252d7fa22c4b3227c10ae1b995" category="list-text">A personalização inicial do switch deve estar completa, conforme detalhado em:</block>
-  <block id="13eb284b1114b0425a52000374a7582a" category="inline-xref-macro">Configurando um novo switch Cisco Nexus 9336C-FX2</block>
-  <block id="7d29c84b792500b8d62a1ffe7f3361a3" category="paragraph"><block ref="7d29c84b792500b8d62a1ffe7f3361a3" category="inline-xref-macro-rx"></block></block>
-  <block id="7b5239f3a5575bedd1afcb0d613f5b2d" category="list-text">Verifique se todas as LIFs do cluster têm a reversão automática ativada:<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
-  <block id="53d1c480648d5fee79ba8e20445cc89c" category="list-text">Verifique se a porta e0b está ativa em todos os nós:<block ref="806e77180744176b26f561b001a7b17f" prefix=" " category="inline-code"></block></block>
-  <block id="3792b481733d7e936425cecb3a424c34" category="list-text">Exibir informações sobre os nós em um cluster:<block ref="639161158d7426b3865ce9c5a6f648b3" prefix=" " category="inline-code"></block></block>
-  <block id="99a5618d4e7c61c63f6a59744fda19b6" category="list-text">Verifique se todas as portas de cluster físico estão ativas:<block ref="806e77180744176b26f561b001a7b17f" prefix=" " category="inline-code"></block></block>
-  <block id="4d828a1e41bcb63a1848cf4d73b10ce0" category="list-text">Para o ONTAP 9.8 e posterior, ative o recurso de coleta de log do monitor de integridade do switch Ethernet para coletar arquivos de log relacionados ao switch, usando os comandos:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block> E.<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
-  <block id="4aba6d241d93fefaee83fcbcb1bcdd18" category="list-text">Para versões de patch 9.5P16, 9.6P12 e 9.7P10 e versões posteriores do ONTAP, ative o recurso de coleta de log do monitor de integridade do switch Ethernet para coletar arquivos de log relacionados ao switch, usando os comandos:<block ref="bbe141170e1456bfc88d5bf7571880dd" prefix=" " category="inline-code"></block> E.<block ref="abefab8d02f9c0ef8226a4fcf49448a1" prefix=" " category="inline-code"></block></block>
-  <block id="d921e67200afe4871cf4670f84d9ecd6" category="list-text">Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="52254d9e98d791278e52f39723dbdb4a" category="list-text">Você consultou a tabela de compatibilidade do switch na página do switch Ethernet Cisco para as versões ONTAP, NX-os e RCF suportadas.</block>
   <block id="1a2ce2f05b3c6e18de8cabbd6c01b74d" category="list-text">Você se referiu ao software apropriado e aos guias de atualização disponíveis no site da Cisco.</block>
   <block id="169e19c741cd11f6b6e85a04404e32fd" category="paragraph">Switches da série Cisco Nexus 3000:</block>
@@ -3295,62 +3116,8 @@
   <block id="d014edc4ef53e037f7a01e57d4cb7b32" category="paragraph">4x100GbE nó 22</block>
   <block id="be5a191701cd1bba1893639ef2f5f5c4" category="paragraph">4x100GbE nó 23</block>
   <block id="b3fa8a5642e5f1a67bdf890f1dbce7c0" category="paragraph">4x100GbE nó 24</block>
-  <block id="87a3bb7a9a30a69bb1b97bb3f2eb5329" category="list-text">[[step2]]altere o nível de privilégio para avançado, inserindo y quando solicitado a continuar:<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block></block>
   <block id="59f5de53d0bcaeeb4e4e9818bbf75f18" category="list-text"><block ref="ff5aaae616b6f326cad680284f32b588" prefix="" category="inline-code"></block></block>
   <block id="d846658fd20202f0bde85173d25b3b6e" category="section-title">Resumo do procedimento</block>
-  <block id="b7167dcb288bc483f270fcd135c332ec" category="doc">Migre de um cluster sem switch com armazenamento DAT adicionando dois novos switches compartilhados</block>
-  <block id="8dfca7fe51402f701fd524d9f91fe93f" category="section-title">Migrar de um cluster sem switch com armazenamento DAT</block>
-  <block id="867937cadaaec41c51512879188ec686" category="paragraph">Você precisa estar ciente de certas informações de configuração, conexões de porta e requisitos de cabeamento ao migrar um cluster sem switch de dois nós, sem interrupções, para um cluster com switches de cluster Cisco Nexus 9336C-FX2. O procedimento usado depende se você tem duas portas de rede de cluster dedicadas em cada controlador ou uma única porta de cluster em cada controlador. O processo documentado funciona para todos os nós que usam portas óticas ou Twinax, mas não é suportado neste switch se os nós estiverem usando portas integradas 10Gb BASE-T RJ45 para as portas de cluster-rede.</block>
-  <block id="3002e37b8f67b01b4af288a109aca522" category="paragraph">A maioria dos sistemas requer duas portas de rede de cluster dedicadas em cada controlador. Consulte <block ref="5c27bdff6f5cc32ce77bb635aee5a3ec" category="inline-link-rx"></block> para obter mais informações.</block>
-  <block id="0fd8ea58e8899f870165c3b59ed22856" category="list-text">Configuração sem switch de dois nós:</block>
-  <block id="085e7d788f517113effde29af6642887" category="list-text">A configuração sem switch de dois nós deve estar configurada e funcionando corretamente.</block>
-  <block id="2f41f17756f8fddf0c8be18682cabbff" category="list-text">Os nós precisam estar executando o ONTAP 9.8 e posterior.</block>
-  <block id="1ad1a22c4ab697b9deb6c2c5bdb1a3e7" category="list-text">Todas as interfaces lógicas de cluster (LIFs) devem estar no estado *up* e em suas portas *home*.</block>
-  <block id="d305083cf7fe064c7db2cab89646c634" category="list-text">Configuração do switch Cisco Nexus 9336C-FX2:</block>
-  <block id="3c5f7860b8066b3514dea9b2552a9d4e" category="list-text">Ambos os switches devem ter conetividade de rede de gerenciamento.</block>
-  <block id="76cac7e2c6e9eff307fb502a7b332f78" category="list-text">Deve haver acesso ao console aos switches do cluster.</block>
-  <block id="2a839505baafe2b51fb269fdd1c3743f" category="list-text">As conexões de switch de nó para nó Nexus 9336C-FX2 e switch para switch devem usar cabos Twinax ou de fibra.</block>
-  <block id="ec7d25e213daa7f81e88019951528eb6" category="list-text">Os cabos ISL (Inter-Switch Link) devem ser conetados às portas 1/35 e 1/36 em ambos os switches 9336C-FX2.</block>
-  <block id="c2bbc5d95e76d30fb3bb8d87ee2785b2" category="list-text">A personalização inicial dos switches 9336C-FX2 deve ser concluída. Para que:</block>
-  <block id="db390e5df1a38c520a6fb770cc881fd2" category="list-text">Qualquer personalização de site, como SMTP, SNMP e SSH, deve ser configurada nos novos switches.</block>
-  <block id="439da491db6adba89cca8ac6262e8e93" category="list-text">[[step4]]Verifique se o ISL e as portas físicas no ISL entre os dois switches 9336C-FX2 CS1 e CS2 estão acima nas portas 1/35 e 1/36:<block ref="2f9f4462a41014889ceaf0991f774466" prefix=" " category="inline-code"></block></block>
-  <block id="ef2ccb267101c1bb4550a0a88ba15fef" category="list-text">[[step5]]Exibir a lista de dispositivos vizinhos:<block ref="cdf610401d84a31ec0b35a9530629e42" prefix=" " category="inline-code"></block>.</block>
-  <block id="585048ec3e4d793fb863dfd03ca0bd5b" category="paragraph">Este comando fornece informações sobre os dispositivos que estão conetados ao sistema. O exemplo a seguir lista os dispositivos vizinhos no switch CS1:</block>
-  <block id="38696044bbd71d082ffea97d1d197778" category="list-text">[[step6]]Verifique se todas as portas de cluster estão ativas:<block ref="4f528c0c94ff9e8d7deb145a6a8afbd2" prefix=" " category="inline-code"></block></block>
-  <block id="608cd165bc6f1d8f9bc81d0ba9d4d6f9" category="paragraph">Cada porta deve ser exibida para Link e Healthy for Health Status:</block>
-  <block id="9fca3b421a2bdacefaa47574b6560351" category="list-text">[[step7]]Verifique se todas as LIFs de cluster estão ativas e operacionais:<block ref="6722afd2f1249230cfdbc6a7cfbbafba" prefix=" " category="inline-code"></block></block>
-  <block id="a0c660e29f0d8175447e446b2a7b6605" category="list-text">[[step8]]Verifique se a reversão automática está ativada em todas as LIFs do cluster:<block ref="3dc4656499b962a12e176f61ea51ff38" prefix=" " category="inline-code"></block></block>
-  <block id="48960e0d1676fd6ac78ff83c8eacebcf" category="list-text">[[step12]]Verifique se todas as LIFs de cluster são *up*, operacionais e exibidas como True para<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>:<block ref="6722afd2f1249230cfdbc6a7cfbbafba" prefix=" " category="inline-code"></block></block>
-  <block id="6867fef4b6bd2de211b840e3bbbfade4" category="list-text">[[step13]]exibe informações sobre o status dos nós no cluster:<block ref="639161158d7426b3865ce9c5a6f648b3" prefix=" " category="inline-code"></block></block>
-  <block id="ed6ec2ced3bd6b1417ffd6a307d602f3" category="list-text">[[step17]]Verifique se todas as portas de cluster estão ativas:<block ref="4f528c0c94ff9e8d7deb145a6a8afbd2" prefix=" " category="inline-code"></block></block>
-  <block id="c782f73b93588e1653a37c6028144e87" category="list-text">[[step18]]Verifique se todas as interfaces são exibidas verdadeiras para<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>:<block ref="6722afd2f1249230cfdbc6a7cfbbafba" prefix=" " category="inline-code"></block></block>
-  <block id="2c36065908c2490cce62720c9153e948" category="list-text">[[step19]]Verifique se ambos os nós têm uma conexão para cada switch:<block ref="cdf610401d84a31ec0b35a9530629e42" prefix=" " category="inline-code"></block></block>
-  <block id="fde24d4314549f5a2de46d76d84388d3" category="list-text">[[step20]]Mostre informações sobre os dispositivos de rede descobertos em seu cluster:<block ref="1ddf946090b02d8488854491b2232bce" prefix=" " category="inline-code"></block></block>
-  <block id="4ab68595b7465febd6b674ceb462fb7f" category="list-text">[[step21]]Verifique se a configuração de armazenamento do par HA 1 (e par HA 2) está correta e livre de erros:<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block></block>
-  <block id="44025ac545f24dd0dd008b70219b2399" category="list-text">[[step22]]Verifique se as configurações estão desativadas:<block ref="778e21ba71aea2ec90976c8b829e4357" prefix=" " category="inline-code"></block></block>
-  <block id="f760d9a9bbefbc3a767c22c2b480d748" category="list-text">[[step23]]Verifique o status dos membros do nó no cluster:<block ref="639161158d7426b3865ce9c5a6f648b3" prefix=" " category="inline-code"></block></block>
-  <block id="a5817a6e7f672b3ab5b3f7c1f755970d" category="list-text">[[step24]]Certifique-se de que a rede de cluster tem conetividade total:<block ref="67b370e4ed014395d701d60f8f886608" prefix=" " category="inline-code"></block></block>
-  <block id="6796b0a81714f43b4554e21da2a05f84" category="list-text">[[step25]]altere o nível de privilégio de volta para admin:<block ref="0a654c13d63710f829bc02c4cbec79ee" prefix=" " category="inline-code"></block></block>
-  <block id="b76e651d2878af6de8e2d66f88169399" category="list-text">Ative o recurso de coleta de log do monitor de integridade do switch Ethernet para coletar arquivos de log relacionados ao switch, usando os comandos:</block>
-  <block id="ac46a1398372944aea67e370678c8675" category="section-title">Configure o switch compartilhado</block>
-  <block id="09de4d47ba4a61383fa6bd8275ea0013" category="list-text">Verifique se a configuração de armazenamento do par HA 1 (e par HA 2) está correta e sem erros:<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block></block>
-  <block id="937b84fb8d649c3a0225267e2159fd55" category="list-text">[[step2]]Verifique se as portas do nó de storage estão íntegras e operacionais:<block ref="896a29648562adfdc1ac1d28ada9d91f" prefix=" " category="inline-code"></block></block>
-  <block id="cd0f27c3f159ed1171da091e36806cc9" category="list-text">Verifique se as portas dos nós estão íntegras e operacionais:<block ref="896a29648562adfdc1ac1d28ada9d91f" prefix=" " category="inline-code"></block></block>
-  <block id="c561445c147c82877b795542e3e5188f" category="list-text">[[step7]]Verifique se não há problemas de cabeamento ou switch de armazenamento no cluster:<block ref="f45218c1373cff36899b29f6a1585823" prefix=" " category="inline-code"></block></block>
-  <block id="f1e05ce4b31fb04295120bd05a4743a2" category="list-text">[[step8]]mova as portas do par HA 1, NSM224 caminho B para o intervalo de portas SH2 11-22.</block>
-  <block id="aaf491248ed0270fc32ff08f982aac46" category="list-text">[[step12]]Verifique se a configuração de armazenamento do par HA 1 está correta e livre de erros:<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block></block>
-  <block id="0ca03e80958632a5b480196fc36f2814" category="list-text">[[step13]]reconfigure as portas de storage secundário não utilizadas (controladora) no par de HA 1 do storage para a rede. Se mais de um NS224 foi conetado diretamente, haverá portas que devem ser reconfiguradas.</block>
-  <block id="00f1aa07463199047fef449f663dd76d" category="list-text">[[step14]]se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
-  <block id="31a64a44fce8ed03b7b71b06a1ddc567" category="doc">Migre de uma configuração sem switch com armazenamento SAT reutilizando os switches de armazenamento</block>
-  <block id="5542e924104d087ae00a02e0143b2f6b" category="section-title">Migrar os switches de armazenamento</block>
-  <block id="6a5dd15f930e244dadfd412b53dd1ac0" category="paragraph">Ao reutilizar os switches de storage, os switches de storage do par de HA 1 se tornam os switches compartilhados. *Diagrama de cabeamento para conexão com switch*</block>
-  <block id="e468dc98f46520dafb81c4a2860e35f5" category="list-text">[[step2]]Verifique se as portas do nó estão íntegras e operacionais:<block ref="896a29648562adfdc1ac1d28ada9d91f" prefix=" " category="inline-code"></block></block>
-  <block id="dfaf1e0c7a26db603d75c12484eecbe5" category="list-text">Verifique se o storage anexado ao par HA 1, o switch de storage A está funcionando:<block ref="f45218c1373cff36899b29f6a1585823" prefix=" " category="inline-code"></block></block>
-  <block id="5851bb17419faa449f719ec90fe12181" category="list-text">[[step7]]substitua o RCF de armazenamento no switch compartilhado A pelo arquivo RCF compartilhado. <block ref="2e5583639979312d3d691c4092c19d52" category="inline-link-macro-rx"></block>Consulte para obter mais detalhes.</block>
-  <block id="ce8c521f1923b2dd332b3fc771e23d2a" category="list-text">Verifique se o storage conetado ao par HA 1, o switch de storage B está funcionando:<block ref="f45218c1373cff36899b29f6a1585823" prefix=" " category="inline-code"></block></block>
-  <block id="ea9f3090e45d8199fc92892a96dd0214" category="list-text">[[step13]]substitua o arquivo RCF de armazenamento no switch compartilhado B pelo arquivo RCF compartilhado. <block ref="2e5583639979312d3d691c4092c19d52" category="inline-link-macro-rx"></block>Consulte para obter mais detalhes.</block>
-  <block id="779f2e1ced3dc42aa441f71771bcb993" category="list-text">[[step16]]Converta o par HA 1 de um cluster sem switch para um cluster comutado. Use as atribuições de portas de cluster definidas pelo RCF compartilhado. <block ref="2e68fbe1bf6d8e813f758c3b7509ff6f" category="inline-link-macro-rx"></block>Consulte ​ para obter mais detalhes.</block>
-  <block id="512a76427a65e27ffb75015bb7a6951e" category="list-text">Verifique se a configuração de rede comutada é válida:<block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix=" " category="inline-code"></block></block>
   <block id="cb037476ec4486d51b86d5dbeede8008" category="doc">Configurar a coleção de registos</block>
   <block id="8ac20e3719b6b58e94e5a4385e87b52e" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir a integridade operacional dos switches de rede Cluster e Storage e coletar logs de switch para fins de depuração. Este procedimento orienta você pelo processo de configuração da coleta, solicitando Registros detalhados de *suporte* e permitindo uma coleta por hora de dados *Periódicos* coletados pela AutoSupport.</block>
   <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">*NOTA:* se você ativar o modo FIPS, você deve concluir o seguinte:</block>
@@ -3616,7 +3383,6 @@
   <block id="540cdc9ad47272b105844373eab437bb" category="paragraph">Para a configuração do interrutor do cluster CN1610:</block>
   <block id="d53498d6fcfc16e747378c4b33c06f09" category="list-text">A infraestrutura de switch de cluster CN1610 está totalmente funcional em ambos os switches.</block>
   <block id="93dbc7c7aa25b1a6e1a2608339cb368e" category="list-text">As conexões de switch de nó para nó CN1610 e switch para switch usam cabos twinax ou de fibra.</block>
-  <block id="d53f278b262fe510c209b77f0fbcca0e" category="paragraph">O<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block> contém mais informações sobre cabeamento.</block>
   <block id="f42dca3197ef2083780ca0332a76a3ea" category="list-text">Os cabos ISL (Inter-Switch Link) são conetados às portas 13 a 16 em ambos os switches CN1610.</block>
   <block id="7ddde2d531e31b2067c6730535fe2134" category="list-text">A personalização inicial de ambos os CN1610 switches está concluída.</block>
   <block id="1c456c380e7e22815d73b38b2f06448a" category="paragraph">Qualquer personalização anterior do site, como SMTP, SNMP e SSH, deve ser copiada para os novos switches.</block>
@@ -3625,7 +3391,6 @@
   <block id="2060ac6b8c07af8b2a40e46020fd83f3" category="list-text">Os nomes dos LIFs são clus1 e clus2.</block>
   <block id="ca94b291be702b650e31ad9cead8bf6a" category="list-text">Os nomes dos nós são node1 e node2.</block>
   <block id="2649bb8b5637cc77bf65afb9dcc34bdb" category="list-text">As portas do cluster usadas neste procedimento são e1a e E2A.</block>
-  <block id="39a6153bd4e3746dd87f69c9216e3329" category="paragraph">O<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block> contém as informações mais recentes sobre as portas de cluster reais para as suas plataformas.</block>
   <block id="fa72248a20eb742034666e794e18a880" category="list-text">Desative todas as portas voltadas para o nó (não portas ISL) nos novos switches de cluster CS1 e CS2.</block>
   <block id="cac1d9232ab2f2a873adb7fdf8ac32cb" category="paragraph">O exemplo a seguir mostra que as portas 1 a 12 voltadas para o nó estão desativadas no switch CS1:</block>
   <block id="7615954cd706257afde84e5d90e39e7c" category="paragraph">O exemplo a seguir mostra que as portas 1 a 12 voltadas para o nó estão desativadas no switch CS2:</block>
@@ -3703,9 +3468,7 @@
   <block id="f393302860df0aaf8d3e7eaea02936ce" category="list-text">Os ISLs (links interswitches) suportados para o switch de cluster NetApp são as portas 0/13 a 0/16.</block>
   <block id="878c5f6849bdd28aa07c25a703eda949" category="list-text">As conexões de nós compatíveis com o switch de cluster NetApp são as portas 0/1 a 0/12.</block>
   <block id="4be017d9384ec445570539f57a662d62" category="paragraph">Este procedimento tem duas partes:</block>
-  <block id="cc02bee3f16f9cf028c930e3ae85fb8f" category="list-text"><block ref="3ddccd8b1e06c6aa2ada1397d17562ec" category="inline-link-macro-rx"></block> Descreve como instalar o software FASTPATH.</block>
   <block id="2bb5b20771195951bb435e974751c090" category="inline-link-macro">Instale um RCF num interrutor CN1610</block>
-  <block id="f8bb1b8464f9bde121f11f7a53f13011" category="list-text"><block ref="684215f55a46dbb917d8e38fd766cffd" category="inline-link-macro-rx"></block> Descreve como instalar RCFs.</block>
   <block id="10b9ce0440e39e291f451f5b535309cd" category="summary">Você pode substituir sem interrupções um switch de cluster NetApp CN1610 com defeito executando uma sequência específica de tarefas.</block>
   <block id="a1e78a31e3c2a02f46648b1bf5b89e82" category="doc">Substitua um interrutor do cluster do NetApp CN1610</block>
   <block id="66683ae2f7c6fa1c2c22df9a8db5475e" category="paragraph">Siga estas etapas para substituir um switch NetApp CN1610 defeituoso em uma rede de cluster. Este é um procedimento sem interrupções (NDU).</block>
@@ -4153,24 +3916,16 @@
   <block id="a38ceeb006478442a9d71fea4faa1bec" category="list-text">Verifique se a rede do cluster está em bom estado.</block>
   <block id="1a29ca4be6c9125e8ac9fccfa8df289c" category="summary">Substituição de um switch de armazenamento NVIDIA SN2100 com defeito em um procedimento sem interrupções (NDU).</block>
   <block id="ca56e40e95211438888f7e4c9e051ea5" category="doc">Substitua um interrutor de armazenamento NVIDIA SN2100</block>
-  <block id="fceed1976e801d73d13b11405b47a86b" category="paragraph">Você deve estar ciente de certas informações de configuração, conexões de portas e requisitos de cabeamento ao substituir os switches de storage NVIDIA SN2100.</block>
-  <block id="899d97d3e02cd2b765c3558b86d81068" category="paragraph">Você deve verificar se existem as seguintes condições antes de instalar o software Cumulus e RCFs em um switch de armazenamento NVIDIA SN2100:</block>
   <block id="c6198cbcde2894fb96409239ec92a834" category="list-text">Seu sistema pode suportar switches de armazenamento NVIDIA SN2100.</block>
   <block id="9a6126268af75b2f859c1a03dc4714c1" category="list-text">O<block ref="b973743bc19e2a373fedee1a51a110cc" category="inline-link-rx"></block> fornece detalhes completos das portas suportadas e respetivas configurações.</block>
   <block id="e06dcb466641dd36c53f025080bbb45e" category="paragraph">O interrutor NVIDIA SN2100 de substituição deve ter as seguintes caraterísticas:</block>
-  <block id="7398a7e3818a30c650d193a2db2016f7" category="list-text">A imagem apropriada do sistema operacional RCF e Cumulus deve ser carregada no switch.</block>
   <block id="a622ee7c770c8ba1cbb73f2815e7ae56" category="paragraph">Este procedimento substitui o segundo interrutor de armazenamento NVIDIA SN2100 SW2 pelo novo interrutor NVIDIA SN2100 nsw2. Os dois nós são node1 e node2.</block>
   <block id="cc2313221eef083d36ffb52b29f6f98f" category="list-text">Confirme se o interrutor a ser substituído é SW2.</block>
   <block id="68bdf3a88cf83c1044a28599dd9d552b" category="list-text">Desligue os cabos do interrutor SW2.</block>
   <block id="801161caa4832eac3a4336de33e12441" category="list-text">Volte a ligar os cabos ao interrutor nsw2.</block>
   <block id="856b3f22a7bc84281004d6833f8e5dd4" category="list-text">Verifique todas as configurações do dispositivo no interrutor nsw2.</block>
-  <block id="59ca6b134acac6e54edff8bb46ecd484" category="list-text">Verifique se o comutador de armazenamento SW1 está disponível:<block ref="633709925611b54d23e52bde1cb56811" prefix=" " category="inline-code"></block></block>
-  <block id="9b24f35607cbd93e203a1229537c7235" category="list-text">Execute o<block ref="fba42a2ccc46f0a6204709f144e648ff" prefix=" " category="inline-code"></block> comando no switch de trabalho para confirmar que você pode ver ambos os nós e todas as gavetas:<block ref="fba42a2ccc46f0a6204709f144e648ff" prefix=" " category="inline-code"></block></block>
-  <block id="088f485f3bfad97fa43d043685e12b05" category="list-text">Verifique as portas do compartimento no sistema de storage:<block ref="fcc881d4787d31c185b073346f97b823" prefix=" " category="inline-code"></block></block>
   <block id="d8f5536086bacf684c44e47a90fb5320" category="list-text">Remova todos os cabos conetados ao interrutor de armazenamento SW2.</block>
   <block id="166bf8fabdaf0d92b7865b37f13efc05" category="list-text">Volte a ligar todos os cabos ao interrutor de substituição nsw2.</block>
-  <block id="364f99cfe2038dfe0da4fa1818e4ea8a" category="list-text">Verifique novamente o status de integridade das portas do nó de storage:<block ref="896a29648562adfdc1ac1d28ada9d91f" prefix=" " category="inline-code"></block></block>
-  <block id="7c8a62eb89bcf224c1a631d0b7e4a8f8" category="list-text">Verifique se ambos os switches estão disponíveis:<block ref="fe962342e77ec6978df73d7fb900c057" prefix=" " category="inline-code"></block></block>
   <block id="e0ab29823a477894018f5c53cfabeece" category="summary">Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar toda a documentação recomendada.</block>
   <block id="7ec5693d2c180df872f5e23364ecd351" category="doc">Requisitos de documentação para switches NVIDIA SN2100</block>
   <block id="845296543f4c0f8578120a5e5c4e09f2" category="paragraph"><block ref="845296543f4c0f8578120a5e5c4e09f2" category="inline-link-rx"></block></block>
@@ -4206,7 +3961,6 @@
   <block id="c947c5faccdddd0a9a87be7895f50511" category="list-text">Execute o comando<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> no sistema ONTAP e certifique-se de que os switches de cluster são descobertos com o campo monitorado definido como *True* e o campo de número de série não mostrando *desconhecido*.</block>
   <block id="9f1786af24b58b6fc579205bca0e1f44" category="list-text">ONTAP 9.10.1P3. O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10.1P3 em diferentes pares de switches. A partir do ONTAP 9.10.1P3, você pode usar os switches NVIDIA SN2100 para combinar a funcionalidade de armazenamento e cluster em uma configuração de switch compartilhado.</block>
   <block id="cce7d8d927747eb9a2c6b20af69fbb8a" category="list-text">Cumulus Linux (CL) os versão 4,4.3. Para obter informações de compatibilidade atuais, consulte a<block ref="f6aa36fb7711a9179cbd2c4c52b8d6ef" category="inline-link-rx"></block> página de informações.</block>
-  <block id="0d3abf2876812824c6149720bbbfade7" category="section-title">Detalhes do kit de gabinete e trilho</block>
   <block id="d7ddb122f5b0d427125ca1728604348a" category="paragraph">Você instala o switch NVIDIA SN2100 (X190006/X190106) no gabinete de switch dual/single NVIDIA com os suportes padrão incluídos no switch.</block>
   <block id="b0bf0f217cb1d53bd191aca5d6b62108" category="paragraph">A tabela a seguir lista o número de peça e a descrição dos MSN2100 interrutores e kits de trilho:</block>
   <block id="11d13ed1e5722e39b9eed159c504b273" category="paragraph">X190106-FE-PE</block>
@@ -4218,9 +3972,6 @@
   <block id="7f3bf3d40898d5f432e8fac499b35019" category="inline-link">_Migrar de um switch de cluster Cisco para um switch de cluster NVIDIA SN2100_</block>
   <block id="c0465e16a8eab6f05c1f0b75df3a60ef" category="paragraph"><block ref="c0465e16a8eab6f05c1f0b75df3a60ef" category="inline-link-rx"></block></block>
   <block id="c215cbb78c56580b18190d97abd7667b" category="paragraph">Descreve como migrar de ambientes que usam switches de cluster Cisco para ambientes que usam switches de cluster NVIDIA SN2100.</block>
-  <block id="821a2f7945b3464ddee06f602c686f9b" category="inline-link">_Migrar de um switch de armazenamento Cisco para um switch de armazenamento NVIDIA_</block>
-  <block id="5209c02c28f9cf2ff12a0dc853b7bfc8" category="paragraph"><block ref="5209c02c28f9cf2ff12a0dc853b7bfc8" category="inline-link-rx"></block></block>
-  <block id="26872f7030028e1569f2ce01c9bc352c" category="paragraph">Descreve como migrar de ambientes que usam switches de storage Cisco para ambientes que usam switches de storage NVIDIA SN2100.</block>
   <block id="6f2cf7b704c57c57ef32132488de219a" category="inline-link">_Migrar para um cluster comutado de dois nós com os switches de cluster NVIDIA SN2100_</block>
   <block id="3d1ad993d058b226af4c41175610801a" category="paragraph"><block ref="3d1ad993d058b226af4c41175610801a" category="inline-link-rx"></block></block>
   <block id="f47598dac203329e94811e7ca007b4e2" category="paragraph">Descreve como migrar para um ambiente comutado de dois nós usando os switches de cluster NVIDIA SN2100.</block>
@@ -4250,10 +4001,8 @@
   <block id="89e63d10029caf2d14bf259863a398e7" category="paragraph">Interrutor, NVIDIA SN2100, 16pt 100g, PSIN, extremidade dianteira</block>
   <block id="005ec29dde0262dd01b006d4e9c03abf" category="summary">Antes de configurar os interrutores NVIDIA SN2100, reveja a descrição geral do procedimento.</block>
   <block id="d97cf4e1b3c59ab22fc281643864890d" category="paragraph">O NVIDIA SN2100 é um switch Ethernet que permite alternar dados entre controladores e compartimentos de disco.</block>
-  <block id="b4874fc318a2d2906865491ec45c2419" category="list-text"><block ref="b4874fc318a2d2906865491ec45c2419" category="inline-link-macro-rx"></block></block>
   <block id="26d790640d24187551f77f4682a9f781" category="summary">Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de rever todos os requisitos.</block>
   <block id="1d9152605063cf1b257a36675cece81c" category="inline-link-macro">Considerações sobre cabeamento e configuração</block>
-  <block id="4ae1155ccf8dd1897891dc5c77261a3b" category="paragraph">Para obter diretrizes de cabeamento, <block ref="d7874de6a22adf344b40ee8261d99502" category="inline-link-macro-rx"></block>consulte .</block>
   <block id="8b62efe83d10f30e759dd095dcc5c1ab" category="paragraph">O switch NVIDIA SN2100 é um switch Ethernet de 10/25/40/100 GB executando o Linux Cumulus. O interrutor suporta o seguinte:</block>
   <block id="ab6d5128f9157c50983044e5975424b6" category="summary">Para instalar o hardware BES-53248, consulte a documentação do NVIDIA.</block>
   <block id="075c996896263b024562469c19a4924a" category="list-text">Reveja o <block ref="8adcaf2938909956d74b09b30e6da648" category="inline-link-macro-rx"></block>.</block>
@@ -4349,18 +4098,7 @@
   <block id="726a2f4f4691a5d07983be168f30a586" category="list-text">Verifique se as portas de storage em cada nó agora estão conetadas aos switches da seguinte maneira, da perspetiva dos nós:</block>
   <block id="8bb6d17a5dad779f6666181778321972" category="list-text">Verifique se as portas de storage em cada nó agora estão conetadas aos switches da seguinte maneira, da perspetiva dos nós:</block>
   <block id="2592c17fec9ee0f2f1d872bee517581e" category="doc">Migre do cluster sem switch para o cluster sem switch com os switches de cluster NVIDIA SN2100</block>
-  <block id="087a0cdfa40d1253f83403998d37833d" category="paragraph">Substituir um switch NVIDIA SN2100 defeituoso em uma rede de cluster é um procedimento sem interrupções (NDU).</block>
-  <block id="3d783a6ce1d3577899a2187587c7adeb" category="list-text">Interrutor de substituição NVIDIA SN2100:</block>
-  <block id="9870eb7c51de1228e9b0b748603b1cc9" category="list-text">Todas as portas ISL (Inter-Switch Link) devem ser desativadas nas portas swp15 e swp16.</block>
-  <block id="1b7189a6869b63c94afb7f51281b21ff" category="list-text">O arquivo de configuração de referência (RCF) desejado e o switch de imagem do sistema operacional Cumulus devem ser carregados no switch.</block>
-  <block id="736869e2dc47a4e8d50ebe15f7663677" category="inline-link-macro">Configure e configure os switches NVIDIA SN2100</block>
-  <block id="f244d0b9bbad19d8b6169c577369193c" category="paragraph">Se necessário, verifique, baixe e instale as versões apropriadas do software RCF e Cumulus para o novo switch. Se tiver verificado que o novo switch está corretamente configurado e não precisa de atualizações para o software RCF e Cumulus, avance para o passo 4. <block ref="f205112049fd2d705b8f40351f7959dc" category="inline-link-macro-rx"></block>Consulte para obter mais detalhes.</block>
-  <block id="29bedbdcff648e4ff4cb387a7587b82b" category="paragraph">Se o interrutor que está a substituir não estiver funcional e estiver desligado, avance para o passo 5. As LIFs nos nós de cluster já devem ter falhado para a outra porta de cluster para cada nó.</block>
-  <block id="419843a482aac1b6d5c300aad109bf65" category="list-text">Desligue as portas ISL swp15 e swp16 no interrutor SN2100 SW1:</block>
   <block id="b64c4a65624312e01d00d227b23dc7bb" category="paragraph">O exemplo a seguir mostra que as portas ISL estão acima no interrutor nsw2:</block>
-  <block id="897e1548fc4ec5cb743ba59eb85c00b1" category="list-text">Verifique se a porta<block ref="969d430598a257671bdf944480e4d46b" prefix=" " category="inline-code"></block> está ativa em todos os nós:<block ref="7fcda764b68d3ee8ce2b37f3a72bab05" prefix=" " category="inline-code"></block></block>
-  <block id="b277a4be4886a83e4adc96de6cdbe36c" category="list-text">Verifique se todas as portas do cluster de nós estão ativas:<block ref="fba42a2ccc46f0a6204709f144e648ff" prefix=" " category="inline-code"></block></block>
-  <block id="efe6750a163af17e0e2f647d97ffba88" category="list-text">Ative o recurso de coleta de logs do monitor de integridade do switch Ethernet para coletar arquivos de log relacionados ao switch, usando os comandos:<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block> E.<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
   <block id="c7d8f9411e8f6d2fafcb913ed385f06f" category="paragraph">Você pode substituir um switch de armazenamento NVIDIA SN2100 com defeito. Este é um procedimento sem interrupções.</block>
   <block id="a9ef29d807459286e589883a71bb9c80" category="paragraph">Antes de instalar o software Cumulus e os RCFs em um switch de armazenamento NVIDIA SN2100, certifique-se de que:</block>
   <block id="9b3c08ddea5a636af47afc148da8a631" category="list-text">A imagem apropriada do sistema operacional RCF e Cumulus é carregada no switch.</block>
@@ -4369,7 +4107,6 @@
   <block id="4752e78bc698f54fab2873241037c39c" category="paragraph"><block ref="fcc881d4787d31c185b073346f97b823" prefix="" category="inline-code"></block></block>
   <block id="2cd1b70f79d5acd7ffb2c204f4069175" category="summary">Você pode usar este procedimento para instalar o arquivo de configuração aplicável para o monitoramento de integridade do switch de cluster de switches de armazenamento NVIDIA SN2100.</block>
   <block id="d57382f230671f8cd52f47dc80838934" category="paragraph">Se o seu modelo ainda estiver mostrando *Other* depois de aplicar o arquivo de configuração, entre em Contato com o suporte da NetApp.</block>
-  <block id="b6b0d0194b5b5cf69cccbe4389837b3e" category="doc">Visão geral e requisitos para switches NVIDIA SN2100</block>
   <block id="ed0ce277f91d48d895c5e74d2431cf8f" category="summary">Saiba mais sobre os novos switches para sistemas FAS e AFF.</block>
   <block id="abd97a4389cb55289f8dd82c8681ed7a" category="doc">O que há de novo para switches</block>
   <block id="925214212b01eccbe569020ac0ec7569" category="section-title">Novo suporte do interrutor</block>
@@ -4401,7 +4138,6 @@
   <block id="b5bfe3d61bf9be292418cb9d21eec19c" category="sidebar">Comece a trabalhar</block>
   <block id="3ed3b1cc0917edd8fddcdd478bb581fb" category="sidebar">switch-Cisco-9336c-fx2-storage</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">Visão geral</block>
-  <block id="2b2815ca4a9fd5973ee66317adb580e4" category="sidebar">Outros modelos de interrutores</block>
   <block id="a393cd4f170aafc6db54b17ca62ffb74" category="sidebar">BES-53248 com suporte Broadcom</block>
   <block id="68ca17cd44d275d22b0f2d0dda57897a" category="sidebar">Overview_bes53248</block>
   <block id="380eb1e05db1f71a5022bd03843c5aba" category="sidebar">Install_hardware_bes53248</block>
@@ -4437,8 +4173,6 @@
   <block id="9c065304d8a82e97da8536d4c7484ee2" category="sidebar">Migrar do switch Cisco mais antigo</block>
   <block id="1b26a33c8f2840aaa88a3c83445b7162" category="sidebar">Replace_switches_92300yc</block>
   <block id="46fd2d8570ac9394d60d1c59d30d738d" category="sidebar">Substitua o interrutor</block>
-  <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">Cisco-9336c-fx2-cluster</block>
-  <block id="e756cb6d7a30c16aaf4b162066c5faaf" category="sidebar">Overview_9336c-fx2</block>
   <block id="ea9347503aa166036bc31e64c9a62221" category="sidebar">Install_hardware_9336c-fx2</block>
   <block id="0817f50dda9839238b42b67326847169" category="sidebar">Configure_software_9336c-fx2</block>
   <block id="888174b5389281588448ee75f7ac8835" category="sidebar">Instale ou atualize o software NX-os</block>
@@ -4446,8 +4180,6 @@
   <block id="d9dbaab2b13b33007de8325a401de04b" category="sidebar">Migrar de switches de cluster CN1610</block>
   <block id="7fda27801f23bbd9656018fa8a6f6af0" category="sidebar">Migrar de um switch Cisco mais antigo</block>
   <block id="7bf274d6a8a427ffe81263e20f1f4ec0" category="sidebar">Replace_switches_9336c-fx2</block>
-  <block id="a5f4f9ed92853ea6128046eb985ff5a7" category="sidebar">Cisco-9336c-fx2-compartilhado</block>
-  <block id="066e194669cf03dd5301aeb9f1e6bb60" category="sidebar">Overview_9336c-FX2-shared</block>
   <block id="6921871c4f93f63a6d9508ac0a84f0b1" category="sidebar">Install_hardware_9336c-FX2-shared</block>
   <block id="caad5d4f4828bb4387baba34832444d3" category="sidebar">Configure_software_9336c-FX2-shared</block>
   <block id="3f1dde13cc83eeb1736746f92f6c66dc" category="sidebar">Migrate_switches_9336c-FX2-shared</block>
@@ -4456,14 +4188,9 @@
   <block id="f589d33f5d83b6f3a50337ddbec97ea0" category="sidebar">Migrar da configuração SAT sem switch</block>
   <block id="54c5d11b3c2b9f724bf75585437334a6" category="sidebar">Migrar do cluster SAT comutado</block>
   <block id="114d2c51950817a7527428c8d60fc70a" category="sidebar">Replace_switches_9336c-FX2-shared</block>
-  <block id="5fa4d790df53a4c6278c546dd028ec83" category="sidebar">Overview_9336c-FX2-storage</block>
   <block id="0275375be59b49b4671d6f7352eb43f8" category="sidebar">Install_hardware_9336c-FX2-storage</block>
   <block id="2ef21067889d74c595764cb0c5f14087" category="sidebar">Configure_software_9336c-FX2-storage</block>
   <block id="a40501f53136e1fad14756d37734123e" category="sidebar">Replace_switch_9336c-FX2-storage</block>
-  <block id="7bd0358c3b996edfe19bd3da912bde62" category="sidebar">Switches compartilhados Cisco Nexus 9336C-FX2</block>
-  <block id="eac9e7086f92a026c0dbe06001206204" category="sidebar">Guia de configuração e configuração para switches compartilhados Cisco</block>
-  <block id="467a501ced0eaaee20142a975e074f95" category="sidebar">Migre de uma configuração comutada com armazenamento DAT adicionando dois novos switches compartilhados</block>
-  <block id="62bb127cfc33134b4b7ba3eb79ae05f3" category="sidebar">Migrar de um cluster comutado com armazenamento SAT reutilizando os switches de armazenamento</block>
   <block id="4d716b622a02b7e68fae43b85b045411" category="sidebar">Monitorar a integridade do interrutor</block>
   <block id="08b7ad798c66f1af0fba98a0107b6dfc" category="sidebar">Visão geral da monitorização do estado do interrutor</block>
   <block id="6611dff3ec03954421335708f49af79d" category="sidebar">Switch_health_cshm</block>
@@ -4481,8 +4208,6 @@
   <block id="c13171629fe31c1238a32f1e3650b982" category="sidebar">Instale FASTPATH e RCF para ONTAP 8.3.1 e posterior</block>
   <block id="4c4ff6838d067836f2198ca8700d59a8" category="sidebar">Migrate_switches_cn1610</block>
   <block id="e189ed5bfe48ac8124098ae4639d5ecb" category="sidebar">Replace_switches_cn1610</block>
-  <block id="517242a1c337699950aef05a38af45a0" category="sidebar">switch-NVIDIA-sn2100-cluster</block>
-  <block id="1235e1b032feb174df4e33d9850608fa" category="sidebar">Overview_sn2100</block>
   <block id="bb9b59de9af3e8302ea125bfa0271db5" category="sidebar">Install_hardware_sn2100</block>
   <block id="0b3c99e812c06053658bbb2a0b59fbb8" category="sidebar">Cable as NS224 prateleiras</block>
   <block id="45fb160a69acdbfa882abe108b4f7248" category="sidebar">Configure_software_sn2100</block>
@@ -4491,8 +4216,6 @@
   <block id="73abc22ae9f100c9e4d9d28bc56685aa" category="sidebar">Migrate_switches_sn2100</block>
   <block id="ad8c6613a9c5149c2f22f875459b6a06" category="sidebar">Migrar de switches de cluster Cisco</block>
   <block id="8cc181df76ed146075a7c0b38525656a" category="sidebar">Replace_switches_sn2100</block>
-  <block id="701d9aab459b808d17f39aa5c50f97df" category="sidebar">switch-NVIDIA-sn2100-storage</block>
-  <block id="c2fd26becbc7322e73bbbb4a48e0e98a" category="sidebar">Overview_sn2100-storage</block>
   <block id="00ea6483b7e72739b6651ff7dd7713b9" category="sidebar">Install_hardware_sn2100-storage</block>
   <block id="e64318af86778ae16b9f5a4d5187bc61" category="sidebar">Cabo NS224 prateleiras</block>
   <block id="3dcf9cdc76a857a12a6d6fede0e6f0a2" category="sidebar">Configure_software_sn2100-storage</block>
@@ -4511,7 +4234,6 @@
   <block id="86134d7d31c06aa0711aee6c64ddd4f3" category="list-text">[[step12]]em cada nó no cluster, migre as interfaces associadas ao primeiro switch Nexus 5596, CL1, a ser substituído:</block>
   <block id="bbb276c46604db63ed55340efd9fdca4" category="list-text">[[step7]]expanda o cluster adicionando nós aos switches de cluster Nexus 3132Q-V.</block>
   <block id="5a941b8418c4fe0b34b15c50aa26a877" category="list-text">[[step10]]Desconete o cabo do e4a no nó n1.</block>
-  <block id="654e3d51643a619895e470f1d55bc3ba" category="list-text">[[step2]]se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:</block>
   <block id="8b7a1c5ca569b4edf87d12744a873c02" category="list-text">[[step6]]Verifique se o<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> comando está ativado em todas as LIFs do cluster:</block>
   <block id="2599d5f1ece8078590877d15b717f346" category="list-text">[[step9]]desligue as portas 1/31 e 1/32 no CL1 e o switch Nexus 3132Q-V ativo:</block>
   <block id="e24c0f89ee0b0fb577ecce66e38a9e4d" category="list-text">[[step10]] encerre as portas ISL 13 a 16 no interrutor CN1610 ativo CL1:</block>
@@ -4532,8 +4254,6 @@
   <block id="52f52fe5595841a94d975238199fecfa" category="list-text">[[step25]] altere o nível de privilégio de volta para admin:</block>
   <block id="0804eaf4e04da57f4e0f01d9ed605047" category="list-text">[[step5]] Verifique a conetividade das interfaces de cluster remotas:</block>
   <block id="1113f8069f1bf162e58048e7da3b5e76" category="list-text">[[step13]] Verifique a conetividade das interfaces de cluster remotas:</block>
-  <block id="8024b8439487d862ebc200f269b3fd06" category="list-text">[[step6]] encerre as portas ISL 1/35 e 1/36 no switch Nexus 9336C-FX2 CS1:</block>
-  <block id="179cedfc35b7060884a77fceb9fb4188" category="list-text">[[step14]] Confirme a seguinte configuração de rede de cluster:<block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix=" " category="inline-code"></block></block>
   <block id="ed6ec01ef9cf24a0e109957a15ef2abc" category="list-text">[[step10]] migre clus1 para a porta E2A no console de cada nó:</block>
   <block id="8454a3a0cd1d8a969c0433bdbb3e8b5f" category="list-text">[[step3]] Verifique se ambos os nós têm duas conexões para cada switch:</block>
   <block id="0e18e00d28d8ccbabfbea2b32f607774" category="list-text">[[step6]] altere o nível de privilégio de volta para admin:</block>
@@ -4609,16 +4329,10 @@
   <block id="7db58b1ced05f0a1e8e0257017cd6c5b" category="list-text">Aplique o script Python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.</block>
   <block id="11b037d97237564e7d301df86420a468" category="inline-link">Instalando uma nova imagem do Cumulus Linux</block>
   <block id="ab12f4d1e56479a81a361f6109b978de" category="paragraph"><block ref="63da15f7ab7ce2a7550fdbf1e5e5d879" category="inline-link-rx"></block>Consulte para obter mais informações.</block>
-  <block id="855b205ca9b9bd2b02453dbd19fc65b7" category="list-text">Os exemplos neste procedimento usam quatro nós: Dois nós usam quatro portas de interconexão de cluster de 10 GbE: e0a, e0b, e0c e e0d. Os outros dois nós usam duas portas de interconexão de cluster de 40 GbE: e4a, e4e. A <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> lista as portas de cluster reais em suas plataformas.</block>
-  <block id="66f3f703ef307f85603b46a4acbb712b" category="list-text">O número de portas 10 GbE e 40 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na<block ref="cce23acfce4c9bc9bb74fd35873aedf2" category="inline-link-rx"></block> página.</block>
   <block id="9f71b0536f9236a6977f9a70d6395a33" category="list-text">Os nós com conexões de cluster de 40 GbE exigem módulos óticos QSFP/QSFP28 com cabos de fibra ou cabos de conexão direta de cobre QSFP/QSFP28.</block>
-  <block id="61f02de546275159b6eba3b5376756d8" category="list-text">No Nexus 3132Q-V, você pode operar portas QSFP como modos Ethernet de 40 GB ou Ethernet de 4 x10 GB.</block>
   <block id="e29b2f868e1044896b5cc6d476634b57" category="paragraph">Por padrão, existem 32 portas no modo Ethernet de 40 GB. Essas portas Ethernet de 40 GB são numeradas em uma convenção de nomenclatura de 2 tuplos. Por exemplo, a segunda porta Ethernet de 40 GB é numerada como 1/2. O processo de alteração da configuração de Ethernet de 40 GB para Ethernet de 10 GB é chamado _breakout_ e o processo de alteração da configuração de Ethernet de 10 GB para Ethernet de 40 GB é chamado _breakin_. Quando você divide uma porta Ethernet de 40 GB em portas Ethernet de 10 GB, as portas resultantes são numeradas usando uma convenção de nomenclatura de 3 tuplas. Por exemplo, as portas de saída da segunda porta Ethernet de 40 GB são numeradas como 1/2/1, 1/2/2, 1/2/4 e 1/2/3.</block>
   <block id="ce8d64c62fe7d0d80ad6a4b2e1744516" category="list-text">Certifique-se de que configurou algumas das portas no Nexus 3132Q-V para serem executadas a 10 GbE ou 40 GbE.</block>
-  <block id="24b704dc9930f98145e6a041e122d90b" category="list-text">O número de portas 10 GbE e 40 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na<block ref="9bcfbf4ecbfa5f01b0fe987094e3d8a3" category="inline-link-rx"></block> página.</block>
   <block id="64e3923ed88357b9e310c9d354f23200" category="paragraph">Além disso, você precisa Planejar, migrar e ler a documentação necessária sobre a conectividade de 10 GbE e 40 GbE dos nós para os switches de cluster Nexus 3132Q-V.</block>
-  <block id="16f501807c40fcc074813b8de98881be" category="paragraph">Os exemplos deste procedimento usam dois nós, cada um usando duas portas de interconexão de cluster de 40 GbE e4a e e4e. <block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block>O tem detalhes sobre as portas de cluster em suas plataformas.</block>
-  <block id="e1ef80ee500d089193b647b456525328" category="list-text">O número de portas 10 GbE e 40 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na <block ref="fbe8362ccb2da62f365822f496fddba9" category="inline-link-macro-rx"></block> página.</block>
   <block id="adb2312231ae10781221ca6f85f1468b" category="list-text">Os outros dois nós usam dois cabos de fibra de interconexão de cluster de 40 GbE: e4a e e4e.</block>
   <block id="4a1ae240823f0b9cf20cc4dcd3987a7d" category="list-text">No Nexus 3132Q-V, você pode operar portas QSFP como modos Ethernet de 40 GB ou Ethernet 4x10 GB.</block>
   <block id="ecfce3e51258080e9887731dcb939198" category="list-text">Você precisa ter configurado algumas das portas no Nexus 3132Q-V para ser executado a 10 GbE ou 40 GbE.</block>
@@ -4717,7 +4431,6 @@
   <block id="0bbc6416fb1f708176d62443d6feed5a" category="list-text">*n1_clus2* é o primeiro cluster LIF a ser conetado ao switch de cluster C2 para o nó *n1*.</block>
   <block id="d38407e1e9db1cebed5e460ef65fc39a" category="list-text">*n2_clus1* é o primeiro cluster LIF a ser conetado ao switch de cluster C1 para o nó *n2*.</block>
   <block id="e1ccfb615ee01670783232db24707a26" category="list-text">*n2_clus2* é o segundo LIF de cluster a ser conetado ao switch de cluster C2 para o nó *n2*.</block>
-  <block id="797c65f427eb3fe0e8ba459583050be1" category="list-text">O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na<block ref="9bcfbf4ecbfa5f01b0fe987094e3d8a3" category="inline-link-rx"></block> página.</block>
   <block id="35f175506660ba85ef76145ebe8b64f7" category="doc">Concluir a migração de clusters sem switch de dois nós para clusters comutados de dois nós</block>
   <block id="0b7595426d702c8f24440f6fe358098e" category="paragraph">Siga estas etapas para concluir a migração de clusters sem switch para clusters comutados de dois nós.</block>
   <block id="18190f3b1a027314b3588d3d9584adce" category="list-text">[[step6]]se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:</block>
@@ -5001,7 +4714,6 @@
   <block id="7eaabdc7d2364e9a43feeb5cf07593dc" category="paragraph">Se a<block ref="a559b87068921eec05086ce5485e9784" prefix=" " category="inline-code"></block> coluna exibir *OTHER* ou o<block ref="7a19db03ac26c54be196969b77d657a6" prefix=" " category="inline-code"></block> campo exibir *false*, o ONTAP não poderá monitorar o switch. Um valor de *OTHER* normalmente indica que o ONTAP não suporta esse switch para monitoramento de integridade.</block>
   <block id="8d86e89da688f620dafbc70269059388" category="paragraph">O<block ref="7a19db03ac26c54be196969b77d657a6" prefix=" " category="inline-code"></block> campo é definido como *false* pelo motivo especificado no<block ref="fffcb4d1e12c96b2f571f77ad25878b8" prefix=" " category="inline-code"></block> campo.</block>
   <block id="f9f5c952edf43434e02a625f00102b19" category="inline-link-macro">Gerenciar o monitoramento de switches Ethernet</block>
-  <block id="f6ec6bfa57123a9616038a55e7f332a5" category="paragraph">Se um switch não estiver listado na saída do comando, o ONTAP provavelmente não o descobriu. Confirme se o switch está cabeado corretamente. Se necessário, pode adicionar o interrutor manualmente. <block ref="ee7db2a0a5f0654c3c81941bc38adb11" category="inline-link-macro-rx"></block>Consulte para obter mais detalhes.</block>
   <block id="ed7061b9b8f8c50684797c64a5576941" category="section-title">Confirme se as versões do firmware e do RCF estão atualizadas</block>
   <block id="43558d02214bf83729998ce237b6cdea" category="inline-link">Página de transferências do suporte da NetApp</block>
   <block id="9be0ccf5f4aae992d69ea7f079f6d048" category="paragraph">Certifique-se de que o comutador está a executar o firmware suportado mais recente e de que foi aplicado um ficheiro de configuração de referência (RCF) compatível. Mais informações estão disponíveis no <block ref="49046ae6b122d9765935bb9b378618a5" category="inline-link-rx"></block>.</block>
@@ -5208,11 +4920,9 @@
   <block id="c324ecc5767379ec38a0b98ea84a392c" category="doc">Fluxo de trabalho de instalação de hardware para switches Cisco Nexus 3232C</block>
   <block id="c83956f2835dd21c634e3ea9cb076cc8" category="paragraph">Para instalar e configurar o hardware de um switch de cluster 3232C, siga estas etapas:</block>
   <block id="488d52fd4e67e3658a2736f4f5baf6a5" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="36c81454c79fb4662d46898f96d8ab42" category="inline-link-macro-rx"></block></block>
-  <block id="4762efa89f72255be51c1d0825e428be" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="6fb43cd5c831afd08ed62ea7c301589a" category="inline-link-macro-rx"></block></block>
   <block id="fc3c6bd26fef194ce2f36e76eb0b1ac7" category="paragraph">Instale o switch 3232C.</block>
   <block id="ca14e5a44465dc77868bc93c772326ee" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="fb5dab0336d3cae367cb88d5b65bebf3" category="inline-link-macro-rx"></block></block>
   <block id="ec6f6c215f040a396fd973e7136a812c" category="paragraph">Instale o switch 3232C e o painel de passagem em um gabinete NetApp , conforme necessário.</block>
-  <block id="ae93ed58d7575c5c70b27cf4137f8eea" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block></block>
   <block id="a4ab042b047af1032e8f32eb55798abb" category="doc">Fluxo de trabalho de instalação e configuração para switches Cisco Nexus 3232C</block>
   <block id="8434a6261c6e2022e9770fa7d8138c16" category="paragraph">Siga estas etapas do fluxo de trabalho para instalar e configurar seu switch Cisco Nexus 3232C.</block>
   <block id="1a5f7fd8e8d78a257cac8d35257ebfb4" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="f98da02f0354b9650f021d5be0d693ee" category="inline-link-macro-rx"></block></block>
@@ -5223,7 +4933,6 @@
   <block id="efe94d139a813461a20f2ba77272f193" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="90090934dcdd9f90bf31e3e10dd5083d" category="inline-link-macro-rx"></block></block>
   <block id="a466e3d58704dbe45d127330f13a5f83" category="summary">Siga este procedimento para instalar o switch Cisco Nexus 3232C.</block>
   <block id="f66b7080792725ee57ea7f7b02c7d38b" category="doc">Instalar o switch de cluster 3232C</block>
-  <block id="0080e9b38d76082768d1a676b91f697b" category="list-text">Concluído<block ref="6d626c9a6b498f94526e14b544d04817" category="inline-link-macro-rx"></block> .</block>
   <block id="422598dd3d31832bfe941edd56d7d1bd" category="list-text"><block ref="405e8e3e93d725761176a326f99e4751" category="inline-link-macro-rx"></block> .</block>
   <block id="abdf142c465e75d188665a07134160d1" category="inline-link-macro">instalar um switch Cisco Nexus 3223C em um gabinete NetApp</block>
   <block id="1e6e456a14b9d3e18e246a85940b6a59" category="paragraph">Opcionalmente, você pode<block ref="2cea7f88b524cc550d065cf33c8d1c58" category="inline-link-macro-rx"></block> .  Caso contrário, vá para<block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block> .</block>
@@ -5270,7 +4979,6 @@
   <block id="03d9c70dc4ad4079fc03423950b4c07c" category="summary">Você pode instalar o switch Cisco Nexus 92300YC e o painel de passagem em um gabinete NetApp com os suportes padrão incluídos com o switch.</block>
   <block id="518325300d482a782e3b6ee658fbd046" category="doc">Instalar um switch de cluster Cisco Nexus 92300YC em um gabinete NetApp</block>
   <block id="55f6483502ca85b4411fe62f1f73d031" category="paragraph">Dependendo da sua configuração, pode ser necessário instalar o switch de cluster Cisco Nexus 92300YC e o painel de passagem em um gabinete NetApp com os suportes padrão incluídos com o switch.</block>
-  <block id="4550b8f1110dd92221b72ceee5f2776b" category="list-text">Os requisitos de preparação inicial, o conteúdo do kit e as precauções de segurança no<block ref="26b60d0a74ebc6e34e2fc4c021cb1968" category="inline-link-macro-rx"></block> .</block>
   <block id="f4c3dc1d71b75c5d9dc1cbaa9e918427" category="list-text">Instale os suportes de montagem em rack no chassi do switch Nexus 92300YC.</block>
   <block id="e59b5480af0f23e17cb6ad95f898309a" category="paragraph">Os dois switches 92300YC sempre serão montados no 2U superior do gabinete RU41 e 42.</block>
   <block id="5a51de7a8bd29e14350d005020bdb5de" category="image-alt">Posicionamento 92300YC em U39-40</block>
@@ -5463,10 +5171,7 @@
   <block id="51ed24b6228c8b36770dd39391d8bc7e" category="list-text">Emitir o<block ref="ed3fe2a45ef033acf306fc90fbafdd66" prefix=" " category="inline-code"></block> comando para apagar a configuração salva atual:</block>
   <block id="a60beffd34bc0a1af921bd1718bcdace" category="paragraph"><block ref="34032a1bb449f32c9fcbb7ff1cfe5bd5" prefix="" category="inline-code"></block></block>
   <block id="1919cf67cee23cb44c0e96cb3fc4c876" category="paragraph"><block ref="efdac8d32d2f272bc15624cc43f8f294" prefix="" category="inline-code"></block></block>
-  <block id="fed74a4623bde0237a1b3be8e8042cbc" category="paragraph"><block ref="5df914552885278ba9e8a73fcaf7994a" prefix="" category="inline-code"></block></block>
   <block id="ec29d2d5a1b4f802e07ac896a15e5624" category="paragraph"><block ref="02c29bd72975e1a289eaf536ccb4ac05" prefix="" category="inline-code"></block></block>
-  <block id="684a4c2862f5fef1f6d28303a5df57cb" category="list-text">Repita os passos 1 a 19 no switch cs1.</block>
-  <block id="3a950462bc76b1e9a5ad74b10ff9376a" category="list-text">Repita os passos 7 a 20 no switch cs1.</block>
   <block id="0cf70822d9949e4c6758e918643273c8" category="paragraph"><block ref="a11ecf52d39ead0e156683247ccf2127" prefix="" category="inline-code"></block></block>
   <block id="509c8307041a8ec518033cbc63e3c50b" category="paragraph"><block ref="8c3437ea3e27545ca4b0d2b43011cd70" prefix="" category="inline-code"></block></block>
   <block id="f754809a548cd76d671cc491b7eec29b" category="paragraph"><block ref="6bcd94cf62d325392b1785ec7c4d0b4f" prefix="" category="inline-code"></block></block>
@@ -5475,7 +5180,6 @@
   <block id="92a263f83655527a8570ddfd3130dcf6" category="paragraph"><block ref="141e63272914863fc9c959b427fdacd7" prefix="" category="inline-code"></block></block>
   <block id="002be8e67a0ddc666dd0ab6ed8d9b723" category="paragraph"><block ref="8c066b528dcbc1486476e4154920e286" prefix="" category="inline-code"></block></block>
   <block id="baa9d9b44ef34df5ca5f98884d0608d3" category="paragraph"><block ref="603fb14344e659fed2e403db2df24a4a" prefix="" category="inline-code"></block></block>
-  <block id="99dac37d19301bd793cd70886317bb05" category="list-text">Repita os passos 1 a 12 no switch cs2.</block>
   <block id="432ba1ee34f738963470ac6a7bb24dee" category="paragraph"><block ref="c43d8f1df82823c11979a10dcc012390" prefix="" category="inline-code"></block></block>
   <block id="bc19795a1e2342c4b6ced06c4d40bf1f" category="paragraph"><block ref="06ea8c0ad9680ca72f21fb9acf4190a7" prefix="" category="inline-code"></block></block>
   <block id="c0203a2fdd4f105bd33b18aba6317c1b" category="paragraph"><block ref="13a92d9b51e90b702df63253eaabc9ad" prefix="" category="inline-code"></block></block>
@@ -5626,4 +5330,95 @@
   <block id="6a5127ae1421c6eadaa6d46f2df70ef6" category="doc">Configurar os switches de armazenamento 9336C-FX2 e 9336C-FX2-T</block>
   <block id="bb1f78fc1f8bcd4ab502b4f5c6fcdea1" category="paragraph">Depois de configurar seus switches, você<block ref="48457dceaecddf3406f5c3a0ab2cf67e" category="inline-link-macro-rx"></block> .</block>
   <block id="8874a79dc54d118d630ce595ac682392" category="paragraph">Depois de concluir suas planilhas de cabeamento, você<block ref="d9d3d8dae0a36eea938e144b4f81717e" category="inline-link-macro-rx"></block> .</block>
+  <block id="fb17b612fdcb19e9fe42f0afa4b960d0" category="admonition">Aguarde alguns segundos antes de executar o<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> comando para exibir os detalhes.</block>
+  <block id="0862ad0f7776942c99ebd5bb91f3dbe1" category="paragraph">Se um switch não estiver listado na saída do comando, é provável que o ONTAP não o tenha descoberto.  Confirme se o switch está conectado corretamente.  Se necessário, você pode adicionar o switch manualmente. Consulte <block ref="ba1ca38a0bc63ade7c865d33bc05e53b" category="inline-link-macro-rx"></block> para mais detalhes.</block>
+  <block id="6e34d959a466433c3adb0cd3d9eb0150" category="list-text"><block ref="6e34d959a466433c3adb0cd3d9eb0150" category="inline-link-macro-rx"></block></block>
+  <block id="6bd899a530a526167934e438f051f44c" category="list-text"><block ref="6bd899a530a526167934e438f051f44c" category="inline-link-macro-rx"></block></block>
+  <block id="74486bcd719edd91c412c219d59cf382" category="list-text"><block ref="74486bcd719edd91c412c219d59cf382" category="inline-link-macro-rx"></block></block>
+  <block id="fba09c42f721604202ff007259139813" category="list-text"><block ref="fba09c42f721604202ff007259139813" category="inline-link-macro-rx"></block></block>
+  <block id="56714288c9e60be6ba873da884afdc54" category="paragraph">Você pode usar esses links para encontrar documentação de modelos anteriores de cluster e switches de armazenamento.  Os links levam você para um site de documentação diferente.</block>
+  <block id="e0be92acbe486240b4bb6d67d353a18e" category="list-text"><block ref="e0be92acbe486240b4bb6d67d353a18e" category="inline-link-rx"></block></block>
+  <block id="4e6ad2bd98b8c1138520f786b74bba0a" category="list-text"><block ref="4e6ad2bd98b8c1138520f786b74bba0a" category="inline-link-rx"></block></block>
+  <block id="770b3b3dd4b6a860f71aabb021e433d2" category="list-text">Ver<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> no site de suporte da NetApp .</block>
+  <block id="503f7cd5b4831af5280f50689787ef2e" category="paragraph"><block ref="503f7cd5b4831af5280f50689787ef2e" category="inline-link-rx"></block></block>
+  <block id="316f1eecb7ad81ecbbff1b421526b4b8" category="list-text"><block ref="316f1eecb7ad81ecbbff1b421526b4b8" category="inline-link-macro-rx"></block></block>
+  <block id="65de4ce73578ac5d8407f9a06f97685b" category="list-text"><block ref="65de4ce73578ac5d8407f9a06f97685b" category="inline-link-macro-rx"></block></block>
+  <block id="629b3c36d556bc100a0c76bafef21d6f" category="list-text">As versões do ONTAP e do NX-OS suportadas neste procedimento estão aqui:<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> .</block>
+  <block id="d79863feaf7dda590b3bac794b234a6f" category="list-text">O número de portas 10 GbE e 40/100 GbE são definidos nos arquivos de configuração de referência (RCFs) disponíveis em<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
+  <block id="adde0526353316930b632fdb9e7146b3" category="list-text">Vá para<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> no site de suporte da NetApp .</block>
+  <block id="79c704c7c6926e9c4f89969cf65f25ac" category="list-text">Salve os detalhes básicos da configuração em<block ref="103b04b62a3cefff8d38e160debf3907" prefix=" " category="inline-code"></block> arquivo no bootflash.</block>
+  <block id="3ceb6aadbbe5eba69751aee9b830e582" category="paragraph">Veja o artigo da Base de Conhecimento<block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block> para mais detalhes.</block>
+  <block id="7512912a7b8e8bc06a9e50e1e1b481bf" category="list-text">Verifique se o<block ref="103b04b62a3cefff8d38e160debf3907" prefix=" " category="inline-code"></block> o arquivo é preenchido conforme o esperado:</block>
+  <block id="8a13e56eaa9b4f09fa6e95654ce05eb3" category="paragraph"><block ref="2dc68cb9a90bfac0f1dae7e9d6a64123" prefix="" category="inline-code"></block></block>
+  <block id="7c030997affa0414983faa4b2509fc52" category="list-text">Copie o RCF para o bootflash do switch cs2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.  Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no<block ref="6e18a1ade243629fb9906cba4db019d8" category="inline-link-macro-rx"></block> guias.</block>
+  <block id="60afd5e8705df191ca91f8bfec764b4a" category="paragraph">Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no<block ref="6e18a1ade243629fb9906cba4db019d8" category="inline-link-macro-rx"></block> guias.</block>
+  <block id="c5ce507b464ba3c735c0c95c4fd9a3bc" category="list-text">Repita os passos 1 a 17 no switch cs1.</block>
+  <block id="27f5ac1ca0e853a2882ae6afdc4e8e95" category="inline-link-macro">NetApp CN1601 e CN1610</block>
+  <block id="815d8352c3cf3e7b0525b85c41594fa8" category="list-text"><block ref="815d8352c3cf3e7b0525b85c41594fa8" category="inline-link-macro-rx"></block></block>
+  <block id="b806b07249edac6457220cb5d7821b75" category="list-text">O número de portas de 10 GbE e 40 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis em<block ref="534e88da79ebd1d77d4120152604a41e" category="inline-link-macro-rx"></block> .</block>
+  <block id="4b412e43715f2e62b1e1c04e904bef80" category="paragraph"><block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block>tem informações sobre as versões do ONTAP e do NX-OS suportadas neste procedimento.</block>
+  <block id="4f93ce007d852ef91b7ca455eec5ea7f" category="paragraph"><block ref="8ebd1cf4617e0aa5e58d6faa9dda0946" category="inline-link-macro-rx"></block>tem as versões mais recentes de RCF e NX-OS para seus switches.</block>
+  <block id="00ea483d4e04ae502230f5d0521bbe5b" category="list-text">Acione um AutoSupport de manutenção antes e depois da manutenção para desabilitar a criação de casos durante a manutenção.  Veja este artigo da Base de Conhecimento<block ref="dc850f84d64de1a55c8bf2a595e41315" category="inline-link-macro-rx"></block> para mais detalhes.</block>
+  <block id="2494a7e6f46b2426d86927e1c87c0686" category="list-text">Habilite o registro de sessão para qualquer sessão CLI.  Para obter instruções sobre como habilitar o registro de sessão, revise a seção "Registro de saída de sessão" neste artigo da Base de conhecimento<block ref="ae1393e25ee1e0fef17808399d9484a8" category="inline-link-macro-rx"></block> .</block>
+  <block id="02eb4b8e28a02524dd56f28276e0be3f" category="list-text">O número de portas de 10 GbE e 40 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis em<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
+  <block id="32aac856541e71b85d73676d4c6d3a91" category="list-text">No site de suporte da NetApp , consulte<block ref="4cf10f9f555b663eddd8a272193903d7" category="inline-link-macro-rx"></block> .</block>
+  <block id="7a35d31b69d4dd8575597084e2a2bef6" category="list-text">Ver<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> no site de suporte da NetApp .</block>
+  <block id="be58ca1abc86064ec18ec661760a9b62" category="paragraph"><block ref="be58ca1abc86064ec18ec661760a9b62" category="inline-link-macro-rx"></block></block>
+  <block id="89ad7dfa677c1170fa11c199c0d0a3e1" category="list-text">As versões ONTAP e NX-OS suportadas neste procedimento estão em<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> .</block>
+  <block id="48f4f03949af44332ef736004fa016f6" category="list-text">As versões ONTAP e NX-OS suportadas neste procedimento estão listadas em<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> .</block>
+  <block id="e94b89cacb4c2a63fc65f27983136ee4" category="list-text">As versões ONTAP e FASTPATH ​​suportadas neste procedimento estão listadas em<block ref="219cc30d0865cce4b7cb2770e4a5080b" category="inline-link-macro-rx"></block> .</block>
+  <block id="3f6421172f80f8047523f4f7c07d2e71" category="list-text"><block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block></block>
+  <block id="60b8b767809f4474fae0db07a1a7ee8f" category="paragraph">Você deve ter baixado os arquivos de configuração de referência aplicáveis (RCFs).  O número de portas 10 GbE e 40/100 GbE são definidos nos RCFs disponíveis em<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
+  <block id="5db961153f448f70bb815693232bb42b" category="paragraph">As versões ONTAP e NX-OS suportadas neste procedimento estão listadas em<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> .</block>
+  <block id="207f35cf9c6c7c9f28040945864a989c" category="paragraph">As versões ONTAP e FASTPATH ​​suportadas neste procedimento estão listadas em<block ref="219cc30d0865cce4b7cb2770e4a5080b" category="inline-link-macro-rx"></block> .</block>
+  <block id="8741c9a7235936d7adbe4b11e84059a0" category="list-text">O número de portas de 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis em<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
+  <block id="c0ddaa892e58fbb2392ff94b96d1be20" category="list-text">Baixe a versão apropriada do software de imagem em<block ref="63d583816b323795a688346cd7512345" category="inline-link-macro-rx"></block> .</block>
+  <block id="30197795f50e0c0bd227d8e9fad9f92a" category="list-text">O número de portas 10 GbE e 40/100 GbE são definidas nos arquivos de configuração de referência (RCFs) disponíveis no<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
+  <block id="54f425ce8d89f4ed6b8a546561af5d60" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6fb43cd5c831afd08ed62ea7c301589a" category="paragraph"><block ref="6fb43cd5c831afd08ed62ea7c301589a" category="inline-link-macro-rx"></block></block>
+  <block id="05b2444faffd66d76e88602ea7dd353f" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c8a7fd6048c409f4bb8f849cc3de1f18" category="paragraph"><block ref="c8a7fd6048c409f4bb8f849cc3de1f18" category="inline-link-macro-rx"></block></block>
+  <block id="beadfa85a2fdca06b91edc1131c603e6" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="76b532b4ae4cf629b8e1a3ede08fd7ff" category="paragraph"><block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block></block>
+  <block id="9fbc1f2b0342da208a4f6f75ac79debf" category="list-text">Registre quaisquer adições personalizadas entre o atual<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> e o arquivo RCF em uso.</block>
+  <block id="1399d69a0008babf2e123d92108c9240" category="list-text">Repita os passos 7 a 23 no switch cs1.</block>
+  <block id="0befd81589201067221e5dedef199de2" category="list-text">Concluído<block ref="e75e7c0418fc871b5a3b592fa97dc163" category="inline-link-macro-rx"></block> .</block>
+  <block id="4cf10f9f555b663eddd8a272193903d7" category="paragraph"><block ref="4cf10f9f555b663eddd8a272193903d7" category="inline-link-macro-rx"></block></block>
+  <block id="0f0e09565b0c7b492e270c4060b9d29e" category="inline-link-macro">Download do arquivo de configuração de referência do Cisco Cluster and Management Network Switch</block>
+  <block id="63f57df59ac258e42cdcd40fac2623ea" category="paragraph"><block ref="63f57df59ac258e42cdcd40fac2623ea" category="inline-link-macro-rx"></block></block>
+  <block id="b37f90464bfbfbddfdd6725447bd06e7" category="paragraph"><block ref="63f57df59ac258e42cdcd40fac2623ea" category="inline-link-macro-rx"></block> .</block>
+  <block id="ea6dcf18e08cf51811ea970c973a30d4" category="paragraph">Você deve ter baixado os arquivos de configuração de referência aplicáveis (RCFs).  O número de portas 10 GbE e 40/100 GbE são definidos nos RCFs disponíveis no<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
+  <block id="5b00db603de2c10fef706502ca893177" category="paragraph"><block ref="5b00db603de2c10fef706502ca893177" category="inline-link-rx"></block></block>
+  <block id="63d583816b323795a688346cd7512345" category="paragraph"><block ref="63d583816b323795a688346cd7512345" category="inline-link-macro-rx"></block></block>
+  <block id="4bf7d3e0fe2aaf741228065477f7ce25" category="list-text">Os requisitos de preparação inicial, o conteúdo do kit e as precauções de segurança no<block ref="d22d97d0d53bae652fbfecd814f7308a" category="inline-link-macro-rx"></block> .</block>
+  <block id="2efbd2a0519bae5f6994c6558122251f" category="inline-link-macro">Monitoramento de integridade do switch (CSHM)</block>
+  <block id="eeeb94cda44ce1577a6b8db4d82c5ac5" category="admonition">Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para dar suporte ao Cluster Switch Health Monitor (CSHM) para switches de cluster 92300YC. Ver <block ref="ab1531f0aae984a788ca4074053ec2ca" category="inline-link-macro-rx"></block> .</block>
+  <block id="68e796cfd9ca7be98c039ce09250de16" category="paragraph">Para configurar os switches Cisco Nexus 92300YC, você precisa da seguinte documentação do<block ref="0fd270aa9d8f1e96a9013cb017dbc748" category="inline-link-rx"></block> página:</block>
+  <block id="38432f6d5817226c6aa0cd518b5f378d" category="inline-link-macro">Instalar um switch Cisco Nexus 92300YC em um gabinete NetApp</block>
+  <block id="002e0411888b96d46627fce80e8d977c" category="paragraph"><block ref="002e0411888b96d46627fce80e8d977c" category="inline-link-macro-rx"></block></block>
+  <block id="070829923e22756903463b824268f2b5" category="paragraph">Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no<block ref="83c120250f1359d2a0f3a51d41516558" category="inline-link-macro-rx"></block> guias.</block>
+  <block id="a8d1a66d62c022a563277e8b0691fa83" category="list-text">Registre quaisquer adições personalizadas entre o atual<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> arquivo e o arquivo RCF em uso.</block>
+  <block id="b978a3c040fa352cf3eb469eb092efd7" category="list-text">Depois de verificar se as versões RCF e as configurações do switch estão corretas, copie o<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> arquivo para o<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> arquivo.</block>
+  <block id="c360869741dd5844f76506c53b837af4" category="list-text">Repita os passos 1 a 13 no switch cs2.</block>
+  <block id="40cc057209365f27735929c8c7ed6f54" category="list-text">Repita o passo 4a para o poste traseiro do lado direito.</block>
+  <block id="5c9a17fb96e20e993877a6c20e3979df" category="list-text">Registre quaisquer adições personalizadas entre o atual<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> e o arquivo RCF em uso (como uma configuração SNMP para sua organização).</block>
+  <block id="cf4c24edb4a4803c0e802e29293b8e91" category="list-text">A partir do NX-OS 10.2, use o<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando para comparar com o arquivo RCF salvo no bootflash.  Caso contrário, use uma ferramenta de comparação/diferenciação de terceiros.</block>
+  <block id="b55fc0c14c740661a687bb85eda03eb0" category="cell"><block ref="b55fc0c14c740661a687bb85eda03eb0" category="inline-link-macro-rx"></block></block>
+  <block id="001c185bb9213e457b3c40664a02459e" category="list-text">Reaplique quaisquer personalizações anteriores à configuração do switch.</block>
+  <block id="94b3f4aad8c5676ecdc95602c8ac02bf" category="paragraph">O<block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> contém mais informações sobre cabeamento.</block>
+  <block id="9e51f321ffd4ac6e0b6f16f83cc996e0" category="list-text"><block ref="9e51f321ffd4ac6e0b6f16f83cc996e0" category="inline-link-macro-rx"></block></block>
+  <block id="b39b42619811dd727e961f433347f106" category="inline-link-macro">Configuração e instalação do switch CN1601 e CN1610</block>
+  <block id="036d5ac8a7a1fd8cb4b359e528a16849" category="list-text"><block ref="036d5ac8a7a1fd8cb4b359e528a16849" category="inline-link-macro-rx"></block></block>
+  <block id="af874705df40c78e957d4f0969231211" category="list-text"><block ref="af874705df40c78e957d4f0969231211" category="inline-link-macro-rx"></block></block>
+  <block id="0d76d085864e864b6fe18472ceadd96e" category="paragraph">O<block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> contém as informações mais recentes sobre as portas de cluster reais para suas plataformas.</block>
+  <block id="93f48052b83573c9588c2e2a29f0d2f4" category="list-text"><block ref="bdfe1ecddcd4f86ab15c01ce788e67b1" category="inline-link-macro-rx"></block>descreve como instalar o software FASTPATH.</block>
+  <block id="34a82aa346c0fcde4927e8ace4faeac1" category="list-text"><block ref="916de883b9541163d5e1b0ec103d976a" category="inline-link-macro-rx"></block>descreve como instalar RCFs.</block>
+  <block id="2761fa8eeeaa9de0cb19156fa8180759" category="paragraph"><block ref="b4874fc318a2d2906865491ec45c2419" category="inline-link-macro-rx"></block> .</block>
+  <block id="bb3d2404d1e457b7cb2a94d3022caef9" category="paragraph">Para diretrizes de cabeamento, consulte<block ref="3660d2e2669921395eb817463df6e8d8" category="inline-link-macro-rx"></block> .</block>
+  <block id="2793c83561f3221907ce0970e3c21030" category="list-text">Conclua todas as etapas de solução de problemas para confirmar que você precisa substituir seu switch.</block>
+  <block id="867dcc02c6629ff2e444919a943a2054" category="list-text">Garanta que a conectividade de gerenciamento exista em ambos os switches.</block>
+  <block id="a1a8993ffd320908d06ade7e913bcf50" category="list-text">Você pode acessar o interruptor de substituição usando o console.</block>
+  <block id="f83f7aba00816a09361edd4eb88615c6" category="list-text">Verifique o status de integridade das portas do nó de armazenamento para confirmar a conexão com o switch de armazenamento S1:</block>
+  <block id="3f3ce4386bf6fdd6162760e69ae218fe" category="admonition">Para obter mais informações sobre a instalação do Cumulus Linux, consulte<block ref="af71380c0413e75eac6b68cce7246d02" category="inline-link-macro-rx"></block> .</block>
+  <block id="cee5d5761c41be926d640491ba26a759" category="sidebar">Switches para sistemas ONTAP</block>
 </blocks>

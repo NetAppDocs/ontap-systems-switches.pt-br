@@ -24,8 +24,8 @@ O http://hwu.netapp.com["Hardware Universe"^] fornece detalhes completos das por
 
 A configuração de rede existente deve ter as seguintes caraterísticas:
 
-* Certifique-se de que todas as etapas de solução de problemas foram concluídas para confirmar que o switch precisa ser substituído.
-* A conetividade de gerenciamento deve existir em ambos os switches.
+* Conclua todas as etapas de solução de problemas para confirmar que você precisa substituir seu switch.
+* Garanta que a conectividade de gerenciamento exista em ambos os switches.
 +
 
 NOTE: Certifique-se de que todas as etapas de solução de problemas foram concluídas para confirmar que o switch precisa ser substituído.
@@ -35,7 +35,7 @@ NOTE: Certifique-se de que todas as etapas de solução de problemas foram concl
 O interrutor NVIDIA SN2100 de substituição deve ter as seguintes caraterísticas:
 
 * A conetividade de rede de gerenciamento é funcional.
-* O acesso do console ao interrutor de substituição está no lugar.
+* Você pode acessar o interruptor de substituição usando o console.
 * A imagem apropriada do sistema operacional RCF e Cumulus é carregada no switch.
 * A personalização inicial do switch está concluída.
 
@@ -63,7 +63,7 @@ _x_ é a duração da janela de manutenção em horas.
 +
 `set -privilege advanced`
 
-. Verifique o status de integridade das portas do nó de storage para garantir que haja conexão com o switch de armazenamento S1:
+. Verifique o status de integridade das portas do nó de armazenamento para confirmar a conexão com o switch de armazenamento S1:
 +
 `storage port show -port-type ENET`
 

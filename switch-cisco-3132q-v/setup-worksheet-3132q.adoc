@@ -1,5 +1,5 @@
 ---
-permalink: switch-cisco-3132q-v/setup_worksheet_3132q.html 
+permalink: switch-cisco-3132q-v/setup-worksheet-3132q.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 3132Q-V 
 summary: Se você quiser documentar as plataformas suportadas, você deve preencher a Planilha de cabeamento em branco usando a Planilha de cabeamento de amostra concluída como um guia. Cada switch pode ser configurado como uma única porta 40GbE ou 4 portas x 10GbE. 

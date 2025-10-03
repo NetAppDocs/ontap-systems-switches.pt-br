@@ -21,7 +21,7 @@ entries:
   - title: Instale o interrutor
     url: "/switch-bes-53248/install-hardware-bes53248.html"
   - title: Revise o cabeamento e a configuração
-    url: "/switch-bes-53248/cabling-considerations-bes-53248.html"
+    url: "/switch-bes-53248/cabling-considerations-bes53248.html"
 - title: Configurar o software
   pdf-filename: Configure_software_bes53248
   entries:

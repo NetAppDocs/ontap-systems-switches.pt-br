@@ -107,14 +107,14 @@ Neste momento, tem de preparar ambos os interrutores. Se você precisar atualiza
 +
 .. Vá para a página _switches Ethernet Cisco_ no site de suporte da NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Switches Ethernet Cisco"^]
 
 .. Observe o switch e as versões de software necessárias na tabela nessa página.
 .. Baixe a versão apropriada do RCF.
 .. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
 .. Transfira a versão apropriada do software de imagem.
 +
-https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Página de download do ficheiro de configuração de referência do comutador de rede de gestão e cluster do Cisco"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do Cisco Cluster and Management Network Switch"^]
 
 
 

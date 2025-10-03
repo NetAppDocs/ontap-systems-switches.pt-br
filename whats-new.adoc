@@ -7,7 +7,7 @@ summary: Saiba mais sobre os novos switches para sistemas FAS e AFF.
 = O que há de novo para switches
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

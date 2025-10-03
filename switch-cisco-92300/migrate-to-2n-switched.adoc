@@ -18,13 +18,15 @@ O procedimento usado depende se você tem duas portas de rede de cluster dedicad
 A maioria dos sistemas requer duas portas de rede de cluster dedicadas em cada controlador.
 
 
-NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para suportar o Monitor de integridade do comutador de cluster (CSHM) para switches de cluster 92300YC. link:setup-install-cshm-file.html["Instale o Monitor de integridade do interrutor do cluster (CSHM)"]Consulte .
+NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para dar suporte ao Cluster Switch Health Monitor (CSHM) para switches de cluster 92300YC. Ver link:../switch-cshm/cshm-overview.html["Monitoramento de integridade do switch (CSHM)"] .
 
 
 
 == Rever os requisitos
 
-.O que você vai precisar
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
 Para uma configuração sem switch de dois nós, certifique-se de que:
 
 * A configuração sem switch de dois nós está corretamente configurada e funcionando.

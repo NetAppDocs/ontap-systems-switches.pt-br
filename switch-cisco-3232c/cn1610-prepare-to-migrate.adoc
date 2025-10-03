@@ -159,11 +159,11 @@ CL2                           cluster-network  10.10.1.102   CN1610
 Você deve preparar ambos os interrutores neste momento. Se necessitar de atualizar o RCF e a imagem, tem de concluir o seguinte procedimento:
 
 +
-.. Consulte link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Switch Ethernet Cisco"^]a página no site de suporte da NetApp.
+.. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] no site de suporte da NetApp .
 .. Observe o switch e as versões de software necessárias na tabela nessa página.
 .. Baixe a versão apropriada do RCF.
 .. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
-.. Faça o download da versão apropriada do software de imagem em link:http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.html["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^].
+.. Baixe a versão apropriada do software de imagem emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^] .
 
 
 . Migre os LIFs associados ao segundo switch CN1610 que você planeja substituir:

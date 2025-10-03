@@ -10,7 +10,7 @@ summary: A partir do ONTAP 9.9,1, você pode usar os switches Cisco Nexus 9336C-
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

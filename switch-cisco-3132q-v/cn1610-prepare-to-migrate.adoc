@@ -179,13 +179,13 @@ cluster::*> network interface modify -vserver node2 -lif clus4 -auto-revert fals
 Neste momento, tem de preparar ambos os interrutores. Se você precisar atualizar o RCF e a imagem, siga estas etapas:
 
 +
-.. Consulte link:http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet Cisco"^]a página no site de suporte da NetApp.
+.. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] no site de suporte da NetApp .
 .. Observe o switch e as versões de software necessárias na tabela nessa página.
 .. Baixe a versão apropriada do RCF.
 .. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
 .. Transfira a versão apropriada do software de imagem.
 +
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^]
+https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^]
 
 
 
@@ -318,8 +318,7 @@ Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

@@ -400,7 +400,9 @@ A saída varia de acordo com a configuração do seu site. Verifique as configur
 
 
 
-. Reaplique quaisquer personalizações anteriores à configuração do switch. link:cabling-considerations-9336c-fx2.html["Analise as considerações sobre cabeamento e configuração"]Consulte para obter detalhes sobre quaisquer alterações adicionais necessárias.
+. Reaplique quaisquer personalizações anteriores à configuração do switch.
+
+
 . Depois de verificar se as versões RCF, adições personalizadas e configurações de switch estão corretas, copie o arquivo running-config para o arquivo startup-config.
 +
 Para obter mais informações sobre comandos Cisco, consulte o guia apropriado https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Referência de comando Cisco Nexus 9000 Series NX-os"^] nos guias.

@@ -171,7 +171,7 @@ cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert fals
 Neste momento, tem de preparar ambos os interrutores. Se você precisar atualizar o RCF e a imagem, siga estas etapas:
 
 +
-.. Vá para a link:http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet Cisco"^] página no site de suporte da NetApp.
+.. Vá paralink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] no site de suporte da NetApp .
 .. Observe o switch e as versões de software necessárias na tabela nessa página.
 .. Baixe a versão apropriada do RCF.
 .. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
@@ -196,13 +196,13 @@ O exemplo a seguir mostra n1 e n2, mas a migração de LIF deve ser feita em tod
 
 [listing]
 ----
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 –
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 -
 destination-node n1 -destination-port e0a
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 –
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 -
 destination-node n1 -destination-port e0d
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 –
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 -
 destination-node n2 -destination-port e0a
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 –
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 -
 destination-node n2 -destination-port e0d
 ----
 ====
@@ -308,8 +308,7 @@ Cluster n2_clus4 n2		e0d	10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

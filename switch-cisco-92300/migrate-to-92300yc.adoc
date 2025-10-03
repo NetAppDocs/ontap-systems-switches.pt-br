@@ -14,7 +14,7 @@ summary: Você pode migrar os switches de cluster Cisco mais antigos sem interru
 Você pode migrar os switches de cluster Cisco mais antigos sem interrupções para um cluster ONTAP para os switches de rede de cluster Cisco Nexus 92300YC.
 
 
-NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para suportar o Monitor de integridade do comutador de cluster (CSHM) para switches de cluster 92300YC. link:setup-install-cshm-file.html["Instale o Monitor de integridade do interrutor do cluster (CSHM)"]Consulte .
+NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para dar suporte ao Cluster Switch Health Monitor (CSHM) para switches de cluster 92300YC. Ver link:../switch-cshm/cshm-overview.html["Monitoramento de integridade do switch (CSHM)"] .
 
 
 

@@ -89,7 +89,7 @@ Cluster
 Neste momento, tem de preparar ambos os interrutores. Se você precisar atualizar o RCF e o software de imagem, siga estas etapas:
 
 +
-.. Vá para a link:http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet Cisco"^] página no site de suporte da NetApp.
+.. Vá paralink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] no site de suporte da NetApp .
 .. Observe o switch e as versões de software necessárias na tabela nessa página.
 .. Baixe a versão apropriada do RCF.
 .. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.

@@ -29,7 +29,7 @@ O `IS Monitored` campo é definido como *false* pelo motivo especificado no `Rea
 
 [NOTE]
 ====
-Se um switch não estiver listado na saída do comando, o ONTAP provavelmente não o descobriu. Confirme se o switch está cabeado corretamente. Se necessário, pode adicionar o interrutor manualmente. link:manage-monitor.html["Gerenciar o monitoramento de switches Ethernet"]Consulte para obter mais detalhes.
+Se um switch não estiver listado na saída do comando, é provável que o ONTAP não o tenha descoberto.  Confirme se o switch está conectado corretamente.  Se necessário, você pode adicionar o switch manualmente. Consulte link:monitor-manage.html["Gerenciar o monitoramento de switches Ethernet"] para mais detalhes.
 
 ====
 

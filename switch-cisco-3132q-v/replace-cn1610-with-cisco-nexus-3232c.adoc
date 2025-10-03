@@ -21,9 +21,9 @@ Revise os requisitos do NetApp CN1610 em link:switch-requirements.html["Requisit
 
 Para obter mais informações, consulte:
 
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Página de descrição do NetApp CN1601 e CN1610"^]
-* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descrição do comutador Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 e CN1610"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -41,7 +41,7 @@ Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
 * N1_clus3 é o segundo LIF que está conetado ao switch de cluster 2 (CL2 ou C2) para o nó n1.
 * N1_clus4 é o segundo LIF que está conetado ao switch de cluster 1 (CL1 ou C1) para o nó n1.
 * Os nós são n1, n2, n3 e n4.
-* O número de portas 10 GbE e 40 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] página.
+* O número de portas de 10 GbE e 40 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] .
 
 
 .Sobre os exemplos
@@ -247,13 +247,13 @@ cluster::*> network interface modify -vserver node2 -lif clus4 -auto-revert fals
 Neste momento, tem de preparar ambos os interrutores. Se você precisar atualizar o RCF e a imagem, siga estas etapas:
 
 +
-.. Consulte link:http://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet Cisco"^]a página no site de suporte da NetApp.
+.. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] no site de suporte da NetApp .
 .. Observe o switch e as versões de software necessárias na tabela nessa página.
 .. Baixe a versão apropriada do RCF.
 .. Clique em *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
 .. Transfira a versão apropriada do software de imagem.
 +
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^]
+link:shttps://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^]
 
 
 
@@ -386,8 +386,7 @@ Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -734,8 +733,7 @@ Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -1101,8 +1099,7 @@ Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

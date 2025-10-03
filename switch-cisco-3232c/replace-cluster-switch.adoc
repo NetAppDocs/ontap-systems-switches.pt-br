@@ -40,8 +40,8 @@ O interrutor de substituição Cisco Nexus 3232C tem as seguintes caraterística
 .Para mais informações
 Veja o seguinte:
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descrição do comutador Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -51,8 +51,8 @@ Veja o seguinte:
 O NetApp recomenda fortemente que você ative o log do console nos dispositivos que você está usando e execute as seguintes ações ao substituir o switch:
 
 * Deixe o AutoSupport ativado durante a manutenção.
-* Acione um AutoSupport de manutenção antes e depois da manutenção para desativar a criação de casos durante a manutenção. Consulte este artigo da base de dados de Conhecimento https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Como suprimir a criação automática de casos durante as janelas de manutenção programada"^] para obter mais detalhes.
-* Ativar o registo de sessão para quaisquer sessões CLI. Para obter instruções sobre como ativar o registo de sessão, consulte a secção "saída de sessão de registo" neste artigo da base de dados de conhecimento https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Como configurar o PuTTY para uma conetividade ideal aos sistemas ONTAP"^] .
+* Acione um AutoSupport de manutenção antes e depois da manutenção para desabilitar a criação de casos durante a manutenção.  Veja este artigo da Base de Conhecimentolink:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Como suprimir a criação automática de casos durante as janelas de manutenção programada"^] para mais detalhes.
+* Habilite o registro de sessão para qualquer sessão CLI.  Para obter instruções sobre como habilitar o registro de sessão, revise a seção "Registro de saída de sessão" neste artigo da Base de conhecimentolink:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Como configurar o PuTTY para uma conetividade ideal aos sistemas ONTAP"^] .
 
 
 
@@ -84,7 +84,7 @@ Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
 * N1_clus4 é o segundo LIF conetado ao switch de cluster CL1, para o nó n1.
 
 
-O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] página.
+O número de portas de 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] .
 
 Os exemplos neste procedimento de substituição usam quatro nós. Dois dos nós usam quatro portas de interconexão de cluster de 10 GB: e0a, e0b, e0c e e0d. Os outros dois nós usam duas portas de interconexão de cluster de 40 GB: e4a e e4e. Consulte link:https://hwu.netapp.com["Hardware Universe"^]para verificar as portas de cluster corretas para a sua plataforma.
 
@@ -260,13 +260,13 @@ http://mysupport.netapp.com/["mysupport.NetApp.com"^]
 
 .. Vá para a página *switches Ethernet Cisco* e anote as versões de software necessárias na tabela.
 +
-https://mysupport.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet Cisco"^]
+https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^]
 
 .. Baixe a versão apropriada do RCF.
 .. Clique em *CONTINUAR* na página *Descrição*, aceite o contrato de licença e navegue até a página *Download*.
 .. Transfira a versão correta do software de imagem a partir da página de transferência do ficheiro de configuração de referência do comutador de rede de gestão e de Cluster *Cisco*.
 +
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^]
 
 
 

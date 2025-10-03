@@ -10,7 +10,7 @@ summary: Para a instalação e manutenção do switch Cisco Nexus 9336C-FX2, ver
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

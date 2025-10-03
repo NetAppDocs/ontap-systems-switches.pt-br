@@ -21,7 +21,7 @@ Para redefinir o switch de armazenamento SN2100 para os padrões de fábrica:
 
 
 
-NOTE: Para obter mais informações sobre a instalação do Cumulus Linux, consultelink:configure-software-overview-sn2100-cluster.html["Fluxo de trabalho de instalação de software para switches NVIDIA SN2100"] .
+NOTE: Para obter mais informações sobre a instalação do Cumulus Linux, consultelink:configure-software-sn2100-storage.html["Fluxo de trabalho de instalação de software para switches NVIDIA SN2100"] .
 
 .Passos
 [role="tabbed-block"]

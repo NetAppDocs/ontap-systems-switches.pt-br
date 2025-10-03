@@ -19,8 +19,8 @@ O procedimento requer o uso de comandos ONTAP e comandos Cisco Nexus 3000 Series
 ====
 Para obter mais informações, consulte:
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Página de descrição do comutador Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switch Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -81,7 +81,7 @@ Você pode dividir as primeiras seis portas no modo 4x10 GbE usando o `interface
 
 ====
 * Você fez o Planejamento, a migração e leu a documentação necessária sobre a conectividade de 10 GbE e 40/100 GbE dos nós para os switches de cluster Nexus 3132Q-V.
-* As versões ONTAP e NX-os suportadas neste procedimento estão no link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Página de switches Ethernet Cisco"^].
+* As versões do ONTAP e do NX-OS suportadas neste procedimento estão aqui:link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] .
 
 
 .Sobre os exemplos usados
@@ -96,7 +96,7 @@ O procedimento também usa a seguinte nomenclatura de switch e nó:
 * *n1_clus2* é o primeiro cluster LIF conetado ao switch de cluster 2 (CL2 ou C2) para o nó *n1*.
 * *n1_clus3* é o segundo LIF conetado ao switch de cluster 2 (CL2 ou C2) para o nó *n1*.
 * *n1_clus4* é o segundo LIF conetado ao switch de cluster 1 (CL1 ou C1) para o nó *n1*.
-* O número de portas 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis na https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] página.
+* O número de portas 10 GbE e 40/100 GbE são definidos nos arquivos de configuração de referência (RCFs) disponíveis emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] .
 * Os nós são *n1*, *n2*, *n3* e *n4*.
 
 
