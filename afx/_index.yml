@@ -1,0 +1,44 @@
+---
+indexpage:
+  title: Interruptores de sistemas AFX
+  summary: Use a documentação neste site para instalar, configurar e manter seus switches
+    de sistemas AFX para implantações de cluster ONTAP .
+  keywords: AFX systems switches, cisco nexus switches, cluster switches, ontap clusters
+  lead: Os switches de sistemas AFX permitem que você crie clusters ONTAP com mais
+    de dois nós.  Esses switches de plataforma Cisco Nexus 9000 fornecem a base para
+    soluções de interconexão de cluster escaláveis ​​em ambientes NetApp ONTAP .
+  tiles:
+  - title: Comece agora
+    links:
+    - title: Cisco Nexus 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
+    - title: Cisco Nexus 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html"
+  - title: Instalar e configurar switches AFX
+    links:
+    - title: Instalar hardware do switch 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/install-hardware.html"
+    - title: Instalar hardware do switch 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/install-hardware.html"
+    - title: Configurar o software do switch 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
+    - title: Configurar o software do switch 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html"
+  - title: Manter interruptores AFX
+    links:
+    - title: Substituir interruptor 9332D-GX2B
+      url: "../switch-cisco-9332d-gx2b/replace-9332d-cluster.html"
+    - title: Substituir interruptor 9364D-GX2A
+      url: "../switch-cisco-9364d-gx2a/replace-9364d-cluster.html"
+    - title: Redefinir o switch 9332D-GX2B para os padrões de fábrica
+      url: "../switch-cisco-9332d-gx2b/reset-switch-9332d.html"
+    - title: Redefinir o switch 9364D-GX2A para os padrões de fábrica
+      url: "../switch-cisco-9364d-gx2a/reset-switch-9364d.html"
+  - title: Documentação relacionada
+    links:
+    - title: Sistemas de hardware ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentação de switches de cluster
+      url: "../index.html"
+    - title: Monitoramento de saúde do switch
+      url: "../switch-cshm/config-overview.html"

@@ -1,5 +1,5 @@
 ---
-permalink: switch-cisco-9336c-fx2/smart-call-9336c-cluster.html 
+permalink: switch-cisco-9364d-gx2a/smart-call-9364d-cluster.html 
 sidebar: sidebar 
 keywords: cisco smart call,small call home 
 summary: Smart Call Home monitora os componentes de hardware e software em sua rede, para gerar uma notificação baseada em e-mail sobre as condições críticas do sistema. Quando ocorre um evento no seu dispositivo, o Smart Call Home emite um alerta para todos os destinatários configurados no seu perfil de destino. 

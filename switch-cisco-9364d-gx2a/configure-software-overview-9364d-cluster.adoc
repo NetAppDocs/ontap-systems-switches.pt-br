@@ -1,0 +1,40 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure 9364d-gx2a switch 
+summary: Visão geral da configuração de software para switches de cluster Cisco 9364d-gx2a 
+---
+= Configurar fluxo de trabalho de software para switches Cisco 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar e configurar o software para um switch Cisco 9364D-GX2A e instalar ou atualizar o Arquivo de Configuração de Referência (RCF), siga estas etapas:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:setup-switch-9364d-cluster.html["Configurar o switch 9364D-GX2A"]
+[role="quick-margin-para"]
+Configure o switch Cisco 9364D-GX2A.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"] link:install-nxos-overview-9364d-cluster.html["Prepare-se para instalar o software NX-os e o RCF"]
+[role="quick-margin-para"]
+Instale o software Cisco NX-OS e os arquivos de configuração de referência (RCFs) nos switches Cisco 9364D-GX2A.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nxos-software-9364d-cluster.html["Instale ou atualize o software NX-os"]
+[role="quick-margin-para"]
+Baixe e instale ou atualize o software NX-OS no switch Cisco 9364D-GX2A.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]link:install-upgrade-rcf-overview-cluster.html["Instale ou atualize o RCF"]
+[role="quick-margin-para"]
+Instale ou atualize o RCF após configurar o switch Cisco 9364D-GX2A pela primeira vez. Você também pode usar este procedimento para atualizar sua versão do RCF.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verifique se o SSH está habilitado nos switches Nexus 9364D-GX2A"]
+[role="quick-margin-para"]
+Verifique se o SSH está habilitado no switch Cisco 9364D-GX2A para uso com o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-9364d.html["Redefinir o switch para os padrões de fábrica"]
+[role="quick-margin-para"]
+Apague as configurações do switch Cisco 9364D-GX2A.
+
+Depois de terminar de configurar seus switches, vá paralink:https://docs.netapp.com/us-en/ontap-afx/install-setup/power-on-hardware.html["Ligue seu sistema de armazenamento AFX 1K"^] .

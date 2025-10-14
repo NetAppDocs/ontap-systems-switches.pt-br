@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords:  
 summary: Saiba mais sobre cluster, armazenamento e switches compartilhados. 
 ---
-= Comece a trabalhar com Cluster, Storage e switches compartilhados
+= Comece a usar os sistemas AFX, cluster, armazenamento e switches compartilhados
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para começar a funcionar com cluster, armazenamento e switches compartilhados, você instala componentes de hardware e configura o switch.
+Para começar a usar os sistemas AFX, cluster, armazenamento e switches compartilhados, você instala componentes de hardware e configura seu switch.
 
 A implantação do switch envolve o seguinte fluxo de trabalho.
 
@@ -19,11 +19,15 @@ A implantação do switch envolve o seguinte fluxo de trabalho.
 [role="quick-margin-para"]
 Instale seus switches no rack ou gabinete. Acesse as instruções a seguir para o modelo do switch.
 
-[cols="2,9,9,9"]
+[cols="11,9,9,9"]
 |===
 
 
  a| 
+.Interruptores de sistemas AFX
+* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-switches.html["Instalar o switch Cisco Nexus 9332D-GX2B"^]
+* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-switches.html["Instalar o switch Cisco Nexus 9364D-GX2A"^]
+
  a| 
 .Interrutores do cluster
 * link:../switch-bes-53248/install-hardware-bes53248.html["Instale o interrutor BES-53248"]
@@ -45,12 +49,13 @@ Instale seus switches no rack ou gabinete. Acesse as instruções a seguir para 
 [role="quick-margin-para"]
 Instale seu sistema de armazenamento e prateleiras de armazenamento no gabinete ou rack. Acesse as instruções de instalação e configuração do modelo da sua plataforma.
 
-[cols="4,9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
  a| 
  a| 
+* https://docs.netapp.com/us-en/ontap-afx/index.html["Sistemas AFX"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemas AFF"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemas ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Sistemas ASA r2"^]
@@ -60,67 +65,49 @@ Instale seu sistema de armazenamento e prateleiras de armazenamento no gabinete 
  a| 
 
 |===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Ligue os interrutores aos controladores
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Conecte os interruptores aos controladores
 [role="quick-margin-para"]
 As instruções de instalação e configuração dos sistemas ONTAP incluem instruções para o cabeamento das portas da controladora ao switch. No entanto, se você precisar de listas de cabos e transcetores suportados e informações detalhadas sobre as portas do host para o switch, acesse as instruções a seguir para o modelo do switch.
 
-[cols="2,9,9,9"]
+[cols="11,9,9,9"]
 |===
 
 
  a| 
+.Interruptores de sistemas AFX
+* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["Cabeamento do switch Cisco Nexus 9332D-GX2B"^]
+* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["Cabeamento do switch Cisco Nexus 9364D-GX2A"^]
+
  a| 
 .Interrutores do cluster
-* link:../switch-bes-53248/configure-reqs-bes53248.html#configuration-requirements["Interrutor BES-53248 do cabo"]
-* link:../switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html["Cabo Cisco switch Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html["Interrutor do cabo NVIDIA SN2100"]
+* link:../switch-bes-53248/configure-reqs-bes53248.html#configuration-requirements["Cabeamento do switch BES-53248"]
+* link:../switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html["Cabeamento do switch Cisco Nexus 9336C-FX2"]
+* link:../switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html["Cabeamento do switch NVIDIA SN2100"]
 
  a| 
 .Interrutores de armazenamento
-* link:../switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Cabo Cisco switch Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html["Interrutor do cabo NVIDIA SN2100"]
+* link:../switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Cabeamento do switch Cisco Nexus 9336C-FX2"]
+* link:../switch-nvidia-sn2100-storage/cabling-considerations-sn2100-storage.html["Cabeamento do switch NVIDIA SN2100"]
 
  a| 
 .Switches compartilhados
-* link:../switch-cisco-9336c-fx2-shared/cable-9336c-shared.html["Cabo Cisco switch Nexus 9336C-FX2"]
+* link:../switch-cisco-9336c-fx2-shared/cable-9336c-shared.html["Cabeamento do switch Cisco Nexus 9336C-FX2"]
 
 
 |===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]Configure o interrutor
-[role="quick-margin-para"]
-Execute uma configuração inicial de seus switches. Acesse as instruções a seguir para o modelo do switch.
-
-[cols="2,9,9,9"]
-|===
-
-
- a| 
- a| 
-.Interrutores do cluster
-* link:../switch-bes-53248/configure-install-initial.html["Configure o switch BES-53248"]
-* link:../switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html["Configurar o switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/configure-sn2100-cluster.html["Configure o switch NVIDIA SN2100"]
-
- a| 
-.Interrutores de armazenamento
-* link:../switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html["Configurar o switch Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100-storage/configure-sn2100-storage.html["Configure o switch NVIDIA SN2100"]
-
- a| 
-.Switches compartilhados
-* link:../switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html["Configurar o switch Cisco Nexus 9336C-FX2"]
-
-
-|===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] Instale o software do interrutor
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]Configurar o software do switch
 [role="quick-margin-para"]
 Para instalar e configurar o software no switch, siga o fluxo de trabalho de instalação do software para o modelo do switch.
 
-[cols="2,9,9,9"]
+[cols="11,9,9,9"]
 |===
 
 
  a| 
+.Interruptores de sistemas AFX
+* link:../switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html["Instalar software para switch Cisco Nexus 9332D-GX2B"]
+* link:../switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html["Instalar software para switch Cisco Nexus 9364D-GX2A"]
+
  a| 
 .Interrutores do cluster
 * link:../switch-bes-53248/configure-software-overview-bes53248.html["Instale o software para os switches BES-53248"]
@@ -138,16 +125,17 @@ Para instalar e configurar o software no switch, siga o fluxo de trabalho de ins
 
 
 |===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"] Conclua a configuração do sistema
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]Configuração completa do sistema
 [role="quick-margin-para"]
 Depois de configurar os switches e instalar o software necessário, acesse as instruções de instalação e configuração do modelo da plataforma de sistemas ONTAP para concluir a configuração do sistema.
 
-[cols="4,9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
  a| 
  a| 
+* https://docs.netapp.com/us-en/ontap-afx/index.html["Sistemas AFX"^]
 * https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemas AFF"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemas ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Sistemas ASA r2"^]
@@ -157,7 +145,7 @@ Depois de configurar os switches e instalar o software necessário, acesse as in
  a| 
 
 |===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sete"] Concluir a configuração do ONTAP
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]Configuração completa do ONTAP
 [role="quick-margin-para"]
 Depois de instalar e configurar os controladores e switches dos sistemas ONTAP, você deverá concluir a configuração do storage no ONTAP. Acesse as instruções a seguir de acordo com a configuração de implantação.
 

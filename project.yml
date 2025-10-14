@@ -22,6 +22,10 @@ sidebar:
       url: "/get-started/learn-switch-concept.html"
     - title: Comece a trabalhar
       url: "/get-started/get-up-and-running.html"
+  - title: Interruptores de sistemas AFX
+    entries:
+    - section: switch-cisco-9332d-gx2b
+    - section: switch-cisco-9364d-gx2a
   - title: Interrutores do cluster
     entries:
     - section: switch-bes-53248

@@ -15,6 +15,8 @@ Para usar o Smart Call Home, você deve configurar um switch de rede de cluster 
 
 O Smart Call Home monitora os componentes de hardware e software na sua rede. Quando ocorre uma configuração crítica do sistema, ele gera uma notificação por e-mail e envia um alerta para todos os destinatários configurados no seu perfil de destino.
 
+O Smart Call Home monitora os componentes de hardware e software na sua rede. Quando ocorre uma configuração crítica do sistema, ele gera uma notificação por e-mail e envia um alerta para todos os destinatários configurados no seu perfil de destino.
+
 Antes de usar o Smart Call Home, esteja ciente dos seguintes requisitos:
 
 * Um servidor de e-mail deve estar no lugar.

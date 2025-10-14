@@ -1,0 +1,204 @@
+---
+permalink: switch-cisco-9364d-gx2a/setup-switch-9364d-cluster.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9364d-gx2a 
+summary: Siga este procedimento para instalar e configurar o switch Cisco Nexus 9364d-gx2a. 
+---
+= Configurar o switch 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimento para configurar o switch Cisco Nexus 9364D-GX2A.
+
+.Antes de começar
+Certifique-se de ter:
+
+* Ligue seus interruptores.
+* Acesso a um servidor HTTP, FTP ou TFTP no site de instalação para baixar as versões NX-os e Reference Configuration File (RCF) aplicáveis.
+* Versão NX-os aplicável, transferida a partir da https://software.cisco.com/download/home["Transferência do software Cisco"^] página.
+
+
+[IMPORTANT]
+====
+* O NX-OS 10.4.2 é a única versão suportada para switches Cisco Nexus 9364D-GX2A em um cluster ONTAP .
+* Não atualize ou faça downgrade da sua versão do NX-OS para uma versão não suportada; somente a 10.4.2 é suportada atualmente.
+
+
+====
+* Licenças aplicáveis, informações de rede e configuração e cabos.
+* RCFs de rede de cluster e rede de gerenciamento NetApp aplicáveis baixados do site de suporte da NetApp em http://mysupport.netapp.com/["mysupport.NetApp.com"^]. Todos os switches de rede e rede de gerenciamento de cluster Cisco chegam com a configuração padrão de fábrica do Cisco. Esses switches também têm a versão atual do software NX-os, mas não têm os RCFs carregados.
+* link:required-documentation-9364d-cluster.html["Documentação necessária do switch e do ONTAP"] .
+
+
+.Passos
+. Execute uma configuração inicial dos switches de rede do cluster.
++
+Forneça respostas aplicáveis às seguintes perguntas de configuração inicial ao inicializar o switch pela primeira vez. A política de segurança do seu site define as respostas e os serviços a serem ativados.
+
++
+[cols="1,2"]
+|===
+| Aviso | Resposta 
+
+
+ a| 
+Cancelar o provisionamento automático e continuar com a configuração normal? (sim/não)
+ a| 
+Responda com *sim*. A predefinição é não
+
+
+
+ a| 
+Pretende aplicar o padrão de palavra-passe seguro? (sim/não)
+ a| 
+Responda com *sim*. O padrão é sim.
+
+
+
+ a| 
+Introduza a palavra-passe para admin.
+ a| 
+A senha padrão é "'admin'"; você deve criar uma nova senha forte. Uma senha fraca pode ser rejeitada.
+
+
+
+ a| 
+Pretende introduzir a caixa de diálogo de configuração básica? (sim/não)
+ a| 
+Responda com *sim* na configuração inicial do comutador.
+
+
+
+ a| 
+Criar outra conta de login? (sim/não)
+ a| 
+Sua resposta depende das políticas do seu site em administradores alternativos. O padrão é *não*.
+
+
+
+ a| 
+Configurar string de comunidade SNMP somente leitura? (sim/não)
+ a| 
+Responda com *não*. A predefinição é não
+
+
+
+ a| 
+Configurar string de comunidade SNMP de leitura-escrita? (sim/não)
+ a| 
+Responda com *não*. A predefinição é não
+
+
+
+ a| 
+Introduza o nome do interrutor.
+ a| 
+Introduza o nome do interrutor, que está limitado a 63 carateres alfanuméricos.
+
+
+
+ a| 
+Continuar com a configuração de gerenciamento fora da banda (mgmt0)? (sim/não)
+ a| 
+Responda com *yes* (o padrão) nesse prompt. No prompt mgmt0 IPv4 address:, insira seu endereço IP: ip_address.
+
+
+
+ a| 
+Configurar o gateway padrão? (sim/não)
+ a| 
+Responda com *sim*. No endereço IPv4 do prompt default-gateway:, digite seu default_gateway.
+
+
+
+ a| 
+Configurar opções IP avançadas? (sim/não)
+ a| 
+Responda com *não*. A predefinição é não
+
+
+
+ a| 
+Ativar o serviço telnet? (sim/não)
+ a| 
+Responda com *não*. A predefinição é não
+
+
+
+ a| 
+Ativar o serviço SSH? (sim/não)
+ a| 
+Responda com *sim*. O padrão é sim.
+
+
+NOTE: O SSH é recomendado ao usar o Ethernet Switch Health Monitor (CSHM) para seus recursos de coleta de logs. O SSHv2 também é recomendado para maior segurança.
+
+
+
+ a| 
+Introduza o tipo de chave SSH que pretende gerar (dsa/rsa/rsa1).
+ a| 
+O padrão é *rsa*.
+
+
+
+ a| 
+Introduza o número de bits de chave (1024-2048).
+ a| 
+Introduza o número de bits de chave de 1024 a 2048.
+
+
+
+ a| 
+Configurar o servidor NTP? (sim/não)
+ a| 
+Responda com *não*. A predefinição é não
+
+
+
+ a| 
+Configurar camada de interface padrão (L3/L2)
+ a| 
+Responda com *L2*. A predefinição é L2.
+
+
+
+ a| 
+Configurar o estado predefinido da interface da porta do switch (shut/noshut)
+ a| 
+Responda com *noshut*. O padrão é noshut.
+
+
+
+ a| 
+Configurar o perfil do sistema CoPP (strict/moderate/lenient/dense)
+ a| 
+Responda com *strict*. O padrão é rigoroso.
+
+
+
+ a| 
+Pretende editar a configuração? (sim/não)
+ a| 
+Você deve ver a nova configuração neste momento. Reveja e faça as alterações necessárias à configuração que acabou de introduzir. Responda com *no* no prompt se você estiver satisfeito com a configuração. Responda com *yes* se quiser editar as configurações.
+
+
+
+ a| 
+Utilizar esta configuração e guardá-la? (sim/não)
+ a| 
+Responda com *yes* para salvar a configuração. Isto atualiza automaticamente as imagens do Kickstart e do sistema.
+
+
+NOTE: Se você não salvar a configuração nesta fase, nenhuma das alterações entrará em vigor na próxima vez que você reiniciar o switch.
+
+|===
+. Verifique as opções de configuração que você fez no visor que aparece no final da configuração e certifique-se de salvar a configuração.
+. Verifique a versão nos switches de rede do cluster e, se necessário, baixe a versão do software suportada pelo NetApp para os switches a partir da https://software.cisco.com/download/home["Transferência do software Cisco"^] página.
+
+
+.O que se segue?
+Depois de configurar seus switches, vocêlink:install-nxos-overview-9364d-cluster.html["prepare-se para instalar o NX-OS e o RCF"] .

@@ -1,0 +1,573 @@
+---
+permalink: switch-cisco-9332d-gx2b/migrate-to-switchless-interconnect-9332d-cluster.html 
+sidebar: sidebar 
+keywords: migrate, switchless cluster interconnect, cisco nexus switch 9332D-GX2B2 
+summary: É possível migrar de um cluster com uma rede de cluster comutada para um em que dois nós estejam diretamente conetados para o ONTAP 9.3 e posterior. 
+---
+= Substituir switches de cluster Cisco Nexus 9332D-GX2B2 por conexões sem switch
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível migrar de um cluster com uma rede de cluster comutada para um em que dois nós estejam diretamente conetados para o ONTAP 9.3 e posterior.
+
+
+
+== Rever os requisitos
+
+.Diretrizes
+Reveja as seguintes diretrizes:
+
+* Migrar para uma configuração de cluster sem switch de dois nós é uma operação sem interrupções. A maioria dos sistemas tem duas portas de interconexão de cluster dedicadas em cada nó, mas você também pode usar esse procedimento para sistemas com um número maior de portas de interconexão de cluster dedicadas em cada nó, como quatro, seis ou oito.
+* Não é possível usar o recurso de interconexão de cluster sem switch com mais de dois nós.
+* Se você tiver um cluster de dois nós existente que usa switches de interconexão de cluster e estiver executando o ONTAP 9.3 ou posterior, poderá substituir os switches por conexões diretas e de retorno entre os nós.
+
+
+.Antes de começar
+Certifique-se de que tem o seguinte:
+
+* Um cluster íntegro que consiste em dois nós conectados por switches de cluster. Os nós devem estar executando a mesma versão do ONTAP.
+* Cada nó com o número necessário de portas de cluster dedicadas, que fornecem conexões redundantes de interconexão de cluster para oferecer suporte à configuração do sistema. Por exemplo, há duas portas redundantes para um sistema com duas portas de interconexão de cluster dedicadas em cada nó.
+
+
+
+
+== Migrar os switches
+
+.Sobre esta tarefa
+O procedimento a seguir remove os switches de cluster em um cluster de dois nós e substitui cada conexão com o switch por uma conexão direta com o nó do parceiro.
+
+image::../media/tnsc_clusterswitches_and_direct_connections.PNG[Interrutores de cluster substituídos por conexões diretas]
+
+.Sobre os exemplos
+Os exemplos no procedimento a seguir mostram nós que estão usando "e0a" e "e0b" como portas de cluster. Seus nós podem estar usando portas de cluster diferentes, pois variam de acordo com o sistema.
+
+
+
+=== Passo 1: Prepare-se para a migração
+
+. Altere o nível de privilégio para avançado, inserindo `y` quando solicitado a continuar:
++
+`set -privilege advanced`
+
++
+É apresentado o aviso avançado `*>`.
+
+. O ONTAP 9.3 e versões posteriores são compatíveis com a detecção automática de clusters sem switch, que é habilitada por padrão.
++
+Você pode verificar se a deteção de clusters sem switch está ativada executando o comando de privilégio avançado:
+
++
+`network options detect-switchless-cluster show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+A saída de exemplo a seguir mostra se a opção está ativada.
+
+[listing]
+----
+cluster::*> network options detect-switchless-cluster show
+   (network options detect-switchless-cluster show)
+Enable Switchless Cluster Detection: true
+----
+====
++
+Se "Ativar deteção de cluster sem switch" for `false`, entre em Contato com o suporte da NetApp.
+
+. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=<number_of_hours>h`
+
++
+ `h`onde está a duração da janela de manutenção em horas. A mensagem notifica o suporte técnico desta tarefa de manutenção para que possa suprimir a criação automática de casos durante a janela de manutenção.
+
++
+No exemplo a seguir, o comando suprime a criação automática de casos por duas horas:
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing]
+----
+cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
+----
+====
+
+
+
+
+=== Etapa 2: Configurar portas e cabeamento
+
+. Organize as portas do cluster em cada switch em grupos para que as portas do cluster em group1 passem para o cluster switch1 e as portas do cluster em group2 passem para o cluster switch2. Estes grupos são necessários mais tarde no procedimento.
+. Identifique as portas do cluster e verifique o status e a integridade do link:
++
+`network port show -ipspace Cluster`
+
++
+No exemplo a seguir para nós com portas de cluster "e0a" e "e0b", um grupo é identificado como "node1:e0a" e "node2:e0a" e o outro grupo como "node1:e0b" e "node2:e0b". Seus nós podem estar usando portas de cluster diferentes porque variam de acordo com o sistema.
+
++
+image::../media/tnsc_clusterswitch_connections.PNG[Conexões do interrutor do cluster entre node1 e node2]
+
++
+Verifique se as portas têm um valor de `up` para a coluna "Link" e um valor de `healthy` para a coluna "Status de integridade".
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing]
+----
+cluster::> network port show -ipspace Cluster
+Node: node1
+                                                                 Ignore
+                                             Speed(Mbps) Health  Health
+Port  IPspace   Broadcast Domain Link  MTU   Admin/Oper	 Status  Status
+----- --------- ---------------- ----- ----- ----------- ------- -------
+e0a   Cluster   Cluster          up    9000  auto/10000  healthy false
+e0b   Cluster   Cluster          up    9000  auto/10000  healthy false
+
+Node: node2
+                                                                 Ignore
+                                             Speed(Mbps) Health  Health
+Port  IPspace   Broadcast Domain Link  MTU   Admin/Oper	 Status  Status
+----- --------- ---------------- ----- ----- ----------- ------- -------
+e0a   Cluster   Cluster          up    9000  auto/10000  healthy false
+e0b   Cluster   Cluster          up    9000  auto/10000  healthy false
+4 entries were displayed.
+----
+====
+. Confirme se todas as LIFs de cluster estão em suas portas residenciais.
++
+Verifique se a coluna "is-home" é `true` para cada um dos LIFs de cluster:
+
++
+`network interface show -vserver Cluster -fields is-home`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing]
+----
+cluster::*> net int show -vserver Cluster -fields is-home
+(network interface show)
+vserver  lif          is-home
+-------- ------------ --------
+Cluster  node1_clus1  true
+Cluster  node1_clus2  true
+Cluster  node2_clus1  true
+Cluster  node2_clus2  true
+4 entries were displayed.
+----
+====
++
+Se houver LIFs de cluster que não estão em suas portas residenciais, reverta esses LIFs para suas portas residenciais:
+
++
+`network interface revert -vserver Cluster -lif *`
+
+. Desativar a reversão automática para as LIFs do cluster:
++
+`network interface modify -vserver Cluster -lif * -auto-revert false`
+
+. Verifique se todas as portas listadas na etapa anterior estão conetadas a um switch de rede:
++
+`network device-discovery show -port _cluster_port_`
+
++
+A coluna "dispositivo descoberto" deve ser o nome do switch de cluster ao qual a porta está conetada.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que as portas do cluster "e0a" e "e0b" estão corretamente conetadas aos switches do cluster "CS1" e "CS2".
+
+[listing]
+----
+cluster::> network device-discovery show -port e0a|e0b
+  (network device-discovery show)
+Node/     Local  Discovered
+Protocol  Port   Device (LLDP: ChassisID)  Interface  Platform
+--------- ------ ------------------------- ---------- ----------
+node1/cdp
+          e0a    cs1                       0/11       BES-53248
+          e0b    cs2                       0/12       BES-53248
+node2/cdp
+          e0a    cs1                       0/9        BES-53248
+          e0b    cs2                       0/9        BES-53248
+4 entries were displayed.
+----
+====
+. Verifique a conectividade das interfaces de cluster remotas:
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9,1 e posterior
+--
+Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+
+`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2-clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.Todos os lançamentos do ONTAP
+--
+Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+--
+====
+. [[step7]] Verifique se o cluster está saudável:
++
+`cluster ring show`
+
++
+Todas as unidades devem ser principais ou secundárias.
+
+. Configure a configuração sem switch para as portas do grupo 1.
++
+
+IMPORTANT: Para evitar possíveis problemas de rede, você deve desconetar as portas do group1 e reconectá-las o mais rápido possível, por exemplo, *em menos de 20 segundos*.
+
++
+.. Desconete todos os cabos das portas do group1 ao mesmo tempo.
++
+No exemplo a seguir, os cabos são desconetados da porta "e0a" em cada nó e o tráfego do cluster continua através do switch e da porta "e0b" em cada nó:
+
++
+image::../media/tnsc_clusterswitch1_disconnected.PNG[ClusterSwitch1 desligado]
+
+.. Faça o cabo das portas em group1 de volta para trás.
++
+No exemplo seguinte, "e0a" no node1 está ligado a "e0a" no node2:
+
++
+image::../media/tnsc_ports_e0a_direct_connection.PNG[Ligação direta entre as portas "e0a"]
+
+
+
+. A opção de rede de cluster sem switch faz a transição de `false` para `true`. Isso pode levar até 45 segundos. Confirme se a opção sem switch está definida como `true`:
++
+`network options switchless-cluster show`
+
++
+O exemplo a seguir mostra que o cluster sem switch está habilitado:
+
++
+[listing]
+----
+cluster::*> network options switchless-cluster show
+Enable Switchless Cluster: true
+----
+. Verifique a conectividade das interfaces de cluster remotas:
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9,1 e posterior
+--
+Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+
+`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2-clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.Todos os lançamentos do ONTAP
+--
+Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+--
+====
+
+IMPORTANT: Antes de prosseguir para a próxima etapa, você deve esperar pelo menos dois minutos para confirmar uma conexão de trabalho de volta para trás no grupo 1.
+
+. [[step11]] Configure a configuração sem switch para as portas no grupo 2.
++
+
+IMPORTANT: Para evitar possíveis problemas de rede, você deve desconetar as portas do group2 e reconectá-las o mais rápido possível, por exemplo, *em menos de 20 segundos*.
+
++
+.. Desconete todos os cabos das portas do group2 ao mesmo tempo.
++
+No exemplo a seguir, os cabos são desconetados da porta "e0b" em cada nó e o tráfego de cluster continua através da conexão direta entre as portas "e0a":
+
++
+image::../media/tnsc_clusterswitch2_disconnected.PNG[ClusterSwitch2 desligado]
+
+.. Faça o cabo das portas em group2 de volta para trás.
++
+No exemplo seguinte, "e0a" no node1 está ligado a "e0a" no node2 e "e0b" no node1 está ligado a "e0b" no node2:
+
++
+image::../media/tnsc_node1_and_node2_direct_connection.PNG[Conexão direta entre portas no node1 e no node2]
+
+
+
+
+
+
+
+=== Etapa 3: Verifique a configuração
+
+. Verifique se as portas em ambos os nós estão corretamente conetadas:
++
+`network device-discovery show -port _cluster_port_`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra que as portas de cluster "e0a" e "e0b" estão corretamente conetadas à porta correspondente no parceiro de cluster:
+
+[listing]
+----
+cluster::> net device-discovery show -port e0a|e0b
+  (network device-discovery show)
+Node/      Local  Discovered
+Protocol   Port   Device (LLDP: ChassisID)  Interface  Platform
+---------- ------ ------------------------- ---------- ----------
+node1/cdp
+           e0a    node2                     e0a        AFF-A300
+           e0b    node2                     e0b        AFF-A300
+node1/lldp
+           e0a    node2 (00:a0:98:da:16:44) e0a        -
+           e0b    node2 (00:a0:98:da:16:44) e0b        -
+node2/cdp
+           e0a    node1                     e0a        AFF-A300
+           e0b    node1                     e0b        AFF-A300
+node2/lldp
+           e0a    node1 (00:a0:98:da:87:49) e0a        -
+           e0b    node1 (00:a0:98:da:87:49) e0b        -
+8 entries were displayed.
+----
+====
+. Reative a reversão automática para as LIFs do cluster:
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
+. Verifique se todos os LIFs estão em casa. Isso pode levar alguns segundos.
++
+`network interface show -vserver Cluster -lif _lif_name_`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+Os LIFs foram revertidos se a coluna "está em Casa" for `true`, como mostrado para `node1_clus2` e `node2_clus2` no exemplo a seguir:
+
+[listing]
+----
+cluster::> network interface show -vserver Cluster -fields curr-port,is-home
+vserver  lif           curr-port is-home
+-------- ------------- --------- -------
+Cluster  node1_clus1   e0a       true
+Cluster  node1_clus2   e0b       true
+Cluster  node2_clus1   e0a       true
+Cluster  node2_clus2   e0b       true
+4 entries were displayed.
+----
+====
++
+Se qualquer LIFS de cluster não retornou às portas iniciais, reverta-as manualmente do nó local:
+
++
+`network interface revert -vserver Cluster -lif _lif_name_`
+
+. Verifique o status do cluster dos nós a partir do console do sistema de qualquer nó:
++
+`cluster show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo a seguir mostra epsilon em ambos os nós a ser `false`:
+
+[listing]
+----
+Node  Health  Eligibility Epsilon
+----- ------- ----------- --------
+node1 true    true        false
+node2 true    true        false
+2 entries were displayed.
+----
+====
+. Verifique a conectividade das interfaces de cluster remotas:
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9,1 e posterior
+--
+Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+
+`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2-clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.Todos os lançamentos do ONTAP
+--
+Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+--
+====
+. [[step6]] se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
++
+Para obter mais informações, link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows_-_ONTAP_9["NetApp KB artigo 1010449: Como suprimir a criação automática de casos durante janelas de manutenção programada"^]consulte .
+
+. Altere o nível de privilégio de volta para admin:
++
+`set -privilege admin`
+
+
