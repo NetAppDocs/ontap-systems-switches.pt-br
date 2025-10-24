@@ -1,0 +1,107 @@
+---
+permalink: switch-cisco-3132q-v/install-upgrade-rcf-overview-3132q-v.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
+summary: 'O SSH é um requisito ao usar o Cluster Switch Health Monitor (CSHM) e os recursos de coleta de logs. Para habilitar o SSH em switches de cluster Cisco 3132q-v, primeiro gere as chaves SSH e depois habilite o SSH.' 
+---
+= Instale ou atualize a visão geral do ficheiro de configuração de referência (RCF)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você instala o arquivo de configuração de referência (RCF) após configurar os switches Nexus 3132Q-V pela primeira vez. Você atualiza sua versão RCF quando tem uma versão existente do arquivo RCF instalada no seu switch.
+
+Consulte o artigo da base de dados de Conhecimento link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^]para obter mais informações ao instalar ou atualizar o RCF.
+
+.Configurações RCF disponíveis
+A tabela a seguir descreve os RCFs disponíveis para diferentes configurações. Escolha o RCF aplicável à sua configuração.
+
+Para obter detalhes específicos de uso de porta e VLAN, consulte a seção banner e notas importantes no RCF.
+
+[cols="1,2"]
+|===
+| Nome RCF | Descrição 
+
+
+ a| 
+2-Cluster-HA-Breakout
+ a| 
+É compatível com dois clusters de ONTAP com pelo menos oito nós, incluindo nós que usam portas de cluster compartilhado.
+
+
+
+ a| 
+4-Cluster-HA-Breakout
+ a| 
+Dá suporte a quatro clusters ONTAP com pelo menos quatro nós, incluindo nós que usam portas de cluster compartilhado de alta disponibilidade.
+
+
+
+ a| 
+1-cluster-HA
+ a| 
+Todas as portas são configuradas para 40/100GbE. Suporta tráfego compartilhado de cluster/HA em portas. Necessário para sistemas AFF A320, AFF A250 e FAS500f. Além disso, todas as portas podem ser usadas como portas de cluster dedicadas.
+
+
+
+ a| 
+1-Cluster-HA-Breakout
+ a| 
+As portas são configuradas para conexões de 4x10GbE, conexões de 4x25GbE (RCF 1,6 em switches 100GbE) e 40/100GbE. Dá suporte ao tráfego compartilhado de cluster/HA em portas para nós que usam portas compartilhadas de cluster/HA: Sistemas AFF A320, AFF A250 e FAS500f. Além disso, todas as portas podem ser usadas como portas de cluster dedicadas.
+
+
+
+ a| 
+Cluster-HA-Storage
+ a| 
+As portas são configuradas para 40/100GbE para cluster e HA, 4 x 10 GbE breakout para cluster e 4 x 25 GbE breakout para cluster e HA, e 100GbE para cada par de HA de storage.
+
+
+
+ a| 
+Cluster
+ a| 
+Dois tipos de RCF com diferentes alocações de portas 4x10GbE (breakout) e portas 40/100GbE. Todos os nós FAS/AFF são compatíveis, exceto nos sistemas AFF A320, AFF A250 e FAS500f.
+
+
+
+ a| 
+Armazenamento
+ a| 
+Todas as portas são configuradas para 100GbE conexões de storage NVMe.
+
+|===
+.Documentação sugerida
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco (NSS)"^]
++
+Consulte a tabela de compatibilidade de switch para ver as versões ONTAP e RCF suportadas no site de suporte da NetApp. Note que pode haver dependências de comando entre a sintaxe de comando no RCF e a sintaxe encontrada em versões específicas do NX-os.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus 3000 Series"^]
++
+Consulte os guias de software e atualização apropriados disponíveis no site da Cisco para obter a documentação completa sobre os procedimentos de atualização e downgrade do switch Cisco.
+
+
+
+.Sobre os exemplos
+Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+
+* Os nomes dos dois switches Cisco são *CS1* e *CS2*.
+* Os nomes dos nós são *cluster1-01*, *cluster1-02*, *cluster1-03* e *cluster1-04*.
+* Os nomes de cluster LIF são *cluster1-01_clus1*, *cluster1-01_clus2*, *cluster1-03_clus2*, *cluster1-03_clus1*, *cluster1-02_clus2*, *cluster1-02_clus1*, *cluster1-04_clus1* e *cluster1-04_clus2*.
+* O `cluster1::*>` prompt indica o nome do cluster.
+
+
+Os exemplos neste procedimento usam quatro nós. Esses nós usam duas portas de interconexão de cluster 10GbE *e0a* e *e0b*. Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar as portas de cluster corretas nas suas plataformas.
+
+
+NOTE: As saídas de comando podem variar dependendo de diferentes versões do ONTAP.
+
+Para obter detalhes sobre as configurações RCF disponíveis, consultelink:configure-software-overview-3132q-v-cluster.html["Fluxo de trabalho de instalação do software"] .
+
+.Comandos utilizados
+O procedimento requer o uso de comandos ONTAP e comandos Cisco Nexus 3000 Series switches; os comandos ONTAP são usados, a menos que indicado de outra forma.
+
+.O que se segue?
+Depois de revisar o procedimento de instalação do RCF ou atualização do RCF, vocêlink:install-rcf-software-3132q-v.html["instalar o RCF"] oulink:upgrade-rcf-3132q-v.html["atualize seu RCF"] conforme necessário.

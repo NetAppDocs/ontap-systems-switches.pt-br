@@ -33,13 +33,18 @@ entries:
     url: "/switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
   - title: Configure o interrutor
     url: "/switch-cisco-3132q-v/setup-switch.html"
-  - title: Prepare-se para instalar o NX-os e o RCF
-    url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
   - title: Instale o software NX-os
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
   - title: Instale ou atualize o RCF
-    url: "/switch-cisco-3132q-v/install-rcf-3132q-v.html"
-  - title: Verifique a configuração do SSH
+    pdf-filename: instalar_atualização_rcf
+    entries:
+    - title: Instale ou atualize a visão geral do RCF
+      url: "/switch-cisco-3132q-v/install-upgrade-rcf-overview-3132q-v.html"
+    - title: Instale o RCF
+      url: "/switch-cisco-3132q-v/install-rcf-software-3132q-v.html"
+    - title: Atualize sua versão RCF
+      url: "/switch-cisco-3132q-v/upgrade-rcf-3132q-v.html"
+  - title: Verifique a configuração SSH
     url: "/switch-cisco-3132q-v/configure-ssh-keys.html"
   - title: Redefinir o switch para os padrões de fábrica
     url: "/switch-cisco-3132q-v/reset-switch-3132q-v.html"

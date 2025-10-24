@@ -1,8 +1,8 @@
 ---
-permalink: switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html 
+permalink: switch-cisco-3132q-v/upgrade-rcf-3132q-v.html 
 sidebar: sidebar 
-keywords: install rcf, cisco switches 
-summary: Você pode instalar o RCF depois de configurar o switch Nexus 9336C-FX2 pela primeira vez.você também pode usar este procedimento para atualizar sua versão RCF. 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
+summary: 'O SSH é um requisito ao usar o Cluster Switch Health Monitor (CSHM) e os recursos de coleta de logs. Para habilitar o SSH em switches de cluster Cisco 3132q-v, primeiro gere as chaves SSH e depois habilite o SSH.' 
 ---
 = Atualizar o seu ficheiro de configuração de referência (RCF)
 :allow-uri-read: 
@@ -48,27 +48,27 @@ CAUTION: Antes de instalar uma nova versão do software do switch e RCFs, você 
 cluster1::*> *network device-discovery show*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
------------ ------ ------------------------- ----------------  --------
+----------- ------ ------------------------- ----------------  ------------
 cluster1-01/cdp
-            e0a    cs1                       Ethernet1/7       N9K-C9336C
-            e0d    cs2                       Ethernet1/7       N9K-C9336C
+            e0a    cs1                       Ethernet1/7       N3K-C3132Q-V
+            e0d    cs2                       Ethernet1/7       N3K-C3132Q-V
 cluster1-02/cdp
-            e0a    cs1                       Ethernet1/8       N9K-C9336C
-            e0d    cs2                       Ethernet1/8       N9K-C9336C
+            e0a    cs1                       Ethernet1/8       N3K-C3132Q-V
+            e0d    cs2                       Ethernet1/8       N3K-C3132Q-V
 cluster1-03/cdp
-            e0a    cs1                       Ethernet1/1/1     N9K-C9336C
-            e0b    cs2                       Ethernet1/1/1     N9K-C9336C
+            e0a    cs1                       Ethernet1/1/1     N3K-C3132Q-V
+            e0b    cs2                       Ethernet1/1/1     N3K-C3132Q-V
 cluster1-04/cdp
-            e0a    cs1                       Ethernet1/1/2     N9K-C9336C
-            e0b    cs2                       Ethernet1/1/2     N9K-C9336C
+            e0a    cs1                       Ethernet1/1/2     N3K-C3132Q-V
+            e0b    cs2                       Ethernet1/1/2     N3K-C3132Q-V
 cluster1::*>
 ----
 ====
 . Verifique o status administrativo e operacional de cada porta de cluster.
 +
-.. Verifique se todas as portas do cluster estão *up* com um status de integridade:
+.. Verifique se todas as portas do cluster estão ativas com um status de integridade:
 +
-`network port show -role cluster`
+`network port show -ipspace Cluster`
 
 +
 .Mostrar exemplo
@@ -76,7 +76,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -role cluster*
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -116,7 +116,7 @@ cluster1::*>
 ====
 .. Verifique se todas as interfaces de cluster (LIFs) estão na porta inicial:
 +
-`network interface show -role cluster`
+`network interface show -vserver Cluster`
 
 +
 .Mostrar exemplo
@@ -124,7 +124,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -role cluster*
+cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network           Current      Current Is
 Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
 ----------- ------------------ ---------- ----------------- ------------ ------- ----
@@ -137,7 +137,6 @@ Cluster
             cluster1-03_clus2  up/up     169.254.1.1/23     cluster1-03  e0b     true
             cluster1-04_clus1  up/up     169.254.1.6/23     cluster1-04  e0a     true
             cluster1-04_clus2  up/up     169.254.1.7/23     cluster1-04  e0b     true
-8 entries were displayed.
 cluster1::*>
 ----
 ====
@@ -153,30 +152,40 @@ cluster1::*>
 ----
 cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- -----
-cs1                         cluster-network    10.233.205.90    N9K-C9336C
-     Serial Number: FOCXXXXXXGD
+--------------------------- ------------------ ---------------- ---------------
+cs1                         cluster-network    10.0.0.1         NX3132QV
+     Serial Number: FOXXXXXXXGS
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
+                    9.3(4)
     Version Source: CDP
 
-cs2                         cluster-network    10.233.205.91    N9K-C9336C
-     Serial Number: FOCXXXXXXGS
+cs2                         cluster-network    10.0.0.2         NX3132QV
+     Serial Number: FOXXXXXXXGD
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
+                    9.3(4)
     Version Source: CDP
-cluster1::*>
+
+2 entries were displayed.
 ----
 ====
 
 
++
+
+NOTE: Para o ONTAP 9.8 e posterior, use o comando `system switch ethernet show -is-monitoring-enabled-operational true`.
+
 . Desative a reversão automática nos LIFs do cluster.
 +
-`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*`
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
+----
++
+Certifique-se de que a reversão automática esteja desativada após executar este comando.
 
 
 
@@ -184,32 +193,24 @@ cluster1::*>
 
 == Etapa 2: Configurar portas
 
-. No switch de cluster CS1, encerre as portas conetadas às portas de cluster dos nós.
+. No switch de cluster CS2, encerre as portas conetadas às portas de cluster dos nós.
 +
-`cs1> *enable*`
-
-+
-`cs1# *configure*`
-
-+
-`cs1(config)# *interface eth1/1/1-2,eth1/7-8*`
-
-+
-`cs1(config-if-range)# *shutdown*`
-
-+
-`cs1(config-if-range)# *exit*`
-
-+
-`cs1# *exit*`
-
+[listing, subs="+quotes"]
+----
+cs2> *enable*
+cs2# *configure*
+cs2(config)# *interface eth1/1/1-2,eth1/7-8*
+cs2(config-if-range)# *shutdown*
+cs2(config-if-range)# *exit*
+cs2# *exit*
+----
 +
 
-CAUTION: Certifique-se de encerrar *todas* portas de cluster conetadas para evitar quaisquer problemas de conexão de rede. Consulte o artigo da base de dados de Conhecimento https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nó fora do quórum ao migrar LIF do cluster durante a atualização do SO do switch"^] para obter mais detalhes.
+NOTE: O número de portas exibidas varia de acordo com o número de nós no cluster.
 
-. Verifique se as LIFs de cluster falharam para as portas hospedadas no switch de cluster CS1. Isso pode levar alguns segundos.
+. Verifique se as portas do cluster falharam nas portas hospedadas no switch de cluster cs1. Isso pode levar alguns segundos.
 +
-`network interface show -role cluster`
+`network interface show -vserver Cluster`
 
 +
 .Mostrar exemplo
@@ -217,7 +218,7 @@ CAUTION: Certifique-se de encerrar *todas* portas de cluster conetadas para evit
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -role cluster*
+cluster1::*> *network interface show -vserver Cluster*
             Logical           Status     Network            Current       Current Is
 Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
 ----------- ----------------- ---------- ------------------ ------------- ------- ----
@@ -230,7 +231,6 @@ Cluster
             cluster1-03_clus2 up/up      169.254.1.1/23     cluster1-03   e0a     false
             cluster1-04_clus1 up/up      169.254.1.6/23     cluster1-04   e0a     true
             cluster1-04_clus2 up/up      169.254.1.7/23     cluster1-04   e0a     false
-8 entries were displayed.
 cluster1::*>
 ----
 ====
@@ -251,7 +251,6 @@ cluster1-01          true    true          false
 cluster1-02          true    true          false
 cluster1-03          true    true          true
 cluster1-04          true    true          false
-4 entries were displayed.
 cluster1::*>
 ----
 ====
@@ -259,12 +258,7 @@ cluster1::*>
 +
 `show running-config`
 
-+
-.. Registre quaisquer adições personalizadas entre o atual `running-config` e o arquivo RCF em uso (como uma configuração SNMP para sua organização).
-.. A partir do NX-OS 10.2, use o `show diff running-config` comando para comparar com o arquivo RCF salvo no bootflash.  Caso contrário, use uma ferramenta de comparação/diferenciação de terceiros.
-
-
-. Salve os detalhes básicos da configuração em `write_erase.cfg` arquivo no bootflash.
+. Registre quaisquer adições personalizadas entre a configuração atual e o arquivo RCF em uso.
 +
 [NOTE]
 ====
@@ -277,38 +271,49 @@ Certifique-se de configurar o seguinte:
 
 
 ====
+. Salve os detalhes básicos da configuração em `write_erase.cfg` arquivo no bootflash.
 +
-`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
+
+NOTE: Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e executar a configuração básica.  Você deve estar conectado à porta serial do console do switch para configurá-lo novamente.
 
 +
-`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+`cs2# show run | section "switchname" > bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+`cs2# show run | section "hostname" >> bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+`cs2# show run | i "username admin password" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
 . Para RCF versão 1.12 e posteriores, execute os seguintes comandos:
 +
-`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
+`cs2# echo "hardware access-list tcam region vpc-convergence 256" >> bootflash:write_erase.cfg`
 
 +
-`cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
+`cs2# echo "hardware access-list tcam region racl 256" >> bootflash:write_erase.cfg`
 
 +
-`cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
+`cs2# echo "hardware access-list tcam region e-racl 256" >> bootflash:write_erase.cfg`
 
 +
-Veja o artigo da Base de Conhecimentolink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^] para mais detalhes.
+`cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
+
++
+Veja o artigo da Base de Conhecimento https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^] para mais detalhes.
 
 . Verifique se o `write_erase.cfg` o arquivo é preenchido conforme o esperado:
 +
 `*show file bootflash:write_erase.cfg*`
 
-. Emita o comando write erase para apagar a configuração salva atual:
+. Emitir o `write erase` comando para apagar a configuração salva atual:
 +
-`cs1# *write erase*`
+`cs2# *write erase*`
 
 +
 `Warning: This command will erase the startup-configuration.`
@@ -318,11 +323,11 @@ Veja o artigo da Base de Conhecimentolink:https://kb.netapp.com/on-prem/Switches
 
 . Copie a configuração básica salva anteriormente na configuração de inicialização.
 +
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
+`cs2# *copy bootflash:write_erase.cfg startup-config*`
 
-. Execute uma reinicialização do switch:
+. Reinicie o switch:
 +
-`switch# *reload*`
+`cs2# *reload*`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
@@ -331,35 +336,34 @@ Veja o artigo da Base de Conhecimentolink:https://kb.netapp.com/on-prem/Switches
 +
 Talvez seja necessário atualizar as entradas do arquivo host relacionadas às chaves SSH.
 
-. Copie o RCF para o flash de inicialização do switch CS1 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.
+. Copie o RCF para o bootflash do switch cs2 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.  Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado nolink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referência de comando Cisco Nexus 3000 Series NX-os"^] guias.
 +
-Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado nolink:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Referência de comando Cisco Nexus 9000 Series NX-os"^] guias.
-
-+
-Este exemplo mostra TFTP sendo usado para copiar um RCF para o flash de inicialização no switch CS1:
-
-+
+.Mostrar exemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
-cs1# *copy tftp: bootflash: vrf management*
-Enter source filename: *Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt*
-Enter hostname for the tftp server: *172.22.201.50*
+cs2# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_3132QV_RCF_v1.6-Cluster-HA-Breakout.txt*
+Enter hostname for the tftp server: 172.22.201.50
 Trying to connect to tftp server......Connection to Server Established.
 TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
+====
 . Aplique o RCF baixado anteriormente ao flash de inicialização.
 +
-Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado nolink:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Referência de comando Cisco Nexus 9000 Series NX-os"^] .
+Para obter mais informações sobre comandos Cisco, consulte o guia apropriado https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referência de comando Cisco Nexus 3000 Series NX-os"^] nos guias.
 
 +
-Este exemplo mostra o arquivo RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` sendo instalado no switch CS1:
-
-+
+.Mostrar exemplo
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
-cs1# *copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
+cs2# *copy Nexus_3132QV_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
 ----
+====
 +
 [NOTE]
 ====
@@ -380,31 +384,38 @@ Quando verificar a saída para verificar se tem o RCF correto, certifique-se de 
 +
 A saída varia de acordo com a configuração do seu site. Verifique as configurações da porta e consulte as notas de versão para ver se há alterações específicas ao RCF que você instalou.
 
-
-
-. Reaplique quaisquer personalizações anteriores à configuração do switch. link:cabling-considerations-9336c-fx2.html["Analise as considerações sobre cabeamento e configuração"]Consulte para obter detalhes sobre quaisquer alterações adicionais necessárias.
-. Depois de verificar se as versões RCF, adições personalizadas e configurações de switch estão corretas, copie o arquivo running-config para o arquivo startup-config.
 +
-Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado nolink:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Referência de comando Cisco Nexus 9000 Series NX-os"^] .
 
-+
-`cs1# copy running-config startup-config`
+NOTE: Para obter etapas sobre como colocar suas portas 10GbE on-line após uma atualização do RCF, consulte o artigo da Base de conhecimentolink:https://kb.netapp.com/onprem%2FSwitches%2FCisco%2F10GbE_ports_on_Cisco_3132Q_cluster_switch_do_not_come_online["As portas de 10GbE GbE em um switch de cluster Cisco 3132Q não estão online"^] .
 
-+
-`[########################################] 100% Copy complete`
 
-. Interrutor de reinicialização CS1. Você pode ignorar os alertas do "monitor de integridade do switch de cluster" e eventos de portas de cluster down" relatados nos nós enquanto o switch for reinicializado.
+
+. Depois de verificar se as versões RCF e as configurações do switch estão corretas, copie o `running-config` arquivo para o `startup-config` arquivo.
 +
-`cs1# *reload*`
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado nolink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Referência de comando Cisco Nexus 3000 Series NX-os"^] guias.
 
 +
-`This command will reboot the system. (y/n)?  [n] *y*`
-
+.Mostrar exemplo
+[%collapsible]
+====
+[listing]
+----
+cs2# copy running-config startup-config [########################################] 100% Copy complete
+----
+====
+. Interrutor de reinicialização CS2. Você pode ignorar os eventos "portas de cluster para baixo" relatados nos nós enquanto o switch é reinicializado e a saída de erro `% Invalid command at '^' marker`.
++
+[listing, subs="+quotes"]
+----
+cs2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
+----
+. Reaplique quaisquer personalizações anteriores à configuração do switch. link:cabling-considerations-3132q-v.html["Analise as considerações sobre cabeamento e configuração"]Consulte para obter detalhes sobre quaisquer alterações adicionais necessárias.
 . Verifique a integridade das portas de cluster no cluster.
 +
 .. Verifique se as portas do cluster estão ativas e íntegras em todos os nós do cluster:
 +
-`network port show -role cluster`
+`network port show -ipspace Cluster`
 
 +
 .Mostrar exemplo
@@ -412,7 +423,7 @@ Para obter mais informações sobre os comandos Cisco , consulte o guia apropria
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -role cluster*
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -445,7 +456,6 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 --------- ------------ ---------------- ---- ---- ----------- -------- ------
 e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
 e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
-8 entries were displayed.
 ----
 ====
 .. Verifique a integridade do switch a partir do cluster.
@@ -463,50 +473,107 @@ Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- --------
 cluster1-01/cdp
-            e0a    cs1                       Ethernet1/7       N9K-C9336C
-            e0d    cs2                       Ethernet1/7       N9K-C9336C
+            e0a    cs1                       Ethernet1/7       N3K-C3132Q-V
+            e0d    cs2                       Ethernet1/7       N3K-C3132Q-V
 cluster01-2/cdp
-            e0a    cs1                       Ethernet1/8       N9K-C9336C
-            e0d    cs2                       Ethernet1/8       N9K-C9336C
+            e0a    cs1                       Ethernet1/8       N3K-C3132Q-V
+            e0d    cs2                       Ethernet1/8       N3K-C3132Q-V
 cluster01-3/cdp
-            e0a    cs1                       Ethernet1/1/1     N9K-C9336C
-            e0b    cs2                       Ethernet1/1/1     N9K-C9336C
+            e0a    cs1                       Ethernet1/1/1     N3K-C3132Q-V
+            e0b    cs2                       Ethernet1/1/1     N3K-C3132Q-V
 cluster1-04/cdp
-            e0a    cs1                       Ethernet1/1/2     N9K-C9336C
-            e0b    cs2                       Ethernet1/1/2     N9K-C9336C
+            e0a    cs1                       Ethernet1/1/2     N3K-C3132Q-V
+            e0b    cs2                       Ethernet1/1/2     N3K-C3132Q-V
 
 cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- -----
-cs1                         cluster-network    10.233.205.90    NX9-C9336C
-     Serial Number: FOCXXXXXXGD
+cs1                         cluster-network    10.233.205.90    N3K-C3132Q-V
+     Serial Number: FOXXXXXXXGD
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
+                    9.3(4)
     Version Source: CDP
 
-cs2                         cluster-network    10.233.205.91    NX9-C9336C
-     Serial Number: FOCXXXXXXGS
+cs2                         cluster-network    10.233.205.91    N3K-C3132Q-V
+     Serial Number: FOXXXXXXXGS
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
+                    9.3(4)
     Version Source: CDP
 
 2 entries were displayed.
 ----
+====
++
+
+NOTE: Para o ONTAP 9.8 e posterior, use o comando `system switch ethernet show -is-monitoring-enabled-operational true`.
+
++
+[NOTE]
+====
 Você pode observar a seguinte saída no console do switch CS1, dependendo da versão RCF carregada anteriormente no switch:
 
-[listing]
+[source]
 ----
 2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
 2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
 2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
 ----
 ====
++
+
+NOTE: Pode levar até 5 minutos para que os nós de cluster relatem como íntegros.
 
 
+
+. No switch de cluster CS1, encerre as portas conetadas às portas de cluster dos nós.
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1> *enable*
+cs1# *configure*
+cs1(config)# *interface eth1/1/1-2,eth1/7-8*
+cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# *exit*
+cs1# *exit*
+----
+====
++
+
+NOTE: O número de portas exibidas varia de acordo com o número de nós no cluster.
+
+. Verifique se os LIFs de cluster migraram para as portas hospedadas no switch CS2. Isso pode levar alguns segundos.
++
+`network interface show -vserver Cluster`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- ------------------ ------------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     false
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     false
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
+            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     false
+            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
+            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     false
+            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
+cluster1::*>
+----
+====
 . Verifique se o cluster está em bom estado:
 +
 `cluster show`
@@ -528,20 +595,29 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Repita os passos 1 a 19 no switch cs2.
+. Repita os passos 1 a 19 no switch cs1.
 . Ative a reversão automática nos LIFs do cluster.
 +
-`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
-
-
-
-
-
-== Etapa 3: Verifique a configuração da rede do cluster e a integridade do cluster
-
-. Verifique se as portas do switch conetadas às portas do cluster estão *up*.
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*
+----
+. Interrutor de reinicialização CS1. Você faz isso para acionar os LIFs do cluster para reverter para suas portas domésticas. Você pode ignorar os eventos "portas de cluster para baixo" relatados nos nós enquanto o switch é reinicializado.
 +
-`show interface brief`
+[listing, subs="+quotes"]
+----
+cs1# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
+----
+
+
+
+
+== Etapa 3: Verifique a configuração
+
+. Verifique se as portas do switch conetadas às portas do cluster estão ativadas.
++
+`show interface brief | grep up`
 
 +
 .Mostrar exemplo
@@ -560,189 +636,6 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 ----
 ====
-. Verifique se os nós esperados ainda estão conetados:
-+
-`show cdp neighbors`
-
-+
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs1# *show cdp neighbors*
-
-Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
-                  S - Switch, H - Host, I - IGMP, r - Repeater,
-                  V - VoIP-Phone, D - Remotely-Managed-Device,
-                  s - Supports-STP-Dispute
-
-Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
-node1              Eth1/1         133    H           FAS2980       e0a
-node2              Eth1/2         133    H           FAS2980       e0a
-cs1                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
-cs1                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
-
-Total entries displayed: 4
-----
-====
-. Verifique se os nós de cluster estão em suas VLANs de cluster corretas usando os seguintes comandos:
-+
-`show vlan brief`
-
-+
-`show interface trunk`
-
-+
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs1# *show vlan brief*
-
-VLAN Name                             Status    Ports
----- -------------------------------- --------- -------------------------------
-1    default                          active    Po1, Eth1/1, Eth1/2, Eth1/3
-                                                Eth1/4, Eth1/5, Eth1/6, Eth1/7
-                                                Eth1/8, Eth1/35, Eth1/36
-                                                Eth1/9/1, Eth1/9/2, Eth1/9/3
-                                                Eth1/9/4, Eth1/10/1, Eth1/10/2
-                                                Eth1/10/3, Eth1/10/4
-17   VLAN0017                         active    Eth1/1, Eth1/2, Eth1/3, Eth1/4
-                                                Eth1/5, Eth1/6, Eth1/7, Eth1/8
-                                                Eth1/9/1, Eth1/9/2, Eth1/9/3
-                                                Eth1/9/4, Eth1/10/1, Eth1/10/2
-                                                Eth1/10/3, Eth1/10/4
-18   VLAN0018                         active    Eth1/1, Eth1/2, Eth1/3, Eth1/4
-                                                Eth1/5, Eth1/6, Eth1/7, Eth1/8
-                                                Eth1/9/1, Eth1/9/2, Eth1/9/3
-                                                Eth1/9/4, Eth1/10/1, Eth1/10/2
-                                                Eth1/10/3, Eth1/10/4
-31   VLAN0031                         active    Eth1/11, Eth1/12, Eth1/13
-                                                Eth1/14, Eth1/15, Eth1/16
-                                                Eth1/17, Eth1/18, Eth1/19
-                                                Eth1/20, Eth1/21, Eth1/22
-32   VLAN0032                         active    Eth1/23, Eth1/24, Eth1/25
-                                                Eth1/26, Eth1/27, Eth1/28
-                                                Eth1/29, Eth1/30, Eth1/31
-                                                Eth1/32, Eth1/33, Eth1/34
-33   VLAN0033                         active    Eth1/11, Eth1/12, Eth1/13
-                                                Eth1/14, Eth1/15, Eth1/16
-                                                Eth1/17, Eth1/18, Eth1/19
-                                                Eth1/20, Eth1/21, Eth1/22
-34   VLAN0034                         active    Eth1/23, Eth1/24, Eth1/25
-                                                Eth1/26, Eth1/27, Eth1/28
-                                                Eth1/29, Eth1/30, Eth1/31
-                                                Eth1/32, Eth1/33, Eth1/34
-
-cs1# *show interface trunk*
-
------------------------------------------------------
-Port          Native  Status        Port
-              Vlan                  Channel
------------------------------------------------------
-Eth1/1        1       trunking      --
-Eth1/2        1       trunking      --
-Eth1/3        1       trunking      --
-Eth1/4        1       trunking      --
-Eth1/5        1       trunking      --
-Eth1/6        1       trunking      --
-Eth1/7        1       trunking      --
-Eth1/8        1       trunking      --
-Eth1/9/1      1       trunking      --
-Eth1/9/2      1       trunking      --
-Eth1/9/3      1       trunking      --
-Eth1/9/4      1       trunking      --
-Eth1/10/1     1       trunking      --
-Eth1/10/2     1       trunking      --
-Eth1/10/3     1       trunking      --
-Eth1/10/4     1       trunking      --
-Eth1/11       33      trunking      --
-Eth1/12       33      trunking      --
-Eth1/13       33      trunking      --
-Eth1/14       33      trunking      --
-Eth1/15       33      trunking      --
-Eth1/16       33      trunking      --
-Eth1/17       33      trunking      --
-Eth1/18       33      trunking      --
-Eth1/19       33      trunking      --
-Eth1/20       33      trunking      --
-Eth1/21       33      trunking      --
-Eth1/22       33      trunking      --
-Eth1/23       34      trunking      --
-Eth1/24       34      trunking      --
-Eth1/25       34      trunking      --
-Eth1/26       34      trunking      --
-Eth1/27       34      trunking      --
-Eth1/28       34      trunking      --
-Eth1/29       34      trunking      --
-Eth1/30       34      trunking      --
-Eth1/31       34      trunking      --
-Eth1/32       34      trunking      --
-Eth1/33       34      trunking      --
-Eth1/34       34      trunking      --
-Eth1/35       1       trnk-bndl     Po1
-Eth1/36       1       trnk-bndl     Po1
-Po1           1       trunking      --
-
-------------------------------------------------------
-Port          Vlans Allowed on Trunk
-------------------------------------------------------
-Eth1/1        1,17-18
-Eth1/2        1,17-18
-Eth1/3        1,17-18
-Eth1/4        1,17-18
-Eth1/5        1,17-18
-Eth1/6        1,17-18
-Eth1/7        1,17-18
-Eth1/8        1,17-18
-Eth1/9/1      1,17-18
-Eth1/9/2      1,17-18
-Eth1/9/3      1,17-18
-Eth1/9/4      1,17-18
-Eth1/10/1     1,17-18
-Eth1/10/2     1,17-18
-Eth1/10/3     1,17-18
-Eth1/10/4     1,17-18
-Eth1/11       31,33
-Eth1/12       31,33
-Eth1/13       31,33
-Eth1/14       31,33
-Eth1/15       31,33
-Eth1/16       31,33
-Eth1/17       31,33
-Eth1/18       31,33
-Eth1/19       31,33
-Eth1/20       31,33
-Eth1/21       31,33
-Eth1/22       31,33
-Eth1/23       32,34
-Eth1/24       32,34
-Eth1/25       32,34
-Eth1/26       32,34
-Eth1/27       32,34
-Eth1/28       32,34
-Eth1/29       32,34
-Eth1/30       32,34
-Eth1/31       32,34
-Eth1/32       32,34
-Eth1/33       32,34
-Eth1/34       32,34
-Eth1/35       1
-Eth1/36       1
-Po1           1
-..
-..
-..
-..
-..
-----
-====
-+
-
-NOTE: Para obter detalhes específicos de uso de porta e VLAN, consulte a seção banner e notas importantes no RCF.
-
 . Verifique se o ISL entre CS1 e CS2 está funcional:
 +
 `show port-channel summary`
@@ -763,15 +656,16 @@ Flags:  D - Down        P - Up in port-channel (members)
         p - Up in delay-lacp mode (member)
         M - Not in use. Min-links not met
 --------------------------------------------------------------------------------
-Group Port-       Type     Protocol  Member Ports      Channel
+Group Port-       Type     Protocol  Member Ports
+      Channel
 --------------------------------------------------------------------------------
-1     Po1(SU)     Eth      LACP      Eth1/35(P)        Eth1/36(P)
+1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
 cs1#
 ----
 ====
-. Verifique se os LIFs do cluster reverteram para sua porta inicial:
+. Verifique se os LIFs do cluster foram revertidos para suas portas iniciais:
 +
-`network interface show -role cluster`
+`network interface show -vserver Cluster`
 
 +
 .Mostrar exemplo
@@ -779,7 +673,7 @@ cs1#
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -role cluster*
+cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----
@@ -792,16 +686,9 @@ Cluster
             cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
             cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
             cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
-8 entries were displayed.
 cluster1::*>
 ----
 ====
-+
-Se qualquer LIFs de cluster não retornar às portas iniciais, reverta-as manualmente do nó local:
-
-+
-`network interface revert -vserver vserver_name -lif lif_name`
-
 . Verifique se o cluster está em bom estado:
 +
 `cluster show`
@@ -819,7 +706,6 @@ cluster1-01          true    true          false
 cluster1-02          true    true          false
 cluster1-03          true    true          true
 cluster1-04          true    true          false
-4 entries were displayed.
 cluster1::*>
 ----
 ====
@@ -838,20 +724,21 @@ Você pode usar o `network interface check cluster-connectivity` comando para in
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* espere alguns segundos antes de executar o comando show para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity show*
-                                  Source               Destination         Packet
-Node   Date                       LIF                  LIF                 Loss
------- -------------------------- -------------------- ------------------- -----------
-node1
-       3/5/2022 19:21:18 -06:00   cluster1-01_clus2    cluster1-02-clus1   none
-       3/5/2022 19:21:20 -06:00   cluster1-01_clus2    cluster1-02_clus2   none
-node2
-       3/5/2022 19:21:18 -06:00   cluster1-02_clus2    cluster1-01_clus1   none
-       3/5/2022 19:21:20 -06:00   cluster1-02_clus2    cluster1-01_clus2   none
+                                  Source              Destination         Packet
+Node   Date                       LIF                 LIF                 Loss
+------ -------------------------- ------------------- ------------------- -----------
+cluster1-01
+       3/5/2022 19:21:18 -06:00   cluster1-01_clus2   cluster1-02_clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-01_clus2   cluster1-02_clus2   none
+
+cluster1-02
+       3/5/2022 19:21:18 -06:00   cluster1-02_clus2   cluster1-01_clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-02_clus2   cluster1-01_clus2   none
 ----
 --
 .Todos os lançamentos do ONTAP
@@ -863,41 +750,28 @@ Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster
 [listing, subs="+quotes"]
 ----
 cluster1::*> *cluster ping-cluster -node local*
-Host is cluster1-03
+Host is cluster1-02
 Getting addresses from network interface table...
-Cluster cluster1-03_clus1 169.254.1.3 cluster1-03 e0a
-Cluster cluster1-03_clus2 169.254.1.1 cluster1-03 e0b
-Cluster cluster1-04_clus1 169.254.1.6 cluster1-04 e0a
-Cluster cluster1-04_clus2 169.254.1.7 cluster1-04 e0b
-Cluster cluster1-01_clus1 169.254.3.4 cluster1-01 e0a
-Cluster cluster1-01_clus2 169.254.3.5 cluster1-01 e0d
-Cluster cluster1-02_clus1 169.254.3.8 cluster1-02 e0a
-Cluster cluster1-02_clus2 169.254.3.9 cluster1-02 e0d
-Local = 169.254.1.3 169.254.1.1
-Remote = 169.254.1.6 169.254.1.7 169.254.3.4 169.254.3.5 169.254.3.8 169.254.3.9
+Cluster cluster1-01_clus1 169.254.209.69 cluster1-01     e0a
+Cluster cluster1-01_clus2 169.254.49.125 cluster1-01     e0b
+Cluster cluster1-02_clus1 169.254.47.194 cluster1-02     e0a
+Cluster cluster1-02_clus2 169.254.19.183 cluster1-02     e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
 Cluster Vserver Id = 4294967293
-Ping status:
-............
-Basic connectivity succeeds on 12 path(s)
+Ping status: ......
+Basic connectivity succeeds on 4 path(s)
 Basic connectivity fails on 0 path(s)
-................................................
-Detected 9000 byte MTU on 12 path(s):
-    Local 169.254.1.3 to Remote 169.254.1.6
-    Local 169.254.1.3 to Remote 169.254.1.7
-    Local 169.254.1.3 to Remote 169.254.3.4
-    Local 169.254.1.3 to Remote 169.254.3.5
-    Local 169.254.1.3 to Remote 169.254.3.8
-    Local 169.254.1.3 to Remote 169.254.3.9
-    Local 169.254.1.1 to Remote 169.254.1.6
-    Local 169.254.1.1 to Remote 169.254.1.7
-    Local 169.254.1.1 to Remote 169.254.3.4
-    Local 169.254.1.1 to Remote 169.254.3.5
-    Local 169.254.1.1 to Remote 169.254.3.8
-    Local 169.254.1.1 to Remote 169.254.3.9
-Larger than PMTU communication succeeds on 12 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+    Local 169.254.19.183 to Remote 169.254.209.69
+    Local 169.254.19.183 to Remote 169.254.49.125
+    Local 169.254.47.194 to Remote 169.254.209.69
+    Local 169.254.47.194 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
 RPC status:
-6 paths up, 0 paths down (tcp check)
-6 paths up, 0 paths down (udp check)
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
 ----
 --
 ====

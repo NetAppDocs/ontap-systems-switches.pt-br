@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: Switches para sistemas ONTAP
+  title: Documentação do switch para sistemas de hardware ONTAP
   summary: Use os documentos neste site para instalar, atualizar e manter seu cluster,
     armazenamento compartilhado e switches MetroCluster.
   keywords: switches
@@ -25,8 +25,8 @@ indexpage:
       url: "/cluster/index.html"
     - title: Interrutores de armazenamento
       url: "/storage/index.html"
-    - title: Switch compartilhado - Cisco Nexus 9336C-FX2
-      url: "/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
+    - title: Switches compartilhados
+      url: "/shared/index.html"
   - title: Switches de fim de disponibilidade
     links:
     - title: Switch de cluster - Cisco Nexus 3232c

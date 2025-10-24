@@ -1,0 +1,34 @@
+---
+indexpage:
+  title: Switches compartilhados
+  summary: Use a documentação neste site para instalar, configurar e manter seus switches
+    compartilhados para implantações de cluster ONTAP .
+  keywords: shared switches, cisco nexus switches, cluster switches, ontap clusters
+  lead: Os switches compartilhados permitem que você crie clusters ONTAP com mais
+    de dois nós. Esses switches de plataforma Cisco Nexus 9000 fornecem a base para
+    soluções de interconexão de cluster escaláveis ​​em ambientes NetApp ONTAP .
+  tiles:
+  - title: Comece agora
+    links:
+    - title: Cisco Nexus 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
+  - title: Instalar e configurar switches compartilhados
+    links:
+    - title: Instalar hardware do switch 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/install-hardware-workflow.html"
+    - title: Configurar o software do switch 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html"
+  - title: Manter switches compartilhados
+    links:
+    - title: Substituir interruptor 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html"
+    - title: Redefinir o switch 9336C-FX2 para os padrões de fábrica
+      url: "../switch-cisco-9336c-fx2-shared/reset-switch-9336c-shared.html"
+  - title: Documentação relacionada
+    links:
+    - title: Sistemas de hardware ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentação de switches de cluster
+      url: "../index.html"
+    - title: Monitoramento de saúde do switch
+      url: "../switch-cshm/config-overview.html"

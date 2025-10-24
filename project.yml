@@ -1,6 +1,6 @@
 ---
 settings:
-  name: Cluster and storage switches
+  name: Install and maintain
   internal:
     pdf_enabled: true
   prod:
@@ -12,7 +12,7 @@ settings:
   langs: pt-br,us-en,de-de,es-es,fr-fr,it-it,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Documentação do switch para hardware ONTAP
+  - title: Documentação do Switch para sistemas de hardware ONTAP
     url: "/index.html"
   - title: Comece agora
     entries:
@@ -23,19 +23,23 @@ sidebar:
     - title: Comece a trabalhar
       url: "/get-started/get-up-and-running.html"
   - title: Interruptores de sistemas AFX
+    url: "/afx/index.html"
     entries:
     - section: switch-cisco-9332d-gx2b
     - section: switch-cisco-9364d-gx2a
   - title: Interrutores do cluster
+    url: "/cluster/index.html"
     entries:
     - section: switch-bes-53248
     - section: switch-cisco-9336c-fx2
     - section: switch-nvidia-sn2100
   - title: Interrutores de armazenamento
+    url: "/storage/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-storage
     - section: switch-nvidia-sn2100-storage
   - title: Switches compartilhados
+    url: "/shared/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-shared
       pdf-filename: switch-Cisco-9336c-fx2-storage

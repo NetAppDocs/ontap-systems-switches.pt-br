@@ -952,7 +952,7 @@ node1-04          true     true          false
 4 entries were displayed.
 ----
 ====
-. Repita os passos 4 a 16 no switch cs2.
+. Repita os passos 4 a 18 no switch cs2.
 . Ativar a reversão automática nos LIFs do cluster:
 +
 `network interface modify -vserver Cluster -lif  * -auto-revert True`
