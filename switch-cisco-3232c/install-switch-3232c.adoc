@@ -50,4 +50,4 @@ Consulte os procedimentos fornecidos nos guias de instalação do hardware do sw
 
 
 .O que se segue?
-Opcionalmente, você podelink:install-cisco-nexus-3232c.html["instalar um switch Cisco Nexus 3223C em um gabinete NetApp"] .  Caso contrário, vá paralink:cabling-considerations-3232c.html["Revise o cabeamento e a configuração"] .
+Opcionalmente, você pode link:install-cisco-nexus-3232c.html["instalar um switch Cisco Nexus 3223C em um gabinete NetApp"]. Caso contrário, acesse link:cabling-considerations-3232c.html["revisar cabeamento e configuração"].

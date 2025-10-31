@@ -218,4 +218,4 @@ Cluster
 
 
 .O que se segue?
-link:install-nx-os-software-3132q-v.html["Instale o software NX-os"].
+Depois de se preparar para instalar o software NX-OS e o RCF, você link:install-nx-os-software-3132q-v.html["Instale o software NX-OS."].

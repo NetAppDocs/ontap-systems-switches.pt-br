@@ -571,3 +571,6 @@ Para obter mais informações, link:https://kb.netapp.com/Advice_and_Troubleshoo
 `set -privilege admin`
 
 
+
+.O que se segue?
+Depois de substituir seus interruptores, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

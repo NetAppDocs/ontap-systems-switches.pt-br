@@ -424,4 +424,4 @@ unit 	active 	    backup   current-active  next-active
 
 
 .O que vem a seguir
-link:configure-licenses.html["Instalar licenças"] .
+Após instalar o software EFOS, você pode link:configure-licenses.html["Instale suas licenças"].

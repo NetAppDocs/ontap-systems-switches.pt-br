@@ -643,4 +643,4 @@ Para obter mais informações, consulte: https://kb.netapp.com/Advice_and_Troubl
 
 
 .O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+Depois de migrar seus switches, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

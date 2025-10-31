@@ -24,4 +24,4 @@ https://hwu.netapp.com/["NetApp Hardware Universe"^]
 
 
 .O que se segue?
-link:configure-sn2100-cluster.html["Configure o interrutor"].
+Depois de instalar os cabos nas suas prateleiras, você link:configure-sn2100-cluster.html["configurar o switch"].

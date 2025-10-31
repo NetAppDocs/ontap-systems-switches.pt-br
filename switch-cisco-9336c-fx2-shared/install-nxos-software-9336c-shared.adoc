@@ -695,4 +695,4 @@ Se qualquer LIFs de cluster não retornar às portas iniciais, reverta-as manual
 
 
 .O que se segue?
-link:install-nxos-rcf-9336c-shared.html["Instale o RCF"].
+Após instalar o software NX-OS, você pode link:install-nxos-rcf-9336c-shared.html["instalar o RCF"].

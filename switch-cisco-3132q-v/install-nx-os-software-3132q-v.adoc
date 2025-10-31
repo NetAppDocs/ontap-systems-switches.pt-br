@@ -580,4 +580,4 @@ Se qualquer LIFs de cluster não retornar às portas iniciais, reverta-as manual
 
 
 .O que se segue?
-link:install-rcf-3132q-v.html["Instalar o ficheiro de configuração de referência (RCF)"].
+Após instalar o software NX-OS, você pode link:install-upgrade-rcf-overview-3132q-v.html["instalar ou atualizar o arquivo de configuração de referência (RCF)"].

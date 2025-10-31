@@ -534,4 +534,4 @@ exit
 NOTE: Para portas de alta velocidade entre 0/49 e 0/54 inclusive, descomente cada porta, mas apenas descomente uma linha *speed* no RCF para cada uma dessas portas, seja: *Speed 100g full-duplex* ou *speed 40G full-duplex* como mostrado no exemplo. Para portas de baixa velocidade entre 0/17 e 0/48 inclusive, descomente toda a seção de 8 portas quando uma licença apropriada tiver sido ativada.
 
 .O que se segue?
-link:configure-install-rcf.html["Instalar o ficheiro de configuração de referência (RCF)"] ou link:upgrade-rcf.html["Atualize o RCF"].
+Após instalar as licenças, você pode link:configure-install-rcf.html["Instale o arquivo de configuração de referência (RCF)."] ou link:upgrade-rcf.html["atualizar RCF"].

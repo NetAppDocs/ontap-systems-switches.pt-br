@@ -689,4 +689,4 @@ Se qualquer LIFs de cluster não retornar às portas iniciais, reverta-as manual
 
 
 .O que se segue?
-link:install-rcf-3232c.html["Instale o arquivo de configuração RCF"].
+Após instalar o software NX-OS, você link:install-upgrade-rcf-overview-3232c.html["instalar ou atualizar o arquivo de configuração de referência (RCF)"].

@@ -71,4 +71,4 @@ Local:
 
 
 .O que vem a seguir
-link:install-9336c-shared.html["Instale o interrutor"].
+Depois de concluir suas planilhas de cabeamento, você pode link:install-9336c-shared.html["instalar o interruptor"].

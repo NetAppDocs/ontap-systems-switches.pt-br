@@ -211,3 +211,6 @@ sh1 (config)# *exit*
 . Retire os interrutores do grupo de instrumentos não utilizados.
 . Retire os interrutores de armazenamento não utilizados.
 
+
+.O que se segue?
+Depois de migrar seus switches, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

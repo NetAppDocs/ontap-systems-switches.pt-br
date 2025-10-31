@@ -307,3 +307,6 @@ cluster1::*>
 ----
 ====
 
+
+.O que se segue?
+Depois de migrar seus switches, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

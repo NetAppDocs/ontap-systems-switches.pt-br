@@ -679,4 +679,4 @@ swp16      100G   BondMember  nsw2            swp16
 
 
 .O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+Depois de substituir seus interruptores, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

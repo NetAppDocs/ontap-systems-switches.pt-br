@@ -33,4 +33,4 @@ Você precisa das seguintes informações de rede para todas as configurações 
 Consulte a https://hwu.netapp.com["Hardware Universe"^] para obter informações mais recentes.
 
 .O que vem a seguir
-link:required-documentation-3232c.html["Documentação necessária"] .
+Após confirmar os requisitos de configuração, você revisa o link:required-documentation-3232c.html["documentação necessária"].

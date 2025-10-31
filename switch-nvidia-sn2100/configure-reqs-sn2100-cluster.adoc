@@ -45,4 +45,4 @@ O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10.1P3 e
 
 
 .O que se segue?
-link:components-sn2100-cluster.html["Componentes e números de peça"] .
+Após analisar os requisitos de configuração, você poderá confirmar sua solicitação. link:components-sn2100-cluster.html["componentes e números de peças"].

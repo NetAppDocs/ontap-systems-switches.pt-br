@@ -50,4 +50,4 @@ Consulte os procedimentos fornecidos nos guias de instalação do hardware do sw
 
 
 .O que se segue?
-Opcionalmente, você podelink:install-cisco-nexus-3132qv.html["instalar um switch Cisco Nexus 3132Q-V em um gabinete NetApp"] .  Caso contrário, vá paralink:cabling-considerations-3132q-v.html["Revise o cabeamento e a configuração"] .
+Opcionalmente, você pode link:install-cisco-nexus-3132qv.html["instalar um switch Cisco Nexus 3132Q-V em um gabinete NetApp"]. Caso contrário, você pode link:cabling-considerations-3132q-v.html["Analise a cablagem e a configuração."] requisitos.

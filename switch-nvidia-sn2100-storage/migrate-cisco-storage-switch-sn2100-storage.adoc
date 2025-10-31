@@ -442,4 +442,4 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 
 
 .O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+Depois de migrar seus switches, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

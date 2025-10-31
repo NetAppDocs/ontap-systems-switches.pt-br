@@ -134,4 +134,4 @@ cluster1::> *system switch ethernet show*
 
 
 .O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+Depois de instalar o arquivo CSHM, você link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

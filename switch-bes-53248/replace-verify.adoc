@@ -95,4 +95,4 @@ node2                true    true          false
 
 
 .O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+Após confirmar a atualização do seu software EFOS ou RCF, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

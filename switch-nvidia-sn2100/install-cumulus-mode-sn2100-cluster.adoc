@@ -723,4 +723,4 @@ Consulte https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/
 --
 ====
 .O que se segue?
-link:install-rcf-sn2100-cluster.html["Instale o script RCF (Reference Configuration File)"].
+Depois de instalar o Cumulus Linux no modo Cumulus, você link:install-rcf-sn2100-cluster.html["Instale o script do Arquivo de Configuração de Referência (RCF)."].

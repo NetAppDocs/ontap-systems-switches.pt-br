@@ -333,4 +333,4 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 --
 ====
 .O que se segue?
-link:install-cable-shelves-sn2100-storage.html["Cabo NS224 prateleiras como storage conetado a switch"].
+Depois de analisar os requisitos de cabeamento e configuração, você link:install-cable-shelves-sn2100-storage.html["Conecte os racks NS224 como armazenamento conectado por switch."].

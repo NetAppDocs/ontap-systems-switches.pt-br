@@ -189,3 +189,6 @@ sh1 (config)# *exit*
 `network port show`
 
 
+
+.O que se segue?
+Depois de migrar seus switches, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

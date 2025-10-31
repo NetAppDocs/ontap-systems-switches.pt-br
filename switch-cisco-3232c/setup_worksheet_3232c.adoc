@@ -590,4 +590,4 @@ Todos os direitos reservados
 
 |===
 .O que vem a seguir
-link:install-switch-3232c.html["Instale o interrutor"] .
+Depois de concluir suas planilhas de cabeamento, você link:install-switch-3232c.html["instalar o interruptor"].
