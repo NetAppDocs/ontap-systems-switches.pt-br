@@ -406,4 +406,4 @@ O System Manager fornece um fluxo de trabalho simples e fácil para configuraç�
 Aceda a https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configure o ONTAP em um novo cluster com o Gerenciador do sistema"] para obter instruções de configuração.
 
 .O que se segue?
-Após instalar o RCF, você pode link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+Após instalar o RCF, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

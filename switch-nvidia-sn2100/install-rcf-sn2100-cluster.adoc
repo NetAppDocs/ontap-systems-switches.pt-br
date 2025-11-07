@@ -1061,4 +1061,4 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 --
 ====
 .O que se segue?
-Depois de instalar o RCF, você link:setup-install-cshm-file.html["Instale o arquivo CSHM"].
+Após instalar o RCF, você pode link:setup-install-cshm-file.html["Instale o arquivo CSHM"].

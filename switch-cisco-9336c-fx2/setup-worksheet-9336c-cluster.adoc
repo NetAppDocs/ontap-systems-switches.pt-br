@@ -882,4 +882,4 @@ Requer licença
 Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obter mais informações sobre portas do switch.
 
 .O que vem a seguir
-Depois de concluir suas planilhas de cabeamento, vocêlink:install-switch-9336c-cluster.html["instalar o interruptor"] .
+Depois de concluir suas planilhas de cabeamento, você pode link:install-switch-9336c-cluster.html["instalar o interruptor"].

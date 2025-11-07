@@ -43,4 +43,4 @@ A tabela a seguir lista o número de peça e a descrição do interrutor 9336C-F
 | X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, fluxo de ar de admissão do lado da porta 
 |===
 .O que vem a seguir
-Após confirmar os componentes e os números de peça, você revisa o link:required-documentation-9336c-shared.html["documentação necessária"].
+Após confirmar os componentes e os números de peça, você pode revisar o link:required-documentation-9336c-shared.html["documentação necessária"].

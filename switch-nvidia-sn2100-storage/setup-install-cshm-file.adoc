@@ -99,7 +99,7 @@ Se não tiver a certeza, remova todos os ficheiros de configuração para os mod
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system cluster-switch configure-health-monitor -node * -package-url http://192.168.2.20/usr/download/_[filename.zip]_*
+cluster1::> *system switch ethernet configure-health-monitor*
 ----
 . Verifique se a saída do comando termina com o seguinte texto para sua versão do ONTAP:
 
@@ -125,13 +125,13 @@ O pacote baixado do CSHM foi processado com sucesso.
 Se ocorrer um erro, contacte o suporte da NetApp.
 
 . [[step6]]espere até o dobro do intervalo de polling do monitor de integridade do switch Ethernet, encontrado em execução `system switch ethernet polling-interval show`, antes de concluir a próxima etapa.
-. Execute o comando `system switch ethernet show` no sistema ONTAP e certifique-se de que os switches de cluster são descobertos com o campo monitorado definido como *True* e o campo de número de série não mostrando *desconhecido*.
+. Execute o comando `system switch ethernet configure-health-monitor show` No sistema ONTAP , certifique-se de que os switches do cluster sejam descobertos com o campo monitorado definido como *Verdadeiro* e o campo do número de série não mostrando *Desconhecido*.
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system switch ethernet show*
+cluster1::> *system switch ethernet configure-health-monitor show*
 ----
 
 
 .O que se segue?
-Depois de instalar o arquivo CSHM, você link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].
+Após instalar o arquivo CSHM, você podelink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

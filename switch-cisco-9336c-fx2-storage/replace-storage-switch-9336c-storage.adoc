@@ -267,4 +267,4 @@ storage::*>
 
 
 .O que se segue?
-Depois de substituir seus interruptores, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .
+Depois de substituir os interruptores, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

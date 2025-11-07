@@ -1,8 +1,8 @@
 ---
-permalink: switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster.html 
+permalink: switch-cisco-9336c-fx2-storage/install-upgrade-rcf-overview-9336c-storage.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'O SSH é um requisito ao usar os recursos do Monitor de integridade do Cluster Switch (CSHM) e coleta de logs. Para ativar o SSH nos switches de cluster Cisco 9336c-FX2, você gera as chaves SSH primeiro e depois ativa o SSH.' 
+summary: Você pode instalar o RCF após configurar o switch Nexus 9336C-FX2 pela primeira vez. Você também pode usar este procedimento para atualizar sua versão do RCF. 
 ---
 = Instale ou atualize a visão geral do ficheiro de configuração de referência (RCF)
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'O SSH é um requisito ao usar os recursos do Monitor de integridade do
 
 
 [role="lead"]
-Você instala o arquivo de configuração de referência (RCF) após configurar os switches Nexus 9336C-FX2 e 9336C-FX2-T pela primeira vez. Você atualiza sua versão RCF quando tem uma versão existente do arquivo RCF instalada no seu switch.
+Você instala o Arquivo de Configuração de Referência (RCF) após configurar o switch de armazenamento Nexus 9336C-FX2 pela primeira vez. Você atualiza sua versão RCF quando tem uma versão existente do arquivo RCF instalada no seu switch.
 
 Consulte o artigo da base de dados de Conhecimento link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração em um switch de interconexão Cisco, mantendo a conetividade remota"^]para obter mais informações ao instalar ou atualizar o RCF.
 
@@ -56,14 +56,14 @@ As portas são configuradas para conexões de 4x10GbE, conexões de 4x25GbE (RCF
  a| 
 Cluster-HA-Storage
  a| 
-As portas são configuradas para 40/100GbE para cluster e HA, 4 x 10 GbE breakout para cluster e 4 x 25 GbE breakout para cluster e HA, e 100GbE para cada par de HA de storage.
+As portas estão configuradas para 40/100GbE para Cluster+HA, 4x10GbE breakout para Cluster e 4x25GbE breakout para Cluster+HA, e 100GbE para cada par de armazenamento HA.
 
 
 
  a| 
 Cluster
  a| 
-Dois tipos de RCF com diferentes alocações de portas 4x10GbE (breakout) e portas 40/100GbE. Todos os nós FAS/AFF são compatíveis, exceto nos sistemas AFF A320, AFF A250 e FAS500f.
+Duas versões do RCF com diferentes alocações de portas 4x10GbE (breakout) e portas 40/100GbE.  Todos os nós FAS e AFF são suportados, exceto os sistemas AFF A320, AFF A250 e FAS500f .
 
 
 
@@ -74,11 +74,11 @@ Todas as portas são configuradas para 100GbE conexões de storage NVMe.
 
 |===
 .Documentação sugerida
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco (NSS)"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^]
 +
 Consulte a tabela de compatibilidade de switch para ver as versões ONTAP e RCF suportadas no site de suporte da NetApp. Note que pode haver dependências de comando entre a sintaxe de comando no RCF e a sintaxe encontrada em versões específicas do NX-os.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus 3000 Series"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Switches Cisco Nexus 9000 Series"^]
 +
 Consulte os guias de software e atualização apropriados disponíveis no site da Cisco para obter a documentação completa sobre os procedimentos de atualização e downgrade do switch Cisco.
 
@@ -87,21 +87,19 @@ Consulte os guias de software e atualização apropriados disponíveis no site d
 .Sobre os exemplos
 Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
 
-* Os nomes dos dois switches Cisco são *CS1* e *CS2*.
-* Os nomes dos nós são *cluster1-01*, *cluster1-02*, *cluster1-03* e *cluster1-04*.
-* Os nomes de cluster LIF são *cluster1-01_clus1*, *cluster1-01_clus2*, *cluster1-03_clus2*, *cluster1-03_clus1*, *cluster1-02_clus2*, *cluster1-02_clus1*, *cluster1-04_clus1* e *cluster1-04_clus2*.
+* Os nomes dos dois switches Cisco são CS1 e CS2.
+* Os nomes dos nós são node1-01, node1-02, node1-03 e node1-04.
+* Os nomes do LIF do cluster são node1-01_clus1, node1-01_clus2, node1-02_clus1, node1-02_clus2, node1-03_clus1, node1-03_clus2, node1-04_clus1 e node1-04_clus2.
 * O `cluster1::*>` prompt indica o nome do cluster.
 
 
-Os exemplos neste procedimento usam quatro nós. Esses nós usam duas portas de interconexão de cluster 10GbE *e0a* e *e0b*. Consulte https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar as portas de cluster corretas nas suas plataformas.
+Veja o https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar as portas corretas na sua plataforma.
 
 
 NOTE: As saídas de comando podem variar dependendo de diferentes versões do ONTAP.
-
-Para obter detalhes sobre as configurações de RCF disponíveis, link:configure-software-overview-9336c-cluster.html["Fluxo de trabalho de instalação do software"]consulte .
 
 .Comandos utilizados
 O procedimento requer o uso de comandos ONTAP e comandos Cisco Nexus 9000 Series switches; os comandos ONTAP são usados, a menos que indicado de outra forma.
 
 .O que se segue?
-Após revisar o procedimento de instalação ou atualização do RCF, você podelink:install-rcf-software-9336c-cluster.html["instalar o RCF"] oulink:upgrade-rcf-software-9336c-cluster.html["atualize seu RCF"] Conforme necessário.
+Após revisar o procedimento de instalação ou atualização do RCF, você podelink:install-rcf-software-9336c-storage.html["instalar o RCF"] oulink:upgrade-rcf-software-9336c-storage.html["atualize seu RCF"] Conforme necessário.

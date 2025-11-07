@@ -712,4 +712,4 @@ RPC status:
 
 
 .O que se segue?
-Depois de migrar os switches, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .
+Depois de migrar os switches, você podelink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

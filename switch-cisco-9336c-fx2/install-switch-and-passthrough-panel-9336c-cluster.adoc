@@ -132,4 +132,4 @@ A porta de gerenciamento é a porta superior direita localizada no lado da PSU d
 
 
 .O que se segue?
-Depois de instalar os switches no gabinete NetApp , vocêlink:setup-switch-9336c-cluster.html["configurar os switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T"] .
+Após instalar os switches no gabinete NetApp , você podelink:setup-switch-9336c-cluster.html["configurar os switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T"] .

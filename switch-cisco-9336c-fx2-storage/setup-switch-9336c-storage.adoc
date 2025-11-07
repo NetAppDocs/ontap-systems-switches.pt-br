@@ -192,4 +192,4 @@ NOTE: Se você não salvar a configuração nesta fase, nenhuma das alterações
 
 
 .O que se segue?
-Depois de configurar seus switches, vocêlink:install-nxos-overview-9336c-storage.html["prepare-se para instalar o software NX-OS e RCF"] .
+Depois de configurar seus switches, você pode link:install-nxos-overview-9336c-storage.html["prepare-se para instalar o software NX-OS e RCF"].

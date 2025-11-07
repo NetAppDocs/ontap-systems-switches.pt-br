@@ -44,3 +44,6 @@ This command will reboot the system. (y/n)? [n] *y*
 O sistema é reinicializado e entra no assistente de configuração.  Durante a inicialização, se você receber o prompt “Abortar provisionamento automático e continuar com a configuração normal?  (sim/não)[n]”, você deve responder *sim* para prosseguir.
 
 
+
+.O que vem a seguir
+Depois de reiniciar os interruptores, você podelink:configure-switch-overview-9336c-shared.html["reconfigurar"] eles conforme necessário.

@@ -695,4 +695,4 @@ Se qualquer LIFs de cluster não retornar às portas iniciais, reverta-as manual
 
 
 .O que se segue?
-Depois de instalar ou atualizar o software NX-OS, vocêlink:install-upgrade-rcf-overview-cluster.html["instalar ou atualizar o arquivo de configuração de referência (RCF)"] .
+Após instalar ou atualizar o software NX-OS, você podelink:install-upgrade-rcf-overview-cluster.html["instalar ou atualizar o arquivo de configuração de referência (RCF)"] .
