@@ -2,32 +2,32 @@
 permalink: switch-cisco-92300/configure-install-initial.html 
 sidebar: sidebar 
 keywords: install cisco 92300YC cluster switch, cisco nx 92300yc 
-summary: Você pode usar este procedimento para executar a instalação inicial do switch Cisco Nexus 92300YC. 
+summary: Você pode usar este procedimento para realizar a instalação inicial do switch Cisco Nexus 92300YC. 
 ---
-= Configure o switch Cisco Nexus 92300YC
+= Configure o switch Cisco Nexus 92300YC.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para configurar e configurar o switch Cisco Nexus 92300YC.
+Siga este procedimento para instalar e configurar o switch Cisco Nexus 92300YC.
 
 .Passos
-. Conete a porta serial a um host ou porta serial.
-. Conete a porta de gerenciamento (no lado que não seja da porta do switch) à mesma rede onde o servidor SFTP está localizado.
-. No console, defina as configurações de série do lado do host:
+. Conecte a porta serial a um host ou a uma porta serial.
+. Conecte a porta de gerenciamento (no lado oposto às portas do switch) à mesma rede onde seu servidor SFTP está localizado.
+. No console, configure as definições seriais do lado do host:
 +
 ** 9600 baud
 ** 8 bits de dados
-** 1 bit de paragem
+** 1 bit de parada
 ** paridade: nenhuma
-** controle de fluxo: nenhum
+** Controle de fluxo: nenhum
 
 
-. Ao inicializar pela primeira vez ou reiniciar depois de apagar a configuração em execução, o switch Nexus 92300YC é loop em um ciclo de inicialização. Interrompa este ciclo digitando *yes* para cancelar o fornecimento automático de energia.
+. Ao ser inicializado pela primeira vez ou reiniciado após apagar a configuração em execução, o switch Nexus 92300YC entra em um loop de inicialização.  Interrompa este ciclo digitando *sim* para abortar o provisionamento automático de energia.
 +
-É apresentada a configuração da conta de administrador do sistema.
+A configuração da conta de administrador do sistema é exibida.
 
 +
 .Mostrar exemplo
@@ -50,14 +50,14 @@ Do you want to enforce secure password standard (yes/no) [y]:
 ----
 Do you want to enforce secure password standard (yes/no) [y]: *y*
 ----
-. Introduza e confirme a palavra-passe do administrador do utilizador:
+. Digite e confirme a senha do usuário administrador:
 +
 [listing]
 ----
 Enter the password for "admin":
 Confirm the password for "admin":
 ----
-. Digite *yes* para entrar na caixa de diálogo Configuração básica do sistema.
+. Digite *sim* para entrar na caixa de diálogo Configuração Básica do Sistema.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -85,7 +85,7 @@ Would you like to enter the basic configuration dialog (yes/no):
 ----
 Create another login account (yes/no) [n]:
 ----
-. Configurar strings de comunidade SNMP somente leitura e leitura-escrita:
+. Configure as strings de comunidade SNMP de leitura e de leitura e gravação:
 +
 [listing]
 ----
@@ -93,13 +93,13 @@ Configure read-only SNMP community string (yes/no) [n]:
 
 Configure read-write SNMP community string (yes/no) [n]:
 ----
-. Configure o nome do switch de cluster:
+. Configure o nome do switch do cluster:
 +
 [listing, subs="+quotes"]
 ----
 Enter the switch name : *cs2*
 ----
-. Configure a interface de gerenciamento fora da banda:
+. Configure a interface de gerenciamento fora de banda:
 +
 [listing, subs="+quotes"]
 ----
@@ -113,7 +113,7 @@ Configure the default gateway? (yes/no) [y]: *y*
 
 IPv4 address of the default gateway : 172.22.128.1
 ----
-. Configurar opções IP avançadas:
+. Configurar opções avançadas de IP:
 +
 [listing, subs="+quotes"]
 ----
@@ -147,7 +147,7 @@ Configure the ntp server? (yes/no) [n]: *n*
 
   Configure CoPP system profile (strict/moderate/lenient/dense) [strict]: *strict*
 ----
-. Confirme as informações do interrutor e guarde a configuração:
+. Confirme as informações do switch e salve a configuração:
 +
 [listing, subs="+quotes"]
 ----
@@ -161,5 +161,5 @@ Copy complete.
 ----
 
 
-.O que se segue?
-link:install-nxos-overview.html["Prepare-se para instalar o software NX-os e o RCF"].
+.O que vem a seguir?
+link:install-nxos-overview.html["Prepare-se para instalar o software NX-OS e o RCF."].

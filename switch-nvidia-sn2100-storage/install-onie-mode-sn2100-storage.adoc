@@ -2,32 +2,32 @@
 permalink: switch-nvidia-sn2100-storage/install-onie-mode-sn2100-storage.html 
 sidebar: sidebar 
 keywords: install cumulus onie mode, sn2100 SN2100 switches setup, cumulus linux, onie mode 
-summary: 'O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando Cumulus Linux ou ONIE.' 
+summary: 'O sistema operacional Cumulus Linux (CL) pode ser instalado tanto quando o switch estiver executando Cumulus Linux quanto ONIE.' 
 ---
-= Instale o Cumulus Linux no modo ONIE
+= Instale o Cumulus Linux no modo ONIE.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para instalar o SO Cumulus Linux (CL) quando o switch estiver em execução no modo ONIE.
+Siga este procedimento para instalar o sistema operacional Cumulus Linux (CL) quando o switch estiver em modo ONIE.
 
 
-NOTE: O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando o Cumulus Linux ou ONIE (link:install-cumulus-mode-sn2100-storage.html["Instale no modo Cumulus"]consulte ).
+NOTE: O sistema operacional Cumulus Linux (CL) pode ser instalado quando o switch estiver executando Cumulus Linux ou ONIE (consultelink:install-cumulus-mode-sn2100-storage.html["Instalar no modo Cumulus"] ).
 
 .Sobre esta tarefa
-Você pode instalar o Cumulus Linux usando o Open Network Install Environment (ONIE) que permite a descoberta automática de uma imagem do instalador de rede. Isso facilita o modelo de sistema de proteção de switches com uma escolha de sistema operacional, como o Cumulus Linux. A maneira mais fácil de instalar o Cumulus Linux com ONIE é com descoberta HTTP local.
+Você pode instalar o Cumulus Linux usando o Open Network Install Environment (ONIE), que permite a descoberta automática de uma imagem de instalação de rede.  Isso facilita o modelo de sistema para proteger switches com uma opção de sistema operacional, como o Cumulus Linux.  A maneira mais fácil de instalar o Cumulus Linux com ONIE é através da descoberta HTTP local.
 
 
-NOTE: Se o seu host estiver habilitado para IPv6, verifique se ele está executando um servidor da Web. Se o seu host estiver habilitado para IPv4, verifique se ele está executando o DHCP além de um servidor da Web.
+NOTE: Se o seu host estiver habilitado para IPv6, certifique-se de que ele esteja executando um servidor web.  Se o seu host estiver habilitado para IPv4, certifique-se de que ele esteja executando o DHCP além de um servidor web.
 
-Este procedimento demonstra como atualizar o Cumulus Linux após o administrador ter inicializado no ONIE.
+Este procedimento demonstra como atualizar o Cumulus Linux depois que o administrador inicializou o sistema no ONIE.
 
 .Passos
-. Baixe o arquivo de instalação Cumulus Linux para o diretório raiz do servidor web. Renomeie este arquivo `onie-installer`.
-. Conete o host à porta Ethernet de gerenciamento do switch usando um cabo Ethernet.
-. Ligue o interrutor. O switch faz o download do instalador de imagem ONIE e inicializa. Após a conclusão da instalação, o prompt de login do Cumulus Linux aparece na janela do terminal.
+. Faça o download do arquivo de instalação do Cumulus Linux para o diretório raiz do servidor web.  Renomeie este arquivo `onie-installer` .
+. Conecte seu computador à porta Ethernet de gerenciamento do switch usando um cabo Ethernet.
+. Ligue o interruptor.  O switch baixa o instalador de imagem ONIE e inicializa.  Após a conclusão da instalação, a tela de login do Cumulus Linux aparece na janela do terminal.
 +
 
 NOTE: Cada vez que o Cumulus Linux é instalado, toda a estrutura do sistema de arquivos é apagada e reconstruída.
@@ -38,10 +38,10 @@ NOTE: Cada vez que o Cumulus Linux é instalado, toda a estrutura do sistema de 
 ----
 cumulus@cumulus:mgmt:~$ *sudo reboot*
 ----
-. Pressione a tecla *ESC* na tela GNU GRUB para interromper o processo de inicialização normal, selecione *ONIE* e pressione *Enter*.
-. Na próxima tela exibida, selecione *ONIE: Install os*.
-. O processo de descoberta do instalador ONIE é executado procurando a instalação automática. Pressione *Enter* para interromper temporariamente o processo.
-. Quando o processo de descoberta for interrompido:
+. Na tela do GNU GRUB, pressione a tecla *Esc* para interromper o processo normal de inicialização, selecione *ONIE* e pressione *Enter*.
+. Na próxima tela exibida, selecione *ONIE: Instalar SO*.
+. O processo de descoberta do instalador ONIE é executado em busca da instalação automática.  Pressione *Enter* para interromper temporariamente o processo.
+. Quando o processo de descoberta for concluído:
 +
 [listing, subs="+quotes"]
 ----
@@ -50,7 +50,7 @@ discover: installer mode detected.
 Stopping: discover...start-stop-daemon: warning: killing process 427:
 No such process done.
 ----
-. Se o serviço DHCP estiver em execução na rede, verifique se o endereço IP, a máscara de sub-rede e o gateway padrão estão corretamente atribuídos:
+. Se o serviço DHCP estiver em execução na sua rede, verifique se o endereço IP, a máscara de sub-rede e o gateway padrão estão atribuídos corretamente:
 +
 `ifconfig eth0`
 
@@ -86,8 +86,8 @@ default         10.233.204.1    0.0.0.0         UG    0      0      0   eth0
 ONIE:/ # *ifconfig eth0 10.233.204.71 netmask 255.255.254.0*
 ONIE:/ # *route add default gw 10.233.204.1*
 ----
-. Repita o passo 9 para verificar se as informações estáticas foram introduzidas corretamente.
-. Instale o Cumulus Linux:
+. Repita o passo 9 para verificar se as informações estáticas foram inseridas corretamente.
+. Instalar o Cumulus Linux:
 +
 [listing, subs="+quotes"]
 ----
@@ -104,7 +104,7 @@ ONIE:/ # *route*
   ...
   ...
 ----
-. Depois de concluída a instalação, inicie sessão no interrutor:
+. Após a conclusão da instalação, faça login no switch:
 +
 .Mostrar exemplo
 [%collapsible]
@@ -120,7 +120,7 @@ New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
 ====
-. Verifique a versão Cumulus Linux:
+. Verifique a versão do Cumulus Linux:
 +
 `net show version`
 
@@ -139,5 +139,5 @@ DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3”*
 ====
 
 
-.O que se segue?
+.O que vem a seguir?
 Após instalar o Cumulus Linux no modo ONIE, você podelink:install-rcf-sn2100-storage.html["Instalar ou atualizar o script RCF"] .

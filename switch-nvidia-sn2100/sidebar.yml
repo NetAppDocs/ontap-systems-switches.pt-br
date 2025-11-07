@@ -2,7 +2,7 @@
 section: switch-nvidia-sn2100
 title: NVIDIA SN2100
 entries:
-- title: Comece agora
+- title: Começar
   entries:
   - title: Início rápido
     url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
@@ -17,44 +17,44 @@ entries:
   entries:
   - title: Fluxo de trabalho de instalação de hardware
     url: "/switch-nvidia-sn2100/install-hardware-workflow.html"
-  - title: Instale o interrutor
+  - title: Instale o interruptor
     url: "/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html"
-  - title: Revise o cabeamento e a configuração
+  - title: Revisar a cablagem e a configuração.
     url: "/switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html"
-  - title: Cable as NS224 prateleiras
+  - title: Conecte os cabos às prateleiras NS224.
     url: "/switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html"
 - title: Configurar o software
   pdf-filename: Configure_software_sn2100
   entries:
-  - title: Fluxo de trabalho de instalação do software
+  - title: fluxo de trabalho de instalação de software
     url: "/switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
-  - title: Configure o interrutor
+  - title: Configure o interruptor
     url: "/switch-nvidia-sn2100/configure-sn2100-cluster.html"
-  - title: Instale o Cumulus Linux no modo Cumulus
+  - title: Instale o Cumulus Linux no modo Cumulus.
     url: "/switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html"
-  - title: Instale o Cumulus Linux no modo ONIE
+  - title: Instale o Cumulus Linux no modo ONIE.
     url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html"
-  - title: Atualize a versão Cumulus Linux
+  - title: Atualizar versão do Cumulus Linux
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
-  - title: Instale ou atualize o script RCF
+  - title: Instalar ou atualizar o script RCF
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
   - title: Instale o arquivo CSHM
     url: "/switch-nvidia-sn2100/setup-install-cshm-file.html"
-  - title: Redefinir o switch para os padrões de fábrica
+  - title: Restaure as configurações de fábrica do switch.
     url: "/switch-nvidia-sn2100/reset-switch-sn2100.html"
-- title: Migrar os switches
+- title: Migre os switches
   pdf-filename: Migrate_switches_sn2100
   entries:
   - title: Migrar de switches de cluster CN1610
     url: "/switch-nvidia-sn2100/migrate-cn1610-sn2100-cluster-switch.html"
   - title: Migrar de switches de cluster Cisco
     url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
-  - title: Migrar para cluster comutado de dois nós
+  - title: Migrar para um cluster comutado de dois nós
     url: "/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html"
 - title: Substitua os interruptores
   pdf-filename: Replace_switches_sn2100
   entries:
-  - title: Substitua o interrutor do cluster
+  - title: Substituir o interruptor do cluster
     url: "/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"
-  - title: Substitua os switches do cluster por conexões sem switch
+  - title: Substitua os switches de cluster por conexões sem switch.
     url: "/switch-nvidia-sn2100/migrate-to-switchless-interconnect-sn2100-cluster.html"

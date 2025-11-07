@@ -2,9 +2,9 @@
 permalink: switch-cisco-9332d-gx2b/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
-summary: 'O SSH é um requisito ao usar o Cluster Switch Health Monitor (CSHM) e os recursos de coleta de logs.  Para habilitar o SSH nos switches de cluster Cisco 9332d-gx2b, primeiro gere as chaves SSH e depois habilite o SSH.' 
+summary: 'O SSH é um requisito ao usar o Cluster Switch Health Monitor (CSHM) e os recursos de coleta de logs. Para habilitar o SSH nos switches de cluster Cisco 9332d-gx2b, primeiro gere as chaves SSH e depois habilite o SSH.' 
 ---
-= Verifique a configuração da SSH
+= Verifique sua configuração SSH.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -67,5 +67,5 @@ sshServer              1          enabled
 ====
 
 
-.O que se segue?
-Depois de verificar sua configuração SSH, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .
+.O que vem a seguir?
+Após verificar sua configuração SSH, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

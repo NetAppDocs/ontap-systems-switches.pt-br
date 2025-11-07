@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'O SSH é um requisito ao usar os recursos do Monitor de integridade do Cluster Switch (CSHM) e coleta de logs. Para ativar o SSH nos switches de cluster do Cisco 3232C, você gera as chaves SSH primeiro e, em seguida, ativa o SSH.' 
+summary: 'O SSH é um requisito ao usar o Cluster Switch Health Monitor (CSHM) e os recursos de coleta de logs. Para habilitar o SSH em switches de cluster Cisco 3232C, primeiro gere as chaves SSH e depois habilite o SSH.' 
 ---
-= Verifique a configuração da SSH
+= Verifique sua configuração SSH.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você estiver usando os recursos CSHM (Ethernet Switch Health Monitor) e coleta de logs, verifique se as chaves SSH e SSH estão habilitadas nos switches de cluster.
+Se você estiver usando o Monitor de Saúde do Switch Ethernet (CSHM) e os recursos de coleta de logs, verifique se o SSH e as chaves SSH estão habilitados nos switches do cluster.
 
 .Passos
 . Verifique se o SSH está ativado:
@@ -61,7 +61,7 @@ sshServer              1          enabled
 
 
 
-IMPORTANT: Ao ativar o FIPS, você deve alterar o número de bits para 256 na central usando o comando `ssh key ecdsa 256 force`.  https://docs.netapp.com/us-en/ontap/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["Configurar a segurança da rede usando o FIPS"^]Consulte para obter mais detalhes.
+IMPORTANT: Ao habilitar o FIPS, você deve alterar a contagem de bits para 256 no switch usando o comando. `ssh key ecdsa 256 force` .  Ver https://docs.netapp.com/us-en/ontap/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["Configure a segurança de rede usando FIPS."^] Para obter mais detalhes.
 
-.O que se segue?
-Depois de verificar sua configuração SSH, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .
+.O que vem a seguir?
+Após verificar sua configuração SSH, vocêlink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

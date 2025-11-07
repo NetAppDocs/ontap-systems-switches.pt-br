@@ -9,11 +9,11 @@ summary: Detalhes da porta para switches Cisco Nexus 9332D-GX2B
 
 
 [role="lead"]
-O switch Cisco Nexus 9332D-GX2B faz parte da plataforma Cisco Nexus 9000.  Os switches do sistema AFX permitem que você crie clusters ONTAP com mais de dois nós.
+O switch Cisco Nexus 9332D-GX2B faz parte da plataforma Cisco Nexus 9000. Os switches do sistema AFX permitem que você crie clusters ONTAP com mais de dois nós.
 
 
 
-== Detalhes da porta do Cisco Nexus 9332D-GX2B
+== Detalhes da porta Cisco Nexus 9332D-GX2B
 
 [cols="1,2"]
 |===
@@ -28,9 +28,9 @@ Modo 4x100GbE para conexões de cluster, HA e armazenamento
 
 
  a| 
-Ethernet1/31, Ethernet1/32
+Ethernet 1/31, Ethernet 1/32
  a| 
 400GbE ISL
 
 |===
-Veja o https://hwu.netapp.com["Hardware Universe"^] para detalhes das portas usadas pela plataforma.
+Veja o https://hwu.netapp.com["Hardware Universe"^] Para obter detalhes sobre as portas utilizadas pela plataforma.

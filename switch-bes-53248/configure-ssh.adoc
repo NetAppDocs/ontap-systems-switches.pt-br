@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/configure-ssh.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on bes-53248 cluster switches - bes-53248 switches 
-summary: 'O SSH é um requisito ao usar os recursos do Monitor de integridade do Cluster Switch (CSHM) e coleta de logs. Para ativar o SSH nos switches de cluster BES-53248, você gera as chaves SSH primeiro e depois ativa o SSH.' 
+summary: 'O SSH é um requisito ao usar o Cluster Switch Health Monitor (CSHM) e os recursos de coleta de logs. Para habilitar o SSH nos switches de cluster BES-53248, primeiro você gera as chaves SSH e depois habilita o SSH.' 
 ---
-= Ative o SSH nos switches de cluster BES-53248
+= Habilite o SSH nos switches de cluster BES-53248.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você estiver usando os recursos do Monitor de integridade do comutador Ethernet (CSHM) e da coleção de logs, será necessário gerar as chaves SSH e, em seguida, ativar o SSH nos switches do cluster.
+Se você estiver usando o Monitor de Saúde do Switch Ethernet (CSHM) e os recursos de coleta de logs, será necessário gerar as chaves SSH e, em seguida, habilitar o SSH nos switches do cluster.
 
 .Passos
 . Verifique se o SSH está desativado:
@@ -41,7 +41,7 @@ SCP server Administrative Mode: ............... Disabled
 ----
 ====
 +
-** Se o SSH não estiver desabilitado, desabilite-o da seguinte maneira:
+** Se o SSH não estiver desativado, desative-o da seguinte forma:
 +
 `no ip ssh server enable`
 
@@ -58,7 +58,7 @@ SCP server Administrative Mode: ............... Disabled
 ====
 +
 
-WARNING: Certifique-se de desabilitar o SSH antes de modificar as chaves, caso contrário, um aviso será reportado no switch.
+WARNING: Certifique-se de desativar o SSH antes de modificar as chaves; caso contrário, um aviso será exibido no switch.
 
 
 
@@ -136,10 +136,10 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. Encripte as chaves SSH (apenas para o modo *FIPS*):
+. Criptografe as chaves SSH (somente para o modo FIPS):
 +
 
-CAUTION: No modo FIPS, as chaves devem ser criptografadas com uma senha para segurança. Na ausência de uma chave criptografada, o aplicativo não inicia. As chaves são criadas e criptografadas usando os seguintes comandos:
+CAUTION: No modo FIPS, as chaves precisam ser criptografadas com uma senha para garantir a segurança.  Na ausência de uma chave criptografada, o aplicativo não consegue ser iniciado.  As chaves são criadas e criptografadas usando os seguintes comandos:
 
 +
 .Mostrar exemplo
@@ -216,5 +216,5 @@ SCP server Administrative Mode: ............... Enabled
 ====
 
 
-.O que se segue?
+.O que vem a seguir?
 Depois de habilitar o SSH, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

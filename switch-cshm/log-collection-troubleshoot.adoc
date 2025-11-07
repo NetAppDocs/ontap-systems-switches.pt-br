@@ -4,54 +4,54 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: Você pode usar os comandos fornecidos aqui para ...... 
 ---
-= Solucionar problemas na coleta de logs
+= Solução de problemas na coleta de logs
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você encontrar algum dos seguintes status de erro relatados pelo recurso de coleta de log (visível na saída do `system switch ethernet log show` comando), tente as etapas de depuração correspondentes:
+Se você encontrar algum dos seguintes códigos de erro relatados pelo recurso de coleta de logs (visíveis na saída do `system switch ethernet log show` comando), tente as etapas de depuração correspondentes:
 
 |===
 
 
-| *Estado do erro de recolha de registos* | *Resolução* 
+| *Status de erro na coleta de logs* | *Resolução* 
 
 
  a| 
 *Chaves RSA não presentes*
  a| 
-Regenerar chaves SSH ONTAP.
+Regenerar as chaves SSH do ONTAP .
 
 
 
  a| 
-*Erro de troca de senha*
+*Erro na senha do switch*
  a| 
-Verifique credenciais, teste a conetividade SSH e regenere chaves SSH ONTAP. Revise a documentação do switch ou Contate o suporte da NetApp para obter instruções.
+Verificar credenciais, testar a conectividade SSH e regenerar as chaves SSH do ONTAP .  Consulte a documentação do switch ou entre em contato com o suporte da NetApp para obter instruções.
 
 
 
  a| 
 *Chaves ECDSA não presentes para FIPS*
  a| 
-Se o modo FIPS estiver ativado, as chaves ECDSA precisam ser geradas na central antes de tentar novamente.
+Se o modo FIPS estiver ativado, as chaves ECDSA precisam ser geradas no switch antes de tentar novamente.
 
 
 
  a| 
-* Registo pré-existente encontrado*
+*Registro pré-existente encontrado*
  a| 
 Remova o arquivo de coleta de logs anterior no switch.
 
 
 
  a| 
-*Erro de log de despejo de comutação*
+*Erro no log de despejo do switch*
  a| 
-Certifique-se de que o usuário do switch tenha permissões de coleta de logs. Consulte os pré-requisitos acima.
+Certifique-se de que o usuário do switch tenha permissões de coleta de logs.  Consulte os pré-requisitos acima.
 
 |===
 
-NOTE: Se os detalhes da resolução não funcionarem, entre em Contato com o suporte da NetApp.
+NOTE: Se as instruções de resolução não funcionarem, entre em contato com o suporte da NetApp .

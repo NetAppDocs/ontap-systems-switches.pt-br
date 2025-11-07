@@ -14,45 +14,45 @@ summary:
 
 
 [role="lead"]
-Você pode substituir um switch compartilhado Nexus 9336C-FX2 com defeito. Este é um procedimento sem interrupções (NDU).
+Você pode substituir um switch compartilhado Nexus 9336C-FX2 defeituoso. Este é um procedimento não disruptivo (NDU).
 
 .Antes de começar
-Antes de efetuar a substituição do interrutor, certifique-se de que:
+Antes de substituir o interruptor, certifique-se de que:
 
-* No cluster existente e infra-estrutura de rede:
+* Na infraestrutura de cluster e rede existente:
 +
-** O cluster existente é verificado como completamente funcional, com pelo menos um switch de cluster totalmente conetado.
-** Todas as portas de cluster são *up*.
-** Todas as interfaces lógicas de cluster (LIFs) são *up* e em suas portas domésticas.
-** O comando ping-cluster -nó node1 do cluster do ONTAP deve indicar que a conetividade básica e a comunicação maior do que a PMTU são bem-sucedidas em todos os caminhos.
+** O cluster existente foi verificado como totalmente funcional, com pelo menos um switch de cluster totalmente conectado.
+** Todas as portas do cluster estão *ativas*.
+** Todas as interfaces lógicas do cluster (LIFs) estão *ativas* e em suas portas de origem.
+** O comando `ping-cluster -node node1` do cluster ONTAP deve indicar que a conectividade básica e a comunicação com largura de banda superior a PMTU estão funcionando corretamente em todos os caminhos.
 
 
-* Para o interrutor de substituição Nexus 9336C-FX2:
+* Para o interruptor de substituição Nexus 9336C-FX2:
 +
-** A conetividade de rede de gerenciamento no switch de substituição está funcional.
-** O acesso do console ao interrutor de substituição está no lugar.
+** A conectividade da rede de gerenciamento no switch de substituição está funcionando corretamente.
+** O acesso ao console para o interruptor de substituição já está instalado.
 ** As conexões de nó são as portas 1/1 a 1/34:
-** Todas as portas ISL (Inter-Switch Link) estão desativadas nas portas 1/35 e 1/36.
-** O arquivo de configuração de referência desejado (RCF) e o interrutor de imagem do sistema operacional NX-os são carregados no switch.
-** Quaisquer personalizações de sites anteriores, como STP, SNMP e SSH, devem ser copiadas para o novo switch.
+** Todas as portas de Interconexão de Switches (ISL) estão desativadas nas portas 1/35 e 1/36.
+** O arquivo de configuração de referência (RCF) desejado e a imagem do sistema operacional NX-OS são carregados no switch.
+** Quaisquer personalizações anteriores do site, como STP, SNMP e SSH, devem ser copiadas para o novo switch.
 
 
 
 
 .Sobre os exemplos
-Você deve executar o comando para migração de um cluster LIF do nó onde o cluster LIF está hospedado.
+Você deve executar o comando para migrar um LIF de cluster a partir do nó onde o LIF de cluster está hospedado.
 
-Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:
 
-* Os nomes dos switches Nexus 9336C-FX2 existentes são _SH1_ e _SH2_.
-* O nome dos novos switches Nexus 9336C-FX2 são _newsh1_ e _newsh2_.
+* Os nomes dos switches Nexus 9336C-FX2 existentes são _sh1_ e _sh2_.
+* Os nomes dos novos switches Nexus 9336C-FX2 são _newsh1_ e _newsh2_.
 * Os nomes dos nós são _node1_ e _node2_.
-* As portas de cluster em cada nó são chamadas _E3A_ e _e3b_.
-* Os nomes de LIF do cluster são `node1_clus1` e `node1_clus2` para node1 `node2_clus1` e e `node2_clus2` node2.
-* O prompt para alterações em todos os nós de cluster é cluster1::*>.
+* As portas do cluster em cada nó são denominadas _e3a_ e _e3b_.
+* Os nomes LIF do cluster são `node1_clus1` e `node1_clus2` para o nó 1 e `node2_clus1` e `node2_clus2` para o nó 2.
+* O prompt para alterações em todos os nós do cluster é cluster1::*>.
 +
 
-NOTE: O seguinte procedimento baseia-se na seguinte topologia de rede:
+NOTE: O procedimento a seguir baseia-se na seguinte topologia de rede:
 
 
 
@@ -131,23 +131,23 @@ Total entries displayed: 4
 ----
 ====
 .Passos
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-Onde x é a duração da janela de manutenção em horas.
+Onde x representa a duração do período de manutenção em horas.
 
-. Opcional: Instale o RCF e a imagem apropriados no interrutor, newsh2, e faça os preparativos necessários para o local.
+. Opcional: Instale o RCF e a imagem apropriados no switch, newsh2, e faça todos os preparativos necessários no local.
 +
-.. Se necessário, verifique, baixe e instale as versões apropriadas do software RCF e NX-os para o novo switch. Se você tiver verificado que o novo switch está corretamente configurado e não precisa de atualizações para o software RCF e NX-os, continue para <<step3,Passo 3>>.
-.. Vá para a página Descrição do arquivo de configuração de referência do cluster e gerenciamento de switches de rede do NetApp no site de suporte da NetApp.
-.. Clique no link da Matriz de Compatibilidade de rede de Cluster e rede de Gerenciamento e anote a versão necessária do software do switch.
-.. Clique na seta para trás do navegador para retornar à página Descrição, clique EM CONTINUAR, aceite o contrato de licença e vá para a página Download.
-.. Siga as etapas na página Download para baixar os arquivos RCF e NX-os corretos para a versão do software ONTAP que você está instalando.
+.. Caso necessário, verifique, baixe e instale as versões apropriadas dos softwares RCF e NX-OS para o novo switch.  Se você verificou que o novo switch está configurado corretamente e não precisa de atualizações nos softwares RCF e NX-OS, prossiga para<<step3,Passo 3>> .
+.. Acesse a página de descrição do arquivo de configuração de referência dos switches de cluster e de rede de gerenciamento da NetApp no ​​site de suporte da NetApp .
+.. Clique no link para a Matriz de Compatibilidade de Rede de Cluster e Rede de Gerenciamento e, em seguida, observe a versão de software do switch necessária.
+.. Clique na seta "Voltar" do seu navegador para retornar à página de Descrição, clique em CONTINUAR, aceite o contrato de licença e, em seguida, acesse a página de Download.
+.. Siga os passos na página de Download para baixar os arquivos RCF e NX-OS corretos para a versão do software ONTAP que você está instalando.
 
 
-. [[step3]]no novo switch, faça login como admin e encerre todas as portas que serão conetadas às interfaces do cluster de nós (portas 1/1 a 1/34). Se o interrutor que você está substituindo não estiver funcional e estiver desligado, vá para <<step4,Passo 4>>. As LIFs nos nós de cluster já devem ter falhado para a outra porta de cluster para cada nó.
+. [[passo 3]]No novo switch, faça login como administrador e desligue todas as portas que serão conectadas às interfaces do cluster de nós (portas 1/1 a 1/34).  Se o interruptor que você está substituindo não estiver funcionando e estiver desligado, vá para<<step4,Passo 4>> .  As LIFs nos nós do cluster já devem ter migrado para a outra porta do cluster em cada nó.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -162,7 +162,7 @@ newsh2(config-if-range)# *shutdown*
 ====
 
 
-. [[step4]]Verifique se todas as LIFs do cluster têm a reversão automática ativada.
+. [[passo 4]]Verifique se todas as LIFs do cluster têm a reversão automática ativada.
 +
 `network interface show - vserver Cluster -fields auto-revert`
 
@@ -185,22 +185,22 @@ Cluster      node2_clus2   true
 ====
 
 
-. [[step5]] Verifique a conetividade das interfaces de cluster remotas:
+. [[passo 5]] Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -216,9 +216,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -251,7 +251,7 @@ RPC status:
 ----
 --
 ====
-. [[step6]]desligue as portas ISL 1/35 e 1/36 no switch Nexus 9336C-FX2 SH1.
+. [[passo 6]]Desligue as portas ISL 1/35 e 1/36 no switch Nexus 9336C-FX2 sh1.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -266,16 +266,16 @@ sh1(config-if-range)# *shutdown*
 ====
 
 
-. [[step7]]Remova todos os cabos do switch Nexus 9336C-FX2 SH2 e, em seguida, conete-os às mesmas portas no switch Nexus C9336C-FX2 newsh2.
-. Abra as portas ISLs 1/35 e 1/36 entre os switches SH1 e newsh2 e verifique o status da operação do canal da porta.
+. [[passo 7]]Remova todos os cabos do switch Nexus 9336C-FX2 sh2 e, em seguida, conecte-os às mesmas portas no switch Nexus C9336C-FX2 newsh2.
+. Abra as portas ISLs 1/35 e 1/36 entre os switches sh1 e newsh2 e, em seguida, verifique o status da operação do canal da porta.
 +
-O Canal de porta deve indicar PO1(SU) e os portos Membros devem indicar eth1/35(P) e eth1/36(P).
+Port-Channel deve indicar Po1(SU) e Member Ports deve indicar Eth1/35(P) e Eth1/36(P).
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-Este exemplo ativa as portas ISL 1/35 e 1/36 e exibe o resumo do canal da porta no switch SH1.
+Este exemplo habilita as portas ISL 1/35 e 1/36 e exibe o resumo do canal de porta no switch sh1.
 
 [listing, subs="+quotes"]
 ----
@@ -303,7 +303,7 @@ sh1 (config-if-range)#
 ====
 
 
-. [[step9]]Verifique se a porta e3b está ativa em todos os nós:
+. [[passo 9]]Verifique se a porta e3b está ativa em todos os nós:
 +
 `network port show ipspace Cluster`
 
@@ -311,7 +311,7 @@ sh1 (config-if-range)#
 .Mostrar exemplo
 [%collapsible]
 ====
-A saída deve ser como o seguinte:
+O resultado deverá ser semelhante ao seguinte:
 
 [listing, subs="+quotes"]
 ----
@@ -337,12 +337,12 @@ e3b       Cluster      Cluster          up   9000  auto/auto    -        false
 ====
 
 
-. [[step10]]no mesmo nó que você usou na etapa anterior, reverta o LIF de cluster associado à porta na etapa anterior usando o comando de reversão de interface de rede.
+. [[passo10]]No mesmo nó que você usou na etapa anterior, reverta o LIF do cluster associado à porta na etapa anterior usando o comando de reversão da interface de rede.
 +
-Neste exemplo, LIF node1_clus2 no node1 é revertido com sucesso se o valor Casa for verdadeiro e a porta for e3b.
+Neste exemplo, a LIF node1_clus2 no nó 1 é revertida com sucesso se o valor de Home for verdadeiro e a porta for e3b.
 
 +
-Os comandos a seguir retornam LIF node1_clus2 em node1 para a porta inicial E3A e exibe informações sobre os LIFs em ambos os nós. Abrir o primeiro nó é bem-sucedido se a coluna is Home for *true* para ambas as interfaces de cluster e eles mostrarem as atribuições de porta corretas, neste exemplo E3A e e3b em node1.
+Os comandos a seguir retornam o LIF node1_clus2 no nó 1 para a porta home e3a e exibem informações sobre os LIFs em ambos os nós.  A inicialização do primeiro nó é bem-sucedida se a coluna "Is Home" estiver definida como *verdadeira* para ambas as interfaces do cluster e se elas exibirem as atribuições de porta corretas, neste exemplo, e3a e e3b no nó 1.
 
 +
 .Mostrar exemplo
@@ -373,7 +373,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-Este exemplo mostra que a integridade do nó para node1 e node2 neste cluster é verdadeira:
+Este exemplo mostra que o estado de saúde dos nós node1 e node2 neste cluster é verdadeiro:
 
 [listing, subs="+quotes"]
 ----
@@ -386,7 +386,7 @@ node2         true    true
 ====
 
 
-. [[step12]]Verifique se todas as portas de cluster físico estão ativas:
+. [[passo 12]]Verifique se todas as portas físicas do cluster estão ativas:
 +
 `network port show ipspace Cluster`
 
@@ -417,22 +417,22 @@ e3b       Cluster      Cluster          up    9000  auto/100000  healthy  false
 ====
 
 
-. [[step13]] Verifique a conetividade das interfaces de cluster remotas:
+. [[passo 13]] Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -448,9 +448,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -483,7 +483,7 @@ RPC status:
 ----
 --
 ====
-. [[step14]]Confirme a seguinte configuração de rede de cluster:
+. [[passo 14]]Confirme a seguinte configuração de rede do cluster:
 +
 `network port show`
 
@@ -562,9 +562,9 @@ Total entries displayed: 4
 ====
 
 
-. [[step15]]mova as portas de armazenamento do antigo switch SH2 para o novo switch newsh2.
-. Verifique se o storage anexado ao par de HA 1, o switch compartilhado newsh2 está funcionando.
-. Verifique se o storage anexado ao par HA 2, o switch compartilhado newsh2 está funcionando:
+. [[passo15]]Mova as portas de armazenamento do switch antigo sh2 para o novo switch newsh2.
+. Verifique se o armazenamento conectado ao par HA 1, switch compartilhado newsh2, está íntegro.
+. Verifique se o armazenamento conectado ao par HA 2, switch compartilhado newsh2, está íntegro:
 +
 `storage port show -port-type ENET`
 
@@ -593,7 +593,7 @@ node2
 ====
 
 
-. [[step18]]Verifique se as prateleiras estão cabeadas corretamente:
+. [[passo 18]]Verifique se as prateleiras estão corretamente cabeadas:
 +
 `storage shelf port show -fields remote- device,remote-port`
 
@@ -619,13 +619,13 @@ shelf id remote-port  remote-device
 ====
 
 
-. [[step19]]Remova o interrutor antigo SH2.
-. Repita estes passos para o interrutor SH1 e para o novo interrutor newsh1.
-. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. [[passo19]]Remova o interruptor antigo sh2.
+. Repita esses passos para o switch sh1 e para o novo switch newsh1.
+. Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.O que se segue?
+.O que vem a seguir?
 Depois de substituir os interruptores, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

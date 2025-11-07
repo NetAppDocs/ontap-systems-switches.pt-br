@@ -2,54 +2,54 @@
 permalink: switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: install cumulus mode, sn2100 SN2100 switches setup, cumulus linux, cumulus mode 
-summary: 'O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando Cumulus Linux ou ONIE.' 
+summary: 'O sistema operacional Cumulus Linux (CL) pode ser instalado tanto quando o switch estiver executando Cumulus Linux quanto ONIE.' 
 ---
-= Instale o Cumulus Linux no modo Cumulus
+= Instale o Cumulus Linux no modo Cumulus.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para instalar o SO Cumulus Linux (CL) quando o switch estiver em execução no modo Cumulus.
+Siga este procedimento para instalar o sistema operacional Cumulus Linux (CL) quando o switch estiver em modo Cumulus.
 
 
-NOTE: O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando o Cumulus Linux ou ONIE (link:install-onie-mode-sn2100-cluster.html["Instale no modo ONIE"]consulte ).
+NOTE: O sistema operacional Cumulus Linux (CL) pode ser instalado quando o switch estiver executando Cumulus Linux ou ONIE (consultelink:install-onie-mode-sn2100-cluster.html["Instalar no modo ONIE"] ).
 
 .Antes de começar
-Certifique-se de que tem o seguinte:
+Certifique-se de ter o seguinte:
 
-* Conhecimento do Linux de nível intermediário.
-* Familiaridade com edição de texto básica, permissões de arquivo UNIX e monitoramento de processos. Uma variedade de editores de texto são pré-instalados, `vi` incluindo e `nano`.
-* Acesso a um shell Linux ou UNIX. Se você estiver executando o Windows, use um ambiente Linux como sua ferramenta de linha de comando para interagir com o Cumulus Linux.
-* O requisito de taxa de transmissão é definido como 115200 no switch de console serial para acesso ao console de switch NVIDIA SN2100, como segue:
+* Conhecimento intermediário de Linux.
+* Familiaridade com edição básica de texto, permissões de arquivos UNIX e monitoramento de processos.  Diversos editores de texto vêm pré-instalados, incluindo: `vi` e `nano` .
+* Acesso a um shell Linux ou UNIX.  Se você estiver usando o Windows, utilize um ambiente Linux como ferramenta de linha de comando para interagir com o Cumulus Linux.
+* A taxa de transmissão (baud rate) exigida no switch de console serial para acesso ao console do switch NVIDIA SN2100 é de 115200, conforme segue:
 +
 ** 115200 baud
 ** 8 bits de dados
-** 1 bit de paragem
+** 1 bit de parada
 ** paridade: nenhuma
-** controle de fluxo: nenhum
+** Controle de fluxo: nenhum
 
 
 
 
 .Sobre esta tarefa
-Tenha em atenção o seguinte:
+Esteja ciente do seguinte:
 
 
 NOTE: Cada vez que o Cumulus Linux é instalado, toda a estrutura do sistema de arquivos é apagada e reconstruída.
 
 
-CAUTION: A senha padrão para a conta de usuário do Cumulus é *Cumulus*. A primeira vez que você fizer login no Cumulus Linux, você deve alterar essa senha padrão. Certifique-se de atualizar quaisquer scripts de automação antes de instalar uma nova imagem. O Cumulus Linux fornece opções de linha de comando para alterar a senha padrão automaticamente durante o processo de instalação.
+CAUTION: A senha padrão para a conta de usuário cumulus é *cumulus*.  Na primeira vez que você fizer login no Cumulus Linux, você deverá alterar esta senha padrão.  Certifique-se de atualizar todos os scripts de automação antes de instalar uma nova imagem.  O Cumulus Linux oferece opções de linha de comando para alterar a senha padrão automaticamente durante o processo de instalação.
 
 .Passos
 [role="tabbed-block"]
 ====
 .Cumulus Linux 4.4.3
 --
-. Inicie sessão no interrutor.
+. Faça login no switch.
 +
-O login pela primeira vez no switch requer nome de usuário/senha do *Cumulus*/*Cumulus* com `sudo` o Privileges.
+O primeiro acesso ao switch requer o nome de usuário/senha *cumulus*/*cumulus*. `sudo` privilégios.
 
 +
 [listing, subs="+quotes"]
@@ -62,7 +62,7 @@ Current password: *cumulus*
 New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
-. Verifique a versão Cumulus Linux: `net show system`
+. Verifique a versão do Cumulus Linux: `net show system`
 +
 [listing, subs="+quotes"]
 ----
@@ -84,14 +84,14 @@ ONIE Version..... 2019.11-5.2.0020-115200
 Base MAC Address. 04:3F:72:43:92:80
 Manufacturer..... Mellanox
 ----
-. Configure o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão. O novo nome de host só se torna efetivo após reiniciar a sessão console/SSH.
+. Configure o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão.  O novo nome de host só entra em vigor após reiniciar o console/sessão SSH.
 +
 
-NOTE: Um switch Cumulus Linux fornece pelo menos uma porta de gerenciamento Ethernet dedicada `eth0` chamada . Esta interface é especificamente para uso de gerenciamento fora da banda. Por padrão, a interface de gerenciamento usa DHCPv4 para endereçamento.
+NOTE: Um switch Cumulus Linux fornece pelo menos uma porta Ethernet dedicada para gerenciamento, chamada `eth0` .  Esta interface destina-se especificamente à gestão fora de banda.  Por padrão, a interface de gerenciamento usa DHCPv4 para endereçamento.
 
 +
 
-CAUTION: Não use um sublinhado (_), apóstrofo (') ou carateres não-ASCII no nome do host.
+CAUTION: Não utilize sublinhado (_), apóstrofo (') ou caracteres não ASCII no nome do host.
 
 +
 [listing, subs="+quotes"]
@@ -103,7 +103,7 @@ cumulus@cumulus:mgmt:~$ *net pending*
 cumulus@cumulus:mgmt:~$ *net commit*
 ----
 +
-Este comando modifica os `/etc/hostname` ficheiros e `/etc/hosts`.
+Este comando modifica ambos os `/etc/hostname` e `/etc/hosts` arquivos.
 
 . Confirme se o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão foram atualizados.
 +
@@ -126,7 +126,7 @@ unreachable default metric 4278198272
 10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
 127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
 ----
-. Defina a data, a hora, o fuso horário e o servidor NTP no switch.
+. Configure a data, a hora, o fuso horário e o servidor NTP no switch.
 +
 .. Verifique o fuso horário atual:
 +
@@ -134,13 +134,13 @@ unreachable default metric 4278198272
 ----
 cumulus@sw1:~$ *cat /etc/timezone*
 ----
-.. Atualizar para o novo fuso horário:
+.. Atualização para o novo fuso horário:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *sudo dpkg-reconfigure --frontend noninteractive tzdata*
 ----
-.. Verifique o fuso horário atual:
+.. Verifique seu fuso horário atual:
 +
 [listing, subs="+quotes"]
 ----
@@ -152,13 +152,13 @@ cumulus@switch:~$ *date +%Z*
 ----
 cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
 ----
-.. Defina o relógio do software de acordo com o fuso horário configurado:
+.. Configure o relógio do software de acordo com o fuso horário configurado:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@switch:~$ *sudo date -s "Tue Oct 28 00:37:13 2023"*
 ----
-.. Defina o valor atual do relógio do software para o relógio do hardware:
+.. Defina o valor atual do relógio do software para o valor do relógio do hardware:
 +
 [listing, subs="+quotes"]
 ----
@@ -179,7 +179,7 @@ cumulus@sw1:~$ *net commit*
 cumulus@sw1:~$ *ps -ef | grep ntp*
 ntp       4074     1  0 Jun20 ?        00:00:33 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 101:102
 ----
-.. Especifique a interface de origem NTP. Por padrão, a interface de origem que o NTP usa é `eth0`. Você pode configurar uma interface de origem NTP diferente da seguinte forma:
+.. Especifique a interface de origem NTP.  Por padrão, a interface de origem que o NTP utiliza é `eth0` .  Você pode configurar uma interface de origem NTP diferente da seguinte forma:
 +
 [listing, subs="+quotes"]
 ----
@@ -189,14 +189,14 @@ cumulus@sw1:~$ *net commit*
 ----
 
 
-. Instale o Cumulus Linux 4,4.3:
+. Instale o Cumulus Linux 4.4.3:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://_<web-server>/<path>_/cumulus-linux-4.4.3-mlx-amd64.bin*
 ----
 +
-O instalador inicia a transferência. Digite *y* quando solicitado.
+O instalador inicia o download. Digite *y* quando solicitado.
 
 . Reinicie o switch NVIDIA SN2100:
 +
@@ -204,16 +204,16 @@ O instalador inicia a transferência. Digite *y* quando solicitado.
 ----
 cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
-. A instalação é iniciada automaticamente e as seguintes opções de tela GRUB são exibidas. *Não* faça nenhuma seleção.
+. A instalação inicia automaticamente e as seguintes opções da tela GRUB são exibidas.  Não faça nenhuma seleção.
 +
 ** Cumulus-Linux GNU/Linux
-** ONIE: Instale os
-** CUMULUS-INSTALL
+** ONIE: Instalar SO
+** CUMULUS-INSTALAÇÃO
 ** Cumulus-Linux GNU/Linux
 
 
-. Repita os passos 1 a 4 para iniciar sessão.
-. Verifique se a versão Cumulus Linux é 4,4.3: `net show version`
+. Repita os passos de 1 a 4 para fazer login.
+. Verifique se a versão do Cumulus Linux é 4.4.3: `net show version`
 +
 [listing, subs="+quotes"]
 ----
@@ -223,7 +223,7 @@ DISTRIB_ID="Cumulus Linux"
 DISTRIB_RELEASE=*4.4.3*
 DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3"*
 ----
-. Crie um novo usuário e adicione esse usuário ao `sudo` grupo. Este usuário só se torna efetivo após a sessão console/SSH ser reiniciada.
+. Crie um novo usuário e adicione-o ao `sudo` grupo.  Este usuário só entra em vigor após a reinicialização da sessão de console/SSH.
 +
 `sudo adduser --ingroup netedit admin`
 
@@ -273,9 +273,9 @@ admin@sw1:mgmt:~$
 --
 .Cumulus Linux 5.4.0
 --
-. Inicie sessão no interrutor.
+. Faça login no switch.
 +
-O login pela primeira vez no switch requer nome de usuário/senha do *Cumulus*/*Cumulus* com `sudo` o Privileges.
+O primeiro acesso ao switch requer o nome de usuário/senha *cumulus*/*cumulus*. `sudo` privilégios.
 
 +
 [listing, subs="+quotes"]
@@ -288,7 +288,7 @@ Current password: *cumulus*
 New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
-. Verifique a versão Cumulus Linux: `nv show system`
+. Verifique a versão do Cumulus Linux: `nv show system`
 +
 [listing, subs="+quotes"]
 ----
@@ -300,14 +300,14 @@ build               Cumulus Linux 5.3.0  system build version
 uptime              6 days, 8:37:36      system uptime
 timezone            Etc/UTC              system time zone
 ----
-. Configure o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão. O novo nome de host só se torna efetivo após reiniciar a sessão console/SSH.
+. Configure o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão.  O novo nome de host só entra em vigor após reiniciar o console/sessão SSH.
 +
 
-NOTE: Um switch Cumulus Linux fornece pelo menos uma porta de gerenciamento Ethernet dedicada `eth0` chamada . Esta interface é especificamente para uso de gerenciamento fora da banda. Por padrão, a interface de gerenciamento usa DHCPv4 para endereçamento.
+NOTE: Um switch Cumulus Linux fornece pelo menos uma porta Ethernet dedicada para gerenciamento, chamada `eth0` .  Esta interface destina-se especificamente à gestão fora de banda.  Por padrão, a interface de gerenciamento usa DHCPv4 para endereçamento.
 
 +
 
-CAUTION: Não use um sublinhado (_), apóstrofo (') ou carateres não-ASCII no nome do host.
+CAUTION: Não utilize sublinhado (_), apóstrofo (') ou caracteres não ASCII no nome do host.
 
 +
 [listing, subs="+quotes"]
@@ -319,7 +319,7 @@ cumulus@cumulus:mgmt:~$ *nv config apply*
 cumulus@cumulus:mgmt:~$ *nv config save*
 ----
 +
-Este comando modifica os `/etc/hostname` ficheiros e `/etc/hosts`.
+Este comando modifica ambos os `/etc/hostname` e `/etc/hosts` arquivos.
 
 . Confirme se o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão foram atualizados.
 +
@@ -342,7 +342,7 @@ unreachable default metric 4278198272
 10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
 127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
 ----
-. Defina o fuso horário, a data, a hora e o servidor NTP no switch.
+. Configure o fuso horário, a data, a hora e o servidor NTP no switch.
 +
 .. Defina o fuso horário:
 +
@@ -351,7 +351,7 @@ unreachable default metric 4278198272
 cumulus@sw1:~$ *nv set system timezone US/Eastern*
 cumulus@sw1:~$ *nv config apply*
 ----
-.. Verifique o fuso horário atual:
+.. Verifique seu fuso horário atual:
 +
 [listing, subs="+quotes"]
 ----
@@ -363,13 +363,13 @@ cumulus@switch:~$ *date +%Z*
 ----
 cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
 ----
-.. Defina o relógio do software de acordo com o fuso horário configurado:
+.. Configure o relógio do software de acordo com o fuso horário configurado:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *sudo date -s "Tue Oct 28 00:37:13 2023"*
 ----
-.. Defina o valor atual do relógio do software para o relógio do hardware:
+.. Defina o valor atual do relógio do software para o valor do relógio do hardware:
 +
 [listing, subs="+quotes"]
 ----
@@ -385,7 +385,7 @@ cumulus@sw1:~$ *nv config apply*
 cumulus@sw1:~$ *nv config save*
 ----
 +
-Veja o artigo da Base de Conhecimento link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["A configuração do servidor NTP não está funcionando com os switches NVIDIA SN2100"^] para mais detalhes.
+Consulte o artigo da Base de Conhecimento.link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["A configuração do servidor NTP não está funcionando com switches NVIDIA SN2100."^] Para obter mais detalhes.
 
 .. Verifique se `ntpd` está em execução no sistema:
 +
@@ -394,7 +394,7 @@ Veja o artigo da Base de Conhecimento link:https://kb.netapp.com/on-prem/Switche
 cumulus@sw1:~$ *ps -ef | grep ntp*
 ntp       4074     1  0 Jun20 ?        00:00:33 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 101:102
 ----
-.. Especifique a interface de origem NTP. Por padrão, a interface de origem que o NTP usa é `eth0`. Você pode configurar uma interface de origem NTP diferente da seguinte forma:
+.. Especifique a interface de origem NTP.  Por padrão, a interface de origem que o NTP utiliza é `eth0` .  Você pode configurar uma interface de origem NTP diferente da seguinte forma:
 +
 [listing, subs="+quotes"]
 ----
@@ -403,14 +403,14 @@ cumulus@sw1:~$ *nv config apply*
 ----
 
 
-. Instale o Cumulus Linux 5,4.0:
+. Instale o Cumulus Linux 5.4.0:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://_<web-server>/<path>_/cumulus-linux-5.4-mlx-amd64.bin*
 ----
 +
-O instalador inicia a transferência. Digite *y* quando solicitado.
+O instalador inicia o download. Digite *y* quando solicitado.
 
 . Reinicie o switch NVIDIA SN2100:
 +
@@ -418,16 +418,16 @@ O instalador inicia a transferência. Digite *y* quando solicitado.
 ----
 cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
-. A instalação é iniciada automaticamente e as seguintes opções de tela GRUB são exibidas. *Não* faça nenhuma seleção.
+. A instalação inicia automaticamente e as seguintes opções da tela GRUB são exibidas.  Não faça nenhuma seleção.
 +
 ** Cumulus-Linux GNU/Linux
-** ONIE: Instale os
-** CUMULUS-INSTALL
+** ONIE: Instalar SO
+** CUMULUS-INSTALAÇÃO
 ** Cumulus-Linux GNU/Linux
 
 
-. Repita os passos 1 a 4 para iniciar sessão.
-. Verifique se a versão Cumulus Linux é 5,4.0: `nv show system`
+. Repita os passos de 1 a 4 para fazer login.
+. Verifique se a versão do Cumulus Linux é 5.4.0: `nv show system`
 +
 [listing, subs="+quotes"]
 ----
@@ -439,7 +439,7 @@ build               Cumulus Linux 5.4.0  system build version
 uptime              6 days, 13:37:36     system uptime
 timezone            Etc/UTC              system time zone
 ----
-. Verifique se os nós têm uma conexão com cada switch:
+. Verifique se cada nó possui conexão com cada switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -452,7 +452,7 @@ swp2s1     25G    Trunk/L2    node1                               e0a
 swp15      100G   BondMember  sw2                                 swp15
 swp16      100G   BondMember  sw2                                 swp16
 ----
-. Crie um novo usuário e adicione esse usuário ao `sudo` grupo. Este usuário só se torna efetivo após a sessão console/SSH ser reiniciada.
+. Crie um novo usuário e adicione-o ao `sudo` grupo.  Este usuário só entra em vigor após a reinicialização da sessão de console/SSH.
 +
 `sudo adduser --ingroup netedit admin`
 
@@ -497,7 +497,7 @@ http://www.cumulusnetworks.com/support
 The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
 admin@sw1:mgmt:~$
 ----
-. Adicione grupos de usuários adicionais para que o usuário admin acesse `nv` comandos:
+. Adicione grupos de usuários adicionais para o usuário administrador acessar. `nv` comandos:
 +
 [listing, subs="+quotes"]
 ----
@@ -508,16 +508,16 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Consulte https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Contas de usuário do NVIDIA"^] para obter mais informações.
+Ver https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Contas de usuário NVIDIA"^] para mais informações.
 
 
 
 --
 .Cumulus Linux 5.11.0
 --
-. Inicie sessão no interrutor.
+. Faça login no switch.
 +
-Quando você faz login no switch pela primeira vez, ele requer o nome de usuário/senha do *Cumulus*/*Cumulus* com `sudo` o Privileges.
+Ao fazer login no switch pela primeira vez, é necessário inserir o nome de usuário e a senha *cumulus*/*cumulus*. `sudo` privilégios.
 
 +
 [listing, subs="+quotes"]
@@ -530,7 +530,7 @@ Current password: *cumulus*
 New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
-. Verifique a versão Cumulus Linux: `nv show system`
+. Verifique a versão do Cumulus Linux: `nv show system`
 +
 [listing, subs="+quotes"]
 ----
@@ -542,14 +542,14 @@ build               Cumulus Linux 5.4.0  system build version
 uptime              6 days, 8:37:36      system uptime
 timezone            Etc/UTC              system time zone
 ----
-. Configure o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão. O novo nome de host só se torna efetivo após reiniciar a sessão console/SSH.
+. Configure o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão.  O novo nome de host só entra em vigor após reiniciar o console/sessão SSH.
 +
 
-NOTE: Um switch Cumulus Linux fornece pelo menos uma porta de gerenciamento Ethernet dedicada `eth0` chamada . Esta interface é especificamente para uso de gerenciamento fora da banda. Por padrão, a interface de gerenciamento usa DHCPv4 para endereçamento.
+NOTE: Um switch Cumulus Linux fornece pelo menos uma porta Ethernet dedicada para gerenciamento, chamada `eth0` .  Esta interface destina-se especificamente à gestão fora de banda.  Por padrão, a interface de gerenciamento usa DHCPv4 para endereçamento.
 
 +
 
-CAUTION: Não use um sublinhado (_), apóstrofo (') ou carateres não-ASCII no nome do host.
+CAUTION: Não utilize sublinhado (_), apóstrofo (') ou caracteres não ASCII no nome do host.
 
 +
 [listing, subs="+quotes"]
@@ -561,7 +561,7 @@ cumulus@cumulus:mgmt:~$ *nv config apply*
 cumulus@cumulus:mgmt:~$ *nv config save*
 ----
 +
-Este comando modifica os `/etc/hostname` ficheiros e `/etc/hosts`.
+Este comando modifica ambos os `/etc/hostname` e `/etc/hosts` arquivos.
 
 . Confirme se o nome do host, o endereço IP, a máscara de sub-rede e o gateway padrão foram atualizados.
 +
@@ -584,7 +584,7 @@ unreachable default metric 4278198272
 10.233.204.0/23 dev eth0 proto kernel scope link src 10.233.204.71
 127.0.0.0/8 dev mgmt proto kernel scope link src 127.0.0.1
 ----
-. Defina o fuso horário, a data, a hora e o servidor NTP no switch.
+. Configure o fuso horário, a data, a hora e o servidor NTP no switch.
 +
 .. Defina o fuso horário:
 +
@@ -593,7 +593,7 @@ unreachable default metric 4278198272
 cumulus@sw1:~$ *nv set system timezone US/Eastern*
 cumulus@sw1:~$ *nv config apply*
 ----
-.. Verifique o fuso horário atual:
+.. Verifique seu fuso horário atual:
 +
 [listing, subs="+quotes"]
 ----
@@ -605,13 +605,13 @@ cumulus@switch:~$ *date +%Z*
 ----
 cumulus@sw1:~$ *sudo dpkg-reconfigure tzdata*
 ----
-.. Defina o relógio do software de acordo com o fuso horário configurado:
+.. Configure o relógio do software de acordo com o fuso horário configurado:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *sudo date -s "Tue Oct 28 00:37:13 2023"*
 ----
-.. Defina o valor atual do relógio do software para o relógio do hardware:
+.. Defina o valor atual do relógio do software para o valor do relógio do hardware:
 +
 [listing, subs="+quotes"]
 ----
@@ -627,7 +627,7 @@ cumulus@sw1:~$ *nv config apply*
 cumulus@sw1:~$ *nv config save*
 ----
 +
-Veja o artigo da Base de Conhecimento link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["A configuração do servidor NTP não está funcionando com os switches NVIDIA SN2100"^] para mais detalhes.
+Consulte o artigo da Base de Conhecimento.link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["A configuração do servidor NTP não está funcionando com switches NVIDIA SN2100."^] Para obter mais detalhes.
 
 .. Verifique se `ntpd` está em execução no sistema:
 +
@@ -636,7 +636,7 @@ Veja o artigo da Base de Conhecimento link:https://kb.netapp.com/on-prem/Switche
 cumulus@sw1:~$ *ps -ef | grep ntp*
 ntp       4074     1  0 Jun20 ?        00:00:33 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 101:102
 ----
-.. Especifique a interface de origem NTP. Por padrão, a interface de origem que o NTP usa é `eth0`. Você pode configurar uma interface de origem NTP diferente da seguinte forma:
+.. Especifique a interface de origem NTP.  Por padrão, a interface de origem que o NTP utiliza é `eth0` .  Você pode configurar uma interface de origem NTP diferente da seguinte forma:
 +
 [listing, subs="+quotes"]
 ----
@@ -645,14 +645,14 @@ cumulus@sw1:~$ *nv config apply*
 ----
 
 
-. Instale o Cumulus Linux 5,11.0:
+. Instale o Cumulus Linux 5.11.0:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://_<web-server>/<path>_/cumulus-linux-5.11.0-mlx-amd64.bin*
 ----
 +
-O instalador inicia a transferência. Digite *y* quando solicitado.
+O instalador inicia o download. Digite *y* quando solicitado.
 
 . Reinicie o switch NVIDIA SN2100:
 +
@@ -660,16 +660,16 @@ O instalador inicia a transferência. Digite *y* quando solicitado.
 ----
 cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
-. A instalação é iniciada automaticamente e as seguintes opções de tela GRUB são exibidas. *Não* faça nenhuma seleção.
+. A instalação inicia automaticamente e as seguintes opções da tela GRUB são exibidas.  Não faça nenhuma seleção.
 +
 ** Cumulus-Linux GNU/Linux
-** ONIE: Instale os
-** CUMULUS-INSTALL
+** ONIE: Instalar SO
+** CUMULUS-INSTALAÇÃO
 ** Cumulus-Linux GNU/Linux
 
 
-. Repita os passos 1 a 4 para iniciar sessão.
-. Verifique se a versão Cumulus Linux é 5,11.0:
+. Repita os passos de 1 a 4 para fazer login.
+. Verifique se a versão do Cumulus Linux é 5.11.0:
 +
 `nv show system`
 
@@ -700,7 +700,7 @@ version
   image             5.11.0
   onie              2019.11-5.2.0020-115200
 ----
-. Verifique se cada nó tem uma conexão com cada switch:
+. Verifique se cada nó possui conexão com cada switch:
 +
 [listing, subs="+quotes"]
 ----
@@ -718,9 +718,9 @@ swp16      100G   swp   sw6                                       swp16
 ----
 
 
-Consulte https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Contas de usuário do NVIDIA"^] para obter mais informações.
+Ver https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Contas de usuário NVIDIA"^] para mais informações.
 
 --
 ====
-.O que se segue?
+.O que vem a seguir?
 Depois de instalar o Cumulus Linux no modo Cumulus, você link:install-rcf-sn2100-cluster.html["Instale o script do Arquivo de Configuração de Referência (RCF)."].

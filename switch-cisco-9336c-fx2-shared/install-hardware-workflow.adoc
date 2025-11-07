@@ -15,12 +15,12 @@ Para instalar e configurar o hardware de um switch compartilhado 9336C-FX2, siga
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:cable-9336c-shared.html["Preencha a planilha de cabeamento"]
 [role="quick-margin-para"]
-A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
+A planilha de cabeamento de exemplo fornece exemplos de atribuições de portas recomendadas dos switches aos controladores.  A planilha em branco fornece um modelo que você pode usar para configurar seu cluster.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:install-9336c-shared.html["Instale o interrutor"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:install-9336c-shared.html["Instale o interruptor"]
 [role="quick-margin-para"]
 Instale o switch 9336C-FX2.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-switch-and-passthrough-panel-9336c-shared.html["Instale o interrutor em um gabinete NetApp"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-switch-and-passthrough-panel-9336c-shared.html["Instale o switch em um gabinete NetApp ."]
 [role="quick-margin-para"]
 Instale o switch 9336C-FX2 e o painel de passagem em um gabinete NetApp , conforme necessário.

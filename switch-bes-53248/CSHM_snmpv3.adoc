@@ -11,23 +11,23 @@ summary: 'O SNMPv3 pode ser usado com o monitor de integridade do switch Etherne
 
 
 [role="lead"]
-Siga este procedimento para configurar o SNMPv3, que suporta monitoramento de integridade do switch Ethernet (CSHM).
+Siga este procedimento para configurar o SNMPv3, que oferece suporte ao monitoramento de integridade de switches Ethernet (CSHM).
 
 .Sobre esta tarefa
 Os comandos a seguir configuram um nome de usuário SNMPv3 em switches Broadcom BES-53248:
 
-* Para *sem autenticação*:
+* Para *nenhuma autenticação*:
 `snmp-server user SNMPv3UserNoAuth NETWORK-OPERATOR noauth`
-* Para *MD5/SHA autenticação*:
+* Para autenticação *MD5/SHA*:
 `snmp-server user SNMPv3UserAuth NETWORK-OPERATOR [auth-md5|auth-sha]`
 * Para autenticação *MD5/SHA com criptografia AES/DES*:
 `snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [priv-aes128|priv-des]`
 
 
-O seguinte comando configura um nome de usuário SNMPv3 no lado ONTAP:
+O comando a seguir configura um nome de usuário SNMPv3 no lado do ONTAP :
 `cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
 
-O seguinte comando estabelece o nome de usuário SNMPv3 com CSHM:
+O comando a seguir estabelece o nome de usuário SNMPv3 com o CSHM:
 `cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
 .Passos
@@ -51,7 +51,7 @@ O seguinte comando estabelece o nome de usuário SNMPv3 com CSHM:
 <username>        network-admin      MD5  AES128 8000113d03d8c497710bee
 ----
 ====
-. Configure o usuário SNMPv3 no lado ONTAP:
+. Configure o usuário SNMPv3 no lado do ONTAP :
 +
 `security login create -user-or-group-name <username> -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212`
 
@@ -109,7 +109,7 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
 ----
 ====
-. Verifique se o número de série a ser consultado com o usuário SNMPv3 recém-criado é o mesmo que detalhado na etapa anterior após o período de polling CSHM ter sido concluído.
+. Verifique se o número de série a ser consultado com o usuário SNMPv3 recém-criado é o mesmo detalhado na etapa anterior, após a conclusão do período de pesquisa CSHM.
 +
 `system switch ethernet polling-interval show`
 

@@ -2,60 +2,60 @@
 permalink: switch-netapp-cn1610/replace-cn1610-switch.html 
 sidebar: sidebar 
 keywords: replace, netapp cn1610, cluster switch 
-summary: Você pode substituir sem interrupções um switch de cluster NetApp CN1610 com defeito executando uma sequência específica de tarefas. 
+summary: É possível substituir um switch de cluster NetApp CN1610 defeituoso sem interromper o funcionamento do sistema, executando uma sequência específica de tarefas. 
 ---
-= Substitua um interrutor do cluster do NetApp CN1610
+= Substitua um switch de cluster NetApp CN1610
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estas etapas para substituir um switch NetApp CN1610 defeituoso em uma rede de cluster. Este é um procedimento sem interrupções (NDU).
+Siga estes passos para substituir um switch NetApp CN1610 defeituoso em uma rede cluster.  Este é um procedimento não disruptivo (NDU).
 
 
 
-== Rever os requisitos
+== Requisitos de revisão
 
 .Antes de começar
-Antes de realizar a substituição do switch, as condições a seguir devem existir antes de executar a substituição do switch no ambiente atual e no switch de substituição para o cluster existente e a infraestrutura de rede:
+Antes de efetuar a substituição do switch, as seguintes condições devem ser atendidas no ambiente atual e no switch de substituição, considerando a infraestrutura de cluster e rede existente:
 
-* O cluster existente deve ser verificado como completamente funcional, com pelo menos um switch de cluster totalmente conetado.
-* Todas as portas do cluster devem ser *up*.
-* Todas as interfaces lógicas de cluster (LIFs) devem estar ativas e não devem ter sido migradas.
-* O comando ONTAP cluster `ping-cluster -node node1` deve indicar que a conetividade básica e a comunicação maior do que a PMTU são bem-sucedidas em todos os caminhos.
-
-
-
-
-== Ativar o registo da consola
-
-O NetApp recomenda fortemente que você ative o log do console nos dispositivos que você está usando e execute as seguintes ações ao substituir o switch:
-
-* Deixe o AutoSupport ativado durante a manutenção.
-* Acione um AutoSupport de manutenção antes e depois da manutenção para desativar a criação de casos durante a manutenção. Consulte este artigo da base de dados de Conhecimento https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Como suprimir a criação automática de casos durante as janelas de manutenção programada"^] para obter mais detalhes.
-* Ativar o registo de sessão para quaisquer sessões CLI. Para obter instruções sobre como ativar o registo de sessão, consulte a secção "saída de sessão de registo" neste artigo da base de dados de conhecimento https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Como configurar o PuTTY para uma conetividade ideal aos sistemas ONTAP"^] .
+* O cluster existente deve ser verificado como totalmente funcional, com pelo menos um switch de cluster totalmente conectado.
+* Todas as portas do cluster devem estar *ativas*.
+* Todas as interfaces lógicas do cluster (LIFs) devem estar ativas e não devem ter sido migradas.
+* O cluster ONTAP `ping-cluster -node node1` O comando deve indicar que a conectividade básica e a comunicação com dispositivos maiores que PMTU estão funcionando corretamente em todos os caminhos.
 
 
 
 
-== Substitua o interrutor
+== Ativar registro no console
+
+A NetApp recomenda enfaticamente que você habilite o registro de console nos dispositivos que estiver usando e execute as seguintes ações ao substituir seu switch:
+
+* Mantenha o AutoSupport ativado durante a manutenção.
+* Acione um AutoSupport de manutenção antes e depois da manutenção para desativar a criação de chamados durante o período de manutenção.  Consulte este artigo da Base de Conhecimento. https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Como suprimir a criação automática de chamados durante janelas de manutenção programadas"^] Para obter mais detalhes.
+* Ative o registro de sessões para todas as sessões da CLI.  Para obter instruções sobre como ativar o registro de sessão, consulte a seção "Registro de saída da sessão" neste artigo da Base de Conhecimento. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Como configurar o PuTTY para obter conectividade ideal com sistemas ONTAP"^] .
+
+
+
+
+== Substitua o interruptor
 
 .Sobre esta tarefa
-Você deve executar o comando para migração de um cluster LIF do nó onde o cluster LIF está hospedado.
+Você deve executar o comando para migrar um LIF de cluster a partir do nó onde o LIF de cluster está hospedado.
 
-Os exemplos deste procedimento utilizam a seguinte nomenclatura de nó e switch de cluster:
+Os exemplos neste procedimento utilizam a seguinte nomenclatura de comutador de cluster e nó:
 
-* Os nomes dos dois switches de cluster CN1610 são `cs1` e `cs2`.
-* O nome do interrutor CN1610 que deve ser substituído (o interrutor com defeito) é `old_cs1`.
-* O nome do novo interrutor CN1610 (o interrutor de substituição) é `new_cs1`.
-* O nome do switch parceiro que não está sendo substituído é `cs2`.
+* Os nomes dos dois switches de cluster CN1610 são `cs1` e `cs2` .
+* O nome do interruptor CN1610 que deve ser substituído (o interruptor defeituoso) é `old_cs1` .
+* O nome do novo switch CN1610 (o switch de substituição) é `new_cs1` .
+* O nome do switch parceiro que não está sendo substituído é `cs2` .
 
 
 .Passos
-. Confirme se o arquivo de configuração de inicialização corresponde ao arquivo de configuração em execução. Você deve salvar esses arquivos localmente para uso durante a substituição.
+. Confirme se o arquivo de configuração de inicialização corresponde ao arquivo de configuração em execução.  Você deve salvar esses arquivos localmente para uso durante a substituição.
 +
-Os comandos de configuração no exemplo a seguir são para FASTPATH 1,2.0,7:
+Os comandos de configuração no exemplo a seguir são para o FASTPATH 1.2.0.7:
 
 +
 .Mostrar exemplo
@@ -70,7 +70,7 @@ Os comandos de configuração no exemplo a seguir são para FASTPATH 1,2.0,7:
 ====
 . Crie uma cópia do arquivo de configuração em execução.
 +
-O comando no exemplo a seguir é para FASTPATH 1,2.0,7:
+O comando no exemplo a seguir é para o FASTPATH 1.2.0.7:
 
 +
 .Mostrar exemplo
@@ -85,9 +85,9 @@ Config script created successfully.
 
 
 
-NOTE: Você pode usar qualquer nome de arquivo, exceto `CN1610_CS_RCF_v1.2.scr`. O nome do ficheiro tem de ter a extensão *.scr*.
+NOTE: Você pode usar qualquer nome de arquivo, exceto `CN1610_CS_RCF_v1.2.scr` .  O nome do arquivo deve ter a extensão *.scr*.
 
-. [[step3]]Salve o arquivo de configuração em execução do switch para um host externo em preparação para a substituição.
+. [[passo 3]]Salve o arquivo de configuração em execução do switch em um host externo, preparando-o para a substituição.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -97,26 +97,26 @@ NOTE: Você pode usar qualquer nome de arquivo, exceto `CN1610_CS_RCF_v1.2.scr`.
 (old_cs1)# *copy nvram:script filename.scr scp://<Username>@<remote_IP_address>/path_to_file/filename.scr*
 ----
 ====
-. Verifique se as versões switch e ONTAP correspondem à matriz de compatibilidade. Consulte a https://mysupport.netapp.com/site/info/netapp-cluster-switch["Switches NetApp CN1601 e CN1610"^] página para obter detalhes.
-. No https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/downloads-tab["Página de transferências de software"^] site de suporte da NetApp, selecione switches de cluster NetApp para baixar as versões apropriadas de RCF e FASTPATH.
-. Configure um servidor TFTP (Trivial File Transfer Protocol) com o FASTPATH, RCF e o arquivo de configuração salvo `.scr` para uso com o novo switch.
-. Conete a porta serial (o conetor RJ-45 rotulado "IOIOI" no lado direito do switch) a um host disponível com emulação de terminal.
-. No host, defina as configurações de conexão do terminal serial:
+. Verifique se as versões do switch e do ONTAP correspondem na matriz de compatibilidade.  Veja o https://mysupport.netapp.com/site/info/netapp-cluster-switch["Switches NetApp CN1601 e CN1610"^] Para mais detalhes, consulte a página.
+. Do https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/downloads-tab["Página de Downloads de Software"^] No site de suporte da NetApp , selecione "NetApp Cluster Switches" para baixar as versões apropriadas do RCF e do FASTPATH.
+. Configure um servidor TFTP (Trivial File Transfer Protocol) com FASTPATH, RCF e configuração salva. `.scr` Arquivo para uso com o novo switch.
+. Conecte a porta serial (o conector RJ-45 identificado como “IOIOI” no lado direito do switch) a um host disponível com emulação de terminal.
+. No computador host, configure as opções de conexão do terminal serial:
 +
 .. 9600 baud
 .. 8 bits de dados
-.. 1 bit de paragem
+.. 1 bit de parada
 .. paridade: nenhuma
-.. controle de fluxo: nenhum
+.. Controle de fluxo: nenhum
 
 
-. Conete a porta de gerenciamento (a porta chave RJ-45 no lado esquerdo do switch) à mesma rede onde o servidor TFTP está localizado.
-. Prepare-se para se conetar à rede com o servidor TFTP.
+. Conecte a porta de gerenciamento (a porta RJ-45 com conector em forma de chave inglesa no lado esquerdo do switch) à mesma rede onde o seu servidor TFTP está localizado.
+. Prepare-se para conectar-se à rede com o servidor TFTP.
 +
-Se estiver a utilizar o DHCP (Dynamic Host Configuration Protocol), não terá de configurar um endereço IP para a central neste momento. A porta de serviço está definida para utilizar DHCP por predefinição. A porta de gerenciamento de rede está definida como nenhuma para as configurações de protocolo IPv4 e IPv6. Se a porta Wrench estiver conetada a uma rede que tenha um servidor DHCP, as configurações do servidor serão configuradas automaticamente.
+Se você estiver usando o Protocolo de Configuração Dinâmica de Hosts (DHCP), não precisa configurar um endereço IP para o switch neste momento.  A porta de serviço está configurada para usar DHCP por padrão.  A porta de gerenciamento de rede está definida como "nenhuma" nas configurações de protocolo IPv4 e IPv6.  Se a porta do seu dispositivo estiver conectada a uma rede que possui um servidor DHCP, as configurações do servidor serão configuradas automaticamente.
 
 +
-Para definir um endereço IP estático, você deve usar o protocolo de serviceport, o protocolo de rede e os comandos ip de serviceport.
+Para definir um endereço IP estático, você deve usar os comandos serviceport protocol, network protocol e serviceport ip.
 
 +
 .Mostrar exemplo
@@ -127,13 +127,13 @@ Para definir um endereço IP estático, você deve usar o protocolo de servicepo
 (new_cs1)# *serviceport ip <ipaddr> <netmask> <gateway>*
 ----
 ====
-. Opcionalmente, se o servidor TFTP estiver em um laptop, conete o switch CN1610 ao laptop usando um cabo Ethernet padrão e configure sua porta de rede na mesma rede com um endereço IP alternativo.
+. Opcionalmente, se o servidor TFTP estiver em um laptop, conecte o switch CN1610 ao laptop usando um cabo Ethernet padrão e, em seguida, configure sua porta de rede na mesma rede com um endereço IP alternativo.
 +
-Você pode usar o `ping` comando para verificar o endereço. Se você não conseguir estabelecer a conetividade, use uma rede não roteada e configure a porta de serviço usando IP 192,168.x ou 172,16.x. Você pode reconfigurar a porta de serviço para o endereço IP de gerenciamento de produção em uma data posterior.
+Você pode usar o `ping` comando para verificar o endereço.  Caso não consiga estabelecer a conectividade, utilize uma rede não roteada e configure a porta de serviço usando o endereço IP 192.168.x ou 172.16.x.  Você poderá reconfigurar a porta de serviço para o endereço IP de gerenciamento de produção posteriormente.
 
-. Opcionalmente, verifique e instale as versões apropriadas do software RCF e FASTPATH para o novo switch. Se você verificou que o novo switch está corretamente configurado e não requer atualizações para o software RCF e FASTPATH, você deve ir para a etapa 13.
+. Opcionalmente, verifique e instale as versões apropriadas dos softwares RCF e FASTPATH para o novo switch.  Se você verificou que o novo switch está configurado corretamente e não requer atualizações do software RCF e FASTPATH, você deve ir para a etapa 13.
 +
-.. Verifique as novas definições do interrutor.
+.. Verifique as novas configurações do interruptor.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -144,7 +144,7 @@ Você pode usar o `ping` comando para verificar o endereço. Se você não conse
 (new_cs1)# *show version*
 ----
 ====
-.. Transfira o RCF para o novo interrutor.
+.. Faça o download do RCF para o novo switch.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -173,7 +173,7 @@ Configuration script validated.
 File transfer operation completed successfully.
 ----
 ====
-.. Verifique se o RCF foi transferido para o comutador.
+.. Verifique se o arquivo RCF foi baixado para o switch.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -193,7 +193,7 @@ latest_config.scr                 2356
 ====
 
 
-. Aplique o RCF no interrutor CN1610.
+. Aplique o RCF ao interruptor CN1610.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -230,7 +230,7 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-.. Transfira a imagem para o interrutor CN1610.
+.. Faça o download da imagem para o switch CN1610.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -256,7 +256,7 @@ File transfer operation completed successfully.
 ====
 .. Execute a nova imagem de inicialização ativa reiniciando o switch.
 +
-O switch deve ser reinicializado para o comando no passo 6 para refletir a nova imagem. Há duas visualizações possíveis para uma resposta que você pode ver depois de digitar o comando reload.
+O switch precisa ser reinicializado para que o comando na etapa 6 reflita a nova imagem.  Existem duas possíveis visualizações para a resposta que você poderá ver após inserir o comando de recarregamento.
 
 +
 .Mostrar exemplo
@@ -289,7 +289,7 @@ User:admin Password: (new_cs1) >*enable*
 (new_cs1)# *copy tftp://<server_ip_address>/<filename>.scr nvram:script <filename>.scr*
 ----
 ====
-.. Aplique a configuração guardada anteriormente ao novo interrutor.
+.. Aplique a configuração previamente salva ao novo switch.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -319,18 +319,18 @@ Configuration Saved!
 ====
 
 
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 +
-_x_ é a duração da janela de manutenção em horas.
+_x_ representa a duração da janela de manutenção em horas.
 
 +
 [NOTE]
 ====
-A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+A mensagem do AutoSupport notifica o suporte técnico sobre essa tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
 ====
-. No novo switch new_CS1, faça login como usuário admin e encerre todas as portas que estão conetadas às interfaces do cluster de nós (portas 1 a 12).
+. No novo switch new_cs1, faça login como usuário administrador e desligue todas as portas conectadas às interfaces do cluster de nós (portas de 1 a 12).
 +
 .Mostrar exemplo
 [%collapsible]
@@ -348,9 +348,9 @@ Password:
 (new_cs1)# *write memory*
 ----
 ====
-. Migre as LIFs de cluster das portas que estão conetadas ao switch Old_CS1.
+. Migre as LIFs do cluster das portas que estão conectadas ao switch old_cs1.
 +
-É necessário migrar cada LIF de cluster a partir da interface de gerenciamento do nó atual.
+Você deve migrar cada LIF do cluster a partir da interface de gerenciamento do nó atual.
 
 +
 .Mostrar exemplo
@@ -362,7 +362,7 @@ cluster::> *set -privilege advanced*
 cluster::> *network interface migrate -vserver <vserver_name> -lif <Cluster_LIF_to_be_moved> - sourcenode <current_node> -dest-node <current_node> -dest-port <cluster_port_that_is_UP>*
 ----
 ====
-. Verifique se todas as LIFs de cluster foram movidas para a porta de cluster apropriada em cada nó.
+. Verifique se todas as LIFs do cluster foram movidas para a porta de cluster apropriada em cada nó.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -372,7 +372,7 @@ cluster::> *network interface migrate -vserver <vserver_name> -lif <Cluster_LIF_
 cluster::> *network interface show -role cluster*
 ----
 ====
-. Encerre as portas do cluster que estão conetadas ao switch que você substituiu.
+. Desligue as portas do cluster que estão conectadas ao switch que você substituiu.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -392,7 +392,7 @@ cluster::*> *network port modify -node <node_name> -port <port_to_admin_down> -u
 cluster::*> *cluster show*
 ----
 ====
-. Verifique se as portas estão inativas.
+. Verifique se as portas estão desativadas.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -402,7 +402,7 @@ cluster::*> *cluster show*
 cluster::*> *cluster ping-cluster -node <node_name>*
 ----
 ====
-. No interrutor CS2, desligue as portas ISL 13 a 16.
+. No switch CS2, desative as portas ISL de 13 a 16.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -415,9 +415,9 @@ cluster::*> *cluster ping-cluster -node <node_name>*
 (cs2)# *show port-channel 3/1*
 ----
 ====
-. Verifique se o administrador de armazenamento está pronto para a substituição do switch.
-. Remova todos os cabos do switch old_CS1 e conete os cabos às mesmas portas do switch new_CS1.
-. No switch CS2, abra as portas ISL 13 a 16.
+. Verifique se o administrador de armazenamento está preparado para a substituição do switch.
+. Remova todos os cabos do switch antigo (old_cs1) e, em seguida, conecte os cabos às mesmas portas no switch novo (new_cs1).
+. No switch CS2, ative as portas ISL de 13 a 16.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -429,7 +429,7 @@ cluster::*> *cluster ping-cluster -node <node_name>*
 (cs2)(interface 0/13-0/16)# *no shutdown*
 ----
 ====
-. Abra as portas no novo switch que estão associadas aos nós de cluster.
+. Ative as portas no novo switch que estão associadas aos nós do cluster.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -441,7 +441,7 @@ cluster::*> *cluster ping-cluster -node <node_name>*
 (new_cs1)(interface 0/13-0/16)# *no shutdown*
 ----
 ====
-. Em um único nó, abra a porta do nó do cluster que está conetada ao switch substituído e confirme se o link está ativo.
+. Em um único nó, ative a porta do nó do cluster que está conectada ao switch substituído e, em seguida, confirme se o link está ativo.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -452,9 +452,9 @@ cluster::*> *network port modify -node node1 -port <port_to_be_onlined> -up-admi
 cluster::*> *network port show -role cluster*
 ----
 ====
-. Reverta as LIFs de cluster associadas à porta na etapa 25 no mesmo nó.
+. Reverta as LIFs do cluster associadas à porta na etapa 25 no mesmo nó.
 +
-Neste exemplo, os LIFs no node1 são revertidos com sucesso se a coluna "está em Casa" for verdadeira.
+Neste exemplo, as LIFs no nó 1 são revertidas com sucesso se a coluna “É Residência” for verdadeira.
 
 +
 .Mostrar exemplo
@@ -466,8 +466,8 @@ cluster::*> *network interface revert -vserver node1 -lif <cluster_lif_to_be_rev
 cluster::*> *network interface show -role cluster*
 ----
 ====
-. Se o LIF do cluster do primeiro nó estiver ativo e for revertido para sua porta inicial, repita as etapas 25 e 26 para abrir as portas do cluster e reverter as LIFs do cluster nos outros nós do cluster.
-. Exibir informações sobre os nós no cluster.
+. Se a LIF do cluster do primeiro nó estiver ativa e revertida para sua porta inicial, repita os passos 25 e 26 para ativar as portas do cluster e reverter as LIFs do cluster nos outros nós do cluster.
+. Exibir informações sobre os nós do cluster.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -477,7 +477,7 @@ cluster::*> *network interface show -role cluster*
 cluster::*> *cluster show*
 ----
 ====
-. Confirme se o arquivo de configuração de inicialização e o arquivo de configuração em execução estão corretos no switch substituído. Este arquivo de configuração deve corresponder à saída no passo 1.
+. Confirme se o arquivo de configuração de inicialização e o arquivo de configuração em execução estão corretos no switch substituído.  Este arquivo de configuração deve corresponder à saída da etapa 1.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -489,7 +489,7 @@ cluster::*> *cluster show*
 (new_cs1)# *show startup-config*
 ----
 ====
-. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

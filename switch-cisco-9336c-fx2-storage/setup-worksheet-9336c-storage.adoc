@@ -2,454 +2,454 @@
 permalink: switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html 
 sidebar: sidebar 
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
-summary: Se você quiser documentar as plataformas suportadas, você deve preencher a Planilha de cabeamento em branco usando a Planilha de cabeamento de amostra concluída como um guia. 
+summary: Se você deseja documentar as plataformas suportadas, deve preencher a planilha de cabeamento em branco usando a planilha de cabeamento de exemplo preenchida como guia. 
 ---
-= Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.
+= Preencha a planilha de cabeamento do Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você quiser documentar as plataformas suportadas, baixe um PDF desta página e complete a Planilha de cabeamento.
+Se você deseja documentar as plataformas suportadas, baixe o PDF desta página e preencha a planilha de cabeamento.
 
-A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
+A planilha de cabeamento de exemplo fornece exemplos de atribuições de portas recomendadas dos switches aos controladores.  A planilha em branco fornece um modelo que você pode usar para configurar seu cluster.
 
-* <<Planilha de cabeamento de amostra 9336C-FX2>>
-* <<Folha de cálculo de cabeamento em branco 9336C-FX2>>
-* <<Folha de cálculo de cabeamento de amostra 9336C-FX2BASE-T (12 portas)>>
-* <<Folha de cálculo de cabeamento em branco 9336C-FX2BASE-T (12 portas)>>
-
-
+* <<Folha de exercícios de cabeamento de amostra 9336C-FX2>>
+* <<Folha de trabalho de cabeamento em branco 9336C-FX2>>
+* <<Folha de exemplo de cabeamento 9336C-FX2-T (12 portas)>>
+* <<Folha de trabalho de cabeamento em branco 9336C-FX2-T (12 portas)>>
 
 
-== Planilha de cabeamento de amostra 9336C-FX2
 
-A definição de porta de amostra em cada par de switches é a seguinte:
+
+== Folha de exercícios de cabeamento de amostra 9336C-FX2
+
+A definição da porta de exemplo em cada par de switches é a seguinte:
 
 [cols="1,3,1,3"]
 |===
-2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+2+| Chave seletora de cluster A 2+| Chave seletora de cluster B 
 
 
-| Porta do switch | Uso de nó e porta | Porta do switch | Uso de nó e porta 
+| Porta de comutação | Utilização de nós e portas | Porta de comutação | Utilização de nós e portas 
 
 
  a| 
 1
  a| 
-4x100GbE nó 1
+Nó 1 com 4 conexões 100GbE
  a| 
 1
  a| 
-4x100GbE nó 1
+Nó 1 com 4 conexões 100GbE
 
 
 
  a| 
 2
  a| 
-4x100GbE nó 2
+Nó 2 com 4 conexões 100GbE
  a| 
 2
  a| 
-4x100GbE nó 2
+Nó 2 com 4 conexões 100GbE
 
 
 
  a| 
 3
  a| 
-4x100GbE nó 3
+Nó 3 com 4 conexões 100GbE
  a| 
 3
  a| 
-4x100GbE nó 3
+Nó 3 com 4 conexões 100GbE
 
 
 
  a| 
 4
  a| 
-4x100GbE nó 4
+Nó 4x100GbE
  a| 
 4
  a| 
-4x100GbE nó 4
+Nó 4x100GbE
 
 
 
  a| 
 5
  a| 
-4x100GbE nó 5
+Nó 5 com 4 conexões 100GbE
  a| 
 5
  a| 
-4x100GbE nó 5
+Nó 5 com 4 conexões 100GbE
 
 
 
  a| 
 6
  a| 
-4x100GbE nó 6
+Nó 6 com 4 conexões 100GbE
  a| 
 6
  a| 
-4x100GbE nó 6
+Nó 6 com 4 conexões 100GbE
 
 
 
  a| 
 7
  a| 
-4x100GbE nó 7
+Nó 7 com 4 conexões 100GbE
  a| 
 7
  a| 
-4x100GbE nó 7
+Nó 7 com 4 conexões 100GbE
 
 
 
  a| 
 8
  a| 
-4x100GbE nó 8
+Nó 8 com 4 conexões 100GbE
  a| 
 8
  a| 
-4x100GbE nó 8
+Nó 8 com 4 conexões 100GbE
 
 
 
  a| 
 9
  a| 
-4x100GbE nó 9
+Nó 9 com 4 conexões 100GbE
  a| 
 9
  a| 
-4x100GbE nó 9
+Nó 9 com 4 conexões 100GbE
 
 
 
  a| 
 10
  a| 
-4x100GbE nó 10
+Nó 10 com 4 conexões 100GbE
  a| 
 10
  a| 
-4x100GbE nó 10
+Nó 10 com 4 conexões 100GbE
 
 
 
  a| 
 11
  a| 
-4x100GbE nó 11
+Nó 11 com 4 conexões 100GbE
  a| 
 11
  a| 
-4x100GbE nó 11
+Nó 11 com 4 conexões 100GbE
 
 
 
  a| 
 12
  a| 
-4x100GbE nó 12
+Nó 12 com 4 conexões 100GbE
  a| 
 12
  a| 
-4x100GbE nó 12
+Nó 12 com 4 conexões 100GbE
 
 
 
  a| 
 13
  a| 
-4x100GbE nó 13
+Nó 13 com 4 conexões 100GbE
  a| 
 13
  a| 
-4x100GbE nó 13
+Nó 13 com 4 conexões 100GbE
 
 
 
  a| 
 14
  a| 
-4x100GbE nó 14
+Nó 14 com 4 conexões 100GbE
  a| 
 14
  a| 
-4x100GbE nó 14
+Nó 14 com 4 conexões 100GbE
 
 
 
  a| 
 15
  a| 
-4x100GbE nó 15
+Nó 15 com 4 conexões 100GbE
  a| 
 15
  a| 
-4x100GbE nó 15
+Nó 15 com 4 conexões 100GbE
 
 
 
  a| 
 16
  a| 
-4x100GbE nó 16
+Nó 16 com 4 conexões 100GbE
  a| 
 16
  a| 
-4x100GbE nó 16
+Nó 16 com 4 conexões 100GbE
 
 
 
  a| 
 17
  a| 
-4x100GbE nó 17
+Nó 17 com 4 conexões 100GbE
  a| 
 17
  a| 
-4x100GbE nó 17
+Nó 17 com 4 conexões 100GbE
 
 
 
  a| 
 18
  a| 
-4x100GbE nó 18
+Nó 18 com 4 conexões 100GbE
  a| 
 18
  a| 
-4x100GbE nó 18
+Nó 18 com 4 conexões 100GbE
 
 
 
  a| 
 19
  a| 
-4x100GbE nó 19
+Nó 19 com 4 conexões 100GbE
  a| 
 19
  a| 
-4x100GbE nó 19
+Nó 19 com 4 conexões 100GbE
 
 
 
  a| 
 20
  a| 
-4x100GbE nó 20
+Nó 20 com 4 portas 100GbE
  a| 
 20
  a| 
-4x100GbE nó 20
+Nó 20 com 4 portas 100GbE
 
 
 
  a| 
 21
  a| 
-4x100GbE nó 21
+Nó 21 com 4 conexões 100GbE
  a| 
 21
  a| 
-4x100GbE nó 21
+Nó 21 com 4 conexões 100GbE
 
 
 
  a| 
 22
  a| 
-4x100GbE nó 22
+Nó 22 com 4 conexões 100GbE
  a| 
 22
  a| 
-4x100GbE nó 22
+Nó 22 com 4 conexões 100GbE
 
 
 
  a| 
 23
  a| 
-4x100GbE nó 23
+Nó 23 com 4 conexões 100GbE
  a| 
 23
  a| 
-4x100GbE nó 23
+Nó 23 com 4 conexões 100GbE
 
 
 
  a| 
 24
  a| 
-4x100GbE nó 24
+Nó 24 com 4 conexões 100GbE
  a| 
 24
  a| 
-4x100GbE nó 24
+Nó 24 com 4 conexões 100GbE
 
 
 
  a| 
 25
  a| 
-4x100GbE nó 25
+Nó 25 com 4 conexões 100GbE
  a| 
 25
  a| 
-4x100GbE nó 25
+Nó 25 com 4 conexões 100GbE
 
 
 
  a| 
 26
  a| 
-4x100GbE nó 26
+Nó 26 com 4 conexões 100GbE
  a| 
 26
  a| 
-4x100GbE nó 26
+Nó 26 com 4 conexões 100GbE
 
 
 
  a| 
 27
  a| 
-4x100GbE nó 27
+Nó 27 com 4 conexões 100GbE
  a| 
 27
  a| 
-4x100GbE nó 27
+Nó 27 com 4 conexões 100GbE
 
 
 
  a| 
 28
  a| 
-4x100GbE nó 28
+Nó 28 com 4 conexões 100GbE
  a| 
 28
  a| 
-4x100GbE nó 28
+Nó 28 com 4 conexões 100GbE
 
 
 
  a| 
 29
  a| 
-4x100GbE nó 29
+Nó 29 com 4 conexões 100GbE
  a| 
 29
  a| 
-4x100GbE nó 29
+Nó 29 com 4 conexões 100GbE
 
 
 
  a| 
 30
  a| 
-4x100GbE nó 30
+Nó 30 com 4 portas 100GbE
  a| 
 30
  a| 
-4x100GbE nó 30
+Nó 30 com 4 portas 100GbE
 
 
 
  a| 
 31
  a| 
-4x100GbE nó 31
+Nó 31 com 4 conexões 100GbE
  a| 
 31
  a| 
-4x100GbE nó 31
+Nó 31 com 4 conexões 100GbE
 
 
 
  a| 
 32
  a| 
-4x100GbE nó 32
+Nó 32 com 4 portas 100GbE
  a| 
 32
  a| 
-4x100GbE nó 32
+Nó 32 com 4 portas 100GbE
 
 
 
  a| 
 33
  a| 
-4x100GbE nó 33
+Nó 33 com 4 conexões 100GbE
  a| 
 33
  a| 
-4x100GbE nó 33
+Nó 33 com 4 conexões 100GbE
 
 
 
  a| 
 30
  a| 
-4x100GbE nó 30
+Nó 30 com 4 portas 100GbE
  a| 
 30
  a| 
-4x100GbE nó 33
+Nó 33 com 4 conexões 100GbE
 
 
 
  a| 
 34
  a| 
-4x100GbE nó 34
+Nó 34 com 4 conexões 100GbE
  a| 
 34
  a| 
-4x100GbE nó 34
+Nó 34 com 4 conexões 100GbE
 
 
 
  a| 
 35
  a| 
-4x100GbE nó 35
+Nó 35 com 4 conexões 100GbE
  a| 
 35
  a| 
-4x100GbE nó 35
+Nó 35 com 4 conexões 100GbE
 
 
 
  a| 
 36
  a| 
-4x100GbE nó 36
+Nó 36 com 4 conexões 100GbE
  a| 
 36
  a| 
-4x100GbE nó 36
+Nó 36 com 4 conexões 100GbE
 
 |===
 
 
-== Folha de cálculo de cabeamento em branco 9336C-FX2
+== Folha de trabalho de cabeamento em branco 9336C-FX2
 
-Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A seção _conexões de cluster suportadas_ da https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
+Você pode usar a planilha de cabeamento em branco para documentar as plataformas que são suportadas como nós em um cluster.  A seção _Conexões de cluster suportadas_ do https://hwu.netapp.com["Hardware Universe"^] Define as portas do cluster utilizadas pela plataforma.
 
 [cols="5%, 45%, 5%, 45%"]
 |===
-2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+2+| Chave seletora de cluster A 2+| Chave seletora de cluster B 
 
 
  a| 
@@ -777,130 +777,130 @@ Você pode usar a Planilha de cabeamento em branco para documentar as plataforma
 |===
 
 
-== Folha de cálculo de cabeamento de amostra 9336C-FX2BASE-T (12 portas)
+== Folha de exemplo de cabeamento 9336C-FX2-T (12 portas)
 
-A definição de porta de amostra em cada par de switches é a seguinte:
+A definição da porta de exemplo em cada par de switches é a seguinte:
 
 [cols="1,3,1,3"]
 |===
-2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+2+| Chave seletora de cluster A 2+| Chave seletora de cluster B 
 
 
-| Porta do switch | Uso de nó e porta | Porta do switch | Uso de nó e porta 
+| Porta de comutação | Utilização de nós e portas | Porta de comutação | Utilização de nós e portas 
 
 
  a| 
 1
  a| 
-4x100GbE nó 1
+Nó 1 com 4 conexões 100GbE
  a| 
 1
  a| 
-4x100GbE nó 1
+Nó 1 com 4 conexões 100GbE
 
 
 
  a| 
 2
  a| 
-4x100GbE nó 2
+Nó 2 com 4 conexões 100GbE
  a| 
 2
  a| 
-4x100GbE nó 2
+Nó 2 com 4 conexões 100GbE
 
 
 
  a| 
 3
  a| 
-4x100GbE nó 3
+Nó 3 com 4 conexões 100GbE
  a| 
 3
  a| 
-4x100GbE nó 3
+Nó 3 com 4 conexões 100GbE
 
 
 
  a| 
 4
  a| 
-4x100GbE nó 4
+Nó 4x100GbE
  a| 
 4
  a| 
-4x100GbE nó 4
+Nó 4x100GbE
 
 
 
  a| 
 5
  a| 
-4x100GbE nó 5
+Nó 5 com 4 conexões 100GbE
  a| 
 5
  a| 
-4x100GbE nó 5
+Nó 5 com 4 conexões 100GbE
 
 
 
  a| 
 6
  a| 
-4x100GbE nó 6
+Nó 6 com 4 conexões 100GbE
  a| 
 6
  a| 
-4x100GbE nó 6
+Nó 6 com 4 conexões 100GbE
 
 
 
  a| 
 7
  a| 
-4x100GbE nó 7
+Nó 7 com 4 conexões 100GbE
  a| 
 7
  a| 
-4x100GbE nó 7
+Nó 7 com 4 conexões 100GbE
 
 
 
  a| 
 8
  a| 
-4x100GbE nó 8
+Nó 8 com 4 conexões 100GbE
  a| 
 8
  a| 
-4x100GbE nó 8
+Nó 8 com 4 conexões 100GbE
 
 
 
  a| 
 9
  a| 
-4x100GbE nó 9
+Nó 9 com 4 conexões 100GbE
  a| 
 9
  a| 
-4x100GbE nó 9
+Nó 9 com 4 conexões 100GbE
 
 
 
  a| 
 10
  a| 
-4x100GbE nó 10
+Nó 10 com 4 conexões 100GbE
  a| 
 10
  a| 
-4x100GbE nó 10
+Nó 10 com 4 conexões 100GbE
 
 
 
  a| 
-11 embora 36
+11 a 36
  a| 
 Requer licença
  a| 
@@ -911,13 +911,13 @@ Requer licença
 |===
 
 
-== Folha de cálculo de cabeamento em branco 9336C-FX2BASE-T (12 portas)
+== Folha de trabalho de cabeamento em branco 9336C-FX2-T (12 portas)
 
-Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster.
+Você pode usar a planilha de cabeamento em branco para documentar as plataformas que são suportadas como nós em um cluster.
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+2+| Chave seletora de cluster A 2+| Chave seletora de cluster B 
 
 
  a| 
@@ -1020,7 +1020,7 @@ Requer licença
 Requer licença
 
 |===
-Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obter mais informações sobre portas do switch.
+Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obter mais informações sobre portas de switch.
 
 .O que vem a seguir
 Depois de concluir suas planilhas de cabeamento, você pode link:install-9336c-storage.html["instalar o interruptor"].

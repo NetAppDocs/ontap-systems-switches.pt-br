@@ -1,14 +1,14 @@
 ---
 indexpage:
-  title: Interrutores de armazenamento
+  title: Interruptores de armazenamento
   summary: Use a documentação neste site para instalar, configurar e manter seus switches
     de armazenamento para implantações de cluster ONTAP .
   keywords: storage switches, cisco nexus switches, cluster switches, ontap clusters
   lead: Os switches de armazenamento permitem que você crie clusters ONTAP com mais
-    de dois nós.  Esses switches de plataforma Cisco Nexus 9000 fornecem a base para
+    de dois nós. Esses switches de plataforma Cisco Nexus 9000 fornecem a base para
     soluções de interconexão de cluster escaláveis ​​em ambientes NetApp ONTAP .
   tiles:
-  - title: Comece agora
+  - title: Começar
     links:
     - title: Cisco Nexus 9336C-FX2 e 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"

@@ -2,15 +2,15 @@
 :allow-uri-read: 
 
 
-O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir a integridade operacional dos switches de rede Cluster e Storage e coletar logs de switch para fins de depuração. Este procedimento orienta você pelo processo de configuração da coleta, solicitando Registros detalhados de *suporte* e permitindo uma coleta por hora de dados *Periódicos* coletados pela AutoSupport.
+O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir o funcionamento adequado dos switches de rede do cluster e do armazenamento, além de coletar logs dos switches para fins de depuração.  Este procedimento orienta você no processo de configuração da coleta, solicitação de registros detalhados de *Suporte* e ativação da coleta horária de dados *Periódicos* coletados pelo AutoSupport.
 
-*NOTA:* se você ativar o modo FIPS, você deve concluir o seguinte:
+*NOTA:* Se você ativar o modo FIPS, deverá concluir o seguinte:
 
 [NOTE]
 ====
-. Regenerar chaves SSH no switch usando as instruções do fornecedor.
+. Recrie as chaves SSH no switch seguindo as instruções do fornecedor.
 . Regenerar chaves SSH no ONTAP usando `debug system regenerate-systemshell-key-pair`
-. Execute novamente a rotina de configuração da coleção de logs usando o `system switch ethernet log setup-password` comando
+. Execute novamente a rotina de configuração de coleta de logs usando o `system switch ethernet log setup-password` comando
 
 
 ====
@@ -18,15 +18,15 @@ O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir 
 
 == Antes de começar
 
-* O usuário deve ter acesso aos comandos do switch `show`. Se não estiverem disponíveis, crie um novo usuário e conceda as permissões necessárias ao usuário.
-* A monitorização do estado do interrutor tem de estar ativada para o interrutor. Verifique isso garantindo que o `Is Monitored:` campo esteja definido como *true* na saída do `system switch ethernet show` comando.
-* Para coleta de logs com switches Broadcom e Cisco:
+* O usuário deve ter acesso ao interruptor. `show` comandos.  Caso essas opções não estejam disponíveis, crie um novo usuário e conceda as permissões necessárias a ele.
+* O monitoramento de integridade do switch deve estar ativado.  Verifique isso certificando-se de que `Is Monitored:` O campo é definido como *verdadeiro* na saída do `system switch ethernet show` comando.
+* Para coleta de logs com switches Broadcom e Cisco :
 +
 ** O usuário local deve ter privilégios de administrador de rede.
-** Um novo usuário deve ser criado no switch para cada configuração de cluster com a coleção de logs ativada. Esses switches não suportam várias chaves SSH para o mesmo usuário. Qualquer configuração adicional de coleção de logs executada substitui quaisquer chaves SSH pré-existentes para o usuário.
+** Um novo usuário deve ser criado no switch para cada configuração de cluster com a coleta de logs habilitada.  Esses switches não suportam múltiplas chaves SSH para o mesmo usuário.  Qualquer configuração adicional de coleta de logs realizada sobrescreverá quaisquer chaves SSH preexistentes do usuário.
 
 
-* Para a coleta de logs de suporte com switches NVIDIA, o _user_ para coleta de logs deve ter permissão para executar o `cl-support` comando sem ter que fornecer uma senha. Para permitir esse uso, execute o comando:
+* Para suporte à coleta de logs com switches NVIDIA , o _usuário_ responsável pela coleta de logs deve ter permissão para executar o comando. `cl-support` comando sem precisar fornecer uma senha.  Para permitir esse uso, execute o comando:
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
 
@@ -38,11 +38,11 @@ O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.15,1 e posterior
+.ONTAP 9.15.1 e posterior
 --
-. Para configurar a coleção de logs, execute o seguinte comando para cada switch. Você será solicitado a digitar o nome do switch, nome de usuário e senha para a coleta de logs.
+. Para configurar a coleta de logs, execute o seguinte comando para cada switch.  Você será solicitado a inserir o nome do switch, o nome de usuário e a senha para a coleta de logs.
 +
-*NOTA:* Se responder *y* ao prompt de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias, conforme descrito em <<Antes de começar>> .
+*NOTA:* Se responder *s* à solicitação de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias, conforme descrito em<<Antes de começar>> .
 
 +
 [source, cli]
@@ -79,9 +79,9 @@ Enter the password again: *<enter switch password>*
 
 
 
-NOTE: Para CL 5.11.1, crie o usuário *cumulus* e responda *y* ao seguinte prompt: Gostaria de especificar um usuário diferente de admin para coleta de logs? {y|n}: *y*
+NOTE: Para CL 5.11.1, crie o usuário *cumulus* e responda *y* à seguinte mensagem: Deseja especificar um usuário diferente de admin para a coleta de logs?  {s|n}: *s*
 
-. [[step2]]Habilitar coleta periódica de logs:
+. [[passo 2]]Ativar a coleta periódica de logs:
 +
 [source, cli]
 ----
@@ -110,7 +110,7 @@ cs1                                       true        scheduled   never-run
 cs2                                       true        scheduled   never-run
 2 entries were displayed.
 ----
-. Solicitar coleção de logs de suporte:
+. Solicitar suporte para coleta de registros:
 +
 [source, cli]
 ----
@@ -135,7 +135,7 @@ cs1                                       false       halted      initiated
 cs2                                       true        scheduled   initiated
 2 entries were displayed.
 ----
-. Para exibir todos os detalhes da coleção de logs, incluindo a habilitação, mensagem de status, carimbo de data/hora anterior e nome do arquivo da coleção periódica, o status da solicitação, a mensagem de status e o carimbo de data/hora e nome do arquivo anterior da coleção de suporte, use o seguinte:
+. Para visualizar todos os detalhes da coleta de logs, incluindo a ativação, a mensagem de status, o carimbo de data/hora anterior e o nome do arquivo da coleta periódica, bem como o status da solicitação, a mensagem de status e o carimbo de data/hora anterior e o nome do arquivo da coleta de suporte, utilize o seguinte comando:
 +
 [source, cli]
 ----
@@ -170,11 +170,11 @@ cluster1::*> *system switch ethernet log show -instance*
 
 
 --
-.ONTAP 9.14,1 e anteriores
+.ONTAP 9.14.1 e anteriores
 --
-. Para configurar a coleção de logs, execute o seguinte comando para cada switch. Você será solicitado a digitar o nome do switch, nome de usuário e senha para a coleta de logs.
+. Para configurar a coleta de logs, execute o seguinte comando para cada switch.  Você será solicitado a inserir o nome do switch, o nome de usuário e a senha para a coleta de logs.
 +
-*OBSERVAÇÃO:* se responder `y` ao prompt de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias conforme descrito em <<Antes de começar>>.
+*NOTA:* Se responder `y` Na solicitação de especificação do usuário, certifique-se de que o usuário tenha as permissões necessárias, conforme descrito em<<Antes de começar>> .
 
 +
 [source, cli]
@@ -211,9 +211,9 @@ Enter the password again: *<enter switch password>*
 
 
 
-NOTE: Para CL 5.11.1, crie o usuário *cumulus* e responda *y* ao seguinte prompt: Gostaria de especificar um usuário diferente de admin para coleta de logs? {y|n}: *y*
+NOTE: Para CL 5.11.1, crie o usuário *cumulus* e responda *y* à seguinte mensagem: Deseja especificar um usuário diferente de admin para a coleta de logs?  {s|n}: *s*
 
-. [[step2]] Para solicitar a coleta de logs de suporte e habilitar a coleta periódica, execute o seguinte comando. Isso inicia ambos os tipos de coleta de log: Os logs detalhados `Support` e uma coleta de dados por hora `Periodic`.
+. [[passo 2]] Para solicitar a coleta de logs de suporte e habilitar a coleta periódica, execute o seguinte comando.  Isso inicia os dois tipos de coleta de logs: a detalhada `Support` registros e uma coleta horária de `Periodic` dados.
 +
 [source, cli]
 ----
@@ -235,7 +235,7 @@ Do you want to modify the cluster switch log collection configuration? {y|n}: [n
 Enabling cluster switch log collection.
 ----
 +
-Aguarde 10 minutos e, em seguida, verifique se a coleção de registos é concluída:
+Aguarde 10 minutos e verifique se a coleta de logs foi concluída:
 
 +
 [source, cli]

@@ -17,11 +17,11 @@ Para instalar e configurar o software para um switch Cisco 9332D-GX2B e instalar
 [role="quick-margin-para"]
 Configure o switch Cisco 9332D-GX2B.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:install-nxos-overview-9332d-cluster.html["Prepare-se para instalar o software NX-os e o RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:install-nxos-overview-9332d-cluster.html["Prepare-se para instalar o software NX-OS e o RCF."]
 [role="quick-margin-para"]
 Instale o software Cisco NX-OS e os arquivos de configuração de referência (RCFs) nos switches Cisco 9332D-GX2B.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nxos-software-9332d-cluster.html["Instale ou atualize o software NX-os"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nxos-software-9332d-cluster.html["Instale ou atualize o software NX-OS."]
 [role="quick-margin-para"]
 Baixe e instale ou atualize o software NX-OS no switch Cisco 9332D-GX2B.
 
@@ -33,8 +33,8 @@ Instale ou atualize o RCF após configurar o switch Cisco 9332D-GX2B pela primei
 [role="quick-margin-para"]
 Verifique se o SSH está habilitado no switch Cisco 9332D-GX2B para uso com o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-9332d.html["Redefinir o switch para os padrões de fábrica"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-9332d.html["Restaure as configurações de fábrica do switch."]
 [role="quick-margin-para"]
 Apague as configurações do switch Cisco 9332D-GX2B.
 
-Depois de terminar de configurar seus switches, vá paralink:https://docs.netapp.com/us-en/ontap-afx/install-setup/power-on-hardware.html["Ligue seu sistema de armazenamento AFX 1K"^] .
+Após concluir a configuração dos seus switches, acesselink:https://docs.netapp.com/us-en/ontap-afx/install-setup/power-on-hardware.html["Ligue seu sistema de armazenamento AFX 1K"^] .

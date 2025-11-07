@@ -2,38 +2,38 @@
 :allow-uri-read: 
 
 
-Para configurar o monitoramento de integridade do switch Ethernet em switches Ethernet NVIDIA, siga este procedimento.
+Para configurar o monitoramento de integridade do switch Ethernet em switches Ethernet NVIDIA , siga este procedimento.
 
-Estas instruções se aplicam se os switches NVIDIA X190006-PE e X190006-PI não forem detectados corretamente, o que pode ser confirmado executando  `system switch ethernet show` e verificando se *OTHER* é exibido para o seu modelo. Para identificar o modelo do seu switch NVIDIA, encontre o número da peça com o comando  `nv show platform hardware` para NVIDIA CL 5.8 e anteriores ou  `nv show platform` para versões posteriores.
+Estas instruções aplicam-se caso as chaves NVIDIA X190006-PE e X190006-PI não sejam detetadas corretamente, o que pode ser confirmado executando o seguinte comando: `system switch ethernet show` e verificando se *OUTRO* é exibido para o seu modelo.  Para identificar o modelo do seu switch NVIDIA , encontre o número da peça com o comando `nv show platform hardware` para NVIDIA CL 5.8 e versões anteriores ou `nv show platform` para versões posteriores.
 
 [NOTE]
 ====
-Essas etapas também são recomendadas se você deseja que o monitoramento de integridade e a coleta de logs funcionem conforme o esperado ao usar o NVIDIA CL 5.11.x com as seguintes versões do ONTAP. Embora o monitoramento de integridade e a coleta de logs ainda possam funcionar sem essas etapas, segui-las garante que tudo funcione corretamente.
+Essas etapas também são recomendadas se você deseja que o monitoramento de integridade e a coleta de logs funcionem conforme o esperado ao usar o NVIDIA CL 5.11.x com as seguintes versões do ONTAP .  Embora o monitoramento de saúde e a coleta de registros possam funcionar mesmo sem essas etapas, segui-las garante que tudo opere corretamente.
 
 * 9.10.1P20, 9.11.1P18, 9.12.1P16, 9.13.1P8, 9.14.1, 9.15.1 e versões de patch posteriores
 
 
 ====
 .Antes de começar
-* Certifique-se de que o cluster do ONTAP está ativo e em execução.
+* Certifique-se de que o cluster ONTAP esteja ativo e em funcionamento.
 * Habilite o SSH no switch para usar todos os recursos disponíveis no CSHM.
 * Limpe o `/mroot/etc/cshm_nod/nod_sign/` diretório em todos os nós:
 +
-.. Entre no nodeshell:
+.. Entre no shell do nó:
 +
 `system node run -node <name>`
 
-.. Alterar para privilégios avançados:
+.. Alteração para privilégios avançados:
 +
 `priv set advanced`
 
-.. Liste os arquivos de configuração no `/etc/cshm_nod/nod_sign` diretório. Se o diretório existe e contém arquivos de configuração, ele lista os nomes dos arquivos.
+.. Liste os arquivos de configuração em `/etc/cshm_nod/nod_sign` diretório.  Se o diretório existir e contiver arquivos de configuração, ele listará os nomes dos arquivos.
 +
 `ls /etc/cshm_nod/nod_sign`
 
-.. Exclua todos os arquivos de configuração correspondentes aos modelos de switch conetados.
+.. Exclua todos os arquivos de configuração correspondentes aos modelos de switch conectados.
 +
-Se não tiver a certeza, remova todos os ficheiros de configuração para os modelos suportados listados acima e, em seguida, transfira e instale os ficheiros de configuração mais recentes para esses mesmos modelos.
+Caso não tenha certeza, remova todos os arquivos de configuração dos modelos compatíveis listados acima e, em seguida, baixe e instale os arquivos de configuração mais recentes para esses mesmos modelos.
 
 +
 `rm /etc/cshm_nod/nod_sign/<filename>`
@@ -47,19 +47,19 @@ Se não tiver a certeza, remova todos os ficheiros de configuração para os mod
 
 
 .Passos
-. Transfira o ficheiro zip de configuração do monitor de integridade do comutador Ethernet com base na versão de lançamento do ONTAP correspondente. Este arquivo está disponível na https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet NVIDIA"^] página.
+. Baixe o arquivo zip de configuração do monitor de integridade do switch Ethernet, de acordo com a versão do ONTAP correspondente.  Este arquivo está disponível em https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet NVIDIA"^] página.
 +
-.. Na página de download do software NVIDIA SN2100, selecione *Arquivo CSHM NVIDIA*.
-.. Na página cuidado/deve ler, marque a caixa de seleção para concordar.
-.. Na página Contrato de Licença de Usuário final, marque a caixa de seleção para concordar e clique em *aceitar e continuar*.
-.. Na página Arquivo CSHM do NVIDIA - Download, selecione o arquivo de configuração aplicável. Estão disponíveis os seguintes ficheiros:
+.. Na página de download do software NVIDIA SN2100, selecione *Arquivo CSHM da NVIDIA*.
+.. Na página de Atenção/Leitura Obrigatória, selecione a caixa de seleção para concordar.
+.. Na página do Contrato de Licença do Usuário Final, selecione a caixa de seleção para concordar e clique em *Aceitar e Continuar*.
+.. Na página de download do arquivo CSHM da Nvidia, selecione o arquivo de configuração aplicável.  Os seguintes arquivos estão disponíveis:
 
 
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.15,1 e posterior
+.ONTAP 9.15.1 e posterior
 --
 * MSN2100-CB2FC-v1.4.zip
 * MSN2100-CB2RC-v1.4.zip
@@ -68,7 +68,7 @@ Se não tiver a certeza, remova todos os ficheiros de configuração para os mod
 
 
 --
-.ONTAP 9.11,1 até 9.14.1
+.ONTAP 9.11.1 a 9.14.1
 --
 * MSN2100-CB2FC_PRIOR_R9.15.1-v1.4.zip
 * MSN2100-CB2RC_PRIOR_R9.15.1-v1.4.zip
@@ -78,8 +78,8 @@ Se não tiver a certeza, remova todos os ficheiros de configuração para os mod
 
 --
 ====
-. [[step2]]carregue o ficheiro zip aplicável para o seu servidor Web interno.
-. Aceda à definição do modo avançado a partir de um dos sistemas ONTAP no cluster.
+. [[passo 2]]Faça o upload do arquivo zip correspondente para o seu servidor web interno.
+. Acesse as configurações do modo avançado a partir de um dos sistemas ONTAP no cluster.
 +
 `set -privilege advanced`
 
@@ -89,30 +89,30 @@ Se não tiver a certeza, remova todos os ficheiros de configuração para os mod
 ----
 cluster1::> *system switch ethernet configure-health-monitor*
 ----
-. Verifique se a saída do comando termina com o seguinte texto para sua versão do ONTAP:
+. Verifique se a saída do comando termina com o seguinte texto para a sua versão do ONTAP :
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.15,1 e posterior
+.ONTAP 9.15.1 e posterior
 --
 O monitoramento de integridade do switch Ethernet instalou o arquivo de configuração.
 
 --
-.ONTAP 9.11,1 até 9.14.1
+.ONTAP 9.11.1 a 9.14.1
 --
-SHM instalou o arquivo de configuração.
+O SHM instalou o arquivo de configuração.
 
 --
-.ONTAP 9.10,1
+.ONTAP 9.10.1
 --
-O pacote baixado do CSHM foi processado com sucesso.
+O pacote CSHM foi baixado e processado com sucesso.
 
 --
 ====
-Se ocorrer um erro, contacte o suporte da NetApp.
+Caso ocorra algum erro, entre em contato com o suporte da NetApp .
 
-. [[step6]]espere até o dobro do intervalo de polling do monitor de integridade do switch Ethernet, encontrado em execução `system switch ethernet polling-interval show`, antes de concluir a próxima etapa.
+. [[passo 6]]Aguarde até o dobro do intervalo de sondagem do monitor de integridade do switch Ethernet, determinado executando `system switch ethernet polling-interval show` , antes de concluir a próxima etapa.
 . Execute o comando `system switch ethernet configure-health-monitor show` No sistema ONTAP , certifique-se de que os switches do cluster sejam descobertos com o campo monitorado definido como *Verdadeiro* e o campo do número de série não mostrando *Desconhecido*.
 +
 [listing, subs="+quotes"]
@@ -122,6 +122,6 @@ cluster1::> *system switch ethernet configure-health-monitor show*
 
 
 
-NOTE: Se o seu modelo ainda estiver mostrando *Other* depois de aplicar o arquivo de configuração, entre em Contato com o suporte da NetApp.
+NOTE: Se o seu modelo ainda estiver exibindo *OUTRO* após a aplicação do arquivo de configuração, entre em contato com o suporte da NetApp .
 
-Veja o https://docs.netapp.com/us-en/ontap-cli/system-switch-ethernet-configure-health-monitor.html["switch de sistema ethernet configurar-monitor-de-saúde"^] comando para mais detalhes.
+Veja o https://docs.netapp.com/us-en/ontap-cli/system-switch-ethernet-configure-health-monitor.html["switch de sistema ethernet configurar-monitor-de-saúde"^] Para mais detalhes, entre em contato.

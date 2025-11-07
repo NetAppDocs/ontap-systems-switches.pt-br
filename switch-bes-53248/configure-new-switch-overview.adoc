@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-new-switch-overview.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: Antes de configurar os switches de cluster BES-53248, consulte a visão geral da configuração. 
+summary: Antes de configurar os switches de cluster BES-53248, revise a visão geral da configuração. 
 ---
 = Fluxo de trabalho de instalação e configuração para switches BES-53248
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Antes de configurar os switches de cluster BES-53248, consulte a visão
 
 
 [role="lead"]
-O BES-53248 é um switch bare metal projetado para funcionar em clusters ONTAP que variam de dois a 24 nós.
+O BES-53248 é um switch bare metal projetado para funcionar em clusters ONTAP de dois a 24 nós.
 
 Siga estas etapas do fluxo de trabalho para instalar e configurar seus switches BES-53248.
 

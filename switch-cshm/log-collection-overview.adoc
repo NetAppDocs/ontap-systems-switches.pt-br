@@ -2,15 +2,15 @@
 permalink: switch-cshm/log-collection-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Você pode usar os comandos fornecidos .... 
+summary: Você pode usar os comandos fornecidos... 
 ---
-= Descrição geral da coleção de registos
+= Visão geral da coleta de logs
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Com a configuração de coleta de logs, você pode habilitar uma coleta por hora de dados periódicos coletados pelo AutoSupport e solicitar Registros de suporte detalhados.
+Com a coleta de logs configurada, você pode habilitar a coleta horária de dados periódicos que são coletados pelo AutoSupport e solicitar logs de suporte detalhados.
 
-link:config-log-collection.html["Configurar a coleção de registos"]Consulte para obter mais detalhes.
+Verlink:config-log-collection.html["Configurar coleta de logs"] Para obter mais detalhes.

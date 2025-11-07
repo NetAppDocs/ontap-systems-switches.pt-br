@@ -2,20 +2,20 @@
 permalink: switch-bes-53248/configure-install-initial.html 
 sidebar: sidebar 
 keywords: switches initial setup,initial setup,efos download 
-summary: Pode utilizar este procedimento para efetuar a instalação inicial do comutador de cluster BES-53248. 
+summary: Você pode usar este procedimento para realizar a instalação inicial do switch de cluster BES-53248. 
 ---
-= Configure o switch do cluster BES-53248
+= Configurar o switch de cluster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estas etapas para executar uma configuração inicial do switch do cluster BES-53248.
+Siga estes passos para realizar a configuração inicial do switch de cluster BES-53248.
 
 .Antes de começar
-* O hardware está instalado, conforme descrito em link:install-hardware-bes53248.html["Instale o hardware"].
-* Você revisou o seguinte:
+* O hardware está instalado, conforme descrito emlink:install-hardware-bes53248.html["Instale o hardware"] .
+* Você analisou o seguinte:
 +
 ** link:configure-reqs-bes53248.html["Requisitos de configuração"]
 ** link:components-bes53248.html["Componentes e números de peça"]
@@ -25,31 +25,31 @@ Siga estas etapas para executar uma configuração inicial do switch do cluster 
 
 
 .Sobre os exemplos
-Os exemplos nos procedimentos de configuração usam a seguinte nomenclatura de switch e nó:
+Os exemplos nos procedimentos de configuração utilizam a seguinte nomenclatura de switches e nós:
 
-* Os nomes dos switches NetApp são `cs1` e `cs2`. A atualização começa no segundo switch, _CS2._
-* Os nomes de LIF do cluster são `node1_clus1` e `node1_clus2` para node1 `node2_clus1` e e `node2_clus2` node2.
-* O nome do IPspace é Cluster.
-* O `cluster1::>` prompt indica o nome do cluster.
-* As portas de cluster em cada nó são nomeadas e `e0a` `e0b`. Consulte a https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^] para obter as portas de cluster reais suportadas na sua plataforma.
-* Os ISLs (links interswitches) suportados para os switches NetApp são as portas 0/55 e 0/56.
+* Os nomes dos switches NetApp são `cs1` e `cs2` .  A atualização começa no segundo switch, _cs2._
+* Os nomes LIF do cluster são `node1_clus1` e `node1_clus2` para o nó 1 e `node2_clus1` e `node2_clus2` para o nó 2.
+* O nome do espaço IP é Cluster.
+* O `cluster1::>` O prompt indica o nome do cluster.
+* As portas do cluster em cada nó são nomeadas. `e0a` e `e0b` .  Veja o https://hwu.netapp.com/Home/Index["Hardware Universe da NetApp"^] para as portas de cluster reais suportadas em sua plataforma.
+* Os links entre switches (ISLs) suportados para os switches NetApp são as portas 0/55 e 0/56.
 * As conexões de nó suportadas para os switches NetApp são as portas 0/1 a 0/16 com licenciamento padrão.
-* Os exemplos usam dois nós, mas você pode ter até 24 nós em um cluster.
+* Os exemplos utilizam dois nós, mas você pode ter até 24 nós em um cluster.
 
 
 .Passos
-. Conete a porta serial a um host ou porta serial.
-. Conete a porta de gerenciamento (a porta chave RJ-45 no lado esquerdo do switch) à mesma rede onde o servidor TFTP está localizado.
-. No console, defina as configurações de série do lado do host:
+. Conecte a porta serial a um host ou a uma porta serial.
+. Conecte a porta de gerenciamento (a porta RJ-45 com conector em forma de chave inglesa no lado esquerdo do switch) à mesma rede onde o seu servidor TFTP está localizado.
+. No console, configure as definições seriais do lado do host:
 +
 ** 115200 baud
 ** 8 bits de dados
-** 1 bit de paragem
+** 1 bit de parada
 ** paridade: nenhuma
-** controle de fluxo: nenhum
+** Controle de fluxo: nenhum
 
 
-. Faça login no switch como `admin` e pressione *Enter* quando for solicitada uma senha. O nome padrão do switch é *routing*. No prompt, digite `enable`. Isso lhe dá acesso ao modo EXEC privilegiado para configuração de switch.
+. Faça login no switch como `admin` e pressione *Enter* quando solicitado a inserir uma senha.  O nome padrão do switch é *routing*.  Quando solicitado, digite `enable` .  Isso lhe dá acesso ao modo EXEC privilegiado para configuração do switch.
 +
 [listing, subs="+quotes"]
 ----
@@ -59,7 +59,7 @@ Password:
 Password:
 (Routing)#
 ----
-. Altere o nome do switch para *CS2*.
+. Altere o nome do interruptor para *cs2*.
 +
 [listing, subs="+quotes"]
 ----
@@ -73,7 +73,7 @@ Password:
 ====
 .IPv4
 --
-A porta de serviço está definida para usar DHCP por padrão. O endereço IP, a máscara de sub-rede e o endereço de gateway padrão são atribuídos automaticamente.
+A porta de serviço está configurada para usar DHCP por padrão.  O endereço IP, a máscara de sub-rede e o endereço do gateway padrão são atribuídos automaticamente.
 
 [listing, subs="+quotes"]
 ----
@@ -84,7 +84,7 @@ A porta de serviço está definida para usar DHCP por padrão. O endereço IP, a
 --
 .IPv6
 --
-A porta de serviço está definida para usar DHCP por padrão. O endereço IP, a máscara de sub-rede e o endereço de gateway padrão são atribuídos automaticamente.
+A porta de serviço está configurada para usar DHCP por padrão.  O endereço IP, a máscara de sub-rede e o endereço do gateway padrão são atribuídos automaticamente.
 
 [listing, subs="+quotes"]
 ----
@@ -95,7 +95,7 @@ A porta de serviço está definida para usar DHCP por padrão. O endereço IP, a
 ----
 --
 ====
-. [[step7]]Verifique os resultados usando o comando:
+. [[passo 7]]Verifique os resultados usando o comando:
 +
 `show serviceport`
 
@@ -136,9 +136,9 @@ ip name server <server_name>
 
 [role="tabbed-block"]
 ====
-.EFOS 3.10.0.3 e posterior
+.EFOS 3.10.0.3 e versões posteriores
 --
-Configure o fuso horário e a sincronização de horário (NTP):
+Configure o fuso horário e a sincronização de tempo (NTP):
 
 [source, cli]
 ----
@@ -154,9 +154,9 @@ clock
 (cs2)#
 ----
 --
-.EFOS 3.9.0.2 e anteriores
+.EFOS 3.9.0.2 e versões anteriores
 --
-Configure o fuso horário e a sincronização de horário (SNTP):
+Configure o fuso horário e a sincronização de tempo (SNTP):
 
 [source, cli]
 ----
@@ -175,12 +175,12 @@ clock
 ----
 --
 ====
-. [[step10]]Configure a hora manualmente se você não configurou um servidor NTP na etapa anterior.
+. [[passo 10]]Configure a hora manualmente se você não configurou um servidor NTP na etapa anterior.
 
 
 [role="tabbed-block"]
 ====
-.EFOS 3.10.0.3 e posterior
+.EFOS 3.10.0.3 e versões posteriores
 --
 Configure a hora manualmente.
 
@@ -203,7 +203,7 @@ No time source
 (cs2)#
 ----
 --
-.EFOS 3.9.0.2 e anteriores
+.EFOS 3.9.0.2 e versões anteriores
 --
 Configure a hora manualmente.
 
@@ -228,7 +228,7 @@ No time source
 ----
 --
 ====
-. [[step11]]Salve a configuração em execução na configuração de inicialização:
+. [[passo 11]]Salve a configuração em execução na configuração de inicialização:
 +
 `write memory`
 
@@ -248,5 +248,5 @@ Configuration Saved!
 ----
 
 
-.O que se segue?
+.O que vem a seguir?
 Depois de configurar seus switches, você pode link:configure-efos-software.html["Instale o software EFOS."].

@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/migrate-cn1610.html 
 sidebar: sidebar 
 keywords: CN1610, CN1610 replacing, migrate from CN1610 
-summary: Para substituir os switches de cluster CN1610 existentes em um cluster por switches de cluster BES-53248 compatíveis com Broadcom, você deve executar uma sequência específica de tarefas. 
+summary: Para substituir os switches de cluster CN1610 existentes em um cluster por switches de cluster BES-53248 compatíveis com a Broadcom, você deve executar uma sequência específica de tarefas. 
 ---
-= Migre os switches de cluster CN1610 para os switches de cluster BES-53248
+= Migrar switches de cluster CN1610 para switches de cluster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para migrar os switches de cluster CN1610 em um cluster para switches de cluster BES-53248 compatíveis com Broadcom, revise os requisitos de migração e siga o procedimento de migração.
+Para migrar os switches de cluster CN1610 para switches de cluster BES-53248 compatíveis com a Broadcom, revise os requisitos de migração e siga o procedimento de migração.
 
 Os seguintes switches de cluster são suportados:
 
@@ -21,18 +21,18 @@ Os seguintes switches de cluster são suportados:
 
 
 
-== Rever os requisitos
+== Requisitos de revisão
 
 Verifique se sua configuração atende aos seguintes requisitos:
 
-* Algumas das portas nos switches BES-53248 estão configuradas para serem executadas em 10GbE.
-* A conectividade 10GbE dos nós para os switches de cluster BES-53248 foi planejada, migrada e documentada.
-* O cluster está totalmente funcionando (não deve haver erros nos logs ou problemas semelhantes).
+* Algumas portas dos switches BES-53248 estão configuradas para operar em 10GbE.
+* A conectividade 10GbE dos nós aos switches de cluster BES-53248 foi planejada, migrada e documentada.
+* O cluster está funcionando perfeitamente (não deve haver erros nos logs ou problemas semelhantes).
 * A personalização inicial dos switches BES-53248 está concluída, de modo que:
 +
 ** Os switches BES-53248 estão executando a versão mais recente recomendada do software EFOS.
-** Os ficheiros de configuração de referência (RCFs) foram aplicados aos comutadores.
-** Qualquer personalização de site, como DNS, NTP, SMTP, SNMP e SSH, é configurada nos novos switches.
+** Os arquivos de configuração de referência (RCFs) foram aplicados aos switches.
+** Qualquer personalização do site, como DNS, NTP, SMTP, SNMP e SSH, é configurada nos novos switches.
 
 
 
@@ -41,13 +41,13 @@ Verifique se sua configuração atende aos seguintes requisitos:
 
 === Conexões de nós
 
-Os switches do cluster suportam as seguintes conexões de nós:
+Os switches de cluster suportam as seguintes conexões de nó:
 
-* NetApp CN1610: Portas de 0/1 a 0/12 (10GbE)
-* BES-53248: Portas 0/1-0/16 (10GbE/25GbE)
+* NetApp CN1610: portas 0/1 a 0/12 (10GbE)
+* BES-53248: portas 0/1-0/16 (10GbE/25GbE)
 +
 
-NOTE: Portas adicionais podem ser ativadas comprando licenças de porta.
+NOTE: É possível ativar portas adicionais adquirindo licenças de porta.
 
 
 
@@ -55,101 +55,101 @@ NOTE: Portas adicionais podem ser ativadas comprando licenças de porta.
 
 === Portas ISL
 
-Os interrutores do grupo de instrumentos utilizam as seguintes portas ISL (Inter-Switch Link):
+Os switches do cluster utilizam as seguintes portas de enlace entre switches (ISL):
 
-* NetApp CN1610: Portas de 0/13 a 0/16 (10GbE)
-* BES-53248: Portas 0/55-0/56 (100GbE)
-
-
-O https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contém informações sobre compatibilidade com ONTAP, firmware EFOS suportado e cabeamento para switches de cluster BES-53248.
+* NetApp CN1610: portas 0/13 a 0/16 (10GbE)
+* BES-53248: portas 0/55-0/56 (100GbE)
 
 
-
-=== Cablagem ISL
-
-O cabeamento ISL apropriado é o seguinte:
-
-* * Início: * Para CN1610 a CN1610 (SFP para SFP), quatro cabos de fibra ótica SFP ou cobre de conexão direta.
-* *Final:* para BES-53248 a BES-53248 (QSFP28 a QSFP28), dois transcetores óticos QSFP28/fibra ou cabos de conexão direta de cobre.
+O https://hwu.netapp.com/Home/Index["_Universo de Hardware da NetApp_"^] Contém informações sobre compatibilidade com ONTAP , firmware EFOS suportado e cabeamento para switches de cluster BES-53248.
 
 
 
+=== Cabeamento ISL
 
-== Migrar os switches
+A cablagem ISL adequada é a seguinte:
 
-Siga este procedimento para migrar os switches do cluster CN1610 para os switches do cluster BES-53248.
+* *Início:* Para CN1610 para CN1610 (SFP+ para SFP+), quatro cabos de fibra óptica ou cobre SFP+ de conexão direta.
+* *Final:* Para BES-53248 para BES-53248 (QSFP28 para QSFP28), dois transceptores ópticos QSFP28/cabos de fibra ou cobre de conexão direta.
+
+
+
+
+== Migre os switches
+
+Siga este procedimento para migrar switches de cluster CN1610 para switches de cluster BES-53248.
 
 .Sobre os exemplos
-Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:
 
-* Os exemplos usam dois nós, cada um implantando duas portas de interconexão de cluster de 10 GbE: `e0a` E `e0b`.
-* As saídas de comando podem variar dependendo de diferentes versões do software ONTAP.
-* Os CN1610 interrutores a substituir são `CL1` e `CL2`.
-* Os interrutores BES-53248 para substituir os interrutores CN1610 são `cs1` e `cs2`.
-* Os nós são `node1` e `node2`.
-* O interrutor CL2 é substituído primeiro pelo CS2, seguido pelo CL1 pelo CS1.
-* Os switches BES-53248 são pré-carregados com as versões suportadas do Reference Configuration File (RCF) e do Ethernet Fabric os (EFOS) com cabos ISL ligados nas portas 55 e 56.
-* Os nomes de LIF do cluster são `node1_clus1` e `node1_clus2` para node1 `node2_clus1` e e `node2_clus2` node2.
+* Os exemplos utilizam dois nós, cada um com duas portas de interconexão de cluster de 10 GbE: `e0a` e `e0b` .
+* Os resultados dos comandos podem variar dependendo das diferentes versões do software ONTAP .
+* Os interruptores CN1610 a serem substituídos são: `CL1` e `CL2` .
+* Os switches BES-53248 substituem os switches CN1610. `cs1` e `cs2` .
+* Os nós são `node1` e `node2` .
+* O interruptor CL2 é substituído primeiro por cs2, seguido por CL1, que é substituído por cs1.
+* Os switches BES-53248 vêm pré-carregados com as versões suportadas do Reference Configuration File (RCF) e do Ethernet Fabric OS (EFOS), com cabos ISL conectados nas portas 55 e 56.
+* Os nomes LIF do cluster são `node1_clus1` e `node1_clus2` para o nó 1 e `node2_clus1` e `node2_clus2` para o nó 2.
 
 
 .Sobre esta tarefa
 Este procedimento abrange o seguinte cenário:
 
-* O cluster começa com dois nós conetados a dois switches de cluster CN1610.
-* O interrutor CN1610 CL2 é substituído pelo interrutor BES-53248 CS2:
+* O cluster inicia com dois nós conectados a dois switches de cluster CN1610.
+* O switch CN1610 CL2 foi substituído pelo switch BES-53248 cs2:
 +
-** Encerre as portas para os nós de cluster. Todas as portas devem ser fechadas simultaneamente para evitar a instabilidade do cluster.
-** Desconete os cabos de todas as portas do cluster em todos os nós conetados ao CL2 e, em seguida, use os cabos suportados para reconetar as portas ao novo switch de cluster CS2.
+** Desative as portas dos nós do cluster.  Todas as portas devem ser desligadas simultaneamente para evitar instabilidade no cluster.
+** Desconecte os cabos de todas as portas do cluster em todos os nós conectados ao CL2 e, em seguida, use cabos compatíveis para reconectar as portas ao novo switch de cluster cs2.
 
 
-* O interrutor CN1610 CL1 é substituído pelo interrutor BES-53248 CS1:
+* O switch CN1610 CL1 foi substituído pelo switch BES-53248 cs1:
 +
-** Encerre as portas para os nós de cluster. Todas as portas devem ser fechadas simultaneamente para evitar a instabilidade do cluster.
-** Desconete os cabos de todas as portas do cluster em todos os nós conetados ao CL1 e, em seguida, use os cabos suportados para reconetar as portas ao novo switch de cluster CS1.
+** Desative as portas dos nós do cluster.  Todas as portas devem ser desligadas simultaneamente para evitar instabilidade no cluster.
+** Desconecte os cabos de todas as portas do cluster em todos os nós conectados ao CL1 e, em seguida, use cabos compatíveis para reconectar as portas ao novo switch de cluster cs1.
 
 
 
 
 
-NOTE: Não é necessária qualquer ligação entre interrutores (ISL) operacional durante este procedimento. Isso é feito por design porque as alterações na versão do RCF podem afetar temporariamente a conetividade do ISL. Para garantir operações de cluster sem interrupções, o procedimento a seguir migra todas as LIFs de cluster para o switch de parceiro operacional enquanto executa as etapas no switch de destino.
+NOTE: Nenhum link operacional entre switches (ISL) é necessário durante este procedimento. Isso ocorre porque as alterações na versão do RCF podem afetar a conectividade ISL temporariamente. Para garantir a operação ininterrupta do cluster, o procedimento a seguir migra todas as LIFs do cluster para o switch parceiro operacional enquanto executa as etapas no switch de destino.
 
 
 
-=== Passo 1: Prepare-se para a migração
+=== Etapa 1: Prepare-se para a migração
 
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-onde x é a duração da janela de manutenção em horas.
+onde x representa a duração do período de manutenção em horas.
 
 +
 
-NOTE: A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+NOTE: A mensagem do AutoSupport notifica o suporte técnico sobre essa tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
 +
-O seguinte comando suprime a criação automática de casos por duas horas:
+O comando a seguir suprime a criação automática de casos por duas horas:
 
 +
 [listing]
 ----
 cluster1::*> system node autosupport invoke -node * -type all -message MAINT=2h
 ----
-. Altere o nível de privilégio para avançado, inserindo *y* quando solicitado a continuar:
+. Altere o nível de privilégio para avançado, digitando *y* quando solicitado a continuar:
 +
 `set -privilege advanced`
 
 +
-É apresentado o aviso avançado (*>).
+A mensagem avançada (*>) é exibida.
 
 
 
 
 
-=== Etapa 2: Configurar portas e cabeamento
+=== Etapa 2: Configurar portas e cabos
 
-. Nos novos switches, confirme se o ISL está cabeado e funcionando corretamente entre os switches CS1 e CS2:
+. Nos novos switches, confirme se o cabo ISL está conectado e funcionando corretamente entre os switches cs1 e cs2:
 +
 `show port-channel`
 
@@ -157,7 +157,7 @@ cluster1::*> system node autosupport invoke -node * -type all -message MAINT=2h
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra que as portas ISL são *up* no switch CS1:
+O exemplo a seguir mostra que as portas ISL estão *ativas* no switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -180,7 +180,7 @@ Ports  Timeout       Speed      Active
        partner/long
 (cs1) #
 ----
-O exemplo a seguir mostra que as portas ISL são *up* no switch CS2:
+O exemplo a seguir mostra que as portas ISL estão *ativas* no switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -203,7 +203,7 @@ Ports  Timeout       Speed      Active
        partner/long
 ----
 ====
-. Exiba as portas de cluster em cada nó conetado aos switches de cluster existentes:
+. Exibir as portas do cluster em cada nó conectado aos switches de cluster existentes:
 +
 `network device-discovery show -protocol cdp`
 
@@ -229,7 +229,7 @@ node1      /cdp
 ====
 . Determine o status administrativo ou operacional de cada interface de cluster.
 +
-.. Verifique se todas as portas do cluster estão `up` com `healthy` um status:
+.. Verifique se todas as portas do cluster estão `up` com um `healthy` status:
 +
 `network port show -ipspace Cluster`
 
@@ -258,7 +258,7 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-.. Verifique se todas as interfaces de cluster (LIFs) estão em suas portas iniciais:
+.. Verifique se todas as interfaces de cluster (LIFs) estão em suas portas de origem:
 +
 `network interface show -vserver Cluster`
 
@@ -287,9 +287,9 @@ Cluster
 
 [role="tabbed-block"]
 ====
-.ONTAP 9 F.8 e mais tarde
+.ONTAP 9.8 e posterior
 --
-A partir de ONTAP 9.8, use o comando: `system switch ethernet show -is-monitoring-enabled-operational true`
+A partir do ONTAP 9.8, utilize o comando: `system switch ethernet show -is-monitoring-enabled-operational true`
 
 [listing, subs="+quotes"]
 ----
@@ -312,9 +312,9 @@ CL2                           cluster-network  10.10.1.102   CN1610
 cluster1::*>
 ----
 --
-.ONTAP 9 F.7 e anteriores
+.ONTAP 9.7 e versões anteriores
 --
-Para o ONTAP 9.7 e versões anteriores, use o comando: `system cluster-switch show -is-monitoring-enabled-operational true`
+Para ONTAP 9.7 e versões anteriores, utilize o comando: `system cluster-switch show -is-monitoring-enabled-operational true`
 
 [listing, subs="+quotes"]
 ----
@@ -338,13 +338,13 @@ cluster1::*>
 ----
 --
 ====
-. [[step5]]Desativar reversão automática nos LIFs do cluster.
+. [[passo 5]]Desative a reversão automática nos LIFs do cluster.
 +
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-. No switch de cluster CL2, encerre as portas conetadas às portas de cluster dos nós para fazer failover das LIFs de cluster:
+. No switch de cluster CL2, desligue as portas conectadas às portas de cluster dos nós para realizar o failover das LIFs do cluster:
 +
 [listing, subs="+quotes"]
 ----
@@ -355,7 +355,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 (CL2)(Config)# *exit*
 (CL2)#
 ----
-. Verifique se as LIFs de cluster falharam para as portas hospedadas no switch de cluster CL1. Isso pode levar alguns segundos.
+. Verifique se as LIFs do cluster foram transferidas para as portas hospedadas no switch de cluster CL1. Isso pode levar alguns segundos.
 +
 `network interface show -vserver Cluster`
 
@@ -376,7 +376,7 @@ Cluster
             node2_clus2  up/up      169.254.19.183/16  node2         e0a     false
 ----
 ====
-. Verifique se o cluster está em bom estado:
+. Verifique se o cluster está íntegro:
 +
 `cluster show`
 
@@ -393,8 +393,8 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Mova todos os cabos de conexão do nó do cluster do antigo switch CL2 para o novo switch CS2.
-. Confirme a integridade das conexões de rede movidas para CS2:
+. Transfira todos os cabos de conexão dos nós do cluster do switch CL2 antigo para o novo switch CS2.
+. Confirme a integridade das conexões de rede migradas para cs2:
 +
 `network port show -ipspace Cluster`
 
@@ -424,9 +424,9 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
 +
-Todas as portas de cluster que foram movidas devem ser `up`.
+Todas as portas do cluster que foram movidas devem ser `up` .
 
-. Verifique as informações do vizinho nas portas do cluster:
+. Verifique as informações dos vizinhos nas portas do cluster:
 +
 `network device-discovery show -protocol cdp`
 
@@ -448,14 +448,14 @@ node1      /cdp
             e0b    cs2                       0/1               BES-53248
 ----
 ====
-. Confirme se as conexões da porta do switch estão em bom estado do ponto de vista do switch CS2:
+. Confirme se as conexões das portas do switch estão íntegras do ponto de vista do switch CS2:
 +
 [listing, subs="+quotes"]
 ----
 cs2# *show interface all*
 cs2# *show isdp neighbors*
 ----
-. No switch de cluster CL1, encerre as portas conetadas às portas de cluster dos nós para fazer failover das LIFs de cluster:
+. No switch de cluster CL1, desligue as portas conectadas às portas de cluster dos nós para realizar o failover das LIFs do cluster:
 +
 [listing, subs="+quotes"]
 ----
@@ -467,9 +467,9 @@ cs2# *show isdp neighbors*
 (CL1)#
 ----
 +
-Todos os LIFs de cluster fazem failover para o switch CS2.
+Todas as LIFs do cluster fazem failover para o switch cs2.
 
-. Verifique se as LIFs de cluster falharam para as portas hospedadas no switch CS2. Isso pode levar alguns segundos:
+. Verifique se os LIFs do cluster falharam nas portas hospedadas no switch cs2. Isso pode levar alguns segundos:
 +
 `network interface show -vserver Cluster`
 
@@ -490,7 +490,7 @@ Cluster
             node2_clus2  up/up      169.254.19.183/16  node2         e0b     true
 ----
 ====
-. Verifique se o cluster está em bom estado:
+. Verifique se o cluster está íntegro:
 +
 `cluster show`
 
@@ -507,8 +507,8 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Mova os cabos de conexão do nó do cluster de CL1 para o novo switch CS1.
-. Confirme a integridade das conexões de rede movidas para CS1:
+. Mova os cabos de conexão do nó do cluster de CL1 para o novo switch cs1.
+. Confirme o estado das conexões de rede movidas para cs1:
 +
 `network port show -ipspace Cluster`
 
@@ -538,9 +538,9 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
 +
-Todas as portas de cluster que foram movidas devem ser `up`.
+Todas as portas do cluster que foram movidas devem ser `up` .
 
-. Verifique as informações do vizinho nas portas do cluster:
+. Verifique as informações dos vizinhos nas portas do cluster:
 +
 `network device-discovery show`
 
@@ -562,14 +562,14 @@ node2      /cdp
             e0b    cs2                       0/2               BES-53248
 ----
 ====
-. Confirme se as conexões da porta do switch estão em bom estado do ponto de vista do switch CS1:
+. Confirme se as conexões das portas do switch estão íntegras do ponto de vista do switch cs1:
 +
 [listing, subs="+quotes"]
 ----
 cs1# *show interface all*
 cs1# *show isdp neighbors*
 ----
-. Verifique se o ISL entre CS1 e CS2 ainda está operacional:
+. Verifique se o ISL entre cs1 e cs2 ainda está operacional:
 +
 `show port-channel`
 
@@ -577,7 +577,7 @@ cs1# *show isdp neighbors*
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra que as portas ISL são *up* no switch CS1:
+O exemplo a seguir mostra que as portas ISL estão *ativas* no switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -600,7 +600,7 @@ Ports  Timeout       Speed      Active
        partner/long
 (cs1) #
 ----
-O exemplo a seguir mostra que as portas ISL são *up* no switch CS2:
+O exemplo a seguir mostra que as portas ISL estão *ativas* no switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -623,14 +623,14 @@ Ports  Timeout       Speed      Active
        partner/long
 ----
 ====
-. Exclua os switches CN1610 substituídos da tabela de switches do cluster, se eles não forem removidos automaticamente:
+. Exclua os switches CN1610 substituídos da tabela de switches do cluster, caso eles não sejam removidos automaticamente:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9 F.8 e mais tarde
+.ONTAP 9.8 e posterior
 --
-A partir de ONTAP 9.8, use o comando: `system switch ethernet delete -device _device-name_`
+A partir do ONTAP 9.8, utilize o comando: `system switch ethernet delete -device _device-name_`
 
 [listing]
 ----
@@ -638,9 +638,9 @@ cluster::*> system switch ethernet delete -device CL1
 cluster::*> system switch ethernet delete -device CL2
 ----
 --
-.ONTAP 9 F.7 e anteriores
+.ONTAP 9.7 e versões anteriores
 --
-Para o ONTAP 9.7 e versões anteriores, use o comando: `system cluster-switch delete -device _device-name_`
+Para ONTAP 9.7 e versões anteriores, utilize o comando: `system cluster-switch delete -device _device-name_`
 
 [listing]
 ----
@@ -659,36 +659,36 @@ cluster::*> system cluster-switch delete -device CL2
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-. Verifique se os LIFs de cluster reverteram para suas portas residenciais (isso pode levar um minuto):
+. Verifique se as LIFs do cluster retornaram às suas portas originais (isso pode levar um minuto):
 +
 `network interface show -vserver Cluster`
 
 +
-Se os LIFs de cluster não tiverem revertido para sua porta inicial, reverta-os manualmente:
+Se as LIFs do cluster não tiverem retornado à sua porta original, reverta-as manualmente:
 
 +
 `network interface revert -vserver Cluster -lif *`
 
-. Verifique se o cluster está em bom estado:
+. Verifique se o cluster está íntegro:
 +
 `cluster show`
 
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -705,9 +705,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -739,7 +739,7 @@ RPC status:
 ----
 --
 ====
-. [[step5]]se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. [[passo 5]]Se você desativou a criação automática de casos, reative-a invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
@@ -750,5 +750,5 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
 ----
 
 
-.O que se segue?
+.O que vem a seguir?
 Depois de migrar seus switches, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

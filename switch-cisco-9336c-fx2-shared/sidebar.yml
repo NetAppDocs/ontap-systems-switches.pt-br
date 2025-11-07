@@ -2,7 +2,7 @@
 section: switch-cisco-9336c-fx2-shared
 title: Cisco Nexus 9336C-FX2
 entries:
-- title: Comece agora
+- title: Começar
   entries:
   - title: Início rápido
     url: "/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
@@ -13,44 +13,44 @@ entries:
   - title: Documentação necessária
     url: "/switch-cisco-9336c-fx2-shared/required-documentation-9336c-shared.html"
 - title: Instale o hardware
-  pdf-filename: Install_hardware_9336c-FX2-shared
+  pdf-filename: Instalar_hardware_9336c-fx2-compartilhado
   entries:
   - title: Fluxo de trabalho de instalação de hardware
     url: "/switch-cisco-9336c-fx2-shared/install-hardware-workflow.html"
-  - title: Folha de cálculo de cablagem completa
+  - title: Preencha a folha de exercícios de cabeamento.
     url: "/switch-cisco-9336c-fx2-shared/cable-9336c-shared.html"
-  - title: Instale o interrutor
+  - title: Instale o interruptor
     url: "/switch-cisco-9336c-fx2-shared/install-9336c-shared.html"
-  - title: Instale o interrutor no gabinete do NetApp
+  - title: Instalar switch em rack NetApp
     url: "/switch-cisco-9336c-fx2-shared/install-switch-and-passthrough-panel-9336c-shared.html"
 - title: Configurar o software
-  pdf-filename: Configure_software_9336c-FX2-shared
+  pdf-filename: Configure_software_9336c-fx2-compartilhado
   entries:
-  - title: Fluxo de trabalho de instalação do software
+  - title: fluxo de trabalho de instalação de software
     url: "/switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html"
-  - title: Configure o interrutor
+  - title: Configure o interruptor
     url: "/switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html"
-  - title: Prepare-se para instalar o software NX-os e o RCF
+  - title: Prepare-se para instalar o software NX-OS e o RCF.
     url: "/switch-cisco-9336c-fx2-shared/prepare-nxos-rcf-9336c-shared.html"
-  - title: Instale o software NX-os
+  - title: Instale o software NX-OS.
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-software-9336c-shared.html"
   - title: Instale o RCF
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-rcf-9336c-shared.html"
-  - title: Atualize sua versão RCF
+  - title: Atualize sua versão do RCF
     url: "/switch-cisco-9336c-fx2-shared/upgrade-rcf-software-9336c-shared.html"
-  - title: Redefinir o switch para os padrões de fábrica
+  - title: Restaure as configurações de fábrica do switch.
     url: "/switch-cisco-9336c-fx2-shared/reset-switch-9336c-shared.html"
 - title: Migrar switches
-  pdf-filename: Migrate_switches_9336c-FX2-shared
+  pdf-filename: Migrar switches_9336c-fx2-compartilhado
   entries:
-  - title: Migrar do cluster DAS sem switch
+  - title: Migrar de um cluster DAS sem switch
     url: "/switch-cisco-9336c-fx2-shared/migrate-from-switchless-cluster-dat-storage.html"
   - title: Migrar da configuração DAS comutada
     url: "/switch-cisco-9336c-fx2-shared/migrate-from-switched-configuration-dat-storage.html"
   - title: Migrar da configuração SAT sem switch
     url: "/switch-cisco-9336c-fx2-shared/migrate-from-switchless-configuration-sat-storage.html"
-  - title: Migrar do cluster SAT comutado
+  - title: Migrar de um cluster SAT comutado
     url: "/switch-cisco-9336c-fx2-shared/migrate-from-switched-cluster-sat-storage.html"
-- title: Substitua os interrutores
-  pdf-filename: Replace_switches_9336c-FX2-shared
+- title: Substitua os interruptores
+  pdf-filename: Substituir_interruptores_9336c-fx2-compartilhado
   url: "/switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html"

@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: switches, hardware installation, Cisco Nexus, 9332D-GX2B switches 
 summary: Detalhes sobre como instalar e configurar o hardware do switch e o hardware do controlador para seu sistema. 
 ---
-= Instale o hardware
+= Instalar hardware
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vá para olink:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-setup-workflow.html["Fluxo de trabalho de instalação e configuração do AFX"^] para aprender como instalar e configurar o hardware do switch e o hardware do controlador para seu sistema.
+Vá para olink:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-setup-workflow.html["Fluxo de trabalho de instalação e configuração do AFX"^] Para aprender como instalar e configurar o hardware do switch e o hardware do controlador para o seu sistema.
 
 A documentação de instalação e configuração do AFX inclui informações como:
 

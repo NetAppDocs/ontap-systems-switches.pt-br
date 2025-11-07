@@ -2,9 +2,9 @@
 permalink: switch-cisco-92300/smart-call-home-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis. Você pode usar switches de gerenciamento adicionais, que são opcionais. 
+summary: Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis.  Você pode usar interruptores de gerenciamento adicionais, que são opcionais. 
 ---
-= Requisitos para Smart Call Home
+= Requisitos do Smart Call Home
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -19,11 +19,11 @@ O Smart Call Home monitora os componentes de hardware e software na sua rede. Qu
 
 Antes de usar o Smart Call Home, esteja ciente dos seguintes requisitos:
 
-* Um servidor de e-mail deve estar no lugar.
-* O switch deve ter conetividade IP com o servidor de e-mail.
-* É necessário configurar o nome do contacto (contacto do servidor SNMP), o número de telefone e as informações do endereço da rua. Isso é necessário para determinar a origem das mensagens recebidas.
-* Um ID de CCO deve ser associado a um contrato de serviço Cisco SMARTnet apropriado para a sua empresa.
-* O Serviço SMARTnet da Cisco deve estar em vigor para que o dispositivo seja registrado.
+* É necessário ter um servidor de e-mail instalado.
+* O switch deve ter conectividade IP com o servidor de e-mail.
+* É necessário configurar o nome do contato (contato do servidor SNMP), o número de telefone e o endereço.  Isso é necessário para determinar a origem das mensagens recebidas.
+* Um ID CCO deve estar associado a um contrato de serviço Cisco SMARTnet apropriado para sua empresa.
+* O serviço Cisco SMARTnet deve estar instalado para que o dispositivo seja registrado.
 
 
-O http://www.cisco.com/c/en/us/products/switches/index.html["Site de suporte da Cisco"^] contém informações sobre os comandos para configurar Smart Call Home.
+O http://www.cisco.com/c/en/us/products/switches/index.html["Site de suporte da Cisco"^] Contém informações sobre os comandos para configurar o Smart Call Home.

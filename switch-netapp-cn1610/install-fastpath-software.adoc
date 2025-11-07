@@ -2,7 +2,7 @@
 permalink: switch-netapp-cn1610/install-fastpath-software.html 
 sidebar: sidebar 
 keywords: install, fastpath, software 
-summary: Quando você instala o software FASTPATH em seus switches NetApp, você deve começar a atualização com o segundo switch, CS2. 
+summary: Ao instalar o software FASTPATH ​​em seus switches NetApp , você deve iniciar a atualização pelo segundo switch, cs2. 
 ---
 = Instale o software FASTPATH
 :allow-uri-read: 
@@ -11,24 +11,24 @@ summary: Quando você instala o software FASTPATH em seus switches NetApp, você
 
 
 [role="lead"]
-Quando você instala o software FASTPATH em seus switches NetApp, você deve começar a atualização com o segundo switch, _CS2_.
+Ao instalar o software FASTPATH ​​em seus switches NetApp , você deve iniciar a atualização pelo segundo switch, _cs2_.
 
 
 
-== Rever os requisitos
+== Requisitos de revisão
 
 .Antes de começar
-Certifique-se de que tem o seguinte:
+Certifique-se de ter o seguinte:
 
 * Um backup atual da configuração do switch.
-* Um cluster totalmente funcional (sem erros nos logs e sem placas de interface de rede de cluster (NICs) defeituosas ou problemas semelhantes).
+* Um cluster totalmente funcional (sem erros nos logs e sem placas de interface de rede (NICs) defeituosas ou problemas semelhantes).
 * Conexões de porta totalmente funcionais no switch de cluster.
-* Todas as portas do cluster configuradas.
-* Todas as interfaces lógicas de cluster (LIFs) configuradas (não devem ter sido migradas).
-* Um caminho de comunicação bem-sucedido: O comando ONTAP (privilégio: Avançado) `cluster ping-cluster -node node1` deve indicar que `larger than PMTU communication` é bem-sucedido em todos os caminhos.
-* Uma versão suportada do FASTPATH e ONTAP.
+* Todas as portas do cluster estão configuradas.
+* Todas as interfaces lógicas do cluster (LIFs) devem estar configuradas (não devem ter sido migradas).
+* Um caminho de comunicação bem-sucedido: O ONTAP (privilégio: avançado) `cluster ping-cluster -node node1` O comando deve indicar que `larger than PMTU communication` Tem sucesso em todos os caminhos.
+* Uma versão compatível do FASTPATH ​​e do ONTAP.
 +
-Certifique-se de consultar a tabela de compatibilidade de switch na http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switches NetApp CN1601 e CN1610"^] página para as versões FASTPATH e ONTAP suportadas.
+Certifique-se de consultar a tabela de compatibilidade de switches no http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switches NetApp CN1601 e CN1610"^] Página com as versões suportadas do FASTPATH ​​e do ONTAP .
 
 
 
@@ -36,41 +36,41 @@ Certifique-se de consultar a tabela de compatibilidade de switch na http://mysup
 
 == Instale o FASTPATH
 
-O procedimento a seguir usa a sintaxe Clustered Data ONTAP 8.2. Como resultado, o SVM de cluster, os nomes de LIF e a saída de CLI são diferentes dos do Data ONTAP 8.3.
+O procedimento a seguir utiliza a sintaxe clusterizada do Data ONTAP 8.2.  Como resultado, o Vserver do cluster, os nomes LIF e a saída da CLI são diferentes daqueles presentes no Data ONTAP 8.3.
 
-Pode haver dependências de comando entre sintaxe de comando nas versões RCF e FASTPATH.
+Pode haver dependências entre a sintaxe de comandos nas versões RCF e FASTPATH.
 
 .Sobre os exemplos
-Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:
 
-* Os dois switches NetApp são CS1 e CS2.
-* Os dois LIFs de cluster são clus1 e clus2.
-* Os VServers são VS1 e VS2.
-* O `cluster::*>` prompt indica o nome do cluster.
-* As portas de cluster em cada nó são denominadas e1a e E2A.
+* Os dois switches NetApp são o cs1 e o cs2.
+* Os dois LIFs do cluster são clus1 e clus2.
+* Os servidores virtuais são vs1 e vs2.
+* O `cluster::*>` O prompt indica o nome do cluster.
+* As portas do cluster em cada nó são denominadas e1a e e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^] tem mais informações sobre as portas de cluster reais que são suportadas na sua plataforma.
+https://hwu.netapp.com/["Hardware Universe"^]Possui mais informações sobre as portas de cluster reais que são suportadas em sua plataforma.
 
-* Os ISLs (Inter-Switch Links) suportados são as portas 0/13 a 0/16.
-* As conexões de nós suportadas são as portas 0/1 a 0/12.
+* Os links entre switches (ISLs) suportados são as portas 0/13 a 0/16.
+* As conexões de nó suportadas são as portas 0/1 a 0/12.
 
 
 
 
 === Etapa 1: Migrar cluster
 
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
 +
-_x_ é a duração da janela de manutenção em horas.
+_x_ representa a duração da janela de manutenção em horas.
 
 +
 
-NOTE: A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+NOTE: A mensagem do AutoSupport notifica o suporte técnico sobre essa tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
-. Faça login no switch como admin. Por padrão, não há senha. No `(cs2) #` prompt, digite o `enable` comando. Novamente, não há senha por padrão. Isso lhe dá acesso ao modo EXEC privilegiado, que permite configurar a interface de rede.
+. Faça login no switch como administrador.  Não há senha por padrão.  No `(cs2) #` conforme solicitado, digite o `enable` comando.  Novamente, não há senha por padrão.  Isso lhe dá acesso ao modo EXEC privilegiado, que permite configurar a interface de rede.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -82,7 +82,7 @@ Password (Enter)
 (cs2) #
 ----
 ====
-. No console de cada nó, migre clus2 para a porta e1a:
+. No console de cada nó, migre o clus2 para a porta e1a:
 +
 `network interface migrate`
 
@@ -126,9 +126,9 @@ vs2
 
 
 
-=== Passo 2: Instale o software FASTPATH
+=== Etapa 2: Instale o software FASTPATH
 
-. Encerre a porta E2A do cluster em ambos os nós:
+. Desative a porta e2a do cluster em ambos os nós:
 +
 `network port modify`
 
@@ -136,7 +136,7 @@ vs2
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra a porta E2A sendo fechada em ambos os nós:
+O exemplo a seguir mostra a porta e2a sendo desativada em ambos os nós:
 
 [listing]
 ----
@@ -144,7 +144,7 @@ cluster::*> network port modify -node node1 -port e2a -up-admin false
 cluster::*> network port modify -node node2 -port e2a -up-admin false
 ----
 ====
-. Verifique se a porta E2A está desligada em ambos os nós:
+. Verifique se a porta e2a está desativada em ambos os nós:
 +
 `network port show`
 
@@ -167,7 +167,7 @@ node2
        e2a  cluster  down 9000   true/true   full/full   auto/10000
 ----
 ====
-. Desligue as portas ISL (Inter-Switch Link) no CS1, o interrutor NetApp ativo:
+. Desative as portas Inter-Switch Link (ISL) no cs1, o switch NetApp ativo:
 +
 .Mostrar exemplo
 [%collapsible]
@@ -181,7 +181,7 @@ node2
 (cs1)(config) # exit
 ----
 ====
-. Faça uma cópia de segurança da imagem ativa atual no CS2.
+. Faça backup da imagem ativa atual no CS2.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -210,9 +210,9 @@ Copy operation successful
 (cs2) #
 ----
 ====
-. Transfira o ficheiro de imagem para o interrutor.
+. Faça o download do arquivo de imagem para o switch.
 +
-Copiar o arquivo de imagem para a imagem ativa significa que, quando você reiniciar, essa imagem estabelece a versão FASTPATH em execução. A imagem anterior permanece disponível como cópia de segurança.
+Copiar o arquivo de imagem para a imagem ativa significa que, ao reiniciar, essa imagem estabelece a versão do FASTPATH em execução.  A imagem anterior permanece disponível como backup.
 
 +
 .Mostrar exemplo
@@ -271,7 +271,7 @@ Additional Packages................. FASTPATH QOS
                                      FASTPATH IPv6 Management
 ----
 ====
-. Visualize as imagens de arranque para a configuração ativa e de cópia de segurança.
+. Visualize as imagens de inicialização para a configuração ativa e de backup.
 +
 `show bootvar`
 
@@ -318,7 +318,7 @@ System will now restart!
 
 
 
-=== Passo 3: Valide a instalação
+=== Etapa 3: Validar a instalação
 
 . Faça login novamente e verifique a nova versão do software FASTPATH.
 +
@@ -353,7 +353,7 @@ Additional Packages.................. FASTPATH QOS
                                       FASTPATH IPv6 Management
 ----
 ====
-. Abra as portas ISL no CS1, o interrutor ativo.
+. Ative as portas ISL no cs1, o switch ativo.
 +
 `configure`
 
@@ -375,7 +375,7 @@ Additional Packages.................. FASTPATH QOS
 `show port-channel 3/1`
 
 +
-O campo Estado da ligação deve `Up` indicar .
+O campo Link State deve indicar `Up` .
 
 +
 .Mostrar exemplo
@@ -406,7 +406,7 @@ Ports  Timeout       Speed     Active
        partner/long
 ----
 ====
-. Copie o `running-config` arquivo para o `startup-config` arquivo quando estiver satisfeito com as versões de software e as configurações de switch.
+. Copie o `running-config` arquivo para o `startup-config` salve o arquivo quando estiver satisfeito com as versões do software e as configurações do switch.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -425,7 +425,7 @@ Config file 'startup-config' created successfully .
 Configuration Saved!
 ----
 ====
-. Ative a segunda porta do cluster, E2A, em cada nó:
+. Ative a segunda porta do cluster, e2a, em cada nó:
 +
 `network port modify`
 
@@ -439,12 +439,12 @@ cluster::*> network port modify -node node1 -port e2a -up-admin true
 cluster::*> **network port modify -node node2 -port e2a -up-admin true**
 ----
 ====
-. Reverter clus2 associado à porta E2A:
+. Reverter clus2 associado à porta e2a:
 +
 `network interface revert`
 
 +
-O LIF pode reverter automaticamente, dependendo da sua versão do software ONTAP.
+A LIF pode reverter automaticamente, dependendo da sua versão do software ONTAP .
 
 +
 .Mostrar exemplo
@@ -456,7 +456,7 @@ cluster::*> network interface revert -vserver Cluster -lif n1_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 ----
 ====
-. Verifique se o LIF está agora em (`true`casa ) em ambos os nós:
+. Verifique se o LIF agora está em casa.(`true` ) em ambos os nós:
 +
 `network interface show -_role cluster_`
 
@@ -479,7 +479,7 @@ vs2
           clus2      up/up      10.10.10.2/24  node2    e2a     true
 ----
 ====
-. Exibir o status dos nós:
+. Veja o estado dos nós:
 +
 `cluster show`
 
@@ -497,8 +497,8 @@ node1                true    true
 node2                true    true
 ----
 ====
-. Repita as etapas anteriores para instalar o software FASTPATH no outro switch, CS1.
-. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. Repita os passos anteriores para instalar o software FASTPATH no outro switch, cs1.
+. Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

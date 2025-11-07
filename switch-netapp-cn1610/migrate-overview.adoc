@@ -2,7 +2,7 @@
 permalink: switch-netapp-cn1610/migrate-overview.html 
 sidebar: sidebar 
 keywords: migrate, two-node switched cluster, netapp cn1610 
-summary: Se você tiver um cluster sem switch de dois nós, poderá migrar, sem interrupções, para um cluster comutado de dois nós que inclui switches de rede de cluster NetApp CN1610. 
+summary: Se você possui um cluster sem switches de dois nós, pode migrar, sem interrupções, para um cluster com switches de dois nós que inclua switches de rede de cluster NetApp CN1610. 
 ---
 = Opções de migração para um cluster comutado de dois nós com switches de cluster NetApp CN1610
 :allow-uri-read: 
@@ -11,14 +11,14 @@ summary: Se você tiver um cluster sem switch de dois nós, poderá migrar, sem 
 
 
 [role="lead"]
-Se você tiver um cluster sem switch de dois nós, poderá migrar, sem interrupções, para um cluster comutado de dois nós que inclui switches de rede de cluster NetApp CN1610. O procedimento usado depende se você tem duas portas de rede de cluster dedicadas em cada controlador ou uma única porta de cluster em cada controlador.
+Se você possui um cluster sem switches de dois nós, pode migrar, sem interrupções, para um cluster com switches de dois nós que inclua switches de rede de cluster NetApp CN1610.  O procedimento a ser utilizado depende de você ter duas portas de rede de cluster dedicadas em cada controlador ou uma única porta de cluster em cada controlador.
 
-A maioria dos sistemas requer duas portas de rede de cluster dedicadas em cada controlador.
+A maioria dos sistemas requer duas portas de rede dedicadas para clusters em cada controlador.
 
-FAS22xx nós permitem uma única porta de cluster em cada controlador.
+Os nós FAS22xx permitem uma única porta de cluster em cada controlador.
 
 Existem duas opções de migração disponíveis:
 
-* link:migrate-switched-netapp-cn1610.html["Migre de um cluster sem switch para um ambiente de cluster NetApp CN1610 comutado"]
-* link:migrate-fas22xx-systems.html["Migrar de um cluster sem switch (sistemas FAS22xx com uma única conexão de cluster-rede)"]
+* link:migrate-switched-netapp-cn1610.html["Migre de um cluster sem switch para um ambiente de cluster NetApp CN1610 com switch."]
+* link:migrate-fas22xx-systems.html["Migrar de um cluster sem switch (sistemas FAS22xx com uma única conexão de rede de cluster)"]
 

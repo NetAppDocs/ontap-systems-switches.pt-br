@@ -2,60 +2,60 @@
 permalink: switch-bes-53248/migrate-to-2n-switched.html 
 sidebar: sidebar 
 keywords: two-node switchless clusters, migrating to a two-node switched BES-53248 cluster environment,BES-53248 switches, migrating two-node switched clusters,2-node 
-summary: Se você tiver um cluster sem switch de dois nós, poderá migrar, sem interrupções, para um cluster comutado de dois nós que inclui switches de cluster BES-53248 compatíveis com Broadcom 
+summary: Se você possui um cluster sem switches de dois nós, pode migrar, sem interrupções, para um cluster com switches de dois nós que inclua switches de cluster BES-53248 compatíveis com a Broadcom. 
 ---
-= Migrar para um ambiente de cluster comutado do NetApp
+= Migre para um ambiente de cluster NetApp comutado.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você tiver um ambiente de cluster _sem switch_ de dois nós existente, poderá migrar para um ambiente de cluster _comutado_ de dois nós usando switches de cluster BES-53248 compatíveis com Broadcom, o que permite que você escale além de dois nós no cluster.
+Se você já possui um ambiente de cluster de dois nós sem switches, pode migrar para um ambiente de cluster de dois nós com switches usando os switches de cluster BES-53248 compatíveis com a Broadcom, o que permite escalar o cluster para além de dois nós.
 
-O processo de migração funciona para todas as portas de nós de cluster que usam portas óticas ou Twinax, mas não é suportado neste switch se os nós estiverem usando portas 10GBASEBASE-T RJ45 integradas para as portas de rede do cluster.
+O processo de migração funciona para todas as portas de nós do cluster que utilizam portas ópticas ou Twinax, mas não é suportado neste switch se os nós estiverem utilizando portas RJ45 10GBASE-T integradas para as portas de rede do cluster.
 
 
 
-== Rever os requisitos
+== Requisitos de revisão
 
-Revise os requisitos a seguir para o ambiente de cluster.
+Analise os seguintes requisitos para o ambiente de cluster.
 
-* Esteja ciente de que a maioria dos sistemas requer duas portas de rede de cluster dedicadas em cada controlador.
-* Certifique-se de que o switch de cluster BES-53248 está configurado como descrito em link:replace-switch-reqs.html["Substitua os requisitos"] antes de iniciar este processo de migração.
+* Tenha em mente que a maioria dos sistemas requer duas portas de rede dedicadas para o cluster em cada controlador.
+* Certifique-se de que o comutador de cluster BES-53248 esteja configurado conforme descrito emlink:replace-switch-reqs.html["Requisitos de substituição"] antes de iniciar este processo de migração.
 * Para a configuração sem switch de dois nós, certifique-se de que:
 +
-** A configuração sem switch de dois nós está corretamente configurada e funcionando.
-** Os nós estão executando o ONTAP 9.5P8 e posterior. O suporte para portas de cluster de 40/100 GbE começa com o firmware EFOS versão 3.4.4.6 e posterior.
-** Todas as portas de cluster estão no estado *up*.
-** Todas as interfaces lógicas de cluster (LIFs) estão no estado *up* e em suas portas domésticas.
+** A configuração sem switch de dois nós está configurada corretamente e funcionando.
+** Os nós estão executando o ONTAP 9.5P8 ou versões posteriores.  O suporte para portas de cluster 40/100 GbE começa com a versão 3.4.4.6 e posteriores do firmware EFOS.
+** Todas as portas do cluster estão no estado *ativo*.
+** Todas as interfaces lógicas do cluster (LIFs) estão no estado *ativo* e em suas portas de origem.
 
 
-* Para a configuração do switch de cluster BES-53248 compatível com Broadcom, certifique-se de que:
+* Para a configuração do switch de cluster BES-53248 com suporte da Broadcom, certifique-se de que:
 +
-** O comutador de cluster BES-53248 está totalmente funcional em ambos os interrutores.
-** Ambos os switches têm conetividade de rede de gerenciamento.
-** Existe acesso à consola aos interrutores do cluster.
-** As conexões de switch nó a nó BES-53248 e switch a switch estão usando cabos Twinax ou fibra.
+** O comutador de cluster BES-53248 está totalmente funcional em ambos os comutadores.
+** Ambos os switches possuem conectividade de rede de gerenciamento.
+** É possível acessar os switches do cluster através do console.
+** As conexões entre nós e entre switches do BES-53248 utilizam cabos Twinax ou de fibra óptica.
 +
-O https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contém informações sobre compatibilidade com ONTAP, firmware EFOS suportado e cabeamento para switches BES-53248.
+O https://hwu.netapp.com/Home/Index["_Universo de Hardware da NetApp_"^] Contém informações sobre compatibilidade com ONTAP , firmware EFOS suportado e cabeamento para switches BES-53248.
 
 
 
-* Os cabos ISL (Inter-Switch Link) são conetados às portas 0/55 e 0/56 em ambos os switches BES-53248.
+* Os cabos Inter-Switch Link (ISL) são conectados às portas 0/55 e 0/56 em ambos os switches BES-53248.
 * A personalização inicial de ambos os switches BES-53248 está concluída, de modo que:
 +
 ** Os switches BES-53248 estão executando a versão mais recente do software.
-** Os switches BES-53248 têm licenças de porta opcionais instaladas, se compradas.
+** Os switches BES-53248 possuem licenças de porta opcionais instaladas, caso sejam adquiridas.
 ** Os arquivos de configuração de referência (RCFs) são aplicados aos switches.
 
 
-* Qualquer personalização de site (SMTP, SNMP e SSH) é configurada nos novos switches.
+* Qualquer personalização do site (SMTP, SNMP e SSH) é configurada nos novos switches.
 
 
-.Restrições de velocidade do grupo de portas
-* As portas 48 10/25GbE (SFP28/SFP) são combinadas em 12 grupos de 4 portas da seguinte forma: Portas 1-33, 36-32, 28-29, 25-21, 24-20, 16-17, 13-9, 12-8, 4-5, 37-40, 41-44 e 45-48.
-* A velocidade da porta SFP28/SFP deve ser a mesma (10GbE ou 25GbE) em todas as portas do grupo de 4 portas.
+.restrições de velocidade do grupo portuário
+* As 48 portas 10/25GbE (SFP28/SFP+) são combinadas em 12 grupos de 4 portas, da seguinte forma: Portas 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 e 45-48.
+* A velocidade da porta SFP28/SFP+ deve ser a mesma (10GbE ou 25GbE) em todas as portas do grupo de 4 portas.
 * Se as velocidades em um grupo de 4 portas forem diferentes, as portas do switch não funcionarão corretamente.
 
 
@@ -64,61 +64,61 @@ O https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contém infor
 == Migrar para o ambiente de cluster
 
 .Sobre os exemplos
-Os exemplos deste procedimento utilizam a seguinte nomenclatura de nó e switch de cluster:
+Os exemplos neste procedimento utilizam a seguinte nomenclatura de comutador de cluster e nó:
 
-* Os nomes dos switches BES-53248 são `cs1` e `cs2`.
-* Os nomes dos SVMs do cluster são `node1` e `node2`.
-* Os nomes dos LIFs são `node1_clus1` e `node1_clus2` no nó 1 e `node2_clus1` e `node2_clus2` no nó 2, respetivamente.
-* O `cluster1::*>` prompt indica o nome do cluster.
-* As portas do cluster usadas neste procedimento são `e0a` e `e0b`.
+* Os nomes dos switches BES-53248 são `cs1` e `cs2` .
+* Os nomes dos SVMs do cluster são `node1` e `node2` .
+* Os nomes dos LIFs são `node1_clus1` e `node1_clus2` no nó 1, e `node2_clus1` e `node2_clus2` no nó 2, respectivamente.
+* O `cluster1::*>` O prompt indica o nome do cluster.
+* As portas de cluster usadas neste procedimento são `e0a` e `e0b` .
 +
-O https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contém as informações mais recentes sobre as portas de cluster reais para as suas plataformas.
+O https://hwu.netapp.com/Home/Index["_Universo de Hardware da NetApp_"^] Contém as informações mais recentes sobre as portas de cluster reais para suas plataformas.
 
 
 
 
 
-=== Passo 1: Prepare-se para a migração
+=== Etapa 1: Prepare-se para a migração
 
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-onde x é a duração da janela de manutenção em horas.
+onde x representa a duração do período de manutenção em horas.
 
 +
 
-NOTE: A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+NOTE: A mensagem do AutoSupport notifica o suporte técnico sobre essa tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
 +
-O seguinte comando suprime a criação automática de casos por duas horas:
+O comando a seguir suprime a criação automática de casos por duas horas:
 
 +
 [listing]
 ----
 cluster1::*> system node autosupport invoke -node * -type all -message MAINT=2h
 ----
-. Altere o nível de privilégio para avançado, inserindo *y* quando solicitado a continuar:
+. Altere o nível de privilégio para avançado, digitando *y* quando solicitado a continuar:
 +
 `set -privilege advanced`
 
 +
-(`*>`É apresentado o aviso avançado ).
+O prompt avançado(`*>` ) aparece.
 
 
 
 
 
-=== Etapa 2: Configurar portas e cabeamento
+=== Etapa 2: Configurar portas e cabos
 
-. Desative todas as portas ativadas voltadas para o nó (não portas ISL) nos novos switches de cluster CS1 *e* CS2.
+. Desative todas as portas voltadas para o nó que estiverem ativadas (exceto as portas ISL) nos dois novos switches do cluster, cs1 *e* cs2.
 +
 
-NOTE: Não deve desativar as portas ISL.
+NOTE: Você não deve desativar as portas ISL.
 
 +
-O exemplo a seguir mostra que as portas 1 a 16 voltadas para o nó estão desativadas no switch CS1:
+O exemplo a seguir mostra que as portas voltadas para o nó, de 1 a 16, estão desativadas no switch cs1:
 
 +
 [listing, subs="+quotes"]
@@ -129,7 +129,7 @@ O exemplo a seguir mostra que as portas 1 a 16 voltadas para o nó estão desati
 (cs1)(Interface 0/1-0/16)# *exit*
 (cs1)(Config)# *exit*
 ----
-. Verifique se o ISL e as portas físicas no ISL entre os dois switches BES-53248 CS1 e CS2 estão ativos:
+. Verifique se o ISL e as portas físicas no ISL entre os dois switches BES-53248, cs1 e cs2, estão ativos:
 +
 `show port-channel`
 
@@ -137,7 +137,7 @@ O exemplo a seguir mostra que as portas 1 a 16 voltadas para o nó estão desati
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra que as portas ISL estão acima no interrutor CS1:
+O exemplo a seguir mostra que as portas ISL estão ativas no switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -160,7 +160,7 @@ Ports  Timeout       Speed      Active
        partner/long
 (cs1) #
 ----
-O exemplo a seguir mostra que as portas ISL estão acima no interrutor CS2:
+O exemplo a seguir mostra que as portas ISL estão ativas no switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -188,13 +188,13 @@ Ports  Timeout       Speed      Active
 `show isdp neighbors`
 
 +
-Este comando fornece informações sobre os dispositivos que estão conetados ao sistema.
+Este comando fornece informações sobre os dispositivos que estão conectados ao sistema.
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir lista os dispositivos vizinhos no switch CS1:
+O exemplo a seguir lista os dispositivos vizinhos no switch cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -207,7 +207,7 @@ Device ID      Intf     Holdtime  Capability   Platform    Port ID
 cs2            0/55     176       R            BES-53248   0/55
 cs2            0/56     176       R            BES-53248   0/56
 ----
-O exemplo a seguir lista os dispositivos vizinhos no switch CS2:
+O exemplo a seguir lista os dispositivos vizinhos no switch cs2:
 
 [listing, subs="+quotes"]
 ----
@@ -250,7 +250,7 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 ----
 ====
-. Verifique se todas as LIFs de cluster estão ativas e operacionais:
+. Verifique se todas as LIFs do cluster estão ativas e operacionais:
 +
 `network interface show -vserver Cluster`
 
@@ -278,14 +278,14 @@ Cluster
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-. Desconete o cabo da porta de cluster e0a no node1 e conete o e0a à porta 1 no switch de cluster CS1, usando o cabeamento apropriado suportado pelos switches BES-53248.
+. Desconecte o cabo da porta do cluster e0a no nó 1 e, em seguida, conecte e0a à porta 1 no switch do cluster cs1, usando o cabeamento apropriado suportado pelos switches BES-53248.
 +
-O https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contém mais informações sobre cabeamento.
+O https://hwu.netapp.com/Home/Index["_Universo de Hardware da NetApp_"^] Contém mais informações sobre cabeamento.
 
-. Desconete o cabo da porta de cluster e0a no node2 e conete o e0a à porta 2 no switch de cluster CS1, usando o cabeamento apropriado suportado pelos switches BES-53248.
-. Habilite todas as portas voltadas para o nó no switch de cluster CS1.
+. Desconecte o cabo da porta do cluster e0a no nó 2 e, em seguida, conecte e0a à porta 2 no switch do cluster cs1, usando o cabeamento apropriado suportado pelos switches BES-53248.
+. Habilite todas as portas voltadas para os nós no switch de cluster cs1.
 +
-O exemplo a seguir mostra que as portas 1 a 16 estão ativadas no switch CS1:
+O exemplo a seguir mostra que as portas de 1 a 16 estão habilitadas no switch cs1:
 
 +
 [listing, subs="+quotes"]
@@ -325,7 +325,7 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-. Verifique se todas as LIFs de cluster estão ativas e operacionais:
+. Verifique se todas as LIFs do cluster estão ativas e operacionais:
 +
 `network interface show -vserver Cluster`
 
@@ -347,7 +347,7 @@ Cluster
          node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
 ----
 ====
-. Exibir informações sobre o status dos nós no cluster:
+. Exibir informações sobre o estado dos nós no cluster:
 +
 `cluster show`
 
@@ -367,11 +367,11 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. Desconete o cabo da porta de cluster e0b no node1 e conete o e0b à porta 1 no switch de cluster CS2, usando o cabeamento apropriado suportado pelos switches BES-53248.
-. Desconete o cabo da porta de cluster e0b no node2 e conete o e0b à porta 2 no switch de cluster CS2, usando o cabeamento apropriado suportado pelos switches BES-53248.
-. Habilite todas as portas voltadas para o nó no switch de cluster CS2.
+. Desconecte o cabo da porta do cluster e0b no nó 1 e, em seguida, conecte e0b à porta 1 no switch do cluster cs2, usando o cabeamento apropriado suportado pelos switches BES-53248.
+. Desconecte o cabo da porta do cluster e0b no nó 2 e, em seguida, conecte e0b à porta 2 no switch do cluster cs2, usando o cabeamento apropriado suportado pelos switches BES-53248.
+. Habilite todas as portas voltadas para os nós no switch de cluster cs2.
 +
-O exemplo a seguir mostra que as portas 1 a 16 estão ativadas no switch CS2:
+O exemplo a seguir mostra que as portas de 1 a 16 estão habilitadas no switch cs2:
 
 +
 [listing, subs="+quotes"]
@@ -423,23 +423,23 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-. Verifique se os LIFs de cluster reverteram para suas portas residenciais (isso pode levar um minuto):
+. Verifique se as LIFs do cluster retornaram às suas portas originais (isso pode levar um minuto):
 +
 `network interface show -vserver Cluster`
 
 +
-Se os LIFs de cluster não tiverem revertido para sua porta inicial, reverta-os manualmente:
+Se as LIFs do cluster não tiverem retornado à sua porta original, reverta-as manualmente:
 
 +
 `network interface revert -vserver Cluster -lif *`
 
-. Verifique se todas as interfaces são exibidas `true` para `Is Home`:
+. Verifique se todas as interfaces exibem `true` para `Is Home` :
 +
 `network interface show -vserver Cluster`
 
 +
 
-NOTE: Isso pode levar vários minutos para ser concluído.
+NOTE: Isso pode levar alguns minutos para ser concluído.
 
 +
 .Mostrar exemplo
@@ -459,7 +459,7 @@ Cluster
           node2_clus2  up/up      169.254.19.183/16  node2      e0b     true
 ----
 ====
-. Verifique se ambos os nós têm uma conexão com cada switch:
+. Verifique se ambos os nós possuem uma conexão com cada switch:
 +
 `show isdp neighbors`
 
@@ -467,7 +467,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra os resultados apropriados para ambos os switches:
+O exemplo a seguir mostra os resultados apropriados para ambas as opções:
 
 [listing, subs="+quotes"]
 ----
@@ -495,7 +495,7 @@ cs1            0/55         175       R            BES-53248   0/55
 cs1            0/56         175       R            BES-53248   0/56
 ----
 ====
-. Exiba informações sobre os dispositivos de rede descobertos no cluster:
+. Exibir informações sobre os dispositivos de rede descobertos em seu cluster:
 +
 `network device-discovery show -protocol cdp`
 
@@ -517,16 +517,16 @@ node1      /cdp
             e0b    cs2                       0/1               BES-53248
 ----
 ====
-. Verifique se as definições estão desativadas:
+. Verifique se as configurações estão desativadas:
 +
 `network options switchless-cluster show`
 
 +
 
-NOTE: Pode demorar vários minutos para o comando ser concluído. Aguarde até que o anúncio "3 minutos de duração expire".
+NOTE: A conclusão do comando pode levar alguns minutos.  Aguarde o anúncio de que o tempo de vida de 3 minutos está prestes a expirar.
 
 +
-A `false` saída no exemplo a seguir mostra que as configurações estão desativadas:
+O `false` O resultado no exemplo a seguir mostra que as configurações estão desativadas:
 
 +
 [listing, subs="+quotes"]
@@ -534,7 +534,7 @@ A `false` saída no exemplo a seguir mostra que as configurações estão desati
 cluster1::*> *network options switchless-cluster show*
 Enable Switchless Cluster: false
 ----
-. Verifique o status dos membros do nó no cluster:
+. Verifique o status dos nós membros do cluster:
 +
 `cluster show`
 
@@ -542,7 +542,7 @@ Enable Switchless Cluster: false
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra informações sobre a integridade e a elegibilidade dos nós no cluster:
+O exemplo a seguir mostra informações sobre a saúde e a elegibilidade dos nós no cluster:
 
 [listing, subs="+quotes"]
 ----
@@ -554,22 +554,22 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -586,9 +586,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -620,11 +620,11 @@ RPC status:
 ----
 --
 ====
-. [[step9]]altere o nível de privilégio de volta para admin:
+. [[passo 9]]Altere o nível de privilégio de volta para administrador:
 +
 `set -privilege admin`
 
-. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
@@ -638,9 +638,9 @@ cluster1::*> system node autosupport invoke -node * -type all -message MAINT=END
 ----
 ====
 +
-Para obter mais informações, consulte: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Artigo da KB do NetApp: Como suprimir a criação automática de casos durante janelas de manutenção programada"^]
+Para obter mais informações, consulte: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Artigo da Base de Conhecimento da NetApp : Como suprimir a criação automática de chamados durante janelas de manutenção programadas"^]
 
 
 
-.O que se segue?
+.O que vem a seguir?
 Depois de migrar seus switches, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

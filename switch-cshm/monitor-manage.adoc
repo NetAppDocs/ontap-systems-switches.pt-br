@@ -2,7 +2,7 @@
 permalink: switch-cshm/monitor-manage.html 
 sidebar: sidebar 
 keywords: create, remove, switch, cluster, monitor, health, management 
-summary: Saiba como criar manualmente, alterar as configurações de monitoramento padrão e excluir switches Ethernet do monitoramento. 
+summary: Aprenda como criar e alterar manualmente as configurações de monitoramento padrão, além de excluir switches Ethernet do monitoramento. 
 ---
 = Gerenciar o monitoramento de switches Ethernet
 :allow-uri-read: 
@@ -11,25 +11,25 @@ summary: Saiba como criar manualmente, alterar as configurações de monitoramen
 
 
 [role="lead"]
-Na maioria dos casos, os switches Ethernet são automaticamente descobertos pelo ONTAP e monitorados pelo CSHM. O arquivo de configuração de referência (RCF) aplicado ao switch, entre outras coisas, ativa o protocolo de descoberta de Cisco (CDP) e/ou o protocolo de descoberta de camada de enlace (LLDP). No entanto, talvez seja necessário adicionar manualmente um switch que não seja descoberto ou remover um switch que não esteja mais em uso. Também pode parar a monitorização ativa mantendo o interrutor na configuração, como durante a manutenção.
+Na maioria dos casos, os switches Ethernet são descobertos automaticamente pelo ONTAP e monitorados pelo CSHM.  O arquivo de configuração de referência (RCF) aplicado ao switch, entre outras coisas, habilita o Cisco Discovery Protocol (CDP) e/ou o Link Layer Discovery Protocol (LLDP).  No entanto, pode ser necessário adicionar manualmente um interruptor que não foi detectado ou remover um interruptor que não está mais em uso.  Você também pode interromper o monitoramento ativo, mantendo o switch na configuração, por exemplo, durante a manutenção.
 
 
 
-== Crie uma entrada de switch para que o ONTAP possa monitorá-la
+== Crie uma entrada de interruptor para que o ONTAP possa monitorá-la.
 
-Use o `system switch ethernet create` comando para configurar e ativar manualmente o monitoramento de um switch Ethernet especificado. Isso é útil se o ONTAP não adicionar o switch automaticamente ou se você removeu o switch anteriormente e deseja adicioná-lo novamente.
+Use o `system switch ethernet create` Comando para configurar e ativar manualmente o monitoramento de um switch Ethernet específico.  Isso é útil caso o ONTAP não adicione o switch automaticamente ou se você o removeu anteriormente e deseja adicioná-lo novamente.
 
 [source, cli]
 ----
 system switch ethernet create -device DeviceName -address 1.2.3.4 -snmp-version SNMPv2c -community-or-username cshm1! -model NX3132V -type cluster-network
 ----
-Um exemplo típico é adicionar um switch chamado [deviceName], com endereço IP 1,2.3,4 e credenciais SNMPv2c definidas como *cshm1!*. Use `-type storage-network` em vez de `-type cluster-network` se você estiver configurando um switch de armazenamento.
+Um exemplo típico é adicionar um switch chamado [DeviceName], com endereço IP 1.2.3.4 e credenciais SNMPv2c definidas como *cshm1!*.  Usar `-type storage-network` em vez de `-type cluster-network` Se você estiver configurando um switch de armazenamento.
 
 
 
-== Desative a monitorização sem eliminar o interrutor
+== Desative o monitoramento sem excluir o interruptor.
 
-Se você quiser pausar ou parar o monitoramento de um determinado switch, mas ainda mantê-lo para monitoramento futuro, modifique seu `is-monitoring-enabled-admim` parâmetro em vez de excluí-lo.
+Se você deseja pausar ou interromper o monitoramento de um determinado switch, mas ainda mantê-lo para monitoramento futuro, modifique-o. `is-monitoring-enabled-admim` parâmetro em vez de excluí-lo.
 
 Por exemplo:
 
@@ -37,22 +37,22 @@ Por exemplo:
 ----
 system switch ethernet modify -device DeviceName -is-monitoring-enabled-admin false
 ----
-Isso permite que você preserve os detalhes e a configuração do switch sem gerar novos alertas ou redescobertas.
+Isso permite preservar os detalhes e a configuração do switch sem gerar novos alertas ou redescobertas.
 
 
 
-== Remova um switch que você não precisa mais
+== Remova um interruptor que você não precisa mais.
 
-Utilize `system switch ethernet delete` para eliminar um interrutor que tenha sido desligado ou que já não seja necessário:
+Usar `system switch ethernet delete` Para excluir um interruptor que foi desconectado ou não é mais necessário:
 
 [source, cli]
 ----
 system switch ethernet delete -device DeviceName
 ----
-Por padrão, esse comando só será bem-sucedido se o ONTAP não detetar o switch atualmente através do CDP ou do LLDP. Para remover um switch descoberto, use o `-force` parâmetro:
+Por padrão, este comando só terá sucesso se o ONTAP não detectar o switch por meio de CDP ou LLDP.  Para remover um interruptor detectado, use o `-force` parâmetro:
 
 [source, cli]
 ----
 system switch ethernet delete -device DeviceName -force
 ----
- `-force`Quando o é usado, o switch pode ser readicionado automaticamente se o ONTAP o detetar novamente.
+Quando `-force` Se o ONTAP o detectar novamente, ele poderá ser adicionado novamente de forma automática.

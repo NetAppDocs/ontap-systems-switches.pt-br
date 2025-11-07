@@ -2,24 +2,24 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: 'O recurso de coleta de logs do monitor de integridade do switch Ethernet (CSHM) é usado para coletar logs de switches de rede de armazenamento ou cluster no ONTAP.' 
+summary: 'O recurso de coleta de logs do monitor de integridade do switch Ethernet (CSHM) é usado para coletar logs de switches de cluster ou de rede de armazenamento no ONTAP.' 
 ---
-= Coleta de log de monitoramento de integridade do comutador Ethernet
+= Coleta de logs de monitoramento de integridade de switches Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir a integridade operacional dos switches de rede Cluster e Storage e coletar logs de switch para fins de depuração. Este procedimento orienta você pelo processo de configuração e início da coleta de logs detalhados *suporte* do switch e inicia uma coleta de dados *Periódicos* por hora que são coletados pela AutoSupport.
+O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir o funcionamento adequado dos switches de rede do cluster e do armazenamento, além de coletar logs dos switches para fins de depuração.  Este procedimento orienta você no processo de configuração e início da coleta de registros detalhados de *Suporte* do switch e inicia uma coleta horária de dados *Periódicos* que são coletados pelo AutoSupport.
 
 .Antes de começar
-* Para ativar a funcionalidade de recolha de registos, tem de estar a executar ONTAP a versão 9.10.1P15, 9.11.1P12 ou 9.12.1 ou posterior e o EFOS 3.8.0.2 ou posterior.
-* A monitorização do estado do interrutor tem de estar ativada para o interrutor. Verifique isso garantindo que o `Is Monitored:` campo esteja definido como *true* na saída do `system switch ethernet show` comando.
+* Para habilitar o recurso de coleta de logs, você precisa estar executando o ONTAP versão 9.10.1P15, 9.11.1P12 ou 9.12.1 ou posterior e o EFOS versão 3.8.0.2 ou posterior.
+* O monitoramento de integridade do switch deve estar ativado.  Verifique isso certificando-se de que `Is Monitored:` O campo é definido como *verdadeiro* na saída do `system switch ethernet show` comando.
 
 
 .Passos
-. Para configurar a coleção de logs, execute o seguinte comando para cada switch. Você será solicitado a digitar o nome do switch, nome de usuário e senha para a coleta de logs.
+. Para configurar a coleta de logs, execute o seguinte comando para cada switch.  Você será solicitado a inserir o nome do switch, o nome de usuário e a senha para a coleta de logs.
 +
 `system switch ethernet log setup-password`
 
@@ -53,7 +53,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Para iniciar a coleção de logs, execute o seguinte comando, substituindo O DISPOSITIVO pelo switch usado no comando anterior. Isso inicia ambos os tipos de coleta de log: Os logs detalhados *Support* e uma coleta de dados *Periódicos* por hora.
+. Para iniciar a coleta de logs, execute o seguinte comando, substituindo DEVICE pela opção usada no comando anterior.  Isso inicia os dois tipos de coleta de logs: os logs detalhados de *Suporte* e uma coleta horária de dados *Periódicos*.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
@@ -77,57 +77,57 @@ Enabling cluster switch log collection.
 ----
 ====
 +
-Aguarde 10 minutos e, em seguida, verifique se a coleção de registos é concluída:
+Aguarde 10 minutos e verifique se a coleta de logs foi concluída:
 
 +
 `system switch ethernet log show`
 
 +
 
-CAUTION: Se algum desses comandos retornar um erro ou se a coleção de logs não for concluída, entre em Contato com o suporte do NetApp.
+CAUTION: Se algum desses comandos retornar um erro ou se a coleta de logs não for concluída, entre em contato com o suporte da NetApp .
 
 
 
-.Solucionar problemas
-Se você encontrar algum dos seguintes status de erro relatados pelo recurso de coleção de logs (visível na saída do `system switch ethernet log show`), tente as etapas de depuração correspondentes:
+.Solução de problemas
+Se você encontrar algum dos seguintes códigos de erro relatados pelo recurso de coleta de logs (visíveis na saída de `system switch ethernet log show` ), tente os passos de depuração correspondentes:
 
 |===
 
 
-| *Estado do erro de recolha de registos* | *Resolução* 
+| *Status de erro na coleta de logs* | *Resolução* 
 
 
  a| 
 *Chaves RSA não presentes*
  a| 
-Regenerar chaves SSH ONTAP. Entre em Contato com o suporte da NetApp.
+Regenerar as chaves SSH do ONTAP . Entre em contato com o suporte da NetApp .
 
 
 
  a| 
-*erro de senha do switch*
+*erro na senha do switch*
  a| 
-Verifique credenciais, teste a conetividade SSH e regenere chaves SSH ONTAP. Revise a documentação do switch ou entre em Contato com o suporte da NetApp para obter instruções.
+Verificar credenciais, testar a conectividade SSH e regenerar as chaves SSH do ONTAP .  Consulte a documentação do switch ou entre em contato com o suporte da NetApp para obter instruções.
 
 
 
  a| 
 *Chaves ECDSA não presentes para FIPS*
  a| 
-Se o modo FIPS estiver ativado, as chaves ECDSA precisam ser geradas na central antes de tentar novamente.
+Se o modo FIPS estiver ativado, as chaves ECDSA precisam ser geradas no switch antes de tentar novamente.
 
 
 
  a| 
-* registro pré-existente encontrado*
+*registro pré-existente encontrado*
  a| 
 Remova o arquivo de coleta de logs anterior no switch.
 
 
 
  a| 
-*erro de log de despejo do switch*
+*Erro no log de despejo do switch*
  a| 
-Certifique-se de que o usuário do switch tenha permissões de coleta de logs. Consulte os pré-requisitos acima.
+Certifique-se de que o usuário do switch tenha permissões de coleta de logs.  Consulte os pré-requisitos acima.
 
 |===

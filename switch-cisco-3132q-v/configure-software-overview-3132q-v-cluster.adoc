@@ -13,15 +13,15 @@ summary: Visão geral da configuração de software para switches de cluster Cis
 [role="lead"]
 Para instalar e configurar o software para um switch Cisco Nexus 3132Q-V e instalar ou atualizar o arquivo de configuração de referência (RCF), siga estas etapas:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:setup-switch.html["Configure o interrutor"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:setup-switch.html["Configure o interruptor"]
 [role="quick-margin-para"]
 Configure o switch de cluster 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:prepare-install-cisco-nexus-3132q.html["Prepare-se para instalar o software NX-os e o RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:prepare-install-cisco-nexus-3132q.html["Prepare-se para instalar o software NX-OS e o RCF."]
 [role="quick-margin-para"]
 O software Cisco NX-OS e o RCF devem ser instalados nos switches de cluster Cisco 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nx-os-software-3132q-v.html["Instale ou atualize o software NX-os"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nx-os-software-3132q-v.html["Instale ou atualize o software NX-OS."]
 [role="quick-margin-para"]
 Baixe e instale ou atualize o software NX-OS no switch de cluster Cisco 3132Q-V.
 
@@ -29,10 +29,10 @@ Baixe e instale ou atualize o software NX-OS no switch de cluster Cisco 3132Q-V.
 [role="quick-margin-para"]
 Instale o RCF após configurar o switch Cisco 3132Q-V pela primeira vez.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verifique a configuração do SSH"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verifique a configuração SSH"]
 [role="quick-margin-para"]
 Verifique se o SSH está habilitado nos switches para usar o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-3132q-v.html["Redefinir o switch para os padrões de fábrica"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-3132q-v.html["Restaure as configurações de fábrica do switch."]
 [role="quick-margin-para"]
 Apague as configurações do switch do cluster 3132Q-V.

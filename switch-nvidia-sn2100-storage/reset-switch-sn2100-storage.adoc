@@ -12,29 +12,29 @@ summary: Antes de configurar seu switch Cisco Nexus SN2100, revise as seguintes 
 Para redefinir o switch de armazenamento SN2100 para os padrões de fábrica:
 
 * Para o Cumulus Linux 5.10 e anteriores, aplique a imagem Cumulus.
-* Para Cumulus Linux 5.11 e posterior, você usa o `nv action reset system factory-default` comando.
+* Para o Cumulus Linux 5.11 e versões posteriores, você usa o `nv action reset system factory-default` comando.
 
 
 .Sobre esta tarefa
-* Você deve estar conetado ao switch usando o console serial.
+* Você precisa estar conectado ao switch usando o console serial.
 * Você precisa ter a senha de root para ter acesso sudo aos comandos.
 
 
 
-NOTE: Para obter mais informações sobre a instalação do Cumulus Linux, consultelink:configure-software-sn2100-storage.html["Fluxo de trabalho de instalação de software para switches NVIDIA SN2100"] .
+NOTE: Para obter mais informações sobre como instalar o Cumulus Linux, consultelink:configure-software-sn2100-storage.html["Fluxo de trabalho de instalação de software para switches NVIDIA SN2100"] .
 
 .Passos
 [role="tabbed-block"]
 ====
 .Cumulus Linux 5.10 e anteriores
 --
-. No console Cumulus, baixe e coloque na fila a instalação do software do switch com o comando `onie-install -a -i` seguido pelo caminho do arquivo para o software do switch, por exemplo:
+. A partir do console do Cumulus, baixe e coloque na fila a instalação do software do switch com o comando `onie-install -a -i` seguido do caminho do arquivo do software de comutação, por exemplo:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://<web-server>/<path>/cumulus-linux-5.10.0-mlx-amd64.bin*
 ----
-. O instalador inicia o download.  Digite *y* quando solicitado para confirmar a instalação quando a imagem for baixada e verificada.
+. O instalador inicia o download. Digite *y* quando solicitado para confirmar a instalação quando a imagem for baixada e verificada.
 . Reinicie o switch para instalar o novo software.
 +
 `sudo reboot`
@@ -46,7 +46,7 @@ cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
 +
 
-NOTE: O switch é reinicializado e entra na instalação do software do switch, o que leva algum tempo.  Quando a instalação estiver concluída, o switch será reinicializado e permanecerá no estado `log-in` incitar.
+NOTE: O switch é reinicializado e entra na instalação do software do switch, o que leva algum tempo. Quando a instalação estiver concluída, o switch reinicia e permanece no estado em que foi instalado. `log-in` incitar.
 
 
 
@@ -72,7 +72,7 @@ Do you want to continue? [y/n] *y*
 ----
 
 
-Veja a NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Redefinição de fábrica"^] documentação para mais detalhes.
+Veja a NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Redefinição de fábrica"^] Para mais detalhes, consulte a documentação.
 
 --
 ====

@@ -2,24 +2,24 @@
 sidebar: sidebar 
 permalink: whats-new.html 
 keywords: new, switches, fas, aff systems 
-summary: Saiba mais sobre os novos switches para sistemas FAS e AFF. 
+summary: Conheça as novas opções de comutação para os sistemas FAS e AFF . 
 ---
-= O que há de novo para switches
+= O que há de novo para switches?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-Saiba mais sobre os novos switches para sistemas FAS e AFF. Para obter informações adicionais sobre o interrutor, consulte https://hwu.netapp.com/Switch/Index["NetApp Hardware Universe"^].
+Conheça as novas opções de comutação para os sistemas FAS e AFF .  Para obter informações adicionais sobre o interruptor, consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe da NetApp"^] .
 
 
 
-== Novo suporte do interrutor
+== Novo suporte para interruptor
 
 [cols="25h,~,~"]
 |===
-| Interrutores | Descrição | Disponível a partir do início 
+| Interruptores | Descrição | Disponível a partir de 
 
 
  a| 
@@ -43,68 +43,68 @@ ONTAP 9.17.1
  a| 
 Switch de cluster e armazenamento Cisco Nexus 9336C-FX2-T de 12 portas 10/25/40/100GbE (X190212-CS-PE e X190212-CS-PI)
  a| 
-Suporta configurações de cluster de 10/25/40/100 GbE e configurações de armazenamento de 100 GbE (armazenamento conectado ao switch).
+Suporta configurações de cluster 10/25/40/100GbE e configurações de armazenamento 100GbE (armazenamento conectado ao switch).
  a| 
-ONTAP 9.10,1
+ONTAP 9.10.1
 
 
 
  a| 
 Switch de cluster e armazenamento Cisco Nexus 9336C-FX2-T de 12 portas 10/25/40/100GbE (X190212-CS-PE e X190212-CS-PI)
  a| 
-Suporta configurações de cluster de 10/25/40/100 GbE e configurações de armazenamento de 100 GbE (armazenamento conectado ao switch).
+Suporta configurações de cluster 10/25/40/100GbE e configurações de armazenamento 100GbE (armazenamento conectado ao switch).
  a| 
-ONTAP 9.10,1
+ONTAP 9.10.1
 
 
 
  a| 
 Switch NVIDIA de 16 portas 100GbE (X190006-PE e X190006-PI)
  a| 
-Suporte a switch de interconexão de cluster e switch de storage NVIDIA SN2100, incluindo suporte para configurações IP MetroCluster.
+Suporte para switch de interconexão de cluster NVIDIA SN2100 e switch de armazenamento, incluindo suporte para configurações de IP MetroCluster .
  a| 
-ONTAP 9.10,1
+ONTAP 9.10.1
 
 
 
  a| 
 Switch Cisco de 36 portas 100GbE (X190200-CS-PE e X190200-CS-PI)
  a| 
-Dá suporte a uma infraestrutura compartilhada (cluster, HA e storage conectado a switch) no mesmo par de switches Cisco Nexus 9336C-FX2, incluindo suporte para configurações IP MetroCluster.
+Suporta infraestrutura compartilhada (cluster, alta disponibilidade e armazenamento conectado ao switch) no mesmo par de switches Cisco Nexus 9336C-FX2, incluindo suporte para configurações IP MetroCluster .
  a| 
-ONTAP 9.9,1
+ONTAP 9.9.1
 
 
 
  a| 
-Switch de 36 portas 100GbE Cisco (X190200-CS-PE e X190200-CS-PI), (X190210-FE-PE e X190210-FE-PI)
+Switch Cisco de 36 portas 100GbE (X190200-CS-PE e X190200-CS-PI), (X190210-FE-PE e X190210-FE-PI)
  a| 
-Switch de interconexão de cluster Cisco Nexus 9336C-FX2X compatível com switch de storage e switch de storage para sistemas de storage AFF e ASA, bem como para conectividade de dados de front-end.
+O switch de interconexão de cluster e switch de armazenamento Cisco Nexus 9336C-FX2 oferece suporte para sistemas de armazenamento AFF e ASA , bem como para conectividade de dados de front-end.
  a| 
-ONTAP 9,8
+ONTAP 9.8
 
 
 
  a| 
 Switch Broadcom BES-53248 (X190005 e X190005R)
  a| 
-Suporte para switch de interconexão de cluster BES-53248 Broadcom para controladores AFF/FAS com portas 10/25GbE e 40/100GbE.
+O switch de interconexão de cluster Broadcom BES-53248 oferece suporte a controladores AFF/ FAS com portas 10/25GbE e 40/100GbE.
  a| 
-ONTAP 9,8
+ONTAP 9.8
 
 
 
  a| 
 Switch Cisco de 36 portas 100GbE (X190200) e switch Cisco de 32 portas 100GbE (X190100 e X190100R)
  a| 
-Suporte ao switch de storage Cisco Nexus 3232C para conectar compartimentos de unidade NVMe NS224 sistemas de storage AFF e ASA:
+O switch de armazenamento Cisco Nexus 3232C oferece suporte para conectar os sistemas de armazenamento AFF e ASA com gavetas de unidades NVMe NS224:
 
-* AFF A800/AFF ASA A800
-* AFF A700/AFF ASA A700
-* AFF A400/AFF ASA A400
+* AFF A800/ AFF ASA A800
+* AFF A700/ AFF ASA A700
+* AFF A400/ AFF ASA A400
 * AFF A320
 
  a| 
-ONTAP 9,8
+ONTAP 9.8
 
 |===

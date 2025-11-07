@@ -13,15 +13,15 @@ summary: Visão geral da configuração de software para switches de cluster Cis
 [role="lead"]
 Para instalar e configurar o software para os switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T e para instalar ou atualizar o arquivo de configuração de referência (RCF), siga estas etapas:
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:setup-switch-9336c-cluster.html["Configure o interrutor"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:setup-switch-9336c-cluster.html["Configure o interruptor"]
 [role="quick-margin-para"]
 Configure os switches de cluster 9336C-FX2 e 9336C-FX2-T.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:install-nxos-overview-9336c-cluster.html["Prepare-se para instalar o software NX-os e o RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:install-nxos-overview-9336c-cluster.html["Prepare-se para instalar o software NX-OS e o RCF."]
 [role="quick-margin-para"]
 O software Cisco NX-OS e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de cluster Cisco 9336C-FX2 e 9336C-FX2-T.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nxos-software-9336c-cluster.html["Instale ou atualize o software NX-os"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nxos-software-9336c-cluster.html["Instale ou atualize o software NX-OS."]
 [role="quick-margin-para"]
 Baixe e instale ou atualize o software NX-OS nos switches de cluster Cisco 9336C-FX2 e 9336C-FX2-T.
 
@@ -29,10 +29,10 @@ Baixe e instale ou atualize o software NX-OS nos switches de cluster Cisco 9336C
 [role="quick-margin-para"]
 Instale ou atualize o RCF após configurar os switches Cisco 9336C-FX2 e 9336C-FX2-T pela primeira vez. Você também pode usar este procedimento para atualizar sua versão do RCF.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verifique a configuração do SSH"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verifique a configuração SSH"]
 [role="quick-margin-para"]
 Verifique se o SSH está habilitado nos switches para usar o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-9336c.html["Redefinir o switch para os padrões de fábrica"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-9336c.html["Restaure as configurações de fábrica do switch."]
 [role="quick-margin-para"]
 Apague as configurações dos switches de cluster 9336C-FX2 e 9336C-FX2-T.

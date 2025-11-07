@@ -2,23 +2,23 @@
 permalink: switch-bes-53248/configure-licenses.html 
 sidebar: sidebar 
 keywords: bes, cluster, switch, base, model, license, 10gbe, 25gbe, 100gbe, port, add, purchasing, purchase, install licenses for bes-53248 cluster switches - bes-53248 switches 
-summary: O modelo base de switch de cluster BES-53248 é licenciado para portas 16 10GbE ou 25GbE e duas portas 100GbE. Novas portas podem ser adicionadas comprando mais licenças. 
+summary: O modelo básico do switch de cluster BES-53248 possui licença para 16 portas 10GbE ou 25GbE e duas portas 100GbE.  É possível adicionar novas portas adquirindo mais licenças. 
 ---
-= Instalar licenças para switches de cluster BES-53248
+= Instale as licenças para os switches de cluster BES-53248.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-O modelo base de switch de cluster BES-53248 é licenciado para portas 16 10GbE ou 25GbE e duas portas 100GbE. Você pode adicionar novas portas comprando mais licenças.
+O modelo básico do switch de cluster BES-53248 possui licença para 16 portas 10GbE ou 25GbE e duas portas 100GbE.  Você pode adicionar novas portas adquirindo mais licenças.
 
 
-CAUTION: Para o EFOS 3,12 e posterior, siga as etapas de instalação em link:efos-install-rcf-license-file.html["Instale o ficheiro de configuração de referência (RCF) e o ficheiro de licença"].
+CAUTION: Para o EFOS 3.12 e versões posteriores, siga os passos de instalação emlink:efos-install-rcf-license-file.html["Instale o arquivo de configuração de referência (RCF) e o arquivo de licença."] .
 
 
 
-== Reveja as licenças disponíveis
+== Analise as licenças disponíveis
 
 As seguintes licenças estão disponíveis para uso no switch de cluster BES-53248:
 
@@ -30,27 +30,27 @@ As seguintes licenças estão disponíveis para uso no switch de cluster BES-532
  a| 
 SW-BES-53248A2-8P-2P
  a| 
-Chave de licença Broadcom 8PT-10G25G e 2PT-40G100G, X190005/R
+Chave de licença Broadcom 8PT-10G25G + 2PT-40G100G, X190005/R
  a| 
-EFOS 3.4.4.6 e posterior
+EFOS 3.4.4.6 e versões posteriores
 
 
 
  a| 
 SW-BES-53248A2-8P-1025G
  a| 
-Chave de licença Broadcom 8 porta 10G25G, X190005/R
+Chave de licença Broadcom 8 portas 10G25G, X190005/R
  a| 
-EFOS 3.4.4.6 e posterior
+EFOS 3.4.4.6 e versões posteriores
 
 
 
  a| 
 SW-BES53248A2-6P-40-100G
  a| 
-Chave de licença Broadcom 6 porta 40G100G, X190005/R
+Chave de licença Broadcom 6 portas 40G100G, X190005/R
  a| 
-EFOS 3.4.4.6 e posterior
+EFOS 3.4.4.6 e versões posteriores
 
 |===
 
@@ -69,7 +69,7 @@ SW-BES-53248A1-G1-8P-LIC
  a| 
 Chave de licença Broadcom 8P 10-25,2P40-100, X190005/R
  a| 
-EFOS 3.4.3.3 e posterior
+EFOS 3.4.3.3 e versões posteriores
 
 
 
@@ -78,7 +78,7 @@ SW-BES-53248A1-G1-16P-LIC
  a| 
 Chave de licença Broadcom 16P 10-25,4P40-100, X190005/R
  a| 
-EFOS 3.4.3.3 e posterior
+EFOS 3.4.3.3 e versões posteriores
 
 
 
@@ -87,7 +87,7 @@ SW-BES-53248A1-G1-24P-LIC
  a| 
 Chave de licença Broadcom 24P 10-25,6P40-100, X190005/R
  a| 
-EFOS 3.4.3.3 e posterior
+EFOS 3.4.3.3 e versões posteriores
 
 
 
@@ -96,53 +96,53 @@ SW-BES54248-40-100G-LIC
  a| 
 Chave de licença Broadcom 6Port 40G100G, X190005/R
  a| 
-EFOS 3.4.4.6 e posterior
+EFOS 3.4.4.6 e versões posteriores
 
 
 
  a| 
 SW-BES53248-8P-10G25G-LIC
  a| 
-Chave de licença Broadcom 8Port 10G25G, X190005/R
+Chave de licença Broadcom 8 portas 10G25G, X190005/R
  a| 
-EFOS 3.4.4.6 e posterior
+EFOS 3.4.4.6 e versões posteriores
 
 
 
  a| 
 SW-BES53248-16P-1025G-LIC
  a| 
-Chave de licença Broadcom 16Port 10G25G, X190005/R
+Chave de licença Broadcom 16 portas 10G25G, X190005/R
  a| 
-EFOS 3.4.4.6 e posterior
+EFOS 3.4.4.6 e versões posteriores
 
 
 
  a| 
 SW-BES53248-24P-1025G-LIC
  a| 
-Chave de licença Broadcom 24Port 10G25G, X190005/R
+Chave de licença Broadcom 24 portas 10G25G, X190005/R
  a| 
-EFOS 3.4.4.6 e posterior
+EFOS 3.4.4.6 e versões posteriores
 
 |===
 
-NOTE: Não é necessária uma licença para a configuração base.
+NOTE: Não é necessária uma licença para a configuração básica.
 
 
 
-== Instalar ficheiros de licença
+== Instalar arquivos de licença
 
-Siga estas etapas para instalar licenças para switches de cluster BES-53248.
+Siga estes passos para instalar as licenças dos switches de cluster BES-53248.
 
 .Passos
-. Conete o switch de cluster à rede de gerenciamento.
-. Use o `ping` comando para verificar a conetividade com o servidor que hospeda EFOS, licenças e o arquivo RCF.
+. Conecte o switch do cluster à rede de gerenciamento.
+. Use o `ping` Comando para verificar a conectividade com o servidor que hospeda o EFOS, as licenças e o arquivo RCF.
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-Este exemplo verifica se o switch está conetado ao servidor no endereço IP 172.19.2.1:
+Este exemplo verifica se o switch está conectado ao servidor no endereço IP 172.19.2.1:
 
 [listing, subs="+quotes"]
 ----
@@ -152,7 +152,7 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Verifique a utilização atual da licença no interrutor CS2:
+. Verifique o uso atual da licença no switch CS2:
 +
 `show license`
 
@@ -172,9 +172,9 @@ License Index  License Type     Status
 No license file found.
 ----
 ====
-. Instale o ficheiro de licença.
+. Instale o arquivo de licença.
 +
-Repita esta etapa para carregar mais licenças e usar diferentes números de índice de chave.
+Repita este passo para carregar mais licenças e usar números de índice de chave diferentes.
 
 +
 .Mostrar exemplo
@@ -202,7 +202,7 @@ File transfer in progress. Management access will be blocked for the duration of
 License Key transfer operation completed successfully. System reboot is required.
 ----
 ====
-. Exiba todas as informações atuais da licença e observe o status da licença antes que o switch CS2 seja reinicializado:
+. Exiba todas as informações de licença atuais e observe o status da licença antes de reiniciar o switch CS2:
 +
 `show license`
 
@@ -282,7 +282,7 @@ Configuration Saved!
 Are you sure you would like to reset the system? (y/n) *y*
 ----
 ====
-. Verifique se a nova licença está ativa e observe que a licença foi aplicada:
+. Verifique se a nova licença está ativa e confirme que a licença foi aplicada:
 +
 `show license`
 
@@ -348,15 +348,15 @@ Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
 
 
 
-CAUTION: Ao instalar licenças adicionais, você deve configurar as novas interfaces manualmente. Não volte a aplicar um RCF a um interrutor de produção em funcionamento existente.
+CAUTION: Ao instalar licenças adicionais, você deve configurar as novas interfaces manualmente.  Não reaplique um RCF em uma chave de produção já em funcionamento.
 
 
 
 == Solucionar problemas de instalação
 
-Quando surgirem problemas ao instalar uma licença, execute os seguintes comandos de depuração antes de executar o `copy` comando novamente.
+Caso surjam problemas durante a instalação da licença, execute os seguintes comandos de depuração antes de executar o programa. `copy` Comande novamente.
 
-Depurar comandos para usar: `debug transfer` E. `debug license`
+Comandos de depuração a serem usados: `debug transfer` e `debug license`
 
 .Mostrar exemplo
 [%collapsible]
@@ -369,7 +369,7 @@ Debug transfer output is enabled.
 Enabled capability licensing debugging.
 ----
 ====
-Quando você executa o `copy` comando com `debug transfer` as opções e `debug license` ativadas, a saída do log é retornada.
+Quando você executa o `copy` comando com o `debug transfer` e `debug license` Com as opções ativadas, o resultado do log é retornado.
 
 .Mostrar exemplo
 [%collapsible]
@@ -402,29 +402,29 @@ CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Applying license file 1.
 Verifique o seguinte na saída de depuração:
 
 * Verifique se o número de série corresponde: `Serial number QTFCU38290012 matched.`
-* Verifique se o modelo do interrutor corresponde: `Model BES-53248 matched.`
-* Verifique se o índice de licença especificado não foi usado anteriormente. Quando um índice de licença já é usado, o seguinte erro é retornado: `License file /mnt/download//license.dat.1 already exists.`
-* Uma licença de porta não é uma licença de recurso. Portanto, a seguinte declaração é esperada: `Feature not found in license file with index = 1.`
+* Verifique se o modelo do interruptor corresponde: `Model BES-53248 matched.`
+* Verifique se o índice de licença especificado não foi usado anteriormente.  Quando um índice de licença já está em uso, o seguinte erro é retornado: `License file /mnt/download//license.dat.1 already exists.`
+* Uma licença de porta não é uma licença de funcionalidade.  Portanto, espera-se a seguinte afirmação: `Feature not found in license file with index = 1.`
 
 
-Use o `copy` comando para fazer backup de licenças de porta para o servidor:
+Use o `copy` comando para fazer backup das licenças de porta no servidor:
 
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy nvram:license-key 1 scp://<UserName>@<IP_address>/saved_license_1.dat*
 ----
 
-CAUTION: Se você precisar fazer o downgrade do software do switch da versão 3,4.4,6, as licenças serão removidas. Este é o comportamento esperado.
+CAUTION: Se precisar fazer o downgrade do software do switch da versão 3.4.4.6, as licenças serão removidas.  Este é o comportamento esperado.
 
-Você deve instalar uma licença mais antiga apropriada antes de reverter para uma versão mais antiga do software.
+Você precisa instalar uma licença antiga apropriada antes de reverter para uma versão anterior do software.
 
 
 
-== Ative portas recém-licenciadas
+== Ativar portas recém-licenciadas
 
-Para ativar portas recém-licenciadas, você precisa editar a versão mais recente do RCF e descomentar os detalhes da porta aplicável.
+Para ativar as portas recém-licenciadas, você precisa editar a versão mais recente do RCF e remover o comentário dos detalhes da porta em questão.
 
-A licença padrão ativa as portas 0/1 a 0/16 e 0/55 a 0/56 enquanto as portas recém-licenciadas estarão entre as portas 0/17 a 0/54, dependendo do tipo e do número de licenças disponíveis. Por exemplo, para ativar a licença SW-BES54248-40-100g-LIC, você deve descomentar a seguinte seção no RCF:
+A licença padrão ativa as portas 0/1 a 0/16 e 0/55 a 0/56, enquanto as portas recém-licenciadas estarão entre as portas 0/17 e 0/54, dependendo do tipo e da quantidade de licenças disponíveis.  Por exemplo, para ativar a licença SW-BES54248-40-100G-LIC, você deve remover o comentário da seguinte seção no RCF:
 
 .Mostrar exemplo
 [%collapsible]
@@ -531,7 +531,7 @@ exit
 ----
 ====
 
-NOTE: Para portas de alta velocidade entre 0/49 e 0/54 inclusive, descomente cada porta, mas apenas descomente uma linha *speed* no RCF para cada uma dessas portas, seja: *Speed 100g full-duplex* ou *speed 40G full-duplex* como mostrado no exemplo. Para portas de baixa velocidade entre 0/17 e 0/48 inclusive, descomente toda a seção de 8 portas quando uma licença apropriada tiver sido ativada.
+NOTE: Para portas de alta velocidade entre 0/49 e 0/54 inclusive, remova o comentário de cada porta, mas remova apenas uma linha *speed* no arquivo RCF para cada uma dessas portas, seja: *speed 100G full-duplex* ou *speed 40G full-duplex*, como mostrado no exemplo.  Para portas de baixa velocidade entre 0/17 e 0/48 inclusive, remova o comentário de toda a seção de 8 portas quando uma licença apropriada tiver sido ativada.
 
-.O que se segue?
+.O que vem a seguir?
 Após instalar as licenças, você pode link:configure-install-rcf.html["Instale o arquivo de configuração de referência (RCF)."] ou link:upgrade-rcf.html["atualizar RCF"].

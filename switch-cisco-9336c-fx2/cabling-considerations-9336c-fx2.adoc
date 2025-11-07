@@ -2,9 +2,9 @@
 permalink: switch-cisco-9336c-fx2/cabling-considerations-9336c-fx2.html 
 sidebar: sidebar 
 keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
-summary: Antes de configurar o switch Cisco 9336C-FX2, revise as informações a seguir. 
+summary: Antes de configurar seu switch Cisco 9336C-FX2, revise as seguintes informações. 
 ---
-= Analise as considerações sobre cabeamento e configuração
+= Analise as considerações sobre cabeamento e configuração.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,9 +15,9 @@ Antes de configurar seus switches 9336C-FX2 e 9336C-FX2-T, revise as seguintes c
 
 
 
-== Suporte para portas NVIDIA CX6, CX6-DX e CX7 Ethernet
+== Suporte para portas Ethernet NVIDIA CX6, CX6-DX e CX7.
 
-Se estiver conetando uma porta de switch a um controlador ONTAP usando as portas de NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), é necessário codificar a velocidade da porta do switch.
+Ao conectar uma porta de switch a um controlador ONTAP usando portas NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), você deve definir a velocidade da porta do switch manualmente.
 
 [listing, subs="+quotes"]
 ----
@@ -32,17 +32,17 @@ Se estiver conetando uma porta de switch a um controlador ONTAP usando as portas
 *Save the changes:*
 (cs1)# *copy running-config startup-config*
 ----
-Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obter mais informações sobre portas do switch.
+Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obter mais informações sobre portas de switch.
 
 
 
-== 25GbE requisitos da FEC
+== Requisitos de FEC de 25GbE
 
 
 
 === Portas FAS2820 e0a/e0b
 
-As portas FAS2820 e0a e e0b exigem alterações na configuração FEC para serem vinculadas às portas de switch 9336C-FX2 e 9336C-FX2-T. Para as portas de switch e0a e e0b, a configuração fec é definida como `rs-cons16` .
+As portas FAS2820 e0a e e0b exigem alterações na configuração FEC para serem vinculadas às portas de switch 9336C-FX2 e 9336C-FX2-T. Para as portas de comutação e0a e e0b, a configuração fec está definida como `rs-cons16` .
 
 [listing, subs="+quotes"]
 ----
@@ -55,8 +55,8 @@ As portas FAS2820 e0a e e0b exigem alterações na configuração FEC para serem
 ----
 
 
-== As portas não se ligam devido a recursos TCAM
+== As portas não se conectam devido a recursos TCAM.
 
 Nos switches 9336C-FX2 e 9336C-FX2-T, os recursos de memória endereçável de conteúdo ternário (TCAM) configurados na configuração utilizada pelo switch estão esgotados.
 
-Consulte o artigo da base de dados de Conhecimento https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["As portas não se conetam no Cisco Nexus 9336C-FX2 devido aos recursos TCAM"^] para obter detalhes sobre como resolver este problema.
+Consulte o artigo da Base de Conhecimento. https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["As portas não se conectam no Cisco Nexus 9336C-FX2 devido a recursos TCAM."^] Para obter detalhes sobre como resolver esse problema.

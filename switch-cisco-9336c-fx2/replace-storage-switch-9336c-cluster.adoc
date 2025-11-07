@@ -2,64 +2,64 @@
 permalink: switch-cisco-9336c-fx2/replace-storage-switch-9336c-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9336c-fx2 cluster switch - cisco nexus 9336c-fx2 
-summary: 'Substituir um switch Nexus 9336C-FX2 defeituoso em uma rede de cluster é um procedimento sem interrupções (NDU).' 
+summary: 'A substituição de um switch Nexus 9336C-FX2 com defeito em uma rede de cluster é um procedimento não disruptivo \(NDU\).' 
 ---
-= Substitua um switch de storage Cisco Nexus 9336C-FX2
+= Substitua um switch de armazenamento Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você deve estar ciente de certas informações de configuração, conexões de portas e requisitos de cabeamento ao substituir os switches de storage Cisco Nexus 9336C-FX2.
+Ao substituir switches de armazenamento Cisco Nexus 9336C-FX2, é preciso estar ciente de certas informações de configuração, conexões de porta e requisitos de cabeamento.
 
 .O que você vai precisar
-Você deve verificar se existem as seguintes condições antes de instalar o software NX-os e os RCFs em um switch de armazenamento Cisco Nexus 9336C-FX2:
+É necessário verificar se as seguintes condições são atendidas antes de instalar o software NX-OS e os RCFs em um switch de armazenamento Cisco Nexus 9336C-FX2:
 
-* Seu sistema pode dar suporte aos switches de storage Cisco Nexus 9336C-FX2.
-* Você deve ter consultado a tabela de compatibilidade do switch na página do switch Ethernet Cisco para as versões ONTAP, NX-os e RCF suportadas.
-* Você deve ter encaminhado o software apropriado e os guias de atualização disponíveis no site da Cisco. Switches Cisco Nexus 3000 Series
+* Seu sistema é compatível com switches de armazenamento Cisco Nexus 9336C-FX2.
+* Você deve ter consultado a tabela de compatibilidade de switches na página de switches Ethernet da Cisco para verificar as versões suportadas do ONTAP, NX-OS e RCF.
+* Você deve ter consultado os guias de software e atualização apropriados disponíveis no site da Cisco .  Switches Cisco Nexus série 3000
 * Você deve ter baixado os RCFs aplicáveis.
-* A configuração de rede existente deve ter as seguintes caraterísticas:
+* A configuração de rede existente deve apresentar as seguintes características:
 +
-** A página de switches Ethernet Cisco tem as versões mais recentes de RCF e NX-os em seus switches.
-** A conetividade de gerenciamento deve existir em ambos os switches.
+** A página de switches Ethernet da Cisco contém as versões mais recentes do RCF e do NX-OS para seus switches.
+** A conectividade de gerenciamento deve existir em ambos os switches.
 
 
-* O switch Cisco Nexus 9336C-FX2 de substituição deve ter as seguintes caraterísticas:
+* O switch Cisco Nexus 9336C-FX2 de substituição deve ter as seguintes características:
 +
-** A conetividade de rede de gerenciamento deve estar funcional.
-** O acesso do console ao interrutor de substituição deve estar no lugar.
-** A imagem apropriada do sistema operacional RCF e NX-os deve ser carregada no switch.
-** A confiugração inicial do interrutor deve estar concluída.
+** A conectividade da rede de gerenciamento deve estar funcional.
+** O acesso ao console do interruptor de substituição deve estar configurado corretamente.
+** A imagem apropriada do sistema operacional RCF e NX-OS deve ser carregada no switch.
+** A configuração inicial do switch deve ser concluída.
 
 
 
 
 .Sobre esta tarefa
-Este procedimento substitui o segundo switch de armazenamento Nexus 9336C-FX2 S2 com o novo switch 9336C-FX NS2. Os dois nós são node1 e node2.
+Este procedimento substitui o segundo switch de armazenamento Nexus 9336C-FX2 (S2) pelo novo switch 9336C-FX (NS2).  Os dois nós são o nó 1 e o nó 2.
 
 Passos para concluir:
 
-* Confirme se o interrutor a ser substituído é S2.
-* Desligue os cabos do interrutor S2.
-* Volte a ligar os cabos ao interrutor NS2.
-* Verifique todas as configurações do dispositivo no interrutor NS2.
+* Confirme se o interruptor a ser substituído é o S2.
+* Desconecte os cabos do switch S2.
+* Reconecte os cabos ao switch NS2.
+* Verifique todas as configurações do dispositivo no switch NS2.
 +
 
-NOTE: Pode haver dependências entre a sintaxe de comando nas versões RCF e NX-os.
+NOTE: Pode haver dependências entre a sintaxe de comandos nas versões RCF e NX-OS.
 
 
 
 .Passos
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
 +
-_x_ é a duração da janela de manutenção em horas.
+_x_ representa a duração da janela de manutenção em horas.
 
-. Verifique o status de integridade das portas do nó de storage para garantir que haja conexão com o switch de armazenamento S1:
+. Verifique o estado de integridade das portas do nó de armazenamento para garantir que haja conexão com o switch de armazenamento S1:
 +
 `storage port show -port-type ENET`
 
@@ -86,7 +86,7 @@ node2
 storage::*>
 ----
 ====
-. Verifique se o comutador de armazenamento S1 está disponível:
+. Verifique se o switch de armazenamento S1 está disponível:
 +
 `network device-discovery show`
 
@@ -119,7 +119,7 @@ node2/lldp
 storage::*>
 ----
 ====
-. Execute o comando show `lldp neighbors` no switch de trabalho para confirmar que você pode ver ambos os nós e todas as gavetas:
+. Comande o espetáculo `lldp neighbors` Execute o comando no switch em funcionamento para confirmar que você consegue visualizar ambos os nós e todas as prateleiras:
 +
 `show lldp neighbors`
 
@@ -142,7 +142,7 @@ SHFGD2008000022  Eth1/7       120          S             e0a
 SHFGD2008000022  Eth1/8       120          S             e0a
 ----
 ====
-. Verifique as portas do compartimento no sistema de storage:
+. Verifique as portas das prateleiras no sistema de armazenamento:
 +
 `storage shelf port show -fields remote-device,remote-port`
 
@@ -166,9 +166,9 @@ shelf   id  remote-port   remote-device
 storage::*>
 ----
 ====
-. Remova todos os cabos conetados ao interrutor de armazenamento S2.
-. Volte a ligar todos os cabos ao interrutor de substituição NS2.
-. Verifique novamente o status de integridade das portas do nó de storage:
+. Remova todos os cabos conectados ao switch de armazenamento S2.
+. Reconecte todos os cabos ao switch de substituição NS2.
+. Verifique novamente o estado de integridade das portas do nó de armazenamento:
 +
 `storage port show -port-type ENET`
 
@@ -195,7 +195,7 @@ node2
 storage::*>
 ----
 ====
-. Verifique se ambos os switches estão disponíveis:
+. Verifique se ambos os interruptores estão disponíveis:
 +
 `network device-discovery show`
 
@@ -232,7 +232,7 @@ node2/lldp
 storage::*>
 ----
 ====
-. Verifique as portas do compartimento no sistema de storage:
+. Verifique as portas das prateleiras no sistema de armazenamento:
 +
 `storage shelf port show -fields remote-device,remote-port`
 
@@ -256,7 +256,7 @@ shelf   id    remote-port     remote-device
 storage::*>
 ----
 ====
-. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

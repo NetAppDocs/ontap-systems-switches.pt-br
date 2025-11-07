@@ -4,30 +4,30 @@ sidebar: sidebar
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
 summary: Esta versão inclui suporte para SNMPv3 para monitoramento de logs. 
 ---
-= Configure SNMPv3 para a coleta de logs de switch
+= Configure o SNMPv3 para coleta de logs do switch.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para configurar o SNMPv3, que suporta a coleta de logs de switch e o monitoramento de integridade do switch (SHM).
+Siga este procedimento para configurar o SNMPv3, que oferece suporte à coleta de logs do switch e ao monitoramento de integridade do switch (SHM).
 
 .Sobre esta tarefa
 Os comandos a seguir configuram um nome de usuário SNMPv3 em switches NVIDIA SN2100:
 
-* Para *sem autenticação*:
+* Para *nenhuma autenticação*:
 `net add snmp-server username _SNMPv3_USER_ auth-none`
-* Para *MD5/SHA autenticação*:
+* Para autenticação *MD5/SHA*:
 `net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_`
 * Para autenticação *MD5/SHA com criptografia AES/DES*:
 `net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_ [encrypt-aes|encrypt-des] _PRIV-PASSWORD_`
 
 
-O seguinte comando configura um nome de usuário SNMPv3 no lado ONTAP:
+O comando a seguir configura um nome de usuário SNMPv3 no lado do ONTAP :
 `cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
 
-O seguinte comando estabelece o nome de usuário SNMPv3 com SHM:
+O comando a seguir estabelece o nome de usuário SNMPv3 com o SHM:
 `cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
 .Passos
@@ -109,7 +109,7 @@ Version 3 Usernames                Configured     *<---- Configured here*
 cumulus@sw1:~$
 ----
 ====
-. Configure o usuário SNMPv3 no lado ONTAP:
+. Configure o usuário SNMPv3 no lado do ONTAP :
 +
 `security login create -user-or-group-name SNMPv3User -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212`
 
@@ -166,7 +166,7 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
 ====
-. Verifique se o número de série a ser consultado com o usuário SNMPv3 recém-criado é o mesmo que detalhado na etapa anterior, uma vez que o período de polling SHM tenha sido concluído.
+. Após a conclusão do período de consulta do SHM, verifique se o número de série a ser consultado com o novo usuário SNMPv3 criado é o mesmo detalhado na etapa anterior.
 +
 `system switch ethernet polling-interval show`
 

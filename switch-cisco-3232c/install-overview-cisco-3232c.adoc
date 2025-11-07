@@ -11,7 +11,7 @@ summary: Antes de configurar os switches Cisco Nexus 3232c, revise uma visão ge
 
 
 [role="lead"]
-Os switches Cisco Nexus 3232C podem ser usados como switches de cluster no seu cluster AFF ou FAS. Os switches de cluster permitem que você crie clusters do ONTAP com mais de dois nós.
+Os switches Cisco Nexus 3232C podem ser usados como switches de cluster no seu cluster AFF ou FAS . Os switches de cluster permitem que você crie clusters ONTAP com mais de dois nós.
 
 Siga estas etapas do fluxo de trabalho para instalar e configurar seu switch Cisco Nexus 3232C.
 
@@ -23,7 +23,7 @@ Revise os requisitos de configuração para o switch de cluster 3232C.
 [role="quick-margin-para"]
 Revise a documentação específica do switch e do controlador para configurar seus switches 3232C e o cluster ONTAP .
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:smart-call-home-3232c.html["Requisitos para Smart Call Home"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:smart-call-home-3232c.html["Requisitos do Smart Call Home"]
 [role="quick-margin-para"]
 Revise os requisitos do recurso Cisco Smart Call Home, usado para monitorar os componentes de hardware e software na sua rede.
 

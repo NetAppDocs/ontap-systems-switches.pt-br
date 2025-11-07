@@ -2,27 +2,27 @@
 permalink: switch-cisco-3132q-v/cn5596-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Você pode usar switches Cisco Nexus 3132q-v como switches de cluster no seu cluster AFF ou FAS. 
+summary: Você pode usar switches Cisco Nexus 3132q-v como switches de cluster em seu cluster AFF ou FAS . 
 ---
-= Prepare-se para a migração de switches Nexus 5596 para switches Nexus 3132Q-V.
+= Prepare-se para a migração dos switches Nexus 5596 para os switches Nexus 3132Q-V.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estas etapas para preparar seus switches Cisco Nexus 5596 para migração para switches Cisco Nexus 3132Q-V.
+Siga estes passos para preparar seus switches Cisco Nexus 5596 para a migração para switches Cisco Nexus 3132Q-V.
 
 .Passos
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport: `system node autosupport invoke -node * -type all -message MAINT=xh`
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
 +
-_x_ é a duração da janela de manutenção em horas.
+_x_ representa a duração da janela de manutenção em horas.
 
 +
 
-NOTE: A mensagem notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+NOTE: A mensagem notifica o suporte técnico sobre esta tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
-. Exiba informações sobre os dispositivos em sua configuração:
+. Exibir informações sobre os dispositivos na sua configuração:
 +
 `network device-discovery show`
 
@@ -89,13 +89,13 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-.. Exibir informações sobre as interfaces lógicas
+.. Exibir informações sobre as interfaces lógicas: +
 `network interface show`
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir exibe as informações gerais sobre todas as LIFs no sistema:
+O exemplo a seguir exibe as informações gerais sobre todas as LIFs (File Inspections Files) do seu sistema:
 
 [listing]
 ----
@@ -116,13 +116,13 @@ Cluster
 8 entries were displayed.
 ----
 ====
-.. Exibir informações sobre os switches de cluster descobertos
+.. Exibir informações sobre os switches de cluster descobertos: +
 `system cluster-switch show`
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir exibe os switches de cluster que são conhecidos pelo cluster, juntamente com seus endereços IP de gerenciamento:
+O exemplo a seguir exibe os switches do cluster que são conhecidos pelo cluster, juntamente com seus endereços IP de gerenciamento:
 
 [listing]
 ----
@@ -150,7 +150,7 @@ CL2                           cluster-network    10.10.1.102     NX5596
 ====
 
 
-. Defina o `-auto-revert` parâmetro como `false` no cluster LIFs clus1 e clus2 em ambos os nós:
+. Defina o `-auto-revert` parâmetro para `false` nos LIFs de cluster clus1 e clus2 em ambos os nós:
 +
 `network interface modify`
 
@@ -166,25 +166,25 @@ cluster::*> network interface modify -vserver node2 -lif clus1 -auto-revert fals
 cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert false
 ----
 ====
-. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3132Q-V conforme necessário para seus requisitos e faça as personalizações essenciais do site, como usuários e senhas, endereços de rede, etc.
+. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3132Q-V, conforme necessário para suas necessidades, e faça as personalizações essenciais do site, como usuários e senhas, endereços de rede e assim por diante.
 +
-Neste momento, tem de preparar ambos os interrutores. Se você precisar atualizar o RCF e a imagem, siga estas etapas:
+Você deve preparar ambos os interruptores neste momento.  Se precisar atualizar o RCF e a imagem, siga estes passos:
 
 +
-.. Vá paralink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] no site de suporte da NetApp .
-.. Observe o switch e as versões de software necessárias na tabela nessa página.
-.. Baixe a versão apropriada do RCF.
+.. Vá paralink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^] no site de suporte da NetApp .
+.. Anote o modelo do seu switch e as versões de software necessárias na tabela dessa página.
+.. Faça o download da versão apropriada do RCF.
 .. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
-.. Transfira a versão apropriada do software de imagem.
+.. Baixe a versão apropriada do software de imagem.
 +
-Consulte a página __ONTAP 8.x ou mais recente Cluster and Management Network Switch Reference Configuration Files__Download e, em seguida, selecione a versão apropriada.
+Consulte a página de download dos arquivos de configuração de referência do Cluster e do Switch de Gerenciamento do ONTAP 8.x ou posterior e selecione a versão apropriada.
 
 +
-Para encontrar a versão correta, consulte a página de download do comutador de rede de cluster _ONTAP 8.x ou posterior_.
+Para encontrar a versão correta, consulte a página de download do Cluster Network Switch do ONTAP 8.x ou posterior.
 
 
 
-. Migrar os LIFs associados ao segundo switch Nexus 5596 a ser substituído:
+. Migre as LIFs associadas ao segundo switch Nexus 5596 a ser substituído:
 +
 `network interface migrate`
 
@@ -192,7 +192,7 @@ Para encontrar a versão correta, consulte a página de download do comutador de
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra n1 e n2, mas a migração de LIF deve ser feita em todos os nós:
+O exemplo a seguir mostra n1 e n2, mas a migração LIF deve ser feita em todos os nós:
 
 [listing]
 ----
@@ -214,7 +214,7 @@ destination-node n2 -destination-port e0d
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o resultado do comando anterior `network interface migrate`:
+O exemplo a seguir mostra o resultado do anterior. `network interface migrate` comando:
 
 [listing]
 ----
@@ -235,7 +235,7 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Encerre as portas de interconexão de cluster que estão fisicamente conetadas ao switch CL2:
+. Desative as portas de interconexão do cluster que estão fisicamente conectadas ao switch CL2:
 +
 `network port modify`
 
@@ -243,7 +243,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-Os comandos a seguir desligam as portas especificadas no n1 e no n2, mas as portas devem ser fechadas em todos os nós:
+Os comandos a seguir desativam as portas especificadas em n1 e n2, mas as portas devem ser desativadas em todos os nós:
 
 [listing]
 ----
@@ -253,22 +253,22 @@ cluster::*> network port modify -node n2 -port e0b -up-admin false
 cluster::*> network port modify -node n2 -port e0c -up-admin false
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o comando show para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o comando show para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -285,9 +285,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -336,12 +336,12 @@ RPC status:
 ----
 --
 ====
-. [[step10]]desligue as portas ISL de 41 a 48 no switch Nexus 5596 ativo CL1:
+. [[passo 10]]Desligue as portas ISL 41 a 48 no switch Nexus 5596 ativo CL1:
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra como desligar as portas ISL 41 a 48 no switch Nexus 5596 CL1:
+O exemplo a seguir mostra como desativar as portas ISL 41 a 48 no switch Nexus 5596 CL1:
 
 [listing]
 ----
@@ -354,14 +354,14 @@ O exemplo a seguir mostra como desligar as portas ISL 41 a 48 no switch Nexus 55
 ----
 ====
 +
-Se você estiver substituindo um Nexus 5010 ou 5020, especifique os números de porta apropriados para o ISL.
+Se você estiver substituindo um Nexus 5010 ou 5020, especifique os números de porta apropriados para ISL.
 
-. Construa um ISL temporário entre CL1 e C2.
+. Construa uma ISL temporária entre CL1 e C2.
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra uma ISL temporária sendo configurada entre CL1 e C2:
+O exemplo a seguir mostra a configuração de um ISL temporário entre CL1 e C2:
 
 [listing]
 ----
@@ -381,5 +381,5 @@ C2(config-if)# exit
 ====
 
 
-.O que se segue?
-link:cn5596-configure-ports.html["Configure as portas"].
+.O que vem a seguir?
+link:cn5596-configure-ports.html["Configure suas portas"].

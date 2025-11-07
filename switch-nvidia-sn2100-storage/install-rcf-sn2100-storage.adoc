@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install rcf script, python script, sn2100 SN2100 switches, cumulus 
 summary: Siga este procedimento para instalar o script RCF. 
 ---
-= Instale ou atualize o script RCF
+= Instale ou atualize o script RCF.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,27 +14,27 @@ summary: Siga este procedimento para instalar o script RCF.
 Siga este procedimento para instalar ou atualizar o script RCF.
 
 .Antes de começar
-Antes de instalar ou atualizar o script RCF, certifique-se de que o seguinte está disponível no switch:
+Antes de instalar ou atualizar o script RCF, certifique-se de que os seguintes itens estejam disponíveis no switch:
 
-* Cumulus Linux 4.4.3 está instalado.
-* Endereço IP, máscara de sub-rede e gateway padrão definido via DHCP ou configurado manualmente.
+* O Cumulus Linux 4.4.3 está instalado.
+* Endereço IP, máscara de sub-rede e gateway padrão definidos via DHCP ou configurados manualmente.
 
 
-.Versões de script RCF atuais
-Existem dois scripts RCF disponíveis para aplicativos de agrupamento e armazenamento. O procedimento para cada um é o mesmo.
+.Versões atuais do script RCF
+Existem dois scripts RCF disponíveis para aplicações de Clustering e Armazenamento.  O procedimento é o mesmo para todos.
 
-* Clustering: *MSN2100-RCF-v1._x_-Cluster*
-* Armazenamento: *MSN2100-RCF-v1._x_-Storage*
+* Agrupamento: *MSN2100-RCF-v1._x_-Cluster*
+* Armazenamento: *MSN2100-RCF-v1._x_-Armazenamento*
 
 
 
 NOTE: O procedimento de exemplo a seguir mostra como baixar e aplicar o script RCF para switches de cluster.
 
 
-NOTE: Exemplo de saída de comando usa o endereço IP de gerenciamento de switch 10.233.204.71, máscara de rede 255.255.254.0 e gateway padrão 10.233.204.1.
+NOTE: O comando de exemplo utiliza o endereço IP de gerenciamento do switch 10.233.204.71, máscara de rede 255.255.254.0 e gateway padrão 10.233.204.1.
 
 .Passos
-. Apresentar as interfaces disponíveis no interrutor SN2100:
+. Exibir as interfaces disponíveis no switch SN2100:
 +
 `net show interface all`
 
@@ -79,7 +79,7 @@ cumulus@cumulus:mgmt:/tmp$ *scp _<user>@<host:/<path>_/MSN2100-RCF-v1.8-Cluster*
 ssologin@10.233.204.71's password:
 MSN2100-RCF-v1.8-Cluster                 100% 8607   111.2KB/s         00:00
 ----
-. Aplique o script Python RCF *MSN2100-RCF-v1,8-Cluster*:
+. Aplique o script Python RCF *MSN2100-RCF-v1.8-Cluster*:
 +
 [listing, subs="+quotes"]
 ----
@@ -105,9 +105,9 @@ O script RCF completa as etapas listadas acima.
 
 +
 
-NOTE: Para quaisquer problemas de script Python do RCF que não possam ser corrigidos, entre em Contato https://mysupport.netapp.com/["Suporte à NetApp"^] para obter assistência.
+NOTE: Para quaisquer problemas com o script Python do RCF que não possam ser corrigidos, entre em contato com https://mysupport.netapp.com/["Suporte NetApp"^] para obter assistência.
 
-. Reaplique quaisquer personalizações anteriores à configuração do switch. link:cabling-considerations-sn2100-storage.html["Analise as considerações sobre cabeamento e configuração"]Consulte para obter detalhes sobre quaisquer alterações adicionais necessárias.
+. Reaplique quaisquer personalizações anteriores à configuração do switch.  Consultelink:cabling-considerations-sn2100-storage.html["Analise as considerações sobre cabeamento e configuração."] Para obter detalhes sobre quaisquer alterações adicionais necessárias.
 . Verifique a configuração após a reinicialização:
 +
 `net show interface all`
@@ -179,7 +179,7 @@ switch-priority  TC  ETS
 5                 5  DWRR 43%
 ----
 ====
-. Verifique as informações do transcetor na interface:
+. Verifique as informações do transceptor na interface:
 +
 `net show interface pluggables`
 
@@ -198,7 +198,7 @@ swp15      0x11 (QSFP28)  Amphenol     112-00573        APF21109348001
 swp16      0x11 (QSFP28)  Amphenol     112-00573        APF21109347895  B0
 ----
 ====
-. Verifique se os nós têm uma conexão com cada switch:
+. Verifique se cada nó possui conexão com cada switch:
 +
 `net show lldp`
 
@@ -218,7 +218,7 @@ swp15      100G   BondMember  sw13                    swp15
 swp16      100G   BondMember  sw14                    swp16
 ----
 ====
-. Verifique a integridade das portas de cluster no cluster.
+. Verifique a integridade das portas do cluster.
 +
 .. Verifique se as portas e0d estão ativas e íntegras em todos os nós do cluster:
 +
@@ -249,7 +249,7 @@ e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-.. Verifique a integridade do switch a partir do cluster (isso pode não mostrar o switch SW2, uma vez que LIFs não são homed em e0d).
+.. Verifique o estado de saúde do switch no cluster (o switch sw2 pode não ser exibido, pois as LIFs não estão configuradas em e0d).
 +
 .Mostrar exemplo
 [%collapsible]
@@ -293,5 +293,5 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 
 
 
-.O que se segue?
+.O que vem a seguir?
 Após instalar ou atualizar o RCF, você podelink:setup-install-cshm-file.html["Instale o arquivo CSHM"] .

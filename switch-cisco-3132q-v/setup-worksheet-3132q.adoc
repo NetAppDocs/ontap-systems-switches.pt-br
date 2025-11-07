@@ -2,343 +2,343 @@
 permalink: switch-cisco-3132q-v/setup-worksheet-3132q.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 3132Q-V 
-summary: Se você quiser documentar as plataformas suportadas, você deve preencher a Planilha de cabeamento em branco usando a Planilha de cabeamento de amostra concluída como um guia. Cada switch pode ser configurado como uma única porta 40GbE ou 4 portas x 10GbE. 
+summary: Se você deseja documentar as plataformas suportadas, deve preencher a planilha de cabeamento em branco usando a planilha de cabeamento de exemplo preenchida como guia.  Cada switch pode ser configurado como uma única porta 40GbE ou como 4 portas 10GbE. 
 ---
-= Folha de cálculo completa de cabeamento Cisco Nexus 3132Q-V.
+= Folha de trabalho completa de cabeamento do Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você quiser documentar as plataformas suportadas, baixe um PDF desta página e complete a Planilha de cabeamento.
+Se você deseja documentar as plataformas suportadas, baixe o PDF desta página e preencha a planilha de cabeamento.
 
-A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
+A planilha de cabeamento de exemplo fornece exemplos de atribuições de portas recomendadas dos switches aos controladores.  A planilha em branco fornece um modelo que você pode usar para configurar seu cluster.
 
-Cada switch pode ser configurado como uma única porta 40GbE ou 4 portas x 10GbE.
+Cada switch pode ser configurado como uma única porta 40GbE ou como 4 portas 10GbE.
 
 
 
-== Planilha de cabeamento de amostra
+== Exemplo de folha de exercícios de cabeamento
 
-A definição de porta de amostra em cada par de switches é a seguinte:
+A definição da porta de exemplo em cada par de switches é a seguinte:
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+2+| Chave seletora de cluster A 2+| Chave seletora de cluster B 
 
 
-| Porta do switch | Uso de nó e porta | Porta do switch | Uso de nó e porta 
+| Porta de comutação | Utilização de nós e portas | Porta de comutação | Utilização de nós e portas 
 
 
  a| 
 1
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 1
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 2
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 2
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 3
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 3
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 4
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 4
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 5
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 5
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 6
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 6
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 7
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 7
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 8
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 8
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 9
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 9
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 10
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 10
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 11
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 11
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 12
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 12
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 13
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 13
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 14
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 14
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 15
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 15
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 16
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 16
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 17
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 17
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 18
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
  a| 
 18
  a| 
-4x10G/40G nó
+Nó 4x10G/40G
 
 
 
  a| 
 19
  a| 
-40g nó 19
+Nó 19 de 40G
  a| 
 19
  a| 
-40g nó 19
+Nó 19 de 40G
 
 
 
  a| 
 20
  a| 
-40g nó 20
+Nó 20 de 40G
  a| 
 20
  a| 
-40g nó 20
+Nó 20 de 40G
 
 
 
  a| 
 21
  a| 
-40g nó 21
+Nó 21 de 40G
  a| 
 21
  a| 
-40g nó 21
+Nó 21 de 40G
 
 
 
  a| 
 22
  a| 
-40g nó 22
+Nó 22 de 40G
  a| 
 22
  a| 
-40g nó 22
+Nó 22 de 40G
 
 
 
  a| 
 23
  a| 
-40g nó 23
+Nó 23 de 40G
  a| 
 23
  a| 
-40g nó 23
+Nó 23 de 40G
 
 
 
  a| 
 24
  a| 
-40g nó 24
+Nó 24 de 40G
  a| 
 24
  a| 
-40g nó 24
+Nó 24 de 40G
 
 
 
  a| 
 25 a 30
  a| 
-Todos os direitos reservados
+Reservado
  a| 
 25 a 30
  a| 
-Todos os direitos reservados
+Reservado
 
 
 
  a| 
 31
  a| 
-40g ISL para a porta 31 do interrutor B.
+ISL de 40G para a porta 31 do switch B
  a| 
 31
  a| 
-40g ISL para mudar A porta 31
+ISL de 40G para switch A porta 31
 
 
 
  a| 
 32
  a| 
-40g ISL para a porta 32 do interrutor B.
+ISL de 40G para a porta 32 do switch B
  a| 
 32
  a| 
-40g ISL para mudar A porta 32
+ISL de 40G para switch A porta 32
 
 |===
 
 
-== Folha de cálculo de cablagem em branco
+== Folha de exercícios de cabeamento em branco
 
-Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A seção _conexões de cluster suportadas_ da https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
+Você pode usar a planilha de cabeamento em branco para documentar as plataformas que são suportadas como nós em um cluster.  A seção _Conexões de cluster suportadas_ do https://hwu.netapp.com["Hardware Universe"^] Define as portas do cluster utilizadas pela plataforma.
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+2+| Chave seletora de cluster A 2+| Chave seletora de cluster B 
 
 
-| Porta do switch | Uso de nó/porta | Porta do switch | Uso de nó/porta 
+| Porta de comutação | Utilização de nós/portas | Porta de comutação | Utilização de nós/portas 
 
 
  a| 
@@ -560,33 +560,33 @@ Você pode usar a Planilha de cabeamento em branco para documentar as plataforma
  a| 
 25 a 30
  a| 
-Todos os direitos reservados
+Reservado
  a| 
 25 a 30
  a| 
-Todos os direitos reservados
+Reservado
 
 
 
  a| 
 31
  a| 
-40g ISL para a porta 31 do interrutor B.
+ISL de 40G para a porta 31 do switch B
  a| 
 31
  a| 
-40g ISL para mudar A porta 31
+ISL de 40G para switch A porta 31
 
 
 
  a| 
 32
  a| 
-40g ISL para a porta 32 do interrutor B.
+ISL de 40G para a porta 32 do switch B
  a| 
 32
  a| 
-40g ISL para mudar A porta 32
+ISL de 40G para switch A porta 32
 
 |===
 .O que vem a seguir

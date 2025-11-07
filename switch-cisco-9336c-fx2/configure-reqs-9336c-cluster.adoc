@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2/configure-reqs-9336c-cluster.html 
 keywords: shared storage cluster switch 
-summary: A partir do ONTAP 9.9,1, você pode usar os switches Cisco Nexus 9336C-FX2 para combinar a funcionalidade de armazenamento e cluster em um cenário de switch compartilhado. 
+summary: A partir do ONTAP 9.9.1, você pode usar switches Cisco Nexus 9336C-FX2 para combinar funcionalidades de armazenamento e cluster em um cenário de switch compartilhado. 
 ---
 = Requisitos de configuração para switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T
 :hardbreaks:
@@ -18,25 +18,25 @@ Para instalação e manutenção dos switches Cisco Nexus 9336C-FX2 e 9336C-FX2-
 
 
 
-== Suporte à ONTAP
+== Suporte ONTAP
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-A partir do ONTAP 9.9,1, você pode usar os switches Cisco Nexus 9336C-FX2 para combinar a funcionalidade de armazenamento e cluster em uma configuração de switch compartilhado.
+A partir do ONTAP 9.9.1, você pode usar switches Cisco Nexus 9336C-FX2 para combinar funcionalidades de armazenamento e cluster em uma configuração de switch compartilhada.
 
-Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede compatíveis.
+Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois switches de rede compatíveis.
 
 
-NOTE: O monitor de integridade do switch Ethernet não suporta ONTAP 9.13.1P8 e anteriores e 9.14.1P3 e anteriores ou NX-os versão 10,3(4a)(M).
+NOTE: O monitor de integridade do switch Ethernet não é compatível com ONTAP 9.13.1P8 e versões anteriores, 9.14.1P3 e versões anteriores ou NX-OS versão 10.3(4a)(M).
 
 --
 .ONTAP 9.10.1 e posterior
 --
 Além disso, a partir do ONTAP 9.10.1, você pode usar os switches Cisco Nexus 9336C-FX2-T para combinar a funcionalidade de armazenamento e cluster em uma configuração de switch compartilhada.
 
-Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede compatíveis.
+Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois switches de rede compatíveis.
 
 --
 ====
@@ -46,8 +46,8 @@ Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de doi
 
 Certifique-se de que:
 
-* Você tem o número e o tipo apropriados de cabos e conetores de cabo para seus switches. Consulte https://hwu.netapp.com["Hardware Universe"^] .
-* Dependendo do tipo de switch que você está configurando inicialmente, você precisa se conetar à porta do console do switch com o cabo do console incluído.
+* Você tem o número e o tipo apropriados de cabos e conectores de cabo para seus switches. Veja o https://hwu.netapp.com["Hardware Universe"^] .
+* Dependendo do tipo de switch que você está configurando inicialmente, você precisa se conectar à porta do console do switch com o cabo de console incluído.
 
 
 
@@ -56,13 +56,13 @@ Certifique-se de que:
 
 Você precisa das seguintes informações de rede para todas as configurações de switch.
 
-* Sub-rede IP para o tráfego de rede de gerenciamento
-* Nomes de host e endereços IP para cada um dos controladores do sistema de storage e todos os switches aplicáveis
-* A maioria dos controladores do sistema de storage é gerenciada por meio da interface e0M, conetando-se à porta de serviço Ethernet (ícone de chave inglesa). Nos sistemas AFF A800 e AFF A700s, a interface e0M utiliza uma porta Ethernet dedicada.
-* Consulte a https://hwu.netapp.com["Hardware Universe"^] para obter as informações mais recentes.
+* Sub-rede IP para tráfego de rede de gerenciamento
+* Nomes de host e endereços IP para cada um dos controladores do sistema de armazenamento e todos os switches aplicáveis
+* A maioria dos controladores de sistema de armazenamento são gerenciados por meio da interface e0M, conectando-se à porta de serviço Ethernet (ícone de chave inglesa). Nos sistemas AFF A800 e AFF A700s , a interface e0M utiliza uma porta Ethernet dedicada.
+* Consulte o https://hwu.netapp.com["Hardware Universe"^] Para obter as informações mais recentes.
 
 
-Para obter mais informações sobre a configuração inicial do switch, consulte o seguinte guia: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guia de instalação e atualização do Cisco Nexus 9336C-FX2"^].
+Para obter mais informações sobre a configuração inicial do seu switch, consulte o seguinte guia: https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guia de Instalação e Atualização do Cisco Nexus 9336C-FX2"^] .
 
 .O que vem a seguir
-Depois de revisar os requisitos de configuração, você pode confirmar sualink:components-9336c-cluster.html["componentes e números de peças"] .
+Após analisar os requisitos de configuração, você poderá confirmar sua solicitação. link:components-9336c-cluster.html["componentes e números de peças"].

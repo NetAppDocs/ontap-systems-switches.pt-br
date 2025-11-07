@@ -2,7 +2,7 @@
 section: switch-cisco-92300
 title: Cisco Nexus 92300YC
 entries:
-- title: Comece agora
+- title: Começar
   pdf-filename: Overview_92300yc
   entries:
   - title: Início rápido
@@ -13,47 +13,47 @@ entries:
     url: "/switch-cisco-92300/components-92300.html"
   - title: Documentação necessária
     url: "/switch-cisco-92300/required-documentation-92300.html"
-  - title: Requisitos para Smart Call Home
+  - title: Requisitos do Smart Call Home
     url: "/switch-cisco-92300/smart-call-home-92300.html"
-- title: Instale o hardware
+- title: Instalar hardware
   pdf-filename: Install_hardware_92300yc
   entries:
   - title: Fluxo de trabalho de instalação de hardware
     url: "/switch-cisco-92300/install-hardware-workflow.html"
-  - title: Folha de cálculo de cablagem completa
+  - title: Preencha a folha de exercícios de cabeamento.
     url: "/switch-cisco-92300/setup-worksheet-92300yc.html"
-  - title: Instale o interrutor
+  - title: Instale o interruptor
     url: "/switch-cisco-92300/install-switch-92300yc.html"
-  - title: Instale o interrutor no gabinete do NetApp
+  - title: Instalar switch em rack NetApp
     url: "/switch-cisco-92300/install-switch-netapp-cabinet-92300yc.html"
-  - title: Revise o cabeamento e a configuração
+  - title: Revisar a cablagem e a configuração.
     url: "/switch-cisco-92300/cabling-considerations-92300.html"
 - title: Configurar o software
   pdf-filename: Configure_software_92300yc
   entries:
-  - title: Fluxo de trabalho de instalação do software
+  - title: fluxo de trabalho de instalação de software
     url: "/switch-cisco-92300/configure-software-overview-92300-cluster.html"
-  - title: Configure o interrutor
+  - title: Configure o interruptor
     url: "/switch-cisco-92300/configure-install-initial.html"
-  - title: Prepare-se para instalar o NX-os e o RCF
+  - title: Prepare-se para instalar o NX-OS e o RCF.
     url: "/switch-cisco-92300/install-nxos-overview.html"
-  - title: Instale o NX-os
+  - title: Instale o NX-OS
     url: "/switch-cisco-92300/install-nxos-software.html"
-  - title: Instale o arquivo de configuração RCF
+  - title: Instale o arquivo de configuração do RCF
     url: "/switch-cisco-92300/install-the-rcf-file.html"
-  - title: Verifique a configuração do SSH
+  - title: Verifique a configuração SSH
     url: "/switch-cisco-92300/configure-ssh-keys.html"
 - title: Migrar switches
   pdf-filename: Migrate_switches_92300yc
   entries:
-  - title: Migrar para cluster comutado de dois nós
+  - title: Migrar para um cluster comutado de dois nós
     url: "/switch-cisco-92300/migrate-to-2n-switched.html"
-  - title: Migrar do switch Cisco mais antigo
+  - title: Migrar de um switch Cisco antigo
     url: "/switch-cisco-92300/migrate-to-92300yc.html"
-- title: Substitua os interrutores
+- title: Substitua os interruptores
   pdf-filename: Replace_switches_92300yc
   entries:
-  - title: Substitua o interrutor
+  - title: Substitua o interruptor
     url: "/switch-cisco-92300/replace-92300yc.html"
-  - title: Substitua os switches do cluster por conexões sem switch
+  - title: Substitua os switches de cluster por conexões sem switch.
     url: "/switch-cisco-92300/migrate-to-switchless-cluster-interconnect.html"

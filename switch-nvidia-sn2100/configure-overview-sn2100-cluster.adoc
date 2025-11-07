@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/configure-overview-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: O switch NVIDIA SN2100 é um switch Ethernet de 10/25/40/100 GbE que executa o Cumulus Linux. O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10,1 em diferentes pares de switches. 
+summary: O switch NVIDIA SN2100 é um switch Ethernet Gigabit Ethernet 10/25/40/100 que executa o sistema operacional Cumulus Linux.  O switch SN2100 serve aplicações de Cluster e Armazenamento no ONTAP 9.10.1 em diferentes pares de switches. 
 ---
 = Fluxo de trabalho de instalação e configuração para switches NVIDIA SN2100
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: O switch NVIDIA SN2100 é um switch Ethernet de 10/25/40/100 GbE que ex
 
 
 [role="lead"]
-O NVIDIA SN2100 é um switch de cluster que permite criar clusters do ONTAP com mais de dois nós.
+O NVIDIA SN2100 é um switch de cluster que permite criar clusters ONTAP com mais de dois nós.
 
 Siga estas etapas do fluxo de trabalho para instalar e configurar seus switches NVIDIA SN2100.
 

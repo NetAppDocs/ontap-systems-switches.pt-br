@@ -2,19 +2,19 @@
 permalink: switch-cisco-3232c/cn1610-replace-CL1.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Você pode usar os switches Cisco Nexus 3232C como switches de cluster no seu cluster AFF ou FAS. 
+summary: Você pode usar switches Cisco Nexus 3232C como switches de cluster em seu cluster AFF ou FAS . 
 ---
-= Substitua o interrutor CN1610 CL1 pelo interrutor 3232C C1
+= Substitua o interruptor CN1610 CL1 pelo interruptor 3232C C1.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estas etapas para substituir o switch CN1610 (CL1) por um switch Nexus 3232C (C1).
+Siga estes passos para substituir o seu switch CN1610 (CL1) por um switch Nexus 3232C (C1).
 
 .Passos
-. Verifique o status do cluster:
+. Verifique o estado do cluster:
 +
 `network interface show -role cluster`
 
@@ -44,7 +44,7 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Encerre as portas de nós que estão conetadas ao CL1 em todos os nós:
+. Desative as portas de nó conectadas ao CL1 em todos os nós:
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin false`
 
@@ -52,7 +52,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra portas específicas sendo fechadas nos nós n1 e n2:
+O exemplo a seguir mostra portas específicas sendo desativadas nos nós n1 e n2:
 
 [listing, subs="+quotes"]
 ----
@@ -62,15 +62,15 @@ cluster::*> *network port modify -node n2 -port e0a -up-admin false*
 cluster::*> *network port modify -node n2 -port e0d -up-admin false*
 ----
 ====
-. Desligue as portas ISL 24, 31 e 32 no interrutor 3232C ativo C2.
+. Desative as portas ISL 24, 31 e 32 no switch 3232C ativo C2.
 +
-Para obter mais informações sobre comandos Cisco, consulte os guias listados no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos da Cisco , consulte os guias listados em https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra que ISLs 24, 31 e 32 estão sendo encerrados no interrutor 3232C ativo C2:
+O exemplo a seguir mostra os ISLs 24, 31 e 32 sendo desligados no switch 3232C ativo C2:
 
 [listing, subs="+quotes"]
 ----
@@ -85,23 +85,23 @@ C2(config)# *exit*
 C2#
 ----
 ====
-. Remova os cabos que estão conetados ao switch CN1610 CL1 em todos os nós.
+. Remova os cabos conectados ao switch CN1610 CL1 em todos os nós.
 +
-Usando o cabeamento apropriado, você deve reconetar as portas desconetadas em todos os nós ao switch Nexus 3232C C1.
+Utilizando a cablagem adequada, deve reconectar as portas desconectadas em todos os nós ao switch Nexus 3232C C1.
 
-. Remova os cabos QSFP28 da porta E1/24 do Nexus 3232C C2.
+. Remova os cabos QSFP28 da porta e1/24 do Nexus 3232C C2.
 +
-É necessário conetar as portas E1/31 e E1/32 no C1 às portas E1/31 e E1/32 no C2 usando fibra ótica Cisco QSFP28 suportada ou cabos de conexão direta.
+Você deve conectar as portas e1/31 e e1/32 em C1 às portas e1/31 e e1/32 em C2 usando cabos de fibra óptica Cisco QSFP28 ou cabos de conexão direta compatíveis.
 
-. Restaure a configuração na porta 24 e remova o canal de porta temporário 2 no C2:
+. Restaure a configuração na porta 24 e remova o canal de porta temporário 2 em C2:
 +
-Para obter mais informações sobre comandos Cisco, consulte os guias listados no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos da Cisco , consulte os guias listados em https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o `running-configuration` arquivo que está sendo copiado para o `startup-configuration` arquivo:
+O exemplo a seguir mostra o `running-configuration` arquivo sendo copiado para o `startup-configuration` arquivo:
 
 [listing, subs="+quotes"]
 ----
@@ -128,15 +128,15 @@ C2# copy running-config startup-config
 Copy Complete.
 ----
 ====
-. Abra as portas ISL 31 e 32 no C2, o interrutor 3232C ativo.
+. Ative as portas ISL 31 e 32 no C2, o switch 3232C ativo.
 +
-Para obter mais informações sobre comandos Cisco, consulte os guias listados no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos da Cisco , consulte os guias listados em https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra ISLs 31 e 32 sendo trazidos para o interrutor 3232C C2:
+O exemplo a seguir mostra os ISLs 31 e 32 sendo aplicados ao switch C2 do 3232C:
 
 [listing, subs="+quotes"]
 ----
@@ -150,15 +150,15 @@ C2# copy running-config startup-config
 Copy Complete.
 ----
 ====
-. Verifique se as conexões ISL estão `up` no interrutor 3232C C2.
+. Verifique se as conexões ISL estão `up` no interruptor C2 do 3232C.
 +
-Para obter mais informações sobre comandos Cisco, consulte os guias listados no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos da Cisco , consulte os guias listados em https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra as conexões ISL sendo verificadas. As portas eth1/31 e eth1/32 indicam `(P)`, o que significa que ambas as portas ISL estão `up` no canal de porta:
+O exemplo a seguir mostra as conexões ISL sendo verificadas.  As portas Eth1/31 e Eth1/32 indicam `(P)` , o que significa que ambas as portas ISL estão `up` no canal de passagem:
 
 [listing, subs="+quotes"]
 ----
@@ -189,7 +189,7 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Abra todas as portas de interconexão de cluster conetadas ao novo switch 3232C C1 em todos os nós:
+. Ative todas as portas de interconexão do cluster conectadas ao novo switch 3232C C1 em todos os nós:
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin true`
 
@@ -197,7 +197,7 @@ Group Port-       Type     Protocol  Member Ports
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra todas as portas de interconexão de cluster conetadas ao novo switch 3232C C1 sendo criado:
+O exemplo a seguir mostra todas as portas de interconexão do cluster conectadas ao novo switch 3232C C1 sendo ativadas:
 
 [listing, subs="+quotes"]
 ----
@@ -215,7 +215,7 @@ cluster::*> *network port modify -node n2 -port e0d -up-admin true*
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra a saída que verifica se as portas de interconexão de cluster nos nós n1 e n2 no novo switch 3232C C1 são `up`:
+O exemplo a seguir mostra a saída que verifica se as portas de interconexão do cluster nos nós n1 e n2 no novo switch 3232C C1 estão configuradas. `up` :
 
 [listing, subs="+quotes"]
 ----
@@ -245,5 +245,5 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 ====
 
 
-.O que se segue?
-link:cn1610-complete-migration.html["Conclua a migração"].
+.O que vem a seguir?
+link:cn1610-complete-migration.html["Conclua sua migração"].

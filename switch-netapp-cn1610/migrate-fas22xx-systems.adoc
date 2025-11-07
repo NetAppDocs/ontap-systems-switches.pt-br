@@ -2,52 +2,52 @@
 permalink: switch-netapp-cn1610/migrate-fas22xx-systems.html 
 sidebar: sidebar 
 keywords: migrate, two-node switched cluster, fas22xx systems, single, network connection 
-summary: Se você tiver sistemas FAS22xx em um cluster sem switch de dois nós existente no qual cada módulo de controladora tenha uma única conexão de 10 GbE de volta para trás para conetividade de cluster, você pode usar a opção de rede de cluster sem switch e substituir a conetividade direta de volta para trás por conexões de switch. 
+summary: Se você possui sistemas FAS22xx em um cluster existente de dois nós sem switch, no qual cada módulo controlador tem uma única conexão 10 GbE direta para conectividade do cluster, você pode usar a opção de rede de cluster sem switch e substituir a conectividade direta direta por conexões de switch. 
 ---
-= Migre para um cluster comutado de dois nós em sistemas FAS22xx com uma única conexão de cluster-rede
+= Migre para um cluster comutado de dois nós em sistemas FAS22xx com uma única conexão de rede de cluster.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você tiver sistemas FAS22xx em um cluster sem switch de dois nós existente no qual cada módulo de controladora tenha uma única conexão de 10 GbE de volta para trás para conetividade de cluster, você pode usar a opção de rede de cluster sem switch e substituir a conetividade direta de volta para trás por conexões de switch.
+Se você possui sistemas FAS22xx em um cluster existente de dois nós sem switch, no qual cada módulo controlador tem uma única conexão 10 GbE direta para conectividade do cluster, você pode usar a opção de rede de cluster sem switch e substituir a conectividade direta direta por conexões de switch.
 
 
 
-== Rever os requisitos
+== Requisitos de revisão
 
 .Antes de começar
-Certifique-se de que tem o seguinte:
+Certifique-se de ter o seguinte:
 
-* Duas conexões de cluster para migrar de uma configuração sem switch para uma configuração comutada.
-* O cluster está íntegro e consiste em dois nós conectados com conectividade back-to-back.
-* Os nós estão executando o ONTAP 8,2 ou posterior.
+* Duas conexões de cluster para migrar de uma configuração sem switch para uma configuração com switch.
+* O cluster está íntegro e consiste em dois nós conectados em uma configuração back-to-back.
+* Os nós estão executando o ONTAP 8.2 ou posterior.
 * O recurso de cluster sem switch não pode ser usado com mais de dois nós.
-* Todas as portas do cluster estão `up` no estado.
+* Todas as portas do cluster estão no `up` estado.
 
 
 .Informações relacionadas
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["NetApp KB artigo 1010449: Como suprimir a criação automática de casos durante janelas de manutenção programada"^]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Artigo 1010449 da Base de Conhecimento da NetApp : Como suprimir a criação automática de casos durante janelas de manutenção programadas"^]
 
 
 
-== Migrar os switches
+== Migre os switches
 
-Esse procedimento é um procedimento sem interrupções que remove a conectividade de cluster direta em um ambiente sem switch e substitui cada conexão com o switch por uma conexão com o nó do parceiro.
+Este procedimento não é disruptivo, remove a conectividade direta do cluster em um ambiente sem switch e substitui cada conexão com o switch por uma conexão com o nó parceiro.
 
 
 
-=== Passo 1: Prepare-se para a migração
+=== Etapa 1: Prepare-se para a migração
 
-. Altere o nível de privilégio para avançado, inserindo `y` quando solicitado a continuar:
+. Altere o nível de privilégio para avançado, inserindo `y` Quando solicitado a continuar:
 +
 `set -privilege advanced`
 
 +
-(`*>`É apresentado o aviso avançado ).
+O prompt avançado(`*>` ) aparece.
 
-. Verifique o status do cluster dos nós no console do sistema de qualquer nó:
+. Verifique o status do cluster dos nós no console do sistema de qualquer um dos nós:
 +
 `cluster show`
 
@@ -69,12 +69,12 @@ node2                true    true          false
 2 entries were displayed.
 ----
 ====
-. Verifique o status do par de HA no console do sistema de qualquer nó: `storage failover show`
+. Verifique o status do par HA no console do sistema de qualquer um dos nós: `storage failover show`
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o status de node1 e node2:
+O exemplo a seguir mostra o estado do nó 1 e do nó 2:
 
 [listing]
 ----
@@ -87,46 +87,46 @@ node2          node1          true      Connected to node1
 2 entries were displayed.
 ----
 ====
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-`x` é a duração da janela de manutenção em horas.
+`x`é a duração da janela de manutenção em horas.
 
 +
 
-NOTE: A mensagem notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+NOTE: A mensagem notifica o suporte técnico sobre esta tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O seguinte comando suprime a criação automática de casos por duas horas:
+O comando a seguir suprime a criação automática de casos por duas horas:
 
 [listing]
 ----
 cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 ----
 ====
-. Verifique se o estado atual do cluster sem switch é `true`, e desative o modo de cluster sem switch:
+. Verifique se o estado atual do cluster sem switch é `true` Em seguida, desative o modo de cluster sem interruptor:
 +
 `network options switchless-cluster modify -enabled false`
 
-. Assuma o nó de destino:
+. Assuma o controle do nó alvo:
 +
 `storage failover takeover -ofnode _target_node_name_`
 
 +
-Não importa qual nó é o nó de destino. Quando ele é assumido, o nó de destino reinicia automaticamente e exibe a `Waiting for giveback...` mensagem.
+Não importa qual nó seja o nó alvo.  Quando o controle é assumido, o nó de destino reinicia automaticamente e exibe a `Waiting for giveback...` mensagem.
 
 +
-O nó ativo agora fornece dados para o nó do parceiro (destino) assumido.
+O nó ativo agora está fornecendo dados para o nó parceiro (alvo) que foi assumido.
 
-. Aguarde dois minutos após o takeover do nó prejudicado para confirmar que o takeover foi concluído com sucesso.
-. Com o nó de destino mostrando a `Waiting for giveback...` mensagem, encerre-a.
+. Aguarde dois minutos após a tomada de controle do nó afetado para confirmar se a tomada de controle foi concluída com sucesso.
+. Com o nó alvo mostrando o `Waiting for giveback...` mensagem, desligue-a.
 +
-O método usado para encerrar o nó depende se você usa o gerenciamento remoto por meio do processador de serviço (SP) do nó.
+O método que você usa para desligar o nó depende de você usar o gerenciamento remoto por meio do Processador de Serviço (SP) do nó.
 
 +
 |===
@@ -136,14 +136,14 @@ O método usado para encerrar o nó depende se você usa o gerenciamento remoto 
  a| 
 Está configurado
  a| 
-Faça login no nó prejudicado SP e, em seguida, desligue o sistema: `system power off`
+Faça login no nó SP com problemas e, em seguida, desligue o sistema: `system power off`
 
 
 
  a| 
 Não está configurado
  a| 
-No prompt do nó prejudicado, pressione `Ctrl-C`e responda `y` para interromper o nó.
+Ao receber a mensagem de nó comprometido, pressione `Ctrl-C` e então responda `y` para interromper o nó.
 
 |===
 
@@ -152,21 +152,21 @@ No prompt do nó prejudicado, pressione `Ctrl-C`e responda `y` para interromper 
 
 === Etapa 2: Configurar cabos e portas
 
-. Em cada módulo de controladora, desconete o cabo que coneta a porta do cluster de 10 GbE ao cluster sem switch.
-. Conete a porta do cluster de 10 GbE ao switch em ambos os módulos do controlador.
-. Verifique se as portas de cluster de 10 GbE conetadas no switch estão configuradas para fazer parte da mesma VLAN.
+. Em cada módulo controlador, desconecte o cabo que liga a porta de cluster 10 GbE ao cluster sem switch.
+. Conecte a porta de cluster 10 GbE ao switch em ambos os módulos controladores.
+. Verifique se as portas de cluster de 10 GbE conectadas ao switch estão configuradas para fazer parte da mesma VLAN.
 +
-Se você planeja conetar as portas do cluster em cada módulo de controlador a switches diferentes, verifique se as portas nas quais as portas do cluster estão conetadas em cada switch estão configuradas para a mesma VLAN e se o entroncamento está configurado corretamente em ambos os switches.
+Se você planeja conectar as portas de cluster em cada módulo controlador a switches diferentes, deverá verificar se as portas às quais as portas de cluster estão conectadas em cada switch estão configuradas para a mesma VLAN e se o trunking está configurado corretamente em ambos os switches.
 
-. Devolver o storage ao nó de destino:
+. Devolva o espaço de armazenamento ao nó de destino:
 +
 `storage failover giveback -ofnode node2`
 
-. Acompanhar o andamento da operação de giveback:
+. Acompanhe o progresso da operação de devolução:
 +
 `storage failover show-giveback`
 
-. Após a conclusão da operação de giveback, confirme se o par de HA está saudável e a aquisição é possível:
+. Após a conclusão da operação de devolução, confirme se o par HA está saudável e se a aquisição é possível:
 +
 `storage failover show`
 
@@ -174,7 +174,7 @@ Se você planeja conetar as portas do cluster em cada módulo de controlador a s
 .Mostrar exemplo
 [%collapsible]
 ====
-A saída deve ser semelhante ao seguinte:
+O resultado deverá ser semelhante ao seguinte:
 
 [listing]
 ----
@@ -195,7 +195,7 @@ node2          node1          true      Connected to node1
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra que os LIFs estão `up` em node1 e node2 e que os resultados da coluna "está em Casa" são `true`:
+O exemplo a seguir mostra que os LIFs são `up` nos nós 1 e 2 e que os resultados da coluna "É Casa" são `true` :
 
 [listing]
 ----
@@ -212,7 +212,7 @@ node2
 2 entries were displayed.
 ----
 ====
-. Verifique o status do cluster dos nós no console do sistema de qualquer nó:
+. Verifique o status do cluster dos nós no console do sistema de qualquer um dos nós:
 +
 `cluster show`
 
@@ -234,22 +234,22 @@ node2                true    true          false
 2 entries were displayed.
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -265,9 +265,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -301,9 +301,9 @@ RPC status:
 ====
 
 
-=== Passo 3: Conclua o procedimento
+=== Etapa 3: Conclua o procedimento
 
-. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
@@ -316,7 +316,7 @@ RPC status:
 cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
 ----
 ====
-. Altere o nível de privilégio de volta para admin:
+. Altere o nível de privilégio de volta para administrador:
 +
 `set -privilege admin`
 

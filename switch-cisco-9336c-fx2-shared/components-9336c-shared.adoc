@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/components-9336c-shared.html 
 keywords: shared storage cluster switch 
-summary: A partir do ONTAP 9.9,1, você pode usar os switches Cisco Nexus 9336C-FX2 para combinar a funcionalidade de armazenamento e cluster em um cenário de switch compartilhado. 
+summary: A partir do ONTAP 9.9.1, você pode usar switches Cisco Nexus 9336C-FX2 para combinar funcionalidades de armazenamento e cluster em um cenário de switch compartilhado. 
 ---
 = Componentes e números de peça para switches compartilhados Cisco Nexus 9336C-FX2
 :hardbreaks:
@@ -14,12 +14,12 @@ summary: A partir do ONTAP 9.9,1, você pode usar os switches Cisco Nexus 9336C-
 
 
 [role="lead"]
-Para instalação e manutenção do switch Cisco Nexus 9336C-FX2, certifique-se de rever a lista de componentes e números de peça.
+Para instalação e manutenção do switch Cisco Nexus 9336C-FX2, certifique-se de consultar a lista de componentes e números de peça.
 
-A tabela a seguir lista o número de peça e a descrição do interrutor 9336C-FX2, ventiladores e fontes de alimentação:
+A tabela a seguir lista o número da peça e a descrição do switch 9336C-FX2, dos ventiladores e das fontes de alimentação:
 
 |===
-| Número de peça | Descrição 
+| Número da peça | Descrição 
 
 
 | X190200-CS-PE | N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28 
@@ -31,16 +31,16 @@ A tabela a seguir lista o número de peça e a descrição do interrutor 9336C-F
 | X190002 | Kit de acessórios X190001/X190003 
 
 
-| X-NXA-PAC-1100W-PE2 | N9K-9336CA AC 1100W PSU - fluxo de ar do escape lateral da porta 
+| X-NXA-PAC-1100W-PE2 | Fonte de alimentação N9K-9336C AC 1100W - Fluxo de ar de exaustão lateral 
 
 
-| X-NXA-PAC-1100W-PI2 | N9K-9336CA AC 1100W PSU - fluxo de ar de entrada lateral da porta 
+| X-NXA-PAC-1100W-PI2 | Fonte de alimentação N9K-9336C AC 1100W - Fluxo de ar de entrada pelo lado da porta 
 
 
-| X-NXA-FAN-65CFM-PE | N9K-9336C 65CFM, fluxo de ar do escape lateral da porta 
+| X-NXA-FAN-65CFM-PE | N9K-9336C 65 CFM, fluxo de ar de exaustão do lado esquerdo 
 
 
-| X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, fluxo de ar de admissão do lado da porta 
+| X-NXA-FAN-65CFM-PI | N9K-9336C 65 CFM, fluxo de ar de admissão pelo lado esquerdo 
 |===
 .O que vem a seguir
 Após confirmar os componentes e os números de peça, você pode revisar o link:required-documentation-9336c-shared.html["documentação necessária"].

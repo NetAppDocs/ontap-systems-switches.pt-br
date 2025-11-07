@@ -2,32 +2,32 @@
 permalink: switch-cisco-3232c/cn5596-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Você pode usar os switches Cisco Nexus 3232C como switches de cluster no seu cluster AFF ou FAS. 
+summary: Você pode usar switches Cisco Nexus 3232C como switches de cluster em seu cluster AFF ou FAS . 
 ---
-= Prepare-se para a migração de switches Nexus 5596 para switches Nexus 3232C
+= Prepare-se para a migração de switches Nexus 5596 para switches Nexus 3232C.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estas etapas para preparar seus switches Cisco Nexus 5596 para migração para os switches Cisco Nexus 3232C.
+Siga estes passos para preparar seus switches Cisco Nexus 5596 para a migração para switches Cisco Nexus 3232C.
 
 .Passos
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
 +
-_x_ é a duração da janela de manutenção em horas.
+_x_ representa a duração da janela de manutenção em horas.
 
 +
 [NOTE]
 ====
-A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+A mensagem do AutoSupport notifica o suporte técnico sobre essa tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
 ====
-. Exiba informações sobre os dispositivos em sua configuração:
+. Exibir informações sobre os dispositivos na sua configuração:
 +
 `network device-discovery show`
 
@@ -131,7 +131,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra os switches do cluster ativo:
+O exemplo a seguir mostra os switches de cluster ativos:
 
 [listing, subs="+quotes"]
 ----
@@ -159,34 +159,34 @@ CL2                           cluster-network    10.10.1.102     NX5596
 ====
 
 
-. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3232C conforme necessário para seus requisitos e faça as personalizações essenciais do site, como usuários e senhas, endereços de rede e outras personalizações.
+. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3232C, conforme necessário para suas necessidades, e faça as personalizações essenciais do site, como usuários e senhas, endereços de rede e outras configurações.
 +
 [NOTE]
 ====
-Neste momento, tem de preparar ambos os interrutores.
+Você deve preparar ambos os interruptores neste momento.
 
 ====
 +
-Se você precisar atualizar o RCF e a imagem, você deve concluir as seguintes etapas:
+Se precisar atualizar o RCF e a imagem, você deve concluir as seguintes etapas:
 
 +
-.. Vá para a página _switches Ethernet Cisco_ no site de suporte da NetApp.
+.. Acesse a página _Cisco Ethernet Switches_ no site de suporte da NetApp .
 +
-link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^]
 
-.. Observe o switch e as versões de software necessárias na tabela nessa página.
-.. Baixe a versão apropriada do RCF.
+.. Anote o modelo do seu switch e as versões de software necessárias na tabela dessa página.
+.. Faça o download da versão apropriada do RCF.
 .. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
-.. Transfira a versão apropriada do software de imagem.
+.. Baixe a versão apropriada do software de imagem.
 +
-Consulte a página __ONTAP 8.x ou mais recente de transferência de Configuração de comutador de rede de Gestão e Cluster___ e, em seguida, selecione a versão apropriada.
+Consulte a página de download dos arquivos de configuração de referência do Cluster e do Switch de Gerenciamento do ONTAP 8.x ou posterior e selecione a versão apropriada.
 
 +
-Para encontrar a versão correta, consulte a página de download do comutador de rede de cluster _ONTAP 8.x ou posterior_.
+Para encontrar a versão correta, consulte a página de download do Cluster Network Switch do ONTAP 8.x ou posterior.
 
 
 
-. Migrar os LIFs associados ao segundo switch Nexus 5596 a ser substituído:
+. Migre as LIFs associadas ao segundo switch Nexus 5596 a ser substituído:
 +
 `network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ - destination-node _node-name_ -destination-port _destination-port-name_`
 
@@ -216,7 +216,7 @@ destination-node n2 -destination-port e0d*
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o status atual de cada cluster:
+O exemplo a seguir mostra o estado atual de cada cluster:
 
 [listing, subs="+quotes"]
 ----
@@ -239,5 +239,5 @@ Cluster
 ====
 
 
-.O que se segue?
-link:cn5596-configure-ports.html["Configure as portas"].
+.O que vem a seguir?
+link:cn5596-configure-ports.html["Configure suas portas"].

@@ -2,19 +2,19 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Você pode usar switches Cisco Nexus 3132q-v como switches de cluster no seu cluster AFF ou FAS. 
+summary: Você pode usar switches Cisco Nexus 3132q-v como switches de cluster em seu cluster AFF ou FAS . 
 ---
-= Concluir a migração de clusters sem switch de dois nós para clusters comutados de dois nós
+= Conclua a migração de clusters de dois nós sem switch para clusters de dois nós com switch.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estas etapas para concluir a migração de clusters sem switch para clusters comutados de dois nós.
+Siga estes passos para concluir a migração de clusters sem switches para clusters com switches de dois nós.
 
 .Passos
-. Exibir os números da porta do switch de cluster a que cada porta do cluster está conetada em cada nó:
+. Exibir os números das portas do switch de cluster às quais cada porta do cluster está conectada em cada nó:
 +
 `network device-discovery show`
 
@@ -36,7 +36,7 @@ n2         /cdp
             e4e    C2                  Ethernet1/8      N3K-C3132Q-V
 ----
 ====
-. Exibir switches do cluster descobertos e monitorados:
+. Exibir os switches de cluster descobertos e monitorados:
 +
 `system cluster-switch show`
 
@@ -69,7 +69,7 @@ C2                          cluster-network      10.10.1.102    NX3132V
 2 entries were displayed.
 ----
 ====
-. Desative as configurações sem switch de dois nós em qualquer nó:
+. Desative as configurações de configuração sem switch para dois nós em qualquer um dos nós:
 +
 `network options switchless-cluster`
 
@@ -78,28 +78,28 @@ C2                          cluster-network      10.10.1.102    NX3132V
 ----
 network options switchless-cluster modify -enabled false
 ----
-. Verifique se a `switchless-cluster` opção foi desativada.
+. Verifique se o `switchless-cluster` Essa opção foi desativada.
 +
 [listing]
 ----
 network options switchless-cluster show
 ----
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o comando show para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o comando show para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -116,9 +116,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -151,11 +151,11 @@ RPC status:
 ----
 --
 ====
-. [[step6]]se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. [[passo 6]]Se você desativou a criação automática de casos, reative-a invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+.O que vem a seguir?
+link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."].

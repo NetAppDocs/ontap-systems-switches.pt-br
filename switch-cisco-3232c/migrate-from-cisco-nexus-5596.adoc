@@ -2,101 +2,101 @@
 permalink: switch-cisco-3232c/migrate-from-cisco-nexus-5596.html 
 sidebar: sidebar 
 keywords: migrate, cisco nexus 5596 switch, 3232c 
-summary: Para substituir os switches de cluster Cisco Nexus 5596 existentes em um cluster por switches de cluster Nexus 3232C, você deve executar uma sequência específica de tarefas. 
+summary: Para substituir switches de cluster Cisco Nexus 5596 existentes em um cluster por switches de cluster Nexus 3232C, você deve executar uma sequência específica de tarefas. 
 ---
-= Migre de um switch de cluster Cisco Nexus 5596 para um switch de cluster Cisco Nexus 3232C
+= Migrar de um switch de cluster Cisco Nexus 5596 para um switch de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para migrar os switches de cluster Cisco Nexus 5596 existentes em um cluster com switches de cluster Nexus 3232C.
+Siga este procedimento para migrar um cluster de switches Cisco Nexus 5596 existente para um cluster com switches Nexus 3232C.
 
 
 
-== Rever os requisitos
+== Requisitos de revisão
 
-Antes da migração, certifique-se de rever link:migrate-requirements-3232c.html["Requisitos de migração"]o .
+Antes da migração, certifique-se de revisarlink:migrate-requirements-3232c.html["Requisitos de migração"] .
 
 [NOTE]
 ====
-O procedimento requer o uso de comandos ONTAP e comandos Cisco Nexus 3000 Series switches; os comandos ONTAP são usados, a menos que indicado de outra forma.
+O procedimento requer o uso de comandos ONTAP e comandos dos switches Cisco Nexus série 3000; os comandos ONTAP são usados, a menos que indicado de outra forma.
 
 ====
-Para obter mais informações, consulte:
+Para mais informações, consulte:
 
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^]
 * link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
 
-== Migrar o switch
+== Migre o switch
 
 .Sobre os exemplos
-Os exemplos neste procedimento descrevem a substituição de switches Cisco Nexus 5596 por switches Cisco Nexus 3232C. Você pode usar estas etapas (com modificações) para outras centrais Cisco mais antigas (por exemplo, 3132Q-V).
+Os exemplos neste procedimento descrevem a substituição de switches Cisco Nexus 5596 por switches Cisco Nexus 3232C.  Você pode usar esses passos (com modificações) para outros switches Cisco mais antigos (por exemplo, 3132Q-V).
 
-O procedimento também usa a seguinte nomenclatura de switch e nó:
+O procedimento também utiliza a seguinte nomenclatura de interruptores e nós:
 
-* As saídas de comando podem variar dependendo de diferentes versões do ONTAP.
+* Os resultados dos comandos podem variar dependendo das diferentes versões do ONTAP.
 * Os switches Nexus 5596 a serem substituídos são CL1 e CL2.
-* Os switches Nexus 3232C para substituir os switches Nexus 5596 são C1 e C2.
-* N1_clus1 é a primeira interface lógica de cluster (LIF) conetada ao switch de cluster 1 (CL1 ou C1) para o nó n1.
-* N1_clus2 é o primeiro cluster de LIF conetado ao switch de cluster 2 (CL2 ou C2) para o nó n1.
-* N1_clus3 é o segundo LIF conetado ao switch de cluster 2 (CL2 ou C2) para o nó n1.
-* N1_clus4 é o segundo LIF conetado ao switch de cluster 1 (CL1 ou C1) para o nó n1.-
-* O número de portas de 10 GbE e 40/100 GbE é definido nos arquivos de configuração de referência (RCFs) disponíveis emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de cluster Cisco"^] .
+* Os switches Nexus 3232C que substituem os switches Nexus 5596 são C1 e C2.
+* n1_clus1 é a primeira interface lógica de cluster (LIF) conectada ao switch de cluster 1 (CL1 ou C1) para o nó n1.
+* n1_clus2 é a primeira LIF de cluster conectada ao switch de cluster 2 (CL2 ou C2) para o nó n1.
+* n1_clus3 é a segunda LIF conectada ao switch de cluster 2 (CL2 ou C2) para o nó n1.
+* n1_clus4 é a segunda LIF conectada ao switch de cluster 1 (CL1 ou C1) para o nó n1.
+* O número de portas 10 GbE e 40/100 GbE está definido nos arquivos de configuração de referência (RCFs) disponíveis emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do switch de rede de cluster Cisco"^] .
 * Os nós são n1, n2, n3 e n4.
 
 
-Os exemplos neste procedimento usam quatro nós:
+Os exemplos neste procedimento utilizam quatro nós:
 
-* Dois nós usam quatro portas de interconexão de cluster de 10 GbE: e0a, e0b, e0c e e0d.
-* Os outros dois nós usam duas portas de interconexão de cluster de 40 GbE: e4a, e4e. A link:https://hwu.netapp.com/["_Hardware Universe_"^] lista as portas de cluster reais em suas plataformas.
+* Dois nós utilizam quatro portas de interconexão de cluster de 10 GbE: e0a, e0b, e0c e e0d.
+* Os outros dois nós utilizam duas portas de interconexão de cluster de 40 GbE: e4a, e4e.  Olink:https://hwu.netapp.com/["_Universo do Hardware_"^] Lista as portas de cluster reais em suas plataformas.
 
 
 .Cenários
 Este procedimento abrange os seguintes cenários:
 
-* O cluster começa com dois nós conectados e funcionando em dois switches de cluster Nexus 5596.
-* O interrutor do cluster CL2 a ser substituído por C2 (passos 1 a 19):
+* O cluster inicia com dois nós conectados e funcionando em dois switches de cluster Nexus 5596.
+* O interruptor do cluster CL2 deve ser substituído por C2 (etapas 1 a 19):
 +
-** O tráfego em todas as portas de cluster e LIFs em todos os nós conectados ao CL2 é migrado para as primeiras portas de cluster e LIFs conetadas ao CL1.
-** Desconete o cabeamento de todas as portas de cluster em todos os nós conectados ao CL2 e use o cabeamento de saída compatível para reconetar as portas ao novo switch de cluster C2.
-** Desconete o cabeamento entre as portas ISL entre CL1 e CL2 e, em seguida, use o cabeamento de saída suportado para reconetar as portas de CL1 a C2.
-** O tráfego em todas as portas de cluster e LIFs conetadas ao C2 em todos os nós é revertido.
+** O tráfego em todas as portas do cluster e LIFs em todos os nós conectados ao CL2 é migrado para as primeiras portas do cluster e LIFs conectadas ao CL1.
+** Desconecte os cabos de todas as portas do cluster em todos os nós conectados ao CL2 e, em seguida, use cabos de breakout compatíveis para reconectar as portas ao novo switch de cluster C2.
+** Desconecte os cabos entre as portas ISL entre CL1 e CL2 e, em seguida, use cabos breakout compatíveis para reconectar as portas de CL1 a CL2.
+** O tráfego em todas as portas do cluster e LIFs conectadas ao C2 em todos os nós foi revertido.
 
 
-* O interrutor do cluster CL2 a ser substituído por C2.
+* O interruptor de cluster CL2 será substituído por C2.
 +
-** O tráfego em todas as portas de cluster ou LIFs em todos os nós conectados ao CL1 é migrado para as segundas portas de cluster ou LIFs conetadas ao C2.
-** Desconete o cabeamento de todas as portas de cluster em todos os nós conectados ao CL1 e reconete, usando o cabeamento de saída compatível, ao novo switch de cluster C1.
-** Desconete o cabeamento entre as portas ISL entre CL1 e C2 e reconete usando o cabeamento suportado, de C1 a C2.
-** O tráfego em todas as portas de cluster ou LIFs conetadas ao C1 em todos os nós é revertido.
+** O tráfego em todas as portas de cluster ou LIFs em todos os nós conectados ao CL1 é migrado para as segundas portas de cluster ou LIFs conectadas ao C2.
+** Desconecte os cabos de todas as portas do cluster em todos os nós conectados ao CL1 e reconecte-os, usando cabos breakout compatíveis, ao novo switch de cluster C1.
+** Desconecte os cabos entre as portas ISL entre CL1 e C2 e reconecte-os usando cabos compatíveis, de C1 para C2.
+** O tráfego em todas as portas do cluster ou LIFs conectadas ao C1 em todos os nós é revertido.
 
 
-* Dois nós de FAS9000 foram adicionados ao cluster com exemplos mostrando detalhes do cluster.
+* Dois nós FAS9000 foram adicionados ao cluster, com exemplos mostrando detalhes do cluster.
 
 
 
 
-=== Passo 1: Prepare-se para a migração
+=== Etapa 1: Prepare-se para a migração
 
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
 +
-_x_ é a duração da janela de manutenção em horas.
+_x_ representa a duração da janela de manutenção em horas.
 
 +
 [NOTE]
 ====
-A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+A mensagem do AutoSupport notifica o suporte técnico sobre essa tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
 ====
-. Exiba informações sobre os dispositivos em sua configuração:
+. Exibir informações sobre os dispositivos na sua configuração:
 +
 `network device-discovery show`
 
@@ -200,7 +200,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra os switches do cluster ativo:
+O exemplo a seguir mostra os switches de cluster ativos:
 
 [listing, subs="+quotes"]
 ----
@@ -228,34 +228,34 @@ CL2                           cluster-network    10.10.1.102     NX5596
 ====
 
 
-. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3232C conforme necessário para seus requisitos e faça as personalizações essenciais do site, como usuários e senhas, endereços de rede e outras personalizações.
+. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3232C, conforme necessário para suas necessidades, e faça as personalizações essenciais do site, como usuários e senhas, endereços de rede e outras configurações.
 +
 [NOTE]
 ====
-Neste momento, tem de preparar ambos os interrutores.
+Você deve preparar ambos os interruptores neste momento.
 
 ====
 +
-Se você precisar atualizar o RCF e a imagem, você deve concluir as seguintes etapas:
+Se precisar atualizar o RCF e a imagem, você deve concluir as seguintes etapas:
 
 +
-.. Vá para a página _switches Ethernet Cisco_ no site de suporte da NetApp.
+.. Acesse a página _Cisco Ethernet Switches_ no site de suporte da NetApp .
 +
-link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^]
 
-.. Observe o switch e as versões de software necessárias na tabela nessa página.
-.. Baixe a versão apropriada do RCF.
+.. Anote o modelo do seu switch e as versões de software necessárias na tabela dessa página.
+.. Faça o download da versão apropriada do RCF.
 .. Clique em *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
-.. Transfira a versão apropriada do software de imagem.
+.. Baixe a versão apropriada do software de imagem.
 +
-Consulte a página __ONTAP 8.x ou mais recente de transferência de ficheiros de configuração de comutador de rede de gestão e cluster e, em seguida, clique na versão apropriada.
+Consulte a página de download dos arquivos de configuração de referência do Cluster e do Switch de Gerenciamento do ONTAP 8.x ou posterior e clique na versão apropriada.
 
 +
-Para encontrar a versão correta, consulte a página de download do comutador de rede de cluster _ONTAP 8.x ou posterior_.
+Para encontrar a versão correta, consulte a página de download do Cluster Network Switch do ONTAP 8.x ou posterior.
 
 
 
-. Migrar os LIFs associados ao segundo switch Nexus 5596 a ser substituído:
+. Migre as LIFs associadas ao segundo switch Nexus 5596 a ser substituído:
 +
 `network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ - destination-node _node-name_ -destination-port _destination-port-name_`
 
@@ -285,7 +285,7 @@ destination-node n2 -destination-port e0d*
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o status atual de cada cluster:
+O exemplo a seguir mostra o estado atual de cada cluster:
 
 [listing, subs="+quotes"]
 ----
@@ -312,7 +312,7 @@ Cluster
 
 === Etapa 2: Configurar portas
 
-. Encerre as portas de interconexão de cluster que estão fisicamente conetadas ao switch CL2:
+. Desative as portas de interconexão do cluster que estão fisicamente conectadas ao switch CL2:
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin false`
 
@@ -320,7 +320,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-Os comandos a seguir desligam as portas especificadas no n1 e no n2, mas as portas devem ser fechadas em todos os nós:
+Os comandos a seguir desativam as portas especificadas em n1 e n2, mas as portas devem ser desativadas em todos os nós:
 
 [listing, subs="+quotes"]
 ----
@@ -330,22 +330,22 @@ cluster::*> *network port modify -node n2 -port e0b -up-admin false*
 cluster::*> *network port modify -node n2 -port e0c -up-admin false*
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o comando show para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o comando show para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -362,9 +362,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -413,15 +413,15 @@ RPC status:
 ----
 --
 ====
-. [[step3]] encerre ISLs 41 a 48 no CL1, o switch Nexus 5596 ativo, usando o comando Cisco `shutdown`.
+. [[passo 3]] Desligue os ISLs 41 a 48 no CL1, o switch Nexus 5596 ativo, usando o Cisco `shutdown` comando.
 +
-Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra ISLs 41 a 48 sendo encerradas no Nexus 5596 switch CL1:
+O exemplo a seguir mostra os ISLs 41 a 48 sendo desativados no switch Nexus 5596 CL1:
 
 [listing, subs="+quotes"]
 ----
@@ -435,13 +435,13 @@ O exemplo a seguir mostra ISLs 41 a 48 sendo encerradas no Nexus 5596 switch CL1
 ====
 . Crie um ISL temporário entre CL1 e C2 usando os comandos Cisco apropriados.
 +
-Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra uma ISL temporária sendo configurada entre CL1 e C2:
+O exemplo a seguir mostra a configuração de um ISL temporário entre CL1 e C2:
 
 [listing, subs="+quotes"]
 ----
@@ -459,23 +459,23 @@ C2(config-if-range)# *exit*
 C2(config-if)# *exit*
 ----
 ====
-. Em todos os nós, remova todos os cabos conetados ao switch Nexus 5596 CL2.
+. Em todos os nós, remova todos os cabos conectados ao switch Nexus 5596 CL2.
 +
-Com o cabeamento compatível, reconecte as portas desconetadas em todos os nós ao switch Nexus 3232C C2.
+Utilizando a cablagem adequada, reconecte as portas desconectadas em todos os nós ao switch Nexus 3232C C2.
 
 . Remova todos os cabos do switch Nexus 5596 CL2.
 +
-Conete o Cisco QSFP apropriado aos cabos de conexão Ethernet 1/24 no novo switch Cisco 3232C, C2, às portas 45 a 48 no Nexus 5596, CL1 existente.
+Conecte os cabos breakout Cisco QSFP para SFP+ apropriados, ligando a porta 1/24 do novo switch Cisco 3232C, C2, às portas 45 a 48 do Nexus 5596 existente, CL1.
 
-. Abra as portas ISLs 45 a 48 no switch Nexus 5596 ativo CL1.
+. Ative as portas ISL 45 a 48 no switch Nexus 5596 ativo CL1.
 +
-Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra que as portas ISLs 45 a 48 estão sendo criadas:
+O exemplo a seguir mostra as portas ISL 45 a 48 sendo ativadas:
 
 [listing, subs="+quotes"]
 ----
@@ -489,13 +489,13 @@ O exemplo a seguir mostra que as portas ISLs 45 a 48 estão sendo criadas:
 ====
 . Verifique se os ISLs estão `up` no switch Nexus 5596 CL1.
 +
-Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra as portas eth1/45 a eth1/48 indicando (P), o que significa que as portas ISL `up` estão no canal de porta.
+O exemplo a seguir mostra as portas eth1/45 a eth1/48 indicando (P), o que significa que as portas ISL estão `up` no canal de escotilha.
 
 [listing, subs="+quotes"]
 ----
@@ -515,8 +515,8 @@ Group Port-        Type   Protocol  Member Ports
                                     Eth1/47(P)   Eth1/48(P)
 ----
 ====
-. Verifique se as interfaces eth1/45-48 já têm o modo "Channel-group 1 ativo" em sua configuração em execução.
-. Em todos os nós, abra todas as portas de interconexão de cluster conetadas ao switch 3232C C2:
+. Verifique se as interfaces eth1/45-48 já possuem o modo `channel-group 1 ativo` em sua configuração em execução.
+. Em todos os nós, ative todas as portas de interconexão do cluster conectadas ao switch 3232C C2:
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin true`
 
@@ -524,7 +524,7 @@ Group Port-        Type   Protocol  Member Ports
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra as portas especificadas sendo criadas nos nós n1 e n2:
+O exemplo a seguir mostra as portas especificadas sendo ativadas nos nós n1 e n2:
 
 [listing, subs="+quotes"]
 ----
@@ -534,7 +534,7 @@ cluster::*> *network port modify -node n2 -port e0b -up-admin true*
 cluster::*> *network port modify -node n2 -port e0c -up-admin true*
 ----
 ====
-. Em todos os nós, reverta todas as LIFs de interconexão de cluster migradas conetadas ao C2:
+. Em todos os nós, reverta todas as LIFs de interconexão de cluster migradas e conectadas ao C2:
 +
 `network interface revert -vserver Cluster -lif _lif-name_`
 
@@ -542,7 +542,7 @@ cluster::*> *network port modify -node n2 -port e0c -up-admin true*
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra as LIFs de cluster migradas sendo revertidas para suas portas iniciais:
+O exemplo a seguir mostra as LIFs do cluster migradas sendo revertidas para suas portas originais:
 
 [listing, subs="+quotes"]
 ----
@@ -552,7 +552,7 @@ cluster::*> *network interface revert -vserver Cluster -lif n2_clus2*
 cluster::*> *network interface revert -vserver Cluster -lif n2_clus3*
 ----
 ====
-. Verifique se todas as portas de interconexão de cluster estão agora revertidas para sua casa:
+. Verifique se todas as portas de interconexão do cluster foram revertidas para seus valores originais:
 +
 `network interface show -role cluster`
 
@@ -560,7 +560,7 @@ cluster::*> *network interface revert -vserver Cluster -lif n2_clus3*
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra que os LIFs no clus2 reverteram para suas portas residenciais e mostra que os LIFs são revertidos com êxito se as portas na coluna porta atual tiverem um status de `true` na `Is Home` coluna. Se o `Is Home` valor for `false`, o LIF não foi revertido.
+O exemplo a seguir mostra que as LIFs em clus2 retornaram às suas portas de origem e demonstra que a reversão das LIFs foi bem-sucedida se as portas na coluna Porta Atual tiverem o status de `true` no `Is Home` coluna.  Se o `Is Home` valor é `false` , o LIF não foi revertido.
 
 [listing]
 ----
@@ -581,7 +581,7 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Verifique se as portas em cluster estão conetadas:
+. Verifique se as portas em cluster estão conectadas:
 +
 `network port show -role cluster`
 
@@ -589,7 +589,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o resultado do comando anterior `network port modify`, verificando se todas as interconexões de cluster são `up`:
+O exemplo a seguir mostra o resultado do anterior. `network port modify` comando, verificando se todas as interconexões do cluster estão `up` :
 
 [listing, subs="+quotes"]
 ----
@@ -617,22 +617,22 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -649,9 +649,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -700,7 +700,7 @@ RPC status:
 ----
 --
 ====
-. [[step15]] em cada nó no cluster, migre as interfaces associadas ao primeiro switch Nexus 5596, CL1, para ser substituído:
+. [[passo15]] Em cada nó do cluster, migre as interfaces associadas ao primeiro switch Nexus 5596, CL1, a ser substituído:
 +
 `network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_
 -destination-node _destination-node-name_ -destination-port _destination-port-name_`
@@ -723,7 +723,7 @@ cluster::*> *network interface migrate -vserver Cluster -lif n2_clus4 -source-no
 destination-node n2 -destination-port e0c*
 ----
 ====
-. Verifique o status do cluster:
+. Verifique o estado do cluster:
 +
 `network interface show`
 
@@ -731,7 +731,7 @@ destination-node n2 -destination-port e0c*
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra que as LIFs de cluster necessárias foram migradas para portas de cluster apropriadas hospedadas no switch de cluster, C2:
+O exemplo a seguir mostra que as LIFs de cluster necessárias foram migradas para as portas de cluster apropriadas hospedadas no switch de cluster, C2:
 
 [listing, subs="+quotes"]
 ----
@@ -754,7 +754,7 @@ Cluster
 ----- ------- ----
 ----
 ====
-. Em todos os nós, encerre as portas dos nós que estão conectadas ao CL1:
+. Em todos os nós, desligue as portas de nó que estão conectadas ao CL1:
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin false`
 
@@ -762,7 +762,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra as portas especificadas que estão sendo encerradas nos nós n1 e n2:
+O exemplo a seguir mostra as portas especificadas sendo desativadas nos nós n1 e n2:
 
 [listing, subs="+quotes"]
 ----
@@ -772,15 +772,15 @@ cluster::*> *network port modify -node n2 -port e0a -up-admin false*
 cluster::*> *network port modify -node n2 -port e0d -up-admin false*
 ----
 ====
-. Desligue o ISL 24, 31 e 32 no interrutor 3232C ativo C2.
+. Desligue os ISLs 24, 31 e 32 no switch 3232C ativo C2.
 +
-Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra ISLs sendo encerradas:
+O exemplo a seguir mostra ISLs sendo desativadas:
 
 [listing, subs="+quotes"]
 ----
@@ -795,23 +795,23 @@ C2(config-if)# *exit*
 C2#
 ----
 ====
-. Em todos os nós, remova todos os cabos conetados ao switch Nexus 5596 CL1.
+. Em todos os nós, remova todos os cabos conectados ao switch Nexus 5596 CL1.
 +
-Com o cabeamento compatível, reconecte as portas desconetadas em todos os nós ao switch Nexus 3232C C1.
+Utilizando a cablagem adequada, reconecte as portas desconectadas em todos os nós ao switch Nexus 3232C C1.
 
-. Remova o cabo multicondutor QSFP das portas E1/24 do Nexus 3232C C2.
+. Remova o cabo breakout QSFP das portas e1/24 do Nexus 3232C C2.
 +
-Conete as portas E1/31 e E1/32 no C1 às portas E1/31 e E1/32 no C2 usando fibra ótica Cisco QSFP ou cabos de conexão direta.
+Conecte as portas e1/31 e e1/32 em C1 às portas e1/31 e e1/32 em C2 usando cabos de fibra óptica Cisco QSFP ou cabos de conexão direta compatíveis.
 
-. Restaure a configuração na porta 24 e remova o Canal de porta temporário 2 no C2.
+. Restaure a configuração na porta 24 e remova o Port Channel 2 temporário em C2.
 +
-Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra a configuração na porta M24 sendo restaurada usando os comandos Cisco apropriados:
+O exemplo a seguir mostra a configuração na porta m24 sendo restaurada usando os comandos Cisco apropriados:
 
 [listing, subs="+quotes"]
 ----
@@ -830,15 +830,15 @@ C2# copy running-config startup-config
 Copy Complete.
 ----
 ====
-. Abra as portas ISL 31 e 32 no C2, o switch 3232C ativo, inserindo o seguinte comando Cisco: `no shutdown`
+. Ative as portas ISL 31 e 32 no C2, o switch 3232C ativo, inserindo o seguinte comando Cisco : `no shutdown`
 +
-Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra os comandos Cisco `switchname configure` apresentados no interrutor 3232C C2:
+O exemplo a seguir mostra os comandos da Cisco. `switchname configure` Acionado pelo interruptor C2 do 3232C:
 
 [listing, subs="+quotes"]
 ----
@@ -847,12 +847,12 @@ C2(config)# interface ethernet 1/31-32
 C2(config-if-range)# no shutdown
 ----
 ====
-. Verifique se as conexões ISL estão `up` no interrutor 3232C C2.
+. Verifique se as conexões ISL estão `up` no interruptor C2 do 3232C.
 +
-Para obter mais informações sobre comandos Cisco, consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comando Cisco Nexus 3000 Series NX-os"^].
+Para obter mais informações sobre os comandos Cisco , consulte o guia apropriado no https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
 
 +
-As portas eth1/31 e eth1/32 devem indicar (P), o que significa que ambas as portas ISL estão no canal de porta
+As portas eth1/31 e eth1/32 devem indicar (P), o que significa que ambas as portas ISL estão ativas no canal de porta.
 
 +
 .Mostrar exemplo
@@ -875,7 +875,7 @@ Group Port-        Type   Protocol  Member Ports
 1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Em todos os nós, abra todas as portas de interconexão de cluster conetadas ao novo switch 3232C C1:
+. Em todos os nós, ative todas as portas de interconexão do cluster conectadas ao novo switch 3232C C1:
 +
 `network port modify`
 
@@ -883,7 +883,7 @@ Group Port-        Type   Protocol  Member Ports
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra todas as portas de interconexão de cluster sendo criadas para n1 e n2 no switch 3232C C1:
+O exemplo a seguir mostra todas as portas de interconexão do cluster sendo ativadas para n1 e n2 no switch 3232C C1:
 
 [listing]
 ----
@@ -902,7 +902,7 @@ cluster::*> network port modify -node n2 -port e0d -up-admin true
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra verifica se todas as portas de interconexão de cluster em todos os nós no novo switch 3232C C1 estão em funcionamento:
+O exemplo a seguir verifica se todas as portas de interconexão do cluster em todos os nós do novo switch 3232C C1 estão ativas:
 
 [listing]
 ----
@@ -930,7 +930,7 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-. Em todos os nós, reverta as LIFs de cluster específicas para suas portas iniciais:
+. Em todos os nós, reverta as LIFs específicas do cluster para suas portas originais:
 +
 `network interface revert -server Cluster -lif _lif-name_`
 
@@ -938,7 +938,7 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra as LIFs de cluster específicas sendo revertidas para suas portas iniciais nos nós n1 e n2:
+O exemplo a seguir mostra as LIFs específicas do cluster sendo revertidas para suas portas originais nos nós n1 e n2:
 
 [listing]
 ----
@@ -948,7 +948,7 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus1
 cluster::*> network interface revert -vserver Cluster -lif n2_clus4
 ----
 ====
-. Verifique se a interface está em casa:
+. Verifique se a interface está na página inicial:
 +
 `network interface show -role cluster`
 
@@ -956,7 +956,7 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus4
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o status das interfaces de interconexão de cluster são `up` e `Is Home` para n1 e n2:
+O exemplo a seguir mostra o status das interfaces de interconexão do cluster. `up` e `Is Home` para n1 e n2:
 
 [listing]
 ----
@@ -977,22 +977,22 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -1009,9 +1009,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -1060,9 +1060,9 @@ RPC status:
 ----
 --
 ====
-. [[step29]] expanda o cluster adicionando nós aos switches de cluster Nexus 3232C.
+. [[passo29]] Expanda o cluster adicionando nós aos switches de cluster Nexus 3232C.
 +
-Os exemplos a seguir mostram que os nós n3 e n4 têm portas de cluster de 40 GbE conetadas às portas E1/7 e E1/8, respetivamente, nos dois switches de cluster Nexus 3232C, e ambos os nós aderiram ao cluster. As portas de interconexão de cluster de 40 GbE usadas são e4a e e4e.
+Os exemplos a seguir mostram que os nós n3 e n4 têm portas de cluster 40 GbE conectadas às portas e1/7 e e1/8, respectivamente, em ambos os switches de cluster Nexus 3232C, e ambos os nós ingressaram no cluster.  As portas de interconexão de cluster de 40 GbE utilizadas são e4a e e4e.
 
 +
 Exiba as informações sobre os dispositivos em sua configuração:
@@ -1102,7 +1102,7 @@ n4         /cdp
             e4e    C2                 Ethernet1/8      N3K-C3232C
 12 entries were displayed.
 ----
-E
++
 
 [listing]
 ----
@@ -1145,7 +1145,7 @@ e4a       Cluster      Cluster          up   9000 auto/40000  -        -
 e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 12 entries were displayed.
 ----
-E
++
 
 [listing]
 ----
@@ -1169,7 +1169,7 @@ Cluster
             n4_clus2   up/up      10.10.0.12/24      n4            e4e     true
 12 entries were displayed.
 ----
-E
++
 
 [listing]
 ----
@@ -1211,7 +1211,7 @@ CL2                           cluster-network    10.10.1.102     NX5596
 4 entries were displayed.
 ----
 ====
-. Extrair o Nexus 5596 substituído com `system cluster-switch delete` o comando, se não for extraído automaticamente:
+. Remova o Nexus 5596 substituído usando o `system cluster-switch delete` comando, caso não seja removido automaticamente:
 +
 `system cluster-switch delete -device switch-name`
 
@@ -1229,9 +1229,9 @@ cluster::> system cluster-switch delete –device CL2
 
 
 
-=== Passo 3: Conclua o procedimento
+=== Etapa 3: Conclua o procedimento
 
-. Verifique se os switches de cluster adequados são monitorados:
+. Verifique se os switches de cluster apropriados estão sendo monitorados:
 +
 `system cluster-switch show`
 
@@ -1264,11 +1264,11 @@ C2                          cluster-network     10.10.1.104      NX3232C
 2 entries were displayed.
 ----
 ====
-. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+.O que vem a seguir?
+link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."].

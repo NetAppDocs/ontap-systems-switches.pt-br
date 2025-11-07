@@ -2,107 +2,107 @@
 permalink: switch-cisco-92300/migrate-to-92300yc.html 
 sidebar: sidebar 
 keywords: migration steps for cisco nexus 92300yc cluster switch 
-summary: Você pode migrar os switches de cluster Cisco mais antigos sem interrupções para um cluster ONTAP para os switches de rede de cluster Cisco Nexus 92300YC. 
+summary: Você pode migrar switches de cluster Cisco mais antigos e não disruptivos para um cluster ONTAP para switches de rede de cluster Cisco Nexus 92300YC. 
 ---
-= Migre de um switch Cisco para um switch Cisco Nexus 92300YC
+= Migrar de um switch Cisco para um switch Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você pode migrar os switches de cluster Cisco mais antigos sem interrupções para um cluster ONTAP para os switches de rede de cluster Cisco Nexus 92300YC.
+Você pode migrar switches de cluster Cisco mais antigos e não disruptivos para um cluster ONTAP para switches de rede de cluster Cisco Nexus 92300YC.
 
 
-NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para dar suporte ao Cluster Switch Health Monitor (CSHM) para switches de cluster 92300YC. Ver link:../switch-cshm/cshm-overview.html["Monitoramento de integridade do switch (CSHM)"] .
+NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para dar suporte ao Monitor de Saúde do Switch de Cluster (CSHM) para switches de cluster 92300YC. Verlink:../switch-cshm/cshm-overview.html["Monitoramento de saúde do switch (CSHM)"] .
 
 
 
-== Rever os requisitos
+== Requisitos de revisão
 
 .Antes de começar
-Certifique-se de que tem o seguinte:
+Certifique-se de ter o seguinte:
 
 * Um cluster existente totalmente funcional.
-* Conectividade de 10 GbE e 40 GbE de nós para switches de cluster Nexus 92300YC.
-* Todas as portas de cluster estão no estado up para garantir operações ininterruptas.
-* Versão adequada do NX-os e arquivo de configuração de referência (RCF) instalados nos switches de cluster Nexus 92300YC.
-* Um cluster NetApp redundante e totalmente funcional usando ambos os switches Cisco mais antigos.
-* Conetividade de gerenciamento e acesso ao console aos switches Cisco mais antigos e aos novos switches.
-* Todas as LIFs de cluster no estado up com os LIFs de cluster estão em suas portas residenciais.
-* Portas ISL ativadas e cabeadas entre os switches Cisco mais antigos e entre os novos switches.
+* Conectividade de 10 GbE e 40 GbE dos nós aos switches de cluster Nexus 92300YC.
+* Todas as portas do cluster estão ativas para garantir operações sem interrupções.
+* Versão correta do NX-OS e arquivo de configuração de referência (RCF) instalados nos switches do cluster Nexus 92300YC.
+* Um cluster NetApp redundante e totalmente funcional, utilizando switches Cisco mais antigos.
+* Conectividade de gerenciamento e acesso ao console tanto para os switches Cisco mais antigos quanto para os novos.
+* Todas as LIFs do cluster estão ativas e conectadas às suas portas de origem.
+* As portas ISL foram habilitadas e cabeadas entre os switches Cisco mais antigos e entre os novos switches.
 
 
 
 
-== Migrar o switch
+== Migre o switch
 
 .Sobre os exemplos
-Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:
 
-* Os switches de cluster Cisco Nexus 5596UP existentes são C1 e C2.
-* Os novos switches de cluster Nexus 92300YC são CS1 e CS2.
-* Os nós são node1 e node2.
-* Os LIFs de cluster são node1_clus1 e node1_clus2 no nó 1 e node2_clus1 e node2_clus2 no nó 2, respetivamente.
-* O interrutor C2 é substituído primeiro pelo interrutor CS2 e, em seguida, o interrutor C1 é substituído pelo interrutor CS1.
+* Os switches de cluster Cisco Nexus 5596UP existentes são c1 e c2.
+* Os novos switches de cluster Nexus 92300YC são cs1 e cs2.
+* Os nós são o nó 1 e o nó 2.
+* Os LIFs do cluster são node1_clus1 e node1_clus2 no nó 1, e node2_clus1 e node2_clus2 no nó 2, respectivamente.
+* O switch c2 é substituído primeiro pelo switch cs2 e, em seguida, o switch c1 é substituído pelo switch cs1.
 +
-** Um ISL temporário é construído em CS1 conetando C1 a CS1.
-** O cabeamento entre os nós e o C2 é desconetado do C2 e reconetado ao CS2.
-** O cabeamento entre os nós e o C1 é desconetado do C1 e reconetado ao CS1.
-** A ISL temporária entre C1 e CS1 é então removida.
+** Uma ISL temporária é construída em cs1, conectando c1 a cs1.
+** Os cabos entre os nós e o c2 são então desconectados do c2 e reconectados ao cs2.
+** A fiação entre os nós e c1 é então desconectada de c1 e reconectada a cs1.
+** O ISL temporário entre c1 e cs1 é então removido.
 
 
 
 
-.Portas usadas para conexões
-* Algumas das portas são configuradas nos switches Nexus 92300YC para serem executadas a 10 GbE ou 40 GbE.
-* Os switches de cluster usam as seguintes portas para conexões com nós:
+.Portas utilizadas para conexões
+* Algumas portas dos switches Nexus 92300YC estão configuradas para operar em 10 GbE ou 40 GbE.
+* Os switches do cluster utilizam as seguintes portas para conexões com os nós:
 +
-** Portas E1/1-48 (10/25 GbE), E1/49-64 (40/100 GbE): Nexus 92300YC
-** Portas E1/1-40 (10 GbE): Nexus 5596UP
-** Portas E1/1-32 (10 GbE): Nexus 5020
-** Portas E1/1-12, E2/1-6 (10 GbE): Nexus 5010 com módulo de expansão
+** Portas e1/1-48 (10/25 GbE), e1/49-64 (40/100 GbE): Nexus 92300YC
+** Portas e1/1-40 (10 GbE): Nexus 5596UP
+** Portas e1/1-32 (10 GbE): Nexus 5020
+** Portas e1/1-12, e2/1-6 (10 GbE): Nexus 5010 com módulo de expansão
 
 
-* Os switches do cluster usam as seguintes portas ISL (Inter-Switch Link):
+* Os switches do cluster utilizam as seguintes portas de Inter-Switch Link (ISL):
 +
-** Portas E1/65-66 (100 GbE): Nexus 92300YC
-** Portas E1/41-48 (10 GbE): Nexus 5596UP
-** Portas E1/33-40 (10 GbE): Nexus 5020
-** Portas E1/13-20 (10 GbE): Nexus 5010
+** Portas e1/65-66 (100 GbE): Nexus 92300YC
+** Portas e1/41-48 (10 GbE): Nexus 5596UP
+** Portas e1/33-40 (10 GbE): Nexus 5020
+** Portas e1/13-20 (10 GbE): Nexus 5010
 
 
-* https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - interrutores"^] contém informações sobre cabeamento suportado para todos os switches de cluster.
-* As versões ONTAP e NX-os suportadas neste procedimento estão https://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet Cisco"^] na página.
+* https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^]Contém informações sobre a cablagem suportada para todos os switches de cluster.
+* As versões do ONTAP e do NX-OS suportadas neste procedimento estão listadas abaixo. https://support.netapp.com/NOW/download/software/cm_switches/["Switches Ethernet da Cisco"^] página.
 
 
 
 
-=== Passo 1: Prepare-se para a migração
+=== Etapa 1: Prepare-se para a migração
 
-. Altere o nível de privilégio para avançado, inserindo *y* quando solicitado a continuar:
+. Altere o nível de privilégio para avançado, digitando *y* quando solicitado a continuar:
 +
 `set -privilege advanced`
 
 +
-É apresentado o aviso avançado (*>).
+A mensagem avançada (*>) é exibida.
 
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-onde x é a duração da janela de manutenção em horas.
+onde x representa a duração do período de manutenção em horas.
 
 +
 
-NOTE: A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+NOTE: A mensagem do AutoSupport notifica o suporte técnico sobre essa tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O seguinte comando suprime a criação automática de casos por duas horas:
+O comando a seguir suprime a criação automática de casos por duas horas:
 
 [listing, subs="+quotes"]
 ----
@@ -135,7 +135,7 @@ Cluster
 ====
 . Determine o status administrativo ou operacional de cada interface de cluster:
 +
-Cada porta deve ser exibida para `Link` e saudável para `Health Status`.
+Cada porta deve aparecer para cima. `Link` e saudável para `Health Status` .
 
 +
 .. Exibir os atributos da porta de rede:
@@ -169,12 +169,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 4 entries were displayed.
 ----
 ====
-.. Exibir informações sobre as interfaces lógicas e seus nós iniciais designados:
+.. Exibir informações sobre as interfaces lógicas e seus respectivos nós de origem:
 +
 `network interface show -vserver Cluster`
 
 +
-Cada LIF deve exibir up/up para `Status Admin/Oper` e true para `Is Home`.
+Cada LIF deve exibir para cima/para cima para `Status Admin/Oper` e é verdade para `Is Home` .
 
 +
 .Mostrar exemplo
@@ -198,7 +198,7 @@ Cluster
 ====
 
 
-. Verifique se as portas de cluster em cada nó estão conetadas aos switches de cluster existentes da seguinte maneira (da perspetiva dos nós) usando o comando:
+. Verifique se as portas do cluster em cada nó estão conectadas aos switches de cluster existentes da seguinte maneira (da perspectiva dos nós) usando o comando:
 +
 `network device-discovery show -protocol cdp`
 
@@ -222,7 +222,7 @@ node1      /cdp
 4 entries were displayed.
 ----
 ====
-. Verifique se as portas e os switches do cluster estão conetados da seguinte maneira (da perspetiva dos switches) usando o comando:
+. Verifique se as portas e os switches do cluster estão conectados da seguinte forma (do ponto de vista dos switches) usando o comando:
 +
 `show cdp neighbors`
 
@@ -290,22 +290,22 @@ c1(FOX2025GEEX)     Eth1/47        176    S I s     N5K-C5596UP        Eth1/47
 c1(FOX2025GEEX)     Eth1/48        176    S I s     N5K-C5596UP        Eth1/48
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -321,9 +321,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -360,12 +360,12 @@ RPC status:
 
 === Etapa 2: Configurar cabos e portas
 
-. Configure um ISL temporário em cs1on portas E1/41-48, entre C1 e CS1.
+. Configure um ISL temporário em cs1 nas portas e1/41-48, entre c1 e cs1.
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra como o novo ISL é configurado no C1 e CS1:
+O exemplo a seguir mostra como o novo ISL é configurado em c1 e cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -386,8 +386,8 @@ cs1(config-if)# *exit*
 cs1(config)# *exit*
 ----
 ====
-. Remova os cabos ISL das portas E1/41-48 do C2 e conete os cabos às portas E1/41-48 do CS1.
-. Verifique se as portas ISL e o canal de porta estão operacionais conetando C1 e CS1:
+. Remova os cabos ISL das portas e1/41-48 do c2 e conecte os cabos às portas e1/41-48 do cs1.
+. Verifique se as portas ISL e o canal de porta estão operacionais, conectando c1 e cs1:
 +
 `show port-channel summary`
 
@@ -395,7 +395,7 @@ cs1(config)# *exit*
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o comando Cisco show port-channel summary que está sendo usado para verificar se as portas ISL estão operacionais em C1 e CS1:
+O exemplo a seguir mostra o comando Cisco show port-channel summary sendo usado para verificar se as portas ISL estão operacionais em c1 e cs1:
 
 [listing, subs="+quotes"]
 ----
@@ -436,9 +436,9 @@ Group Port-       Type     Protocol  Member Ports
                                      Eth1/47(P)   Eth1/48(P)
 ----
 ====
-. Para node1, desconete o cabo de E1/1 no C2 e conete o cabo a E1/1 no CS2, usando o cabeamento apropriado suportado pelo Nexus 92300YC.
-. Para node2, desconete o cabo de E1/2 no C2 e conete o cabo a E1/2 no CS2, usando o cabeamento apropriado suportado pelo Nexus 92300YC.
-. As portas do cluster em cada nó agora são conetadas aos switches do cluster da seguinte maneira, da perspetiva dos nós:
+. Para o nó 1, desconecte o cabo da interface e1/1 no conector c2 e, em seguida, conecte o cabo à interface e1/1 no conector cs2, utilizando a cablagem apropriada suportada pelo Nexus 92300YC.
+. Para o nó 2, desconecte o cabo da porta e1/2 do conector c2 e, em seguida, conecte o cabo à porta e1/2 do conector cs2, utilizando a cablagem apropriada suportada pelo Nexus 92300YC.
+. As portas do cluster em cada nó agora estão conectadas aos switches do cluster da seguinte maneira, da perspectiva dos nós:
 +
 `network device-discovery show -protocol cdp`
 
@@ -463,9 +463,9 @@ node1      /cdp
 4 entries were displayed.
 ----
 ====
-. Para node1, desconete o cabo de E1/1 no C1 e conete o cabo a E1/1 no CS1, usando o cabeamento apropriado suportado pelo Nexus 92300YC.
-. Para node2, desconete o cabo de E1/2 no C1 e conete o cabo a E1/2 no CS1, usando o cabeamento apropriado suportado pelo Nexus 92300YC.
-. As portas do cluster em cada nó agora são conetadas aos switches do cluster da seguinte maneira, da perspetiva dos nós:
+. Para o nó 1, desconecte o cabo da interface e1/1 no conector c1 e, em seguida, conecte o cabo à interface e1/1 no conector cs1, utilizando a cablagem apropriada suportada pelo Nexus 92300YC.
+. Para o nó 2, desconecte o cabo da porta e1/2 do conector c1 e, em seguida, conecte o cabo à porta e1/2 do conector cs1, utilizando a cablagem apropriada suportada pelo Nexus 92300YC.
+. As portas do cluster em cada nó agora estão conectadas aos switches do cluster da seguinte maneira, da perspectiva dos nós:
 +
 `network device-discovery show -protocol cdp`
 
@@ -488,7 +488,7 @@ node1      /cdp
 4 entries were displayed.
 ----
 ====
-. Elimine o ISL temporário entre CS1 e C1.
+. Exclua o ISL temporário entre cs1 e c1.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -511,14 +511,14 @@ cs1(config)# *exit*
 
 
 
-=== Passo 3: Conclua a migração
+=== Etapa 3: Conclua a migração
 
 . Verifique a configuração final do cluster:
 +
 `network port show -ipspace Cluster`
 
 +
-Cada porta deve ser exibida para `Link` e saudável para `Health Status`.
+Cada porta deve aparecer para cima. `Link` e saudável para `Health Status` .
 
 +
 .Mostrar exemplo
@@ -608,22 +608,22 @@ cs1(FDO220329KU)
 Total entries displayed: 4
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o `show` comando para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -639,9 +639,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -674,7 +674,7 @@ RPC status:
 ----
 --
 ====
-. [[step3]] se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. [[passo 3]] Se você desativou a criação automática de casos, reative-a invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
@@ -687,11 +687,11 @@ RPC status:
 cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=END*
 ----
 ====
-. Altere o nível de privilégio de volta para admin:
+. Altere o nível de privilégio de volta para administrador:
 +
 `set -privilege admin`
 
 
 
-.O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+.O que vem a seguir?
+link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."].

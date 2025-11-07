@@ -2,770 +2,770 @@
 permalink: switch-cisco-92300/setup-worksheet-92300yc.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 92300YC 
-summary: Se você quiser documentar as plataformas suportadas, você deve preencher a Planilha de cabeamento em branco usando a Planilha de cabeamento de amostra concluída como um guia. 
+summary: Se você deseja documentar as plataformas suportadas, deve preencher a planilha de cabeamento em branco usando a planilha de cabeamento de exemplo preenchida como guia. 
 ---
-= Folha de cálculo completa de cabeamento do Cisco Nexus 92300YC
+= Folha de trabalho completa de cabeamento do Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você quiser documentar as plataformas suportadas, baixe um PDF desta página e complete a Planilha de cabeamento.
+Se você deseja documentar as plataformas suportadas, baixe o PDF desta página e preencha a planilha de cabeamento.
 
-A Planilha de exemplo de cabeamento fornece exemplos de atribuições de portas recomendadas dos switches para os controladores. A Planilha em branco fornece um modelo que você pode usar na configuração do cluster.
+A planilha de cabeamento de exemplo fornece exemplos de atribuições de portas recomendadas dos switches aos controladores.  A planilha em branco fornece um modelo que você pode usar para configurar seu cluster.
 
 
 
-== Planilha de cabeamento de amostra
+== Exemplo de folha de exercícios de cabeamento
 
-A definição de porta de amostra em cada par de switches é a seguinte:
+A definição da porta de exemplo em cada par de switches é a seguinte:
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+2+| Chave seletora de cluster A 2+| Chave seletora de cluster B 
 
 
-| Porta do switch | Uso de nó e porta | Porta do switch | Uso de nó e porta 
+| Porta de comutação | Utilização de nós e portas | Porta de comutação | Utilização de nós e portas 
 
 
  a| 
 1
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 1
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 2
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 2
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 3
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 3
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 4
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 4
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 5
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 5
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 6
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 6
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 7
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 7
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 8
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 8
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 9
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 9
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 10
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 10
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 11
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 11
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 12
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 12
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 13
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 13
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 14
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 14
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 15
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 15
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 16
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 16
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 17
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 17
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 18
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 18
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 19
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 19
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 20
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 20
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 21
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 21
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 22
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 22
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 23
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 23
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 24
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 24
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 25
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 25
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 26
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 26
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 27
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 27
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 28
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 28
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 29
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 29
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 30
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 30
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 31
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 31
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 32
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 32
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 33
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 33
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 34
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 34
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 35
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 35
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 36
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 36
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 37
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 37
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 38
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 38
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 39
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 39
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 40
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 40
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 41
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 41
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 42
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 42
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 43
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 43
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 44
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 44
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 45
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 45
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 46
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 46
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 47
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 47
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 48
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
  a| 
 48
  a| 
-Nó de 10/25 GbE
+Nó 10/25 GbE
 
 
 
  a| 
 49
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 49
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 50
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 50
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 51
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 51
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 52
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 52
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 53
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 53
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 54
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 54
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 55
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 55
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 56
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 56
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 57
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 57
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 58
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 58
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 59
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 59
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 60
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 60
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 61
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 61
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 62
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 62
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 63
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 63
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 64
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
  a| 
 64
  a| 
-Nó de 40/100 GbE
+Nó 40/100 GbE
 
 
 
  a| 
 65
  a| 
-100 GbE ISL para a porta 65 do switch B.
+ISL de 100 GbE para a porta 65 do switch B
  a| 
 65
  a| 
-100 GbE ISL para switch A porta 65
+ISL de 100 GbE para switch A porta 65
 
 
 
  a| 
 66
  a| 
-100 GbE ISL para a porta 66 do switch B.
+ISL de 100 GbE para a porta 66 do switch B
  a| 
 66
  a| 
-100 GbE ISL para switch A porta 65
+ISL de 100 GbE para switch A porta 65
 
 |===
 
 
-== Folha de cálculo de cablagem em branco
+== Folha de exercícios de cabeamento em branco
 
-Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A seção _conexões de cluster suportadas_ da https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
+Você pode usar a planilha de cabeamento em branco para documentar as plataformas que são suportadas como nós em um cluster.  A seção _Conexões de cluster suportadas_ do https://hwu.netapp.com["Hardware Universe"^] Define as portas do cluster utilizadas pela plataforma.
 
 [cols="1, 1, 1, 1"]
 |===
-2+| Interrutor do cluster A 2+| Interrutor B do grupo de instrumentos 
+2+| Chave seletora de cluster A 2+| Chave seletora de cluster B 
 
 
-| Porta do switch | Uso de nó/porta | Porta do switch | Uso de nó/porta 
+| Porta de comutação | Utilização de nós/portas | Porta de comutação | Utilização de nós/portas 
 
 
  a| 
@@ -1347,23 +1347,23 @@ Você pode usar a Planilha de cabeamento em branco para documentar as plataforma
  a| 
 65
  a| 
-ISL para a porta 65 do interrutor B.
+ISL para switch B porta 65
  a| 
 65
  a| 
-ISL para mudar A porta 65
+ISL para comutar a porta A 65
 
 
 
  a| 
 66
  a| 
-ISL para a porta 66 do interrutor B.
+ISL para comutador B porta 66
  a| 
 66
  a| 
-ISL para mudar A porta 66
+ISL para comutar a porta A 66
 
 |===
 .O que vem a seguir
-link:install-switch-92300yc.html["Instale o interrutor"] .
+link:install-switch-92300yc.html["Instale o interruptor"].

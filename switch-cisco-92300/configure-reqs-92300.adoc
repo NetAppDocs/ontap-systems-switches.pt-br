@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/configure-reqs-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis. Você pode usar switches de gerenciamento adicionais, que são opcionais. 
+summary: Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis.  Você pode usar interruptores de gerenciamento adicionais, que são opcionais. 
 ---
 = Requisitos de configuração para switches Cisco Nexus 92300YC
 :allow-uri-read: 
@@ -11,15 +11,15 @@ summary: Se você quiser criar clusters do ONTAP com mais de dois nós, precisar
 
 
 [role="lead"]
-Para instalação e manutenção do switch Cisco Nexus 92300YC, certifique-se de rever todos os requisitos de configuração e rede.
+Para a instalação e manutenção do switch Cisco Nexus 92300YC, certifique-se de revisar todos os requisitos de configuração e de rede.
 
-Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis. Você pode usar switches de gerenciamento adicionais, que são opcionais.
+Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis.  Você pode usar interruptores de gerenciamento adicionais, que são opcionais.
 
 
 
 == Requisitos de configuração
 
-Para configurar o cluster, é necessário o número e o tipo apropriados de cabos e conetores de cabos para os switches. Dependendo do tipo de switch que você está configurando inicialmente, você precisa se conetar à porta do console do switch com o cabo de console incluído; você também precisa fornecer informações específicas de rede.
+Para configurar seu cluster, você precisa da quantidade e do tipo adequados de cabos e conectores de cabos para seus switches.  Dependendo do tipo de switch que você estiver configurando inicialmente, será necessário conectar-se à porta de console do switch com o cabo de console incluído; você também precisará fornecer informações específicas da rede.
 
 
 
@@ -27,12 +27,12 @@ Para configurar o cluster, é necessário o número e o tipo apropriados de cabo
 
 Você precisa das seguintes informações de rede para todas as configurações de switch:
 
-* Sub-rede IP para o tráfego de rede de gerenciamento
-* Nomes de host e endereços IP para cada um dos controladores do sistema de storage e todos os switches aplicáveis
-* A maioria dos controladores do sistema de storage é gerenciada por meio da interface e0M, conetando-se à porta de serviço Ethernet (ícone de chave inglesa). Nos sistemas AFF A800 e AFF A700, a interface e0M utiliza uma porta Ethernet dedicada.
+* Sub-rede IP para tráfego de rede de gerenciamento
+* Nomes de host e endereços IP para cada um dos controladores do sistema de armazenamento e todos os switches aplicáveis
+* A maioria dos controladores de sistema de armazenamento são gerenciados por meio da interface e0M, conectando-se à porta de serviço Ethernet (ícone de chave inglesa). Nos sistemas AFF A800 e AFF A700 , a interface e0M utiliza uma porta Ethernet dedicada.
 
 
-Consulte a https://hwu.netapp.com["Hardware Universe"^] para obter informações mais recentes.
+Consulte o https://hwu.netapp.com["Hardware Universe"^] Para obter as informações mais recentes.
 
 .O que vem a seguir
-link:components-92300.html["Componentes e números de peça"] .
+link:components-92300.html["Componentes e números de peça"].

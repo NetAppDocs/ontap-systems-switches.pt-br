@@ -2,27 +2,27 @@
 permalink: switch-nvidia-sn2100-storage/install-cable-shelves-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
-summary: 'Se você tiver um sistema no qual os NS224 compartimentos de unidades precisem ser cabeados como storage conectado ao switch (não storage com conexão direta), use as informações fornecidas aqui.' 
+summary: 'Se você possui um sistema no qual os gabinetes de unidades NS224 precisam ser cabeados como armazenamento conectado por switch (e não como armazenamento conectado diretamente), utilize as informações fornecidas aqui.' 
 ---
-= Cabo NS224 prateleiras como storage conetado a switch
+= Prateleiras Cable NS224 como armazenamento conectado ao switch
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você tiver um sistema no qual os NS224 compartimentos de unidades precisem ser cabeados como storage conectado ao switch (não storage com conexão direta), use as informações fornecidas aqui.
+Se você possui um sistema no qual os gabinetes de unidades NS224 precisam ser cabeados como armazenamento conectado por switch (e não como armazenamento conectado diretamente), utilize as informações fornecidas aqui.
 
-* Cabos NS224 shelves de unidade através de switches de armazenamento:
+* O cabo NS224 aciona as prateleiras através dos switches de armazenamento:
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Informações sobre cabeamento de compartimentos de unidades NS224 conectados a switch"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Informações para cabeamento de gavetas de unidades NS224 conectadas a switches"^]
 
-* Instale os switches de armazenamento:
+* Instale seus switches de armazenamento:
 +
-https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentação do comutador AFF e FAS"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentação dos interruptores AFF e FAS"^]
 
-* Confirme o hardware suportado, como switches de armazenamento e cabos, para o modelo da sua plataforma:
+* Confirme o hardware compatível, como switches de armazenamento e cabos, para o modelo da sua plataforma:
 +
-https://hwu.netapp.com/["NetApp Hardware Universe"^]
+https://hwu.netapp.com/["Hardware Universe da NetApp"^]
 
 

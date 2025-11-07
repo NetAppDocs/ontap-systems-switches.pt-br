@@ -2,31 +2,31 @@
 permalink: switch-bes-53248/components-bes53248.html 
 sidebar: sidebar 
 keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
-summary: Para instalação e manutenção do comutador BES-53248, certifique-se de que lê a lista de componentes e números de peça. 
+summary: Para instalação e manutenção do switch BES-53248, certifique-se de consultar a lista de componentes e números de peça. 
 ---
-= Componentes e números de peça para comutadores de cluster BES-53248
+= Componentes e números de peça para os interruptores do cluster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para instalação e manutenção do comutador BES-53248, certifique-se de que lê a lista de componentes e números de peça.
+Para instalação e manutenção do switch BES-53248, certifique-se de consultar a lista de componentes e números de peça.
 
-A tabela a seguir lista o número de peça, a descrição e as versões mínimas EFOS e ONTAP para os componentes do switch de cluster BES-53248, incluindo detalhes do kit de trilho de montagem em rack.
+A tabela a seguir lista o número da peça, a descrição e as versões mínimas do EFOS e do ONTAP para os componentes do switch de cluster BES-53248, incluindo detalhes do kit de trilhos para montagem em rack.
 
 
-NOTE: É necessária uma versão EFOS mínima de *3.10.0.3* para os números de peça *X190005-B* e *X190005R-B*.
+NOTE: É necessária uma versão mínima do EFOS de *3.10.0.3* para os números de peça *X190005-B* e *X190005R-B*.
 
 [cols="20,40,20,20"]
 |===
-| Número de peça | Descrição | Versão mínima do EFOS | Versão mínima do ONTAP 
+| Número da peça | Descrição | Versão mínima EFOS | Versão mínima do ONTAP 
 
 
  a| 
 X190005-B
  a| 
-BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX (PTSX - escape lateral da porta)
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX (PTSX = Exaustão do Lado da Porta)
  a| 
 3.10.0.3
  a| 
@@ -37,7 +37,7 @@ BES-53248-B/IX8, CLSW, 16PT10/25GB, PTSX (PTSX - escape lateral da porta)
  a| 
 X190005R-B
  a| 
-BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN (PSIN - Entrada lateral da porta)
+BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN (PSIN = entrada lateral da porta)
  a| 
 3.10.0.3
  a| 
@@ -48,7 +48,7 @@ BES-53248-B/IX8, CLSW, 16PT10/25GB, PSIN (PSIN - Entrada lateral da porta)
  a| 
 X190005
  a| 
-BES-53248, CLSW, 16PT10/25GB, PTSX, BRDCM SUPP
+BES-53248, CLSW, 16Pt10/25GB, PTSX, BRDCM SUPP
  a| 
 3.4.4.6
  a| 
@@ -59,7 +59,7 @@ BES-53248, CLSW, 16PT10/25GB, PTSX, BRDCM SUPP
  a| 
 X190005R
  a| 
-BES-53248, CLSW, 16PT10/25GB, PSIN, SUPP BRDCM
+BES-53248, CLSW, 16Pt10/25GB, PSIN, BRDCM SUPP
  a| 
 3.4.4.6
  a| 
@@ -70,19 +70,19 @@ BES-53248, CLSW, 16PT10/25GB, PSIN, SUPP BRDCM
  a| 
 X-RAIL-4POST-190005
  a| 
-Kit de calha de montagem em rack Ozeki 4 POST 19"
+Kit de trilhos para montagem em rack Ozeki de 4 postes e 19 polegadas.
  a| 
-N/A.
+N / D
  a| 
-N/A.
+N / D
 
 |===
 
-IMPORTANT: Observe as seguintes informações em relação aos tipos de máquina:
+IMPORTANT: Observe as seguintes informações referentes aos tipos de máquinas:
 
 [cols="50,50"]
 |===
-| Tipo de máquina | Versão mínima do EFOS 
+| Tipo de máquina | Versão mínima EFOS 
 
 
  a| 
@@ -99,7 +99,7 @@ BES-53248A2
 BES-53248A3
 | 3.10.0.3 
 |===
-Você pode determinar seu tipo de máquina específico usando o comando: `show version`
+Você pode determinar o tipo específico da sua máquina usando o comando: `show version`
 
 .Mostrar exemplo
 [%collapsible]

@@ -12,8 +12,8 @@ summary: Antes de configurar seu switch Cisco Nexus 3132Q-V, revise as seguintes
 Para redefinir o switch de cluster 3132Q-V para os padrões de fábrica, você deve apagar as configurações do switch 3132Q-V.
 
 .Sobre esta tarefa
-* Você deve estar conetado ao switch usando o console serial.
-* Esta tarefa repõe a configuração da rede de gestão.
+* Você precisa estar conectado ao switch usando o console serial.
+* Esta tarefa redefine a configuração da rede de gerenciamento.
 
 
 .Passos
@@ -41,6 +41,6 @@ Do you wish to proceed anyway? (y/n) [n] *y*
 This command will reboot the system. (y/n)? [n] *y*
 ----
 +
-O sistema é reinicializado e entra no assistente de configuração.  Durante a inicialização, se você receber o prompt “Abortar provisionamento automático e continuar com a configuração normal?  (sim/não)[n]”, você deve responder *sim* para prosseguir.
+O sistema é reinicializado e entra no assistente de configuração. Durante a inicialização, se você receber o prompt “Abortar provisionamento automático e continuar com a configuração normal? (sim/não)[n]”, você deve responder *sim* para prosseguir.
 
 

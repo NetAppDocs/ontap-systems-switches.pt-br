@@ -2,63 +2,63 @@
 permalink: switch-cisco-3232c/replace-storage-switch.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus, 3232c storage switch 
-summary: Você pode substituir um switch de storage Cisco Nexus 3232C com defeito sem interrupções, executando uma sequência específica de tarefas. 
+summary: É possível substituir um switch de armazenamento Cisco Nexus 3232C defeituoso sem interromper o funcionamento do sistema, executando uma sequência específica de tarefas. 
 ---
-= Substitua um switch de storage Cisco Nexus 3232C
+= Substitua um switch de armazenamento Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estas etapas para substituir um switch de armazenamento Cisco Nexus 3232C com defeito. Este é um procedimento sem interrupções.
+Siga estes passos para substituir um switch de armazenamento Cisco Nexus 3232C defeituoso. Este é um procedimento não disruptivo.
 
 
 
-== Rever os requisitos
+== Requisitos de revisão
 
-A configuração de rede existente deve ter as seguintes caraterísticas:
+A configuração de rede existente deve apresentar as seguintes características:
 
-* A página de switches Ethernet Cisco tem as versões mais recentes de RCF e NX-os em seus switches.
-* A conetividade de gerenciamento deve existir em ambos os switches.
+* A página de switches Ethernet da Cisco contém as versões mais recentes do RCF e do NX-OS para seus switches.
+* A conectividade de gerenciamento deve existir em ambos os switches.
 +
 [NOTE]
 ====
-Certifique-se de que todas as etapas de solução de problemas foram concluídas para confirmar que o switch precisa ser substituído.
+Certifique-se de que todas as etapas de solução de problemas foram concluídas para confirmar se o seu switch precisa ser substituído.
 
 ====
 
 
-O switch Cisco Nexus 3232C de substituição deve ter as seguintes caraterísticas:
+O switch Cisco Nexus 3232C de substituição deve ter as seguintes características:
 
-* A conetividade de rede de gerenciamento deve estar funcional.
-* O acesso do console ao interrutor de substituição deve estar no lugar.
-* A imagem apropriada do sistema operacional RCF e NX-os deve ser carregada no switch.
-* A personalização inicial do switch deve estar concluída.
-
-
-
-
-== Substitua o interrutor
-
-Este procedimento substitui o segundo switch de armazenamento Nexus 3232C S2 com o novo switch 3232C NS2. Os dois nós são node1 e node2.
+* A conectividade da rede de gerenciamento deve estar funcional.
+* O acesso ao console do interruptor de substituição deve estar configurado corretamente.
+* A imagem apropriada do sistema operacional RCF e NX-OS deve ser carregada no switch.
+* A personalização inicial do interruptor deve estar concluída.
 
 
 
-=== Etapa 1: Confirmar se o interrutor a ser substituído é S2
 
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+== Substitua o interruptor
+
+Este procedimento substitui o segundo switch de armazenamento Nexus 3232C, S2, pelo novo switch 3232C, NS2.  Os dois nós são o nó 1 e o nó 2.
+
+
+
+=== Passo 1: Confirme se o interruptor a ser substituído é o S2.
+
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 +
-_x_ é a duração da janela de manutenção em horas.
+_x_ representa a duração da janela de manutenção em horas.
 
 +
 [NOTE]
 ====
-A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+A mensagem do AutoSupport notifica o suporte técnico sobre essa tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
 ====
-. Verifique o status de integridade das portas do nó de storage para garantir que haja conexão com o switch de armazenamento S1:
+. Verifique o estado de integridade das portas do nó de armazenamento para garantir que haja conexão com o switch de armazenamento S1:
 +
 `storage port show -port-type ENET`
 
@@ -84,7 +84,7 @@ node2
                    e7b  ENET  storage      0 enabled  offline     30
 ----
 ====
-. Verifique se o comutador de armazenamento S1 está disponível:
+. Verifique se o switch de armazenamento S1 está disponível:
 +
 `network device-discovery show`
 
@@ -116,7 +116,7 @@ node2/lldp
             e4e    node1                     e4e               -
 ----
 ====
-. Execute o `show lldp neighbors` comando no switch de trabalho para confirmar que você pode ver ambos os nós e todas as gavetas:
+. Execute o `show lldp neighbors` Execute o comando no switch em funcionamento para confirmar que você consegue visualizar ambos os nós e todas as prateleiras:
 +
 `show lldp neighbors`
 
@@ -143,9 +143,9 @@ SHFGD2008000022         Eth1/8          120        S           e0a
 
 
 
-=== Etapa 2: Configurar o cabeamento
+=== Etapa 2: Configurar a cablagem
 
-. [[Five]]Verifique as portas de gaveta no sistema de armazenamento:
+. [[cinco]]Verifique as portas das prateleiras no sistema de armazenamento:
 +
 `storage shelf port show -fields remote-device,remote-port`
 
@@ -169,15 +169,15 @@ shelf  id  remote-port  remote-device
 3.20   3   -            -
 ----
 ====
-. Remova todos os cabos conetados ao interrutor de armazenamento S2.
-. Volte a ligar todos os cabos ao interrutor de substituição NS2.
+. Remova todos os cabos conectados ao switch de armazenamento S2.
+. Reconecte todos os cabos ao switch de substituição NS2.
 
 
 
 
-=== Passo 3: Verifique todas as configurações do dispositivo no interrutor NS2
+=== Etapa 3: Verifique todas as configurações do dispositivo no switch NS2.
 
-. Verifique o status de integridade das portas do nó de storage:
+. Verifique o estado de integridade das portas do nó de armazenamento:
 +
 `storage port show -port-type ENET`
 
@@ -203,7 +203,7 @@ node2
                    e7b  ENET  storage    100 enabled  online        30
 ----
 ====
-. Verifique se ambos os switches estão disponíveis:
+. Verifique se ambos os interruptores estão disponíveis:
 +
 `network device-discovery show`
 
@@ -239,7 +239,7 @@ node2/lldp
             e7b    NS2                       Ethernet1/2       -
 ----
 ====
-. Verifique as portas do compartimento no sistema de storage:
+. Verifique as portas das prateleiras no sistema de armazenamento:
 +
 `storage shelf port show -fields remote-device,remote-port`
 
@@ -262,11 +262,11 @@ shelf id remote-port remote-device
 3.20  3  Ethernet1/8 NS2
 ----
 ====
-. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"]
+.O que vem a seguir?
+link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."]

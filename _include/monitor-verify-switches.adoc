@@ -1,47 +1,47 @@
-= Confirme o monitoramento dos switches Ethernet conetados
+= Confirme o monitoramento dos switches Ethernet conectados.
 :allow-uri-read: 
 
 
 
 
-== Confirme o monitoramento dos switches Ethernet conetados
+== Confirme o monitoramento dos switches Ethernet conectados.
 
-Para confirmar se os switches Ethernet conetados estão sendo monitorados, execute:
+Para confirmar se os switches Ethernet conectados estão sendo monitorados, execute o seguinte comando:
 
 [source, cli]
 ----
 system switch ethernet show
 ----
-Se a `Model` coluna exibir *OTHER* ou o `IS Monitored` campo exibir *false*, o ONTAP não poderá monitorar o switch. Um valor de *OTHER* normalmente indica que o ONTAP não suporta esse switch para monitoramento de integridade.
+Se o `Model` A coluna exibe *OUTRO* ou o `IS Monitored` Se o campo exibir *false*, o ONTAP não poderá monitorar o switch.  Um valor de *OUTRO* normalmente indica que o ONTAP não suporta essa opção para monitoramento de integridade.
 
-O `IS Monitored` campo é definido como *false* pelo motivo especificado no `Reason` campo.
+O `IS Monitored` O campo está definido como *falso* pelo motivo especificado no `Reason` campo.
 
 [NOTE]
 ====
-Se um switch não estiver listado na saída do comando, é provável que o ONTAP não o tenha descoberto.  Confirme se o switch está conectado corretamente.  Se necessário, você pode adicionar o switch manualmente. Consulte link:monitor-manage.html["Gerenciar o monitoramento de switches Ethernet"] para mais detalhes.
+Se um switch não estiver listado na saída do comando, é provável que o ONTAP ainda não o tenha detectado.  Confirme se o interruptor está conectado corretamente.  Se necessário, você pode adicionar o interruptor manualmente.  Verlink:monitor-manage.html["Gerenciar o monitoramento de switches Ethernet"] Para obter mais detalhes.
 
 ====
 
 
-== Confirme se as versões do firmware e do RCF estão atualizadas
+== Confirme se as versões do firmware e do RCF estão atualizadas.
 
-Certifique-se de que o comutador está a executar o firmware suportado mais recente e de que foi aplicado um ficheiro de configuração de referência (RCF) compatível. Mais informações estão disponíveis no https://mysupport.netapp.com/site/downloads["Página de transferências do suporte da NetApp"^].
+Certifique-se de que o switch esteja executando o firmware mais recente compatível e que um arquivo de configuração de referência (RCF) compatível tenha sido aplicado.  Mais informações estão disponíveis emhttps://mysupport.netapp.com/site/downloads["Página de downloads de suporte da NetApp"^] .
 
-Por padrão, o monitor de integridade usa SNMPv2c com a string da comunidade *cshm1!* para monitoramento, mas SNMPv3 também pode ser configurado.
+Por padrão, o monitor de integridade usa SNMPv2c com a string de comunidade *cshm1!* para monitoramento, mas o SNMPv3 também pode ser configurado.
 
-Se você precisar alterar a cadeia de carateres padrão da comunidade SNMPv2c, certifique-se de que a string de comunidade SNMPv2c desejada tenha sido configurada no switch.
+Se precisar alterar a string de comunidade SNMPv2c padrão, certifique-se de que a string de comunidade SNMPv2c desejada esteja configurada no switch.
 
 [source, cli]
 ----
 system switch ethernet modify -device SwitchA -snmp-version SNMPv2c -community-or-username newCommunity!
 ----
 
-NOTE: link:config-snmpv3.html["Opcional: Configurar SNMPv3"]Consulte para obter detalhes sobre como configurar o SNMPv3 para uso.
+NOTE: Verlink:config-snmpv3.html["Opcional: Configurar SNMPv3"] Para obter detalhes sobre como configurar o SNMPv3 para uso.
 
 
 
-== Confirme a conexão de rede de gerenciamento
+== Confirme a conexão da rede de gerenciamento.
 
-Verifique se a porta de gerenciamento do switch está conetada à rede de gerenciamento.
+Verifique se a porta de gerenciamento do switch está conectada à rede de gerenciamento.
 
-Uma conexão de porta de gerenciamento correta é necessária para que o ONTAP execute consultas SNMP e coleta de logs.
+Para que o ONTAP execute consultas SNMP e colete logs, é necessária uma conexão correta à porta de gerenciamento.

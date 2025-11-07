@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/upgrade-efos-software.html 
 sidebar: sidebar 
 keywords: BES-53248 cluster switches,upgrading EFOS software 
-summary: 'Siga estas etapas para atualizar o software do sistema operacional de malha Ethernet (EFOS) no switch de cluster BES-53248.' 
+summary: 'Siga estes passos para atualizar o software Ethernet Fabric OS (EFOS) no switch de cluster BES-53248.' 
 ---
 = Atualize o software EFOS
 :allow-uri-read: 
@@ -13,98 +13,98 @@ summary: 'Siga estas etapas para atualizar o software do sistema operacional de 
 [role="lead"]
 Siga estes passos para atualizar o software EFOS no switch de cluster BES-53248.
 
-O software EFOS inclui um conjunto de funcionalidades de rede avançadas e protocolos para o desenvolvimento de sistemas de infra-estrutura Ethernet e IP. Esta arquitetura de software é adequada para qualquer dispositivo organizacional de rede usando aplicativos que exigem inspeção ou separação de pacotes minuciosa.
+O software EFOS inclui um conjunto de recursos e protocolos de rede avançados para o desenvolvimento de sistemas de infraestrutura Ethernet e IP.  Essa arquitetura de software é adequada para qualquer dispositivo de organização de rede que utilize aplicações que exijam inspeção ou separação minuciosa de pacotes.
 
 
 
 == Prepare-se para a atualização
 
 .Antes de começar
-* Faça o download do software Broadcom EFOS aplicável para seus switches de cluster a partir https://www.broadcom.com/support/bes-switch["Suporte ao comutador Ethernet Broadcom"^] do site.
-* Reveja as seguintes notas sobre as versões do EFOS.
+* Faça o download do software Broadcom EFOS aplicável aos switches do seu cluster a partir do site https://www.broadcom.com/support/bes-switch["Suporte para switches Ethernet Broadcom"^] site.
+* Consulte as seguintes notas referentes às versões do EFOS.
 
 
 []
 ====
 *Observe o seguinte:*
 
-* Ao atualizar do EFOS 3,4.x.x para o EFOS 3,7.x.x ou posterior, o switch deve estar executando o EFOS 3.4.4.6 (ou versão 3,4.x.x posterior). Se você estiver executando uma versão antes disso, atualize o switch para EFOS 3.4.4.6 (ou versão posterior 3,4.x.x) primeiro, então atualize o switch para EFOS 3,7.x.x ou posterior.
-* A configuração para o EFOS 3,4.x.x e 3,7.x.x ou posterior é diferente. Alterar a versão do EFOS de 3,4.x.x para 3,7.x.x ou posterior, ou vice-versa, requer que o switch seja redefinido para os padrões de fábrica e os arquivos RCF para que a versão do EFOS correspondente seja (re)aplicada. Este procedimento requer acesso através da porta do console serial.
-* A partir da versão 3,7.x.x do EFOS ou posterior, uma versão não compatível com FIPS e compatível com FIPS está disponível. Diferentes etapas se aplicam ao passar de uma versão não compatível com FIPS para uma versão compatível com FIPS ou vice-versa. Alterar o EFOS de uma versão não compatível com FIPS para uma versão compatível com FIPS ou vice-versa redefinirá o switch para os padrões de fábrica. Este procedimento requer acesso através da porta do console serial.
+* Ao atualizar do EFOS 3.4.xx para o EFOS 3.7.xx ou posterior, o switch deve estar executando o EFOS 3.4.4.6 (ou uma versão 3.4.xx posterior).  Se você estiver executando uma versão anterior a essa, atualize primeiro o switch para o EFOS 3.4.4.6 (ou uma versão 3.4.xx posterior) e, em seguida, atualize-o para o EFOS 3.7.xx ou posterior.
+* A configuração para o EFOS 3.4.xx e para o 3.7.xx ou versões posteriores é diferente.  Alterar a versão do EFOS de 3.4.xx para 3.7.xx ou posterior, ou vice-versa, exige que o switch seja redefinido para as configurações de fábrica e que os arquivos RCF da versão correspondente do EFOS sejam (re)aplicados.  Este procedimento requer acesso através da porta de console serial.
+* A partir da versão 3.7.xx ou posterior do EFOS, estão disponíveis uma versão não compatível com FIPS e uma versão compatível com FIPS.  Etapas diferentes se aplicam ao migrar de uma versão não compatível com FIPS para uma versão compatível com FIPS ou vice-versa.  Alterar o EFOS de uma versão não compatível com FIPS para uma versão compatível com FIPS, ou vice-versa, redefinirá o switch para as configurações de fábrica.  Este procedimento requer acesso através da porta de console serial.
 
 
 ====
 |===
 
 
-| *Procedimento* | *Versão atual do EFOS* | *Nova versão EFOS* | *Passos de alto nível* 
+| *Procedimento* | *Versão atual do EFOS * | *Nova versão EFOS* | *Etapas de alto nível* 
 
 
  a| 
-Etapas para atualizar o EFOS entre duas versões (não) compatíveis com FIPS
- a| 
-3.4.x.x
+Passos para atualizar o EFOS entre duas versões (não) compatíveis com FIPS.
  a| 
 3.4.x.x
  a| 
-Atualize a nova imagem EFOS usando <<Método 1: Atualizar o EFOS>>o . As informações de configuração e licença são mantidas.
+3.4.x.x
+ a| 
+Atualize a nova imagem EFOS usando<<Método 1: Atualizar o EFOS>> .  As informações de configuração e licença são mantidas.
 
 
 
  a| 
-3.4.4.6 (ou posterior 3,4.x.x)
+3.4.4.6 (ou posterior 3.4.xx)
  a| 
-3,7.x.x ou posterior não compatível com FIPS
+3.7.xx ou posterior não compatível com FIPS
  a| 
-Atualize o EFOS <<Método 1: Atualizar o EFOS>>usando o . Redefina o switch para os padrões de fábrica e aplique o arquivo RCF para EFOS 3,7.x.x ou posterior.
+Atualize o EFOS usando<<Método 1: Atualizar o EFOS>> .  Restaure as configurações de fábrica do switch e aplique o arquivo RCF para EFOS 3.7.xx ou posterior.
 
 
 
-.2+| 3,7.x.x ou posterior não compatível com FIPS  a| 
-3.4.4.6 (ou posterior 3,4.x.x)
+.2+| 3.7.xx ou posterior não compatível com FIPS  a| 
+3.4.4.6 (ou posterior 3.4.xx)
  a| 
-Downgrade EFOS usando <<Método 1: Atualizar o EFOS>>. Redefina o switch para os padrões de fábrica e aplique o arquivo RCF para EFOS 3,4.x.x
-
-
-
- a| 
-3,7.x.x ou posterior não compatível com FIPS
- a| 
-Atualize a nova imagem EFOS usando <<Método 1: Atualizar o EFOS>>o . As informações de configuração e licença são mantidas.
+Rebaixar EFOS usando<<Método 1: Atualizar o EFOS>> .  Restaure as configurações de fábrica do switch e aplique o arquivo RCF para EFOS 3.4.xx.
 
 
 
  a| 
-3,7.x.x ou posterior compatível com FIPS
+3.7.xx ou posterior não compatível com FIPS
  a| 
-3,7.x.x ou posterior compatível com FIPS
- a| 
-Atualize a nova imagem EFOS usando <<Método 1: Atualizar o EFOS>>o . As informações de configuração e licença são mantidas.
+Atualize a nova imagem EFOS usando<<Método 1: Atualizar o EFOS>> .  As informações de configuração e licença são mantidas.
 
 
 
  a| 
-Passos para atualizar para/a partir de uma versão EFOS compatível com FIPS
+Compatível com FIPS versão 3.7.xx ou posterior
+ a| 
+Compatível com FIPS versão 3.7.xx ou posterior
+ a| 
+Atualize a nova imagem EFOS usando<<Método 1: Atualizar o EFOS>> .  As informações de configuração e licença são mantidas.
+
+
+
+ a| 
+Etapas para atualizar para/de uma versão do EFOS compatível com FIPS
  a| 
 Não compatível com FIPS
  a| 
-Compatível com FIPS
+Em conformidade com o FIPS
  a| 
-Atualização da imagem EFOS usando <<Método 2: Atualizar o EFOS usando a instalação do sistema operacional ONIE>>o . A configuração do switch e as informações da licença serão perdidas.
+Atualização da imagem EFOS usando<<Método 2: Atualizar o EFOS usando a instalação do ONIE OS>> .  As informações de configuração e licença do switch serão perdidas.
 
 
 
  a| 
-Compatível com FIPS
+Em conformidade com o FIPS
  a| 
 Não compatível com FIPS
 
 |===
 [IMPORTANT]
 ====
-Para verificar se sua versão do EFOS é compatível com FIPS ou não compatível com FIPS, use o `show fips status` comando. Nos exemplos a seguir, *IP_switch_A1* está usando EFOS compatível com FIPS e *IP_switch_A2* está usando EFOS não compatível com FIPS.
+Para verificar se a sua versão do EFOS é compatível ou não com o padrão FIPS, utilize o seguinte: `show fips status` comando.  Nos exemplos a seguir, *IP_switch_a1* está usando EFOS compatível com FIPS e *IP_switch_a2* está usando EFOS não compatível com FIPS.
 
-* Switch IP_switch_A1 (EFOS compatível com FIPS):
+* No switch IP_switch_a1 (EFOS compatível com FIPS):
 +
 [listing, subs="+quotes"]
 ----
@@ -112,7 +112,7 @@ IP_switch_a1 # *show fips status*
 
 System running in FIPS mode
 ----
-* Switch IP_switch_A2 (EFOS não compatível com FIPS):
+* No switch IP_switch_a2 (EFOS não compatível com FIPS):
 +
 [listing, subs="+quotes"]
 ----
@@ -127,29 +127,29 @@ IP_switch_a2 # *show fips status*
 
 == Atualize o software
 
-Use um dos seguintes métodos:
+Utilize um dos seguintes métodos:
 
-* <<Método 1: Atualizar o EFOS>>. Use para a maioria dos casos (consulte a tabela acima).
-* <<Método 2: Atualizar o EFOS usando a instalação do sistema operacional ONIE>>. Use se uma versão do EFOS for compatível com FIPS e a outra versão do EFOS não for compatível com FIPS.
+* <<Método 1: Atualizar o EFOS>>. Utilizar na maioria dos casos (ver tabela acima).
+* <<Método 2: Atualizar o EFOS usando a instalação do ONIE OS>>. Utilize esta opção se uma versão do EFOS for compatível com FIPS e a outra versão do EFOS não for compatível com FIPS.
 
 
 
-NOTE: Atualize o EFOS em um switch de cada vez para garantir a operação contínua da rede de cluster.
+NOTE: Atualize o EFOS em um switch de cada vez para garantir a operação contínua da rede do cluster.
 
 
 
 === Método 1: Atualizar o EFOS
 
-Execute os seguintes passos para atualizar o software EFOS.
+Siga os passos abaixo para atualizar o software EFOS.
 
 
-IMPORTANT: Observe que depois de atualizar os switches de cluster BES-53248 do EFOS 3,3.x.x ou 3,4.x.x para o EFOS 3.7.0.4 ou 3,8.0,2, os ISLs (Inter-Switch Links) e os canais de porta estão marcados no estado *para baixo*. Este é o comportamento esperado e é seguro continuar com a atualização, a menos que você esteja tendo problemas com LIFs de reversão automática. Consulte o artigo da base de dados de Conhecimento: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["Falha na atualização do NDU do comutador de cluster BES-53248 para o EFOS 3.7.0.4 e posterior"^] Para obter mais detalhes.
+IMPORTANT: Observe que, após a atualização dos switches de cluster BES-53248 do EFOS 3.3.xx ou 3.4.xx para o EFOS 3.7.0.4 ou 3.8.0.2, os links entre switches (ISLs) e os canais de porta são marcados como *Inativos*.  Este é o comportamento esperado e você pode prosseguir com a atualização sem problemas, a menos que esteja enfrentando dificuldades com a reversão automática das LIFs.  Consulte o artigo da Base de Conhecimento: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["O cluster switch NDU apresentou falha na atualização para o EFOS 3.7.0.4 e versões posteriores (BES-53248)."^] Para obter mais detalhes.
 
 .Passos
-. Conete o switch de cluster BES-53248 à rede de gerenciamento.
-. Use o `ping` comando para verificar a conetividade com o servidor que hospeda EFOS, licenças e o arquivo RCF.
+. Conecte o switch de cluster BES-53248 à rede de gerenciamento.
+. Use o `ping` Comando para verificar a conectividade com o servidor que hospeda o EFOS, as licenças e o arquivo RCF.
 +
-Este exemplo verifica se o switch está conetado ao servidor no endereço IP 172.19.2.1:
+Este exemplo verifica se o switch está conectado ao servidor no endereço IP 172.19.2.1:
 
 +
 [listing, subs="+quotes"]
@@ -165,7 +165,7 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 network interface modify -vserver Cluster -lif * -auto-revert false
 ----
-. Apresentar as imagens de arranque para a configuração ativa e de cópia de segurança:
+. Exibir as imagens de inicialização para a configuração ativa e de backup:
 +
 `show bootvar`
 
@@ -190,7 +190,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 ----
 ====
-. Transfira o ficheiro de imagem para o interrutor.
+. Faça o download do arquivo de imagem para o switch.
 +
 Copiar o arquivo de imagem para a imagem de backup significa que, quando você reinicializar, essa imagem estabelecerá a versão do EFOS em execução, concluindo a atualização.
 
@@ -214,7 +214,7 @@ SFTP Code transfer starting...
 
 File transfer operation completed successfully.
 ----
-. Apresentar as imagens de arranque para a configuração ativa e de cópia de segurança:
+. Exibir as imagens de inicialização para a configuração ativa e de backup:
 +
 `show bootvar`
 
@@ -238,7 +238,7 @@ Image Descriptions
     1      3.7.0.4    3.7.0.4             3.7.0.4       3.10.0.3
 ----
 ====
-. Inicie o sistema a partir da configuração de cópia de segurança:
+. Inicialize o sistema a partir da configuração de backup:
 +
 `boot system backup`
 
@@ -248,7 +248,7 @@ Image Descriptions
 (cs2)# *boot system backup*
 Activating image backup ..
 ----
-. Apresentar as imagens de arranque para a configuração ativa e de cópia de segurança:
+. Exibir as imagens de inicialização para a configuração ativa e de backup:
 +
 `show bootvar`
 
@@ -313,7 +313,7 @@ Configuration Saved!
 System will now restart!
 ----
 ====
-. Inicie sessão novamente e verifique a nova versão do software EFOS:
+. Faça login novamente e verifique a nova versão do software EFOS:
 +
 `show version`
 
@@ -349,35 +349,35 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. Repita os passos 5 a 11 no interrutor CS1.
+. Repita os passos 5 a 11 no interruptor cs1.
 . Ative a reversão automática nos LIFs do cluster.
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. Verifique se os LIFs do cluster reverteram para sua porta inicial:
+. Verifique se as LIFs do cluster retornaram à sua porta original:
 +
 [source, cli]
 ----
 network interface show -role Cluster
 ----
 +
-Para obter mais detalhes, link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Reverter um LIF para sua porta inicial"]consulte .
+Para obter mais detalhes, consultelink:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Reverter um LIF para sua porta de origem"] .
 
 
 
 
 
-=== Método 2: Atualizar o EFOS usando a instalação do sistema operacional ONIE
+=== Método 2: Atualizar o EFOS usando a instalação do ONIE OS
 
-Pode executar as seguintes etapas se uma versão do EFOS for compatível com FIPS e a outra versão do EFOS não for compatível com FIPS. Estas etapas podem ser usadas para atualizar a imagem EFOS 3,7.x.x não compatível com FIPS ou FIPS do ONIE se o switch não inicializar.
-
-
-NOTE: Esta funcionalidade só está disponível para EFOS 3,7.x.x ou posterior não compatível com FIPS.
+Você pode executar os seguintes passos se uma versão do EFOS for compatível com FIPS e a outra versão do EFOS não for compatível com FIPS.  Esses passos podem ser usados para atualizar a imagem EFOS 3.7.xx, compatível ou não com FIPS, a partir do ONIE, caso o switch não inicialize.
 
 
-CAUTION: Se você atualizar o EFOS usando a instalação do ONIE os, a configuração será redefinida para os padrões de fábrica e as licenças serão excluídas. Você deve configurar o switch e instalar licenças e um RCF suportado para retornar o switch à operação normal.
+NOTE: Essa funcionalidade está disponível apenas para EFOS 3.7.xx ou posterior não compatível com FIPS.
+
+
+CAUTION: Se você atualizar o EFOS usando a instalação do ONIE OS, a configuração será redefinida para os padrões de fábrica e as licenças serão excluídas.  Você precisa configurar o switch, instalar as licenças e um RCF compatível para que o switch volte a operar normalmente.
 
 .Passos
 . Desative a reversão automática nos LIFs do cluster.
@@ -388,7 +388,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 ----
 . Inicialize o switch no modo de instalação ONIE.
 +
-Durante o arranque, selecione ONIE quando vir o aviso:
+Durante a inicialização, selecione ONIE quando a mensagem aparecer:
 
 +
 [listing]
@@ -409,7 +409,7 @@ Durante o arranque, selecione ONIE quando vir o aviso:
 +--------------------------------------------------------------------+
 ----
 +
-Depois de selecionar *ONIE*, o switch carrega e apresenta várias opções. Selecione *Instalar os*.
+Após selecionar *ONIE*, o interruptor carrega e apresenta várias opções.  Selecione *Instalar SO*.
 
 +
 [listing]
@@ -430,11 +430,11 @@ Depois de selecionar *ONIE*, o switch carrega e apresenta várias opções. Sele
 +--------------------------------------------------------------------+
 ----
 +
-O switch inicializa no modo de instalação ONIE.
+O switch inicia no modo de instalação ONIE.
 
-. Pare a descoberta ONIE e configure a interface Ethernet.
+. Interrompa a descoberta ONIE e configure a interface Ethernet.
 +
-Quando a seguinte mensagem for exibida, pressione *Enter* para chamar o console ONIE:
+Quando a seguinte mensagem aparecer, pressione *Enter* para abrir o console ONIE:
 
 +
 [listing]
@@ -444,7 +444,7 @@ Please press Enter to activate this console. Info: eth0:  Checking link... up.
 ----
 +
 
-NOTE: A descoberta ONIE continua e as mensagens são impressas no console.
+NOTE: A detecção do ONIE continua e as mensagens são impressas no console.
 
 +
 [listing]
@@ -455,14 +455,14 @@ discover: installer mode detected.
 Stopping: discover... done.
 ONIE:/ #
 ----
-. Configure a interface Ethernet e adicione a rota utilizando `ifconfig eth0 <ipAddress> netmask <netmask> up` e. `route add default gw <gatewayAddress>`
+. Configure a interface Ethernet e adicione a rota usando `ifconfig eth0 <ipAddress> netmask <netmask> up` e `route add default gw <gatewayAddress>`
 +
 [listing]
 ----
 ONIE:/ # ifconfig eth0 10.10.10.10 netmask 255.255.255.0 up
 ONIE:/ # route add default gw 10.10.10.1
 ----
-. Verifique se o servidor que hospeda o arquivo de instalação ONIE está acessível:
+. Verifique se o servidor que hospeda o arquivo de instalação do ONIE está acessível:
 +
 `ping`
 
@@ -484,7 +484,7 @@ round-trip min/avg/max = 0.369/0.464/0.595 ms
 ONIE:/ #
 ----
 ====
-. Instale o novo software do interrutor:
+. Instale o novo software do switch:
 +
 `ONIE:/ # onie-nos-install http://50.50.50.50/Software/onie-installer-x86_64`
 
@@ -506,7 +506,7 @@ Preparing image archive ... OK.
 ----
 ====
 +
-O software instala e, em seguida, reinicia o interrutor. Deixe o switch reiniciar normalmente para a nova versão do EFOS.
+O software é instalado e, em seguida, reinicia o switch.  Deixe o switch reiniciar normalmente na nova versão do EFOS.
 
 . Verifique se o novo software do switch está instalado:
 +
@@ -530,29 +530,29 @@ unit 	active 	    backup   current-active  next-active
 (cs2) #
 ----
 ====
-. Conclua a instalação. O switch reinicializa sem nenhuma configuração aplicada e redefine para os padrões de fábrica. Execute as seguintes etapas para reconfigurar o switch:
+. Conclua a instalação.  O switch reinicia sem nenhuma configuração aplicada e retorna às configurações de fábrica.  Siga os passos abaixo para reconfigurar o switch:
 +
 .. link:configure-licenses.html["Instalar licenças"]
 .. link:configure-install-rcf.html["Instale o RCF"]
-.. link:configure-ssh.html["Ativar SSH"]
-.. link:CSHM_log_collection.html["Ativar a coleção de registos"]
-.. link:CSHM_snmpv3.html["Configure o SNMPv3 para monitoramento"]
+.. link:configure-ssh.html["Habilitar SSH"]
+.. link:CSHM_log_collection.html["Ativar coleta de logs"]
+.. link:CSHM_snmpv3.html["Configure o SNMPv3 para monitoramento."]
 
 
-. Repita os passos 2 a 8 no interrutor CS1.
+. Repita os passos 2 a 8 no interruptor cs1.
 . Ative a reversão automática nos LIFs do cluster.
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. Verifique se os LIFs do cluster reverteram para sua porta inicial:
+. Verifique se as LIFs do cluster retornaram à sua porta original:
 +
 [source, cli]
 ----
 network interface show -role Cluster
 ----
 +
-Para obter mais detalhes, link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Reverter um LIF para sua porta inicial"]consulte .
+Para obter mais detalhes, consultelink:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Reverter um LIF para sua porta de origem"] .
 
 

@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/cn1610-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Você pode usar switches Cisco Nexus 3132q-v como switches de cluster no seu cluster AFF ou FAS. 
+summary: Você pode usar switches Cisco Nexus 3132q-v como switches de cluster em seu cluster AFF ou FAS . 
 ---
 = Prepare-se para a migração de switches CN1610 para switches 3132Q-V.
 :allow-uri-read: 
@@ -11,21 +11,21 @@ summary: Você pode usar switches Cisco Nexus 3132q-v como switches de cluster n
 
 
 [role="lead"]
-Siga estas etapas para preparar seus switches CN1610 para migração para switches Cisco Nexus 3132Q-V.
+Siga estes passos para preparar seus switches CN1610 para a migração para switches Cisco Nexus 3132Q-V.
 
 .Passos
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
 +
-_x_ é a duração da janela de manutenção em horas.
+_x_ representa a duração da janela de manutenção em horas.
 
 +
 
-NOTE: A mensagem AutoSupport notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+NOTE: A mensagem do AutoSupport notifica o suporte técnico sobre essa tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
-. Exiba informações sobre os dispositivos em sua configuração:
+. Exibir informações sobre os dispositivos na sua configuração:
 +
 `network device-discovery show`
 
@@ -94,13 +94,13 @@ e0d   cluster   cluster    up    9000  auto/10000     -        -
 8 entries were displayed.
 ----
 ====
-.. Exibir informações sobre as interfaces lógicas
+.. Exibir informações sobre as interfaces lógicas: +
 `network interface show`
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir exibe as informações gerais sobre todas as LIFs no sistema:
+O exemplo a seguir exibe as informações gerais sobre todas as LIFs (File Inspections Files) do seu sistema:
 
 [listing]
 ----
@@ -131,7 +131,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir exibe os switches de cluster que são conhecidos pelo cluster, juntamente com seus endereços IP de gerenciamento:
+O exemplo a seguir exibe os switches do cluster que são conhecidos pelo cluster, juntamente com seus endereços IP de gerenciamento:
 
 [listing]
 ----
@@ -158,7 +158,7 @@ CL2                           cluster-network  10.10.1.102   CN1610
 ====
 
 
-. Defina `-auto-revert` o parâmetro como false em LIFs de cluster clus1 e clus4 em ambos os nós:
+. Defina o `-auto-revert` Defina o parâmetro como falso nos LIFs de cluster clus1 e clus4 em ambos os nós:
 +
 `network interface modify`
 
@@ -174,36 +174,36 @@ cluster::*> network interface modify -vserver node2 -lif clus1 -auto-revert fals
 cluster::*> network interface modify -vserver node2 -lif clus4 -auto-revert false
 ----
 ====
-. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3132Q-V conforme necessário para seus requisitos e faça qualquer personalização essencial do site, como usuários e senhas, endereços de rede, etc.
+. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3132Q-V, conforme necessário para suas necessidades, e faça quaisquer personalizações essenciais do site, como usuários e senhas, endereços de rede e assim por diante.
 +
-Neste momento, tem de preparar ambos os interrutores. Se você precisar atualizar o RCF e a imagem, siga estas etapas:
+Você deve preparar ambos os interruptores neste momento.  Se precisar atualizar o RCF e a imagem, siga estes passos:
 
 +
-.. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] no site de suporte da NetApp .
-.. Observe o switch e as versões de software necessárias na tabela nessa página.
-.. Baixe a versão apropriada do RCF.
+.. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^] No site de suporte da NetApp .
+.. Anote o modelo do seu switch e as versões de software necessárias na tabela dessa página.
+.. Faça o download da versão apropriada do RCF.
 .. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
-.. Transfira a versão apropriada do software de imagem.
+.. Baixe a versão apropriada do software de imagem.
 +
-https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^]
+https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do switch de rede de gerenciamento e cluster Cisco"^]
 
 
 
-. Migrar os LIFs associados ao segundo switch CN1610 a ser substituído:
+. Migre os LIFs associados ao segundo switch CN1610 a ser substituído:
 +
 `network interface migrate`
 
 +
 [NOTE]
 ====
-É necessário migrar as LIFs de cluster de uma conexão para o nó, seja por meio do processador de serviços ou da interface de gerenciamento de nós, que possui o LIF do cluster que está sendo migrado.
+Você deve migrar as LIFs do cluster de uma conexão para o nó, seja através do processador de serviço ou da interface de gerenciamento do nó, que é o proprietário da LIF do cluster que está sendo migrada.
 
 ====
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra n1 e n2, mas a migração de LIF deve ser feita em todos os nós:
+O exemplo a seguir mostra n1 e n2, mas a migração LIF deve ser feita em todos os nós:
 
 [listing]
 ----
@@ -222,7 +222,7 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus3 -destinatio
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o resultado do comando anterior `network interface migrate`:
+O exemplo a seguir mostra o resultado do anterior. `network interface migrate` comando:
 
 [listing]
 ----
@@ -245,7 +245,7 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Encerre as portas de interconexão de cluster que estão fisicamente conetadas ao switch CL2:
+. Desative as portas de interconexão do cluster que estão fisicamente conectadas ao switch CL2:
 +
 `network port modify`
 
@@ -253,7 +253,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-Os comandos a seguir desligam as portas especificadas no n1 e no n2, mas as portas devem ser fechadas em todos os nós:
+Os comandos a seguir desativam as portas especificadas em n1 e n2, mas as portas devem ser desativadas em todos os nós:
 
 [listing]
 ----
@@ -263,22 +263,22 @@ cluster::*> network port modify -node n2 -port e0b -up-admin false
 cluster::*> network port modify -node n2 -port e0c -up-admin false
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o comando show para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o comando show para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -295,9 +295,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2   n1_clus2       none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -347,7 +347,7 @@ RPC status:
 ----
 --
 ====
-. [[step10]] encerre as portas ISL 13 a 16 no interrutor CN1610 ativo CL1:
+. [[passo 10]] Desligue as portas ISL 13 a 16 no switch CN1610 ativo CL1:
 +
 `shutdown`
 
@@ -355,7 +355,7 @@ RPC status:
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra como desligar as portas ISL 13 a 16 no switch CN1610 CL1:
+O exemplo a seguir mostra como desativar as portas ISL 13 a 16 no switch CN1610 CL1:
 
 [listing]
 ----
@@ -367,12 +367,12 @@ O exemplo a seguir mostra como desligar as portas ISL 13 a 16 no switch CN1610 C
 (CL1)#
 ----
 ====
-. Construa um ISL temporário entre CL1 e C2:
+. Construir uma ISL temporária entre CL1 e C2:
 +
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir cria um ISL temporário entre CL1 (portas 13-16) e C2 (portas E1/24/1-4):
+O exemplo a seguir cria um ISL temporário entre CL1 (portas 13-16) e C2 (portas e1/24/1-4):
 
 [listing]
 ----
@@ -392,5 +392,5 @@ C2(config-if)# exit
 ====
 
 
-.O que se segue?
-link:cn1610-configure-ports.html["Configure as portas"].
+.O que vem a seguir?
+link:cn1610-configure-ports.html["Configure suas portas"].

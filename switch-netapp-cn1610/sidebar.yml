@@ -2,35 +2,35 @@
 section: switch-netapp-cn1610
 title: NetApp CN1610
 entries:
-- title: Comece agora
+- title: Começar
   pdf-filename: Overview_cn1610
   url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
-- title: Instalar e configurar fluxo de trabalho
+- title: Fluxo de trabalho de instalação e configuração
   url: "/switch-netapp-cn1610/install-overview-cn1610.html"
 - title: Documentação necessária
   url: "/switch-netapp-cn1610/required-documentation-cn1610.html"
 - title: Instalar e configurar
   pdf-filename: Install_configure_cn1610
   entries:
-  - title: Instale o hardware
+  - title: Instalar hardware
     url: "/switch-netapp-cn1610/install-hardware-cn1610.html"
   - title: Instale o software FASTPATH
     url: "/switch-netapp-cn1610/install-fastpath-software.html"
   - title: Instale um RCF
     url: "/switch-netapp-cn1610/install-rcf-file.html"
-  - title: Instale FASTPATH e RCF para ONTAP 8.3.1 e posterior
+  - title: Instale o FASTPATH ​​e o RCF para ONTAP 8.3.1 e versões posteriores.
     url: "/switch-netapp-cn1610/install-fastpath-rcf-831.html"
-  - title: Configure o interrutor
+  - title: Configurar interruptor
     url: "/switch-netapp-cn1610/configure-hardware-cn1610.html"
 - title: Migrar switches
   pdf-filename: Migrate_switches_cn1610
   entries:
-  - title: Migrar de um cluster sem switch para outro
+  - title: Migrar de um cluster sem switches para um cluster com switches
     url: "/switch-netapp-cn1610/migrate-switched-netapp-cn1610.html"
-- title: Substitua os interrutores
+- title: Substitua os interruptores
   pdf-filename: Replace_switches_cn1610
   entries:
-  - title: Substitua um interrutor do cluster do NetApp CN1610
+  - title: Substitua um switch de cluster NetApp CN1610
     url: "/switch-netapp-cn1610/replace-cn1610-switch.html"
-  - title: Substitua os switches do cluster por conexões sem switch
+  - title: Substitua os switches de cluster por conexões sem switch.
     url: "/switch-netapp-cn1610/migrate-to-switchless-cluster-interconnect.html"

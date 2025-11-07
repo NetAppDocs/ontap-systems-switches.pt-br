@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/required-documentation-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar toda a documentação recomendada. 
+summary: Para instalação e manutenção do switch NVIDIA SN2100, certifique-se de consultar toda a documentação recomendada. 
 ---
 = Requisitos de documentação para switches NVIDIA SN2100
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Para a instalação e manutenção do switch NVIDIA SN2100, certifique-
 
 
 [role="lead"]
-Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar toda a documentação recomendada.
+Para instalação e manutenção do switch NVIDIA SN2100, certifique-se de consultar toda a documentação recomendada.
 
 [cols="1,2"]
 |===
@@ -19,22 +19,22 @@ Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de rev
 
 
  a| 
-https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guia de instalação do interrutor NVIDIA"^]
+https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guia de Instalação do NVIDIA Switch"^]
  a| 
-Descreve como instalar seus switches NVIDIA SN2100.
-
-
-
- a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guia de cabeamento de compartimento de unidade NVMe de NS224 GB"^]
- a| 
-Visão geral e ilustrações mostrando como configurar o cabeamento para compartimentos de unidades.
+Este guia descreve como instalar seus switches NVIDIA SN2100.
 
 
 
  a| 
-https://hwu.netapp.com/["NetApp Hardware Universe"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guia de cabeamento para gaveta de unidades NVMe NS224"^]
  a| 
-Permite confirmar o hardware suportado, como switches de armazenamento e cabos, para o modelo da sua plataforma.
+Visão geral e ilustrações mostrando como configurar a cablagem para gavetas de unidades de disco.
+
+
+
+ a| 
+https://hwu.netapp.com/["Hardware Universe da NetApp"^]
+ a| 
+Permite confirmar o hardware compatível, como switches de armazenamento e cabos, para o modelo da sua plataforma.
 
 |===

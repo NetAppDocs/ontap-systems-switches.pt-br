@@ -2,13 +2,13 @@
 permalink: switch-netapp-cn1610/configure-hardware-cn1610.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: Para instalar o hardware do NetApp CN1610, consulte a documentação do NetApp. 
+summary: Para instalar o hardware NetApp CN1610, consulte a documentação da NetApp . 
 ---
-= Configure o hardware para o switch NetApp CN1610
+= Configure o hardware para o switch NetApp CN1610.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para configurar o hardware e o software do switch para o ambiente do cluster, consulte o  https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guia de configuração e configuração do switch CN1601 e CN1610"^].
+Para configurar o hardware e o software do switch para o seu ambiente de cluster, consulte o https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guia de Instalação e Configuração dos Switches CN1601 e CN1610"^] .

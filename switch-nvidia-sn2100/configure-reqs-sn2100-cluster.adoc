@@ -11,38 +11,38 @@ summary: Para a instalação e manutenção do switch NVIDIA SN2100, certifique-
 
 
 [role="lead"]
-Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar todos os requisitos de configuração.
+Para instalação e manutenção do switch NVIDIA SN2100, certifique-se de revisar todos os requisitos de configuração.
 
 
 
 == Requisitos de instalação
 
-Se você quiser criar clusters do ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis. Você pode usar switches de gerenciamento adicionais, que são opcionais.
+Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis.  Você pode usar interruptores de gerenciamento adicionais, que são opcionais.
 
-Você instala o switch NVIDIA SN2100 (X190006) no gabinete de switch duplo/único NVIDIA com os suportes padrão incluídos no switch.
+Você instala o switch NVIDIA SN2100 (X190006) no gabinete de switch duplo/simples da NVIDIA com os suportes padrão que acompanham o switch.
 
-Para obter diretrizes de cabeamento, link:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração"]consulte .
+Para diretrizes de cabeamento, consultelink:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."] .
 
 
 
-== Suporte a ONTAP e Linux
+== Suporte para ONTAP e Linux
 
-O switch NVIDIA SN2100 é um switch 10/25/40/100GbE que executa o Cumulus Linux. O interrutor suporta o seguinte:
+O switch NVIDIA SN2100 é um switch 10/25/40/100GbE que executa o Cumulus Linux.  O switch suporta o seguinte:
 
-* ONTAP 9.10.1P3 e posterior
+* ONTAP 9.10.1P3 e versões posteriores
 +
-O switch SN2100 serve aplicativos de cluster e armazenamento no ONTAP 9.10.1P3 e posterior em diferentes pares de switches.
+O switch SN2100 atende a aplicações de Cluster e Armazenamento no ONTAP 9.10.1P3 e versões posteriores em diferentes pares de switches.
 
-* Versões do SO Cumulus Linux (CL)
+* Versões do sistema operacional Cumulus Linux (CL)
 +
-** As versões específicas do CL são qualificadas e suportadas pelo NetApp. Para obter informações de compatibilidade atuais, consulte a link:https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Informações sobre switches Ethernet NVIDIA"^] página ou o link:https://hwu.netapp.com["NetApp Hardware Universe"^].
-** Para fazer o download do software Cumulus SN2100 da NVIDIA, você deve ter credenciais de login para acessar o Portal de suporte Empresarial da NVIDIA. Consulte o artigo da base de dados de Conhecimento https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Como se Registrar no NVIDIA para acesso ao Portal de suporte Empresarial"^] .
+** A NetApp qualifica e suporta versões específicas do CL.  Para obter informações atualizadas sobre compatibilidade, consulte olink:https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Informações sobre switches Ethernet da NVIDIA"^] página ou alink:https://hwu.netapp.com["Hardware Universe da NetApp"^] .
+** Para baixar o software SN2100 Cumulus da NVIDIA, você precisa ter credenciais de login para acessar o Portal de Suporte Empresarial da NVIDIA.  Consulte o artigo da Base de Conhecimento. https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Como se cadastrar no Portal de Suporte Empresarial da NVIDIA para obter acesso."^] .
 
 
 
 
-* Você pode instalar o Cumulus Linux quando o switch estiver executando Cumulus Linux ou ONIE.
+* Você pode instalar o Cumulus Linux quando o switch estiver executando o Cumulus Linux ou o ONIE.
 
 
-.O que se segue?
+.O que vem a seguir?
 Após analisar os requisitos de configuração, você poderá confirmar sua solicitação. link:components-sn2100-cluster.html["componentes e números de peças"].

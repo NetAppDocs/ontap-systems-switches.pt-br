@@ -2,17 +2,17 @@
 permalink: switch-cshm/monitor-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Você pode usar os seguintes comandos ...... 
+summary: Você pode usar os seguintes comandos... 
 ---
-= Visão geral da verificação de integridade
+= Visão geral do check-up de saúde
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Os monitores de integridade monitoram proativamente certas condições críticas no cluster e emitem alertas se detetarem uma falha ou risco.
+Os monitores de integridade monitoram proativamente determinadas condições críticas em seu cluster e emitem alertas caso detectem uma falha ou risco.
 
-Para visualizar os alertas do monitor de integridade do switch Ethernet atualmente levantados, execute o comando: `system health alert show -monitor ethernet-switch`
+Para visualizar os alertas de monitoramento de integridade do switch Ethernet atualmente em execução, execute o comando: `system health alert show -monitor ethernet-switch`
 
-Para exibir os alertas disponíveis do monitor de integridade do switch Ethernet, execute o comando: `system health alert definition show -monitor ethernet-switch`
+Para visualizar os alertas disponíveis do monitor de integridade do switch Ethernet, execute o comando: `system health alert definition show -monitor ethernet-switch`

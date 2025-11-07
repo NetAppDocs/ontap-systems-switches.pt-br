@@ -2,7 +2,7 @@
 section: switch-cisco-3232c
 title: Cisco Nexus 3232C
 entries:
-- title: Comece agora
+- title: Começar
   pdf-filename: Overview_3232C
   entries:
   - title: Início rápido
@@ -11,64 +11,64 @@ entries:
     url: "/switch-cisco-3232c/configure-reqs-3232c.html"
   - title: Documentação necessária
     url: "/switch-cisco-3232c/required-documentation-3232c.html"
-  - title: Requisitos para Smart Call Home
+  - title: Requisitos do Smart Call Home
     url: "/switch-cisco-3232c/smart-call-home-3232c.html"
-- title: Instale o hardware
+- title: Instalar hardware
   pdf-filename: Install_hardware_3232C
   entries:
   - title: Fluxo de trabalho de instalação de hardware
     url: "/switch-cisco-3232c/install-hardware-workflow.html"
-  - title: Folha de cálculo de cablagem completa
+  - title: Preencha a folha de exercícios de cabeamento.
     url: "/switch-cisco-3232c/setup_worksheet_3232c.html"
-  - title: Instale o interrutor
+  - title: Instale o interruptor
     url: "/switch-cisco-3232c/install-switch-3232c.html"
-  - title: Instale o interrutor no gabinete do NetApp
+  - title: Instalar switch em rack NetApp
     url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
-  - title: Revise o cabeamento e a configuração
+  - title: Revisar a cablagem e a configuração.
     url: "/switch-cisco-3232c/cabling-considerations-3232c.html"
-- title: Configure o software
+- title: Configurar software
   pdf-filename: Configure_software_3232C
   entries:
-  - title: Fluxo de trabalho de instalação do software
+  - title: fluxo de trabalho de instalação de software
     url: "/switch-cisco-3232c/configure-software-overview-3232c-cluster.html"
-  - title: Configure o interrutor
+  - title: Configure o interruptor
     url: "/switch-cisco-3232c/setup-switch.html"
-  - title: Prepare-se para instalar o software NX-os e o RCF
+  - title: Prepare-se para instalar o software NX-OS e o RCF.
     url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
-  - title: Instale o software NX-os
+  - title: Instale o software NX-OS.
     url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
   - title: Instale ou atualize o RCF
     pdf-filename: instalar_atualização_rcf
     entries:
-    - title: Instale ou atualize a visão geral do RCF
+    - title: Visão geral da instalação ou atualização do RCF
       url: "/switch-cisco-3232c/install-upgrade-rcf-overview-3232c.html"
     - title: Instale o RCF
       url: "/switch-cisco-3232c/install-rcf-software-3232c.html"
-    - title: Atualize sua versão RCF
+    - title: Atualize sua versão do RCF
       url: "/switch-cisco-3232c/upgrade-rcf-software-3232c.html"
   - title: Verifique a configuração SSH
     url: "/switch-cisco-3232c/configure-ssh-keys.html"
-  - title: Redefinir o switch para os padrões de fábrica
+  - title: Restaure as configurações de fábrica do switch.
     url: "/switch-cisco-3232c/reset-switch-3232c.html"
 - title: Migrar switches
   pdf-filename: Migrate_switches_3232C
   entries:
-  - title: Migração de switch de CN1610 GbE
+  - title: Migração do switch CN1610
     pdf-filename: CN1610_switch_migration
     entries:
-    - title: Migrar do fluxo de trabalho de CN1610 switches
+    - title: Migrar do fluxo de trabalho dos switches CN1610
       url: "/switch-cisco-3232c/cn1610-migrate-workflow.html"
     - title: Requisitos de migração
       url: "/switch-cisco-3232c/cn1610-migrate-to-3232c-overview.html"
     - title: Prepare-se para a migração
       url: "/switch-cisco-3232c/cn1610-prepare-to-migrate.html"
-    - title: Substitua o interrutor do cluster CL2
+    - title: Substitua o interruptor do cluster CL2
       url: "/switch-cisco-3232c/cn1610-replace-CL2.html"
-    - title: Substitua o interrutor do cluster CL1
+    - title: Substitua o interruptor do cluster CL1
       url: "/switch-cisco-3232c/cn1610-replace-CL1.html"
-    - title: Conclua a migração
+    - title: Conclua sua migração
       url: "/switch-cisco-3232c/cn1610-complete-migration.html"
-  - title: Migração de switch Nexus 5596
+  - title: Migração do switch Nexus 5596
     pdf-filename: CN5596_switch_migration
     entries:
     - title: Migrar do fluxo de trabalho dos switches Cisco Nexus 5596
@@ -77,27 +77,27 @@ entries:
       url: "/switch-cisco-3232c/cn5596-migrate-requirements.html"
     - title: Prepare-se para a migração
       url: "/switch-cisco-3232c/cn5596-prepare-to-migrate.html"
-    - title: Configure as portas
+    - title: Configure suas portas
       url: "/switch-cisco-3232c/cn5596-configure-ports.html"
-    - title: Conclua a migração
+    - title: Conclua sua migração
       url: "/switch-cisco-3232c/cn5596-complete-migration.html"
-  - title: Migrar de clusters sem switch de dois nós
-    pdf-filename: Migrate_from_switch_clusters
+  - title: Migrar de clusters sem switches de dois nós
+    pdf-filename: Migrar_de_clusters_sem_switch
     entries:
-    - title: Migre o fluxo de trabalho de clusters sem switch de dois nós
+    - title: Fluxo de trabalho de migração de clusters sem switch de dois nós
       url: "/switch-cisco-3232c/migrate-from-switchless-workflow.html"
     - title: Requisitos de migração
       url: "/switch-cisco-3232c/migrate-from-switchless-migrate-requirements.html"
     - title: Prepare-se para a migração
       url: "/switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html"
-    - title: Configure as portas
+    - title: Configure suas portas
       url: "/switch-cisco-3232c/migrate-from-switchless-configure-ports.html"
-    - title: Conclua a migração
+    - title: Conclua sua migração
       url: "/switch-cisco-3232c/migrate-from-switchless-complete-migration.html"
-- title: Substitua os interrutores
+- title: Substitua os interruptores
   pdf-filename: Replace_switches_3232C
   entries:
-  - title: Substitua o interrutor do cluster
+  - title: Substituir o interruptor do cluster
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
-  - title: Substitua os switches do cluster por conexões sem switch
+  - title: Substitua os switches de cluster por conexões sem switch.
     url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"

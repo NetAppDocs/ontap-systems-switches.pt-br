@@ -1,14 +1,14 @@
 ---
 indexpage:
-  title: Interrutores do cluster
+  title: Comutadores de cluster
   summary: Use a documentação neste site para instalar, configurar e manter seus switches
     de cluster para implantações de cluster ONTAP .
   keywords: cluster switches, cisco nexus switches, ontap clusters
   lead: Os switches de cluster permitem que você crie clusters ONTAP com mais de dois
-    nós.  Esses switches de plataforma Cisco Nexus 9000 fornecem a base para soluções
+    nós. Esses switches de plataforma Cisco Nexus 9000 fornecem a base para soluções
     de interconexão de cluster escaláveis ​​em ambientes NetApp ONTAP .
   tiles:
-  - title: Comece agora
+  - title: Começar
     links:
     - title: Broadcom BES-53248
       url: "../switch-bes-53248/configure-new-switch-overview.html"

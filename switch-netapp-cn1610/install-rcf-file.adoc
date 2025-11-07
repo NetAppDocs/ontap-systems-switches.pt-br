@@ -2,35 +2,35 @@
 permalink: switch-netapp-cn1610/install-rcf-file.html 
 sidebar: sidebar 
 keywords: reference configuration, file ,install, cn1610, switch, install rcf 
-summary: 'Quando você estiver instalando um arquivo de configuração de referência (RCF), primeiro você deve migrar os LIFs de cluster para longe do switch CS2. Depois que o RCF é instalado e validado, os LIFs podem ser migrados de volta.' 
+summary: 'Ao instalar um arquivo de configuração de referência (RCF), você deve primeiro migrar as LIFs do cluster do switch cs2.  Após a instalação e validação do RCF, os LIFs podem ser migrados de volta.' 
 ---
-= Instale um ficheiro de configuração de referência num switch CN1610
+= Instale um arquivo de configuração de referência em um switch CN1610.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para instalar um ficheiro de configuração de referência (RCF).
+Siga este procedimento para instalar um Arquivo de Configuração de Referência (RCF).
 
-Antes de instalar um RCF, você deve primeiro migrar os LIFs do cluster para longe do switch CS2. Depois que o RCF é instalado e validado, os LIFs podem ser migrados de volta.
+Antes de instalar um RCF, você deve primeiro migrar as LIFs do cluster do switch cs2.  Após a instalação e validação do RCF, os LIFs podem ser migrados de volta.
 
 
 
-== Rever os requisitos
+== Requisitos de revisão
 
 .Antes de começar
-Certifique-se de que tem o seguinte:
+Certifique-se de ter o seguinte:
 
 * Um backup atual da configuração do switch.
-* Um cluster totalmente funcional (sem erros nos logs e sem placas de interface de rede de cluster (NICs) defeituosas ou problemas semelhantes).
+* Um cluster totalmente funcional (sem erros nos logs e sem placas de interface de rede (NICs) defeituosas ou problemas semelhantes).
 * Conexões de porta totalmente funcionais no switch de cluster.
-* Todas as portas do cluster configuradas.
-* Todas as interfaces lógicas de cluster (LIFs) configuradas.
-* Um caminho de comunicação bem-sucedido: O comando ONTAP (privilégio: Avançado) `cluster ping-cluster -node node1` deve indicar que `larger than PMTU communication` é bem-sucedido em todos os caminhos.
-* Uma versão suportada do RCF e do ONTAP.
+* Todas as portas do cluster estão configuradas.
+* Todas as interfaces lógicas do cluster (LIFs) estão configuradas.
+* Um caminho de comunicação bem-sucedido: O ONTAP (privilégio: avançado) `cluster ping-cluster -node node1` O comando deve indicar que `larger than PMTU communication` Tem sucesso em todos os caminhos.
+* Uma versão compatível do RCF e do ONTAP.
 +
-Certifique-se de que consulta a tabela de compatibilidade de switch na http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switches NetApp CN1601 e CN1610"^] página para as versões RCF e ONTAP suportadas.
+Certifique-se de consultar a tabela de compatibilidade de switches no http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switches NetApp CN1601 e CN1610"^] Página com as versões RCF e ONTAP suportadas.
 
 
 
@@ -38,29 +38,29 @@ Certifique-se de que consulta a tabela de compatibilidade de switch na http://my
 
 == Instale o RCF
 
-O procedimento a seguir usa a sintaxe Clustered Data ONTAP 8.2. Como resultado, o SVM de cluster, os nomes de LIF e a saída de CLI são diferentes dos do Data ONTAP 8.3.
+O procedimento a seguir utiliza a sintaxe clusterizada do Data ONTAP 8.2.  Como resultado, o Vserver do cluster, os nomes LIF e a saída da CLI são diferentes daqueles presentes no Data ONTAP 8.3.
 
-Pode haver dependências de comando entre sintaxe de comando nas versões RCF e FASTPATH.
+Pode haver dependências entre a sintaxe de comandos nas versões RCF e FASTPATH.
 
 
-NOTE: No RCF versão 1,2, o suporte para Telnet foi explicitamente desativado devido a problemas de segurança. Para evitar problemas de conetividade durante a instalação do RCF 1,2, verifique se o Secure Shell (SSH) está ativado. O https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guia do administrador do switch NetApp CN1610"^] tem mais informações sobre SSH.
+NOTE: Na versão 1.2 do RCF, o suporte para Telnet foi explicitamente desativado devido a preocupações de segurança.  Para evitar problemas de conectividade durante a instalação do RCF 1.2, verifique se o Secure Shell (SSH) está ativado.  O https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guia do Administrador do Switch NetApp CN1610"^] Possui mais informações sobre SSH.
 
 .Sobre os exemplos
-Os exemplos deste procedimento utilizam a seguinte nomenclatura de switch e nó:
+Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:
 
-* Os dois switches NetApp são CS1 e CS2.
-* Os dois LIFs de cluster são clus1 e clus2.
-* Os VServers são VS1 e VS2.
-* O `cluster::*>` prompt indica o nome do cluster.
-* As portas de cluster em cada nó são denominadas e1a e E2A.
+* Os dois switches NetApp são o cs1 e o cs2.
+* Os dois LIFs do cluster são clus1 e clus2.
+* Os servidores virtuais são vs1 e vs2.
+* O `cluster::*>` O prompt indica o nome do cluster.
+* As portas do cluster em cada nó são denominadas e1a e e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^] tem mais informações sobre as portas de cluster reais que são suportadas na sua plataforma.
+https://hwu.netapp.com/["Hardware Universe"^]Possui mais informações sobre as portas de cluster reais que são suportadas em sua plataforma.
 
-* Os ISLs (Inter-Switch Links) suportados são as portas 0/13 a 0/16.
-* As conexões de nós suportadas são as portas 0/1 a 0/12.
-* Uma versão suportada do FASTPATH, RCF e ONTAP.
+* Os links entre switches (ISLs) suportados são as portas 0/13 a 0/16.
+* As conexões de nó suportadas são as portas 0/1 a 0/12.
+* Uma versão compatível de FASTPATH, RCF e ONTAP.
 +
-Certifique-se de consultar a tabela de compatibilidade de switch na http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switches NetApp CN1601 e CN1610"^] página para as versões FASTPATH, RCF e ONTAP suportadas.
+Certifique-se de consultar a tabela de compatibilidade de switches no http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Switches NetApp CN1601 e CN1610"^] Página com as versões suportadas de FASTPATH, RCF e ONTAP .
 
 
 
@@ -68,7 +68,7 @@ Certifique-se de consultar a tabela de compatibilidade de switch na http://mysup
 
 === Etapa 1: Migrar cluster
 
-. Guarde as informações de configuração do seu switch atual:
+. Salve as informações de configuração atuais do seu switch:
 +
 `write memory`
 
@@ -76,7 +76,7 @@ Certifique-se de consultar a tabela de compatibilidade de switch na http://mysup
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra a configuração atual do switch que está sendo salva (`startup-config`no arquivo de configuração de inicialização ) no switch CS2:
+O exemplo a seguir mostra a configuração atual do switch sendo salva na configuração de inicialização.(`startup-config` ) arquivo no switch cs2:
 
 [listing]
 ----
@@ -91,7 +91,7 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. No console de cada nó, migre clus2 para a porta e1a:
+. No console de cada nó, migre o clus2 para a porta e1a:
 +
 `network interface migrate`
 
@@ -123,7 +123,7 @@ cluster::*> network port show -role cluster
          clus2      up/up      10.10.10.2/16   node2    e1a     false
 ----
 ====
-. Encerre a porta E2A em ambos os nós:
+. Desative a porta e2a em ambos os nós:
 +
 `network port modify`
 
@@ -131,7 +131,7 @@ cluster::*> network port show -role cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra a porta E2A sendo fechada em ambos os nós:
+O exemplo a seguir mostra a porta e2a sendo desativada em ambos os nós:
 
 [listing]
 ----
@@ -139,7 +139,7 @@ cluster::*> network port modify -node node1 -port e2a -up-admin false
 cluster::*> network port modify -node node2 -port e2a -up-admin false
 ----
 ====
-. Verifique se a porta E2A está desligada em ambos os nós:
+. Verifique se a porta e2a está desativada em ambos os nós:
 +
 `network port show`
 
@@ -162,7 +162,7 @@ node2
        e2a    cluster  down 9000  true/true   full/full   auto/10000
 ----
 ====
-. Desligue as portas ISL no CS1, o interrutor NetApp ativo.
+. Desligue as portas ISL no cs1, o switch NetApp ativo.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -180,15 +180,15 @@ node2
 
 
 
-=== Passo 2: Instale o RCF
+=== Etapa 2: Instalar o RCF
 
-. Copie o RCF para o interrutor.
+. Copie o RCF para o switch.
 +
 
-NOTE: Você deve definir a `.scr` extensão como parte do nome do arquivo antes de chamar o script. Esta extensão é a extensão para o sistema operacional FASTPATH.
+NOTE: Você deve definir o `.scr` A extensão deve fazer parte do nome do arquivo antes de executar o script.  Esta extensão é para o sistema operacional FASTPATH.
 
 +
-O switch validará o script automaticamente à medida que ele é baixado para o switch, e a saída irá para o console.
+O switch validará o script automaticamente à medida que ele for baixado para o switch, e a saída será exibida no console.
 
 +
 .Mostrar exemplo
@@ -203,7 +203,7 @@ Configuration script validated.
 File transfer operation completed successfully.
 ----
 ====
-. Verifique se o script foi baixado e salvo com o nome do arquivo que você deu.
+. Verifique se o script foi baixado e salvo com o nome de arquivo que você definiu.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -236,7 +236,7 @@ NOTE: O script é validado durante o download para verificar se cada linha é um
 Configuration script 'CN1610_CS_RCF_v1.1.scr' validated.
 ----
 ====
-. Aplique o script ao switch.
+. Aplique o script ao interruptor.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -251,14 +251,14 @@ Are you sure you want to apply the configuration script? (y/n) y
 Configuration script 'CN1610_CS_RCF_v1.1.scr' applied.
 ----
 ====
-. Verifique se suas alterações foram implementadas no switch.
+. Verifique se as alterações foram implementadas no switch.
 +
 [listing]
 ----
 (cs2) # show running-config
 ----
 +
-O exemplo exibe o `running-config` arquivo no switch. Você deve comparar o arquivo com o RCF para verificar se os parâmetros definidos são como você espera.
+O exemplo exibe o `running-config` arquivo no interruptor.  Você deve comparar o arquivo com o RCF para verificar se os parâmetros que você definiu estão de acordo com o esperado.
 
 . Salve as alterações.
 . Defina o `running-config` arquivo para ser o padrão.
@@ -277,9 +277,9 @@ Are you sure you want to save? (y/n) y
 Config file 'startup-config' created successfully.
 ----
 ====
-. Reinicie o switch e verifique se o `running-config` arquivo está correto.
+. Reinicie o switch e verifique se o `running-config` O arquivo está correto.
 +
-Após a conclusão da reinicialização, você deve fazer login, exibir o `running-config` arquivo e procurar a descrição na interface 3/64, que é o rótulo da versão para o RCF.
+Após a reinicialização, você deve fazer login e visualizar o `running-config` arquivo e, em seguida, procure a descrição da interface 3/64, que é o rótulo da versão do RCF.
 
 +
 .Mostrar exemplo
@@ -298,7 +298,7 @@ Configuration Saved!
 System will now restart!
 ----
 ====
-. Abra as portas ISL no CS1, o interrutor ativo.
+. Ative as portas ISL no cs1, o switch ativo.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -317,7 +317,7 @@ System will now restart!
 `show port-channel 3/1`
 
 +
-O campo Estado da ligação deve `Up` indicar .
+O campo Link State deve indicar `Up` .
 
 +
 .Mostrar exemplo
@@ -349,7 +349,7 @@ Ports  Timeout       Speed     Active
        partner/long
 ----
 ====
-. Abra a porta de cluster E2A em ambos os nós:
+. Ative a porta de cluster e2a em ambos os nós:
 +
 `network port modify`
 
@@ -357,7 +357,7 @@ Ports  Timeout       Speed     Active
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra a porta E2A sendo criada em node1 e node2:
+O exemplo a seguir mostra a porta e2a sendo ativada no nó 1 e no nó 2:
 
 [listing]
 ----
@@ -369,9 +369,9 @@ cluster::*> network port modify -node node2 -port e2a -up-admin true
 
 
 
-=== Passo 3: Valide a instalação
+=== Etapa 3: Validar a instalação
 
-. Verifique se a porta E2A está ativa em ambos os nós:
+. Verifique se a porta e2a está ativa em ambos os nós:
 +
 `network port show -_role cluster_`
 
@@ -394,12 +394,12 @@ node2
        e2a  cluster  up   9000  true/true   full/full   auto/10000
 ----
 ====
-. Em ambos os nós, reverta clus2 que está associado à porta E2A:
+. Em ambos os nós, reverta o clus2 associado à porta e2a:
 +
 `network interface revert`
 
 +
-O LIF pode reverter automaticamente, dependendo da sua versão do ONTAP.
+A LIF pode reverter automaticamente, dependendo da sua versão do ONTAP.
 
 +
 .Mostrar exemplo
@@ -411,7 +411,7 @@ cluster::*> network interface revert -vserver node1 -lif clus2
 cluster::*> network interface revert -vserver node2 -lif clus2
 ----
 ====
-. Verifique se o LIF está agora em (`true`casa ) em ambos os nós:
+. Verifique se o LIF agora está em casa.(`true` ) em ambos os nós:
 +
 `network interface show -_role cluster_`
 
@@ -434,7 +434,7 @@ vs2
         clus2      up/up      10.10.10.2/24  node2    e2a     true
 ----
 ====
-. Exibir o status dos membros do nó:
+. Veja o status dos membros do nó:
 +
 `cluster show`
 
@@ -454,7 +454,7 @@ node2
                true    true
 ----
 ====
-. Copie o `running-config` arquivo para o `startup-config` arquivo quando estiver satisfeito com as versões de software e as configurações de switch.
+. Copie o `running-config` arquivo para o `startup-config` salve o arquivo quando estiver satisfeito com as versões do software e as configurações do switch.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -472,8 +472,8 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. Repita os passos anteriores para instalar o RCF no outro interrutor, CS1.
+. Repita os passos anteriores para instalar o RCF no outro switch, cs1.
 
 
-.O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"]
+.O que vem a seguir?
+link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."]

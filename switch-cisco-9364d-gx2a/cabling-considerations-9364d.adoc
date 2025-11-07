@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 9332d-gx2b cabling setup, 9364d-gx2a switches configuration, nx-os 
 summary: Antes de configurar seu switch Cisco 9364d-gx2a, revise as seguintes informações. 
 ---
-= Analise as considerações sobre cabeamento e configuração
+= Analise as considerações sobre cabeamento e configuração.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -29,4 +29,4 @@ Se estiver conectando uma porta de switch a um controlador ONTAP usando a porta 
 (cs1)(config)# *exit*
 (cs1)# *copy running-config startup-config*
 ----
-Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obter mais informações sobre portas do switch.
+Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obter mais informações sobre portas de switch.

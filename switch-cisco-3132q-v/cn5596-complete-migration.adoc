@@ -2,19 +2,19 @@
 permalink: switch-cisco-3132q-v/cn5596-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Você pode usar switches Cisco Nexus 3132q-v como switches de cluster no seu cluster AFF ou FAS. 
+summary: Você pode usar switches Cisco Nexus 3132q-v como switches de cluster em seu cluster AFF ou FAS . 
 ---
-= Conclua a migração de switches Nexus 5596 para switches Nexus 3132Q-V.
+= Conclua a migração dos switches Nexus 5596 para os switches Nexus 3132Q-V.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Conclua as etapas a seguir para finalizar a migração de switches Nexus 5596 para switches Nexus 3132Q-V.
+Conclua os seguintes passos para finalizar a migração dos switches Nexus 5596 para switches Nexus 3132Q-V.
 
 .Passos
-. Verifique se as conexões ISL estão `up` no interrutor 3132Q-V C2:
+. Verifique se as conexões ISL estão `up` no interruptor C2 do 3132Q-V:
 +
 `show port-channel summary`
 
@@ -22,7 +22,7 @@ Conclua as etapas a seguir para finalizar a migração de switches Nexus 5596 pa
 .Mostrar exemplo
 [%collapsible]
 ====
-As portas eth1/31 e eth1/32 devem indicar `(P)`, o que significa que ambas as portas ISL `up` estão no canal de porta:
+As portas Eth1/31 e Eth1/32 devem indicar `(P)` , o que significa que ambas as portas ISL estão `up` no canal de passagem:
 
 [listing]
 ----
@@ -40,7 +40,7 @@ Group Port-        Type   Protocol  Member Ports
 1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Em todos os nós, abra todas as portas de interconexão de cluster conetadas ao novo switch de 3132Q V C1:
+. Em todos os nós, ative todas as portas de interconexão do cluster conectadas ao novo switch 3132Q-V C1:
 +
 `network port modify`
 
@@ -48,7 +48,7 @@ Group Port-        Type   Protocol  Member Ports
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra todas as portas de interconexão de cluster que estão sendo criadas para n1 e n2 no switch 3132Q-V C1:
+O exemplo a seguir mostra todas as portas de interconexão do cluster sendo ativadas para n1 e n2 no switch 3132Q-V C1:
 
 [listing]
 ----
@@ -66,7 +66,7 @@ cluster::*> network port modify -node n2 -port e0d -up-admin true
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir verifica se todas as portas de interconexão de cluster em todos os nós no novo switch 3132Q-V C1 são `up`:
+O exemplo a seguir verifica se todas as portas de interconexão do cluster em todos os nós do novo switch 3132Q-V C1 estão configuradas. `up` :
 
 [listing]
 ----
@@ -94,7 +94,7 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-. Em todos os nós, reverta as LIFs de cluster específicas para suas portas iniciais:
+. Em todos os nós, reverta as LIFs específicas do cluster para suas portas originais:
 +
 `network interface revert`
 
@@ -102,7 +102,7 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra as LIFs de cluster específicas sendo revertidas para suas portas iniciais nos nós n1 e n2:
+O exemplo a seguir mostra as LIFs específicas do cluster sendo revertidas para suas portas originais nos nós n1 e n2:
 
 [listing]
 ----
@@ -112,7 +112,7 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus1
 cluster::*> network interface revert -vserver Cluster -lif n2_clus4
 ----
 ====
-. Verifique se a interface está em casa:
+. Verifique se a interface está na página inicial:
 +
 `network interface show`
 
@@ -120,7 +120,7 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus4
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir mostra o status das interfaces de interconexão de cluster é `up` e `Is home` para n1 e n2:
+O exemplo a seguir mostra o status das interfaces de interconexão do cluster. `up` e `Is home` para n1 e n2:
 
 [listing]
 ----
@@ -141,22 +141,22 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Verifique a conectividade das interfaces de cluster remotas:
+. Verifique a conectividade das interfaces do cluster remoto:
 
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9,1 e posterior
+.ONTAP 9.9.1 e posterior
 --
-Você pode usar o `network interface check cluster-connectivity` comando para iniciar uma verificação de acessibilidade para conetividade de cluster e, em seguida, exibir os detalhes:
+Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start` e `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTA:* espere alguns segundos antes de executar o comando show para exibir os detalhes.
+*NOTA:* Aguarde alguns segundos antes de executar o comando show para exibir os detalhes.
 
 [listing, subs="+quotes"]
 ----
@@ -173,9 +173,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
 ----
 --
-.Todos os lançamentos do ONTAP
+.Todas as versões do ONTAP
 --
-Para todas as versões do ONTAP, você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conetividade:
+Para todas as versões do ONTAP , você também pode usar o `cluster ping-cluster -node <name>` comando para verificar a conectividade:
 
 `cluster ping-cluster -node <name>`
 
@@ -224,7 +224,7 @@ RPC status:
 ----
 --
 ====
-. [[step7]]expanda o cluster adicionando nós aos switches de cluster Nexus 3132Q-V.
+. [[step7]]Expanda o cluster adicionando nós aos switches de cluster Nexus 3132Q-V.
 . Exiba as informações sobre os dispositivos em sua configuração:
 +
 ** `network device-discovery show`
@@ -235,7 +235,7 @@ RPC status:
 .Mostrar exemplo
 [%collapsible]
 ====
-Os exemplos a seguir mostram os nós n3 e n4 com portas de cluster de 40 GbE conetadas às portas E1/7 e E1/8, respetivamente nos switches de cluster Nexus 3132Q-V e ambos os nós aderiram ao cluster. As portas de interconexão de cluster de 40 GbE usadas são e4a e e4e.
+Os exemplos a seguir mostram os nós n3 e n4 com portas de cluster de 40 GbE conectadas às portas e1/7 e e1/8, respectivamente, nos switches de cluster Nexus 3132Q-V, e ambos os nós ingressaram no cluster.  As portas de interconexão de cluster de 40 GbE utilizadas são e4a e e4e.
 
 [listing]
 ----
@@ -367,7 +367,7 @@ CL2                           cluster-network    10.10.1.102     NX5596
 ====
 
 
-. Remova o Nexus 5596 substituído se não forem removidos automaticamente:
+. Remova o Nexus 5596 substituído caso ele não seja removido automaticamente:
 +
 `system cluster-switch delete`
 
@@ -383,7 +383,7 @@ cluster::> system cluster-switch delete -device CL1
 cluster::> system cluster-switch delete -device CL2
 ----
 ====
-. Configure os clusters clus1 e clus2 para reverter automaticamente em cada nó e confirmar.
+. Configure os clusters clus1 e clus2 para reverter automaticamente em cada nó e confirme.
 +
 .Mostrar exemplo
 [%collapsible]
@@ -396,7 +396,7 @@ cluster::*> network interface modify -vserver node2 -lif clus1 -auto-revert true
 cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert true
 ----
 ====
-. Verifique se os switches de cluster adequados são monitorados:
+. Verifique se os switches de cluster apropriados estão sendo monitorados:
 +
 `system cluster-switch show`
 
@@ -429,11 +429,11 @@ C2                          cluster-network     10.10.1.104      NX3132V
 2 entries were displayed.
 ----
 ====
-. Se você suprimiu a criação automática de casos, reative-a invocando uma mensagem AutoSupport:
+. Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.O que se segue?
-link:../switch-cshm/config-overview.html["Configurar o monitoramento de integridade do switch"].
+.O que vem a seguir?
+link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."].

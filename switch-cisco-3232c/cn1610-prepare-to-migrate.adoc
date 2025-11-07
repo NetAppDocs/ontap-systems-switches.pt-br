@@ -2,32 +2,32 @@
 permalink: switch-cisco-3232c/cn1610-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Você pode usar os switches Cisco Nexus 3232C como switches de cluster no seu cluster AFF ou FAS. 
+summary: Você pode usar switches Cisco Nexus 3232C como switches de cluster em seu cluster AFF ou FAS . 
 ---
-= Prepare-se para a migração a partir de CN1610 switches 3232C switches
+= Prepare-se para a migração dos switches CN1610 para os switches 3232C.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estes passos para preparar a migração de switch CN1610 para um switch Cisco Nexus 3232C.
+Siga estes passos para preparar a migração do seu switch CN1610 para um switch Cisco Nexus 3232C.
 
 .Passos
-. Se o AutoSupport estiver ativado neste cluster, suprimir a criação automática de casos invocando uma mensagem AutoSupport:
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-_x_ é a duração da janela de manutenção em horas.
+_x_ representa a duração da janela de manutenção em horas.
 
 +
 [NOTE]
 ====
-A mensagem notifica o suporte técnico desta tarefa de manutenção para que a criação automática de casos seja suprimida durante a janela de manutenção.
+A mensagem notifica o suporte técnico sobre esta tarefa de manutenção, de forma que a criação automática de chamados seja suprimida durante o período de manutenção.
 
 ====
-. Exiba informações sobre os dispositivos em sua configuração:
+. Exibir informações sobre os dispositivos na sua configuração:
 +
 `network device-discovery show`
 
@@ -129,7 +129,7 @@ Cluster
 .Mostrar exemplo
 [%collapsible]
 ====
-O exemplo a seguir exibe os switches de cluster que são conhecidos pelo cluster junto com seus endereços IP de gerenciamento:
+O exemplo a seguir exibe os switches do cluster que são conhecidos pelo cluster, juntamente com seus endereços IP de gerenciamento:
 
 [listing, subs="+quotes"]
 ----
@@ -154,19 +154,19 @@ CL2                           cluster-network  10.10.1.102   CN1610
 ====
 
 
-. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3232C conforme necessário para seus requisitos e faça as personalizações essenciais do site.
+. Verifique se o RCF e a imagem apropriados estão instalados nos novos switches 3232C, conforme necessário para suas necessidades, e faça quaisquer personalizações essenciais no site.
 +
-Você deve preparar ambos os interrutores neste momento. Se necessitar de atualizar o RCF e a imagem, tem de concluir o seguinte procedimento:
+Você deve preparar ambos os interruptores neste momento.  Se precisar atualizar o RCF e a imagem, você deve concluir o seguinte procedimento:
 
 +
-.. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco"^] no site de suporte da NetApp .
-.. Observe o switch e as versões de software necessárias na tabela nessa página.
-.. Baixe a versão apropriada do RCF.
+.. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^] no site de suporte da NetApp .
+.. Anote o modelo do seu switch e as versões de software necessárias na tabela dessa página.
+.. Faça o download da versão apropriada do RCF.
 .. Selecione *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.
-.. Baixe a versão apropriada do software de imagem emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do comutador de rede de gerenciamento e cluster Cisco"^] .
+.. Faça o download da versão apropriada do software de imagem emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do switch de rede de gerenciamento e cluster Cisco"^] .
 
 
-. Migre os LIFs associados ao segundo switch CN1610 que você planeja substituir:
+. Migre as LIFs associadas ao segundo switch CN1610 que você planeja substituir:
 +
 `network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ destination-node _destination-node-name_ -destination-port _destination-port-name_`
 
@@ -218,5 +218,5 @@ Cluster
 ====
 
 
-.O que se segue?
-link:cn1610-replace-CL2.html["Substitua o interrutor CN1610 CL2 pelo interrutor 3232C C2"].
+.O que vem a seguir?
+link:cn1610-replace-CL2.html["Substitua o interruptor CN1610 CL2 pelo interruptor 3232C C2."].

@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
 keywords: shared storage cluster switch cable 
-summary: Use as imagens de cabeamento para concluir o cabeamento entre as controladoras e os switches. 
+summary: Utilize as imagens de cabeamento para completar a conexão entre os controladores e os switches. 
 ---
-= Complete a Planilha de cabeamento do Cisco Nexus 9336C-FX2
+= Preencha a planilha de cabeamento do Cisco Nexus 9336C-FX2.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,60 +14,60 @@ summary: Use as imagens de cabeamento para concluir o cabeamento entre as contro
 
 
 [role="lead"]
-Use as seguintes imagens de cabeamento para concluir o cabeamento entre as controladoras e os switches.
+Utilize as imagens de cabeamento a seguir para concluir a conexão entre os controladores e os switches.
 
 
 
-== Armazenamento do cabo NS224 como switch-anexado
+== Cabo NS224 para armazenamento conectado a um switch
 
-Se você quiser o armazenamento do cabo NS224 como conetado ao switch, siga o diagrama anexado ao switch:
+Se você deseja conectar o armazenamento NS224 como um dispositivo conectado a um switch, siga o diagrama de conexão a switch:
 
-image:9336c_image1.jpg["Interrutor ligado"]
+image:9336c_image1.jpg["conectado ao interruptor"]
 
-Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obter mais informações sobre portas do switch.
+Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obter mais informações sobre portas de switch.
 
 
 
 == Armazenamento do cabo NS224 como conexão direta
 
-Se você quiser fazer o armazenamento de NS224 GB por cabo como conexão direta em vez de usar as portas de armazenamento de switch compartilhado, siga o diagrama de conexão direta:
+Se você deseja conectar o armazenamento NS224 diretamente em vez de usar as portas de armazenamento compartilhadas do switch, siga o diagrama de conexão direta:
 
-image:9336c_image2.jpg["Das ligações diretas"]
+image:9336c_image2.jpg["Fixação direta"]
 
-Consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe"] para obter mais informações sobre portas do switch.
-
-
-
-== Folha de cálculo do cabeamento Cisco Nexus 9336C-FX2
-
-Se você quiser documentar as plataformas suportadas, você deve preencher a Planilha de cabeamento em branco usando a Planilha de cabeamento de amostra concluída como um guia.
-
-A definição de porta de amostra em cada par de switches é a seguinte:
-
-image:cabling_worksheet.jpg["Folha de cálculo de cablagem"]
-
-Local:
-
-* 100g ISL para mudar A porta 35
-* 100g ISL para mudar A porta 36
-* 100g ISL para a porta 35 do interrutor B.
-* 100g ISL para a porta 36 do interrutor B.
+Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obter mais informações sobre portas de switch.
 
 
 
+== Folha de instruções de cabeamento do Cisco Nexus 9336C-FX2
 
-== Folha de cálculo de cablagem em branco
+Se você deseja documentar as plataformas suportadas, deve preencher a planilha de cabeamento em branco, utilizando como guia a planilha de cabeamento de exemplo já preenchida.
 
-Você pode usar a Planilha de cabeamento em branco para documentar as plataformas compatíveis como nós em um cluster. A tabela conexões de cluster suportadas do Hardware Universe define as portas de cluster usadas pela plataforma.
+A definição da porta de exemplo em cada par de switches é a seguinte:
 
-image:blank_cabling_worksheet.jpg["Folha de cálculo de cablagem em branco"]
+image:cabling_worksheet.jpg["Folha de exercícios de cabeamento"]
 
-Local:
+Onde:
 
-* 100g ISL para mudar A porta 35
-* 100g ISL para mudar A porta 36
-* 100g ISL para a porta 35 do interrutor B.
-* 100g ISL para a porta 36 do interrutor B.
+* ISL de 100G para switch A porta 35
+* ISL de 100G para switch A porta 36
+* ISL de 100G para a porta 35 do switch B
+* ISL de 100G para a porta 36 do switch B
+
+
+
+
+== Folha de exercícios de cabeamento em branco
+
+Você pode usar a planilha de cabeamento em branco para documentar as plataformas que são suportadas como nós em um cluster.  A tabela "Conexões de Cluster Suportadas" do Hardware Universe define as portas de cluster usadas pela plataforma.
+
+image:blank_cabling_worksheet.jpg["Folha de exercícios de cabeamento em branco"]
+
+Onde:
+
+* ISL de 100G para switch A porta 35
+* ISL de 100G para switch A porta 36
+* ISL de 100G para a porta 35 do switch B
+* ISL de 100G para a porta 36 do switch B
 
 
 .O que vem a seguir

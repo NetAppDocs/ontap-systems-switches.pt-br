@@ -2,38 +2,38 @@
 permalink: switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: install cumulus onie mode, sn2100 SN2100 switches setup, cumulus linux, onie mode 
-summary: 'O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando Cumulus Linux ou ONIE.' 
+summary: 'O sistema operacional Cumulus Linux (CL) pode ser instalado tanto quando o switch estiver executando Cumulus Linux quanto ONIE.' 
 ---
-= Instale o Cumulus Linux no modo ONIE
+= Instale o Cumulus Linux no modo ONIE.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para instalar o SO Cumulus Linux (CL) quando o switch estiver em execução no modo ONIE.
+Siga este procedimento para instalar o sistema operacional Cumulus Linux (CL) quando o switch estiver em modo ONIE.
 
 
-NOTE: O SO Cumulus Linux (CL) pode ser instalado quando o switch está executando ONIE ou Cumulus Linux (link:install-cumulus-mode-sn2100-cluster.html["Instale no modo Cumulus"]consulte ).
+NOTE: O sistema operacional Cumulus Linux (CL) pode ser instalado quando o switch estiver executando ONIE ou Cumulus Linux (consultelink:install-cumulus-mode-sn2100-cluster.html["Instalar no modo Cumulus"] ).
 
 .Sobre esta tarefa
-Você pode instalar o Cumulus Linux usando o Open Network Install Environment (ONIE) que permite a descoberta automática de uma imagem do instalador de rede. Isso facilita o modelo de sistema de proteção de switches com uma escolha de sistema operacional, como o Cumulus Linux. A maneira mais fácil de instalar o Cumulus Linux com ONIE é com descoberta HTTP local.
+Você pode instalar o Cumulus Linux usando o Open Network Install Environment (ONIE), que permite a descoberta automática de uma imagem de instalação de rede.  Isso facilita o modelo de sistema para proteger switches com uma opção de sistema operacional, como o Cumulus Linux.  A maneira mais fácil de instalar o Cumulus Linux com ONIE é através da descoberta HTTP local.
 
 
-NOTE: Se o seu host estiver habilitado para IPv6, verifique se ele está executando um servidor da Web. Se o seu host estiver habilitado para IPv4, verifique se ele está executando o DHCP além de um servidor da Web.
+NOTE: Se o seu host estiver habilitado para IPv6, certifique-se de que ele esteja executando um servidor web.  Se o seu host estiver habilitado para IPv4, certifique-se de que ele esteja executando o DHCP além de um servidor web.
 
-Este procedimento demonstra como atualizar o Cumulus Linux após o administrador ter inicializado no ONIE.
+Este procedimento demonstra como atualizar o Cumulus Linux depois que o administrador inicializou o sistema no ONIE.
 
 .Passos
 [role="tabbed-block"]
 ====
 .Cumulus Linux 4.4.3
 --
-. Baixe o arquivo de instalação Cumulus Linux para o diretório raiz do servidor web. Renomeie este arquivo para: `onie-installer`.
-. Conete o host à porta Ethernet de gerenciamento do switch usando um cabo Ethernet.
-. Ligue o interrutor.
+. Faça o download do arquivo de instalação do Cumulus Linux para o diretório raiz do servidor web.  Renomeie este arquivo para: `onie-installer` .
+. Conecte seu computador à porta Ethernet de gerenciamento do switch usando um cabo Ethernet.
+. Ligue o interruptor.
 +
-O switch faz o download do instalador de imagem ONIE e inicializa. Após a conclusão da instalação, o prompt de login do Cumulus Linux aparece na janela do terminal.
+O switch baixa o instalador de imagem ONIE e inicializa.  Após a conclusão da instalação, a tela de login do Cumulus Linux aparece na janela do terminal.
 
 +
 
@@ -45,10 +45,10 @@ NOTE: Cada vez que o Cumulus Linux é instalado, toda a estrutura do sistema de 
 ----
 cumulus@cumulus:mgmt:~$ *sudo reboot*
 ----
-. Pressione a tecla *ESC* na tela GNU GRUB para interromper o processo de inicialização normal, selecione *ONIE* e pressione *Enter*.
-. Na próxima tela, selecione *ONIE: Install os*.
-. O processo de descoberta do instalador ONIE é executado procurando a instalação automática. Pressione *Enter* para interromper temporariamente o processo.
-. Quando o processo de descoberta for interrompido:
+. Na tela do GNU GRUB, pressione a tecla *Esc* para interromper o processo normal de inicialização, selecione *ONIE* e pressione *Enter*.
+. Na tela seguinte, selecione *ONIE: Instalar SO*.
+. O processo de descoberta do instalador ONIE é executado em busca da instalação automática.  Pressione *Enter* para interromper temporariamente o processo.
+. Quando o processo de descoberta for concluído:
 +
 [listing, subs="+quotes"]
 ----
@@ -57,7 +57,7 @@ discover: installer mode detected.
 Stopping: discover...start-stop-daemon: warning: killing process 427:
 No such process done.
 ----
-. Se o serviço DHCP estiver em execução na rede, verifique se o endereço IP, a máscara de sub-rede e o gateway padrão estão corretamente atribuídos:
+. Se o serviço DHCP estiver em execução na sua rede, verifique se o endereço IP, a máscara de sub-rede e o gateway padrão estão atribuídos corretamente:
 +
 `ifconfig eth0`
 
@@ -89,8 +89,8 @@ default         10.233.204.1    0.0.0.0         UG    0      0      0   eth0
 ONIE:/ # *ifconfig eth0 10.233.204.71 netmask 255.255.254.0*
 ONIE:/ # *route add default gw 10.233.204.1*
 ----
-. Repita o passo 9 para verificar se as informações estáticas foram introduzidas corretamente.
-. Instale o Cumulus Linux:
+. Repita o passo 9 para verificar se as informações estáticas foram inseridas corretamente.
+. Instalar o Cumulus Linux:
 +
 [listing]
 ----
@@ -112,7 +112,7 @@ ONIE:/ # *route*
   ...
   ...
 ----
-. Após a conclusão da instalação, inicie sessão no interrutor.
+. Após a conclusão da instalação, faça login no switch.
 +
 [listing, subs="+quotes"]
 ----
@@ -124,7 +124,7 @@ Current password: *cumulus*
 New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
-. Verifique a versão Cumulus Linux: `net show version`
+. Verifique a versão do Cumulus Linux: `net show version`
 +
 [listing, subs="+quotes"]
 ----
@@ -139,11 +139,11 @@ DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3”*
 --
 .Cumulus Linux 5.x
 --
-. Baixe o arquivo de instalação Cumulus Linux para o diretório raiz do servidor web. Renomeie este arquivo para: `onie-installer`.
-. Conete o host à porta Ethernet de gerenciamento do switch usando um cabo Ethernet.
-. Ligue o interrutor.
+. Faça o download do arquivo de instalação do Cumulus Linux para o diretório raiz do servidor web.  Renomeie este arquivo para: `onie-installer` .
+. Conecte seu computador à porta Ethernet de gerenciamento do switch usando um cabo Ethernet.
+. Ligue o interruptor.
 +
-O switch faz o download do instalador de imagem ONIE e inicializa. Após a conclusão da instalação, o prompt de login do Cumulus Linux aparece na janela do terminal.
+O switch baixa o instalador de imagem ONIE e inicializa.  Após a conclusão da instalação, a tela de login do Cumulus Linux aparece na janela do terminal.
 
 +
 
@@ -171,7 +171,7 @@ GNU GRUB version 2.06-3
 |                                                                         |
 +-------------------------------------------------------------------------+
 ----
-. Pressione a tecla ESC na tela GNU GRUB para interromper o processo de inicialização normal, selecione ONIE e pressione Enter.
+. Na tela do GNU GRUB, pressione a tecla Esc para interromper o processo normal de inicialização, selecione ONIE e pressione Enter.
 +
 [listing]
 ----
@@ -194,10 +194,10 @@ GNU GRUB version 2.02
 +-------------------------------------------------------------------------+
 ----
 +
-Selecione ONIE: *Instalar os.*
+Selecione ONIE: *Instalar SO.*
 
-. O processo de descoberta do instalador ONIE é executado procurando a instalação automática. Pressione *Enter* para interromper temporariamente o processo.
-. Quando o processo de descoberta for interrompido:
+. O processo de descoberta do instalador ONIE é executado em busca da instalação automática.  Pressione *Enter* para interromper temporariamente o processo.
+. Quando o processo de descoberta for concluído:
 +
 [listing, subs="+quotes"]
 ----
@@ -244,7 +244,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         10.228.136.1    0.0.0.0         UG    0      0      0   eth0
 10.228.136.1    *               255.255.248.0   U     0      0      0   eth0
 ----
-. Instale o Cumulus Linux 5,4:
+. Instale o Cumulus Linux 5.4:
 +
 `# onie-nos-install http://<web-server>/<path>/cumulus-linux-5.4-mlx-amd64.bin`
 
@@ -264,7 +264,7 @@ ONIE:/ # *route*
   ...
   ...
 ----
-. Após a conclusão da instalação, inicie sessão no interrutor.
+. Após a conclusão da instalação, faça login no switch.
 +
 [listing, subs="+quotes"]
 ----
@@ -276,7 +276,7 @@ Current password: *cumulus*
 New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
-. Verifique a versão Cumulus Linux: `nv show system`
+. Verifique a versão do Cumulus Linux: `nv show system`
 +
 [listing, subs="+quotes"]
 ----
@@ -288,7 +288,7 @@ build               Cumulus Linux 5.4.0  system build version
 uptime              6 days, 13:37:36     system uptime
 timezone            Etc/UTC              system time zone
 ----
-. Crie um novo usuário e adicione esse usuário ao `sudo` grupo. Este usuário só se torna efetivo após a sessão console/SSH ser reiniciada.
+. Crie um novo usuário e adicione-o ao `sudo` grupo.  Este usuário só entra em vigor após a reinicialização da sessão de console/SSH.
 +
 `sudo adduser --ingroup netedit admin`
 
@@ -333,7 +333,7 @@ http://www.cumulusnetworks.com/support
 The registered trademark Linux (R) is used pursuant to a sublicense from LMI, the exclusive licensee of Linus Torvalds, owner of the mark on a world-wide basis.
 admin@sw1:mgmt:~$
 ----
-. Adicione grupos de usuários adicionais para que o usuário admin acesse `nv` comandos:
+. Adicione grupos de usuários adicionais para o usuário administrador acessar. `nv` comandos:
 +
 [listing, subs="+quotes"]
 ----
@@ -344,11 +344,11 @@ cumulus@cumulus:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Consulte https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Contas de usuário do NVIDIA"^] para obter mais informações.
+Ver https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Contas de usuário NVIDIA"^] para mais informações.
 
 
 
 --
 ====
-.O que se segue?
+.O que vem a seguir?
 Após instalar o Cumulus Linux no modo ONIE, você podelink:install-rcf-sn2100-cluster.html["Instale o script do Arquivo de Configuração de Referência (RCF)."] .
