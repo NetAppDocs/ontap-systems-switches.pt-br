@@ -694,4 +694,4 @@ cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=EN
 
 
 .O que vem a seguir?
-link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."].
+Após verificar sua configuração SSH, você pode link:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"].

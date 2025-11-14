@@ -219,4 +219,4 @@ NOTE: Se você não salvar a configuração nesta etapa, nenhuma das alteraçõe
 
 
 .O que vem a seguir?
-Depois de configurar seus switches, você link:prepare-install-cisco-nexus-3232c.html["Prepare-se para instalar o NX-OS e o RCF."].
+Depois de configurar seus switches, você pode link:prepare-install-cisco-nexus-3232c.html["Prepare-se para instalar o NX-OS e o RCF."].

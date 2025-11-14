@@ -54,4 +54,4 @@ C2                          cluster-network    10.10.1.104      NX3232C
 
 
 .O que vem a seguir?
-link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."].
+Após concluir a migração do seu switch, você poderálink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

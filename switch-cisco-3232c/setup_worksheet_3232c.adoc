@@ -590,4 +590,4 @@ ISL de 100GbE para switch A porta 32
 
 |===
 .O que vem a seguir
-Depois de concluir suas planilhas de cabeamento, você link:install-switch-3232c.html["instalar o interruptor"].
+Depois de concluir suas planilhas de cabeamento, você pode link:install-switch-3232c.html["instalar o interruptor"].

@@ -930,4 +930,4 @@ cluster::> system cluster-switch delete -device CL2
 
 
 .O que vem a seguir?
-link:cn5596-complete-migration.html["Conclua sua migração"].
+Depois de configurar as portas do seu switch, você podelink:cn5596-complete-migration.html["Conclua sua migração"] .

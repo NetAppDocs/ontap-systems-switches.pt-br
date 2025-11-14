@@ -68,4 +68,4 @@ O procedimento requer o uso de comandos ONTAP e comandos dos switches Cisco Nexu
 
 ====
 .O que vem a seguir?
-link:migrate-from-switchless-prepare-to-migrate.html["Prepare-se para a migração"].
+Após analisar os requisitos de migração, você podelink:migrate-from-switchless-prepare-to-migrate.html["Prepare-se para migrar seus switches."] .

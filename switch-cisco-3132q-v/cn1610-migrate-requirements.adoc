@@ -88,4 +88,4 @@ Olink:https://hwu.netapp.com/["Hardware Universe"^] Lista as portas de cluster r
 
 
 .O que vem a seguir?
-link:cn5596-prepare-to-migrate.html["Prepare-se para a migração"].
+Após analisar os requisitos de migração, você podelink:cn1610-prepare-to-migrate.html["Prepare-se para migrar seus switches."] .

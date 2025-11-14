@@ -134,3 +134,6 @@ Para manter a redundância, os dois cabos devem ser conectados a PDUs diferentes
 A porta de gerenciamento é a porta superior direita localizada no lado da PSU do switch. O cabo CAT6 para cada switch precisa ser roteado através do painel de passagem depois que os switches forem instalados para se conectar aos switches de gerenciamento ou à rede de gerenciamento.
 
 
+
+.O que vem a seguir
+Após instalar os switches no gabinete NetApp , você podelink:configure-install-initial.html["configurar o switch"] .

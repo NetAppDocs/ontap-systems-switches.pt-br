@@ -105,4 +105,4 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 
 
 .O que vem a seguir?
-link:cn1610-prepare-to-migrate.html["Prepare-se para a migração"].
+Após analisar os requisitos de migração, você podelink:cn1610-prepare-to-migrate.html["Prepare-se para migrar seus switches."] .

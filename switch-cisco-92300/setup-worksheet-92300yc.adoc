@@ -1366,4 +1366,4 @@ ISL para comutar a porta A 66
 
 |===
 .O que vem a seguir
-link:install-switch-92300yc.html["Instale o interruptor"].
+Depois de concluir suas planilhas de cabeamento, você pode link:install-switch-92300yc.html["instalar o interruptor"].

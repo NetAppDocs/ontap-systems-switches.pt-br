@@ -957,4 +957,4 @@ C2                          cluster-network     10.10.1.103      NX3132V
 
 
 .O que vem a seguir?
-link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."]
+Depois de substituir o interruptor, você podelink:../switch-cshm/config-overview.html["configurar monitoramento de integridade do switch"] .

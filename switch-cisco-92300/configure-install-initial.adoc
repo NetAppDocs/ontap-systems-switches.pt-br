@@ -162,4 +162,4 @@ Copy complete.
 
 
 .O que vem a seguir?
-link:install-nxos-overview.html["Prepare-se para instalar o software NX-OS e o RCF."].
+Depois de configurar seus switches, você pode link:install-nxos-overview.html["prepare-se para instalar o software NX-OS e RCF"].

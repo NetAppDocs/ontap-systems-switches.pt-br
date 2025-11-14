@@ -246,4 +246,4 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 
 
 .O que vem a seguir?
-link:cn1610-complete-migration.html["Conclua sua migração"].
+Após substituir o interruptor CN1610 CL1, você podelink:cn1610-complete-migration.html["Conclua sua migração"] .

@@ -689,4 +689,4 @@ Se alguma LIF do cluster não tiver retornado às suas portas originais, reverta
 
 
 .O que vem a seguir?
-Após instalar o software NX-OS, você link:install-upgrade-rcf-overview-3232c.html["instalar ou atualizar o arquivo de configuração de referência (RCF)"].
+Após instalar o software NX-OS, você pode link:install-upgrade-rcf-overview-3232c.html["instalar ou atualizar o arquivo de configuração de referência (RCF)"].

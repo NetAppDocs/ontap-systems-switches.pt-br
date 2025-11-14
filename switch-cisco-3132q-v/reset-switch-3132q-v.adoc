@@ -44,3 +44,6 @@ This command will reboot the system. (y/n)? [n] *y*
 O sistema é reinicializado e entra no assistente de configuração. Durante a inicialização, se você receber o prompt “Abortar provisionamento automático e continuar com a configuração normal? (sim/não)[n]”, você deve responder *sim* para prosseguir.
 
 
+
+.O que vem a seguir
+Após reiniciar o interruptor, você podelink:install-overview-cisco-3132qv.html["reconfigurar"] de acordo com suas necessidades.
