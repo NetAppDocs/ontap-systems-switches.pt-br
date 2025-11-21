@@ -694,6 +694,56 @@ Cluster
           node2_clus2   true
 ----
 ====
+. No switch sw2, desligue e reinicie todas as portas do cluster para acionar uma reversão automática de todas as LIFs do cluster que não estejam em suas portas de origem.
+
+
+[role="tabbed-block"]
+====
+.Cumulus 4.4.3
+--
+[listing, subs="+quotes"]
+----
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link down*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *net add interface swp1-14 link up*
+cumulus@sw2:mgmt:~$ *net pending*
+cumulus@sw2:mgmt:~$ *net commit*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+----
+--
+.Cumulus 5.x
+--
+[listing, subs="+quotes"]
+----
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state down*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cumulus@sw2:mgmt:~$ *nv set interface swp1-14 link state up*
+cumulus@sw2:mgmt:~$ *nv config apply*
+cumulus@sw2:mgmt:~$ *nv show interface*
+
+(After executing the link state up command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+----
+--
+====
+. [[passo 3]]Verifique se as LIFs do cluster retornaram às suas portas originais (isso pode levar um minuto):
++
+`network interface show -vserver Cluster`
+
++
+Se alguma das LIFs do cluster não tiver retornado à sua porta original, reverta-as manualmente. Você deve se conectar a cada console de gerenciamento de nó LIF ou SP/ BMC do nó local que possui o LIF:
+
++
+`network interface revert -vserver Cluster -lif *`
+
 . Verifique se todas as interfaces exibem `true` para `Is Home` :
 +
 `net interface show -vserver Cluster`
@@ -728,17 +778,14 @@ Cluster
 `network options switchless-cluster show`
 
 +
-.Mostrar exemplo
-[%collapsible]
-====
 O resultado incorreto no exemplo a seguir mostra que as configurações estão desativadas:
 
++
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network options switchless-cluster show*
+cluster1::*> network options switchless-cluster show
 Enable Switchless Cluster: *false*
 ----
-====
 . Verifique o status dos nós membros do cluster:
 +
 `cluster show`
@@ -825,7 +872,7 @@ RPC status:
 ----
 --
 ====
-. [[passo 6]] Altere o nível de privilégio de volta para administrador:
+. [[passo 8]]Altere o nível de privilégio de volta para administrador:
 +
 `set -privilege admin`
 

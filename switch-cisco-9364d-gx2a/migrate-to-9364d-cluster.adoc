@@ -626,12 +626,31 @@ Group Port-       Type     Protocol  Member Ports
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
+. No switch cs2, desligue e reinicie todas as portas do cluster para acionar uma reversão automática de todas as LIFs do cluster que não estejam em suas portas de origem.
++
+[listing, subs="+quotes"]
+----
+cs2> *enable*
+cs2# *configure*
+cs2(config)# *interface eth1/1-1/2*
+cs2(config-if-range)# *shutdown*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cs2(config-if-range)# *no shutdown*
+
+(After executing the no shutdown command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+
+cs2(config-if-range)# *exit*
+cs2(config)# *exit*
+cs2#
+----
 . Verifique se as LIFs do cluster retornaram às suas portas originais (isso pode levar um minuto):
 +
 `network interface show -vserver Cluster`
 
 +
-Se as LIFs do cluster não tiverem retornado à sua porta original, reverta-as manualmente:
+Se alguma das LIFs do cluster não tiver retornado à sua porta original, reverta-as manualmente. Você deve se conectar a cada console de gerenciamento de nó LIF ou SP/ BMC do nó local que possui o LIF:
 
 +
 `network interface revert -vserver Cluster -lif *`
@@ -708,7 +727,7 @@ RPC status:
 ----
 --
 ====
-. [[passo 5]]Se você desativou a criação automática de casos, reative-a invocando uma mensagem do AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
+. [[passo 6]]Se você desativou a criação automática de casos, reative-a invocando uma mensagem do AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 .O que vem a seguir?
