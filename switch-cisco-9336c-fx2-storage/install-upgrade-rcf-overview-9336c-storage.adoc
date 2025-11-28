@@ -16,7 +16,7 @@ Você instala o Arquivo de Configuração de Referência (RCF) após configurar 
 Consulte o artigo da Base de Conhecimento.link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração de um switch de interconexão Cisco mantendo a conectividade remota"^] Para obter mais informações ao instalar ou atualizar seu RCF.
 
 .Configurações RCF disponíveis
-A tabela a seguir descreve os RCFs disponíveis para diferentes configurações.  Selecione o RCF aplicável à sua configuração.
+A tabela a seguir descreve os RCFs disponíveis para diferentes configurações. Selecione o RCF aplicável à sua configuração. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^] para mais informações.
 
 Para obter detalhes específicos sobre o uso de portas e VLANs, consulte a seção de avisos e notas importantes no seu RCF.
 
@@ -71,6 +71,33 @@ Duas versões do RCF com diferentes alocações de portas 4x10GbE (breakout) e p
 Armazenar
  a| 
 Todas as portas estão configuradas para conexões de armazenamento NVMe de 100GbE.
+
+|===
+.RCFs disponíveis
+A tabela a seguir lista os RCFs disponíveis para os switches 9336C-FX2 e 9336C-FX2-T.  Selecione a versão RCF aplicável à sua configuração. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^] para mais informações.
+
+[cols="1"]
+|===
+| Nome da RCF 
+
+
+ a| 
+Cluster-HA-Breakout RCF 1._xx_
+
+
+
+ a| 
+Cluster-HA-Storage RCF 1._xx_
+
+
+
+ a| 
+Armazenamento RCF 1._xx_
+
+
+
+ a| 
+MultiCluster-HA RCF 1._xx_
 
 |===
 .Documentação sugerida

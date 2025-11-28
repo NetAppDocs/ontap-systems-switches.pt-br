@@ -25,6 +25,10 @@ Verifique as seguintes instalações e conexões:
 * As portas do cluster de nós ONTAP não estão conectadas.
 
 
+.Configuração RCF disponível
+* *ClusterStorageRCF* - Suporta um cluster particionado mais duas zonas de armazenamento nos switches (Cluster-Storage RCF 1._xx_).
+
+
 
 
 == Passo 1: Instale o RCF nos interruptores
