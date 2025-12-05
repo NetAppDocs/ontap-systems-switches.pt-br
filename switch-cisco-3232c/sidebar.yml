@@ -53,34 +53,6 @@ entries:
 - title: Migrar switches
   pdf-filename: Migrate_switches_3232C
   entries:
-  - title: Migração do switch CN1610
-    pdf-filename: CN1610_switch_migration
-    entries:
-    - title: Migrar do fluxo de trabalho dos switches CN1610
-      url: "/switch-cisco-3232c/cn1610-migrate-workflow.html"
-    - title: Requisitos de migração
-      url: "/switch-cisco-3232c/cn1610-migrate-to-3232c-overview.html"
-    - title: Prepare-se para a migração
-      url: "/switch-cisco-3232c/cn1610-prepare-to-migrate.html"
-    - title: Substitua o interruptor do cluster CL2
-      url: "/switch-cisco-3232c/cn1610-replace-CL2.html"
-    - title: Substitua o interruptor do cluster CL1
-      url: "/switch-cisco-3232c/cn1610-replace-CL1.html"
-    - title: Conclua sua migração
-      url: "/switch-cisco-3232c/cn1610-complete-migration.html"
-  - title: Migração do switch Nexus 5596
-    pdf-filename: CN5596_switch_migration
-    entries:
-    - title: Migrar do fluxo de trabalho dos switches Cisco Nexus 5596
-      url: "/switch-cisco-3232c/cn5596-migrate-workflow.html"
-    - title: Requisitos de migração
-      url: "/switch-cisco-3232c/cn5596-migrate-requirements.html"
-    - title: Prepare-se para a migração
-      url: "/switch-cisco-3232c/cn5596-prepare-to-migrate.html"
-    - title: Configure suas portas
-      url: "/switch-cisco-3232c/cn5596-configure-ports.html"
-    - title: Conclua sua migração
-      url: "/switch-cisco-3232c/cn5596-complete-migration.html"
   - title: Migrar de clusters sem switches de dois nós
     pdf-filename: Migrar_de_clusters_sem_switch
     entries:
