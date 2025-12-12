@@ -283,7 +283,7 @@ Cluster
 
 . [[passo 9]]Desconecte o cabo da porta de cluster e3a no nó 1 e, em seguida, conecte e3a à porta 1 no switch de cluster cs1, usando o cabeamento apropriado compatível com os switches 9336C-FX2.
 +
-A NetApp https://hwu.netapp.com["Hardware Universe"] Contém mais informações sobre cabeamento.
+A NetApp https://hwu.netapp.com["Hardware Universe"] Contém mais informações sobre cabeamento. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
 
 . Desconecte o cabo da porta do cluster e3a no nó 2 e, em seguida, conecte e3a à porta 2 no switch do cluster cs1, usando o cabeamento apropriado suportado pelos switches 9336C-FX2.
 . Habilite todas as portas voltadas para os nós no switch de cluster cs1.

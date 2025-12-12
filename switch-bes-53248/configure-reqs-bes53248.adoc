@@ -17,7 +17,7 @@ Para instalação e manutenção do switch BES-53248, certifique-se de revisar o
 
 == Suporte para EFOS e ONTAP
 
-Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe da NetApp"^] e https://mysupport.netapp.com/site/info/broadcom-cluster-switch["matriz de compatibilidade de switches Broadcom"^] Para informações sobre compatibilidade do EFOS e do ONTAP com os switches BES-53248.  O suporte para EFOS e ONTAP pode variar de acordo com o tipo específico de máquina do switch BES-53248.  Para obter detalhes sobre todos os tipos de máquinas de comutação BES-52348, consultelink:components-bes53248.html["Componentes e números de peça para os interruptores do cluster BES-53248"] .
+Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe da NetApp"^] e https://mysupport.netapp.com/site/info/broadcom-cluster-switch["matriz de compatibilidade de switches Broadcom"^] Para informações sobre compatibilidade do EFOS e do ONTAP com os switches BES-53248. O suporte para EFOS e ONTAP pode variar de acordo com o tipo específico de máquina do switch BES-53248. Para obter detalhes sobre todos os tipos de máquinas de comutação BES-52348, consultelink:components-bes53248.html["Componentes e números de peça para os interruptores do cluster BES-53248"] . Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"]^ para obter mais informações sobre os requisitos de instalação do switch.
 
 
 
@@ -63,7 +63,7 @@ Nós de cluster com portas 40/100GbE, com licenças, adicionados da direita para
 Portas de link entre switches (ISL) de cluster 100GbE, configuração básica
 
 |===
-Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obter mais informações sobre portas de switch.
+Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obter mais informações sobre portas de switch. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
 
 
 

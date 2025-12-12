@@ -32,7 +32,7 @@ Você precisa das seguintes informações de rede para todas as configurações 
 * A maioria dos controladores de sistema de armazenamento são gerenciados por meio da interface e0M, conectando-se à porta de serviço Ethernet (ícone de chave inglesa). Nos sistemas AFF A800 e AFF A700 , a interface e0M utiliza uma porta Ethernet dedicada.
 
 
-Consulte o https://hwu.netapp.com["Hardware Universe"^] Para obter as informações mais recentes.
+Consulte o https://hwu.netapp.com["Hardware Universe"^] Para obter as informações mais recentes. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
 
 .O que vem a seguir
 Após analisar os requisitos de configuração, você poderá confirmar sua solicitação. link:components-92300.html["componentes e números de peças"].

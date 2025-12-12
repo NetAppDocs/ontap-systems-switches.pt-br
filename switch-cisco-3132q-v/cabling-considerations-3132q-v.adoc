@@ -29,4 +29,4 @@ Ao conectar uma porta de switch a um controlador ONTAP usando portas NIC NVIDIA 
 *Save the changes:*
 (cs1)# *copy running-config startup-config*
 ----
-Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obter mais informações sobre portas de switch.
+Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obter mais informações sobre portas de switch. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.

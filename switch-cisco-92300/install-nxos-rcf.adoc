@@ -22,7 +22,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 * O `cluster1::*>` O prompt indica o nome do cluster.
 * As portas do cluster em cada nó são nomeadas. `e0a` e `e0b` .
 +
-Veja olink:https://hwu.netapp.com/Home/Index["_Universo do Hardware^_"] para as portas de cluster reais suportadas em sua plataforma.
+Veja olink:https://hwu.netapp.com/Home/Index["_Universo do Hardware^_"] para as portas de cluster reais suportadas em sua plataforma. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
 
 
 

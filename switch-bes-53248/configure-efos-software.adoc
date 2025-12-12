@@ -238,13 +238,12 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. Conclua a instalação.  Siga estes cinco passos para reconfigurar o switch:
+. Conclua a instalação. Siga estes quatro passos para reconfigurar o switch:
 +
 .. link:configure-licenses.html["Instalar licenças"]
 .. link:configure-install-rcf.html["Instale o arquivo RCF"]
 .. link:configure-ssh.html["Habilitar SSH"]
-.. link:CSHM_log_collection.html["Ativar coleta de logs"]
-.. link:CSHM_snmpv3.html["Configure o SNMPv3 para monitoramento."]
+.. link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."]
 
 
 . Repita os passos de 1 a 7 no interruptor do parceiro.
@@ -410,14 +409,13 @@ unit 	active 	    backup   current-active  next-active
 (cs2) #
 ----
 ====
-. Conclua a instalação.  O switch reinicia sem nenhuma configuração aplicada e retorna às configurações de fábrica.  Siga estes seis passos para reconfigurar o switch:
+. Conclua a instalação. O switch reinicia sem nenhuma configuração aplicada e retorna às configurações de fábrica. Siga estes cinco passos para reconfigurar o switch:
 +
 .. link:configure-install-initial.html["Configurar interruptor"]
 .. link:configure-licenses.html["Instalar licenças"]
 .. link:configure-install-rcf.html["Instale o arquivo RCF"]
 .. link:configure-ssh.html["Habilitar SSH"]
-.. link:CSHM_log_collection.html["Ativar coleta de logs"]
-.. link:CSHM_snmpv3.html["Configure o SNMPv3 para monitoramento."]
+.. link:../switch-cshm/config-overview.html["Configure o monitoramento de integridade do switch."]
 
 
 . Repita os passos de 1 a 8 no interruptor do parceiro.

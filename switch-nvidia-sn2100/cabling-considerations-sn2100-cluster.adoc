@@ -50,7 +50,7 @@ swp15-16
 Portas de link entre switches (ISL) de 100 GbE
 
 |===
-Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obter mais informações sobre portas de switch.
+Veja o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] Para obter mais informações sobre portas de switch.
 
 
 
@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Consulte o artigo da Base de Conhecimento. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["O switch SN2100 não consegue se conectar usando cabos de cobre 40/100GbE."^] Para obter mais detalhes.
+Consulte o artigo da Base de Conhecimento.link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["O switch SN2100 não consegue se conectar usando cabos de cobre 40/100GbE."^] Para obter mais detalhes.
 
 No Cumulus Linux 4.4.2, as conexões de cobre não são suportadas em switches SN2100 com placas de rede X1151A, placas de rede X1146A ou portas 100GbE integradas. Por exemplo:
 
@@ -200,24 +200,23 @@ No Cumulus Linux 4.4.2, as conexões de cobre não são suportadas em switches S
 
 
 
-== Adaptador QSA
+== Módulo QSA
 
-Quando um adaptador QSA é usado para conectar-se às portas de cluster 10GbE/25GbE em uma plataforma, a conexão pode não ser estabelecida.
+Ao usar adaptadores QSFP+ (40GbE) para SFP+ (10GbE) ou adaptadores QSFP28 (100GbE) para SFP28 (25GbE) (QSA), insira-os em portas de switch 40GbE/100GbE não breakout (swp3-swp14). Não insira o módulo QSA em uma porta configurada para breakout.
+
+Quando um módulo QSA é usado para conectar-se às portas de cluster 10GbE/25GbE em uma plataforma, a conexão pode não ser estabelecida.
 
 Para resolver esse problema, faça o seguinte:
 
-* Para 10GbE, defina manualmente a velocidade de link do swp1s0-3 para 10000 e desative a negociação automática.
-* Para 25GbE, defina manualmente a velocidade de link do swp2s0-3 para 25000 e desative a negociação automática.
+* Para 10GbE, defina manualmente a velocidade da conexão para 10000 e desative a negociação automática.
+* Para conexões de 25GbE, defina manualmente a velocidade da conexão para 25000 e desative a negociação automática.
 
-
-
-NOTE: Ao usar adaptadores QSA de 10GbE/25GbE, insira-os em portas 40GbE/100GbE que não sejam de breakout (swp3-swp14).  Não insira o adaptador QSA em uma porta configurada para breakout.
 
 
 
 == Configurar a velocidade da interface nas portas de breakout.
 
-Dependendo do transceptor na porta do switch, pode ser necessário definir a velocidade na interface do switch para uma velocidade fixa.  Se estiver usando portas breakout de 10GbE e 25GbE, verifique se a negociação automática está desativada e configure a velocidade da interface no switch.
+Dependendo do transceptor na porta do switch, pode ser necessário definir a velocidade na interface do switch para uma velocidade fixa. Se estiver usando portas breakout de 10GbE e 25GbE ou um módulo QSA, verifique se a negociação automática está desativada e configure a velocidade da interface no switch.
 
 [role="tabbed-block"]
 ====
@@ -332,5 +331,7 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 ----
 --
 ====
+Veja o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^]e o artigo da Base de Conhecimento link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações.
+
 .O que vem a seguir?
 Após analisar os requisitos de cabeamento e configuração, você podelink:install-cable-shelves-sn2100-cluster.html["Conecte os racks NS224 como armazenamento conectado por switch."] .

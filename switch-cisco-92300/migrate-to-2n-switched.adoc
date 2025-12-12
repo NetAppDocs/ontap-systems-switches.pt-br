@@ -285,9 +285,9 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Verifique se a reversão automática está ativada em todas as LIFs do cluster:
+. Desative a reversão automática em todas as LIFs do cluster:
 +
-`network interface show -vserver Cluster -fields auto-revert`
+`network interface modify -vserver Cluster -lif * -auto-revert false`
 
 +
 .Mostrar exemplo
@@ -295,16 +295,16 @@ Cluster
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 
           Logical
-Vserver   Interface     Auto-revert
+Vserver   Interface     auto-revert
 --------- ------------- ------------
 Cluster
-          node1_clus1   true
-          node1_clus2   true
-          node2_clus1   true
-          node2_clus2   true
+          node1_clus1   false
+          node1_clus2   false
+          node2_clus1   false
+          node2_clus2   false
 
 4 entries were displayed.
 ----
@@ -399,6 +399,10 @@ cs2(config-if-range)# *no shutdown*
 
 
 === Etapa 3: Verifique a configuração
+
+. Ative a reversão automática nos LIFs do cluster.
++
+`*network interface modify -vserver Cluster -lif * -auto-revert true*`
 
 . Verifique se todas as portas do cluster estão ativas:
 +

@@ -22,11 +22,10 @@ Certifique-se de ter o seguinte:
 ** Ambos os switches possuem conectividade de rede de gerenciamento.
 ** É possível acessar os switches do cluster através do console.
 ** As conexões nó a nó e switch a switch do Nexus 9336C-FX2 usam cabos Twinax ou de fibra.
-+
-Ver https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^] Para obter mais informações sobre cabeamento.
 
 
-
+* Ver link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^] Para obter mais informações sobre cabeamento.
+* Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
 * Os cabos Inter-Switch Link (ISL) são conectados às portas 1/35 e 1/36 em ambos os switches 9336C-FX2.
 * A personalização inicial dos dois switches 9336C-FX2 foi concluída, de modo que:
 +

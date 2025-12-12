@@ -38,7 +38,7 @@ Analise os seguintes requisitos para o ambiente de cluster.
 ** É possível acessar os switches do cluster através do console.
 ** As conexões entre nós e entre switches do BES-53248 utilizam cabos Twinax ou de fibra óptica.
 +
-O https://hwu.netapp.com/Home/Index["_Universo de Hardware da NetApp_"^] Contém informações sobre compatibilidade com ONTAP , firmware EFOS suportado e cabeamento para switches BES-53248.
+O link:https://hwu.netapp.com/Home/Index["_Universo de Hardware da NetApp_"^] Contém informações sobre compatibilidade com ONTAP , firmware EFOS suportado e cabeamento para switches BES-53248. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
 
 
 
