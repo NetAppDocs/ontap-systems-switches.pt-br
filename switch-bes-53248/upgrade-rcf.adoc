@@ -445,7 +445,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 . Observe o seguinte:
 +
-.. Caso licenças de porta adicionais tenham sido instaladas no switch, você deverá modificar o RCF para configurar as portas licenciadas adicionais. Verlink:configure-licenses.html#activate-newly-licensed-ports["Ativar portas recém-licenciadas"] para mais detalhes.
+.. Caso licenças de porta adicionais tenham sido instaladas no switch, você deverá modificar o RCF para configurar as portas licenciadas adicionais. Ver link:configure-licenses.html#activate-newly-licensed-ports["Ativar portas recém-licenciadas"] Para mais detalhes. No entanto, quando você atualiza para RCF 1.12 ou posterior, as modificações não são mais necessárias porque todas as interfaces agora estão pré-configuradas.
 .. Registre todas as personalizações feitas no RCF anterior e aplique-as ao novo RCF.  Por exemplo, configurar as velocidades das portas ou programar o modo FEC.
 
 
