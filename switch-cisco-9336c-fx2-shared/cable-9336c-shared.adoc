@@ -44,7 +44,7 @@ Se você deseja documentar as plataformas suportadas, deve preencher a planilha 
 
 A definição da porta de exemplo em cada par de switches é a seguinte:
 
-image:cabling_worksheet.jpg["Folha de exercícios de cabeamento"]
+image:cabling-worksheet.jpg["Folha de exercícios de cabeamento"]
 
 Onde:
 
@@ -60,7 +60,7 @@ Onde:
 
 Você pode usar a planilha de cabeamento em branco para documentar as plataformas que são suportadas como nós em um cluster.  A tabela "Conexões de Cluster Suportadas" do Hardware Universe define as portas de cluster usadas pela plataforma.
 
-image:blank_cabling_worksheet.jpg["Folha de exercícios de cabeamento em branco"]
+image:blank-cabling-worksheet.jpg["Folha de exercícios de cabeamento em branco"]
 
 Onde:
 
