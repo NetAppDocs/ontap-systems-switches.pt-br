@@ -167,28 +167,7 @@ Consulte o artigo da Base de Conhecimento.link:https://kb.netapp.com/on-prem/Swi
 +
 `*show file bootflash:write_erase.cfg*`
 
-. Emita o `write erase` comando para apagar a configuração salva atual:
-+
-`cs1# *write erase*`
-
-+
-`Warning: This command will erase the startup-configuration.`
-
-+
-`Do you wish to proceed anyway? (y/n)  [n] *y*`
-
-. Copie a configuração básica salva anteriormente para a configuração de inicialização.
-+
-`cs1# *copy bootflash:write_erase.cfg startup-config*.`
-
-. Reinicie o interruptor cs1.
-+
-`cs1# *reload*`
-
-+
-`This command will reboot the system. (y/n)?  [n] *y*`
-
-. Repita os passos 1 a 13 no switch cs2.
+. Repita os passos 1 a 10 no switch cs2.
 . Conecte as portas de cluster de todos os nós no cluster ONTAP aos switches cs1 e cs2.
 
 
