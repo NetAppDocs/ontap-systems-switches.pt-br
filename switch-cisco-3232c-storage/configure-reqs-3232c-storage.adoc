@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-3232c-storage/configure-reqs-3232c-storage.html 
+keywords: shared storage cluster switch 
+summary: A partir do ONTAP 9.9.1, você pode usar switches Cisco Nexus 3232C para combinar funcionalidades de armazenamento e cluster em um cenário de switch compartilhado. 
+---
+= Requisitos de configuração para switches de armazenamento Cisco Nexus 3232C
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalação e manutenção do switch Cisco Nexus 3232C, certifique-se de revisar os requisitos de configuração e de rede.
+
+
+
+== Requisitos de configuração
+
+Você precisa da quantidade e do tipo adequados de cabos e conectores para seus switches. Dependendo do tipo de switch que você estiver configurando inicialmente, você precisa conectar à porta de console do switch com o cabo de console incluso; você também precisa fornecer informações específicas da rede.
+
+
+
+== Requisitos de rede
+
+Você precisa das seguintes informações de rede para todas as configurações de switch:
+
+* Sub-rede IP para tráfego de rede de gerenciamento
+* Nomes de host e endereços IP para cada um dos controladores do sistema de armazenamento e todos os switches aplicáveis
+* A maioria dos controladores de sistema de armazenamento são gerenciados por meio da interface e0M, conectando-se à porta de serviço Ethernet (ícone de chave inglesa). Nos sistemas AFF A800 e AFF A700 , a interface e0M utiliza uma porta Ethernet dedicada.
+
+
+Consulte o https://hwu.netapp.com["Hardware Universe"^] Para obter as informações mais recentes. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
+
+.O que vem a seguir
+Após confirmar seus requisitos de configuração, você pode revisar o link:required-documentation-3232c-storage.html["documentação necessária"].

@@ -1,0 +1,136 @@
+---
+permalink: switch-cisco-3232c-storage/required-documentation-3232c-storage.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Para instalação e manutenção do switch Cisco Nexus 3232C, certifique-se de consultar toda a documentação recomendada. 
+---
+= Requisitos de documentação para switches de armazenamento Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalação e manutenção do switch Cisco Nexus 3232C, certifique-se de consultar toda a documentação recomendada.
+
+
+
+== Documentação do Switch
+
+Para configurar os switches Cisco Nexus 3232C, você precisa da seguinte documentação: https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Suporte para switches Cisco Nexus série 3000"^] página.
+
+[cols="1,2"]
+|===
+| Título do documento | Descrição 
+
+
+ a| 
+_Guia de Instalação de Hardware da Série Nexus 3000_
+ a| 
+Fornece informações detalhadas sobre os requisitos do local, detalhes do hardware do switch e opções de instalação.
+
+
+
+ a| 
+_Guias de Configuração de Software para Switches Cisco Nexus Série 3000_ (escolha o guia correspondente à versão do NX-OS instalada em seus switches)
+ a| 
+Fornece as informações iniciais de configuração do switch necessárias antes de configurá-lo para operação com ONTAP .
+
+
+
+ a| 
+Guia de atualização e downgrade do software NX-OS da série Cisco Nexus 3000 (escolha o guia correspondente à versão do NX-OS instalada em seus switches)
+ a| 
+Fornece informações sobre como fazer o downgrade do software do switch para uma versão compatível com ONTAP , se necessário.
+
+
+
+ a| 
+_Índice principal de referência de comandos do Cisco Nexus 3000 Series NX-OS_
+ a| 
+Fornece links para as diversas referências de comandos disponibilizadas pela Cisco.
+
+
+
+ a| 
+_Referência de MIBs do Cisco Nexus 3000_
+ a| 
+Descreve os arquivos da Base de Informações de Gerenciamento (MIB) para os switches Nexus 3000.
+
+
+
+ a| 
+_Referência de mensagens do sistema NX-OS da série Nexus 3000_
+ a| 
+Descreve as mensagens do sistema para switches da série Cisco Nexus 3000, incluindo as informativas e outras que podem ajudar a diagnosticar problemas com links, hardware interno ou software do sistema.
+
+
+
+ a| 
+Notas de versão do NX-OS para a série Cisco Nexus 3000 (selecione as notas referentes à versão do NX-OS instalada em seus switches)
+ a| 
+Descreve as funcionalidades, os erros e as limitações da série Cisco Nexus 3000.
+
+
+
+ a| 
+Informações regulamentares, de conformidade e de segurança para os Cisco Nexus 6000, Cisco Nexus série 5000, Cisco Nexus série 3000 e Cisco Nexus série 2000.
+ a| 
+Fornece informações sobre conformidade com agências internacionais, segurança e regulamentações para os switches da série Nexus 3000.
+
+|===
+
+
+== Documentação dos sistemas ONTAP
+
+Para configurar um sistema ONTAP , você precisa dos seguintes documentos para a sua versão do sistema operacional. https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
+
+[cols="1,2"]
+|===
+| Nome | Descrição 
+
+
+ a| 
+Instruções de instalação e configuração específicas do controlador
+ a| 
+Descreve como instalar o hardware da NetApp .
+
+
+
+ a| 
+Documentação do ONTAP
+ a| 
+Fornece informações detalhadas sobre todos os aspectos das versões do ONTAP .
+
+
+
+ a| 
+https://hwu.netapp.com["Hardware Universe"^]
+ a| 
+Fornece informações sobre configuração e compatibilidade de hardware da NetApp .
+
+|===
+
+
+== Kit de trilhos e documentação do gabinete
+
+Para instalar um switch Cisco 3232C em um gabinete NetApp , consulte a seguinte documentação de hardware.
+
+[cols="1,2"]
+|===
+| Nome | Descrição 
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Gabinete de sistema 42U, guia profundo"^]
+ a| 
+Descreve as FRUs (Unidades Substituíveis em Campo) associadas ao gabinete do sistema 42U e fornece instruções de manutenção e substituição de FRUs.
+
+
+
+ a| 
+link:install-cisco-nexus-3232c-storage.html["Instale um switch Cisco Nexus 3232C em um gabinete NetApp ."^]
+ a| 
+Este manual descreve como instalar um switch Cisco Nexus 3232C em um gabinete NetApp de quatro postes.
+
+|===

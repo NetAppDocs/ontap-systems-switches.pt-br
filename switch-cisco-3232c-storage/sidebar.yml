@@ -1,0 +1,45 @@
+---
+section: switch-cisco-3232c-storage
+title: Cisco Nexus 3232C
+entries:
+- title: Começar
+  pdf-filename: Overview_3232C_storage
+  entries:
+  - title: Início rápido
+    url: "/switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
+  - title: Requisitos de configuração
+    url: "/switch-cisco-3232c-storage/configure-reqs-3232c-storage.html"
+  - title: Documentação necessária
+    url: "/switch-cisco-3232c-storage/required-documentation-3232c-storage.html"
+  - title: Requisitos do Smart Call Home
+    url: "/switch-cisco-3232c-storage/smart-call-home-3232c-storage.html"
+- title: Instalar hardware
+  pdf-filename: Install_hardware_3232C_storage
+  entries:
+  - title: Fluxo de trabalho de instalação de hardware
+    url: "/switch-cisco-3232c-storage/install-hardware-workflow.html"
+  - title: Instale o interruptor
+    url: "/switch-cisco-3232c-storage/install-switch-3232c-storage.html"
+  - title: Instalar switch em rack NetApp
+    url: "/switch-cisco-3232c-storage/install-cisco-nexus-3232c-storage.html"
+- title: Configurar software
+  pdf-filename: Configure_software_3232C_storage
+  entries:
+  - title: fluxo de trabalho de instalação de software
+    url: "/switch-cisco-3232c-storage/configure-software-overview-3232c-storage.html"
+  - title: Configure o interruptor
+    url: "/switch-cisco-3232c-storage/setup-switch-3232c-storage.html"
+  - title: Prepare-se para instalar o software NX-OS e o RCF.
+    url: "/switch-cisco-3232c-storage/prepare-install-cisco-nexus-3232c-storage.html"
+  - title: Instale o software NX-OS.
+    url: "/switch-cisco-3232c-storage/install-nx-os-software-3232c-storage.html"
+  - title: Instale o RCF
+    url: "/switch-cisco-3232c-storage/install-rcf-software-3232c-storage.html"
+  - title: Verifique a configuração SSH
+    url: "/switch-cisco-3232c-storage/configure-ssh-keys.html"
+  - title: Restaure as configurações de fábrica do switch.
+    url: "/switch-cisco-3232c-storage/reset-switch-3232c-storage.html"
+- title: Substitua um switch de armazenamento 3232C
+  url: "/switch-cisco-3232c-storage/replace-storage-switch.html"
+- title: Atualizar um switch de armazenamento 3232C
+  url: "/switch-cisco-3232c-storage/upgrade-3232c-storage-switches.html"

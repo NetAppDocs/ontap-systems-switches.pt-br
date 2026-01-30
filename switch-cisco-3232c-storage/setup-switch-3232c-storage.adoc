@@ -1,0 +1,222 @@
+---
+permalink: switch-cisco-3232c-storage/setup-switch-3232c-storage.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: Caso ainda não possua as informações de configuração e a documentação necessárias, você precisa reuni-las antes de configurar seu cluster e os switches da rede de gerenciamento. 
+---
+= Configurar o switch de armazenamento 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga este procedimento para instalar e configurar o switch Cisco Nexus 3232C.
+
+.Antes de começar
+* Acesso a um servidor HTTP, FTP ou TFTP no local de instalação para baixar as versões aplicáveis do NX-OS e do arquivo de configuração de referência (RCF).
+* Versão aplicável do NX-OS, baixada de https://software.cisco.com/download/home["Download do software Cisco"^] página.
+* Documentação necessária sobre a rede do cluster e os switches da rede de gerenciamento.
++
+Veja link:required-documentation-3232c-storage.html["Documentação necessária"] para mais informações.
+
+* Documentação do controlador e documentação do ONTAP necessárias.
++
+https://netapp.com/us/documenation/index.aspx["Documentação da NetApp"^]
+
+* Licenças aplicáveis, informações de rede e configuração, e cabos.
+* Planilhas de cabeamento concluídas.
+* Arquivos RCF aplicáveis ​​para rede de cluster e rede de gerenciamento da NetApp , baixados do site de suporte da NetApp em http://mysupport.netapp.com/["meusuporte.netapp.com"^] para os interruptores que você receber.  Todos os switches de rede de cluster e de gerenciamento da Cisco são entregues com a configuração padrão de fábrica da Cisco .  Esses switches também possuem a versão atual do software NX-OS, mas não têm os arquivos RCF carregados.
+
+
+.Passos
+. Instale os switches e controladores da rede de cluster e da rede de gerenciamento no rack.
++
+[cols="1,2"]
+|===
+| Se você estiver instalando seu... | Então... 
+
+
+ a| 
+Cisco Nexus 3232C em um gabinete de sistema NetApp
+ a| 
+Consulte o guia _Instalando um switch Cisco Nexus 3232C e um painel de passagem em um gabinete NetApp_ para obter instruções sobre como instalar o switch em um gabinete NetApp.
+
+
+
+ a| 
+Equipamentos em um rack de telecomunicações
+ a| 
+Consulte os procedimentos fornecidos nos guias de instalação de hardware do switch e nas instruções de instalação e configuração da NetApp .
+
+|===
+. Conecte os switches da rede do cluster e da rede de gerenciamento aos controladores usando as planilhas de cabeamento preenchidas.
+. Ligue os switches e controladores da rede do cluster e da rede de gerenciamento.
+. Realize uma configuração inicial dos switches de rede do cluster.
++
+Ao ligar o switch pela primeira vez, responda às seguintes perguntas de configuração inicial, conforme necessário.  A política de segurança do seu site define as respostas e os serviços a serem ativados.
+
++
+[cols="1,2"]
+|===
+| Incitar | Resposta 
+
+
+ a| 
+Cancelar o provisionamento automático e continuar com a configuração normal?  (sim/não)
+ a| 
+Responda com *sim*.  A opção padrão é não.
+
+
+
+ a| 
+Deseja implementar um padrão de senhas seguras?  (sim/não)
+ a| 
+Responda com *sim*.  A opção padrão é sim.
+
+
+
+ a| 
+Digite a senha de administrador.
+ a| 
+A senha padrão é "`admin`"; você deve criar uma nova senha forte.  Uma senha fraca pode ser rejeitada.
+
+
+
+ a| 
+Deseja acessar a caixa de diálogo de configuração básica?  (sim/não)
+ a| 
+Responda com *sim* na configuração inicial do switch.
+
+
+
+ a| 
+Criar outra conta de login?  (sim/não)
+ a| 
+Sua resposta depende das políticas do seu site em relação a administradores alternativos.  A opção padrão é *não*.
+
+
+
+ a| 
+Configurar string de comunidade SNMP somente leitura?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+Configurar string de comunidade SNMP de leitura e gravação?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+Digite o nome do interruptor.
+ a| 
+O nome do interruptor está limitado a 63 caracteres alfanuméricos.
+
+
+
+ a| 
+Continuar com a configuração de gerenciamento fora de banda (mgmt0)?  (sim/não)
+ a| 
+Responda com *sim* (a opção padrão) quando solicitado.  No prompt "mgmt0 IPv4 address:", digite seu endereço IP: ip_address.
+
+
+
+ a| 
+Configurar o gateway padrão?  (sim/não)
+ a| 
+Responda com *sim*.  No prompt "Endereço IPv4 do gateway padrão:", insira o seu gateway padrão.
+
+
+
+ a| 
+Configurar opções avançadas de IP?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+Habilitar o serviço Telnet?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+O serviço SSH está ativado?  (sim/não)
+ a| 
+Responda com *sim*.  A opção padrão é sim.
+
+
+NOTE: Recomenda-se o uso de SSH ao utilizar o Ethernet Switch Health Monitor (CSHM) devido aos seus recursos de coleta de logs.  O SSHv2 também é recomendado para maior segurança.
+
+
+
+ a| 
+Digite o tipo de chave SSH que deseja gerar (dsa/rsa/rsa1).
+ a| 
+O padrão é *rsa*.
+
+
+
+ a| 
+Insira o número de bits da chave (1024-2048).
+ a| 
+Insira o número de bits da chave entre 1024 e 2048.
+
+
+
+ a| 
+Configurar o servidor NTP?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+Configurar a camada de interface padrão (L3/L2):
+ a| 
+Responda com *L2*.  O padrão é L2.
+
+
+
+ a| 
+Configurar o estado padrão da interface da porta do switch (desligado/não desligado):
+ a| 
+Responda com *noshut*.  O padrão é noshut.
+
+
+
+ a| 
+Configurar perfil do sistema CoPP (estrito/moderado/tolerante/denso):
+ a| 
+Responda com *rigoroso*.  O padrão é estrito.
+
+
+
+ a| 
+Deseja editar a configuração?  (sim/não)
+ a| 
+Você deverá ver a nova configuração neste ponto.  Revise e faça as alterações necessárias na configuração que você acabou de inserir.  Responda com *não* quando solicitado, caso esteja satisfeito com a configuração.  Responda com *sim* se desejar editar suas configurações.
+
+
+
+ a| 
+Usar esta configuração e salvá-la?  (sim/não)
+ a| 
+Responda com *sim* para salvar a configuração.  Isso atualiza automaticamente as imagens do Kickstart e do sistema.
+
+
+NOTE: Se você não salvar a configuração nesta etapa, nenhuma das alterações terá efeito na próxima vez que você reiniciar o switch.
+
+|===
+. Verifique as opções de configuração selecionadas na tela que aparece ao final da configuração e certifique-se de salvar as alterações.
+. Verifique a versão nos switches da rede do cluster e, se necessário, baixe a versão do software compatível com a NetApp para os switches na página  https://software.cisco.com/download/home["Download do software Cisco"^].
+
+
+.O que vem a seguir?
+Depois de configurar seus switches, você pode link:prepare-install-cisco-nexus-3232c-storage.html["Prepare-se para instalar o NX-OS e o RCF."].

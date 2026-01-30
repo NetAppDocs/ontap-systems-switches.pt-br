@@ -12,26 +12,36 @@ indexpage:
     links:
     - title: Cisco Nexus 9336C-FX2 e 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
+    - title: Cisco Nexus 3232C
+      url: "../switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
     - title: NVIDIA SN2100
       url: "../switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
   - title: Instalar e configurar switches de armazenamento
     links:
     - title: Instalar hardware de switch 9336C-FX2 e 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/install-hardware-workflow.html"
+    - title: Instale o hardware do switch 3232C
+      url: "../switch-cisco-3232c-storage/install-hardware-workflow.html"
     - title: Instalar hardware do switch NVIDIA SN2100
       url: "../switch-nvidia-sn2100-storage/install-hardware-workflow.html"
     - title: Configurar o software do switch 9336C-FX2 e 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
+    - title: Configurar o software do switch 3232C
+      url: "../switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
     - title: Configurar o software do switch NVIDIA SN2100
       url: "../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
   - title: Manter switches de armazenamento
     links:
     - title: Substituir interruptor 9336C-FX2 e 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"
+    - title: Substituir o switch 3232C
+      url: "../switch-cisco-3232c-storage/replace-storage-switch.html"
     - title: Substituir switch NVIDIA SN2100
       url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
     - title: Redefinir os switches 9336C-FX2 e 9336C-FX2-T para os padrões de fábrica
       url: "../switch-cisco-9336c-fx2-storage/reset-switch-9336c-storage.html"
+    - title: Redefinir o switch 3232C para os padrões de fábrica
+      url: "../switch-cisco-3232c-storage/reset-switch-3232c-storage.html"
     - title: Redefinir o switch NVIDIA SN2100 para os padrões de fábrica
       url: "../switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"
   - title: Documentação relacionada

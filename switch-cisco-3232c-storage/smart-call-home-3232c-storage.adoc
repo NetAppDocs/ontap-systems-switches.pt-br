@@ -1,0 +1,29 @@
+---
+permalink: switch-cisco-3232c-storage/smart-call-home-3232c-storage.html 
+sidebar: sidebar 
+keywords: cisco 3232c, storage switches 
+summary: Você pode usar switches Cisco Nexus 3232C como switches em seu cluster AFF ou FAS. 
+---
+= Requisitos do Smart Call Home
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para usar o Smart Call Home, você deve configurar um switch de rede de cluster para se comunicar por e-mail com o sistema Smart Call Home. Além disso, você pode opcionalmente configurar seu switch de rede de cluster para aproveitar o recurso de suporte Smart Call Home incorporado da Cisco.
+
+O Smart Call Home monitora os componentes de hardware e software na sua rede. Quando ocorre uma configuração crítica do sistema, ele gera uma notificação por e-mail e envia um alerta para todos os destinatários configurados no seu perfil de destino.
+
+O Smart Call Home monitora os componentes de hardware e software na sua rede. Quando ocorre uma configuração crítica do sistema, ele gera uma notificação por e-mail e envia um alerta para todos os destinatários configurados no seu perfil de destino.
+
+Antes de usar o Smart Call Home, esteja ciente dos seguintes requisitos:
+
+* É necessário ter um servidor de e-mail instalado.
+* O switch deve ter conectividade IP com o servidor de e-mail.
+* É necessário configurar o nome do contato (contato do servidor SNMP), o número de telefone e o endereço.  Isso é necessário para determinar a origem das mensagens recebidas.
+* Um ID CCO deve estar associado a um contrato de serviço Cisco SMARTnet apropriado para sua empresa.
+* O serviço Cisco SMARTnet deve estar instalado para que o dispositivo seja registrado.
+
+
+O http://www.cisco.com/c/en/us/products/switches/index.html["Site de suporte da Cisco"^] Contém informações sobre os comandos para configurar o Smart Call Home.
