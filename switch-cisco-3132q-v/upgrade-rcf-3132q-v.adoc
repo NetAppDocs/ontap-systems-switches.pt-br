@@ -274,7 +274,7 @@ Certifique-se de configurar o seguinte:
 . Salve os detalhes básicos de configuração em `write_erase.cfg` arquivo no bootflash.
 +
 
-NOTE: Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e executar a configuração básica. Você deve estar conectado à porta serial do console do switch para configurá-lo novamente.
+NOTE: Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e realizar a configuração básica.
 
 +
 `cs2# show run | section "switchname" > bootflash:write_erase.cfg`
@@ -303,9 +303,6 @@ NOTE: Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações 
 
 +
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
-
-+
-Consulte o artigo da Base de Conhecimento. https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração de um switch de interconexão Cisco mantendo a conectividade remota"^] Para obter mais detalhes.
 
 . Verifique se o `write_erase.cfg` O arquivo foi preenchido conforme o esperado:
 +
