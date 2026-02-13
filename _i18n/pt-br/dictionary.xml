@@ -5763,4 +5763,9 @@
   <block id="6754d52ab3aba634c1d3868f6ff1173b" category="paragraph"><block ref="4b5c6435698a249ed2ca19ecf903991f" prefix="" category="inline-code"></block></block>
   <block id="eff487118c44b434c2174aab2b3a4e1c" category="list-text">Execute uma reinicialização do switch cs2.</block>
   <block id="fb14b077ecd3df929fa7f98e0e505f8c" category="admonition">Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e realizar a configuração básica.</block>
+  <block id="ece376b7acc25f86ff2e09f80d38755c" category="paragraph">Certifique-se de fazer o seguinte:</block>
+  <block id="9a9e15bbbf81b37074eb3677448baf70" category="list-text">Execute o <block ref="856e0a903a301d6d44f55e6eb5b82200" prefix=" " category="inline-code"></block> comando no switch para revisar o impacto da instalação ou atualização da nova imagem do software NX-OS. Ele verifica a integridade da imagem, verifica se são necessárias reinicializações, avalia a compatibilidade do hardware e confirma se há espaço suficiente.</block>
+  <block id="1ce0015d97074c710fb18a71c0facacd" category="list-text">Revise as notas de lançamento da versão de software NX-OS de destino para verificar se há algum requisito específico.</block>
+  <block id="07e8467e284d5ad4e9a20246ae001803" category="list-text">Verifique se você possui um backup atual da configuração do switch.</block>
+  <block id="0280c61cdd286c198feabf97c27f4988" category="list-text">Verifique se você possui um cluster totalmente funcional (sem erros nos logs ou problemas semelhantes).</block>
 </blocks>
