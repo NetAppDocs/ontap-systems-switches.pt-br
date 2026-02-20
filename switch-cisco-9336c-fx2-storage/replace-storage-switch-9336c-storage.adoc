@@ -19,10 +19,6 @@ Antes de instalar o software NX-OS e os RCFs nos switches de armazenamento Cisco
 * Seu sistema pode suportar switches de armazenamento Cisco Nexus 9336C-FX2 e 9336C-FX2-T.
 * Você consultou a tabela de compatibilidade de switches na página de switches Ethernet da Cisco para obter informações sobre as versões suportadas do ONTAP, NX-OS e RCF.
 * Você consultou os guias de software e atualização apropriados disponíveis no site da Cisco .
-
-
-Switches Cisco Nexus série 3000:
-
 * Você baixou os RCFs aplicáveis.
 * A configuração de rede existente apresenta as seguintes características:
 +
@@ -41,14 +37,14 @@ Switches Cisco Nexus série 3000:
 
 
 .Sobre esta tarefa
-Este procedimento substitui o segundo switch de armazenamento Nexus 9336C-FX2 (S2) pelo novo switch 9336C-FX (NS2).  Os dois nós são o nó 1 e o nó 2.
+Este procedimento substitui o segundo switch de storage Nexus 9336C-FX2 s2 pelo novo switch 9336C-FX ns2. Os dois nós são cluster1-01 e cluster1-02.
 
 Passos para concluir:
 
-* Confirme se o interruptor a ser substituído é o S2.
-* Desconecte os cabos do switch S2.
-* Reconecte os cabos ao switch NS2.
-* Verifique todas as configurações do dispositivo no switch NS2.
+* Confirme se o switch a ser substituído é s2.
+* Desconecte os cabos do switch s2.
+* Reconecte os cabos ao switch ns2.
+* Verifique todas as configurações do dispositivo no switch ns2.
 +
 
 NOTE: Pode haver dependências entre a sintaxe de comandos nas versões RCF e NX-OS.
@@ -58,12 +54,12 @@ NOTE: Pode haver dependências entre a sintaxe de comandos nas versões RCF e NX
 .Passos
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
-`system node autosupport invoke -node * -type all - message MAINT=xh`
+`system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 _x_ representa a duração da janela de manutenção em horas.
 
-. Verifique o estado de integridade das portas do nó de armazenamento para garantir que haja conexão com o switch de armazenamento S1:
+. Verifique o status de integridade das portas do nó de storage para garantir que há conexão com o switch de storage s1:
 +
 `storage port show -port-type ENET`
 
@@ -77,20 +73,17 @@ storage::*> storage port show -port-type ENET
                                   Speed                     VLAN
 Node           Port Type  Mode    (Gb/s) State    Status      ID
 -------------- ---- ----- ------- ------ -------- --------- ----
-node1
-               e3a  ENET  storage 100    enabled  online      30
+cluster1-01
+               e5a  ENET  storage 100    enabled  online      30
                e3b  ENET  storage   0    enabled  offline     30
-               e7a  ENET  storage   0    enabled  offline     30
-               e7b  ENET  storage   0    enabled  offline     30
-node2
-               e3a  ENET  storage 100    enabled  online      30
+cluster1-02
+               e5a  ENET  storage 100    enabled  online      30
                e3b  ENET  storage   0    enabled  offline     30
-               e7a  ENET  storage   0    enabled  offline     30
-               e7b  ENET  storage   0    enabled  offline     30
-storage::*>
+.
+.
 ----
 ====
-. Verifique se o switch de armazenamento S1 está disponível:
+. Verifique se o switch de storage s1 está disponível:
 +
 `network device-discovery show`
 
@@ -104,23 +97,24 @@ storage::*> network device-discovery show
 Node/      Local Discovered
 Protocol   Port	 Device (LLDP: ChassisID)  Interface  Platform
 --------   ----  -----------------------   ---------   ---------
-node1/cdp
-           e3a   S1                        Ethernet1/1 NX9336C
-           e4a   node2                     e4a         AFF-A700
-           e4e   node2                     e4e         AFF-A700
-node1/lldp
-           e3a   S1                        Ethernet1/1 -
-           e4a   node2                     e4a         -
-           e4e   node2                     e4e         -
-node2/cdp
-           e3a   S1                        Ethernet1/2 NX9336C
-           e4a   node1                     e4a         AFF-A700
-           e4e   node1                     e4e         AFF-A700
-node2/lldp
-           e3a   S1                        Ethernet1/2 -
-           e4a   node1                     e4a         -
-           e4e   node1                     e4e         -
-storage::*>
+cluster1-01/cdp
+           e5a   s1                        Ethernet1/1 NX9336C
+           e4a   cluster1-02               e4a         AFF-A700
+           e4e   cluster1-02               e4e         AFF-A700
+cluster1-01/lldp
+           e5a   s1                        Ethernet1/1 -
+           e4a   cluster1-02               e4a         -
+           e4e   cluster1-02               e4e         -
+cluster1-02/cdp
+           e3b   s1                        Ethernet1/2 NX9336C
+           e4a   cluster1-01               e4a         AFF-A700
+           e4e   cluster1-01               e4e         AFF-A700
+cluster1-02/lldp
+           e3b   s1                        Ethernet1/2 -
+           e4a   cluster1-01               e4a         -
+           e4e   cluster1-01               e4e         -
+.
+.
 ----
 ====
 . Comande o espetáculo `lldp neighbors` Execute o comando no switch em funcionamento para confirmar que você consegue visualizar ambos os nós e todas as prateleiras:
@@ -138,15 +132,15 @@ Capability codes:
    (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
    (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
 Device ID        Local Intf   Hold-time    Capability    Port ID
-node1            Eth1/1       121          S             e3a
-node2            Eth1/2       121          S             e3a
+cluster1-01      Eth1/1       121          S             e5a
+cluster1-02      Eth1/2       121          S             e5a
 SHFGD2008000011  Eth1/5       121          S             e0a
 SHFGD2008000011  Eth1/6       120          S             e0a
 SHFGD2008000022  Eth1/7       120          S             e0a
 SHFGD2008000022  Eth1/8       120          S             e0a
 ----
 ====
-. Verifique as portas das prateleiras no sistema de armazenamento:
+. Verifique as portas das prateleiras de armazenamento no sistema de storage:
 +
 `storage shelf port show -fields remote-device,remote-port`
 
@@ -159,19 +153,20 @@ SHFGD2008000022  Eth1/8       120          S             e0a
 storage::*> storage shelf port show -fields remote-device,remote-port
 shelf   id  remote-port   remote-device
 -----   --  -----------   -------------
-3.20    0   Ethernet1/5   S1
+3.20    0   Ethernet1/5   s1
 3.20    1   -             -
-3.20    2   Ethernet1/6   S1
+3.20    2   Ethernet1/6   s1
 3.20    3   -             -
-3.30    0   Ethernet1/7   S1
+3.30    0   Ethernet1/7   s1
 3.20    1   -             -
-3.30    2   Ethernet1/8   S1
+3.30    2   Ethernet1/8   s1
 3.20    3   -             -
-storage::*>
+.
+.
 ----
 ====
-. Remova todos os cabos conectados ao switch de armazenamento S2.
-. Reconecte todos os cabos ao switch de substituição NS2.
+. Remova todos os cabos conectados ao switch de storage s2.
+. Reconecte todos os cabos ao switch de substituição ns2.
 . Verifique novamente o estado de integridade das portas do nó de armazenamento:
 +
 `storage port show -port-type ENET`
@@ -186,17 +181,18 @@ storage::*> storage port show -port-type ENET
                                     Speed                     VLAN
 Node             Port Type  Mode    (Gb/s) State    Status      ID
 ---------------- ---- ----- ------- ------ -------- --------- ----
-node1
-                 e3a  ENET  storage 100    enabled  online      30
+cluster1-01
+                 e5a  ENET  storage 100    enabled  online      30
                  e3b  ENET  storage   0    enabled  offline     30
                  e7a  ENET  storage   0    enabled  offline     30
                  e7b  ENET  storage   0    enabled  offline     30
-node2
-                 e3a  ENET  storage 100    enabled  online      30
+cluster1-02
+                 e5a  ENET  storage 100    enabled  online      30
                  e3b  ENET  storage   0    enabled  offline     30
                  e7a  ENET  storage   0    enabled  offline     30
                  e7b  ENET  storage   0    enabled  offline     30
-storage::*>
+.
+.
 ----
 ====
 . Verifique se ambos os interruptores estão disponíveis:
@@ -213,27 +209,28 @@ storage::*> network device-discovery show
 Node/     Local Discovered
 Protocol  Port  Device (LLDP: ChassisID)  Interface	  Platform
 --------  ----  -----------------------   ---------   ---------
-node1/cdp
-          e3a  S1                         Ethernet1/1 NX9336C
-          e4a  node2                      e4a         AFF-A700
-          e4e  node2                      e4e         AFF-A700
-          e7b   NS2                       Ethernet1/1 NX9336C
-node1/lldp
-          e3a  S1                         Ethernet1/1 -
-          e4a  node2                      e4a         -
-          e4e  node2                      e4e         -
-          e7b  NS2                        Ethernet1/1 -
-node2/cdp
-          e3a  S1                         Ethernet1/2 NX9336C
-          e4a  node1                      e4a         AFF-A700
-          e4e  node1                      e4e         AFF-A700
-          e7b  NS2                        Ethernet1/2 NX9336C
-node2/lldp
-          e3a  S1                         Ethernet1/2 -
-          e4a  node1                      e4a         -
-          e4e  node1                      e4e         -
-          e7b  NS2                        Ethernet1/2 -
-storage::*>
+cluster1-01/cdp
+          e3a  s1                         Ethernet1/1 NX9336C
+          e4a  cluster1-02                e4a         AFF-A700
+          e4e  cluster1-02                e4e         AFF-A700
+          e7b  ns2                       Ethernet1/1 NX9336C
+cluster1-01/lldp
+          e3a  s1                         Ethernet1/1 -
+          e4a  cluster1-02                e4a         -
+          e4e  cluster1-02                e4e         -
+          e7b  ns2                        Ethernet1/1 -
+cluster1-02/cdp
+          e3a  s1                         Ethernet1/2 NX9336C
+          e4a  cluster1-01                e4a         AFF-A700
+          e4e  cluster1-01                e4e         AFF-A700
+          e7b  ns2                        Ethernet1/2 NX9336C
+cluster1-02/lldp
+          e3a  s1                         Ethernet1/2 -
+          e4a  cluster1-01                e4a         -
+          e4e  cluster1-01                e4e         -
+          e7b  ns2                        Ethernet1/2 -
+.
+.
 ----
 ====
 . Verifique as portas das prateleiras no sistema de armazenamento:
@@ -249,14 +246,14 @@ storage::*>
 storage::*> storage shelf port show -fields remote-device,remote-port
 shelf   id    remote-port     remote-device
 -----   --    -----------     -------------
-3.20    0     Ethernet1/5     S1
-3.20    1     Ethernet1/5     NS2
-3.20    2     Ethernet1/6     S1
-3.20    3     Ethernet1/6     NS2
-3.30    0     Ethernet1/7     S1
-3.20    1     Ethernet1/7     NS2
-3.30    2     Ethernet1/8     S1
-3.20    3     Ethernet1/8     NS2
+3.20    0     Ethernet1/5     s1
+3.20    1     Ethernet1/5     ns2
+3.20    2     Ethernet1/6     s1
+3.20    3     Ethernet1/6     ns2
+3.30    0     Ethernet1/7     s1
+3.20    1     Ethernet1/7     ns2
+3.30    2     Ethernet1/8     s1
+3.20    3     Ethernet1/8     ns2
 storage::*>
 ----
 ====

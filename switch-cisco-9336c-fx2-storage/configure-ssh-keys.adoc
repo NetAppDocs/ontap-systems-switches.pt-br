@@ -11,7 +11,7 @@ summary: 'O SSH é um requisito ao usar o Cluster Switch Health Monitor (CSHM) e
 
 
 [role="lead"]
-Se você estiver usando o Monitor de Saúde do Switch Ethernet (CSHM) e os recursos de coleta de logs, verifique se o SSH e as chaves SSH estão habilitados nos switches do cluster.
+Se você estiver usando o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs, verifique se o SSH e as chaves SSH estão habilitados nos switches.
 
 .Passos
 . Verifique se o SSH está ativado:

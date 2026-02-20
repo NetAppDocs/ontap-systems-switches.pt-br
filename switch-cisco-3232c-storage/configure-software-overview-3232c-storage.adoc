@@ -21,7 +21,7 @@ Configurar o switch de armazenamento 3232C.
 [role="quick-margin-para"]
 O software Cisco NX-OS e os arquivos de configuração de referência (RCFs) devem ser instalados nos switches de armazenamento Cisco 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nx-os-software-3232c-storage.html["Instale o software NX-OS."]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nx-os-software-3232c-storage.html["Instale ou atualize o software NX-OS."]
 [role="quick-margin-para"]
 Faça o download, instale ou atualize o software NX-OS no switch de armazenamento Cisco 3232C.
 
@@ -29,10 +29,14 @@ Faça o download, instale ou atualize o software NX-OS no switch de armazenament
 [role="quick-margin-para"]
 Instale o RCF após configurar o switch de armazenamento Cisco 3232C pela primeira vez.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verifique a configuração SSH"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:upgrade-rcf-software-3232c-storage.html["Atualize o RCF"]
+[role="quick-margin-para"]
+Atualize sua versão existente do RCF conforme necessário.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:configure-ssh-keys.html["Verifique a configuração SSH"]
 [role="quick-margin-para"]
 Verifique se o SSH está habilitado nos switches para usar o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:reset-switch-3232c-storage.html["Restaure as configurações de fábrica do switch."]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sete"]link:reset-switch-3232c-storage.html["Restaure as configurações de fábrica do switch."]
 [role="quick-margin-para"]
 Apague as configurações do switch de armazenamento 3232C.

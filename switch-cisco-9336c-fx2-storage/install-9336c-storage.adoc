@@ -1,8 +1,8 @@
 ---
 permalink: switch-cisco-9336c-fx2-storage/install-9336c-storage.html 
 sidebar: sidebar 
-keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Caso ainda não possua as informações de configuração e a documentação necessárias, você precisa reuni-las antes de configurar seu cluster e os switches da rede de gerenciamento. 
+keywords: require, configuration, information, documentation, storage, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: Caso ainda não possua as informações de configuração e a documentação necessárias, você precisa reunir essas informações antes de configurar seus switches de rede de storage e gerenciamento. 
 ---
 = Instalar os switches de armazenamento 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
@@ -20,12 +20,15 @@ Certifique-se de ter o seguinte:
 * Versão aplicável do NX-OS, baixada de https://software.cisco.com/download/home["Download do software Cisco"^] página.
 * Licenças aplicáveis, informações de rede e configuração, e cabos.
 * Concluídolink:setup-worksheet-9336c-storage.html["Folhas de exercícios de cabeamento"] .
-* Os RCFs aplicáveis ​​para rede de cluster e rede de gerenciamento da NetApp foram baixados do site de suporte da NetApp em http://mysupport.netapp.com/["meusuporte.netapp.com"^] .  Todos os switches de rede de cluster e de gerenciamento da Cisco são entregues com a configuração padrão de fábrica da Cisco . Esses switches também têm a versão atual do software NX-OS, mas não têm os RCFs carregados.
+* RCFs aplicáveis da rede de storage e da rede de gerenciamento da NetApp baixados do site de suporte da NetApp em  http://mysupport.netapp.com/["meusuporte.netapp.com"^].
++
+Todos os switches de rede de storage e de gerenciamento da Cisco chegam com a configuração padrão de fábrica da Cisco. Esses switches também possuem a versão atual do software NX-OS, mas não têm os RCFs carregados.
+
 * Documentação necessária para o interruptor. Verlink:required-documentation-9336c-storage.html["Documentação necessária"] para mais informações.
 
 
 .Passos
-. Instale os switches e controladores da rede de cluster e da rede de gerenciamento no rack.
+. Instale no rack os switches de rede, switches de rede de gerenciamento e controladores.
 +
 [cols="1,2"]
 |===
@@ -45,8 +48,8 @@ Equipamentos em um rack de telecomunicações
 Consulte os procedimentos fornecidos nos guias de instalação de hardware do switch e nas instruções de instalação e configuração da NetApp .
 
 |===
-. Conecte os switches da rede do cluster e da rede de gerenciamento aos controladores usando as planilhas de cabeamento preenchidas.
-. Ligue os switches e controladores da rede do cluster e da rede de gerenciamento.
+. Conecte os switches de rede e de gerenciamento aos controladores usando as planilhas de cabeamento preenchidas.
+. Ligue a rede, os switches de rede de gerenciamento e os controladores.
 
 
 .O que vem a seguir?

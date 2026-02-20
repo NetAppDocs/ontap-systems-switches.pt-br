@@ -35,6 +35,20 @@ CAUTION: Antes de instalar uma nova versão de software do switch e os RCFs, voc
 
 == Etapa 1: Prepare-se para a atualização
 
+. Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+Onde _x_ representa a duração do período de manutenção em horas.
+
+. Altere o nível de privilégio para avançado, digitando *y* quando solicitado a continuar:
++
+`set -privilege advanced`
+
++
+A mensagem avançada (*>) é exibida.
+
 . Exibir as portas do cluster em cada nó que estão conectadas aos switches do cluster:
 +
 `network device-discovery show`

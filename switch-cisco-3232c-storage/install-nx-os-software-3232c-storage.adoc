@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, nx-os software 
 summary: Você pode usar este procedimento para instalar o software NX-OS no switch de armazenamento Nexus 3232C. 
 ---
-= Instale o software NX-OS.
+= Instale ou atualize o software NX-OS.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,23 +13,25 @@ summary: Você pode usar este procedimento para instalar o software NX-OS no swi
 [role="lead"]
 Você pode usar este procedimento para instalar o software NX-OS no switch de armazenamento Nexus 3232C.
 
-
-
-== Requisitos de revisão
-
 .Antes de começar
-Verifique se você possui o seguinte: * Um backup atual da configuração do switch. * Um cluster totalmente funcional (sem erros nos logs ou problemas similares). * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página do switch Ethernet da Cisco"^]. Consulte a tabela de compatibilidade do switch para as versões suportadas do ONTAP e NX-OS. * link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus série 3000"^]. Consulte os guias de software e atualização apropriados disponíveis no site da Cisco para obter a documentação completa sobre os procedimentos de atualização e downgrade do switch Cisco.
+Verifique se você possui o seguinte:
+
+* Um backup atual da configuração do switch.
+* Um cluster totalmente funcional (sem erros nos logs ou problemas semelhantes).
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página do switch Ethernet da Cisco"^]. Consulte a tabela de compatibilidade de switches para obter informações sobre as versões suportadas do ONTAP e do NX-OS.
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Switches Cisco Nexus série 3000"^]. Consulte os guias de software e atualização apropriados disponíveis no site da Cisco para obter a documentação completa sobre os procedimentos de atualização e downgrade dos switches Cisco .
 
 
 
-== Instale o software
+
+== Instale ou atualize o software
 
 O procedimento requer o uso de comandos ONTAP e comandos dos switches Cisco Nexus série 3000; os comandos ONTAP são usados, a menos que indicado de outra forma.
 
 Conclua o procedimento em link:prepare-install-cisco-nexus-3232c-storage.html["Prepare-se para instalar o NX-OS e o RCF."] e depois siga os passos abaixo.
 
 .Passos
-. Conecte o switch do cluster à rede de gerenciamento.
+. Conecte o switch à rede de gerenciamento.
 . Use o `ping` Comando para verificar a conectividade com o servidor que hospeda o software NX-OS e o RCF.
 +
 .Mostrar exemplo
@@ -39,15 +41,18 @@ Este exemplo verifica se o switch consegue alcançar o servidor no endereço IP 
 
 [listing, subs="+quotes"]
 ----
-cs2# *ping 172.19.2.1*
+s2# *ping 172.19.2.1*
 Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Exibir as portas do cluster em cada nó que estão conectadas aos switches do cluster:
+. Se você estiver configurando seu switch pela primeira vez, pule para a etapa 5. Se estiver atualizando seu switch, prossiga para a próxima etapa.
+. Verifique o status administrativo ou operacional de cada porta de storage do nó e de cada porta de storage shelf.
 +
-`network device-discovery show`
+.. Exiba os atributos da porta de storage do nó:
++
+`storage port show`
 
 +
 .Mostrar exemplo
@@ -55,30 +60,44 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network device-discovery show*
-Node/       Local  Discovered
-Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
------------ ------ ------------------------- ----------------  ----------
-cluster1-01/cdp
-            e0a    cs1                       Ethernet1/7       N3K-C3232C
-            e0d    cs2                       Ethernet1/7       N3K-C3232C
-cluster1-02/cdp
-            e0a    cs1                       Ethernet1/8       N3K-C3232C
-            e0d    cs2                       Ethernet1/8       N3K-C3232C
-cluster1-03/cdp
-            e0a    cs1                       Ethernet1/1/1     N3K-C3232C
-            e0b    cs2                       Ethernet1/1/1     N3K-C3232C
-cluster1-04/cdp
-            e0a    cs1                       Ethernet1/1/2     N3K-C3232C
-            e0b    cs2                       Ethernet1/1/2     N3K-C3232C
-cluster1::*>
+cluster1::*> *storage port show*
+Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
+cluster1-01
+               e5a  ENET  storage    100 enabled  online      -
+               e3b  ENET  storage    100 enabled  online      -
+cluster1-02
+
+               e5a  ENET  storage    100 enabled  online      -
+               e3b  ENET  storage    100 enabled  online      -
+.
+.
 ----
 ====
-. Verifique o status administrativo e operacional de cada porta do cluster.
+.. Exibir os atributos da porta da prateleira de storage: +
+`storage shelf port show`
 +
-.. Verifique se todas as portas do cluster estão *ativas* e com status íntegro:
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.4
+       0 A      connected    false
+       1 A      connected    false
+       2 B      connected    false
+       3 B      connected    false
+.
+.
+----
+====
+.. Verifique se o monitoramento de integridade do switch (CSHM) está habilitado para os switches para que eles sejam monitorados:
 +
-`network port show -role cluster`
+`system switch ethernet show`
 
 +
 .Mostrar exemplo
@@ -86,108 +105,28 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -role cluster*
-
-Node: cluster1-01
-                                                                       Ignore
-                                                  Speed(Mbps) Health   Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
---------- ------------ ---------------- ---- ---- ----------- -------- ------
-e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
-e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
-
-Node: cluster1-02
-                                                                       Ignore
-                                                  Speed(Mbps) Health   Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
---------- ------------ ---------------- ---- ---- ----------- -------- ------
-e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
-e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
-8 entries were displayed.
-
-Node: cluster1-03
-
-   Ignore
-                                                  Speed(Mbps) Health   Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
---------- ------------ ---------------- ---- ---- ----------- -------- ------
-e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
-e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
-
-Node: cluster1-04
-                                                                       Ignore
-                                                  Speed(Mbps) Health   Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
---------- ------------ ---------------- ---- ---- ----------- -------- ------
-e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
-e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
-cluster1::*>
-----
-====
-.. Verifique se todas as interfaces de cluster (LIFs) estão na porta principal:
-+
-`network interface show -role cluster`
-
-+
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface show -role cluster*
-            Logical            Status     Network           Current      Current Is
-Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
------------ ------------------ ---------- ----------------- ------------ ------- ----
-Cluster
-            cluster1-01_clus1  up/up     169.254.3.4/23     cluster1-01  e0a     true
-            cluster1-01_clus2  up/up     169.254.3.5/23     cluster1-01  e0d     true
-            cluster1-02_clus1  up/up     169.254.3.8/23     cluster1-02  e0a     true
-            cluster1-02_clus2  up/up     169.254.3.9/23     cluster1-02  e0d     true
-            cluster1-03_clus1  up/up     169.254.1.3/23     cluster1-03  e0a     true
-            cluster1-03_clus2  up/up     169.254.1.1/23     cluster1-03  e0b     true
-            cluster1-04_clus1  up/up     169.254.1.6/23     cluster1-04  e0a     true
-            cluster1-04_clus2  up/up     169.254.1.7/23     cluster1-04  e0b     true
-8 entries were displayed.
-cluster1::*>
-----
-====
-.. Verifique se o cluster exibe informações para ambos os switches do cluster:
-+
-`system cluster-switch show -is-monitoring-enabled-operational true`
-
-+
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
-Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- ----------
-cs1                         cluster-network    10.233.205.90    N3K-C3232C
-     Serial Number: FOCXXXXXXGD
+cluster1::> *system switch ethernet show*
+  Switch            Type               Address          Model
+  ----------------- ------------------ ---------------- ---------------
+  s1                storage-network    1.0.0.0          N3K-C3232C
+     Serial Number: FFFYYYYYYY1
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-
-cs2                         cluster-network    10.233.205.91    N3K-C3232C
-     Serial Number: FOCXXXXXXGS
+                    10.3(4a)
+    Version Source: CDP/ISDP
+  s2                storage-network    1.1.0.0           N3K-C3232C
+     Serial Number: FEEYYYYYYY2
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-cluster1::*>
+                    10.3(4a)
+    Version Source: CDP/ISDP
 ----
 ====
 
 
-. Desative a reversão automática nos LIFs do cluster.  As LIFs do cluster são transferidas para o switch do cluster parceiro em caso de failover e permanecem lá enquanto você executa o procedimento de atualização no switch de destino:
-+
-`network interface modify -vserver Cluster -lif * -auto-revert false`
-
+. Faça login no switch usando SSH ou usando um console serial.
 . Copie o software NX-OS e as imagens EPLD para o switch Nexus 3232C.
 +
 .Mostrar exemplo
@@ -195,7 +134,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *copy sftp: bootflash: vrf management*
+s2# *copy sftp: bootflash: vrf management*
 Enter source filename: */code/nxos.9.3.4.bin*
 Enter hostname for the sftp server: *172.19.2.1*
 Enter username: *user1*
@@ -212,7 +151,7 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 
 
-cs2# *copy sftp: bootflash: vrf management*
+s2# *copy sftp: bootflash: vrf management*
 Enter source filename: */code/n9000-epld.9.3.4.img*
 Enter hostname for the sftp server: *172.19.2.1*
 Enter username: user1
@@ -239,7 +178,7 @@ Copy complete.
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *show version*
+s2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2019, Cisco and/or its affiliates.
@@ -272,7 +211,7 @@ Hardware
   Intel(R) Xeon(R) CPU E5-2403 v2 @ 1.80GHz with 8154432 kB of memory.
   Processor Board ID FOCXXXXXXGD
 
-  Device name: cs2
+  Device name: s2
   bootflash:   53298520 kB
 Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 36 second(s)
 
@@ -285,8 +224,6 @@ plugin
   Core Plugin, Ethernet Plugin
 
 Active Package(s):
-
-cs2#
 ----
 ====
 . Instale a imagem do NX-OS.
@@ -299,7 +236,7 @@ A instalação do arquivo de imagem faz com que ele seja carregado sempre que o 
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *install all nxos bootflash:nxos.9.3.4.bin*
+s2# *install all nxos bootflash:nxos.9.3.4.bin*
 Installer will perform compatibility check first. Please wait.
 Installer is forced disruptive
 
@@ -321,12 +258,10 @@ Performing module support checks.
 Notifying services about system upgrade.
 [####################] 100% -- SUCCESS
 
-
 Compatibility check is done:
 Module  bootable          Impact              Install-type  Reason
 ------- ----------------- ------------------- ------------- ----------
      1     Yes            Disruptive          Reset         Default upgrade is not hitless
-
 
 Images will be upgraded according to following table:
 Module       Image       Running-Version(pri:alt)                New-Version          Upg-Required
@@ -355,7 +290,6 @@ Warning: please do not remove or power off the module at this time.
 
 
 Finishing the upgrade, switch will reboot in 10 seconds.
-cs2#
 ----
 ====
 . Verifique a nova versão do software NX-OS após a reinicialização do switch:
@@ -368,7 +302,7 @@ cs2#
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *show version*
+s2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2020, Cisco and/or its affiliates.
@@ -414,8 +348,6 @@ plugin
   Core Plugin, Ethernet Plugin
 
 Active Package(s):
-
-cs2#
 ----
 ====
 . Atualize a imagem EPLD e reinicie o switch.
@@ -425,14 +357,14 @@ cs2#
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *show version module 1 epld*
+s2# *show version module 1 epld*
 
 EPLD Device                     Version
 ---------------------------------------
 MI   FPGA                       0x12
 IO   FPGA                       0x11
 
-cs2# *install epld bootflash:n9000-epld.9.3.4.img module 1*
+s2# *install epld bootflash:n9000-epld.9.3.4.img module 1*
 Compatibility check:
 Module        Type         Upgradable    Impact      Reason
 ------  -----------------  ----------    ----------  -----------------
@@ -459,7 +391,6 @@ Module        Type  Upgrade-Result
      1         SUP         Success
 
 Module 1 EPLD upgrade is successful.
-cs2#
 ----
 ====
 . Se você estiver atualizando para a versão 9.3(11) do NX-OS, você deve atualizar o EPLD. `golden` Crie a imagem e reinicie o switch mais uma vez.  Caso contrário, passe para a etapa 12.
@@ -472,7 +403,7 @@ Ver https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/e
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *install epld bootflash:n9000-epld.9.3.11.img module 1 golden*
+s2# *install epld bootflash:n9000-epld.9.3.11.img module 1 golden*
 Digital signature verification is successful
 Compatibility check:
 Module        Type         Upgradable     Impact      Reason
@@ -498,7 +429,6 @@ Module        Type          Upgrade-Result
 EPLDs upgraded.
 
 Module 1 EPLD upgrade is successful.
-cs2#
 ----
 ====
 . Após a reinicialização do switch, faça login para verificar se a nova versão do EPLD foi carregada com sucesso.
@@ -508,7 +438,7 @@ cs2#
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *show version module 1 epld*
+s2# *show version module 1 epld*
 
 EPLD Device                     Version
 ---------------------------------------
@@ -516,57 +446,12 @@ MI   FPGA                        0x12
 IO   FPGA                        0x12
 ----
 ====
-. Verifique a integridade das portas do cluster.
+. Se você estiver configurando seu switch pela primeira vez, pule para a etapa 15. Se estiver atualizando seu switch, prossiga para a próxima etapa.
+. Verifique o status de integridade de cada porta de storage do nó e de cada porta de storage shelf.
 +
-.. Verifique se as portas do cluster estão ativas e funcionando corretamente em todos os nós do cluster:
+.. Exiba os atributos da porta de storage do nó:
 +
-`network port show -role cluster`
-
-+
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network port show -role cluster*
-
-Node: cluster1-01
-                                                                       Ignore
-                                                  Speed(Mbps) Health   Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
---------- ------------ ---------------- ---- ---- ----------- -------- ------
-e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
-e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
-
-Node: cluster1-02
-                                                                       Ignore
-                                                  Speed(Mbps) Health   Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
---------- ------------ ---------------- ---- ---- ----------- -------- ------
-e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
-e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
-
-Node: cluster1-03
-                                                                       Ignore
-                                                  Speed(Mbps) Health   Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
---------- ------------ ---------------- ---- ---- ----------- -------- ------
-e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
-e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
-
-Node: cluster1-04
-                                                                       Ignore
-                                                  Speed(Mbps) Health   Health
-Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
---------- ------------ ---------------- ---- ---- ----------- -------- ------
-e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
-e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
-8 entries were displayed.
-----
-====
-.. Verifique o estado de saúde do switch no cluster.
-+
-`network device-discovery show -protocol cdp`
+`storage port show`
 
 +
 .Mostrar exemplo
@@ -574,114 +459,71 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network device-discovery show -protocol cdp*
-Node/       Local  Discovered
-Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
------------ ------ ------------------------- ----------------- ----------
-cluster1-01/cdp
-            e0a    cs1                       Ethernet1/7       N3K-C3232C
-            e0d    cs2                       Ethernet1/7       N3K-C3232C
-cluster01-2/cdp
-            e0a    cs1                       Ethernet1/8       N3K-C3232C
-            e0d    cs2                       Ethernet1/8       N3K-C3232C
-cluster01-3/cdp
-            e0a    cs1                       Ethernet1/1/1     N3K-C3232C
-            e0b    cs2                       Ethernet1/1/1     N3K-C3232C
-cluster1-04/cdp
-            e0a    cs1                       Ethernet1/1/2     N3K-C3232C
-            e0b    cs2                       Ethernet1/1/2     N3K-C3232C
+cluster1::*> *storage port show*
+Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
+cluster1-01
+               e5a  ENET  storage    100 enabled  online      -
+               e3b  ENET  storage    100 enabled  online      -
+cluster1-02
 
-cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
-Switch                      Type               Address          Model
---------------------------- ------------------ ---------------- ----------
-cs1                         cluster-network    10.233.205.90    N3K-C3232C
-     Serial Number: FOCXXXXXXGD
+               e5a  ENET  storage    100 enabled  online      -
+               e3b  ENET  storage    100 enabled  online      -
+----
+====
+.. Exibir os atributos da porta da prateleira de storage: +
+`storage shelf port show`
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.4
+       0 A      connected    false
+       1 A      connected    false
+       2 B      connected    false
+       3 B      connected    false
+.
+.
+----
+====
+.. Verifique se o monitoramento de integridade do switch (CSHM) está habilitado para os switches para que eles sejam monitorados:
++
+`system switch ethernet show`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *system switch ethernet show*
+  Switch            Type               Address          Model
+  ----------------- ------------------ ---------------- ---------------
+  s1                storage-network    1.0.0.0          N3K-C3232C
+     Serial Number: FFFYYYYYYY1
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-
-cs2                         cluster-network    10.233.205.91    N3K-C3232C
-     Serial Number: FOCXXXXXXGS
+                    10.3(4a)
+    Version Source: CDP/ISDP
+  s2                storage-network    1.1.0.0           N3K-C3232C
+     Serial Number: FEEYYYYYYY2
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
-                    9.3(5)
-    Version Source: CDP
-
-2 entries were displayed.
-----
-Você poderá observar a seguinte saída no console do switch cs1, dependendo da versão do RCF previamente carregada no switch:
-
-[listing]
-----
-2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
-2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER: Blocking port-channel1 on VLAN0001. Inconsistent peer vlan.
-2020 Nov 17 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL: Blocking port-channel1 on VLAN0092. Inconsistent local vlan.
+                    10.3(4a)
+    Version Source: CDP/ISDP  false
 ----
 ====
 
 
-. Verifique se o cluster está íntegro:
-+
-`cluster show`
-
-+
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *cluster show*
-Node                 Health   Eligibility   Epsilon
--------------------- -------- ------------- -------
-cluster1-01          true     true          false
-cluster1-02          true     true          false
-cluster1-03          true     true          true
-cluster1-04          true     true          false
-4 entries were displayed.
-cluster1::*>
-----
-====
-. Repita os passos 6 a 14 no interruptor cs1.
-. Ative a reversão automática nos LIFs do cluster.
-+
-`network interface modify -vserver Cluster -lif * -auto-revert true`
-
-. Verifique se as LIFs do cluster retornaram à sua porta original:
-+
-`network interface show -role cluster`
-
-+
-.Mostrar exemplo
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface show -role cluster*
-            Logical            Status     Network            Current             Current Is
-Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
------------ ------------------ ---------- ------------------ ------------------- ------- ----
-Cluster
-            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     true
-            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
-            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     true
-            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
-            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     true
-            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
-            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
-            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
-8 entries were displayed.
-cluster1::*>
-----
-====
-+
-Se alguma LIF do cluster não tiver retornado às suas portas originais, reverta-as manualmente a partir do nó local:
-
-+
-`network interface revert -vserver Cluster -lif <lif_name>`
-
+. Repita os passos 5 a 13 para instalar o software NX-OS no switch s1.
 
 
 .O que vem a seguir?

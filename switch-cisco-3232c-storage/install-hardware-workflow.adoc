@@ -20,3 +20,7 @@ Instale o switch de armazenamento 3232C.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:install-cisco-nexus-3232c-storage.html["Instale o switch em um gabinete NetApp ."]
 [role="quick-margin-para"]
 Instale o switch de armazenamento 3232C e o painel de passagem em um gabinete NetApp conforme necessário.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:cabling-considerations-3232c-storage.html["Analise as considerações sobre cabeamento e configuração."]
+[role="quick-margin-para"]
+Revise as considerações de cabeamento e configuração para o switch de storage 3232C.

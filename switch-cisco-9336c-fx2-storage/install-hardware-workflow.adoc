@@ -24,3 +24,7 @@ Instale os switches de armazenamento 9336C-FX2 e 9336C-FX2-T.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-switch-and-passthrough-panel-9336c-storage.html["Instale o switch em um gabinete NetApp ."]
 [role="quick-margin-para"]
 Instale os switches 9336C-FX2 e 9336C-FX2-T e o painel de passagem em um gabinete NetApp , conforme necessário.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]link:cabling-considerations-9336c-storage.html["Analise as considerações sobre cabeamento e configuração."]
+[role="quick-margin-para"]
+Antes de configurar seus 9336C-FX2 e 9336C-FX2-T switches, revise as considerações de cabeamento e configuração.

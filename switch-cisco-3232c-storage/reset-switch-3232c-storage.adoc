@@ -24,7 +24,7 @@ Para restaurar as configurações de fábrica do switch de armazenamento 3232C, 
 +
 [listing, subs="+quotes"]
 ----
-(cs2)# *write erase*
+(s2)# *write erase*
 
 Warning: This command will erase the startup-configuration.
 Do you wish to proceed anyway? (y/n) [n] *y*
@@ -36,7 +36,7 @@ Do you wish to proceed anyway? (y/n) [n] *y*
 +
 [listing, subs="+quotes"]
 ----
-(cs2)# *reload*
+(s2)# *reload*
 
 This command will reboot the system. (y/n)? [n] *y*
 ----
