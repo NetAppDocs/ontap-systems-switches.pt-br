@@ -457,7 +457,7 @@ plugin
 Active Package(s):
 ----
 ====
-. Atualize a imagem EPLD e reinicie o switch.
+. Atualize a imagem EPLD e reinicialize o switch. Se você estiver usando NX-OS 10.5(3)F ou posterior, não é necessário realizar uma atualização separada da imagem EPLD porque a imagem EPLD está incluída na imagem NX-OS. Ignore esta etapa e continue com a verificação da integridade da porta do cluster.
 +
 .Mostrar exemplo
 [%collapsible]

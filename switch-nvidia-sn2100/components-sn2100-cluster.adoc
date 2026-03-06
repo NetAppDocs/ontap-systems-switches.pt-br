@@ -58,7 +58,7 @@ Kit de trilhos, NVIDIA Single Switch de profundidade reduzida
 
 |===
 
-NOTE: Consulte a documentação da NVIDIA para obter detalhes sobre https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalando seu kit de trilhos e interruptor SN2100"^] .
+NOTE: Consulte a documentação da NVIDIA para obter detalhes sobre link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalando seu kit de trilhos e interruptor SN2100"^].
 
 .O que vem a seguir?
 Após confirmar os componentes e os números de peça, você pode revisar o link:required-documentation-sn2100-cluster.html["documentação necessária"].
