@@ -20,7 +20,7 @@ Antes de instalar o software Cumulus e os RCFs em um switch de armazenamento NVI
 * Você baixou os RCFs aplicáveis.
 
 
-O http://hwu.netapp.com["Hardware Universe"^] Fornece detalhes completos das portas suportadas e suas configurações.
+O link:http://hwu.netapp.com["Hardware Universe"^] fornece detalhes completos sobre as portas suportadas e suas configurações.
 
 A configuração de rede existente deve apresentar as seguintes características:
 

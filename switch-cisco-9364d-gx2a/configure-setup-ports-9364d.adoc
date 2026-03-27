@@ -33,4 +33,4 @@ Ethernet 1/63, Ethernet 1/64
 400GbE ISL
 
 |===
-Veja o https://hwu.netapp.com["Hardware Universe"^] Para obter detalhes sobre as portas utilizadas pela plataforma.
+Consulte o link:https://hwu.netapp.com["Hardware Universe"^] para obter detalhes sobre as portas utilizadas pela plataforma.

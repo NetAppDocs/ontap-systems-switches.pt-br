@@ -116,8 +116,8 @@ N9K-9336C 65 CFM, fluxo de ar de admissão pelo lado esquerdo
 
 Para ativar mais de 12 portas no seu switch de cluster Cisco Nexus 9336C-FX-T, você precisa adquirir uma licença Cisco Smart.  As licenças Cisco Smart são gerenciadas por meio de contas Cisco Smart.
 
-. Crie uma nova conta Smart, se necessário. Ver https://id.cisco.com/signin/register["Crie uma nova conta Smart"^] para mais detalhes.
-. Solicitar acesso a uma conta Smart existente. Ver https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Solicitar acesso a uma conta Smart existente"^] para mais detalhes.
+. Crie uma nova conta Smart, se necessário. Consulte link:https://id.cisco.com/signin/register["Crie uma nova conta Smart"^] para obter detalhes.
+. Solicite acesso a uma conta Smart existente. Consulte link:https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Solicitar acesso a uma conta Smart existente"^] para obter detalhes.
 
 
 

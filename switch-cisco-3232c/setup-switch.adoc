@@ -15,18 +15,18 @@ Siga este procedimento para instalar e configurar o switch Cisco Nexus 3232C.
 
 .Antes de começar
 * Acesso a um servidor HTTP, FTP ou TFTP no local de instalação para baixar as versões aplicáveis do NX-OS e do arquivo de configuração de referência (RCF).
-* Versão aplicável do NX-OS, baixada de https://software.cisco.com/download/home["Download do software Cisco"^] página.
+* Versão aplicável do NX-OS, baixada de link:https://software.cisco.com/download/home["Download do software Cisco"^].
 * Documentação necessária sobre a rede do cluster e os switches da rede de gerenciamento.
 +
-Verlink:required-documentation-3232c.html["Documentação necessária"] para mais informações.
+Consulte link:required-documentation-3232c.html["Documentação necessária"] para mais informações.
 
 * Documentação do controlador e documentação do ONTAP necessárias.
 +
-https://netapp.com/us/documenation/index.aspx["Documentação da NetApp"^]
+link:https://netapp.com/us/documenation/index.aspx["Documentação da NetApp"^]
 
 * Licenças aplicáveis, informações de rede e configuração, e cabos.
 * Planilhas de cabeamento concluídas.
-* Arquivos RCF aplicáveis ​​para rede de cluster e rede de gerenciamento da NetApp , baixados do site de suporte da NetApp em http://mysupport.netapp.com/["meusuporte.netapp.com"^] para os interruptores que você receber.  Todos os switches de rede de cluster e de gerenciamento da Cisco são entregues com a configuração padrão de fábrica da Cisco .  Esses switches também possuem a versão atual do software NX-OS, mas não têm os arquivos RCF carregados.
+* Arquivos RCF aplicáveis de rede de cluster NetApp e de rede de gerenciamento, baixados do site de suporte da NetApp em link:http://mysupport.netapp.com/["meusuporte.netapp.com"^] para os switches que você receber. Todos os switches de rede de cluster e de rede de gerenciamento da Cisco chegam com a configuração padrão de fábrica da Cisco. Esses switches também possuem a versão atual do software NX-OS, mas não têm os RCFs carregados.
 
 
 .Passos
@@ -40,14 +40,14 @@ https://netapp.com/us/documenation/index.aspx["Documentação da NetApp"^]
  a| 
 Cisco Nexus 3232C em um gabinete de sistema NetApp
  a| 
-Consulte o guia _Instalação de um switch de cluster Cisco Nexus 3232C e painel de passagem em um gabinete NetApp para obter instruções sobre como instalar o switch em um gabinete NetApp .
+Consulte o guia _Instalando um switch de cluster Cisco Nexus 3232C e um painel de passagem em um gabinete NetApp_ para obter instruções sobre como instalar o switch em um gabinete NetApp.
 
 
 
  a| 
 Equipamentos em um rack de telecomunicações
  a| 
-Consulte os procedimentos fornecidos nos guias de instalação de hardware do switch e nas instruções de instalação e configuração da NetApp .
+Consulte os procedimentos fornecidos nos guias de instalação do hardware do switch e nas instruções de instalação e configuração da NetApp.
 
 |===
 . Conecte os switches da rede do cluster e da rede de gerenciamento aos controladores usando as planilhas de cabeamento preenchidas.

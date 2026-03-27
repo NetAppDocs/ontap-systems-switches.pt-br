@@ -50,7 +50,7 @@ link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storag
 A NetApp recomenda enfaticamente que você habilite o registro de console nos dispositivos que estiver usando e execute as seguintes ações ao substituir seu switch:
 
 * Mantenha o AutoSupport ativado durante a manutenção.
-* Acione um AutoSupport de manutenção antes e depois da manutenção para desativar a criação de chamados durante o período de manutenção.  Consulte este artigo da Base de Conhecimento.link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Como suprimir a criação automática de chamados durante janelas de manutenção programadas"^] Para obter mais detalhes.
+* Execute uma manutenção AutoSupport antes e depois da manutenção para desativar a criação de chamados durante o período de manutenção. Consulte este artigo da Knowledge Base link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Como suprimir a criação automática de chamados durante janelas de manutenção programadas"^] para obter mais detalhes.
 * Ative o registro de sessões para todas as sessões da CLI.  Para obter instruções sobre como ativar o registro de sessão, consulte a seção "Registro de saída da sessão" neste artigo da Base de Conhecimento.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Como configurar o PuTTY para obter conectividade ideal com sistemas ONTAP"^] .
 
 
@@ -68,7 +68,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 * n1_clus3 é a segunda LIF conectada ao switch de cluster C2, para o nó n1.
 * n1_clus4 é a segunda LIF conectada ao switch de cluster CL1, para o nó n1.
 * O número de portas 10 GbE e 40 GbE está definido nos arquivos de configuração de referência (RCFs) disponíveis emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do switch de rede de cluster Cisco"^] .
-* Os nós são n1, n2, n3 e n4.  - Os exemplos neste procedimento usam quatro nós: Dois nós usam quatro portas de interconexão de cluster de 10 GB: e0a, e0b, e0c e e0d.  Os outros dois nós utilizam duas portas de interconexão de cluster de 40 GB: e4a e e4e.  Veja olink:https://hwu.netapp.com/["Hardware Universe"^] para as portas de cluster reais em suas plataformas.
+* Os nós são n1, n2, n3 e n4. - Os exemplos neste procedimento usam quatro nós: dois nós usam quatro portas de interconexão de cluster de 10 GB: e0a, e0b, e0c e e0d. Os outros dois nós usam duas portas de interconexão de cluster de 40 GB: e4a e e4e. Consulte o link:https://hwu.netapp.com/["Hardware Universe"^] para obter as portas de cluster reais em suas plataformas.
 
 
 .Sobre esta tarefa
@@ -261,7 +261,7 @@ CL2                          cluster-network   10.10.1.102      NX3132V
 Você deve preparar o interruptor de substituição neste momento.  Se precisar atualizar o RCF e a imagem, siga estes passos:
 
 +
-.. No site de suporte da NetApp , consultelink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Switches Ethernet da Cisco"^] .
+.. No site de suporte da NetApp, consulte link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Switches Ethernet da Cisco"^].
 .. Anote o modelo do seu switch e as versões de software necessárias na tabela dessa página.
 .. Faça o download da versão apropriada do RCF.
 .. Clique em *CONTINUAR* na página *Descrição*, aceite o contrato de licença e siga as instruções na página *Download* para baixar o RCF.

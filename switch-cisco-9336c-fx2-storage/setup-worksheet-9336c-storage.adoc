@@ -445,7 +445,7 @@ Nó 36 com 4 conexões 100GbE
 
 == Folha de trabalho de cabeamento em branco 9336C-FX2
 
-Você pode usar a planilha de cabeamento em branco para documentar as plataformas que são suportadas como nós em um cluster.  A seção _Conexões de cluster suportadas_ do https://hwu.netapp.com["Hardware Universe"^] Define as portas do cluster utilizadas pela plataforma.
+Você pode usar a planilha de cabeamento em branco para documentar as plataformas suportadas como nós em um cluster. A seção _Conexões de Cluster Suportadas_ do link:https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
 
 [cols="5%, 45%, 5%, 45%"]
 |===
@@ -1020,7 +1020,7 @@ Requer licença
 Requer licença
 
 |===
-Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obter mais informações sobre portas de switch.
+Consulte o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obter mais informações sobre portas de switch.
 
 .O que vem a seguir
 Depois de concluir suas planilhas de cabeamento, você pode link:install-9336c-storage.html["instalar o interruptor"].

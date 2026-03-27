@@ -21,7 +21,7 @@ Certifique-se de ter o seguinte:
 
 
 .Sobre os exemplos
-Os exemplos neste procedimento utilizam dois nós.  Esses nós utilizam duas portas de interconexão de cluster de 10GbE. `e0a` e `e0b` .  Veja o https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] Para verificar as portas de cluster corretas em suas plataformas.
+Os exemplos neste procedimento usam dois nós. Esses nós usam duas portas de interconexão de cluster 10GbE `e0a` e `e0b`. Consulte a link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar as portas de cluster corretas em suas plataformas.
 
 Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:
 

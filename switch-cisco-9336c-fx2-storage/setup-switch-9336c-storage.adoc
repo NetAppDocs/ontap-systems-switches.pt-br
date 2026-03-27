@@ -21,7 +21,7 @@ Certifique-se de ter o seguinte:
 * Licenças aplicáveis, informações de rede e configuração, e cabos.
 * Concluídolink:setup-worksheet-9336c-storage.html["Folhas de exercícios de cabeamento"] .
 * RCFs aplicáveis de rede NetApp e de rede de gerenciamento baixados do site de suporte da NetApp em  http://mysupport.netapp.com/["meusuporte.netapp.com"^]. Todos os switches de rede e de gerenciamento da Cisco chegam com a configuração padrão de fábrica da Cisco. Esses switches também possuem a versão atual do software NX-OS, mas não têm os RCFs carregados.
-* Documentação necessária para o interruptor. Verlink:required-documentation-9336c-storage.html["Documentação necessária"] para mais informações.
+* Documentação necessária para o switch. Consulte link:required-documentation-9336c-storage.html["Documentação necessária"] para obter mais informações.
 
 
 .Passos

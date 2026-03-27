@@ -18,7 +18,7 @@ O procedimento a ser utilizado depende de você ter duas portas de rede de clust
 A maioria dos sistemas requer duas portas de rede dedicadas para clusters em cada controlador.
 
 
-NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para dar suporte ao Monitor de Saúde do Switch de Cluster (CSHM) para switches de cluster 92300YC. Verlink:../switch-cshm/cshm-overview.html["Monitoramento de saúde do switch (CSHM)"] .
+NOTE: Após a conclusão da migração, talvez seja necessário instalar o arquivo de configuração necessário para dar suporte ao Cluster Switch Health Monitor (CSHM) para switches de cluster 92300YC. Consulte link:../switch-cshm/cshm-overview.html["Monitoramento de saúde do switch (CSHM)"].
 
 
 
@@ -41,7 +41,7 @@ Para a configuração do switch Cisco Nexus 92300YC:
 * É possível acessar os switches do cluster através do console.
 * As conexões entre nós e entre switches do Nexus 92300YC utilizam cabos twinax ou de fibra óptica.
 +
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^]Contém mais informações sobre cabeamento.
+O link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^] contém mais informações sobre cabeamento.
 
 * Os cabos Inter-Switch Link (ISL) são conectados às portas 1/65 e 1/66 em ambos os switches 92300YC.
 * A personalização inicial de ambos os switches 92300YC foi concluída.  Para que:
@@ -65,7 +65,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de comutador de 
 * O `cluster1::*>` O prompt indica o nome do cluster.
 * As portas do cluster utilizadas neste procedimento são e0a e e0b.
 +
-https://hwu.netapp.com["Hardware Universe"^]Contém as informações mais recentes sobre as portas de cluster reais para suas plataformas.
+O link:https://hwu.netapp.com["Hardware Universe"^] contém as informações mais recentes sobre as portas de cluster reais para suas plataformas.
 
 
 
@@ -311,7 +311,7 @@ Cluster
 ====
 . Desconecte o cabo da porta do cluster e0a no nó 1 e, em seguida, conecte e0a à porta 1 no switch do cluster cs1, usando o cabeamento apropriado suportado pelos switches 92300YC.
 +
-O https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - Switches_"^] Contém mais informações sobre cabeamento.
+O link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^] contém mais informações sobre cabeamento.
 
 . Desconecte o cabo da porta do cluster e0a no nó 2 e, em seguida, conecte e0a à porta 2 no switch do cluster cs1, usando o cabeamento apropriado suportado pelos switches 92300YC.
 . Habilite todas as portas voltadas para os nós no switch de cluster cs1.

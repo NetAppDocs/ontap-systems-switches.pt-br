@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/upgrade-rcf.html 
 sidebar: sidebar 
 keywords: upgrade rcf,setup rcf,rcf file 
-summary: 'Você pode atualizar o Arquivo de Configuração de Referência (RCF) após configurar o switch de cluster BES-53248 e após aplicar quaisquer novas licenças.' 
+summary: Você pode atualizar o RCF após configurar o switch de cluster BES-53248 e após aplicar quaisquer novas chaves da licença. 
 ---
-= Atualize o arquivo de configuração de referência (RCF)
+= Atualizar a versão RCF
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você pode atualizar o Arquivo de Configuração de Referência (RCF) após atualizar o switch de cluster BES-53248 EFOS e após aplicar quaisquer novas licenças.
+Você pode atualizar o RCF após atualizar o BES-53248 cluster switch EFOS e após aplicar quaisquer novas licenças.
 
 .Antes de começar
 Certifique-se de ter o seguinte:
@@ -24,8 +24,8 @@ Certifique-se de ter o seguinte:
 
 
 .Documentação sugerida
-* Consulte a tabela de compatibilidade de switches para obter informações sobre as versões suportadas do ONTAP e do RCF.  Veja o https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Download do software EFOS"^] página.  Note que pode haver dependências entre a sintaxe de comandos no RCF e a encontrada em versões do EFOS.
-* Consulte os guias de software e atualização apropriados disponíveis em https://www.broadcom.com/support/bes-switch["Broadcom"^] Site para obter documentação completa sobre os procedimentos de atualização e downgrade do switch BES-53248.
+* Consulte a tabela de compatibilidade de switches para as versões suportadas do ONTAP e do RCF. Consulte link:https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Download do software EFOS"^]. Observe que pode haver dependências de comandos entre a sintaxe de comandos no RCF e a encontrada nas versões do EFOS.
+* Consulte os guias de software e upgrade disponíveis no link:https://www.broadcom.com/support/bes-switch["Broadcom"^] site para obter a documentação completa sobre os procedimentos de upgrade e downgrade do switch BES-53248.
 
 
 .Sobre os exemplos
@@ -35,7 +35,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 * Os nomes dos nós são cluster1-01, cluster1-02, cluster1-03 e cluster1-04.
 * Os nomes do LIF do cluster são cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 e cluster1-04_clus2.
 * O `cluster1::*>` O prompt indica o nome do cluster.
-* Os exemplos neste procedimento utilizam quatro nós.  Esses nós utilizam duas portas de interconexão de cluster de 10GbE. `e0a` e `e0b` .  Veja o https://hwu.netapp.com/Home/Index["Hardware Universe"^] Para verificar as portas de cluster corretas em suas plataformas.
+* Os exemplos neste procedimento usam quatro nós. Esses nós usam duas portas de interconexão de cluster 10GbE `e0a` e `e0b`. Consulte a link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] para verificar as portas de cluster corretas em suas plataformas.
 
 
 
@@ -444,7 +444,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 . Observe o seguinte:
 +
-.. Caso licenças de porta adicionais tenham sido instaladas no switch, você deverá modificar o RCF para configurar as portas licenciadas adicionais. Ver link:configure-licenses.html#activate-newly-licensed-ports["Ativar portas recém-licenciadas"] Para mais detalhes. No entanto, quando você atualiza para RCF 1.12 ou posterior, as modificações não são mais necessárias porque todas as interfaces agora estão pré-configuradas.
+.. Se licenças de porta adicionais tiverem sido instaladas no switch, você deve modificar o RCF para configurar as portas licenciadas adicionais. Consulte link:configure-licenses.html#activate-newly-licensed-ports["Ativar portas recém-licenciadas"] para obter detalhes. No entanto, ao atualizar para o RCF 1.12 ou posterior, as modificações não são mais necessárias porque todas as interfaces agora estão pré-configuradas.
 .. Registre todas as personalizações feitas no RCF anterior e aplique-as ao novo RCF.  Por exemplo, configurar as velocidades das portas ou programar o modo FEC.
 
 
@@ -917,7 +917,7 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 network interface show -vserver Cluster
 ----
 +
-Para obter mais detalhes, consultelink:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Reverter um LIF para sua porta de origem"] .
+Para obter mais detalhes, consulte link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Reverter um LIF para sua porta de origem"].
 
 
 

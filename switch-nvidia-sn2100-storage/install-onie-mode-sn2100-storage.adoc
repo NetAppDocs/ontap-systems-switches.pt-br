@@ -14,7 +14,7 @@ summary: 'O sistema operacional Cumulus Linux (CL) pode ser instalado tanto quan
 Siga este procedimento para instalar o sistema operacional Cumulus Linux (CL) quando o switch estiver em modo ONIE.
 
 
-NOTE: O sistema operacional Cumulus Linux (CL) pode ser instalado quando o switch estiver executando Cumulus Linux ou ONIE (consultelink:install-cumulus-mode-sn2100-storage.html["Instalar no modo Cumulus"] ).
+NOTE: O sistema operacional Cumulus Linux (CL) pode ser instalado quando o switch está executando Cumulus Linux ou ONIE (consulte link:install-cumulus-mode-sn2100-storage.html["Instalar no modo Cumulus"]).
 
 .Sobre esta tarefa
 Você pode instalar o Cumulus Linux usando o Open Network Install Environment (ONIE), que permite a descoberta automática de uma imagem de instalação de rede.  Isso facilita o modelo de sistema para proteger switches com uma opção de sistema operacional, como o Cumulus Linux.  A maneira mais fácil de instalar o Cumulus Linux com ONIE é através da descoberta HTTP local.

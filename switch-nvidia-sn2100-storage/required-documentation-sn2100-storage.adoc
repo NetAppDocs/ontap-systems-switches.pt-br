@@ -11,7 +11,7 @@ summary: Para instalação e manutenção do switch NVIDIA SN2100, certifique-se
 
 
 [role="lead"]
-Para instalação e manutenção do switch NVIDIA SN2100, certifique-se de consultar toda a documentação recomendada.
+Para a instalação do switch NVIDIA SN2100, certifique-se de revisar toda a documentação recomendada.
 
 A tabela a seguir lista a documentação disponível para os switches NVIDIA SN2100.
 
@@ -21,29 +21,60 @@ A tabela a seguir lista a documentação disponível para os switches NVIDIA SN2
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["_Configure e configure seus switches NVIDIA SN2100_"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["Configure e configure seus switches NVIDIA SN2100"^]
  a| 
 Este manual descreve como configurar e instalar seus switches NVIDIA SN2100, incluindo a instalação do Cumulus Linux e dos RCFs aplicáveis.
 
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html["_Migrar de um switch de armazenamento Cisco para um switch de armazenamento NVIDIA SN2100_"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html["Migre de um switch de armazenamento Cisco para um switch de armazenamento NVIDIA SN2100."^]
  a| 
 Descreve como migrar de ambientes que usam switches de armazenamento Cisco para ambientes que usam switches de armazenamento NVIDIA SN2100.
 
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["_Migre para um cluster comutado de dois nós com switches de cluster NVIDIA SN2100_"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["Migre para um cluster comutado de dois nós"^]
  a| 
-Descreve como migrar para um ambiente comutado de dois nós usando switches de cluster NVIDIA SN2100.
+Descreve como migrar para um ambiente comutado de dois nós usando switches NVIDIA SN2100.
 
 
 
  a| 
-link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html["_Substituir um switch de armazenamento NVIDIA SN2100_"^]
+link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html["Substitua um switch de armazenamento NVIDIA SN2100"^]
  a| 
 Descreve o procedimento para substituir um switch de armazenamento NVIDIA SN2100 defeituoso e para fazer o download do Cumulus Linux e do arquivo de configuração de referência.
+
+|===
+
+
+== Documentação dos sistemas ONTAP
+
+Para configurar um sistema ONTAP, você precisa dos seguintes documentos para a sua versão do sistema operacional.
+
+[cols="1,2"]
+|===
+| Nome | Descrição 
+
+
+ a| 
+Instruções de instalação e configuração específicas do controlador
+ a| 
+Descreve como instalar o hardware da NetApp .
+
+
+
+ a| 
+link:https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^]
+ a| 
+Fornece informações detalhadas sobre todos os aspectos das versões do ONTAP .
+
+
+
+ a| 
+link:https://hwu.netapp.com/["Hardware Universe"^]
+ a| 
+Permite confirmar o hardware compatível, como switches de armazenamento e cabos, para o modelo da sua plataforma.
 
 |===

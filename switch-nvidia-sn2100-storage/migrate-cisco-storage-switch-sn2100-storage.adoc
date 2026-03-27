@@ -21,7 +21,7 @@ Os seguintes switches de armazenamento são suportados:
 
 * Cisco Nexus 9336C-FX2
 * Cisco Nexus 3232C
-* Veja o https://hwu.netapp.com/["Hardware Universe"^] Para obter detalhes completos sobre as portas suportadas e suas configurações.
+* Consulte o link:https://hwu.netapp.com/["Hardware Universe"^] para obter detalhes completos sobre as portas suportadas e suas configurações.
 
 
 .Antes de começar
@@ -38,7 +38,7 @@ Certifique-se de ter o seguinte:
 ** As portas ISL foram habilitadas e cabeadas entre os switches Cisco mais antigos e entre os novos switches.
 
 
-* Veja o https://hwu.netapp.com/["Hardware Universe"^] Para obter detalhes completos sobre as portas suportadas e suas configurações.
+* Consulte o link:https://hwu.netapp.com/["Hardware Universe"^] para obter detalhes completos sobre as portas suportadas e suas configurações.
 * Algumas das portas estão configuradas em switches NVIDIA SN2100 para operar em 100 GbE.
 * Você planejou, migrou e documentou a conectividade de 100 GbE dos nós para os switches de armazenamento NVIDIA SN2100.
 

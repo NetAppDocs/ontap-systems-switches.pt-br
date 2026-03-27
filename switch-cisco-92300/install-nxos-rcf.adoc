@@ -22,14 +22,14 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 * O `cluster1::*>` O prompt indica o nome do cluster.
 * As portas do cluster em cada nó são nomeadas. `e0a` e `e0b` .
 +
-Veja olink:https://hwu.netapp.com/Home/Index["_Universo do Hardware^_"] para as portas de cluster reais suportadas em sua plataforma. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
+Consulte a link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] para obter informações sobre as portas de cluster suportadas na sua plataforma. Consulte link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] para obter mais informações sobre os requisitos de instalação do switch.
 
 
 
 .Portas e conexões de nós suportadas
 * Os links entre switches (ISLs) suportados para os switches Nexus 92300YC são as portas 1/65 e 1/66.
 * As conexões de nó suportadas para os switches Nexus 92300YC são as portas 1/1 a 1/66.
-* Os exemplos neste procedimento utilizam dois nós.  Esses nós utilizam duas portas de interconexão de cluster de 10GbE. `e0a` e `e0b` .  Veja o https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] Para verificar as portas de cluster corretas em suas plataformas.
+* Os exemplos neste procedimento usam dois nós. Esses nós usam duas portas de interconexão de cluster 10GbE `e0a` e `e0b`. Consulte a link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar as portas de cluster corretas em suas plataformas.
 
 
 .Antes de começar

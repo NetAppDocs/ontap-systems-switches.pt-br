@@ -33,7 +33,7 @@ O kit do painel de passagem da NetApp contém o seguinte hardware:
 
 NOTE: Os cabos de ligação não estão incluídos no kit de passagem e devem ser fornecidos com os seus interruptores.  Caso não tenham sido enviados juntamente com os switches, você pode encomendá-los à NetApp (número de peça X1558A-R6).
 
-* Para requisitos de preparação inicial, conteúdo do kit e precauções de segurança, consulte https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guia de Instalação de Hardware da Série Cisco Nexus 9000"^] .
+* Para requisitos de preparação inicial, conteúdo do kit e precauções de segurança, consulte o link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guia de Instalação de Hardware da Série Cisco Nexus 9000"^].
 
 
 .Passos

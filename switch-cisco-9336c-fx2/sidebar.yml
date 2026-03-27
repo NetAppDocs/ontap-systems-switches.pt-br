@@ -49,8 +49,8 @@ entries:
       url: "/switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html"
   - title: Verifique a configuração SSH
     url: "/switch-cisco-9336c-fx2/configure-ssh-keys.html"
-  - title: Restaure as configurações de fábrica do switch.
-    url: "/switch-cisco-9336c-fx2/reset-switch-9336c.html"
+- title: Restaure as configurações de fábrica do switch.
+  url: "/switch-cisco-9336c-fx2/reset-switch-9336c.html"
 - title: Migre os switches
   pdf-filename: Migrar_switches_9336c-fx2
   entries:

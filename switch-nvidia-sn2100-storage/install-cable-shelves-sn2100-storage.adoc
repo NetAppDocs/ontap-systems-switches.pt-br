@@ -21,8 +21,5 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Informações par
 +
 https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentação dos interruptores AFF e FAS"^]
 
-* Confirme o hardware compatível, como switches de armazenamento e cabos, para o modelo da sua plataforma:
-+
-https://hwu.netapp.com/["Hardware Universe da NetApp"^]
-
+* Confirme o hardware compatível, como switches de armazenamento e cabos, para o modelo da sua plataforma. Consulte a link:https://hwu.netapp.com/["Hardware Universe"^] para obter detalhes.
 

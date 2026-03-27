@@ -21,7 +21,7 @@ Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois s
 
 Você instala o switch NVIDIA SN2100 (X190006) no gabinete de switch duplo/simples da NVIDIA com os suportes padrão que acompanham o switch.
 
-Para diretrizes de cabeamento, consultelink:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."] .
+Para diretrizes de cabeamento, consulte link:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."].
 
 
 
@@ -35,10 +35,8 @@ O switch SN2100 atende a aplicações de Cluster e Armazenamento no ONTAP 9.10.1
 
 * Versões do sistema operacional Cumulus Linux (CL)
 +
-** A NetApp qualifica e suporta versões específicas do CL.  Para obter informações atualizadas sobre compatibilidade, consulte olink:https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Informações sobre switches Ethernet da NVIDIA"^] página ou alink:https://hwu.netapp.com["Hardware Universe da NetApp"^] .
-** Para baixar o software SN2100 Cumulus da NVIDIA, você precisa ter credenciais de login para acessar o Portal de Suporte Empresarial da NVIDIA.  Consulte o artigo da Base de Conhecimento. https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Como se cadastrar no Portal de Suporte Empresarial da NVIDIA para obter acesso."^] .
-
-
+** Versões CL específicas são qualificadas e suportadas por NetApp. Para obter informações de compatibilidade atuais, consulte link:https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Informações sobre switches Ethernet da NVIDIA"^] ou o link:https://hwu.netapp.com["Hardware Universe"^].
+** Para baixar o software SN2100 Cumulus da NVIDIA, você precisa ter credenciais de login para acessar o Portal de Suporte Empresarial da NVIDIA. Consulte o artigo da Knowledge Base link:https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Como se cadastrar no Portal de Suporte Empresarial da NVIDIA para obter acesso."^].
 
 
 * Você pode instalar o Cumulus Linux quando o switch estiver executando o Cumulus Linux ou o ONIE.

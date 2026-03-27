@@ -25,13 +25,13 @@ Você precisa das seguintes informações de rede para todas as configurações 
 * Sub-rede IP para tráfego de rede de gerenciamento
 * Nomes de host e endereços IP para cada um dos controladores do sistema de armazenamento e todos os switches aplicáveis
 * A maioria dos controladores de sistema de armazenamento são gerenciados por meio da interface e0M, conectando-se à porta de serviço Ethernet (ícone de chave inglesa).
-* Consulte o https://hwu.netapp.com["Hardware Universe"^] Para obter as informações mais recentes.
+* Consulte o link:https://hwu.netapp.com["Hardware Universe"^] para obter as informações mais recentes.
 
 
 
 
 == Requisitos de cabeamento
 
-* Você tem o número e o tipo apropriados de cabos e conectores de cabo para seus switches. Veja o https://hwu.netapp.com["Hardware Universe"^] .
+* Você possui a quantidade e o tipo adequados de cabos e conectores para seus switches. Consulte o link:https://hwu.netapp.com["Hardware Universe"^].
 * Dependendo do tipo de switch que você está configurando inicialmente, você precisa se conectar à porta do console do switch com o cabo de console incluído.
 

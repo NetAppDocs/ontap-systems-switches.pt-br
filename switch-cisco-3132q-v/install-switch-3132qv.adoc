@@ -35,14 +35,14 @@ Certifique-se de ter o seguinte:
  a| 
 Cisco Nexus 9336C-FX2 em um gabinete de sistema NetApp
  a| 
-Consulte o guia _Instalação de um switch de cluster Cisco Nexus 3132Q-V e painel de passagem em um gabinete NetApp para obter instruções sobre como instalar o switch em um gabinete NetApp .
+Consulte o guia _Instalando um switch de cluster Cisco Nexus 3132Q-V e um painel de passagem em um gabinete NetApp_ para obter instruções sobre como instalar o switch em um gabinete NetApp.
 
 
 
  a| 
 Equipamentos em um rack de telecomunicações
  a| 
-Consulte os procedimentos fornecidos nos guias de instalação de hardware do switch e nas instruções de instalação e configuração da NetApp .
+Consulte os procedimentos fornecidos nos guias de instalação do hardware do switch e nas instruções de instalação e configuração da NetApp.
 
 |===
 . Conecte os switches da rede do cluster e da rede de gerenciamento aos controladores usando as planilhas de cabeamento preenchidas.

@@ -256,7 +256,7 @@ system switch ethernet log show
 --
 ====
 
-CAUTION: Se algum status de erro for relatado pelo recurso de coleta de logs (visível na saída de `system switch ethernet log show` ), verlink:log-collection-troubleshoot.html["Solução de problemas na coleta de logs"] Para obter mais detalhes.
+CAUTION: Se algum status de erro for relatado pelo recurso de coleta de logs (visível na saída de  `system switch ethernet log show`), consulte link:log-collection-troubleshoot.html["Solução de problemas na coleta de logs"] para obter mais detalhes.
 
 .O que vem a seguir?
 link:config-snmpv3.html["Configurar SNMPv3 (Opcional)"].

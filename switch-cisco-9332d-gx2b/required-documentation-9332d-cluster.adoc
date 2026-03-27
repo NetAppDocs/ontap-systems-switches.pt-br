@@ -14,13 +14,13 @@ summary: Para a instalação e manutenção do switch Cisco Nexus 9332D-GX2B, ce
 
 
 [role="lead"]
-Para instalação e manutenção do switch Cisco Nexus 9332D-GX2B, revise a documentação específica do switch e do controlador para configurar seus switches 9332D-GX2B e o cluster ONTAP .
+Para a instalação do switch Cisco Nexus 9332D-GX2B, certifique-se de revisar a documentação específica do switch e do controlador para configurar seus switches 9332D-GX2B e o cluster ONTAP.
 
 
 
 == Documentação do Switch
 
-Para configurar os switches Cisco Nexus 9332D-GX2B, você precisa da seguinte documentação:link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Suporte para switches Cisco Nexus série 9000"^] página:
+Para configurar os switches Cisco Nexus 9332D-GX2B, você precisa da seguinte documentação de link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Suporte para switches Cisco Nexus série 9000"^].
 
 [cols="1,2"]
 |===
@@ -79,7 +79,7 @@ Fornece informações sobre conformidade com agências internacionais, seguranç
 
 == Documentação dos sistemas ONTAP
 
-Para configurar um sistema ONTAP , você precisa dos seguintes documentos para a sua versão do sistema operacional: https://docs.netapp.com/ontap-9/index.jsp["Centro de Documentação ONTAP 9"^] .
+Para configurar um sistema ONTAP, você precisa dos seguintes documentos para a sua versão do sistema operacional.
 
 [cols="1,2"]
 |===
@@ -87,21 +87,21 @@ Para configurar um sistema ONTAP , você precisa dos seguintes documentos para a
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-afx/index.html["Documentação dos sistemas AFX"^]
+link:https://docs.netapp.com/us-en/ontap-afx/index.html["Documentação dos sistemas AFX"^]
  a| 
 Descreve como instalar o hardware da NetApp .
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-family/["Documentação do ONTAP"^]
+link:https://docs.netapp.com/us-en/ontap-family/["Documentação do ONTAP"^]
  a| 
 Fornece informações detalhadas sobre todos os aspectos das versões do ONTAP .
 
 
 
  a| 
-https://hwu.netapp.com["Hardware Universe"^]
+link:https://hwu.netapp.com["Hardware Universe"^]
  a| 
 Fornece informações sobre configuração e compatibilidade de hardware da NetApp .
 

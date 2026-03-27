@@ -87,7 +87,7 @@ Os switches do cluster utilizam as seguintes portas para conexões com os nós:
 * Portas e1/41-48 (10 GbE): Nexus 5596
 * Portas e1/31-32 (40/100 GbE): Nexus 3232C
 +
-** Olink:https://hwu.netapp.com/["_Universo do Hardware_"^] Contém informações sobre a cablagem compatível com os switches Nexus 3232C:
+** O link:https://hwu.netapp.com/["Hardware Universe"^] contém informações sobre a cablagem compatível com os switches Nexus 3232C:
 
 
 * Os nós com conexões de cluster de 10 GbE requerem cabos breakout de fibra óptica QSFP para SFP+ ou cabos breakout de cobre QSFP para SFP+.

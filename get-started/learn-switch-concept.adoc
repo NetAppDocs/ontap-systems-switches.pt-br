@@ -46,6 +46,7 @@ Os switches de cluster permitem que você crie clusters ONTAP com mais de dois n
 Os switches de armazenamento permitem rotear dados entre servidores e arrays de armazenamento em uma rede de área de armazenamento (SAN).  Os switches de armazenamento compatíveis com a NetApp incluem:
 
 * Cisco Nexus 9336C-FX2
+* Cisco Nexus 3232C
 * NVIDIA SN2100
 
 
@@ -60,12 +61,6 @@ Os switches compartilhados permitem combinar a funcionalidade de cluster e armaz
 
 
 
-== Fim da disponibilidade
+== Interruptores de fim de disponibilidade
 
-Os seguintes switches de armazenamento não estão mais disponíveis para compra, mas ainda são suportados:
-
-* Cisco Nexus 3232C
-* Cisco Nexus 3132Q-V
-* Cisco Nexus 92300YC
-* NetApp CN1610
-
+Para obter uma lista de switches que não estão mais disponíveis para compra, mas ainda são suportados, consulte link:../overview-eod.html["Interruptores de fim de disponibilidade"].

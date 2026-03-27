@@ -23,7 +23,7 @@ Os seguintes interruptores são suportados:
 * Nexus 3232C
 
 
-As versões do ONTAP e do NX-OS suportadas neste procedimento estão na página de switches Ethernet da Cisco . Ver https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"] .
+As versões do ONTAP e do NX-OS suportadas neste procedimento estão na página Cisco Ethernet Switches. Consulte  https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^].
 
 .Portas de conexão
 Os switches utilizam as seguintes portas para se conectar aos nós:
@@ -48,7 +48,7 @@ Os switches utilizam as seguintes portas para se conectar aos nós:
 
 
 
-O https://hwu.netapp.com["Hardware Universe"] Contém informações sobre a cablagem suportada para todos os switches de cluster.
+O link:https://hwu.netapp.com["Hardware Universe"^]documento contém informações sobre a cablagem suportada para todos os switches de cluster.
 
 .O que você vai precisar
 * Certifique-se de ter concluído as seguintes tarefas:

@@ -11,13 +11,13 @@ summary: Você precisa de documentação específica sobre os switches e control
 
 
 [role="lead"]
-Para instalação e manutenção do switch BES-53248, certifique-se de consultar a documentação específica do switch e do controlador.
+Para a instalação do switch BES-53248, certifique-se de revisar a documentação específica do switch e do controlador.
 
 
 
 == Documentação da Broadcom
 
-Para configurar o switch de cluster BES-53248, você precisa dos seguintes documentos, disponíveis no site de suporte da Broadcom: https://www.broadcom.com/support/bes-switch["Linha de produtos de switches Ethernet da Broadcom"^]
+Para configurar o switch de cluster BES-53248, você precisa dos seguintes documentos disponíveis no Broadcom Support Site: link:https://www.broadcom.com/support/bes-switch["Linha de produtos de switches Ethernet da Broadcom"^].
 
 [cols="1,2"]
 |===
@@ -76,14 +76,14 @@ Fornece informações específicas da versão do software BES-53248.
  a| 
 _Matriz de compatibilidade de rede de cluster e rede de gerenciamento_
  a| 
-Fornece informações sobre compatibilidade de rede.  A matriz está disponível no site de downloads do switch BES-53248 em https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["switches de cluster Broadcom"^] .
+Fornece informações sobre compatibilidade de rede. A matriz está disponível no site de downloads do switch BES-53248 em link:https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["switches de cluster Broadcom"^].
 
 |===
 
 
 == Documentação e artigos da base de conhecimento sobre sistemas ONTAP
 
-Para configurar um sistema ONTAP , você precisa dos seguintes documentos do site de suporte da NetApp em http://mysupport.netapp.com/["meusuporte.netapp.com"^] ou o site da Base de Conhecimento (BC) em https://kb.netapp.com/["kb.netapp.com"^] .
+Para configurar um sistema ONTAP, você precisa dos seguintes documentos do NetApp Support Site em link:http://mysupport.netapp.com/["meusuporte.netapp.com"^] ou do site da Knowledge Base (KB) em link:https://kb.netapp.com/["kb.netapp.com"^].
 
 [cols="1,2"]
 |===
@@ -91,7 +91,7 @@ Para configurar um sistema ONTAP , você precisa dos seguintes documentos do sit
 
 
  a| 
-https://hwu.netapp.com/Home/Index["Hardware Universe da NetApp"^]
+https://hwu.netapp.com/Home/Index["Hardware Universe"^]
  a| 
 Descreve os requisitos de energia e de instalação para todos os equipamentos NetApp , incluindo gabinetes de sistema, e fornece informações sobre os conectores e opções de cabos relevantes a serem usados, juntamente com seus respectivos números de peça.
 
@@ -105,7 +105,7 @@ Descreve como instalar o hardware da NetApp .
 
 
  a| 
-ONTAP 9
+link:https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^]
  a| 
 Fornece informações detalhadas sobre todos os aspectos da versão ONTAP 9.
 
@@ -114,6 +114,6 @@ Fornece informações detalhadas sobre todos os aspectos da versão ONTAP 9.
  a| 
 _Como adicionar licenças de porta adicionais para o switch BES-53248 compatível com Broadcom_
  a| 
-Fornece informações detalhadas sobre como adicionar licenças de porta.  Vá para o https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["Artigo da Base de Conhecimento"^] .
+Fornece informações detalhadas sobre como adicionar licenças de porta. Consulte este link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_add_Additional_Port_Licensing_for_the_Broadcom-Supported_BES-53248_Switch["Artigo da Base de Conhecimento"^].
 
 |===

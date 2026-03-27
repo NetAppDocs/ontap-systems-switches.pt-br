@@ -13,10 +13,10 @@ summary: 'O SSH é um requisito ao usar o Cluster Switch Health Monitor (CSHM) e
 [role="lead"]
 Você instala o arquivo de configuração de referência (RCF) após configurar os switches Nexus 9336C-FX2 e 9336C-FX2-T pela primeira vez. Você atualiza sua versão RCF quando tem uma versão existente do arquivo RCF instalada no seu switch.
 
-Consulte o artigo da Base de Conhecimento.link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração de um switch de interconexão Cisco mantendo a conectividade remota"^] Para obter mais informações ao instalar ou atualizar seu RCF.
+Consulte o artigo da Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração de um switch de interconexão Cisco mantendo a conectividade remota"^] para obter mais informações ao instalar ou atualizar seu RCF.
 
 .Configurações RCF disponíveis
-A tabela a seguir descreve os RCFs disponíveis para diferentes configurações. Selecione o RCF aplicável à sua configuração. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^] para mais informações.
+A tabela a seguir descreve os RCFs disponíveis para diferentes configurações. Escolha o RCF aplicável à sua configuração. Consulte link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^] para mais informações.
 
 Para obter detalhes específicos sobre o uso de portas e VLANs, consulte a seção de avisos e notas importantes no seu RCF.
 
@@ -74,7 +74,7 @@ Todas as portas estão configuradas para conexões de armazenamento NVMe de 100G
 
 |===
 .RCFs disponíveis
-A tabela a seguir lista os RCFs disponíveis para os switches 9336C-FX2 e 9336C-FX2-T.  Selecione a versão RCF aplicável à sua configuração. Verlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^] para mais informações.
+A tabela a seguir lista os RCFs disponíveis para os switches 9336C-FX2 e 9336C-FX2-T. Escolha a versão do RCF aplicável para sua configuração. Consulte link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^] para mais informações.
 
 [cols="1"]
 |===
@@ -120,12 +120,12 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 * O `cluster1::*>` O prompt indica o nome do cluster.
 
 
-Os exemplos neste procedimento utilizam quatro nós.  Esses nós usam duas portas de interconexão de cluster 10GbE, *e0a* e *e0b*.  Veja o https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] Para verificar as portas de cluster corretas em suas plataformas.
+Os exemplos neste procedimento utilizam quatro nós. Esses nós usam duas portas de interconexão de cluster 10GbE, *e0a* e *e0b*. Consulte a link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] para verificar as portas de cluster corretas em suas plataformas.
 
 
 NOTE: Os resultados dos comandos podem variar dependendo das diferentes versões do ONTAP.
 
-Para obter detalhes sobre as configurações RCF disponíveis, consultelink:configure-software-overview-9336c-cluster.html["fluxo de trabalho de instalação de software"] .
+Para obter detalhes sobre as configurações RCF disponíveis, consulte o link:configure-software-overview-9336c-cluster.html["fluxo de trabalho de instalação de software"].
 
 .Comandos utilizados
 O procedimento requer o uso de comandos ONTAP e comandos dos switches Cisco Nexus série 9000; os comandos ONTAP são usados ​​a menos que indicado de outra forma.

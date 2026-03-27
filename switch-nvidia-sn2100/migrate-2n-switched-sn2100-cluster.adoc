@@ -36,7 +36,7 @@ Assegure-se de que:
 * As conexões entre nós e entre switches do NVIDIA SN2100 utilizam cabos Twinax ou de fibra óptica.
 +
 
-IMPORTANT: Verlink:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."] Para ressalvas e mais detalhes.  O https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^] Contém também mais informações sobre cabeamento.
+IMPORTANT: Consulte link:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."] para obter ressalvas e mais detalhes. O link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^] também contém mais informações sobre cabeamento.
 
 * Os cabos Inter-Switch Link (ISL) estão conectados às portas swp15 e swp16 em ambos os switches NVIDIA SN2100.
 * A personalização inicial dos dois switches SN2100 foi concluída, de modo que:
@@ -45,7 +45,7 @@ IMPORTANT: Verlink:cabling-considerations-sn2100-cluster.html["Analise as consid
 ** Os arquivos de configuração de referência (RCFs) são aplicados aos switches.
 ** Qualquer personalização do site, como SMTP, SNMP e SSH, é configurada nos novos switches.
 +
-O https://hwu.netapp.com["Hardware Universe"^] Contém as informações mais recentes sobre as portas de cluster reais para suas plataformas.
+O link:https://hwu.netapp.com["Hardware Universe"^] contém as informações mais recentes sobre as portas de cluster reais para suas plataformas.
 
 
 

@@ -14,34 +14,34 @@ summary: Para a instalação e manutenção do switch Cisco Nexus 9336C-FX2, cer
 
 
 [role="lead"]
-Para a instalação e manutenção do switch Cisco Nexus 9336C-FX2, certifique-se de consultar a documentação específica do switch e do controlador para configurar seus switches Cisco 9336-FX2 e o cluster ONTAP .
+Para a instalação do switch Cisco Nexus 9336C-FX2, certifique-se de revisar a documentação específica do switch e do controlador para configurar seus switches Cisco 9336-FX2 e o cluster ONTAP.
 
-Para configurar os switches compartilhados Cisco Nexus 9336C-FX2, consulte o seguinte: https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Suporte para switches Cisco Nexus série 9000"] página.
+Para configurar os switches compartilhados Cisco Nexus 9336C-FX2, consulte link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Suporte para switches Cisco Nexus série 9000"^].
 
 |===
 | Título do documento | Descrição 
 
 
-| link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guia de Instalação de Hardware da Série Nexus 9000"] | Fornece informações detalhadas sobre os requisitos do local, detalhes do hardware do switch e opções de instalação. 
+| link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guia de Instalação de Hardware da Série Nexus 9000"^] | Fornece informações detalhadas sobre os requisitos do local, detalhes do hardware do switch e opções de instalação. 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guias de configuração de software para switches Cisco Nexus série 9000"](escolha o guia para a versão do NX-OS instalada em seus switches) | Fornece as informações iniciais de configuração do switch necessárias antes de configurá-lo para operação com ONTAP . 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guias de configuração de software para switches Cisco Nexus série 9000"^](escolha o guia para a versão do NX-OS instalada em seus switches) | Fornece as informações iniciais de configuração do switch necessárias antes de configurá-lo para operação com ONTAP . 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Guia de atualização e downgrade do software NX-OS da série Cisco Nexus 9000"](escolha o guia para a versão do NX-OS instalada em seus switches) | Fornece informações sobre como fazer o downgrade do software do switch para uma versão compatível com ONTAP , se necessário. 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Guia de atualização e downgrade do software NX-OS da série Cisco Nexus 9000"^] (escolha o guia para a versão do NX-OS instalada em seus switches) | Fornece informações sobre como fazer o downgrade do software do switch para uma versão compatível com ONTAP , se necessário. 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Índice principal de referência de comandos do Cisco Nexus série 9000 NX-OS"] | Fornece links para as diversas referências de comandos disponibilizadas pela Cisco. 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Índice principal de referência de comandos do Cisco Nexus série 9000 NX-OS"^] | Fornece links para as diversas referências de comandos disponibilizadas pela Cisco. 
 
 
-| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/reference/MIBRef.html["Referência de MIBs do Cisco Nexus 9000"] | Descreve os arquivos da Base de Informações de Gerenciamento (MIB) para os switches Nexus 9000. 
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/reference/MIBRef.html["Referência de MIBs do Cisco Nexus 9000"^] | Descreve os arquivos da Base de Informações de Gerenciamento (MIB) para os switches Nexus 9000. 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Referência de mensagens do sistema NX-OS da série Nexus 9000"] | Descreve as mensagens do sistema para switches da série Cisco Nexus 9000, incluindo as informativas e outras que podem ajudar a diagnosticar problemas com links, hardware interno ou software do sistema. 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Referência de mensagens do sistema NX-OS da série Nexus 9000"^] | Descreve as mensagens do sistema para switches da série Cisco Nexus 9000, incluindo as informativas e outras que podem ajudar a diagnosticar problemas com links, hardware interno ou software do sistema. 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#ReleaseandCompatibility["Notas de versão do NX-OS para a série Cisco Nexus 9000"](Selecione as notas referentes à versão do NX-OS instalada em seus switches) | Descreve as funcionalidades, os erros e as limitações da série Cisco Nexus 9000. 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#ReleaseandCompatibility["Notas de versão do NX-OS para a série Cisco Nexus 9000"^] (selecione as notas referentes à versão do NX-OS instalada em seus switches) | Descreve as funcionalidades, os erros e as limitações da série Cisco Nexus 9000. 
 
 
-| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html["Informações sobre conformidade regulamentar e segurança para a série Cisco Nexus 9000"] | Fornece informações sobre conformidade com agências internacionais, segurança e regulamentações para os switches da série Nexus 9000. 
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html["Informações sobre conformidade regulamentar e segurança para a série Cisco Nexus 9000"^] | Fornece informações sobre conformidade com agências internacionais, segurança e regulamentações para os switches da série Nexus 9000. 
 |===

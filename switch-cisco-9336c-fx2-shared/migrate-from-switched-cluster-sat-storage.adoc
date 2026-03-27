@@ -89,7 +89,7 @@ node2
 ====
 
 
-. [[passo 6]]Substitua o RCF de armazenamento no switch compartilhado A pelo arquivo RCF compartilhado.  Verlink:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] Para obter mais detalhes.
+. [[passo 6]]Substitua o RCF de armazenamento no switch compartilhado A pelo arquivo RCF compartilhado. Consulte link:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] para obter mais detalhes.
 . Verifique se o armazenamento conectado ao par HA 1, switch de armazenamento A, está íntegro:
 +
 `system health alert show -instance`
@@ -125,7 +125,7 @@ There are no entries matching your query.
 ====
 
 
-. [[passo12]]Substitua o arquivo RCF de armazenamento no switch compartilhado B pelo arquivo RCF compartilhado.  Verlink:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] Para obter mais detalhes.
+. [[passo 12]]Substitua o arquivo RCF de armazenamento no switch compartilhado B pelo arquivo RCF compartilhado. Consulte link:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] para mais detalhes.
 . Verifique se o armazenamento conectado ao par HA 1, switch de armazenamento B, está íntegro:
 +
 `system health alert show -instance`
@@ -203,7 +203,7 @@ sh1 (config)# *exit*
 ====
 
 
-. [[step16]]Migre a rede do cluster dos switches de cluster existentes para os switches compartilhados usando o procedimento de substituição de switch e o RCF compartilhado.  O novo switch compartilhado A é "cs1".  O novo switch compartilhado B é "cs2".  Verlink:replace-9336c-fx2-shared.html["Substitua um switch compartilhado Cisco Nexus 9336C-FX2"] elink:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] Para obter mais detalhes.
+. [[step16]]Migre a rede de cluster dos switches de cluster existentes para os switches compartilhados usando o procedimento de substituição de switch e o RCF compartilhado. O novo switch compartilhado A é "cs1". O novo switch compartilhado B é "cs2". Consulte link:replace-9336c-fx2-shared.html["Substitua um switch compartilhado Cisco Nexus 9336C-FX2"] e link:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] para obter mais detalhes.
 . Verifique se a configuração de rede comutada é válida:
 +
 `network port show`

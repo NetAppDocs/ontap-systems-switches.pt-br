@@ -33,4 +33,7 @@ Ethernet 1/31, Ethernet 1/32
 400GbE ISL
 
 |===
-Veja o https://hwu.netapp.com["Hardware Universe"^] Para obter detalhes sobre as portas utilizadas pela plataforma. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
+.Informações relacionadas
+* Consulte o  https://hwu.netapp.com["Hardware Universe"^] para obter mais informações sobre portas de switch.
+* Consulte link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] para obter mais informações sobre os requisitos de instalação do switch.
+

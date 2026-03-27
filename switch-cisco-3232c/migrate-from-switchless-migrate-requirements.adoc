@@ -53,7 +53,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 * Os nós são *n1* e *n2*.
 
 
-Os exemplos neste procedimento usam dois nós, cada um usando duas portas de interconexão de cluster 40 GbE *e4a* e *e4e*.  Olink:https://hwu.netapp.com/["_Universo do Hardware_"^] Contém detalhes sobre as portas do cluster em suas plataformas.
+Os exemplos neste procedimento usam dois nós, cada um usando duas portas de interconexão de cluster 40 GbE *e4a* e *e4e*.  Olink:https://hwu.netapp.com/["Hardware Universe"^] Contém detalhes sobre as portas do cluster em suas plataformas.
 
 * *n1_clus1* é a primeira interface lógica de cluster (LIF) a ser conectada ao switch de cluster *C1* para o nó *n1*.
 * *n1_clus2* é a primeira LIF de cluster a ser conectada ao switch de cluster *C2* para o nó *n1*.

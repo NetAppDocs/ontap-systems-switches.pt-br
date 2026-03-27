@@ -54,7 +54,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 * O `cluster1::*>` O prompt indica o nome do cluster.
 * As portas do cluster em cada nó são denominadas e0a e e0b.
 +
-https://hwu.netapp.com/["Hardware Universe"^]Possui mais informações sobre as portas de cluster reais que são suportadas em sua plataforma.
+O link:https://hwu.netapp.com/["Hardware Universe"^] contém mais informações sobre as portas de cluster reais que são suportadas em sua plataforma.
 
 * Os links entre switches (ISLs) suportados são as portas 0/13 a 0/16.
 * As conexões de nó suportadas são as portas 0/1 a 0/12.

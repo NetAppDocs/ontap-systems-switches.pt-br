@@ -31,7 +31,7 @@ Os exemplos nos procedimentos de configuração utilizam a seguinte nomenclatura
 * Os nomes LIF do cluster são `node1_clus1` e `node1_clus2` para o nó 1 e `node2_clus1` e `node2_clus2` para o nó 2.
 * O nome do espaço IP é Cluster.
 * O `cluster1::>` O prompt indica o nome do cluster.
-* As portas do cluster em cada nó são nomeadas. `e0a` e `e0b` .  Veja o https://hwu.netapp.com/Home/Index["Hardware Universe da NetApp"^] para as portas de cluster reais suportadas em sua plataforma.
+* As portas do cluster em cada nó são nomeadas  `e0a` e  `e0b`. Consulte o link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] para as portas de cluster reais suportadas em sua plataforma.
 * Os links entre switches (ISLs) suportados para os switches NetApp são as portas 0/55 e 0/56.
 * As conexões de nó suportadas para os switches NetApp são as portas 0/1 a 0/16 com licenciamento padrão.
 * Os exemplos utilizam dois nós, mas você pode ter até 24 nós em um cluster.

@@ -758,7 +758,7 @@ ISL de 100 GbE para switch A porta 65
 
 == Folha de exercícios de cabeamento em branco
 
-Você pode usar a planilha de cabeamento em branco para documentar as plataformas que são suportadas como nós em um cluster.  A seção _Conexões de cluster suportadas_ do https://hwu.netapp.com["Hardware Universe"^] Define as portas do cluster utilizadas pela plataforma.
+Você pode usar a planilha de cabeamento em branco para documentar as plataformas suportadas como nós em um cluster. A seção _Conexões de Cluster Suportadas_ do link:https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
 
 [cols="1, 1, 1, 1"]
 |===

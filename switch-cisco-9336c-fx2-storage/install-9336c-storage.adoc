@@ -24,7 +24,7 @@ Certifique-se de ter o seguinte:
 +
 Todos os switches de rede de storage e de gerenciamento da Cisco chegam com a configuração padrão de fábrica da Cisco. Esses switches também possuem a versão atual do software NX-OS, mas não têm os RCFs carregados.
 
-* Documentação necessária para o interruptor. Verlink:required-documentation-9336c-storage.html["Documentação necessária"] para mais informações.
+* Documentação necessária para o switch. Consulte link:required-documentation-9336c-storage.html["Documentação necessária"] para obter mais informações.
 
 
 .Passos
@@ -38,14 +38,14 @@ Todos os switches de rede de storage e de gerenciamento da Cisco chegam com a co
  a| 
 Cisco Nexus 9336C-FX2 em um gabinete de sistema NetApp
  a| 
-Verlink:install-switch-and-passthrough-panel-9336c-storage.html["Instalar switch em rack NetApp"] Para obter instruções sobre como instalar o switch em um gabinete NetApp .
+Consulte link:install-switch-and-passthrough-panel-9336c-storage.html["Instalar switch em rack NetApp"] para obter instruções sobre como instalar o switch em um NetApp cabinet.
 
 
 
  a| 
 Equipamentos em um rack de telecomunicações
  a| 
-Consulte os procedimentos fornecidos nos guias de instalação de hardware do switch e nas instruções de instalação e configuração da NetApp .
+Consulte os procedimentos fornecidos nos guias de instalação do hardware do switch e nas instruções de instalação e configuração da NetApp.
 
 |===
 . Conecte os switches de rede e de gerenciamento aos controladores usando as planilhas de cabeamento preenchidas.

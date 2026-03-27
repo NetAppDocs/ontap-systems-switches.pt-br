@@ -13,4 +13,4 @@ summary: Você pode usar os comandos fornecidos...
 [role="lead"]
 Com a coleta de logs configurada, você pode habilitar a coleta horária de dados periódicos que são coletados pelo AutoSupport e solicitar logs de suporte detalhados.
 
-Verlink:config-log-collection.html["Configurar coleta de logs"] Para obter mais detalhes.
+Consulte link:config-log-collection.html["Configurar coleta de logs"] para obter mais detalhes.

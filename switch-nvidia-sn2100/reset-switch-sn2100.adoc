@@ -21,7 +21,7 @@ Para redefinir o switch do cluster SN2100 para os padrões de fábrica:
 
 
 
-NOTE: Para obter mais informações sobre como instalar o Cumulus Linux, consultelink:configure-software-overview-sn2100-cluster.html["Fluxo de trabalho de instalação de software para switches NVIDIA SN2100"] .
+NOTE: Para mais informações sobre a instalação do Cumulus Linux, consulte link:configure-software-overview-sn2100-cluster.html["Fluxo de trabalho de instalação de software para switches NVIDIA SN2100"].
 
 .Passos
 [role="tabbed-block"]
@@ -72,7 +72,7 @@ Do you want to continue? [y/n] *y*
 ----
 
 
-Veja a NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Redefinição de fábrica"^] Para mais detalhes, consulte a documentação.
+Consulte a documentação da link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Redefinição de fábrica"^] NVIDIA para obter mais detalhes.
 
 --
 ====

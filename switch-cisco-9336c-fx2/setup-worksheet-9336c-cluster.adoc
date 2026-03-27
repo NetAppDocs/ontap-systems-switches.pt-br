@@ -879,7 +879,7 @@ ISL de 100GbE para a porta 36 do switch B
 ISL de 100GbE para switch A porta 36
 
 |===
-Veja o https://hwu.netapp.com/Switch/Index["Hardware Universe"] Para obter mais informações sobre portas de switch.
+Consulte o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para obter mais informações sobre portas de switch.
 
 .O que vem a seguir
 Depois de concluir suas planilhas de cabeamento, você pode link:install-switch-9336c-cluster.html["instalar o interruptor"].

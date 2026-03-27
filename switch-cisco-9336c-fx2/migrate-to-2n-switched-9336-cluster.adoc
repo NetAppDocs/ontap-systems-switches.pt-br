@@ -25,7 +25,7 @@ O processo de migração funciona para todos os nós que utilizam portas óptica
 ** A configuração sem switch de dois nós está configurada corretamente e funcionando.
 ** Todas as portas do cluster estão no estado *ativo*.
 ** Todas as interfaces lógicas do cluster (LIFs) estão no estado *ativo* e em suas portas de origem.
-** Ver https://hwu.netapp.com["Hardware Universe"^] Para todas as versões ONTAP suportadas.
+** Consulte a link:https://hwu.netapp.com["Hardware Universe"^] para todas as versões do ONTAP compatíveis.
 
 
 * Para a configuração do switch Cisco Nexus 9336C-FX2:
@@ -34,7 +34,7 @@ O processo de migração funciona para todos os nós que utilizam portas óptica
 ** É possível acessar os switches do cluster através do console.
 ** As conexões nó a nó e switch a switch do Nexus 9336C-FX2 usam cabos Twinax ou de fibra.
 +
-Ver https://hwu.netapp.com["Hardware Universe"^] Para obter mais informações sobre cabeamento.
+Consulte o link:https://hwu.netapp.com["Hardware Universe"^] para obter mais informações sobre cabeamento.
 
 
 
@@ -57,7 +57,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de comutador de 
 * As portas do cluster utilizadas neste procedimento são e0a e e0b.
 
 
-Ver https://hwu.netapp.com["Hardware Universe"^] Para obter informações sobre as portas de cluster para suas plataformas. Ver link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Para obter mais informações sobre os requisitos de instalação do switch.
+Consulte a link:https://hwu.netapp.com["Hardware Universe"^] para obter informações sobre as portas de cluster para suas plataformas. Consulte link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] para obter mais informações sobre os requisitos de instalação do switch.
 
 
 
@@ -291,9 +291,6 @@ Cluster
 . Desconecte o cabo da porta do cluster e0a no nó 1 e, em seguida, conecte e0a à porta 1 no switch do cluster cs1, usando o cabeamento apropriado suportado pelos switches 9336C-FX2.
 +
 O https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^] Contém mais informações sobre cabeamento.
-
-+
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^]
 
 . Desconecte o cabo da porta do cluster e0a no nó 2 e, em seguida, conecte e0a à porta 2 no switch do cluster cs1, usando o cabeamento apropriado suportado pelos switches 9336C-FX2.
 . Habilite todas as portas voltadas para os nós no switch de cluster cs1.

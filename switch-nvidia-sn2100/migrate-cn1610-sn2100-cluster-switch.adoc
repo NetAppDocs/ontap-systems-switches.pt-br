@@ -17,7 +17,7 @@ Você pode migrar switches de cluster NetApp CN1610 de um cluster ONTAP para swi
 
 == Requisitos de revisão
 
-Ao substituir switches de cluster NetApp CN1610 por switches de cluster NVIDIA SN2100, é preciso estar ciente de certas informações de configuração, conexões de porta e requisitos de cabeamento. Verlink:configure-overview-sn2100-cluster.html["Visão geral da instalação e configuração dos switches NVIDIA SN2100"] .
+Você deve estar ciente de certas informações de configuração, conexões de porta e requisitos de cabeamento ao substituir os switches de cluster NetApp CN1610 por switches de cluster NVIDIA SN2100. Consulte link:configure-overview-sn2100-cluster.html["Visão geral da instalação e configuração dos switches NVIDIA SN2100"].
 
 .Interruptores suportados
 Os seguintes switches de cluster são suportados:
@@ -26,7 +26,7 @@ Os seguintes switches de cluster são suportados:
 * NVIDIA SN2100
 
 
-Para obter detalhes sobre as portas suportadas e suas configurações, consulte o https://hwu.netapp.com/["Hardware Universe"^] .
+Para obter detalhes sobre as portas suportadas e suas configurações, consulte o link:https://hwu.netapp.com/["Hardware Universe"^].
 
 .Antes de começar
 Verifique se você atende aos seguintes requisitos para sua configuração:

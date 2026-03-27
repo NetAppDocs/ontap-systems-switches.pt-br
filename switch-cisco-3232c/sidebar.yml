@@ -48,8 +48,8 @@ entries:
       url: "/switch-cisco-3232c/upgrade-rcf-software-3232c.html"
   - title: Verifique a configuração SSH
     url: "/switch-cisco-3232c/configure-ssh-keys.html"
-  - title: Restaure as configurações de fábrica do switch.
-    url: "/switch-cisco-3232c/reset-switch-3232c.html"
+- title: Restaure as configurações de fábrica do switch.
+  url: "/switch-cisco-3232c/reset-switch-3232c.html"
 - title: Migrar switches
   pdf-filename: Migrate_switches_3232C
   entries:
@@ -73,10 +73,3 @@ entries:
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
   - title: Substitua os switches de cluster por conexões sem switch.
     url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
-- title: Cisco 3232C switches de armazenamento
-  pdf-filename: 3232C_storage_switches
-  entries:
-  - title: Atualizar um switch de armazenamento 3232C
-    url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"
-  - title: Substitua um switch de armazenamento 3232C
-    url: "/switch-cisco-3232c/replace-storage-switch.html"

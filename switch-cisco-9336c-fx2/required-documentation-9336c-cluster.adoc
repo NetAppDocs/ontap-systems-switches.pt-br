@@ -14,13 +14,13 @@ summary: Para a instalação e manutenção do switch Cisco Nexus 9336C-FX2, cer
 
 
 [role="lead"]
-Para instalação e manutenção dos switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T, revise a documentação específica do switch e do controlador para configurar seus switches Cisco 9336-FX2 e o cluster ONTAP .
+Para a instalação dos switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T, certifique-se de revisar a documentação específica do switch e do controlador para configurar seus switches Cisco 9336-FX2 e o cluster ONTAP.
 
 
 
 == Documentação do Switch
 
-Para configurar os switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T, você precisa da seguinte documentação: https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Suporte para switches Cisco Nexus série 9000"^] página:
+Para configurar os switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T, você precisa da seguinte documentação de link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Suporte para switches Cisco Nexus série 9000"^].
 
 [cols="1,2"]
 |===
@@ -86,7 +86,7 @@ Fornece informações sobre conformidade com agências internacionais, seguranç
 
 == Documentação dos sistemas ONTAP
 
-Para configurar um sistema ONTAP , você precisa dos seguintes documentos para a sua versão do sistema operacional. https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
+Para configurar um sistema ONTAP, você precisa dos seguintes documentos para a sua versão do sistema operacional.
 
 [cols="1,2"]
 |===
@@ -101,14 +101,14 @@ Descreve como instalar o hardware da NetApp .
 
 
  a| 
-Documentação do ONTAP
+link:https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^]
  a| 
 Fornece informações detalhadas sobre todos os aspectos das versões do ONTAP .
 
 
 
  a| 
-https://hwu.netapp.com["Hardware Universe"^]
+link:https://hwu.netapp.com["Hardware Universe"^]
  a| 
 Fornece informações sobre configuração e compatibilidade de hardware da NetApp .
 
@@ -117,7 +117,7 @@ Fornece informações sobre configuração e compatibilidade de hardware da NetA
 
 == Kit de trilhos e documentação do gabinete
 
-Para instalar um switch Cisco 9336-FX2 em um gabinete NetApp , consulte a seguinte documentação de hardware.
+Para instalar um switch Cisco 9336-FX2 em um NetApp cabinet, consulte a seguinte documentação de hardware.
 
 [cols="1,2"]
 |===
@@ -125,7 +125,7 @@ Para instalar um switch Cisco 9336-FX2 em um gabinete NetApp , consulte a seguin
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Gabinete de sistema 42U, guia profundo"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Gabinete de sistema 42U, guia profundo"^]
  a| 
 Descreve as FRUs (Unidades Substituíveis em Campo) associadas ao gabinete do sistema 42U e fornece instruções de manutenção e substituição de FRUs.
 

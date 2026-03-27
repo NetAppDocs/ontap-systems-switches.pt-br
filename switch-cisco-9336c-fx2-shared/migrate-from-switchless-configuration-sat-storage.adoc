@@ -105,7 +105,7 @@ There are no entries matching your query.
 ====
 
 
-. [[passo 7]]Substitua o RCF de armazenamento no switch compartilhado A pelo arquivo RCF compartilhado.  Verlink:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] Para obter mais detalhes.
+. [[passo 7]]Substitua o RCF de armazenamento no switch compartilhado A pelo arquivo RCF compartilhado. Consulte link:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] para obter mais detalhes.
 . Verifique se o armazenamento conectado ao par HA 1, switch de armazenamento B, está íntegro:
 +
 `system health alert show -instance`
@@ -141,7 +141,7 @@ There are no entries matching your query.
 ====
 
 
-. [[passo13]]Substitua o arquivo RCF de armazenamento no switch compartilhado B pelo arquivo RCF compartilhado.  Verlink:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] Para obter mais detalhes.
+. [[passo 13]]Substitua o arquivo RCF de armazenamento no switch compartilhado B pelo arquivo RCF compartilhado. Consulte link:install-nxos-rcf-9336c-shared.html["Instale o RCF em um switch compartilhado Cisco Nexus 9336C-FX2."] para obter mais detalhes.
 . Verifique se o armazenamento conectado ao par HA 1, switch de armazenamento B, está íntegro:
 +
 `system health alert show -instance`
@@ -183,7 +183,7 @@ sh1 (config)# *exit*
 ====
 
 
-. [[step16]]Converter par HA 1 de um cluster sem switch para um cluster com switch.  Utilize as atribuições de porta do cluster definidas pelo RCF compartilhado.  Verlink:prepare-nxos-rcf-9336c-shared.html["Instale o software NX-OS e os arquivos de configuração de referência (RCFs)."] Para obter mais detalhes.
+. [[step16]]Converta o par de HA 1 de um cluster sem switch para um cluster com switch. Use as atribuições de porta do cluster definidas pelo RCF compartilhado. Consulte link:prepare-nxos-rcf-9336c-shared.html["Instale o software NX-OS e os arquivos de configuração de referência (RCFs)"] para obter mais detalhes.
 . Verifique se a configuração de rede comutada é válida:
 +
 `network port show`

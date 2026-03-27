@@ -38,7 +38,7 @@ O switch Cisco Nexus 3232C de substituição possui as seguintes característica
 
 
 .Para maiores informações
-Veja o seguinte:
+Consulte o seguinte:
 
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet da Cisco"^]
 * link:http://hwu.netapp.com["Hardware Universe"^]
@@ -52,7 +52,7 @@ Veja o seguinte:
 A NetApp recomenda enfaticamente que você habilite o registro de console nos dispositivos que estiver usando e execute as seguintes ações ao substituir seu switch:
 
 * Mantenha o AutoSupport ativado durante a manutenção.
-* Acione um AutoSupport de manutenção antes e depois da manutenção para desativar a criação de chamados durante o período de manutenção.  Consulte este artigo da Base de Conhecimento.link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Como suprimir a criação automática de chamados durante janelas de manutenção programadas"^] Para obter mais detalhes.
+* Execute uma manutenção AutoSupport antes e depois da manutenção para desativar a criação de chamados durante o período de manutenção. Consulte este artigo da Knowledge Base link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92: Como suprimir a criação automática de chamados durante janelas de manutenção programadas"^] para obter mais detalhes.
 * Ative o registro de sessões para todas as sessões da CLI.  Para obter instruções sobre como ativar o registro de sessão, consulte a seção "Registro de saída da sessão" neste artigo da Base de Conhecimento.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Como configurar o PuTTY para obter conectividade ideal com sistemas ONTAP"^] .
 
 
@@ -87,7 +87,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 
 O número de portas 10 GbE e 40/100 GbE está definido nos arquivos de configuração de referência (RCFs) disponíveis emlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Download do arquivo de configuração de referência do switch de rede de cluster Cisco"^] .
 
-Os exemplos neste procedimento de substituição utilizam quatro nós.  Dois dos nós utilizam quatro portas de interconexão de cluster de 10 GB: e0a, e0b, e0c e e0d.  Os outros dois nós utilizam duas portas de interconexão de cluster de 40 GB: e4a e e4e.  Veja olink:https://hwu.netapp.com["Hardware Universe"^] Para verificar as portas de cluster corretas para sua plataforma.
+Os exemplos neste procedimento de substituição utilizam quatro nós. Dois dos nós usam quatro portas de interconexão de cluster de 10 GB: e0a, e0b, e0c e e0d. Os outros dois nós usam duas portas de interconexão de cluster de 40 GB: e4a e e4e. Consulte o link:https://hwu.netapp.com["Hardware Universe"^] para verificar as portas de cluster corretas para sua plataforma.
 
 
 
@@ -95,7 +95,7 @@ Os exemplos neste procedimento de substituição utilizam quatro nós.  Dois dos
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
 +
-`system node autosupport invoke -node * -type all - message MAINT=xh`
+`system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 _x_ representa a duração da janela de manutenção em horas.
@@ -462,7 +462,7 @@ Larger than PMTU communication succeeds on 32 path(s) RPC status:
 
 . Desative as portas 1/31 e 1/32 no switch de cluster CL1.
 +
-Para obter mais informações sobre os comandos da Cisco , consulte os guias listados em https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
+Para obter mais informações sobre os comandos da Cisco, consulte os guias listados em link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Mostrar exemplo
@@ -482,7 +482,7 @@ Para obter mais informações sobre os comandos da Cisco , consulte os guias lis
 . Remova os cabos de interligação entre switches (ISL) das portas e1/31 e e1/32 no switch de cluster CL2 e reconecte-os às mesmas portas no switch de substituição C2.
 . Ative as portas ISL 1/31 e 1/32 no switch de cluster CL1.
 +
-Para obter mais informações sobre os comandos da Cisco , consulte os guias listados em https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
+Para obter mais informações sobre os comandos da Cisco, consulte os guias listados em link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Mostrar exemplo
@@ -500,7 +500,7 @@ Para obter mais informações sobre os comandos da Cisco , consulte os guias lis
 ====
 . Verifique se os ISLs estão ativos no CL1.
 +
-Para obter mais informações sobre os comandos da Cisco , consulte os guias listados em https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
+Para obter mais informações sobre os comandos da Cisco, consulte os guias listados em link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^].
 
 +
 As portas Eth1/31 e Eth1/32 devem indicar `(P)` , o que significa que as portas ISL estão ativas no canal de porta:
@@ -527,7 +527,7 @@ Group Port-        Type   Protocol  Member Ports
 ====
 . Verifique se os ISLs estão ativos no switch de cluster C2.
 +
-Para obter mais informações sobre os comandos da Cisco , consulte os guias listados em https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^] .
+Para obter mais informações sobre os comandos da Cisco, consulte os guias listados em link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Referências de comandos do Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Mostrar exemplo

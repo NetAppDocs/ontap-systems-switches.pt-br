@@ -21,7 +21,7 @@ Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois s
 
 Você instala o switch NVIDIA SN2100 (X190006/X190106) no gabinete de switch duplo/simples da NVIDIA com os suportes padrão que acompanham o switch.
 
-Para diretrizes de cabeamento, consultelink:cabling-considerations-sn2100-storage.html["Considerações sobre cabeamento e configuração"] .
+Para diretrizes de cabeamento, consulte link:cabling-considerations-sn2100-storage.html["Considerações sobre cabeamento e configuração"].
 
 
 
@@ -30,7 +30,7 @@ Para diretrizes de cabeamento, consultelink:cabling-considerations-sn2100-storag
 O switch NVIDIA SN2100 é um switch Ethernet de 10/25/40/100 Gb que executa o sistema operacional Cumulus Linux.  O switch suporta o seguinte:
 
 * ONTAP 9.10.1P3.  O switch SN2100 serve aplicações de Cluster e Armazenamento no ONTAP 9.10.1P3 em diferentes pares de switches.  A partir do ONTAP 9.10.1P3, você pode usar switches NVIDIA SN2100 para combinar funcionalidades de armazenamento e cluster em uma configuração de switch compartilhada.
-* Cumulus Linux (CL) versão 4.4.3.  Para obter informações atualizadas sobre compatibilidade, consulte o https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet NVIDIA"^] Página de informações.
+* Cumulus Linux (CL) OS versão 4.4.3. Para informações atuais de compatibilidade, consulte link:https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switches Ethernet NVIDIA"^].
 * Você pode instalar o Cumulus Linux quando o switch estiver executando o Cumulus Linux ou o ONIE.
 
 

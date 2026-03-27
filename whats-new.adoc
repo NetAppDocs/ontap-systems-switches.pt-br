@@ -11,7 +11,7 @@ summary: Conheça as novas opções de comutação para os sistemas FAS e AFF .
 
 
 [role="lead"]
-Conheça as novas opções de comutação para os sistemas FAS e AFF .  Para obter informações adicionais sobre o interruptor, consulte o https://hwu.netapp.com/Switch/Index["Hardware Universe da NetApp"^] .
+Saiba mais sobre os novos switches para sistemas de armazenamento ONTAP. Para obter informações adicionais sobre os switches, consulte link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^].
 
 
 

@@ -38,8 +38,8 @@ entries:
       url: "/switch-cisco-9332d-gx2b/upgrade-rcf-software-9332d-cluster.html"
   - title: Verifique se o SSH está habilitado
     url: "/switch-cisco-9332d-gx2b/configure-ssh-keys.html"
-  - title: Restaure as configurações de fábrica do switch.
-    url: "/switch-cisco-9332d-gx2b/reset-switch-9332d.html"
+- title: Restaure as configurações de fábrica do switch.
+  url: "/switch-cisco-9332d-gx2b/reset-switch-9332d.html"
 - title: Substituir interruptor 9332D-GX2B
   pdf-filename: Substituir_interruptores_9332d-gx2b
   url: "/switch-cisco-9332d-gx2b/replace-9332d-cluster.html"

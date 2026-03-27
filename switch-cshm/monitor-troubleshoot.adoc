@@ -17,4 +17,4 @@ Caso sejam acionados alertas, o status de integridade do sistema será relatado 
 
 Para visualizar os alertas disponíveis do monitor de integridade do switch Ethernet, execute o comando: `system health alert definition show -monitor ethernet-switch`
 
-Consulte o artigo da Base de Conhecimento. https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guia de Resolução de Alertas do Monitor de Saúde do Switch"^] Para obter detalhes avançados sobre a resolução de alertas.
+Consulte o artigo da Knowledge Base https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guia de Resolução de Alertas do Monitor de Saúde do Switch"^] para obter detalhes avançados sobre a resolução de alertas.
