@@ -11,7 +11,7 @@ summary: Aprenda como verificar se o monitoramento de um switch Ethernet está f
 
 
 [role="lead"]
-O monitor de integridade do switch Ethernet (CSHM) tenta monitorar automaticamente os switches que detecta; no entanto, o monitoramento pode não ocorrer automaticamente se os switches não estiverem configurados corretamente.  Você deve verificar se o monitor de integridade está configurado corretamente para monitorar seus switches.
+O monitor de integridade do switch Ethernet (CSHM) tenta monitorar automaticamente os switches de rede que detecta; no entanto, o monitoramento pode não ocorrer automaticamente se os switches não estiverem configurados corretamente. Você deve verificar se o monitor de integridade está configurado corretamente para monitorar seus switches.
 
 
 

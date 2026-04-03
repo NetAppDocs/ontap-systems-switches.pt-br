@@ -253,12 +253,12 @@ newcs2(config)# *interface e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4
 newcs2(config-if-range)# *shutdown*
 newcs2(config)# *interface e1/9/1-4,e1/10/1-4,e1/11/1-4,e1/12/1-4,e1/13/1-4,e1/14/1-4,e1/15/1-4,e1/16/1-4*
 newcs2(config-if-range)# *shutdown*
-newcs2(config)# *interface e1/17/1-4,e1/18/1-4,e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-44,e1/23/1-4*
+newcs2(config)# *interface e1/17/1-4,e1/18/1-4,e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4*
 newcs2(config-if-range)# *shutdown*
-newcs2(config)# *interface e1/24/1-,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-44*
+newcs2(config)# *interface e1/24/1-4,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4*
 newcs2(config-if-range)# *shutdown*
-newcs2(config-if-range)# exit
-newcs2(config)# exit
+newcs2(config-if-range)# *exit*
+newcs2(config)# *exit*
 ----
 ====
 . Verifique se todas as LIFs do cluster têm a reversão automática ativada:
@@ -367,8 +367,8 @@ cs1# *config*
 Enter configuration commands, one per line. End with CNTL/Z.
 cs1(config)# *interface e1/31-32*
 cs1(config-if-range)# *shutdown*
-cs1(config-if-range)# exit
-cs1(config)# exit
+cs1(config-if-range)# *exit*
+cs1(config)# *exit*
 ----
 . Remova todos os cabos do switch Nexus 9332D-GX2B cs2 e conecte-os às mesmas portas no switch 9332D-GX2B newcs2.
 . Abra as portas ISLs Eth1/31 e Eth1/32 entre os switches cs1 e newcs2 e, em seguida, verifique o status da operação do canal da porta.
@@ -405,6 +405,26 @@ Group Port-       Type     Protocol  Member Ports
 --------------------------------------------------------------------------------
 1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
 999   Po999(SD)   Eth      NONE      --
+----
+====
+. Ative todas as portas, de Eth1/1 a Eth1/30, no switch newcs2.
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+newcs2# *config*
+newcs2(config)# *interface e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7/1-4,e1/8/1-4*
+newcs2(config-if-range)# *no shutdown*
+newcs2(config)# *interface e1/9/1-4,e1/10/1-4,e1/11/1-4,e1/12/1-4,e1/13/1-4,e1/14/1-4,e1/15/1-4,e1/16/1-4*
+newcs2(config-if-range)# *no shutdown*
+newcs2(config)# *interface e1/17/1-4,e1/18/1-4,e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4*
+newcs2(config-if-range)# *no shutdown*
+newcs2(config)# *interface e1/24/1-4,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4*
+newcs2(config-if-range)# *no shutdown*
+newcs2(config-if-range)# *exit*
+newcs2(config)# *exit*
 ----
 ====
 . Verifique se a porta e7b está ativa em todos os nós:

@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir o funcionamento adequado dos switches de rede do cluster e do armazenamento, além de coletar logs dos switches para fins de depuração.  Este procedimento orienta você no processo de configuração da coleta, solicitação de registros detalhados de *Suporte* e ativação da coleta horária de dados *Periódicos* coletados pelo AutoSupport.
+O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir a integridade operacional dos switches de rede e coletar logs do switch para fins de depuração. Este procedimento orienta você no processo de configuração da coleta, solicitação de logs de *Suporte* detalhados e ativação da coleta horária de dados *Periódicos* que são coletados pelo AutoSupport.
 
 *NOTA:* Se você ativar o modo FIPS, deverá concluir o seguinte:
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blocks>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="doc">Antes de começar</block>
-  <block id="8ac20e3719b6b58e94e5a4385e87b52e" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir o funcionamento adequado dos switches de rede do cluster e do armazenamento, além de coletar logs dos switches para fins de depuração.  Este procedimento orienta você no processo de configuração da coleta, solicitação de registros detalhados de *Suporte* e ativação da coleta horária de dados *Periódicos* coletados pelo AutoSupport.</block>
   <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">*NOTA:* Se você ativar o modo FIPS, deverá concluir o seguinte:</block>
   <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">Recrie as chaves SSH no switch seguindo as instruções do fornecedor.</block>
   <block id="a60a00967db7342947b326a8f7618f52" category="list-text">Regenerar chaves SSH no ONTAP usando<block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block></block>
@@ -3019,17 +3018,7 @@
   <block id="71a881be92e62256287d6347bd624fad" category="paragraph">ISL para comutar a porta A 65</block>
   <block id="eda024fd7d2291c043817bf86d68da64" category="paragraph">ISL para comutador B porta 66</block>
   <block id="fbfe4b7728646e201fb34cdd5d08935c" category="paragraph">ISL para comutar a porta A 66</block>
-  <block id="f5e9ec33bbd550cafe73fcb03480f889" category="summary">Antes de configurar seu switch Cisco 9332D-GX2B, revise as seguintes informações.</block>
-  <block id="7fb930ad6a0d234e53294ed9bec42b34" category="paragraph">Antes de configurar seu switch Cisco 9332D-GX2B, revise as seguintes considerações.</block>
-  <block id="a1d07f6c5f2382a1e6db9b0444491cb4" category="section-title">Suporte para portas Ethernet NVIDIA CX6-DX</block>
-  <block id="a32d4cc05beee2bf611dd754f323b14b" category="paragraph">Se estiver conectando uma porta de switch a um controlador ONTAP usando portas NIC NVIDIA ConnectX-6 Dx (CX6-DX) (número da peça X50130B), você deverá codificar a velocidade da porta do switch.</block>
-  <block id="43ca6c0708b86c2e3ba5a4b20f4bc474" category="summary">A partir do ONTAP 9.9.1, você pode usar switches Cisco Nexus 9332D-GX2B para combinar funcionalidades de armazenamento e cluster em um cenário de switch compartilhado.</block>
-  <block id="fd416e48095036f67db7c479cfef73c0" category="doc">Requisitos de rede para switches Cisco Nexus 9332D-GX2B</block>
-  <block id="83142a06d593700b2ff333694496012b" category="paragraph">Para instalação e manutenção do switch Cisco Nexus 9332D-GX2B, certifique-se de revisar os requisitos de cabeamento e rede.</block>
   <block id="3eb36d6d74c43353c4b5b101aa777feb" category="paragraph">Você precisa das seguintes informações de rede para todas as configurações de switch.</block>
-  <block id="0c8374c87ef91b0dd751ef764fd68300" category="list-text">A maioria dos controladores de sistema de armazenamento são gerenciados por meio da interface e0M, conectando-se à porta de serviço Ethernet (ícone de chave inglesa).</block>
-  <block id="541fb7ba8b8b8df9c175d1695f706597" category="list-text">Consulte o<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> Para obter as informações mais recentes.</block>
-  <block id="118d935cca54466f59122caecfde09ad" category="section-title">Requisitos de cabeamento</block>
   <block id="922e0472f9731d915fa1e9d3a596e9cf" category="list-text">Dependendo do tipo de switch que você está configurando inicialmente, você precisa se conectar à porta do console do switch com o cabo de console incluído.</block>
   <block id="209b62e0549113b11f345f2ebaf69962" category="summary">Detalhes da porta para switches Cisco Nexus 9332D-GX2B</block>
   <block id="143e5769c5c85e56dffd181ed3e493aa" category="paragraph">O switch Cisco Nexus 9332D-GX2B faz parte da plataforma Cisco Nexus 9000. Os switches do sistema AFX permitem que você crie clusters ONTAP com mais de dois nós.</block>
@@ -3156,26 +3145,9 @@
   <block id="906296921ce498fa9500d86133cb4a2b" category="list-title">Configuração RCF disponível</block>
   <block id="fdb500ee5ab5f21c1b5bc773c9113780" category="list-text"><block ref="fdb500ee5ab5f21c1b5bc773c9113780" category="inline-link-macro-rx"></block></block>
   <block id="fdd1967bcc4179d15ff49af9f4eb5d7e" category="paragraph">Depois de revisar o procedimento de instalação do RCF ou atualização do RCF, você<block ref="804caa6e47e068ee420004b49576cb27" category="inline-link-macro-rx"></block> ou<block ref="34eb350590adb58b30d7d2c85b3e73cb" category="inline-link-macro-rx"></block> conforme necessário.</block>
-  <block id="337fc22f6db10f996d56acc741118e32" category="summary">Se você tiver um ambiente de cluster sem switch de dois nós existente, poderá migrar para um ambiente de cluster com switch de dois nós usando switches Cisco Nexus 9332D-GX2B para permitir o dimensionamento além de dois nós no cluster.</block>
   <block id="a2d07f4e7a36ed872e60c08cdcc73771" category="doc">Migrar para um cluster comutado de dois nós</block>
-  <block id="4ae5628e23c2f96ffb061d8de0b69375" category="paragraph">Se você tiver um ambiente de cluster _sem switch_ de dois nós existente, poderá migrar para um ambiente de cluster _com switch_ de dois nós usando switches Cisco Nexus 9332D-GX2B.</block>
   <block id="a693fd2056f9dc0037e9baefb9fbe3bb" category="paragraph">O processo de migração funciona para todos os nós que utilizam portas ópticas ou Twinax, mas não é suportado neste switch se os nós estiverem utilizando portas RJ45 10Gb BASE-T integradas para as portas de rede do cluster.</block>
-  <block id="5f082cebdf9c4696324c2ba72f77318c" category="list-text">Para a configuração do switch Cisco Nexus 9332D-GX2B:</block>
-  <block id="bfbf5a65ca6d5888e91891feffc4d5da" category="list-text">As conexões nó a nó e switch a switch do Nexus 9332D-GX2B usam cabos Twinax ou de fibra.</block>
-  <block id="440642316e621e445b65a0fd788fc12f" category="list-text">Os cabos Inter-Switch Link (ISL) são conectados às portas 1/35 e 1/36 em ambos os switches 9332D-GX2B.</block>
-  <block id="a104a175c4457280b283fe9d2234f257" category="list-text">A personalização inicial dos dois switches 9332D-GX2B foi concluída, de modo que:</block>
-  <block id="3e3222e2b508ac0b462bb536509dfcaf" category="list-text">Os switches 9332D-GX2B estão executando a versão mais recente do software.</block>
-  <block id="52a3cee6e7f049fa10ea4376974cb6ad" category="list-text">Os nomes dos switches 9332D-GX2B2 são cs1 e cs2.</block>
-  <block id="d96c4aa580b8ee9c1402e467c01d9385" category="list-text">Verifique se o ISL e as portas físicas no ISL entre os dois switches 9332D-GX2B cs1 e cs2 estão ativos nas portas 1/35 e 1/36:</block>
   <block id="ebcf71eb39f7510f62abf6ea769fb245" category="paragraph">Cada LIF de cluster deve exibir<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> para<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> e tenha um<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> de cima/para cima.</block>
-  <block id="bdbadd6072a9b09a1ccb52d61a3980cf" category="list-text">Desconecte o cabo da porta do cluster e0a no nó 1 e, em seguida, conecte e0a à porta 1 no switch do cluster cs1, usando o cabeamento apropriado suportado pelos switches 9332D-GX2B.</block>
-  <block id="9e8d0650f943d18a4d35bc0a06a58c13" category="list-text">Desconecte o cabo da porta do cluster e0a no nó 2 e, em seguida, conecte e0a à porta 2 no switch do cluster cs1, usando o cabeamento apropriado suportado pelos switches 9332D-GX2B.</block>
-  <block id="8d88ef7edb7cad807b1289a0f782c2d2" category="list-text">Desconecte o cabo da porta do cluster e0b no nó 1 e, em seguida, conecte e0b à porta 1 no switch do cluster cs2, usando o cabeamento apropriado suportado pelos switches 9332D-GX2B.</block>
-  <block id="4197a5ab4b9f3de6c2c1790cb558ad3c" category="list-text">Desconecte o cabo da porta do cluster e0b no nó 2 e, em seguida, conecte e0b à porta 2 no switch do cluster cs2, usando o cabeamento apropriado suportado pelos switches 9332D-GX2B.</block>
-  <block id="2524de6afa6b1569b9b31ebacac83f4a" category="summary">Você pode migrar switches de cluster Cisco mais antigos e não disruptivos para um cluster ONTAP para switches de rede de cluster Cisco Nexus 9332D-GX2B.</block>
-  <block id="a1958649e196dc12917fa23c795fbbe5" category="doc">Migrar de um switch Cisco mais antigo para um switch Cisco Nexus 9332D-GX2B</block>
-  <block id="e7d4a6009585d24053e959f7b9c72b8c" category="paragraph">Você pode executar uma migração sem interrupções de um switch de cluster Cisco mais antigo para um switch de rede de cluster Cisco Nexus 9332D-GX2B.</block>
-  <block id="cfccb2504d60cade90d43b59059ab531" category="doc">Substituir switches de cluster Cisco Nexus 9332D-GX2B2 por conexões sem switch</block>
   <block id="034b2ca4f8708065c8d2bc270a8065be" category="summary">A substituição de um switch Nexus 9332D-GX2B com defeito em uma rede de cluster é um procedimento não disruptivo \(NDU\).</block>
   <block id="de26480add46f245a8d5542ad9cca42b" category="doc">Substituir um switch Cisco Nexus 9332D-GX2B</block>
   <block id="d791e14d35f87ca6e28ae6a4b9bc0379" category="paragraph">Siga estas etapas para substituir um switch Nexus 9332D-GX2B com defeito em uma rede compartilhada. Este é um procedimento não disruptivo (NDU).</block>
@@ -3944,12 +3916,6 @@
   <block id="6c7072958775e2716da05784c2834f65" category="paragraph">Depois de concluir suas planilhas de cabeamento, você pode <block ref="d9d3d8dae0a36eea938e144b4f81717e" category="inline-link-macro-rx"></block>.</block>
   <block id="3e1208bc4bf9384a3afbda89e7d0cb5a" category="paragraph">Onde _x_ representa a duração do período de manutenção em horas.</block>
   <block id="22e5bcc55974e1667f105918832f4dea" category="list-text">Para NX-OS 10.2 e versões posteriores, use o<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> comando para comparar com o arquivo RCF salvo na memória flash de inicialização. Caso contrário, utilize uma ferramenta de comparação ou de diferenças de terceiros.</block>
-  <block id="9c6c3f61af7dff11347a9a97366c4acb" category="summary">Antes de configurar seu switch Cisco 9364d-gx2a, revise as seguintes informações.</block>
-  <block id="b771416dbd66215d66c0fd3bf739e5a2" category="paragraph">Antes de configurar seu switch Cisco 9364D-GX2A, revise as seguintes considerações.</block>
-  <block id="98d47bae71b2dc1d79d4c85b4018180a" category="paragraph">Se estiver conectando uma porta de switch a um controlador ONTAP usando a porta NIC NVIDIA ConnectX-6 Dx (CX6-DX) (número da peça X50130B), você deverá codificar a velocidade da porta do switch.</block>
-  <block id="c0c8f19e1caa03ae66089f6734ad6427" category="summary">A partir do ONTAP 9.9.1, você pode usar switches Cisco Nexus 9364d-gx2a para combinar funcionalidades de armazenamento e cluster em um cenário de switch compartilhado.</block>
-  <block id="f8ea0b6a6d5331dd41671be79eba8b80" category="doc">Requisitos de rede para switches Cisco Nexus 9364D-GX2A</block>
-  <block id="d815f83c6610cf53f479e1ff013e05bd" category="paragraph">Para instalação e manutenção do switch Cisco Nexus 9364D-GX2A, certifique-se de revisar os requisitos de cabeamento e rede.</block>
   <block id="693bb1d6da1a4a39adcbdfb78152a10d" category="summary">Detalhes da porta para switches Cisco Nexus 9364D-GX2A.</block>
   <block id="75b76d5b0a7f4d1316caaabb8edbbd71" category="doc">Detalhes da porta para switches Cisco Nexus 9364D-GX2A</block>
   <block id="4cd7313cf8af783e1ff5c03134602ed8" category="paragraph">O switch Cisco Nexus 9364D-GX2A faz parte da plataforma Cisco Nexus 9000 e pode ser instalado em um gabinete de sistema NetApp . Os switches 9364D-GX2A permitem que você crie clusters ONTAP com mais de dois nós.</block>
@@ -3996,12 +3962,6 @@
   <block id="4ddbf9913cf137f28df7ad8a4a25d0f5" category="paragraph">Este exemplo mostra o arquivo RCF.<block ref="1b86452473f90818e41227cf4b4157de" prefix=" " category="inline-code"></block> sendo instalado no switch cs1:</block>
   <block id="7ea042ac2614a0600db9c4b93b98f977" category="summary">Você pode instalar o RCF depois de configurar o switch Nexus 9364d-gx2a pela primeira vez. Você também pode usar este procedimento para atualizar seu RCF.</block>
   <block id="e78d946d685c3dda4f9e3b88a2f0bba2" category="paragraph">Depois de revisar o procedimento de instalação do RCF ou atualização do RCF, você<block ref="aa26a14f1bc2d7d8cc0e72e6b978adf7" category="inline-link-macro-rx"></block> ou<block ref="4e313e617a2ef8fc435b0fa38938a5e3" category="inline-link-macro-rx"></block> conforme necessário.</block>
-  <block id="0ca59852803eb076c0ee9c67538053fe" category="summary">Se você tiver um ambiente de cluster sem switch de dois nós existente, poderá migrar para um ambiente de cluster com switch de dois nós usando switches Cisco Nexus 9364d-gx2a para permitir o dimensionamento além de dois nós no cluster.</block>
-  <block id="7f01c134f69e6ae852c99e15adbc1e2b" category="paragraph">Se você tiver um ambiente de cluster _sem switch_ de dois nós existente, poderá migrar para um ambiente de cluster _com switch_ de dois nós usando switches Cisco Nexus 9364D-GX2A.</block>
-  <block id="b6fcfead0738ea09f2b691474609a29e" category="summary">Você pode migrar switches de cluster Cisco mais antigos e não disruptivos para um cluster ONTAP para switches de rede de cluster Cisco Nexus 9364d-gx2a.</block>
-  <block id="db8835a05da545df84b45b247adea01f" category="doc">Migrar de um switch Cisco mais antigo para um switch Cisco Nexus 9364D-GX2A</block>
-  <block id="c1a2ea599205b8771310b00480bede1d" category="paragraph">Você pode executar uma migração sem interrupções de um switch de cluster Cisco mais antigo para um switch de rede de cluster Cisco Nexus 9364D-GX2A.</block>
-  <block id="5767008faeeaaa4fc001088d92fd2271" category="doc">Substituir switches Cisco Nexus 9364D-GX2A por conexões sem switch</block>
   <block id="9171c26a27d3f56eb4e1f4b69582413f" category="summary">A substituição de um switch Nexus 9364d-gx2a com defeito em uma rede de cluster é um procedimento não disruptivo \(NDU\).</block>
   <block id="06e8a8675fac36562a21ef023e9cd2f4" category="doc">Substituir um switch Cisco Nexus 9364D-GX2A</block>
   <block id="f5aff46ac4603cb35601dc593b6fc9f9" category="paragraph">Siga estas etapas para substituir um switch Nexus 9364D-GX2A com defeito em uma rede de cluster. Este é um procedimento não disruptivo (NDU).</block>
@@ -4044,7 +4004,6 @@
   <block id="5b62a4b03175f138ff64effec2560ed7" category="summary">Você pode usar este procedimento para configurar o SNMPv3 para o seu switch específico, que suporta monitoramento de integridade de switch Ethernet (CSHM).</block>
   <block id="62f22218ea7fb3cf6669cdfdb6c908e0" category="doc">Configure o SNMPv3 para o seu switch (Opcional)</block>
   <block id="1c10f160ae9b8c4d78cec8e05f3c3a4e" category="paragraph">O SNMP é usado para monitorar os switches.  O monitoramento por SNMPv3 é configurado seguindo este procedimento.</block>
-  <block id="b243d3b653e3e0bac6ab3be1bf2318bf" category="paragraph">O Ethernet Switch Health Monitor (CSHM) utiliza SNMP para monitorar a integridade e o desempenho de switches de cluster e de armazenamento.  Por padrão, o SNMPv2c é configurado automaticamente através do Arquivo de Configuração de Referência (RCF).  O SNMPv3 é mais seguro que o SNMPv2 porque introduz recursos de segurança robustos, como autenticação, criptografia e integridade de mensagens, que protegem contra acesso não autorizado e garantem a confidencialidade e integridade dos dados durante a transmissão.</block>
   <block id="1c76d98a8c6bdaf19a0c6e69ecd5d74b" category="doc">Visão geral do monitor de integridade do switch</block>
   <block id="5c1a7fd59da01d98a9fa4672044477e2" category="summary">Você pode usar os comandos fornecidos...</block>
   <block id="28498a71a5aca6b62e077f2dc8cf0ccb" category="doc">Visão geral da coleta de logs</block>
@@ -4071,7 +4030,6 @@
   <block id="b16485fd5118936281137dbf7e67a0d1" category="inline-link">Guia de Resolução de Alertas do Monitor de Saúde do Switch</block>
   <block id="586ef722188ebd1147c5005705cba276" category="summary">Aprenda como verificar se o monitoramento de um switch Ethernet está funcionando.</block>
   <block id="73938029de1874ad71500c396fa836b1" category="doc">Verifique o monitoramento dos switches Ethernet.</block>
-  <block id="7d446387be9f1d7a1583327a693c81a1" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) tenta monitorar automaticamente os switches que detecta; no entanto, o monitoramento pode não ocorrer automaticamente se os switches não estiverem configurados corretamente.  Você deve verificar se o monitor de integridade está configurado corretamente para monitorar seus switches.</block>
   <block id="61c6496b7fc6acc388aea0c4121ad73d" category="summary">Para instalar o hardware NetApp CN1610, consulte a documentação da NetApp .</block>
   <block id="56d51248b29d38d6d0101b911261169f" category="doc">Configure o hardware para o switch NetApp CN1610.</block>
   <block id="52663e973f6b6ab69073964e0b15c245" category="inline-link">Guia de Instalação e Configuração dos Switches CN1601 e CN1610</block>
@@ -5732,7 +5690,6 @@
   <block id="fa563af13977c8fa13c2f34c249aa75c" category="paragraph">Para a instalação do switch Cisco Nexus 92300YC, certifique-se de revisar toda a documentação recomendada.</block>
   <block id="e97d1cb66bb893f96299c0b61bd825ae" category="paragraph">Para configurar os switches Cisco Nexus 92300YC, você precisa da seguinte documentação de <block ref="93ab07c13dccf0df4a51c609a56ba87d" category="inline-link-macro-rx"></block>.</block>
   <block id="747757e1552d37c7acbcac8c2bc74c2e" category="paragraph">Para instalar um switch Cisco Nexus 92300YC em um NetApp cabinet, consulte a seguinte documentação de hardware.</block>
-  <block id="ed4348314b5e585f58fb10e3eb23786d" category="list-text">Você possui a quantidade e o tipo adequados de cabos e conectores para seus switches. Consulte o <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block>.</block>
   <block id="b1b0ac0987476d318ebcba8cc0527236" category="list-text">Consulte o <block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> para obter mais informações sobre portas de switch.</block>
   <block id="9de25c87f0b605a29bb38c79425d12e3" category="paragraph">Você instala o RCF depois de configurar o switch Nexus 9332D-GX2B pela primeira vez.</block>
   <block id="c0e57b1bc17b0c8e1aa595a81e7affad" category="paragraph">Para obter mais informações sobre os comandos da Cisco, consulte o guia apropriado nos <block ref="dba0e49fdfeab9433bb71da6c505aa34" category="inline-link-rx"></block> guides.</block>
@@ -5740,9 +5697,6 @@
   <block id="48b7dcfee85b5f887d81c4d02d77b17b" category="paragraph">Você instala o arquivo de configuração de referência (RCF) após configurar o switch Nexus 9332D-GX2B pela primeira vez. Você atualiza a versão do RCF quando já tem uma versão existente do arquivo RCF instalada no seu switch.</block>
   <block id="12b2b90a2df5c424aae239994f423fae" category="paragraph">Para obter detalhes específicos sobre o uso de portas e VLANs, consulte a seção de banner e notas importantes no seu RCF. Consulte <block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> para mais informações.</block>
   <block id="484285d34e9a7e1700787d621f274175" category="paragraph">Consulte o <block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> para verificar as portas corretas em sua plataforma.</block>
-  <block id="944f6c95118c610c7ab840375bc2c61a" category="list-text">Consulte a <block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> para todas as versões do ONTAP compatíveis.</block>
-  <block id="c33ff637e82e9abbd67d3e88e8c5fac3" category="paragraph">Consulte o <block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> para obter mais informações sobre cabeamento.</block>
-  <block id="66ccc6f13163db8c9bb3408859a7da1c" category="paragraph">Consulte a <block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> para obter informações sobre as portas de cluster para suas plataformas. Consulte <block ref="93586a8f49408f483b5b0ac7e6bc3bac" category="inline-link-macro-rx"></block> para obter mais informações sobre os requisitos de instalação do switch.</block>
   <block id="f8dde6b6e79246450ecfad64e72cf021" category="list-text">Execute uma manutenção AutoSupport antes e depois da manutenção para desativar a criação de chamados durante o período de manutenção. Consulte este artigo da Knowledge Base<block ref="9889375293ffeecac54c58b8cad125b2" category="inline-link-rx"></block> para obter mais detalhes.</block>
   <block id="556f9fe16abc11dd3473671f8a35913b" category="paragraph">Para a instalação do switch Cisco Nexus 9332D-GX2B, certifique-se de revisar a documentação específica do switch e do controlador para configurar seus switches 9332D-GX2B e o cluster ONTAP.</block>
   <block id="741c229d1d6d0aa9dd2206a8074c4ca0" category="paragraph">Para configurar os switches Cisco Nexus 9332D-GX2B, você precisa da seguinte documentação de <block ref="95a6ab609479cb4b4a9170501544c15c" category="inline-link-macro-rx"></block>.</block>
@@ -5807,7 +5761,6 @@
   <block id="52cc1f7a5479f0af3d0ec56f1317fe22" category="paragraph">Você instala o RCF depois de configurar o switch Nexus 9364D-GX2A pela primeira vez.</block>
   <block id="fd68007e61003ecb66b52644065d0aa1" category="paragraph">Você instala o RCF após configurar o switch Nexus 9364D-GX2A pela primeira vez. Você atualiza a versão do RCF quando já tiver uma versão existente do arquivo RCF instalada no switch.</block>
   <block id="63aba13a0110773692f41b0d956d67f0" category="paragraph">Consulte o <block ref="34774b6dc875898cd8aa59f7081c068c" category="inline-link-macro-rx"></block> para verificar as portas de cluster corretas em suas plataformas.</block>
-  <block id="125154abfa6df743751bb0098e41a7ea" category="paragraph">Consulte a <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> para obter informações sobre as portas de cluster para suas plataformas.</block>
   <block id="857d8dfe60bae8fddfe3a2a67889c3b4" category="paragraph">Para a instalação do switch Cisco Nexus 9364D-GX2A, certifique-se de revisar a documentação específica do switch e do controlador para configurar seus switches Cisco 9364D-GX2A e o cluster ONTAP.</block>
   <block id="045f5ff0d012cdec85ca3e1fc396abde" category="paragraph">Para configurar os switches Cisco Nexus 9364D-GX2A, você precisa da seguinte documentação de <block ref="95a6ab609479cb4b4a9170501544c15c" category="inline-link-macro-rx"></block>.</block>
   <block id="705dfa9a6d00cf092dad8dee79dbcde8" category="admonition">Se algum status de erro for relatado pelo recurso de coleta de logs (visível na saída de <block ref="88354d538ba5d4e1746193ec5949ab4b" prefix=" " category="inline-code"></block>), consulte <block ref="2504f84f3fef22e482d1d3a35d9305fe" category="inline-link-macro-rx"></block> para obter mais detalhes.</block>
@@ -5876,4 +5829,15 @@
   <block id="950f0e6f812ad0de9038690a88e004cf" category="paragraph">Saiba mais sobre os novos switches para sistemas de armazenamento ONTAP. Para obter informações adicionais sobre os switches, consulte <block ref="c845c6ffda77bc94ba897d84583cb923" category="inline-link-macro-rx"></block>.</block>
   <block id="3accd457092182b65b303cc399a3e3ff" category="sidebar">Documentação de switches para sistemas de armazenamento ONTAP</block>
   <block id="a5fcc63010ab0a7a26e68d8f04554576" category="sidebar">Documentação de switch para sistemas de armazenamento ONTAP</block>
+  <block id="316fa55db721e45107647fc0de79704f" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir a integridade operacional dos switches de rede e coletar logs do switch para fins de depuração. Este procedimento orienta você no processo de configuração da coleta, solicitação de logs de *Suporte* detalhados e ativação da coleta horária de dados *Periódicos* que são coletados pelo AutoSupport.</block>
+  <block id="6dbdcd2922ea90d8d9d85b7b2e3f5014" category="inline-link-macro">Configurar CSHM</block>
+  <block id="78d07d5b1f80434001bf7ee6902e0e55" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="89d77223eae1e7b1cf009f838e8ed4ea" category="inline-link-macro-rx"></block></block>
+  <block id="766725015e499832f29c4e8b91bef6ef" category="paragraph">Configure o monitoramento de integridade do switch.</block>
+  <block id="1556da421b0bfb50cc7135468542d3b7" category="list-text">Ative todas as portas, de Eth1/1 a Eth1/30, no switch newcs2.</block>
+  <block id="12e67aac3e7f9227cc35f8f047d7dc74" category="inline-image-macro">Sete</block>
+  <block id="2a70e5cd7fe1206c11949b9c83f67c59" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="89d77223eae1e7b1cf009f838e8ed4ea" category="inline-link-macro-rx"></block></block>
+  <block id="3223a18f0d91b37f89ddc5db7054cd87" category="list-text">Ative todas as portas do switch newcs2.</block>
+  <block id="4900377d6745b8a03e6c9a542b3fe2f0" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir o funcionamento operacional dos switches de rede e coletar os registros do switch para fins de depuração.</block>
+  <block id="bc2dfd2fdf95de6b810acf0fa5c67356" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) utiliza SNMP para monitorar a integridade e o desempenho dos switches de rede. Por padrão, o SNMPv2c é configurado automaticamente através do Reference Configuration File (RCF). O SNMPv3 é mais seguro que o SNMPv2 porque introduz recursos de segurança robustos, como autenticação, criptografia e integridade de mensagens, que protegem contra acesso não autorizado e garantem a confidencialidade e integridade dos dados durante a transmissão.</block>
+  <block id="7cb74dd4a33dec5dc1811198729f1a3d" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) tenta monitorar automaticamente os switches de rede que detecta; no entanto, o monitoramento pode não ocorrer automaticamente se os switches não estiverem configurados corretamente. Você deve verificar se o monitor de integridade está configurado corretamente para monitorar seus switches.</block>
 </blocks>

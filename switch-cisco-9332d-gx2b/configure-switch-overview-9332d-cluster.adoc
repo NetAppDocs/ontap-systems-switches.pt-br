@@ -32,3 +32,7 @@ Instale o hardware do switch.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-software-overview-9332d-cluster.html["Configurar o software"]
 [role="quick-margin-para"]
 Configure o software do switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:../switch-cshm/config-overview.html["Configurar CSHM"]
+[role="quick-margin-para"]
+Configure o monitoramento de integridade do switch.
