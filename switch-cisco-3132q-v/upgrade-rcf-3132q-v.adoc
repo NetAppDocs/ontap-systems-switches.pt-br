@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/upgrade-rcf-3132q-v.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
-summary: 'O SSH é um requisito ao usar o Cluster Switch Health Monitor (CSHM) e os recursos de coleta de logs. Para habilitar o SSH em switches de cluster Cisco 3132q-v, primeiro gere as chaves SSH e depois habilite o SSH.' 
+summary: 'O SSH é um requisito para usar o Monitor de Saúde do Switch de Cluster (CSHM) e os recursos de coleta de logs. Para habilitar o SSH nos switches de cluster Cisco 3132q-v, primeiro você gera as chaves SSH e depois habilita o SSH.' 
 ---
 = Atualize seu Arquivo de Configuração de Referência (RCF)
 :allow-uri-read: 

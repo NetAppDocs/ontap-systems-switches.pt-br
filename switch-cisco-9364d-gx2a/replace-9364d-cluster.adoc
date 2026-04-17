@@ -2,7 +2,7 @@
 permalink: switch-cisco-9364d-gx2a/replace-9364d-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9364d-gx2a cluster switch - cisco nexus 9364d-gx2a 
-summary: 'A substituição de um switch Nexus 9364d-gx2a com defeito em uma rede de cluster é um procedimento não disruptivo \(NDU\).' 
+summary: 'A substituição de um switch Nexus 9364D-GX2A defeituoso em uma rede cluster é um procedimento não disruptivo (NDU).' 
 ---
 = Substituir um switch Cisco Nexus 9364D-GX2A
 :allow-uri-read: 

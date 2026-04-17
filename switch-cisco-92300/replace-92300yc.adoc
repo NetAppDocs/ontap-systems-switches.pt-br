@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/replace-92300yc.html 
 sidebar: sidebar 
 keywords: replace,upgrade cisco nexus 92300yc cluster switch 
-summary: 'A substituição de um switch Nexus 92300YC com defeito em uma rede de cluster é um procedimento não disruptivo \(NDU\).' 
+summary: A substituição de um switch Nexus 92300YC defeituoso em uma rede cluster é um procedimento não disruptivo. 
 ---
 = Substituir um switch Cisco Nexus 92300YC
 :allow-uri-read: 

@@ -28,7 +28,7 @@ Verifique as seguintes instalações e conexões:
 == Passo 1: Instale o RCF nos interruptores
 
 . Faça login no switch cs1 usando SSH ou usando um console serial.
-. Copie o RCF para o bootflash do switch cs1 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.
+. Copie o arquivo RCF para a bootflash do switch cs1 usando um dos seguintes protocolos de transferência: FTP, SFTP ou SCP.
 +
 Para obter mais informações sobre os comandos da Cisco, consulte o guia apropriado na link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guia de Comandos do Cisco Nexus Série 9000 NX-OS"^].
 
@@ -36,15 +36,16 @@ Para obter mais informações sobre os comandos da Cisco, consulte o guia apropr
 .Mostrar exemplo
 [%collapsible]
 ====
-Este exemplo mostra o TFTP sendo usado para copiar um arquivo RCF para a memória flash de inicialização no switch cs1:
+Este exemplo mostra o SFTP sendo usado para copiar um RCF para a bootflash no switch cs1:
 
 [listing, subs="+quotes"]
 ----
-cs1# *copy tftp: bootflash: vrf management*
+cs1# *copy sftp: bootflash: vrf management*
 Enter source filename: *Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt*
-Enter hostname for the tftp server: *172.22.201.50*
-Trying to connect to tftp server......Connection to Server Established.
-TFTP get operation was successful
+Enter hostname for the sftp server: *172.22.201.50*
+Enter username: *user1*
+Trying to connect to sftp server......Connection to Server Established.
+SFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
 ====
