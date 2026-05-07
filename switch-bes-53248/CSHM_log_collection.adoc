@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: 'O recurso de coleta de logs do monitor de integridade do switch Ethernet (CSHM) é usado para coletar logs de switches de cluster ou de rede de armazenamento no ONTAP.' 
+summary: 'O recurso de coleta de logs do monitor de integridade do switch Ethernet (CSHM) é usado para coletar logs de switches de cluster ou de rede de storage no ONTAP.' 
 ---
 = Coleta de logs de monitoramento de integridade de switches Ethernet
 :allow-uri-read: 
