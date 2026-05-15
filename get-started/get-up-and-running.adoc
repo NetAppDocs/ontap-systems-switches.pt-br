@@ -68,7 +68,8 @@ Instale seu sistema de armazenamento e prateleiras no armário ou estante.  Aces
  a| 
  a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["Sistemas AFX"^]
-* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemas AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["Sistemas da série AFF A"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["Sistemas da série AFF C"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemas ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Sistemas ASA r2"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Sistemas FAS"^]
@@ -172,7 +173,8 @@ Após configurar seus switches e instalar o software necessário, acesse as inst
  a| 
  a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["Sistemas AFX"^]
-* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Sistemas AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["Sistemas da série AFF A"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["Sistemas da série AFF C"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Sistemas ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Sistemas ASA r2"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Sistemas FAS"^]

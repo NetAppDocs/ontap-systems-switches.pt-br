@@ -365,8 +365,10 @@ ONIE:/ #
 ====
 . Instale o novo software do switch:
 +
-`ONIE:/ # onie-nos-install http://50.50.50.50/Software/onie-installer-x86_64`
-
+[listing]
+----
+ONIE:/ # onie-nos-install http://50.50.50.50/Software/onie-installer-x86_64
+----
 +
 .Mostrar exemplo
 [%collapsible]
