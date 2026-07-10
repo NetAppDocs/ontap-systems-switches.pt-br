@@ -23,6 +23,7 @@ A planilha de cabeamento de exemplo fornece exemplos de atribuições de portas 
 
 
 
+[[9336c-fx2-sample-cabling-worksheet]]
 == Folha de exercícios de cabeamento de amostra 9336C-FX2
 
 A definição da porta de exemplo em cada par de switches é a seguinte:
@@ -443,6 +444,7 @@ Nó 36 com 4 conexões 100GbE
 |===
 
 
+[[9336c-fx2-blank-cabling-worksheet]]
 == Folha de trabalho de cabeamento em branco 9336C-FX2
 
 Você pode usar a planilha de cabeamento em branco para documentar as plataformas suportadas como nós em um cluster. A seção _Conexões de Cluster Suportadas_ do link:https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.
@@ -777,6 +779,7 @@ Você pode usar a planilha de cabeamento em branco para documentar as plataforma
 |===
 
 
+[[9336c-fx2-t-sample-cabling-worksheet-12-port]]
 == Folha de exemplo de cabeamento 9336C-FX2-T (12 portas)
 
 A definição da porta de exemplo em cada par de switches é a seguinte:
@@ -911,6 +914,7 @@ Requer licença
 |===
 
 
+[[9336c-fx2-t-blank-cabling-worksheet-12-port]]
 == Folha de trabalho de cabeamento em branco 9336C-FX2-T (12 portas)
 
 Você pode usar a planilha de cabeamento em branco para documentar as plataformas que são suportadas como nós em um cluster.

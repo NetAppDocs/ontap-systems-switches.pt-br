@@ -17,6 +17,7 @@ O procedimento a ser utilizado depende de você ter duas portas de rede de clust
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .O que você vai precisar
@@ -52,6 +53,7 @@ O link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Switches"^] cont
 
 
 
+[[migrate-the-switches]]
 == Migre os switches
 
 .Sobre os exemplos
@@ -70,6 +72,7 @@ O link:https://hwu.netapp.com["Hardware Universe"^] contém as informações mai
 
 
 
+[[step-1-prepare-for-migration]]
 === Etapa 1: Prepare-se para a migração
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -90,6 +93,7 @@ O prompt avançado(`*>` ) aparece.
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Etapa 2: Configurar cabos e portas
 
 . Desative todas as portas voltadas para os nós (exceto as portas ISL) nos dois novos switches do cluster, sw1 e sw2.
@@ -420,6 +424,7 @@ swp16      100G   BondMember  sw1                swp16
 
 
 
+[[step-3-complete-the-procedure]]
 === Etapa 3: Conclua o procedimento
 
 . Exibir informações sobre os dispositivos de rede descobertos em seu cluster:

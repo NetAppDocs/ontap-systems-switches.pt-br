@@ -15,6 +15,7 @@ Antes de configurar seu switch Broadcom BES-53248, revise as seguintes considera
 
 
 
+[[cluster-port-switch-assignments]]
 == Atribuições de comutador de porta de cluster
 
 Você pode usar a tabela de atribuições de portas do switch de cluster BES-53248, compatível com a Broadcom, como um guia para configurar seu cluster.
@@ -56,6 +57,7 @@ Consulte o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para o
 
 
 
+[[port-group-speed-constraint]]
 == Restrição de velocidade do grupo de portos
 
 * Nos switches de cluster BES-53248, as 48 portas 10/25GbE (SFP28/SFP+) são combinadas em 12 grupos de 4 portas, da seguinte forma: Portas 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 e 45-48.
@@ -65,6 +67,7 @@ Consulte o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para o
 
 
 
+[[fec-requirements]]
 == Requisitos do FEC
 
 * Para portas 25G com cabos de cobre, consulte a tabela a seguir para obter detalhes.
@@ -82,6 +85,7 @@ image::../media/FEC_fiber_table.jpg[Portas 25G com cabos de fibra óptica]
 
 
 
+[[bootarg-implementation]]
 === Implementação do Bootarg
 
 Use o seguinte comando para definir o FEC da porta 25G para um dos seguintes valores: `auto` ou `fc` , conforme necessário:

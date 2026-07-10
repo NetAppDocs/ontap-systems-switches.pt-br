@@ -2,7 +2,7 @@
 permalink: switch-cisco-9364d-gx2a/replace-9364d-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9364d-gx2a cluster switch - cisco nexus 9364d-gx2a 
-summary: A substituição de um switch Nexus 9364d-gx2a defeituoso em uma rede cluster é um procedimento não disruptivo. 
+summary: 'Siga estas etapas para substituir um switch Nexus 9364D-GX2A com defeito em uma rede de cluster. Este é um procedimento não disruptivo (NDU).' 
 ---
 = Substituir um switch Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
@@ -15,6 +15,7 @@ Siga estas etapas para substituir um switch Nexus 9364D-GX2A com defeito em uma 
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 Antes de substituir o interruptor, certifique-se de que:
@@ -35,7 +36,7 @@ Antes de substituir o interruptor, certifique-se de que:
 ** As conexões do nó são as portas 1/1 a 1/62.
 ** Todas as portas Inter-Switch Link (ISL) estão desabilitadas nas portas 1/63 e 1/64.
 ** O arquivo de configuração de referência (RCF) desejado e a imagem do sistema operacional NX-OS são carregados no switch.
-** A personalização inicial do interruptor está concluída, conforme detalhado emlink:setup-switch-9364d-cluster.html["Configurar o switch de cluster 9364D-GX2A"] .
+** A personalização inicial do switch está concluída, conforme detalhado em link:configure-complete-initial-setup-9364d.html["Conclua a configuração inicial do switch"].
 +
 Quaisquer personalizações anteriores do site, como STP, SNMP e SSH, são copiadas para o novo switch.
 
@@ -46,6 +47,7 @@ Quaisquer personalizações anteriores do site, como STP, SNMP e SSH, são copia
 
 
 
+[[enable-console-logging]]
 == Ativar registro no console
 
 A NetApp recomenda enfaticamente que você habilite o registro de console nos dispositivos que estiver usando e execute as seguintes ações ao substituir seu switch:
@@ -57,6 +59,7 @@ A NetApp recomenda enfaticamente que você habilite o registro de console nos di
 
 
 
+[[replace-the-switch]]
 == Substitua o interruptor
 
 .Sobre os exemplos
@@ -208,6 +211,7 @@ Total entries displayed: 18
 ====
 
 
+[[step-1-prepare-for-replacement]]
 === Etapa 1: Prepare-se para a substituição
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -363,6 +367,7 @@ RPC status:
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Etapa 2: Configurar cabos e portas
 
 . Desligue as portas ISL 1/63 e 1/64 no switch Nexus 9364D-GX2A cs1.
@@ -652,6 +657,7 @@ RPC status:
 
 
 
+[[step-3-verify-the-configuration]]
 === Etapa 3: Verifique a configuração
 
 . Verifique a integridade de todas as portas no cluster.

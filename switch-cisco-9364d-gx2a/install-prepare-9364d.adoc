@@ -1,0 +1,139 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9364d-gx2a/install-prepare-9364d.html 
+keywords: shared storage cluster switch 
+summary: Antes de instalar os switches Cisco Nexus 9364D-GX2A como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, você deve compreender os aspectos do switch e sua instalação, revisando a documentação aplicável do switch Cisco e a documentação dos sistemas ONTAP, entendendo as versões RCF suportadas para sistemas AFX e considerando o uso do Smart Call Home. 
+---
+= Prepare-se para instalar os switches Cisco Nexus 9364D-GX2A
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar os switches Cisco Nexus 9364D-GX2A como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, você deve compreender os aspectos do switch e sua instalação, revisando a documentação aplicável do switch Cisco e a documentação dos sistemas ONTAP, entendendo as versões RCF suportadas para sistemas AFX e considerando o uso do Smart Call Home.
+
+
+
+[[step-1-review-the-cisco-switch-documentation]]
+=== Passo 1: Consulte a documentação do switch Cisco
+
+Você deve revisar os seguintes documentos de instalação e configuração da Cisco para se familiarizar com as notas de versão do switch, informações de segurança, opções de instalação, configuração inicial do software e referências de comandos.
+
+Todos os documentos da Cisco estão disponíveis na link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Suporte para switches Cisco Nexus série 9000"^] página.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-release-notes-list.html["Notas de versão do NX-OS para a série Cisco Nexus 9000"^](Selecione as notas referentes à versão do NX-OS instalada em seus switches)
+* link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html?dtid=osscdc000283&linkclickid=srch["Informações sobre conformidade regulamentar e segurança para a série Cisco Nexus 9000"^]
+* link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9364d-gx2a/cisco-nexus-9364d-gx2a-nx-os-mode-switch-hardware-installation-guide.html["Guia de instalação de hardware do switch Cisco Nexus 9364D-GX2A NX-OS Mode"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guias de configuração de software para switches Cisco Nexus série 9000"^](escolha o guia para a versão do NX-OS instalada em seus switches)
+* link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Guia de Comandos do Cisco Nexus Série 9000 NX-OS"^]Fornece links para as diversas referências de comandos fornecidas pela Cisco.
+
+
+
+
+[[step-2-review-the-netapp-systems-documentation]]
+=== Etapa 2: Revise a documentação dos sistemas NetApp
+
+Você deve revisar a seguinte documentação dos sistemas NetApp para se familiarizar com a instalação do sistema AFX 1K ou AFX 2K, informações sobre a versão do ONTAP e os requisitos de configuração e compatibilidade de hardware.
+
+* link:https://docs.netapp.com/us-en/ontap-afx/index.html["Documentação dos sistemas AFX"^]Descreve como instalar o hardware NetApp.
+* link:https://docs.netapp.com/us-en/ontap-family/["Documentação do ONTAP"^]Fornece informações detalhadas sobre todos os aspectos das versões do ONTAP.
+* link:https://hwu.netapp.com["Hardware Universe"^] Fornece informações sobre configuração e compatibilidade de hardware da NetApp.
+* link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"^] Fornece mais informações sobre os requisitos de instalação do sistema de storage.
+
+
+
+
+[[step-3-understand-the-supported-rcf-versions]]
+=== Etapa 3: Entenda as versões RCF suportadas
+
+A versão do ONTAP em execução no seu sistema AFX e a versão do NX-OS nos seus switches determinam as versões de RCF suportadas pelos seus switches. As versões de RCF possuem configurações de velocidade de porta predefinidas que determinam quantas portas do switch estão no modo breakout (4x100GbE) e no modo não-breakout.
+
+[NOTE]
+====
+Para obter a lista atual de versões RCF suportadas, consulte a link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco NetApp"^] página.
+
+As informações sobre as portas do switch também podem ser encontradas na https://hwu.netapp.com["Hardware Universe da NetApp"^].
+
+====
+* Se você possui um sistema AFX 1K, o RCF 10.0 e versões posteriores são compatíveis.
+* Se você possui um sistema AFX 2K, o RCF 10.1 e versões posteriores são compatíveis.
+* O RCF 10.0 possui um único arquivo e suporta switches compartilhados, `Cluster-HA-Storage AFX RCF_10.0`.
++
+Por exemplo, a tabela a seguir mostra os agrupamentos predefinidos das portas do switch, suas velocidades de porta e o uso para este arquivo RCF.
+
++
+[cols="1,2"]
+|===
+| Grupos de portas de switch | Velocidades e uso das portas 
+
+
+ a| 
+Ethernet1/1/1-4 para Ethernet1/62/1-4
+ a| 
+Modo 4x100GbE para conexões de cluster, HA e armazenamento
+
+
+
+ a| 
+Ethernet 1/63, Ethernet 1/64
+ a| 
+400GbE ISL
+
+|===
+* O RCF 10.1 possui arquivos diferentes para diferentes casos de uso nos sistemas AFX 1K e AFX 2K. Dependendo de como você planeja usar os switches na configuração do seu sistema AFX 1K ou AFX 2K (compartilhado, somente storage ou apenas cluster e HA), você escolhe o arquivo RCF aplicável.
++
+Por exemplo, se você estiver usando seus switches como switches compartilhados em um sistema AFX 2K, você usa o arquivo RCF apropriado para esse caso de uso. O arquivo RCF apropriado pode ter um nome semelhante a  `RCF-v10.1-NX9364D-GX2A-CL1-ST1-100GBR31-400G31.txt`. A tabela a seguir mostra os grupos predefinidos de portas do switch, suas velocidades de porta e o uso para este arquivo RCF.
+
++
+[cols="1,2"]
+|===
+| Grupos de portas de switch | Velocidades e uso das portas 
+
+
+ a| 
+Ethernet1/1/1-4 para Ethernet1/31/1-4
+ a| 
+Modo 4x100GbE para conexões intra-cluster, HA e de prateleira de storage
+
+
+
+ a| 
+Ethernet1/32 para Ethernet1/62
+ a| 
+Modo 400GbE para conexões intracluster, HA e de storage
+
+
+
+ a| 
+Ethernet 1/63, Ethernet 1/64
+ a| 
+Conexões ISL intracluster de 400GbE
+
+|===
++
+[NOTE]
+====
+Você pode alterar os grupos predefinidos para ajustar o número de portas do switch no modo breakout (4x100GbE) e 400GbE quando precisar acomodar uma configuração de velocidade de porta diferente para o seu sistema AFX.
+
+Você faz isso mais tarde, como parte do procedimento de instalação do RCF.
+
+====
+
+
+
+
+[[step-4-consider-using-smart-call-home]]
+=== Passo 4: considere usar o recurso Smart Call Home
+
+ONTAP oferece suporte ao monitoramento de integridade de switches Ethernet (CSHM) para monitorar os switches do cluster AFX, além da capacidade de coletar logs de diagnóstico dos switches.
+
+O Smart Call Home da Cisco é uma opção para fornecer suporte proativo e ajudar você a resolver quaisquer problemas que possam surgir com os switches.
+
+Mais informações sobre o Smart Call Home podem ser encontradas na link:configure-smart-call-9364d.html["Configurar Smart Call Home"] documentação.
+
+.O que vem a seguir?
+Depois de se preparar para instalar seus switches, você link:install-switches-9364d.html["instale os switches"].

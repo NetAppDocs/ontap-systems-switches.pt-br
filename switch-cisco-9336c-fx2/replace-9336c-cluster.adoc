@@ -15,6 +15,7 @@ Siga estas etapas para substituir switches Nexus 9336C-FX2 e 9336C-FX2-T defeitu
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 Antes de substituir o interruptor, certifique-se de que:
@@ -46,6 +47,7 @@ Quaisquer personalizações anteriores do site, como STP, SNMP e SSH, são copia
 
 
 
+[[enable-console-logging]]
 == Ativar registro no console
 
 A NetApp recomenda enfaticamente que você habilite o registro de console nos dispositivos que estiver usando e execute as seguintes ações ao substituir seu switch:
@@ -57,6 +59,7 @@ A NetApp recomenda enfaticamente que você habilite o registro de console nos di
 
 
 
+[[replace-the-switch]]
 == Substitua o interruptor
 
 .Sobre os exemplos
@@ -160,6 +163,7 @@ Total entries displayed: 4
 ====
 
 
+[[step-1-prepare-for-replacement]]
 === Etapa 1: Prepare-se para a substituição
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -291,6 +295,7 @@ RPC status:
 ====
 
 
+[[step-2-configure-cables-and-ports]]
 === Etapa 2: Configurar cabos e portas
 
 . Desligue as portas ISL 1/35 e 1/36 no switch Nexus 9336C-FX2 cs1.
@@ -519,6 +524,7 @@ RPC status:
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Etapa 3: Verifique a configuração
 
 . Confirme a seguinte configuração de rede do cluster:

@@ -1,0 +1,153 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-install-rcf-9332d.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: Você instala o RCF em novos switches Cisco Nexus 9332D-GX2B como parte da instalação e configuração de um novo sistema AFX 1K ou AFX 2K, substituindo um switch com defeito ou redefinindo um switch para as configurações padrão de fábrica. 
+---
+= Instale o RCF - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você instala o RCF no novo switch Cisco Nexus 9332D-GX2B como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, ao substituir um switch ou ao redefinir um switch para as configurações padrão de fábrica.
+
+.Antes de começar
+* O(s) switch(es) deve(m) estar ligado(s) e você deve ter concluído o procedimento de link:configure-complete-initial-setup-9332d.html["Conclua a configuração inicial do switch"].
+* Você deve ter instalado a versão desejada do NX-OS usando o link:configure-install-nxos-9332d.html["Instale o NX-OS"] procedimento.
+* Você deve ter lido a página link:configure-install-upgrade-rcf-overview-9332d.html["Visão geral da instalação ou atualização do RCF"].
+* Se você estiver instalando o RCF em um switch como parte de uma substituição de switch ou redefinição de switch para as configurações padrão de fábrica, verifique se seu cluster está totalmente funcional, ou seja, se não há erros nos logs ou problemas semelhantes.
+
+
+
+NOTE: Se você estiver instalando o RCF como parte de uma nova instalação do sistema AFX, pode ignorar este requisito porque os controladores do seu sistema AFX não estão ligados neste ponto da instalação e configuração do sistema AFX.
+
+.Sobre esta tarefa
+* Se você instalou switches como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, este procedimento orienta você a instalar o RCF no primeiro switch (cs1) e, em seguida, repetir os passos para o segundo switch (cs2).
+* Este procedimento requer apenas o uso de comandos dos switches da série Cisco Nexus 9000.
+* Os exemplos neste procedimento referem-se ao primeiro switch como cs1 e ao segundo switch como cs2.
+* Os exemplos mostrados neste procedimento são para sistemas AFX 1K com switches executando RCF 10.0. Se você tiver um sistema AFX 2K, a entrada e a saída podem variar.
+
+
+
+
+[[step-1-prepare-to-install-the-rcf]]
+== Etapa 1: Prepare-se para instalar o RCF
+
+Prepare-se para instalar o RCF no(s) switch(es), certificando-se de que você possui as conexões necessárias para fazer o download do RCF e, em seguida, faça o download do RCF.
+
+.Passos
+. Você precisa ter acesso a um servidor HTTP, FTP ou TFTP. O acesso a um desses servidores permite que você baixe uma versão compatível do RCF.
+. Faça o download do RCF compatível com o seu tipo de sistema AFX no site de suporte da NetApp em  http://mysupport.netapp.com/["meusuporte.netapp.com"^].
++
+
+NOTE: Os switches novos não são enviados com o RCF instalado. Você precisa instalar o RCF nos switches.
+
+. Cada switch deve estar conectado a um console ou você deve ter acesso remoto a cada switch.
+
+
+
+
+[[step-2-install-the-rcf]]
+== Etapa 2: instalar o RCF
+
+Você instala o RCF no primeiro switch (cs1) copiando e aplicando o RCF ao bootflash, examinando a saída do banner, verificando se a versão do RCF está correta, registrando quaisquer adições personalizadas, salvando os detalhes básicos de configuração, verificando se o arquivo write_erase.cfg está preenchido, apagando a configuração salva atualmente, copiando a configuração básica salva anteriormente para a configuração de inicialização e, em seguida, reiniciando o switch. Você repete essas etapas no segundo switch (cs2) se estiver instalando o RCF como parte de uma nova instalação do sistema AFX.
+
+. Faça login no switch cs1 usando SSH ou usando um console serial.
+. Copie o RCF para o bootflash do switch cs1 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.
++
+Para obter mais informações sobre os comandos da Cisco, consulte o guia apropriado na link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Guia de Comandos do Cisco Nexus Série 9000 NX-OS"^].
+
++
+`copy <protocol>: bootflash: vrf management`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+Este exemplo mostra o TFTP sendo usado para copiar um arquivo RCF para a memória flash de inicialização no switch cs1:
+
+[listing, subs="+quotes"]
+----
+cs1# *copy tftp: bootflash: vrf management*
+Enter source filename: *NX9332D-GX2B-RCF-v10.0-Shared.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. Aplique o RCF copiado anteriormente ao bootflash.
++
+Para obter mais informações sobre os comandos da Cisco, consulte o guia apropriado na link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Guia de Comandos do Cisco Nexus Série 9000 NX-OS"^].
+
++
+O comando a seguir mostra o arquivo RCF  `NX9332D-GX2B-RCF-v10.0-Shared.txt` sendo instalado no switch cs1:
+
++
+[listing, subs="+quotes"]
+----
+cs1# *copy NX9332D-GX2B-RCF-v10.0-Shared.txt running-config echo-commands*
+----
++
+
+NOTE: Para o RCF 10.1 e versões posteriores, o formato do nome do arquivo é diferente. Por exemplo,  `RCF-v10.1-NX9332D-GX2B-CL1-ST1-100GB15-400G15.txt` é para um switch compartilhado com portas designadas para breakout e 400GbE.
+
+. Examine a saída do banner do `show banner motd` comando. Você deve ler e seguir estas instruções para garantir a configuração e operação corretas do switch.
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing]
+----
+cs1# show banner motd
+
+******************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : NX9332D-GX2B
+* Filename : NX9332D-GX2B-RCF-v10.0-Shared.txt
+* Date     : 05-09-2025
+* Version  : v10.0
+* Port Usage:
+* Ports  1-30: 100GbE Intra-Cluster/HA/Storage Ports, int e1/{1-30}/1-4
+* Ports 31-32: Intra-Cluster ISL Ports, int e1/31-32
+*
+* IMPORTANT NOTES
+* Interface port-channel999 is reserved to identify the version of this file.
+******************************************************************************
+----
+====
+. Verifique se o arquivo RCF é a versão correta:
++
+`show running-config`
+
++
+Ao verificar a saída para confirmar se você tem o RCF correto, certifique-se de que as seguintes informações estejam corretas:
+
++
+** A bandeira da RCF
+** Configurações de nó e porta
+** Personalizações
++
+O resultado varia de acordo com a configuração do seu site.  Verifique as configurações da porta e consulte as notas de versão para quaisquer alterações específicas do RCF que você instalou.
+
+
+
+. Copie a configuração atual em execução para a configuração de inicialização para torná-la persistente.
++
+`cs1# *copy bootflash:write_erase.cfg startup-config*`
+
+. Reinicie o switch:
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. Se você estiver instalando o RCF como parte de uma nova instalação do sistema AFX, repita estes passos no switch cs2.
+
+
+.O que vem a seguir?
+Depois de instalar o RCF em seu(s) switch(es), você link:configure-verify-ssh-9332d.html["Verifique o SSH para coleta de logs"].

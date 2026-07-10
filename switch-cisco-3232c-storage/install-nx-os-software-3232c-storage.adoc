@@ -24,6 +24,7 @@ Verifique se você possui o seguinte:
 
 
 
+[[install-or-upgrade-the-software]]
 == Instale ou atualize o software
 
 O procedimento requer o uso de comandos ONTAP e comandos dos switches Cisco Nexus série 3000; os comandos ONTAP são usados, a menos que indicado de outra forma.

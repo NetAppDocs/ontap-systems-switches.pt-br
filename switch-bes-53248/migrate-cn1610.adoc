@@ -21,6 +21,7 @@ Os seguintes switches de cluster são suportados:
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 Verifique se sua configuração atende aos seguintes requisitos:
@@ -39,6 +40,7 @@ Verifique se sua configuração atende aos seguintes requisitos:
 
 
 
+[[node-connections]]
 === Conexões de nós
 
 Os switches de cluster suportam as seguintes conexões de nó:
@@ -53,6 +55,7 @@ NOTE: É possível ativar portas adicionais adquirindo licenças de porta.
 
 
 
+[[isl-ports]]
 === Portas ISL
 
 Os switches do cluster utilizam as seguintes portas de enlace entre switches (ISL):
@@ -65,6 +68,7 @@ O link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contém informaç
 
 
 
+[[isl-cabling]]
 === Cabeamento ISL
 
 A cablagem ISL adequada é a seguinte:
@@ -75,6 +79,7 @@ A cablagem ISL adequada é a seguinte:
 
 
 
+[[migrate-the-switches]]
 == Migre os switches
 
 Siga este procedimento para migrar switches de cluster CN1610 para switches de cluster BES-53248.
@@ -115,6 +120,7 @@ NOTE: Nenhum link operacional entre switches (ISL) é necessário durante este p
 
 
 
+[[step-1-prepare-for-migration]]
 === Etapa 1: Prepare-se para a migração
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -147,6 +153,7 @@ A mensagem avançada (*>) é exibida.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Etapa 2: Configurar portas e cabos
 
 . Nos novos switches, confirme se o cabo ISL está conectado e funcionando corretamente entre os switches cs1 e cs2:
@@ -651,6 +658,7 @@ cluster::*> system cluster-switch delete -device CL2
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Etapa 3: Verifique a configuração
 
 . Ative a reversão automática nos LIFs do cluster.

@@ -4,6 +4,7 @@
 
 
 
+[[create-a-switch-entry-so-that-ontap-can-monitor-it]]
 == Crie uma entrada de interruptor para que o ONTAP possa monitorá-la.
 
 Use o `system switch ethernet create` Comando para configurar e ativar manualmente o monitoramento de um switch Ethernet específico.  Isso é útil caso o ONTAP não adicione o switch automaticamente ou se você o removeu anteriormente e deseja adicioná-lo novamente.
@@ -16,6 +17,7 @@ Um exemplo típico é adicionar um switch chamado [DeviceName], com endereço IP
 
 
 
+[[disable-monitoring-without-deleting-the-switch]]
 == Desative o monitoramento sem excluir o interruptor.
 
 Se você deseja pausar ou interromper o monitoramento de um determinado switch, mas ainda mantê-lo para monitoramento futuro, modifique-o. `is-monitoring-enabled-admim` parâmetro em vez de excluí-lo.
@@ -30,6 +32,7 @@ Isso permite preservar os detalhes e a configuração do switch sem gerar novos 
 
 
 
+[[remove-a-switch-you-no-longer-need]]
 == Remova um interruptor que você não precisa mais.
 
 Usar `system switch ethernet delete` Para excluir um interruptor que foi desconectado ou não é mais necessário:

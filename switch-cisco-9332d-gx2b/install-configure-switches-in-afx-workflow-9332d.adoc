@@ -1,0 +1,76 @@
+---
+permalink: switch-cisco-9332d-gx2b/install-configure-switches-in-afx-workflow-9332d.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9332d-gx2b switch 
+summary: Para instalar e configurar seus switches Cisco Nexus 9332D-GX2B como parte do seu novo sistema AFX 1K ou AFX 2K, você usa uma combinação da documentação deste site de switches e do site de sistemas AFX. A documentação fornece links que direcionam você conforme necessário. 
+---
+= Instalar e configurar switches em um fluxo de trabalho de sistema AFX - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+
+
+[role="lead"]
+Para instalar e configurar seus switches Cisco Nexus 9332D-GX2B como parte do seu novo sistema AFX 1K ou AFX 2K, você usa uma combinação da documentação deste site de switches e do site de sistemas AFX. A documentação fornece links que direcionam você conforme necessário.
+
+
+
+[[install-switches]]
+=== Instalar switches
+
+Para instalar seus switches, você deve se preparar para a instalação e, em seguida, instalar os switches (juntamente com o hardware do sistema AFX), o que inclui a fiação e ligar a energia aos switches.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:install-prepare-9332d.html["Prepare-se para a instalação"]
+[role="quick-margin-para"]
+Prepare-se para instalar e configurar os switches consultando a documentação dos sistemas Cisco e ONTAP, preparando seu local e compreendendo a configuração predefinida das portas do switch para a versão do RCF suportada pelo seu sistema AFX.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:install-switches-9332d.html["Instale os switches"]
+[role="quick-margin-para"]
+Você será direcionado para o fluxo de trabalho de instalação e configuração do sistema AFX 1K ou AFX 2K para instalar os switches (juntamente com o hardware do sistema AFX), conectar os switches e, em seguida, ligá-los. Depois disso, você retornará a este fluxo de trabalho para configurar os switches.
+
+
+
+[[configure-switches]]
+=== Configurar switches
+
+Para configurar seus switches, você deve concluir a configuração inicial do switch, revisar os requisitos de cabeamento e configuração, instalar o NX-OS, instalar o RCF, verificar o SSH para coleta de logs, configurar o monitoramento de integridade do switch Ethernet (CSHM) e configurar o Smart Call Home (opcional).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:configure-complete-initial-setup-9332d.html["Conclua a configuração inicial do switch"]
+[role="quick-margin-para"]
+Após ligar os switches, eles iniciam a inicialização e entram no assistente de configuração. Você é solicitado a responder a uma série de perguntas para realizar a configuração inicial (de inicialização) dos switches.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:configure-review-cabling-config-requirements-9332d.html["Analise os requisitos de cabeamento e configuração"]
+[role="quick-margin-para"]
+Analise os requisitos de cabeamento e configuração.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:configure-install-nxos-9332d.html["Instale o NX-OS"]
+[role="quick-margin-para"]
+Instale a versão atual do NX-OS nos switches que suportam seu sistema AFX 1K ou AFX 2K.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]link:configure-install-upgrade-rcf-overview-9332d.html["Instale o RCF"]
+[role="quick-margin-para"]
+Instale a versão atual do RCF nos switches compatíveis com seu sistema AFX 1K ou AFX 2K. O link leva você ao tópico de visão geral da instalação ou atualização do RCF, que contém informações que você precisa saber antes de instalar o RCF.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-verify-ssh-9332d.html["Verifique o SSH para coleta de logs"]
+[role="quick-margin-para"]
+Verifique se o SSH está habilitado para que você possa usar o recurso de coleta de logs do monitor de integridade do switch Ethernet (CSHM).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:../switch-cshm/cshm-overview.html["Configurar o monitoramento de integridade do switch Ethernet"]
+[role="quick-margin-para"]
+Configure o monitor de integridade do switch Ethernet (CSHM) para garantir o funcionamento operacional dos seus switches e para a coleta de logs do switch para depuração e solução de problemas.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sete"]link:configure-smart-call-9332d.html["Configurar Smart Call Home (opcional)"]
+[role="quick-margin-para"]
+ONTAP oferece suporte ao monitoramento de integridade de switches Ethernet (CSHM) para monitorar os switches do cluster AFX, além da capacidade de coletar logs de diagnóstico dos switches. O Cisco Smart Call Home é uma opção para fornecer suporte proativo e ajudar você a resolver quaisquer problemas que possam surgir com os switches.
+
+
+
+[[complete-afx-system-setup]]
+=== Conclua a configuração do sistema AFX
+
+Para concluir a configuração do seu sistema AFX 1K ou AFX 2K, você conclui a energização dos componentes do sistema AFX e os procedimentos de configuração do sistema.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:install-complete-afx-setup-9332d.html["Conclua a configuração do sistema AFX"]
+[role="quick-margin-para"]
+Você deve consultar a documentação dos sistemas AFX para concluir a configuração do seu sistema AFX 1K ou AFX 2K, ligando as prateleiras de storage e os controladores, verificando a conectividade dos switches e, em seguida, finalizando os procedimentos de configuração do sistema.
+
+.O que vem a seguir?
+Após concluir a configuração do sistema AFX, você pode começar a usar seu sistema AFX. Você também pode link:https://docs.netapp.com/us-en/ontap-afx/index.html["Saiba mais sobre o seu sistema AFX e como usá-lo"^].

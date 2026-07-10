@@ -1,0 +1,27 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-install-upgrade-nxos-overview-9332d.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
+summary: Você pode instalar ou atualizar o NX-OS nos switches Nexus 9332D-GX2B para sistemas AFX 1K e AFX 2K. 
+---
+= Instale ou atualize a visão geral do NX-OS - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode instalar ou atualizar o NX-OS nos switches Nexus 9332D-GX2B para sistemas AFX 1K e AFX 2K.
+
+
+NOTE: A instalação ou atualização do NX-OS é independente da instalação ou atualização do RCF. Se você estiver instalando ou atualizando tanto o NX-OS quanto o RCF, recomenda-se instalar ou atualizar o NX-OS primeiro.
+
+* link:configure-install-nxos-9332d.html["Instale o NX-OS"]
++
+Você instala o NX-OS nos switches como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, uma substituição de switch ou uma redefinição do switch para as configurações padrão de fábrica.
+
+* link:configure-upgrade-nxos-9332d.html["Atualize o NX-OS"]
++
+Você atualiza o NX-OS nos switches para oferecer suporte a novo hardware ou a uma nova versão do ONTAP em seu sistema AFX 1K ou AFX 2K.
+
+

@@ -15,6 +15,7 @@ Ao instalar o software FASTPATH ​​em seus switches NetApp , você deve inici
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Antes de começar
@@ -34,6 +35,7 @@ Certifique-se de consultar a tabela de compatibilidade de switches no http://mys
 
 
 
+[[install-fastpath]]
 == Instale o FASTPATH
 
 O procedimento a seguir utiliza a sintaxe clusterizada do Data ONTAP 8.2.  Como resultado, o Vserver do cluster, os nomes LIF e a saída da CLI são diferentes daqueles presentes no Data ONTAP 8.3.
@@ -57,6 +59,7 @@ O link:https://hwu.netapp.com/["Hardware Universe"^] contém mais informações 
 
 
 
+[[step-1-migrate-cluster]]
 === Etapa 1: Migrar cluster
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -126,6 +129,7 @@ vs2
 
 
 
+[[step-2-install-fastpath-software]]
 === Etapa 2: Instale o software FASTPATH
 
 . Desative a porta e2a do cluster em ambos os nós:
@@ -318,6 +322,7 @@ System will now restart!
 
 
 
+[[step-3-validate-installation]]
 === Etapa 3: Validar a instalação
 
 . Faça login novamente e verifique a nova versão do software FASTPATH.

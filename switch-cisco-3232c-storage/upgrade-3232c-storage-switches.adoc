@@ -15,6 +15,7 @@ Siga estes passos para atualizar o software Cisco NX-OS e os arquivos de configu
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Antes de começar
@@ -31,6 +32,7 @@ Se precisar alterar as variáveis de inicialização para refletir as imagens de
 
 
 
+[[replace-the-switch]]
 == Substitua o interruptor
 
 .Sobre os exemplos
@@ -47,6 +49,7 @@ NOTE: O procedimento requer o uso de comandos ONTAP e comandos dos switches Cisc
 
 
 
+[[step-1-check-the-health-status-of-switches-and-ports]]
 === Passo 1: Verifique o estado de funcionamento dos switches e portas.
 
 . Se o AutoSupport estiver ativado, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -139,6 +142,7 @@ There are no entries matching your query.
 
 
 
+[[step-2-copy-the-rcf-to-cisco-switch-s2]]
 === Etapa 2: Copie o RCF para o switch Cisco s2
 
 . Copie o RCF no switch s2 para a memória flash de inicialização do switch usando um dos seguintes protocolos de transferência: FTP, HTTP, TFTP, SFTP ou SCP.
@@ -265,6 +269,7 @@ s2# copy running-config startup-config
 
 
 
+[[step-3-copy-the-nx-os-image-to-cisco-switch-s2-and-reboot]]
 === Etapa 3: copie a imagem do NX-OS para o switch Cisco s2 e reinicialize
 
 . Copie a imagem do NX-OS para o switch s2.
@@ -459,6 +464,7 @@ s2#
 
 
 
+[[step-4-recheck-the-health-status-of-switches-and-ports]]
 === Etapa 4: Verifique novamente o estado de funcionamento dos switches e portas.
 
 . Verifique novamente se os switches de armazenamento estão disponíveis após a reinicialização:

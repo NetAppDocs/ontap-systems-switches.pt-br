@@ -1,0 +1,35 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-review-cabling-config-requirements-9332d.html 
+sidebar: sidebar 
+keywords: 9332d-gx2b cabling setup, 9332d-gx2b switches configuration, nx-os 
+summary: Se você estiver instalando novos switches Cisco Nexus 9332D-GX2B como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, substituindo um switch ou redefinindo um switch para as configurações padrão de fábrica, você deve revisar os seguintes requisitos de cabeamento e configuração. 
+---
+= Revisar os requisitos de cabeamento e configuração - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver instalando switches Cisco Nexus 9332D-GX2B como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, substituindo um switch ou redefinindo um switch para as configurações padrão de fábrica, você deve revisar os seguintes requisitos de cabeamento e configuração.
+
+
+
+[[hard-code-the-speed-on-breakout-ports]]
+== Defina a velocidade diretamente nas portas de breakout
+
+Você deve configurar manualmente as portas breakout do switch (4x100GbE) para 100GbE. Se você não configurar manualmente a velocidade, as portas não serão ativadas e ficarão em estado desabilitado por erro.
+
+Por exemplo, para configurar o 100GbE nas portas breakout 1 a 14, faça o seguinte no modo de configuração. O exemplo mostra os comandos sendo aplicados ao primeiro switch (cs1). Você repete esses comandos para o segundo switch.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# *interface e1/1/1-4, e1/2/1-4, e1/3/1-4, e1/4/1-4, e1/5/1-4, e1/6/1-4, e1/7/1-4, e1/8/1-4, e1/9/1-4, e1/10/1-4, e1/11/1-4, e1/12/1-4, e1/13/1-4, e1/14/1-4*
+(cs1)(config-if)# *speed 100000*
+(cs1)(config-if)# *no negotiate auto*
+(cs1)(config-if)# *exit*
+(cs1)(config)# *exit*
+(cs1)# *copy running-config startup-config*
+----
+.O que vem a seguir?
+Após cumprir os requisitos de cabeamento e configuração, você link:configure-install-nxos-9332d.html["instale o NX-OS"].

@@ -15,18 +15,21 @@ Para instalação e manutenção do switch BES-53248, certifique-se de revisar o
 
 
 
+[[efos-and-ontap-support]]
 == Suporte para EFOS e ONTAP
 
 Consulte a link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] e a link:https://mysupport.netapp.com/site/info/broadcom-cluster-switch["matriz de compatibilidade de switches Broadcom"^] para obter informações sobre a compatibilidade do EFOS e do ONTAP com switches BES-53248. O suporte ao EFOS e ao ONTAP pode variar de acordo com o tipo específico de máquina do switch BES-53248. Para detalhes de todos os tipos de máquina do switch BES-53248, consulte link:components-bes53248.html["Componentes e números de peça para os interruptores do cluster BES-53248"]. Consulte link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["Que informações adicionais preciso para instalar meu equipamento que não está no HWU?"]^ para obter mais informações sobre os requisitos de instalação do switch.
 
 
 
+[[configuration-requirements]]
 == Requisitos de configuração
 
 Para configurar um cluster, você precisa da quantidade e do tipo adequados de cabos e conectores de cabos para os switches do cluster.  Dependendo do tipo de switch de cluster que você estiver configurando inicialmente, será necessário conectar-se à porta de console do switch com o cabo de console incluído.
 
 
 
+[[cluster-switch-port-assignments]]
 === Atribuições de portas de comutadores de cluster
 
 Você pode usar a tabela de atribuições de portas do switch de cluster BES-53248, compatível com a Broadcom, como um guia para configurar seu cluster.
@@ -67,6 +70,7 @@ Consulte o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"] para ob
 
 
 
+[[port-group-speed-constraint]]
 === Restrição de velocidade do grupo de portos
 
 * Nos switches de cluster BES-53248, as 48 portas 10/25GbE (SFP28/SFP+) são combinadas em 12 grupos de 4 portas, da seguinte forma: Portas 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 e 45-48.
@@ -75,6 +79,7 @@ Consulte o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"] para ob
 
 
 
+[[additional-requirements]]
 === Requisitos adicionais
 
 * Caso adquira licenças adicionais, consulte link:configure-licenses.html["Ativar portas recém-licenciadas"] para obter detalhes sobre como ativá-las.

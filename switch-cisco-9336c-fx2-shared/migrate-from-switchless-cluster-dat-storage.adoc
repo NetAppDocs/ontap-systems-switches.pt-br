@@ -24,6 +24,7 @@ Se você tiver um ambiente de cluster sem switch de dois nós existente, poderá
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 Assegure-se de que:
@@ -56,6 +57,7 @@ Assegure-se de que:
 
 
 
+[[migrate-the-switches]]
 == Migre os switches
 
 .Sobre os exemplos
@@ -70,6 +72,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de comutador de 
 
 
 
+[[step-1-migrate-from-a-switchless-cluster-with-direct-attached]]
 === Etapa 1: Migrar de um cluster sem switch com conexão direta
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh` .
@@ -649,6 +652,7 @@ RPC status:
 
 
 
+[[step-2-set-up-the-shared-switch]]
 === Passo 2: Configure o interruptor compartilhado
 
 Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:

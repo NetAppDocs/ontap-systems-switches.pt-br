@@ -15,6 +15,7 @@ Antes de substituir o switch, certifique-se de que as seguintes condições seja
 
 
 
+[[existing-cluster-and-network-infrastructure]]
 == Infraestrutura de cluster e rede existente
 
 Certifique-se de que:
@@ -27,6 +28,7 @@ Certifique-se de que:
 
 
 
+[[bes-53248-replacement-cluster-switch]]
 == Interruptor de substituição do cluster BES-53248
 
 Certifique-se de que:
@@ -43,6 +45,7 @@ Quaisquer personalizações anteriores do site, como STP, SNMP e SSH, são copia
 
 
 
+[[enable-console-logging]]
 == Ativar registro no console
 
 A NetApp recomenda enfaticamente que você habilite o registro de console nos dispositivos que estiver usando e execute as seguintes ações ao substituir seu switch:
@@ -54,6 +57,7 @@ A NetApp recomenda enfaticamente que você habilite o registro de console nos di
 
 
 
+[[related-information]]
 == Informações relacionadas
 
 * https://mysupport.netapp.com/["Site de suporte da NetApp"^]

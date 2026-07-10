@@ -1,0 +1,21 @@
+---
+permalink: switch-cisco-9332d-gx2b/maintain-overview-9332d.html 
+sidebar: sidebar 
+keywords: maintain overview, frus, replace switch, reset to factory defaults, cisco 9332d-gx2b 
+summary: 'Faça a manutenção do seu Cisco Nexus 9332D-GX2B switch para garantir confiabilidade a longo prazo e desempenho ideal. Você pode realizar tarefas de manutenção como substituir componentes com falha do switch (FRUs), substituir um switch com defeito e redefinir um switch para as configurações padrão de fábrica.' 
+---
+= Manter visão geral - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Faça a manutenção do seu Cisco Nexus 9332D-GX2B switch para garantir confiabilidade a longo prazo e desempenho ideal. Você pode realizar tarefas de manutenção como substituir componentes defeituosos do switch (FRUs), substituir um switch com defeito e redefinir um switch para as configurações padrão de fábrica.
+
+Você pode realizar as seguintes tarefas de manutenção em um switch:
+
+* link:replace-9332d-cluster.html["Substitua um switch"]
+* link:maintain-replace-frus-9332d.html["Substituir FRUs"]
+* link:maintain-reset-switch-9332d.html["Restaurar as configurações de fábrica do switch"]
+

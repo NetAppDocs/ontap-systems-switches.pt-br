@@ -1,0 +1,198 @@
+---
+permalink: switch-cisco-9808/configure-complete-initial-setup-9808.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9808 
+summary: 'Após ligar o(s) switch(es) Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K ou de uma substituição de switch, ou após redefinir um switch para as configurações padrão de fábrica, você será solicitado a concluir a configuração inicial do(s) switch(es) usando o assistente de configuração. Você pode consultar as seguintes perguntas do assistente de configuração e as respostas recomendadas para ajudá-lo a concluir a configuração inicial do(s) switch(es).' 
+---
+= Conclua a configuração inicial do switch - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Após ligar os switches Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K ou de uma substituição de módulo supervisor, ou após redefinir um switch para as configurações padrão de fábrica, você será solicitado a concluir a configuração inicial dos switches usando o assistente de configuração. Você pode consultar as seguintes perguntas do assistente de configuração e as respostas recomendadas para ajudar você a concluir a configuração inicial dos switches.
+
+.Antes de começar
+Certifique-se de ter as informações de rede e configuração para cada switch e as licenças aplicáveis.
+
+.Sobre esta tarefa
+* Você deve concluir a configuração inicial em cada switch.
+* Caso necessário, você pode consultar as informações para configurar os switches no capítulo *Usando o utilitário de configuração do Cisco NX-OS* do link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/106x/configuration/fundamentals/cisco-nexus-9000-series-nx-os-fundamentals-configuration-guide-release-106x/m-using-nnxos-setup-utility.html["Guia de Configuração de Fundamentos do Cisco Nexus 9000 Series NX-OS, Release 10.6(x)"^].
+
+
+.Passos
+. Conecte seu laptop à porta serial do console dos switches.
++
+.. Configure a porta de console serial do laptop para 9,600 baud com N-8-1.
+
+
+. Defina a senha para o usuário admin, conforme solicitado.
+. Conclua a configuração inicial do switch respondendo às seguintes perguntas.
++
+
+NOTE: A política de segurança do seu site define as respostas e os serviços a serem ativados.
+
++
+[cols="1,2"]
+|===
+| Incitar | Resposta 
+
+
+ a| 
+Cancelar o provisionamento automático e continuar com a configuração normal?  (sim/não)
+ a| 
+Responda com *sim*.  A opção padrão é não.
+
+
+
+ a| 
+Deseja implementar um padrão de senhas seguras?  (sim/não)
+ a| 
+Responda com *sim*.  A opção padrão é sim.
+
+
+
+ a| 
+Digite a senha de administrador.
+ a| 
+A senha padrão é "`admin`"; você deve criar uma nova senha forte.  Uma senha fraca pode ser rejeitada.
+
+
+
+ a| 
+Deseja acessar a caixa de diálogo de configuração básica?  (sim/não)
+ a| 
+Responda com *sim* na configuração inicial do switch.
+
+
+
+ a| 
+Criar outra conta de login?  (sim/não)
+ a| 
+Sua resposta depende das políticas do seu site em relação a administradores alternativos.  A opção padrão é *não*.
+
+
+
+ a| 
+Configurar string de comunidade SNMP somente leitura?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+Configurar string de comunidade SNMP de leitura e gravação?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+Digite o nome do interruptor.
+ a| 
+Digite o nome do interruptor, que está limitado a 63 caracteres alfanuméricos.
+
+
+
+ a| 
+Continuar com a configuração de gerenciamento fora de banda (mgmt0)?  (sim/não)
+ a| 
+Responda com *sim* (a opção padrão) quando solicitado.  No prompt "mgmt0 IPv4 address:", digite seu endereço IP: ip_address.
+
+
+
+ a| 
+Configurar o gateway padrão?  (sim/não)
+ a| 
+Responda com *sim*.  No prompt "Endereço IPv4 do gateway padrão:", insira o seu gateway padrão.
+
+
+
+ a| 
+Configurar opções avançadas de IP?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+Habilitar o serviço Telnet?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+O serviço SSH está ativado?  (sim/não)
+ a| 
+Responda com *sim*.  A opção padrão é sim.
+
+
+NOTE: Recomenda-se o uso do SSH ao utilizar o Ethernet Switch Health Monitor (CSHM) devido aos seus recursos de coleta de logs. O SSHv2 também é recomendado para maior segurança.
+
+
+
+ a| 
+Digite o tipo de chave SSH que deseja gerar (dsa/rsa/rsa1).
+ a| 
+O padrão é *rsa*.
+
+
+
+ a| 
+Insira o número de bits da chave (1024-2048).
+ a| 
+Insira o número de bits da chave, de 1024 a 2048.
+
+
+
+ a| 
+Configurar o servidor NTP?  (sim/não)
+ a| 
+Responda com *não*.  A opção padrão é não.
+
+
+
+ a| 
+Configurar camada de interface padrão (L3/L2)
+ a| 
+Responda com *L2*.  O padrão é L2.
+
+
+
+ a| 
+Configurar o estado padrão da interface da porta do switch (desligado/não desligado)
+ a| 
+Responda com *noshut*.  O padrão é noshut.
+
+
+
+ a| 
+Configurar perfil do sistema CoPP (estrito/moderado/tolerante/denso)
+ a| 
+Responda com *rigoroso*.  O padrão é estrito.
+
+
+
+ a| 
+Deseja editar a configuração?  (sim/não)
+ a| 
+Você deverá ver a nova configuração neste ponto.  Revise e faça as alterações necessárias na configuração que você acabou de inserir.  Responda com *não* quando solicitado, caso esteja satisfeito com a configuração.  Responda com *sim* se desejar editar suas configurações.
+
+
+
+ a| 
+Usar esta configuração e salvá-la?  (sim/não)
+ a| 
+Responda com *sim* para salvar a configuração.  Isso atualiza automaticamente as imagens do Kickstart e do sistema.
+
+
+NOTE: Se você não salvar a configuração nesta etapa, nenhuma das alterações terá efeito na próxima vez que você reiniciar o switch.
+
+|===
+. Verifique as opções de configuração selecionadas na tela que aparece ao final da configuração e certifique-se de salvar as alterações.
+
+
+.O que vem a seguir?
+Após concluir a configuração inicial do switch, você link:configure-review-cabling-config-requirements-9808.html["Revise os requisitos de cabeamento e configuração"].

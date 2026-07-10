@@ -15,7 +15,7 @@ Para configurar o switch SN2100, consulte a documentação da NVIDIA.
 
 .Passos
 . Analise olink:configure-reqs-sn2100-cluster.html["requisitos de configuração"] .
-. Siga as instruções em https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Inicialização do sistema NVIDIA ."^] .
+. Siga as instruções em  https://networking-docs.nvidia.com/sn2000hw/latest/system-bring-up["Inicialização do sistema NVIDIA ."^].
 
 
 .O que vem a seguir?

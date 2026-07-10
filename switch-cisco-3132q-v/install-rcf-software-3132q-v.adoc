@@ -29,6 +29,7 @@ Nenhum link operacional entre switches (ISL) é necessário durante este procedi
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == Passo 1: Instale o RCF nos interruptores
 
 . Exibir as portas do cluster em cada nó que estão conectadas aos switches do cluster:
@@ -315,6 +316,7 @@ Consulte link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_conf
 
 
 
+[[step-2-verify-the-switch-connections]]
 == Passo 2: Verifique as conexões do interruptor
 
 . Verifique se as portas do switch conectadas às portas do cluster estão *ativas*.
@@ -415,6 +417,7 @@ cluster1::*>
 
 
 
+[[step-3-setup-your-ontap-cluster]]
 == Etapa 3: configurar seu cluster ONTAP
 
 A NetApp recomenda que você utilize o System Manager para configurar novos clusters.

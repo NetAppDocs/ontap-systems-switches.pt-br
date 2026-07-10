@@ -1,0 +1,1331 @@
+---
+permalink: switch-cisco-9808/configure-upgrade-nxos-9808.html 
+sidebar: sidebar 
+keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9808 
+summary: Você atualiza o NX-OS em seus switches Cisco Nexus 9808 para oferecer suporte a novo hardware ou a uma nova versão do ONTAP em seu sistema AFX 2K. 
+---
+= Atualize o NX-OS - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você atualiza o NX-OS em seus switches Cisco Nexus 9808 para oferecer suporte a novo hardware ou a uma nova versão do ONTAP em seu sistema AFX 2K.
+
+.Antes de começar
+* Certifique-se de ter um backup atual da configuração do switch.
+* Verifique se o seu cluster está totalmente funcional, ou seja, se não há erros nos logs ou problemas semelhantes.
+
+
+.Sobre esta tarefa
+* Caso necessário, você pode consultar o link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Guia de atualização e downgrade do software NX-OS da série Cisco Nexus 9000"^] para obter mais informações.
+* A versão do ONTAP em execução no seu sistema AFX determina as versões do NX-OS compatíveis com seus switches.
++
+** Para switches em um sistema AFX 2K, é compatível executar o ONTAP 9.19.1GA ou posterior e o NX-OS 10.6 ou posterior.
++
+Para obter a lista atual de versões do NX-OS compatíveis, consulte a link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco NetApp"^] página.
+
++
+
+NOTE: Não atualize nem faça downgrade da sua versão do NX-OS para uma versão não suportada.
+
+
+
+* Este procedimento requer o uso de comandos ONTAP e comandos dos switches Cisco Nexus 9000 Series, as etapas indicam qual CLI você está usando para inserir os comandos.
+* Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:
++
+** Os nomes dos dois switches Cisco são cs1 e cs2.
+** Os nomes dos nós são node1-01, node1-02, node1-03 e node1-04.
+** Os nomes do cluster LIF são:
++
+*** node1-01_clus1 e node1-01_clus2 para node1-01
+*** node1-02_clus1 e node1-02_clus2 para node1-02
+*** node1-03_clus1 e node1-03_clus2 para node1-03
+*** node1-04_clus1 e node1-04_clus2 para node1-04
+
+
+** O `cluster1::*>` O prompt indica o nome do cluster.
+
+
+
+
+
+
+[[step-1-prepare-to-upgrade-the-nx-os]]
+== Etapa 1: Prepare-se para atualizar o NX-OS
+
+Prepare-se para atualizar o NX-OS certificando-se de que você possui uma conexão de rede de gerenciamento com cada switch, baixando a versão do NX-OS, verificando o status da porta no cluster e desativando a reversão automática nas LIFs do cluster.
+
+.Passos
+. Conecte cada switch à rede de gerenciamento.
+. Utilizando a CLI do switch, verifique a conectividade com o servidor que hospeda o NX-OS.
++
+`ping <IP address>`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+Este exemplo verifica se o switch consegue alcançar o servidor no endereço IP 172.19.2.1:
+
+[listing, subs="+quotes"]
+----
+cs1# *ping 172.19.2.1*
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+====
+. Faça o download da versão correta do NX-OS para os switches na  https://software.cisco.com/download/home["Download do software Cisco"^] página.
+. Utilizando a ONTAP CLI, exiba as portas do cluster em cada nó que estão conectadas aos switches do cluster:
++
+[source, cli]
+----
+network device-discovery show
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1-01/cdp
+            e10a   cs1(FOXXXXXXXXX)          Ethernet1/5       N9K-C9808
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/14      N9K-C9808
+            e8a    cs1(FOXXXXXXXXX)          Ethernet1/7       N9K-C9808
+            e8b    cs2(FDOXXXXXXXX)          Ethernet1/16      N9K-C9808
+            e2a    cs1(FOXXXXXXXXX)          Ethernet1/3       N9K-C9808
+            e2b    cs2(FOXXXXXXXXX)          Ethernet1/12      N9K-C9808
+node1-01/lldp
+            e10a   cs1 (ec:bb:78:9e:c7:e8)   Ethernet1/5       -
+            e10b   cs2 (ec:bb:78:9e:c8:0c)   Ethernet1/14      -
+            e8a    cs1 (ec:bb:78:9e:c7:f0)   Ethernet1/7       -
+            e8b    cs2 (ec:bb:78:9e:c8:14)   Ethernet1/16      -
+            e2a    cs1 (ec:bb:78:9e:c7:d8)   Ethernet1/1       -
+            e2b    cs2 (ec:bb:78:9e:c7:fc)   Ethernet1/10      -
+            e1a    cs1 (ec:bb:78:9e:c7:e0)   Ethernet1/3       -
+            e1b    cs2 (ec:bb:78:9e:c8:04)   Ethernet1/12      -
+node1-02/cdp
+            e10a   cs1(FOXXXXXXXXX)          Ethernet1/6       N9K-C9808
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/15      N9K-C9808
+            e8a    cs1(FOXXXXXXXXX)          Ethernet1/8       N9K-C9808
+            e8b    cs2(FDOXXXXXXXX)          Ethernet1/17      N9K-C9808
+            e2a    cs1(FOXXXXXXXXX)          Ethernet1/2       N9K-C9808
+            e2b    cs2(FDOXXXXXXXX)          Ethernet1/13      N9K-C9808
+node1-02/lldp
+            e10a   cs1 (ec:bb:78:9e:c7:ec)   Ethernet1/6       -
+            e10b   cs2 (ec:bb:78:9e:c8:10)   Ethernet1/15      -
+            e8a    cs1 (ec:bb:78:9e:c7:f4)   Ethernet1/8       -
+            e8b    cs2 (ec:bb:78:9e:c8:18)   Ethernet1/17      -
+            e1a    cs1 (ec:bb:78:9e:c7:dc)   Ethernet1/2       -
+            e1b    cs2 (ec:bb:78:9e:c8:00)   Ethernet1/11      -
+            e2a    cs1 (ec:bb:78:9e:c7:e4)   Ethernet1/4       -
+            e2b    cs2 (ec:bb:78:9e:c8:08)   Ethernet1/13      -
+----
+====
+. Utilizando a ONTAP CLI, verifique o status administrativo e operacional de cada porta:
++
+.. *Portas de cluster*
++
+... Verifique se todas as portas do cluster estão ativas e com status íntegro:
++
+[source, cli]
+----
+network port show -ipspace Cluster
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1-01
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy false
+
+Node: node1-02
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy false
+
+Node: node1-03
+
+                                                                       Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-04
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+----
+====
+... Verifique se todas as interfaces de cluster (LIFs) estão na porta principal:
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+
+            Logical         Status     Network            Current   Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node      Port    Home
+----------- --------------- ---------- ------------------ --------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.36.44/16   node1-01  e2a     true
+            node1-01_clus2  up/up      169.254.7.5/16     node1-01  e2b     true
+            node1-02_clus1  up/up      169.254.197.206/16 node1-02  e2a     true
+            node1-02_clus2  up/up      169.254.195.186/16 node1-02  e2b     true
+            node1-03_clus1  up/up      169.254.192.49/16  node1-03  e2a     true
+            node1-03_clus2  up/up      169.254.182.76/16  node1-03  e2b     true
+            node1-04_clus1  up/up      169.254.59.49/16   node1-04  e2a     true
+            node1-04_clus2  up/up      169.254.62.244/16  node1-04  e2b     true
+----
+====
+... Verifique se o cluster exibe informações para ambos os switches do cluster:
++
+[source, cli]
+----
+system cluster-switch show -is-monitoring-enabled-operational true
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------
+cs2(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9808
+     Serial Number: FDOXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.5(3)(F)
+    Version Source: CDP/ISDP
+
+
+cs1(FOXXXXXXXXX)             cluster-network   10.228.137.253   N9K-C9808
+     Serial Number: FOXXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.5(3)(F)
+    Version Source: CDP/ISDP
+----
+====
+
+
+.. *Portas HA*
++
+... Verifique se todas as portas HA estão ativas e com status íntegro:
++
+[source, cli]
+----
+ha interconnect status show -node <node-name>
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+
+cluster1::*> *ha interconnect status show -node node1-02*
+  (system ha interconnect status show)
+
+                       Node: node1-02
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+.
+.
+.
+----
+====
+... Verifique se todas as portas HA estão configuradas corretamente e se o tipo de interconexão é RoCE:
++
+[source, cli]
+----
+ha interconnect config show
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect config show*
+  (system ha interconnect config show)
+                       Node: node1-01
+          Interconnect Type: RoCE
+            Local System ID: 542023071
+          Partner System ID: 542022984
+       Connection Initiator: local
+                  Interface: external
+
+
+Port    IP Address         Flags
+------  -----------------  -----------
+e1a-17  169.254.17.111     0x0
+e1b-18  169.254.18.242     0x0
+
+
+
+                       Node: node1-02
+          Interconnect Type: RoCE
+            Local System ID: 542022984
+          Partner System ID: 542023071
+       Connection Initiator: partner
+                  Interface: external
+
+
+Port    IP Address         Flags
+------  -----------------  -----------
+e1a-17  169.254.17.208     0x0
+e1b-18  169.254.18.169     0x0
+.
+.
+.
+----
+====
+
+
+.. *Portas de armazenamento*
++
+... Verifique se todas as portas de armazenamento estão ativas e com status íntegro:
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-02
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-03
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-04
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+----
+====
+
+
+.. *Portas de prateleira de armazenamento*
++
+... Verifique se todas as portas da prateleira de armazenamento estão ativas e com status íntegro:
++
+[source, cli]
+----
+storage shelf port show
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.1
+       0 A      connected    false
+       1 A      connected    false
+       2 A      connected    false
+       3 A      connected    false
+       4 A      connected    false
+       5 A      connected    false
+       6 A      connected    false
+       7 A      connected    false
+       8 B      connected    false
+       9 B      connected    false
+      10 B      connected    false
+      11 B      connected    false
+      12 B      connected    false
+      13 B      connected    false
+      14 B      connected    false
+      15 B      connected    false
+----
+====
+... Verifique o status da conexão de todas as portas da prateleira de armazenamento:
++
+[source, cli]
+----
+storage shelf port show -fields remote-device,remote-port,connector-state
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device,remote-port,connector-state*
+
+shelf id connector-state remote-port    remote-device
+----- -- --------------- -------------- -----------------
+1.1   0  connected       Ethernet1/17/1 cs1(FOXXXXXXXXX)
+1.1   1  connected       Ethernet1/15/1 cs2(FDOXXXXXXXX)
+1.1   2  connected       Ethernet1/17/2 cs1(FOXXXXXXXXX)
+1.1   3  connected       Ethernet1/15/2 cs2(FDOXXXXXXXX)
+1.1   4  connected       Ethernet1/17/3 cs1(FOXXXXXXXXX)
+1.1   5  connected       Ethernet1/15/3 cs2(FDOXXXXXXXX)
+1.1   6  connected       Ethernet1/17/4 cs1(FOXXXXXXXXX)
+1.1   7  connected       Ethernet1/15/4 cs2(FDOXXXXXXXX)
+1.1   8  connected       Ethernet1/19/1 cs1(FOXXXXXXXXX)
+1.1   9  connected       Ethernet1/17/1 cs2(FDOXXXXXXXX)
+1.1   10 connected       Ethernet1/19/2 cs1(FOXXXXXXXXX)
+1.1   11 connected       Ethernet1/17/2 cs2(FDOXXXXXXXX)
+1.1   12 connected       Ethernet1/19/3 cs1(FOXXXXXXXXX)
+1.1   13 connected       Ethernet1/17/3 cs2(FDOXXXXXXXX)
+1.1   14 connected       Ethernet1/19/4 cs1(FOXXXXXXXXX)
+1.1   15 connected       Ethernet1/17/4 cs2(FDOXXXXXXXX)
+----
+====
+
+
+
+
+. Usando a ONTAP CLI, desative a reversão automática nas LIFs do cluster. As LIFs do cluster farão failover para o switch do cluster parceiro e permanecerão lá enquanto você executa este procedimento no switch de destino:
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert false
+----
+
+
+
+
+[[step-2-install-the-nx-os]]
+== Etapa 2: Instale o NX-OS
+
+Você instala o NX-OS no primeiro switch (cs1) instalando e verificando a nova versão do NX-OS e do EPLD, verificando a integridade de todas as portas no cluster e, em seguida, repetindo essas etapas no segundo switch (cs2).
+
+. Utilizando a CLI do switch, copie a imagem do NX-OS e do EPLD para um switch.
++
+`copy <protocol>: bootflash: vrf management`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo utiliza sftp.
+
+[listing, subs="+quotes"]
+----
+cs1# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/nxos64-s1.10.6.3.F.bin*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> *progress*
+  Progress meter enabled
+sftp> *get code/nxos64-s1.10.6.3.F.bin /bootflash/nxos64-s1.10.6.3.F.bin*
+/code/nxos64-s1.10.6.3.F.bin  100% 1261MB   9.3MB/s   02:15
+sftp> *exit*
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+====
+. Utilizando a CLI do switch, verifique a versão do NX-OS em execução:
++
+`show version`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show version*
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+
+Software
+  BIOS: version 01.14
+  NXOS: version 10.5(3)(F) [Feature Release]
+  Host NXOS: version 10.5(3)(F)
+  BIOS compile time:  11/25/2024
+  NXOS image file is: bootflash:///nxos64-s1.10.5.3.F.bin
+  NXOS compile time:  11/30/2023 12:00:00 [12/14/2023 05:25:50]
+  NXOS boot mode: LXC
+
+
+Hardware
+  cisco Nexus9000 C9808 Chassis
+  Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
+  Processor Board ID FLMXXXXXXXX
+  Device name: cs1
+  bootflash:  115802886 kB
+
+
+Kernel uptime is 5 day(s), 2 hour(s), 13 minute(s), 21 second(s)
+
+
+Last reset at 3580 usecs after Thu Jun  5 15:55:08 2025
+  Reason: Reset Requested by CLI command reload
+  System version: 10.4(1)
+  Service:
+
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+
+Active Package(s):
+
+cs1#
+----
+====
+. Utilizando a CLI do switch, instale a imagem NX-OS e EPLD.
++
+A instalação do arquivo de imagem faz com que ele seja carregado sempre que o switch for reiniciado.
+
++
+`install all nxos bootflash:nxos.<version number>.bin`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo usa a versão 10.6(3)(F) do NX-OS.
+
+[listing, subs="+quotes"]
+----
+cs1# *install all nxos bootflash:/nxos64-s1.10.6.3.F.bin*
+
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos64-s1.10.6.3.F.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash://nxos64-s1.10.6.3.F.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos64-s1.10.6.3.F.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+Compatibility check is done:
+Module  Bootable  Impact          Install-type  Reason
+------  --------  --------------- ------------  ---------
+  1     yes       Disruptive      Reset         Default upgrade is not hitless
+
+
+
+Images will be upgraded according to following table:
+
+Module   Image    Running-Version(pri:alt)                 New-Version         Upg-Required
+------- --------- ---------------------------------------- ------------------- ------------
+  1      nxos     10.5(3)(F)                               10.6(3)(F)          Yes
+  1      bios     xx.xx.:xx.xx                             xxx                 No
+
+
+Switch will be reloaded for disruptive upgrade.
+
+Do you want to continue with the installation (y/n)? [n] *y*
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+----
+====
+. Utilizando a CLI do switch, verifique a nova versão do NX-OS após a reinicialização do switch:
++
+`show version`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show version*
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+
+Software
+  BIOS: version 01.14
+  NXOS: version 10.6(3)(F) [Feature Release]
+  Host NXOS: version 10.6(3)(F)
+  BIOS compile time:  11/25/2024
+  NXOS image file is: bootflash:///nxos64-s1.10.6.3.F.bin
+  NXOS compile time:  05/30/2026 12:00:00 [06/14/2026 05:25:50]
+  NXOS boot mode: LXC
+
+
+Hardware
+  cisco Nexus9000 C9808 Chassis
+  Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
+  Processor Board ID FLMXXXXXXXX
+  Device name: cs1
+  bootflash:  115802886 kB
+
+
+Kernel uptime is 5 day(s), 2 hour(s), 13 minute(s), 21 second(s)
+
+
+Last reset at 3580 usecs after Thu Jun  5 15:55:08 2025
+  Reason: Reset Requested by CLI command reload
+  System version: 10.4(2)
+  Service:
+
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+
+Active Package(s):
+
+cs1#
+----
+====
+. Utilizando a CLI do switch, verifique se a nova versão do EPLD foi carregada com sucesso:
++
+`show install epld status`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo usa a versão EPLD 10.6(3)(F).
+
+[listing, subs="+quotes"]
+----
+cs1# *show install epld status*
+
+1) Module 2 upgraded on Mon May  4 09:17:08 2026 (631239  us)
+EPLD Install Image: EPLD image file 10.6.3.F. built on Fri Apr 24 19:49:50 2026
+
+Status: EPLD Upgrade was Successful
+
+EPLD                             Curr Ver       Old Ver
+-------------------------------------------------------
+MI FPGA                         0x10014         0x1000b
+IO FPGA                         0x10033         0x10006
+
+2) Module 27 upgraded on Wed Apr  1 15:03:13 2026 (193093  us)
+EPLD Install Image: EPLD image file 10.6.3.F. built on Mon Mar 16 03:28:47 2026
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+IO FPGA                         0x1002d         0x10020
+
+3) Module 28 upgraded on Wed Apr  1 14:59:53 2026 (843907  us)
+EPLD Install Image: EPLD image file 10.6.3.F. built on Mon Mar 16 03:28:47 2026
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+IO FPGA                         0x1002d         0x10020
+
+4) Module 27 upgraded on Fri Mar 27 21:55:55 2026 (132290  us)
+EPLD Install Image: EPLD image file 10.6.2.F. built on Fri Dec 12 11:15:18 2025
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+FM-19 FPGA                      0x10006         0x10000
+FM-20 FPGA                      0x10006         0x10000
+FM-21 FPGA                      0x10006         0x10000
+FM-22 FPGA                      0x10006         0x10000
+FM-23 FPGA                      0x10006         0x10000
+FM-24 FPGA                      0x10006         0x10000
+FM-25 FPGA                      0x10006         0x10000
+FM-26 FPGA                      0x10006         0x10000
+
+5) Module 27 upgraded on Fri Mar 27 21:50:16 2026 (  4899  us)
+EPLD Install Image: EPLD image file 10.6.2.F. built on Fri Dec 12 11:15:18 2025
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+FM-19 FPGA                      0x10006         0x10000
+FM-20 FPGA                      0x10006         0x10000
+FM-21 FPGA                      0x10006         0x10000
+FM-22 FPGA                      0x10006         0x10000
+FM-23 FPGA                      0x10006         0x10000
+FM-24 FPGA                      0x10006         0x10000
+FM-25 FPGA                      0x10006         0x10000
+FM-26 FPGA                      0x10006         0x10000
+
+6) Module 27 upgraded on Fri Mar 27 21:44:36 2026 (775397  us)
+EPLD Install Image: EPLD image file 10.6.2.F. built on Fri Dec 12 11:15:18 2025
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+FM-19 FPGA                      0x10006         0x10000
+FM-20 FPGA                      0x10006         0x10000
+FM-21 FPGA                      0x10006         0x10000
+FM-22 FPGA                      0x10006         0x10000
+FM-23 FPGA                      0x10006         0x10000
+FM-24 FPGA                      0x10006         0x10000
+FM-25 FPGA                      0x10006         0x10000
+FM-26 FPGA                      0x10006         0x10000
+
+7) Module 27 upgraded on Fri Mar 27 21:38:58 2026 (330582  us)
+EPLD Install Image: EPLD image file 10.6.2.F. built on Fri Dec 12 11:15:18 2025
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+FM-19 FPGA                      0x10006         0x10000
+FM-20 FPGA                      0x10006         0x10000
+FM-21 FPGA                      0x10006         0x10000
+FM-22 FPGA                      0x10006         0x10000
+FM-23 FPGA                      0x10006         0x10000
+FM-24 FPGA                      0x10006         0x10000
+FM-25 FPGA                      0x10006         0x10000
+FM-26 FPGA                      0x10006         0x10000
+
+8) Module 27 upgraded on Fri Mar 27 21:33:19 2026 (112679  us)
+EPLD Install Image: EPLD image file 10.6.2.F. built on Fri Dec 12 11:15:18 2025
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+FM-19 FPGA                      0x10006         0x10000
+FM-20 FPGA                      0x10006         0x10000
+FM-21 FPGA                      0x10006         0x10000
+FM-22 FPGA                      0x10006         0x10000
+FM-23 FPGA                      0x10006         0x10000
+FM-24 FPGA                      0x10006         0x10000
+FM-25 FPGA                      0x10006         0x10000
+FM-26 FPGA                      0x10006         0x10000
+
+9) Module 27 upgraded on Fri Mar 27 21:27:41 2026 (957182  us)
+EPLD Install Image: EPLD image file 10.6.2.F. built on Fri Dec 12 11:15:18 2025
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+FM-19 FPGA                      0x10006         0x10000
+FM-20 FPGA                      0x10006         0x10000
+FM-21 FPGA                      0x10006         0x10000
+FM-22 FPGA                      0x10006         0x10000
+FM-23 FPGA                      0x10006         0x10000
+FM-24 FPGA                      0x10006         0x10000
+FM-25 FPGA                      0x10006         0x10000
+FM-26 FPGA                      0x10006         0x10000
+
+10) Module 27 upgraded on Fri Mar 27 21:22:03 2026 ( 90303  us)
+EPLD Install Image: EPLD image file 10.6.2.F. built on Fri Dec 12 11:15:18 2025
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+FM-19 FPGA                      0x10006         0x10000
+FM-20 FPGA                      0x10006         0x10000
+FM-21 FPGA                      0x10006         0x10000
+FM-22 FPGA                      0x10006         0x10000
+FM-23 FPGA                      0x10006         0x10000
+FM-24 FPGA                      0x10006         0x10000
+FM-25 FPGA                      0x10006         0x10000
+FM-26 FPGA                      0x10006         0x10000
+
+11) Module 1 upgraded on Fri Mar 27 21:16:24 2026 (240369  us)
+EPLD Install Image: EPLD image file 10.6.2.F. built on Fri Dec 12 11:15:18 2025
+
+Status: EPLD Upgrade was Successful
+
+EPLD                            Curr Ver        Old Ver
+-------------------------------------------------------
+MI FPGA                         0x10014         0x1000b
+IO FPGA                         0x10033         0x10006
+----
+====
+. Utilizando a CLI do ONTAP, verifique a integridade de todas as portas no cluster.
++
+.. *Portas de cluster*
++
+... Verifique se as portas do cluster estão ativas e funcionando corretamente em todos os nós do cluster:
++
+[source, cli]
+----
+network port show -ipspace Cluster
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1-01
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-02
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-03
+                                                                         Ignore
+                                                  Speed(Mbps)   Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper    Status   Status
+--------- ------------ ---------------- ---- ---- ------------- -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-04
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+----
+====
+... Verifique o estado de funcionamento do switch no cluster:
++
+[source, cli]
+----
+network device-discovery show -protocol cdp
+----
++
+[source, cli]
+----
+system cluster-switch show -is-monitoring-enabled-operational true
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1-01/cdp
+            e10a   cs1(FOXXXXXXXXX)          Ethernet1/5       N9K-C9808
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/14      N9K-C9808
+            e8a    cs1(FOXXXXXXXXX)          Ethernet1/7       N9K-C9808
+            e8b    cs2(FDOXXXXXXXX)          Ethernet1/16      N9K-C9808
+            e2a    cs1(FOXXXXXXXXX)          Ethernet1/3       N9K-C9808
+            e2b    cs2(FOXXXXXXXXX)          Ethernet1/12      N9K-C9808
+.
+.
+.
+node1-02/cdp
+            e10a   cs1(FOXXXXXXXXX)          Ethernet1/6       N9K-C9808
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/15      N9K-C9808
+            e8a    cs1(FOXXXXXXXXX)          Ethernet1/8       N9K-C9808
+            e8b    cs2(FDOXXXXXXXX)          Ethernet1/17      N9K-C9808
+            e2a    cs1(FOXXXXXXXXX)          Ethernet1/2       N9K-C9808
+            e2b    cs2(FDOXXXXXXXX)          Ethernet1/13      N9K-C9808
+.
+.
+.
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs1(FOXXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9808
+     Serial Number: FOXXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.6(3)(F)
+    Version Source: CDP/ISDP
+
+
+cs2(FDOXXXXXXXX)             cluster-network   10.228.137.253   N9K-C9808
+     Serial Number: FDOXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.6(3)(F)
+    Version Source: CDP/ISDP
+----
+====
+
+
+.. *Portas HA*
++
+... Verifique se todas as portas HA estão ativas e com status íntegro:
++
+[source, cli]
+----
+ha interconnect status show -node <node-name>
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+
+cluster1::*> *ha interconnect status show -node node1-02*
+  (system ha interconnect status show)
+
+                       Node: node1-02
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+.
+.
+.
+----
+====
+... Verifique se todas as portas HA estão configuradas corretamente e se o tipo de interconexão é RoCE:
++
+[source, cli]
+----
+ha interconnect config show
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect config show*
+  (system ha interconnect config show)
+                       Node: node1-01
+          Interconnect Type: RoCE
+            Local System ID: 542023071
+          Partner System ID: 542022984
+       Connection Initiator: local
+                  Interface: external
+
+
+Port    IP Address         Flags
+------  -----------------  -----------
+e1a-17  169.254.17.111     0x0
+e1b-18  169.254.18.242     0x0
+
+
+
+                       Node: node1-02
+          Interconnect Type: RoCE
+            Local System ID: 542022984
+          Partner System ID: 542023071
+       Connection Initiator: partner
+                  Interface: external
+
+
+Port    IP Address         Flags
+------  -----------------  -----------
+e1a-17  169.254.17.208     0x0
+e1b-18  169.254.18.169     0x0
+.
+.
+.
+----
+====
+
+
+.. *Portas de armazenamento*
++
+... Verifique se todas as portas de armazenamento estão ativas e com status íntegro:
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-02
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-03
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-04
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+----
+====
+
+
+.. *Portas de prateleira de armazenamento*
++
+... Verifique se todas as portas da prateleira de armazenamento estão ativas e com status íntegro:
++
+[source, cli]
+----
+storage shelf port show
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.1
+       0 A      connected    false
+       1 A      connected    false
+       2 A      connected    false
+       3 A      connected    false
+       4 A      connected    false
+       5 A      connected    false
+       6 A      connected    false
+       7 A      connected    false
+       8 B      connected    false
+       9 B      connected    false
+      10 B      connected    false
+      11 B      connected    false
+      12 B      connected    false
+      13 B      connected    false
+      14 B      connected    false
+      15 B      connected    false
+
+16 entries were displayed.
+----
+====
+... Verifique o status da conexão de todas as portas da prateleira de armazenamento:
++
+[source, cli]
+----
+storage shelf port show -fields remote-device,remote-port,connector-state
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device,remote-port,connector-state*
+
+shelf id connector-state remote-port    remote-device
+----- -- --------------- -------------- -----------------
+1.1   0  connected       Ethernet1/17/1 cs1(FOXXXXXXXXX)
+1.1   1  connected       Ethernet1/15/1 cs2(FDOXXXXXXXX)
+1.1   2  connected       Ethernet1/17/2 cs1(FOXXXXXXXXX)
+1.1   3  connected       Ethernet1/15/2 cs2(FDOXXXXXXXX)
+1.1   4  connected       Ethernet1/17/3 cs1(FOXXXXXXXXX)
+1.1   5  connected       Ethernet1/15/3 cs2(FDOXXXXXXXX)
+1.1   6  connected       Ethernet1/17/4 cs1(FOXXXXXXXXX)
+1.1   7  connected       Ethernet1/15/4 cs2(FDOXXXXXXXX)
+1.1   8  connected       Ethernet1/19/1 cs1(FOXXXXXXXXX)
+1.1   9  connected       Ethernet1/17/1 cs2(FDOXXXXXXXX)
+1.1   10 connected       Ethernet1/19/2 cs1(FOXXXXXXXXX)
+1.1   11 connected       Ethernet1/17/2 cs2(FDOXXXXXXXX)
+1.1   12 connected       Ethernet1/19/3 cs1(FOXXXXXXXXX)
+1.1   13 connected       Ethernet1/17/3 cs2(FDOXXXXXXXX)
+1.1   14 connected       Ethernet1/19/4 cs1(FOXXXXXXXXX)
+1.1   15 connected       Ethernet1/17/4 cs2(FDOXXXXXXXX)
+
+16 entries were displayed.
+----
+====
+
+
+
+
+. Usando a ONTAP CLI, verifique se o cluster está íntegro:
++
+[source, cli]
+----
+cluster show
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1-01             true    true          false
+node1-02             true    true          false
+node1-03             true    true          false
+node1-04             true    true          true
+----
+====
+. Repita esses passos para instalar a imagem NX-OS e EPLD no switch cs2.
+
+
+
+
+[[step-3-complete-the-nx-os-upgrade]]
+== Etapa 3: conclua a atualização do NX-OS
+
+Utilizando a ONTAP CLI, conclua a atualização do NX-OS reativando a reversão automática nas LIFs do cluster e verificando se as LIFs do cluster retornaram às suas portas iniciais.
+
+. Reative a reversão automática nos LIFs do cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
+. Verifique se as LIFs do cluster retornaram à sua porta original:
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+
+            Logical         Status     Network            Current     Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node        Port    Home
+----------- --------------- ---------- ------------------ ----------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.36.44/16   node1-01    e2a     true
+            node1-01_clus2  up/up      169.254.7.5/16     node1-01    e2b     true
+            node1-02_clus1  up/up      169.254.197.206/16 node1-02    e2a     true
+            node1-02_clus2  up/up      169.254.195.186/16 node1-02    e2b     true
+            node1-03_clus1  up/up      169.254.192.49/16  node1-03    e2a     true
+            node1-03_clus2  up/up      169.254.182.76/16  node1-03    e2b     true
+            node1-04_clus1  up/up      169.254.59.49/16   node1-04    e2a     true
+            node1-04_clus2  up/up      169.254.62.244/16  node1-04    e2b     true
+----
+====
++
+Se alguma LIF do cluster não tiver retornado às suas portas originais, reverta-as manualmente a partir do nó local:
+
++
+[source, cli]
+----
+network interface revert -vserver Cluster -lif <lif-name>
+----
+
+
+.O que vem a seguir?
+Depois de atualizar o NX-OS em seus switches, você atualiza o RCF começando pelo link:configure-install-upgrade-rcf-overview-9808.html["Instalar ou atualizar a visão geral do RCF"].

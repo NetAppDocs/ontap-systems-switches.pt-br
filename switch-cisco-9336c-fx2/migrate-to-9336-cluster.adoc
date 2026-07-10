@@ -15,6 +15,7 @@ Você pode executar uma migração sem interrupções de switches de cluster Cis
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 Assegure-se de que:
@@ -40,6 +41,7 @@ NOTE: Se você estiver alterando a velocidade das portas de cluster e0a e e1a no
 
 
 
+[[migrate-the-switches]]
 == Migre os switches
 
 .Sobre os exemplos
@@ -93,6 +95,7 @@ NOTE: Nenhum link operacional entre switches (ISL) é necessário durante este p
 
 
 
+[[step-1-prepare-for-migration]]
 === Etapa 1: Prepare-se para a migração
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
@@ -114,6 +117,7 @@ A mensagem avançada (*>) é exibida.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Etapa 2: Configurar portas e cabos
 
 . Nos novos switches, confirme se o cabo ISL está conectado e funcionando corretamente entre os switches cs1-new e cs2-new:
@@ -620,6 +624,7 @@ Group Port-       Type     Protocol  Member Ports
 
 
 
+[[step-3-verify-the-configuration]]
 === Etapa 3: Verifique a configuração
 
 . Ative a reversão automática nos LIFs do cluster.

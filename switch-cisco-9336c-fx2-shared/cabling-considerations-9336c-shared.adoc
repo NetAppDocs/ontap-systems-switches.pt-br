@@ -15,6 +15,7 @@ Antes de configurar seus 9336C-FX2 e 9336C-FX2-T switches, revise os requisitos 
 
 
 
+[[support-for-nvidia-cx6-cx6-dx-and-cx7-ethernet-ports]]
 == Suporte para portas Ethernet NVIDIA CX6, CX6-DX e CX7.
 
 Se você estiver conectando uma porta do switch a um controlador ONTAP usando portas NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), você deve definir manualmente a velocidade da porta do switch.
@@ -34,10 +35,12 @@ Se você estiver conectando uma porta do switch a um controlador ONTAP usando po
 ----
 
 
+[[25gbe-fec-requirements]]
 == Requisitos de FEC de 25GbE
 
 
 
+[[fas2820-e0ae0b-ports]]
 === Portas FAS2820 e0a/e0b
 
 As portas FAS2820 e0a e e0b requerem alterações na configuração do FEC para se conectarem às portas do switch 9336C-FX2 e 9336C-FX2-T. Para as portas e0a e e0b do switch, a configuração  `fec` está definida como  `rs-cons16`.
@@ -53,6 +56,7 @@ As portas FAS2820 e0a e e0b requerem alterações na configuração do FEC para 
 ----
 
 
+[[ports-do-not-link-up-due-to-tcam-resources]]
 == As portas não se conectam devido a recursos TCAM.
 
 Nos switches 9336C-FX2 e 9336C-FX2-T, os recursos de memória endereçável de conteúdo ternário (TCAM) configurados na configuração utilizada pelo switch estão esgotados.

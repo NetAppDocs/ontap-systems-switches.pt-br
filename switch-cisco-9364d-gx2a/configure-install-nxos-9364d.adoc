@@ -1,0 +1,433 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-install-nxos-9364d.html 
+sidebar: sidebar 
+keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9364d-gx2a 
+summary: Você instala o NX-OS no seu switch Cisco Nexus 9364D-GX2A como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, de uma substituição de switch ou de uma redefinição do switch para as configurações padrão de fábrica. 
+---
+= Instale o NX-OS - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você instala o NX-OS no seu switch Cisco Nexus 9364D-GX2A como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, de uma substituição de switch ou de uma redefinição do switch para as configurações padrão de fábrica.
+
+.Antes de começar
+* O(s) switch(es) deve(m) estar ligado(s) e você deve ter concluído o link:configure-complete-initial-setup-9364d.html["Conclua a configuração inicial do switch"] procedimento.
+* Se você estiver instalando o NX-OS em switch(es) como parte de uma nova instalação do sistema AFX ou substituição de switch, verifique se a versão do NX-OS em seu(s) switch(es) é a versão atual suportada pela NetApp.
++
+** Se o(s) seu(s) switch(es) já possuem a versão compatível atual da NetApp, você não precisa instalar o NX-OS. Você precisa instalar o RCF. Comece com o link:configure-install-upgrade-rcf-overview-9364d.html["Instalar ou atualizar a visão geral do RCF"].
+** Se o(s) seu(s) switch(es) não tiverem a versão compatível com a NetApp atual, continue com este procedimento para instalar o NX-OS.
+
+
+* Se você estiver instalando o NX-OS em um switch como parte de uma substituição de switch ou de uma redefinição de switch para as configurações padrão de fábrica, verifique se seu cluster está totalmente funcional, ou seja, se não há erros nos logs ou problemas semelhantes.
+
+
+
+NOTE: Se você estiver instalando o NX-OS como parte de uma nova instalação do sistema AFX, poderá ignorar este requisito, pois os controladores do seu sistema AFX não estão ligados neste ponto da instalação e configuração do sistema AFX.
+
+.Sobre esta tarefa
+* A versão do ONTAP em execução no seu sistema AFX determina as versões do NX-OS compatíveis com seus switches.
++
+** Para switches em um sistema AFX 1K, executando qualquer versão compatível do ONTAP, o NX-OS 10.4.2 e posteriores são compatíveis.
+** Para switches em um sistema AFX 2K, executando ONTAP 9.19.1GA ou posterior, NX-OS 10.6 e versões posteriores são suportados.
++
+Para obter a lista atual de versões do NX-OS compatíveis, consulte a link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethernet Cisco NetApp"^] página.
+
+
+
+* Este procedimento requer apenas o uso de comandos dos switches da série Cisco Nexus 9000.
+* Os exemplos neste procedimento referem-se ao primeiro switch como cs1 e ao segundo switch como cs2.
+* Se você instalou switches como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, este procedimento orienta você a instalar o NX-OS no primeiro switch (cs1) e, em seguida, repetir os passos para o segundo switch (cs2).
+* Os exemplos mostrados neste procedimento são para sistemas AFX 1K com switches executando RCF 10.0. Se você tiver um sistema AFX 2K, a entrada e a saída podem variar.
+
+
+
+
+[[step-1-prepare-to-install-the-nx-os]]
+== Etapa 1: Prepare-se para instalar o NX-OS
+
+Prepare-se para instalar o NX-OS no(s) switch(es) certificando-se de que você tem acesso a um servidor com a versão compatível do NX-OS, faça o download do NX-OS, conecte-se à rede de gerenciamento para a transferência de arquivos e, em seguida, verifique a conectividade com o servidor.
+
+.Passos
+. Você precisa ter acesso a um servidor HTTP, FTP ou TFTP. O acesso a um desses servidores permite que você baixe uma versão compatível do NX-OS.
+. Faça o download da versão correta do NX-OS para o(s) switch(es) na  https://software.cisco.com/download/home["Download do software Cisco"^] página.
+. Conecte o switch à rede de gerenciamento (para a transferência de arquivos).
+. Verifique a conectividade com o servidor que hospeda o NX-OS usando o comando ping.
++
+`ping <IP address>`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+Este exemplo verifica se o switch consegue alcançar o servidor no endereço IP 172.19.2.1:
+
+[listing, subs="+quotes"]
+----
+cs1# *ping 172.19.2.1*
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+====
+
+
+
+
+[[step-2-install-the-nx-os]]
+== Etapa 2: Instale o NX-OS
+
+Você instala o NX-OS no primeiro switch (cs1) instalando e verificando a versão do NX-OS, atualizando e verificando a imagem EPLD e, em seguida, repete essas etapas no segundo switch (cs2) se estiver instalando o NX-OS como parte de uma nova instalação do sistema AFX.
+
+. Copie as imagens do NX-OS e do EPLD para o primeiro switch.
++
+Você usa esse comando duas vezes: a primeira vez é para copiar a versão do NX-OS e a segunda vez é para copiar a versão do EPLD.
+
++
+`copy <protocol>: bootflash: vrf management`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo utiliza sftp.
+
+[listing, subs="+quotes"]
+----
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/nxos.10.4.2.bin*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *root*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+root@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/nxos.10.4.2.bin  /bootflash/nxos.10.4.2.bin
+/code/nxos.10.4.2.bin  100% 1261MB   9.3MB/s   02:15
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/n9000-epld.10.4.2.F.img*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/n9000-epld.10.4.2.F.img  /bootflash/n9000-epld.10.4.2.F.img
+/code/n9000-epld.10.4.2.F.img  100%  161MB   9.5MB/s   00:16
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+====
+. Verifique a versão do NX-OS em execução:
++
+`show version`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *show version*
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+
+Software
+  BIOS: version 01.14
+  NXOS: version 10.4(1) [Feature Release]
+  Host NXOS: version 10.4(1)
+  BIOS compile time:  11/25/2024
+  NXOS image file is: bootflash:///nxos64-cs.10.4.1.F.bin
+  NXOS compile time:  11/30/2023 12:00:00 [12/14/2023 05:25:50]
+  NXOS boot mode: LXC
+
+
+Hardware
+  cisco Nexus9000 C9332D-GX2B Chassis
+  Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
+  Processor Board ID FLMXXXXXXXX
+  Device name: cs2
+  bootflash:  115802886 kB
+
+
+Kernel uptime is 5 day(s), 2 hour(s), 13 minute(s), 21 second(s)
+
+
+Last reset at 3580 usecs after Thu Jun  5 15:55:08 2025
+  Reason: Reset Requested by CLI command reload
+  System version: 10.4(1)
+  Service:
+
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+
+Active Package(s):
+
+cs2#
+----
+====
+. Instale a imagem do NX-OS.
++
+A instalação do arquivo de imagem faz com que ele seja carregado sempre que o switch for reiniciado.
+
++
+`install all nxos bootflash:nxos.<version number>.bin`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo utiliza a versão 10.4.2 do NX-OS.
+
+[listing, subs="+quotes"]
+----
+cs2# *install all nxos bootflash:nxos.10.4.2.bin*
+
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.10.4.2.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.10.4.2.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.10.4.2.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+Compatibility check is done:
+Module  Bootable  Impact          Install-type  Reason
+------  --------  --------------- ------------  ---------
+  1     yes       Disruptive      Reset         Default upgrade is not hitless
+
+
+
+Images will be upgraded according to following table:
+
+Module   Image    Running-Version(pri:alt)                 New-Version         Upg-Required
+------- --------- ---------------------------------------- ------------------- ------------
+  1      nxos     10.4(1)                                  10.4(2)             Yes
+  1      bios     xx.xx.:xx.xx                             xxx                 No
+
+
+Switch will be reloaded for disruptive upgrade.
+
+Do you want to continue with the installation (y/n)? [n] *y*
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+----
+====
+. Verifique a nova versão do NX-OS após o switch ter sido reinicializado:
++
+`show version`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs2# *show version*
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+
+Software
+  BIOS: version 01.14
+  NXOS: version 10.4(2) [Feature Release]
+  Host NXOS: version 10.4(2)
+  BIOS compile time:  11/25/2024
+  NXOS image file is: bootflash:///nxos64-cs.10.4.2.F.bin
+  NXOS compile time:  11/30/2023 12:00:00 [12/14/2023 05:25:50]
+  NXOS boot mode: LXC
+
+
+Hardware
+  cisco Nexus9000 C9332D-GX2B Chassis
+  Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
+  Processor Board ID FLMXXXXXXXX
+  Device name: cs2
+  bootflash:  115802886 kB
+
+
+Kernel uptime is 5 day(s), 2 hour(s), 13 minute(s), 21 second(s)
+
+
+Last reset at 3580 usecs after Thu Jun  5 15:55:08 2025
+  Reason: Reset Requested by CLI command reload
+  System version: 10.4(2)
+  Service:
+
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+
+Active Package(s):
+
+cs2#
+----
+====
+. Atualize a imagem EPLD usando os seguintes comandos:
++
+`show version module 1 epld`
+
++
+`install epld bootflash:n9000-epld.<version>.img module all`
+
++
+Após a execução do último comando, o switch reinicializa.
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+O exemplo utiliza a versão 10.4.2.F do EPLD
+
+[listing, subs="+quotes"]
+----
+cs2# *show version module 1 epld*
+
+EPLD Device                     Version
+---------------------------------------
+MI   FPGA                        0x7
+IO   FPGA                        0x17
+MI   FPGA2                       0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+
+cs2# *install epld bootflash:n9000-epld.10.4.2.F.img module all*
+Compatibility check:
+Module        Type         Upgradable        Impact    Reason
+------  ------------------ ----------------- --------- -----------
+     1         SUP         Yes       disruptive  Module Upgradable
+
+Retrieving EPLD versions.... Please wait.
+Images will be upgraded according to following table:
+Module  Type   EPLD              Running-Version   New-Version  Upg-Required
+------- ------ ----------------- ----------------- ------------ ------------
+     1  SUP    MI FPGA           0x07              0x07         No
+     1  SUP    IO FPGA           0x17              0x19         Yes
+     1  SUP    MI FPGA2          0x02              0x02         No
+The above modules require upgrade.
+The switch will be reloaded at the end of the upgrade
+Do you want to continue (y/n) ?  [n] *y*
+
+Proceeding to upgrade Modules.
+
+Starting Module 1 EPLD Upgrade
+
+Module 1 : IO FPGA [Programming] : 100.00% (     64 of      64 sectors)
+Module 1 EPLD upgrade is successful.
+Module   Type  Upgrade-Result
+-------- ----- --------------
+     1   SUP   Success
+
+EPLDs upgraded.
+
+Module 1 EPLD upgrade is successful.
+----
+====
+. Após a reinicialização do switch, faça login e verifique se a nova versão do EPLD foi carregada com sucesso:
++
+`show version module 1 epld`
+
++
+.Mostrar exemplo
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show version module 1 epld*
+
+EPLD Device                     Version
+---------------------------------------
+MI   FPGA                        0x7
+IO   FPGA                        0x19
+MI   FPGA2                       0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+----
+====
+. Se você estiver instalando o NX-OS como parte de uma nova instalação do sistema AFX, repita estes passos para instalar as imagens do NX-OS e do EPLD no switch cs2.
+
+
+.O que vem a seguir?
+Depois de instalar o NX-OS em seus switches, você instala o RCF começando com o link:configure-install-upgrade-rcf-overview-9364d.html["Instalar ou atualizar a visão geral do RCF"].

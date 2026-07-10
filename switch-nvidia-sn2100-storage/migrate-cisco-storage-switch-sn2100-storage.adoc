@@ -15,6 +15,7 @@ Você pode migrar switches Cisco mais antigos de um cluster ONTAP para switches 
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 Os seguintes switches de armazenamento são suportados:
@@ -45,6 +46,7 @@ Certifique-se de ter o seguinte:
 
 
 
+[[migrate-the-switches]]
 == Migre os switches
 
 .Sobre os exemplos
@@ -69,6 +71,7 @@ Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e
 
 
 
+[[step-1-prepare-for-migration]]
 === Etapa 1: Prepare-se para a migração
 
 . Se o AutoSupport estiver ativado, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -93,6 +96,7 @@ Cada porta deve exibir "habilitado" para `Status` .
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Etapa 2: Configurar cabos e portas
 
 . Exibir os atributos da porta de rede:
@@ -336,6 +340,7 @@ node2      /lldp
 
 
 
+[[step-3-verify-the-configuration]]
 === Etapa 3: Verifique a configuração
 
 . Verifique a configuração final:

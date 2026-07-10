@@ -15,6 +15,7 @@ Para a instalação do switch BES-53248, certifique-se de revisar a documentaç�
 
 
 
+[[broadcom-documentation]]
 == Documentação da Broadcom
 
 Para configurar o switch de cluster BES-53248, você precisa dos seguintes documentos disponíveis no Broadcom Support Site: link:https://www.broadcom.com/support/bes-switch["Linha de produtos de switches Ethernet da Broadcom"^].
@@ -81,6 +82,7 @@ Fornece informações sobre compatibilidade de rede. A matriz está disponível 
 |===
 
 
+[[ontap-systems-documentation-and-kb-articles]]
 == Documentação e artigos da base de conhecimento sobre sistemas ONTAP
 
 Para configurar um sistema ONTAP, você precisa dos seguintes documentos do NetApp Support Site em link:http://mysupport.netapp.com/["meusuporte.netapp.com"^] ou do site da Knowledge Base (KB) em link:https://kb.netapp.com/["kb.netapp.com"^].

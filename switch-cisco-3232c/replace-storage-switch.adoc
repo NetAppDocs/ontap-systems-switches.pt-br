@@ -15,6 +15,7 @@ Siga estes passos para substituir um switch de armazenamento Cisco Nexus 3232C d
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 A configuração de rede existente deve apresentar as seguintes características:
@@ -39,12 +40,14 @@ O switch Cisco Nexus 3232C de substituição deve ter as seguintes característi
 
 
 
+[[replace-the-switch]]
 == Substitua o interruptor
 
 Este procedimento substitui o segundo switch de armazenamento Nexus 3232C, S2, pelo novo switch 3232C, NS2.  Os dois nós são o nó 1 e o nó 2.
 
 
 
+[[step-1-confirm-the-switch-to-be-replaced-is-s2]]
 === Passo 1: Confirme se o interruptor a ser substituído é o S2.
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -143,6 +146,7 @@ SHFGD2008000022         Eth1/8          120        S           e0a
 
 
 
+[[step-2-configure-cabling]]
 === Etapa 2: Configurar a cablagem
 
 . [[cinco]]Verifique as portas das prateleiras no sistema de armazenamento:
@@ -175,6 +179,7 @@ shelf  id  remote-port  remote-device
 
 
 
+[[step-3-verify-all-device-configurations-on-switch-ns2]]
 === Etapa 3: Verifique todas as configurações do dispositivo no switch NS2.
 
 . Verifique o estado de integridade das portas do nó de armazenamento:

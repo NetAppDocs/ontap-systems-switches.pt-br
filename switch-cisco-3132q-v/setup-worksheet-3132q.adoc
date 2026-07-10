@@ -19,6 +19,7 @@ Cada switch pode ser configurado como uma única porta 40GbE ou como 4 portas 10
 
 
 
+[[sample-cabling-worksheet]]
 == Exemplo de folha de exercícios de cabeamento
 
 A definição da porta de exemplo em cada par de switches é a seguinte:
@@ -329,6 +330,7 @@ ISL de 40G para switch A porta 32
 |===
 
 
+[[blank-cabling-worksheet]]
 == Folha de exercícios de cabeamento em branco
 
 Você pode usar a planilha de cabeamento em branco para documentar as plataformas suportadas como nós em um cluster. A seção _Conexões de Cluster Suportadas_ do link:https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.

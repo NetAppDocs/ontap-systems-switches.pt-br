@@ -17,7 +17,7 @@ A implantação do switch envolve o seguinte fluxo de trabalho.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]Instale o hardware do switch
 [role="quick-margin-para"]
-Instale seus switches no rack ou gabinete.  Acesse as instruções a seguir para o modelo do seu switch.
+Instale seus switches no rack ou gabinete. Consulte as instruções a seguir para o seu sistema AFX ou modelo de switch, conforme aplicável.
 
 [cols="11,9,9,9"]
 |===
@@ -27,8 +27,9 @@ Instale seus switches no rack ou gabinete.  Acesse as instruções a seguir para
 .Interruptores de sistemas AFX
 [%collapsible]
 ====
-* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-switches.html["Instalar o switch Cisco Nexus 9332D-GX2B"^]
-* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-switches.html["Instalar o switch Cisco Nexus 9364D-GX2A"^]
+* link:../switch-cisco-9332d-gx2b/install-prepare-9332d.html["Prepare-se para instalar o switch Cisco Nexus 9332D-GX2B"^]
+* link:../switch-cisco-9364d-gx2a/install-prepare-9364d.html["Prepare-se para instalar o switch Cisco Nexus 9364D-GX2A"^]
+* link:../switch-cisco-9808/install-prepare-9808.html["Prepare-se para instalar o switch Cisco Nexus 9808"^]
 
 
 ==== a| 
@@ -80,7 +81,7 @@ Instale seu sistema de armazenamento e prateleiras no armário ou estante.  Aces
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]Conecte os interruptores aos controladores por meio de cabos.
 [role="quick-margin-para"]
-As instruções de instalação e configuração do sistema ONTAP incluem instruções para a conexão dos cabos das portas do controlador ao switch.  No entanto, se precisar de listas de cabos e transceptores compatíveis, além de informações detalhadas sobre as portas de host do seu switch, acesse as instruções a seguir para o modelo do seu switch.
+As instruções de instalação e configuração dos sistemas ONTAP incluem orientações para a conexão dos cabos das portas do controlador ao switch. No entanto, se você precisar de listas de cabos e transceptores compatíveis, e informações detalhadas sobre as portas do host para o seu switch, acesse as seguintes instruções para o seu sistema AFX ou modelo de switch, conforme aplicável.
 
 [cols="11,9,9,9"]
 |===
@@ -90,8 +91,8 @@ As instruções de instalação e configuração do sistema ONTAP incluem instru
 .Interruptores de sistemas AFX
 [%collapsible]
 ====
-* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["Cabeamento do switch Cisco Nexus 9332D-GX2B"^]
-* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["Cabeamento do switch Cisco Nexus 9364D-GX2A"^]
+* link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["Instale os switches Cisco Nexus em um sistema AFX 1K"^]
+* link:https://review.docs.netapp.com/us-en/ontap-afx/install-afx-2k/afx-cable-overview.html["Instale os switches Cisco Nexus para um sistema AFX 2K"^]
 
 
 ==== a| 
@@ -122,7 +123,7 @@ As instruções de instalação e configuração do sistema ONTAP incluem instru
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]Configure o software do switch
 [role="quick-margin-para"]
-Para instalar e configurar o software no seu switch, siga o fluxo de trabalho de instalação de software específico para o modelo do seu switch.
+Para configurar seus switches e instalar o software, siga o fluxo de trabalho de instalação de software para o modelo do seu switch.
 
 [cols="11,9,9,9"]
 |===
@@ -132,8 +133,9 @@ Para instalar e configurar o software no seu switch, siga o fluxo de trabalho de
 .Interruptores de sistemas AFX
 [%collapsible]
 ====
-* link:../switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html["Instalar software para switch Cisco Nexus 9332D-GX2B"^]
-* link:../switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html["Instalar software para switch Cisco Nexus 9364D-GX2A"^]
+* link:../switch-cisco-9332d-gx2b/configure-switch-workflow-9332d.html["Configure o switch Cisco Nexus 9332D-GX2B"^]
+* link:../switch-cisco-9364d-gx2a/configure-switch-workflow-9364d.html["Configurar o switch Cisco Nexus 9364D-GX2A"^]
+* link:../switch-cisco-9808/configure-switch-workflow-9808.html["Configure o switch Cisco Nexus 9808"^]
 
 
 ==== a| 

@@ -18,6 +18,7 @@ Para instalação e manutenção dos switches Cisco Nexus 9336C-FX2 e 9336C-FX2-
 
 
 
+[[part-number-details]]
 == Detalhes do número da peça
 
 A tabela a seguir lista o número da peça e a descrição dos switches, ventiladores e fontes de alimentação 9336C-FX2 e 9336C-FX2-T:
@@ -112,6 +113,7 @@ N9K-9336C 65 CFM, fluxo de ar de admissão pelo lado esquerdo
 |===
 
 
+[[cisco-smart-licenses-for-9336c-fx2-t-ports-only]]
 == Licenças Cisco Smart somente para portas 9336C-FX2-T
 
 Para ativar mais de 12 portas no seu switch de cluster Cisco Nexus 9336C-FX-T, você precisa adquirir uma licença Cisco Smart.  As licenças Cisco Smart são gerenciadas por meio de contas Cisco Smart.

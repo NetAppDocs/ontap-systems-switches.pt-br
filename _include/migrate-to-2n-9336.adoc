@@ -4,6 +4,7 @@
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Antes de começar
@@ -49,10 +50,12 @@ Ver https://hwu.netapp.com["Hardware Universe"^] Para obter informações sobre 
 
 
 
+[[migrate-the-switches]]
 == Migre os switches
 
 
 
+[[step-1-prepare-for-migration]]
 === Etapa 1: Prepare-se para a migração
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -77,6 +80,7 @@ O prompt avançado(`*>` ) aparece.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Etapa 2: Configurar portas e cabos
 
 . Desative todas as portas voltadas para os nós (exceto as portas ISL) nos dois novos switches do cluster, cs1 e cs2.
@@ -398,6 +402,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
+[[step-3-verify-the-configuration]]
 === Etapa 3: Verifique a configuração
 
 . Verifique se todas as interfaces exibem verdadeiro para `Is Home` :

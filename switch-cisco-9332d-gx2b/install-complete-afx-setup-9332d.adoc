@@ -1,0 +1,31 @@
+---
+permalink: switch-cisco-9332d-gx2b/install-complete-afx-setup-9332d.html 
+sidebar: sidebar 
+keywords: switches, complete system setup, Cisco Nexus, 9332D-GX2B switches, AFX 
+summary: Após concluir os procedimentos de configuração do switch Cisco Nexus 9332D-GX2B, você acessa o site de documentação do sistema AFX para ligar os gabinetes de armazenamento e os controladores do seu sistema AFX 1K ou AFX 2K, verificar a conectividade do switch e concluir a configuração do sistema AFX. 
+---
+= Conclua a configuração do sistema AFX - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Após concluir os procedimentos de configuração do switch Cisco Nexus 9332D-GX2B, você acessa o site de documentação do sistema AFX para ligar os gabinetes de armazenamento e os controladores do seu sistema AFX 1K ou AFX 2K, verificar a conectividade do switch e concluir a configuração do sistema AFX.
+
+.Antes de começar
+* Você deve ter concluído os procedimentos de configuração do switch no link:configure-switch-workflow-9332d.html["configurar o fluxo de trabalho do switch"].
+* Cada switch deve estar conectado a um console ou você deve ter acesso remoto a cada switch.
+
+
+.Passos
+. Conclua os passos de inicialização e configuração do seu sistema AFX 1K ou AFX 2K:
++
+** Para um sistema AFX 1K, acesse o link:https://docs.netapp.com/us-en/ontap-afx/install-setup/power-on-hardware.html["Ligue seu sistema de armazenamento AFX 1K"^] procedimento.
+** Para um sistema AFX 2K, vá para o link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/power-on-hardware.html["Ligue seu sistema de storage AFX 2K"^]procedimento.
+
+
+
+
+.O que vem a seguir?
+Após ligar as prateleiras de armazenamento e os controladores e concluir a configuração do sistema AFX 1K ou AFX 2K, você está pronto para usar seu sistema AFX.

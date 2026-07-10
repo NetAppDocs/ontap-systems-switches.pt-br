@@ -15,6 +15,7 @@ Para a instalação do switch Cisco Nexus 92300YC, certifique-se de revisar toda
 
 
 
+[[switch-documentation]]
 == Documentação do Switch
 
 Para configurar os switches Cisco Nexus 92300YC, você precisa da seguinte documentação de link:https://www.cisco.com/site/us/en/products/networking/cloud-networking-switches/nexus-9200-series-switches/index.html["Suporte para switches Cisco Nexus série 9000"^].
@@ -81,6 +82,7 @@ Fornece informações sobre conformidade com agências internacionais, seguranç
 |===
 
 
+[[ontap-systems-documentation]]
 == Documentação dos sistemas ONTAP
 
 Para configurar um sistema ONTAP, você precisa dos seguintes documentos para a sua versão do sistema operacional.
@@ -112,6 +114,7 @@ Fornece informações sobre configuração e compatibilidade de hardware da NetA
 |===
 
 
+[[rail-kit-and-cabinet-documentation]]
 == Kit de trilhos e documentação do gabinete
 
 Para instalar um switch Cisco Nexus 92300YC em um NetApp cabinet, consulte a seguinte documentação de hardware.

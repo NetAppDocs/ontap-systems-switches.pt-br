@@ -33,6 +33,7 @@ CAUTION: Antes de instalar uma nova versão de software do switch e os RCFs, voc
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Etapa 1: Prepare-se para a atualização
 
 . Exibir as portas do cluster em cada nó que estão conectadas aos switches do cluster:
@@ -178,6 +179,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 
 
+[[step-2-configure-ports]]
 == Etapa 2: Configurar portas
 
 . No switch de cluster cs2, desligue as portas conectadas às portas de cluster dos nós.
@@ -548,6 +550,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true
 
 
 
+[[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == Etapa 3: Verifique a configuração de rede do cluster e a integridade do cluster.
 
 . Verifique se as portas do switch conectadas às portas do cluster estão *ativas*.

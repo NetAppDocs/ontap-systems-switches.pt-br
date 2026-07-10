@@ -15,6 +15,7 @@ Se você já possui um ambiente de cluster sem switches com dois nós, pode migr
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Antes de começar
@@ -53,6 +54,7 @@ Qualquer personalização anterior do site, como SMTP, SNMP e SSH, deve ser copi
 
 
 
+[[migrate-the-switches]]
 == Migre os switches
 
 .Sobre os exemplos
@@ -70,6 +72,7 @@ Olink:https://hwu.netapp.com/["Hardware Universe"^] Contém as informações mai
 
 
 
+[[step-1-prepare-for-migration]]
 === Etapa 1: Prepare-se para a migração
 
 . Altere o nível de privilégio para avançado, inserindo `y` Quando solicitado a continuar:
@@ -105,6 +108,7 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-ports]]
 === Etapa 2: Configurar portas
 
 . Desative todas as portas voltadas para os nós (exceto as portas ISL) nos dois novos switches do cluster, cs1 e cs2.
@@ -865,6 +869,7 @@ NOTE: Para a versão 8.3 e posteriores, os comandos são:
 
 
 
+[[step-3-complete-the-configuration]]
 === Etapa 3: Conclua a configuração
 
 . Verifique se todas as interfaces estão sendo exibidas. `true` na coluna "É o Lar":

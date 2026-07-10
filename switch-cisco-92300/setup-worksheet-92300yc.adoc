@@ -17,6 +17,7 @@ A planilha de cabeamento de exemplo fornece exemplos de atribuições de portas 
 
 
 
+[[sample-cabling-worksheet]]
 == Exemplo de folha de exercícios de cabeamento
 
 A definição da porta de exemplo em cada par de switches é a seguinte:
@@ -756,6 +757,7 @@ ISL de 100 GbE para switch A porta 65
 |===
 
 
+[[blank-cabling-worksheet]]
 == Folha de exercícios de cabeamento em branco
 
 Você pode usar a planilha de cabeamento em branco para documentar as plataformas suportadas como nós em um cluster. A seção _Conexões de Cluster Suportadas_ do link:https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.

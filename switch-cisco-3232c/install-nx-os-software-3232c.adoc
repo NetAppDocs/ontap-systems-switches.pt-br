@@ -15,6 +15,7 @@ Você pode usar este procedimento para instalar o software NX-OS no switch de cl
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Antes de começar
@@ -26,6 +27,7 @@ Você pode usar este procedimento para instalar o software NX-OS no switch de cl
 
 
 
+[[install-the-software]]
 == Instale o software
 
 O procedimento requer o uso de comandos ONTAP e comandos dos switches Cisco Nexus série 3000; os comandos ONTAP são usados, a menos que indicado de outra forma.

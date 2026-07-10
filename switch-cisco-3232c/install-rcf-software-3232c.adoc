@@ -31,6 +31,7 @@ Certifique-se de concluir o procedimento emlink:prepare-install-cisco-nexus-3232
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == Passo 1: Instale o RCF nos interruptores
 
 . Faça login no switch cs2 usando SSH ou usando um console serial.
@@ -153,6 +154,7 @@ Consulte o artigo da Knowledge Base link:https://kb.netapp.com/on-prem/Switches/
 
 
 
+[[step-2-verify-the-switch-connections]]
 == Etapa 2: Verifique as conexões do switch
 
 . Verifique se as portas do switch conectadas às portas do cluster estão *ativas*.
@@ -259,6 +261,7 @@ cluster1::*>
 
 
 
+[[step-3-setup-your-ontap-cluster]]
 == Etapa 3: configurar seu cluster ONTAP
 
 A NetApp recomenda que você utilize o System Manager para configurar novos clusters.

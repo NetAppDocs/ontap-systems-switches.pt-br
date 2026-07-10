@@ -17,6 +17,7 @@ O software EFOS inclui um conjunto de recursos e protocolos de rede avançados p
 
 
 
+[[prepare-for-upgrade]]
 == Prepare-se para a atualização
 
 .Antes de começar
@@ -125,6 +126,7 @@ IP_switch_a2 # *show fips status*
 ====
 
 
+[[upgrade-the-software]]
 == Atualize o software
 
 Utilize um dos seguintes métodos:
@@ -138,6 +140,7 @@ NOTE: Atualize o EFOS em um switch de cada vez para garantir a operação contí
 
 
 
+[[method-1-upgrade-efos]]
 === Método 1: Atualizar o EFOS
 
 Siga os passos abaixo para atualizar o software EFOS.
@@ -369,6 +372,7 @@ Para obter mais detalhes, consulte link:https://docs.netapp.com/us-en/ontap/netw
 
 
 
+[[method-2-upgrade-efos-using-the-onie-os-installation]]
 === Método 2: Atualizar o EFOS usando a instalação do ONIE OS
 
 Você pode executar os seguintes passos se uma versão do EFOS for compatível com FIPS e a outra versão do EFOS não for compatível com FIPS.  Esses passos podem ser usados para atualizar a imagem EFOS 3.7.xx, compatível ou não com FIPS, a partir do ONIE, caso o switch não inicialize.

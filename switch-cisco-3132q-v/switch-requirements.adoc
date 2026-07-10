@@ -15,6 +15,7 @@ Ao substituir switches de cluster, certifique-se de compreender os requisitos de
 
 
 
+[[cisco-nexus-3132q-v-requirements]]
 == Requisitos do Cisco Nexus 3132Q-V
 
 * O switch de cluster Cisco Nexus 3132Q-V é compatível.
@@ -50,6 +51,7 @@ link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Switches Ethe
 
 
 
+[[cisco-nexus-5596-requirements]]
 == Requisitos do Cisco Nexus 5596
 
 * Os seguintes switches de cluster são suportados:
@@ -119,6 +121,7 @@ NOTE: Você pode configurar as seis primeiras portas para o modo 4x10 GbE usando
 
 
 
+[[netapp-cn1610-requirements]]
 == Requisitos do NetApp CN1610
 
 * Os seguintes switches de cluster são suportados:

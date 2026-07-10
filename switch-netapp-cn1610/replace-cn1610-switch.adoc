@@ -15,6 +15,7 @@ Siga estes passos para substituir um switch NetApp CN1610 defeituoso em uma rede
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Antes de começar
@@ -28,6 +29,7 @@ Antes de efetuar a substituição do switch, as seguintes condições devem ser 
 
 
 
+[[enable-console-logging]]
 == Ativar registro no console
 
 A NetApp recomenda enfaticamente que você habilite o registro de console nos dispositivos que estiver usando e execute as seguintes ações ao substituir seu switch:
@@ -39,6 +41,7 @@ A NetApp recomenda enfaticamente que você habilite o registro de console nos di
 
 
 
+[[replace-the-switch]]
 == Substitua o interruptor
 
 .Sobre esta tarefa

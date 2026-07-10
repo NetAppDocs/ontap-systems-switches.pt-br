@@ -33,6 +33,7 @@ CAUTION: Antes de instalar uma nova versão de software do switch e os RCFs, voc
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Etapa 1: Prepare-se para a atualização
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -196,6 +197,7 @@ cluster1::*>
 
 
 
+[[step-2-configure-ports]]
 == Etapa 2: Configurar portas
 
 . No switch de cluster cs1, desligue as portas conectadas às portas de cluster dos nós.
@@ -562,6 +564,7 @@ CAUTION: Se o seu switch 9336C-FX2 não inicializar após a atualização do RCF
 
 
 
+[[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == Etapa 3: Verifique a configuração de rede do cluster e a integridade do cluster.
 
 . Verifique se as portas do switch conectadas às portas do cluster estão *ativas*.

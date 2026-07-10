@@ -33,6 +33,7 @@ CAUTION: Antes de instalar uma nova versão de software do switch e os RCFs, voc
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Etapa 1: Prepare-se para a atualização
 
 . Exibir as portas do cluster em cada nó que estão conectadas aos switches do cluster:
@@ -191,6 +192,7 @@ Certifique-se de que a reversão automática esteja desativada após executar es
 
 
 
+[[step-2-configure-ports]]
 == Etapa 2: Configurar portas
 
 . No switch de cluster cs2, desligue as portas conectadas às portas de cluster dos nós.
@@ -610,6 +612,7 @@ This command will reboot the system. (y/n)?  [n] *y*
 
 
 
+[[step-3-verify-the-configuration]]
 == Etapa 3: Verifique a configuração
 
 . Verifique se as portas do switch conectadas às portas do cluster estão ativas.

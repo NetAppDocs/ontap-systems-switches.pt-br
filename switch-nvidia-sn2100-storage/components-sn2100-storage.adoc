@@ -15,12 +15,14 @@ Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de con
 
 
 
+[[cabinet-details]]
 == Detalhes do gabinete
 
 Você instala o switch NVIDIA SN2100 (X190006/X190106) no gabinete de switch duplo/simples da NVIDIA com os suportes padrão que acompanham o switch.
 
 
 
+[[rail-kit-details]]
 == Detalhes do kit de trilhos
 
 A tabela a seguir lista o número da peça e a descrição dos interruptores e kits de trilhos MSN2100:
@@ -72,7 +74,7 @@ Kit de trilhos, NVIDIA Single Switch de profundidade reduzida
 
 |===
 
-NOTE: Consulte a documentação da NVIDIA para obter detalhes sobre link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Instalando seu kit de trilhos e interruptor SN2100"^].
+NOTE: Consulte a documentação da NVIDIA para obter detalhes sobre link:https://networking-docs.nvidia.com/sn2000hw/latest/installation["Instalando seu kit de trilhos e interruptor SN2100"^].
 
 .O que vem a seguir
 Após confirmar os componentes e os números de peça, você pode revisar o link:required-documentation-sn2100-storage.html["documentação necessária"].

@@ -15,6 +15,7 @@ Você pode migrar switches de cluster NetApp CN1610 para um cluster ONTAP para s
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 Você deve estar ciente de determinadas informações de configuração, conexões de porta e requisitos de cabeamento ao substituir switches de cluster NetApp CN1610 por switches de cluster Cisco 9336C-FX2 e 9336C-FX2-T. Você também deve verificar o número de série do switch para garantir que o switch correto seja migrado.
@@ -48,6 +49,7 @@ Verifique se sua configuração atende aos seguintes requisitos:
 
 
 
+[[migrate-the-switches]]
 == Migre os switches
 
 .Sobre os exemplos
@@ -91,6 +93,7 @@ NOTE: Nenhum link operacional entre switches (ISL) é necessário durante este p
 
 
 
+[[step-1-prepare-for-migration]]
 === Etapa 1: Prepare-se para a migração
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -118,6 +121,7 @@ Ao desativar a reversão automática para este procedimento, as LIFs do cluster 
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Etapa 2: Configurar portas e cabos
 
 . Determine o status administrativo ou operacional de cada interface de cluster.
@@ -523,6 +527,7 @@ node2      /cdp
 
 
 
+[[step-3-verify-the-configuration]]
 === Etapa 3: Verifique a configuração
 
 . Ativar reversão automática nos LIFs do cluster:

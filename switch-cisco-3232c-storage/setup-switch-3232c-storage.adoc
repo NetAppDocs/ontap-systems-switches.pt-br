@@ -15,17 +15,17 @@ Siga este procedimento para instalar e configurar o switch Cisco Nexus 3232C.
 
 .Antes de começar
 * Acesso a um servidor HTTP, FTP ou TFTP no local de instalação para baixar as versões aplicáveis do NX-OS e do arquivo de configuração de referência (RCF).
-* Versão aplicável do NX-OS, baixada de https://software.cisco.com/download/home["Download do software Cisco"^] página.
+* Versão aplicável do NX-OS, baixada da página link:https://software.cisco.com/download/home["Download do software Cisco"^].
 * Documentação necessária sobre a rede e o switch de gerenciamento de rede.
 +
 Veja link:required-documentation-3232c-storage.html["Documentação necessária"] para mais informações.
 
 * Documentação do controlador e documentação do ONTAP necessárias.
 +
-https://netapp.com/us/documenation/index.aspx["Documentação da NetApp"^]
+link:https://docs.netapp.com/us-en/ontap/index.html["Documentação do ONTAP 9"^]
 
 * Licenças aplicáveis, informações de rede e configuração, e cabos.
-* Arquivos RCF aplicáveis da NetApp para a rede de storage e a rede de gerenciamento, baixados do site de suporte da NetApp em  http://mysupport.netapp.com/["meusuporte.netapp.com"^] para os switches que você receber. Todos os switches de rede de storage e de rede de gerenciamento da Cisco chegam com a configuração padrão de fábrica da Cisco. Esses switches também possuem a versão atual do software NX-OS, mas não têm os RCFs carregados.
+* Arquivos RCF aplicáveis de rede de storage e rede de gerenciamento da NetApp, baixados do site de suporte da NetApp em link:http://mysupport.netapp.com/["meusuporte.netapp.com"^] para os switches que você recebe. Todos os switches de rede de storage e rede de gerenciamento da Cisco chegam com a configuração padrão de fábrica da Cisco. Esses switches também possuem a versão atual do software NX-OS, mas não têm os RCFs carregados.
 
 
 .Passos

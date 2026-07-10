@@ -1,0 +1,37 @@
+---
+permalink: switch-cisco-9808/configure-review-cabling-config-requirements-9808.html 
+sidebar: sidebar 
+keywords: 9808 cabling setup, 9808 switches configuration, nx-os 
+summary: Se você estiver instalando novos switches Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K, substituindo um módulo supervisor ou redefinindo um switch para as configurações padrão de fábrica, você deve revisar os seguintes requisitos de cabeamento e configuração. 
+---
+= Revisar os requisitos de cabeamento e configuração - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você estiver instalando switches Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K, substituindo um módulo supervisor ou redefinindo um switch para as configurações padrão de fábrica, você deve revisar os seguintes requisitos de cabeamento e configuração.
+
+
+
+[[hard-code-the-speed-on-breakout-ports]]
+== Defina a velocidade diretamente nas portas de breakout
+
+Você deve configurar manualmente as portas breakout do switch (4x100GbE) para 100GbE. Se você não configurar manualmente a velocidade, as portas não serão ativadas e ficarão em estado desabilitado por erro.
+
+Por exemplo, para configurar 100GbE nas portas breakout 19-35, faça o seguinte no modo de configuração. O exemplo mostra os comandos sendo aplicados ao primeiro switch (cs1). Você deve repetir esses comandos para o segundo switch.
+
+[listing, subs="+quotes"]
+----
+(cs1)# *configure terminal*
+Enter configuration commands, one per line. End with CNTL/Z.
+(cs1)(config)# *interface e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4,e1/24/1-4,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4,e1/31/1-4,e1/32/1-4,e1/33/1-4,e1/34/1-4,e1/35/1-4*
+(cs1)(config-if)# *speed 100000*
+(cs1)(config-if)# *no negotiate auto*
+(cs1)(config-if)# *exit*
+(cs1)(config)# *exit*
+(cs1)# *copy running-config startup-config*
+----
+.O que vem a seguir?
+Após cumprir os requisitos de cabeamento e configuração, você link:configure-install-nxos-9808.html["instale o NX-OS"].

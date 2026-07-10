@@ -15,6 +15,7 @@ Saiba mais sobre os novos switches para sistemas de armazenamento ONTAP. Para ob
 
 
 
+[[new-switch-support]]
 == Novo suporte para interruptor
 
 [cols="25h,~,~"]

@@ -15,6 +15,7 @@ Se você possui um cluster de dois nós _sem switches_, pode migrar para um clus
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Antes de começar
@@ -70,6 +71,7 @@ O procedimento requer o uso de comandos ONTAP e comandos dos switches Cisco Nexu
 ====
 
 
+[[step-1-display-and-migrate-physical-and-logical-ports]]
 == Etapa 1: Exibir e migrar portas físicas e lógicas
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -323,6 +325,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
+[[step-2-shut-down-the-reassigned-lifs-and-disconnect-the-cables]]
 == Etapa 2: Desligue as LIFs reatribuídas e desconecte os cabos.
 
 . Verifique se as interfaces do cluster foram migradas com sucesso:
@@ -438,6 +441,7 @@ Você pode consultar a configuração em execução e conectar a primeira porta 
 
 
 
+[[step-3-enable-the-cluster-ports]]
 == Etapa 3: Habilite as portas do cluster.
 
 . Desconecte o cabo do e4a no nó n2.
@@ -554,6 +558,7 @@ Cluster
 
 
 
+[[step-4-enable-the-reassigned-lifs]]
 == Etapa 4: Ative as LIFs reatribuídas
 
 . Exibir a conectividade da porta do cluster em cada nó:

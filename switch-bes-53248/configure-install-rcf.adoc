@@ -18,6 +18,7 @@ CAUTION: Para o EFOS 3.12 e versões posteriores, siga os passos de instalação
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Antes de começar
@@ -35,6 +36,7 @@ Consulte a tabela de compatibilidade de switches para as versões suportadas do 
 
 
 
+[[install-the-configuration-file]]
 == Instale o arquivo de configuração.
 
 .Sobre os exemplos
@@ -60,6 +62,7 @@ CAUTION: Antes de instalar uma nova versão de software do switch e RCFs, use o 
 
 
 
+[[step-1-prepare-for-the-installation]]
 == Passo 1: Prepare-se para a instalação
 
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :
@@ -278,6 +281,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 
 
+[[step-2-configure-ports]]
 == Etapa 2: Configurar portas
 
 . No switch cs2, confirme a lista de portas que estão conectadas aos nós do cluster.
@@ -960,6 +964,7 @@ Configuration Saved! System will now restart!
 
 
 
+[[step-3-verify-the-configuration]]
 == Etapa 3: Verifique a configuração
 
 . No switch cs1, verifique se as portas do switch conectadas às portas do cluster estão *ativas*:

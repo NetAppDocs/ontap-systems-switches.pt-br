@@ -18,6 +18,7 @@ Utilize as imagens de cabeamento a seguir para concluir a conexão entre os cont
 
 
 
+[[cable-ns224-storage-as-switch-attached]]
 == Cabo NS224 para armazenamento conectado a um switch
 
 Se você deseja conectar o armazenamento NS224 como um dispositivo conectado a um switch, siga o diagrama de conexão a switch:
@@ -28,6 +29,7 @@ Consulte o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para o
 
 
 
+[[cable-ns224-storage-as-direct-attached]]
 == Armazenamento do cabo NS224 como conexão direta
 
 Se você deseja conectar o armazenamento NS224 diretamente em vez de usar as portas de armazenamento compartilhadas do switch, siga o diagrama de conexão direta:
@@ -38,6 +40,7 @@ Consulte o link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] para o
 
 
 
+[[cisco-nexus-9336c-fx2-cabling-worksheet]]
 == Folha de instruções de cabeamento do Cisco Nexus 9336C-FX2
 
 Se você deseja documentar as plataformas suportadas, deve preencher a planilha de cabeamento em branco, utilizando como guia a planilha de cabeamento de exemplo já preenchida.
@@ -56,6 +59,7 @@ Onde:
 
 
 
+[[blank-cabling-worksheet]]
 == Folha de exercícios de cabeamento em branco
 
 Você pode usar a planilha de cabeamento em branco para documentar as plataformas suportadas como nós em um cluster. A tabela Supported Cluster Connections link:https://hwu.netapp.com["Hardware Universe"^] define as portas de cluster usadas pela plataforma.

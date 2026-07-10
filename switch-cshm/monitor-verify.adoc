@@ -15,6 +15,7 @@ O monitor de integridade do switch Ethernet (CSHM) tenta monitorar automaticamen
 
 
 
+[[confirm-monitoring-of-the-connected-ethernet-switches]]
 == Confirme o monitoramento dos switches Ethernet conectados.
 
 Para confirmar se os switches Ethernet conectados estão sendo monitorados, execute o seguinte comando:
@@ -34,6 +35,7 @@ Se um switch não estiver listado na saída do comando, é provável que o ONTAP
 ====
 
 
+[[confirm-firmware-and-rcf-versions-are-up-to-date]]
 == Confirme se as versões do firmware e do RCF estão atualizadas.
 
 Certifique-se de que o switch esteja executando o firmware mais recente compatível e que um arquivo de configuração de referência (RCF) compatível tenha sido aplicado.  Mais informações estão disponíveis emhttps://mysupport.netapp.com/site/downloads["Página de downloads de suporte da NetApp"^] .
@@ -51,6 +53,7 @@ NOTE: Verlink:config-snmpv3.html["Opcional: Configurar SNMPv3"] Para obter detal
 
 
 
+[[confirm-management-network-connection]]
 == Confirme a conexão da rede de gerenciamento.
 
 Verifique se a porta de gerenciamento do switch está conectada à rede de gerenciamento.

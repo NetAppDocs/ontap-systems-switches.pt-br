@@ -4,6 +4,7 @@
 
 
 
+[[new-switch-support]]
 == Novo suporte para interruptor
 
 [cols="25h,~,~"]

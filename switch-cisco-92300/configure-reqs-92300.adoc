@@ -17,12 +17,14 @@ Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois s
 
 
 
+[[configuration-requirements]]
 == Requisitos de configuração
 
 Para configurar seu cluster, você precisa da quantidade e do tipo adequados de cabos e conectores de cabos para seus switches.  Dependendo do tipo de switch que você estiver configurando inicialmente, será necessário conectar-se à porta de console do switch com o cabo de console incluído; você também precisará fornecer informações específicas da rede.
 
 
 
+[[network-requirements]]
 == Requisitos de rede
 
 Você precisa das seguintes informações de rede para todas as configurações de switch:

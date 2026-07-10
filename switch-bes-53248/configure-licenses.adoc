@@ -18,6 +18,7 @@ CAUTION: Para o EFOS 3.12 e versões posteriores, siga os passos de instalação
 
 
 
+[[review-available-licenses]]
 == Analise as licenças disponíveis
 
 As seguintes licenças estão disponíveis para uso no switch de cluster BES-53248:
@@ -58,6 +59,7 @@ NOTE: Para resgatar uma chave de transação para um arquivo de chave da licenç
 
 
 
+[[legacy-licenses]]
 == Licenças legadas
 
 A tabela a seguir lista as licenças legadas que estavam disponíveis para uso no switch de cluster BES-53248:
@@ -134,6 +136,7 @@ NOTE: Não é necessária uma licença para a configuração básica.
 
 
 
+[[install-license-files]]
 == Instalar arquivos de licença
 
 Siga estes passos para instalar as licenças dos switches de cluster BES-53248.
@@ -355,6 +358,7 @@ CAUTION: Ao instalar licenças adicionais, você deve configurar as novas interf
 
 
 
+[[troubleshoot-install-issues]]
 == Solucionar problemas de instalação
 
 Caso surjam problemas durante a instalação da licença, execute os seguintes comandos de depuração antes de executar o programa. `copy` Comande novamente.
@@ -423,6 +427,7 @@ Você precisa instalar uma licença antiga apropriada antes de reverter para uma
 
 
 
+[[activate-newly-licensed-ports]]
 == Ativar portas recém-licenciadas
 
 Para ativar as portas recém-licenciadas, você precisa editar a versão mais recente do RCF e remover o comentário dos detalhes da porta em questão.

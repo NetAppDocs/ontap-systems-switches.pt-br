@@ -15,6 +15,7 @@ Para instalação e manutenção do switch NVIDIA SN2100, certifique-se de revis
 
 
 
+[[installation-requirements]]
 == Requisitos de instalação
 
 Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis.  Você pode usar interruptores de gerenciamento adicionais, que são opcionais.
@@ -25,6 +26,7 @@ Para diretrizes de cabeamento, consulte link:cabling-considerations-sn2100-clust
 
 
 
+[[ontap-and-linux-support]]
 == Suporte para ONTAP e Linux
 
 O switch NVIDIA SN2100 é um switch 10/25/40/100GbE que executa o Cumulus Linux.  O switch suporta o seguinte:

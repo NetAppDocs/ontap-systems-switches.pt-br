@@ -17,6 +17,7 @@ NX-OS é um sistema operacional de rede para a série Nexus de switches Ethernet
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Portas e conexões de nós suportadas
@@ -34,6 +35,7 @@ Certifique-se de ter o seguinte:
 
 
 
+[[install-the-software]]
 == Instale o software
 
 Os exemplos neste procedimento utilizam dois nós, mas você pode ter até 24 nós em um cluster.

@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9332d-gx2b/maintain-reset-switch-9332d.html 
+keywords: reset switch factory defaults 
+summary: Você pode redefinir um switch Cisco Nexus 9332D-GX2B para as configurações originais de fábrica quando o switch estiver sendo desativado ou quando apresentar falhas e não puder ser recuperado, exigindo que você o reconfigure manualmente. 
+---
+= Restaurar as configurações de fábrica de um switch - Cisco Nexus 9332D-GX2B
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode redefinir um switch Cisco Nexus 9332D-GX2B para as configurações originais de fábrica quando o switch estiver sendo desativado ou quando apresentar falhas e não puder ser recuperado, exigindo que você o reconfigure manualmente.
+
+.Antes de começar
+Você precisa estar conectado ao switch usando o console serial.
+
+.Sobre esta tarefa
+* Esta tarefa redefine a configuração da rede de gerenciamento.
+* O  `reload`comando usado neste procedimento reinicializa o switch, o que interrompe todo tráfego de rede que passa por ele. (Você deve executar este procedimento durante uma janela de manutenção quando o switch não estiver em uso.)
+
+
+.Passos
+. Apague a configuração de inicialização existente:
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Reinicie o NX-OS:
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+O sistema reinicializa e entra no assistente de configuração.
+
++
+
+NOTE: Durante a reinicialização, se você receber a mensagem “Abortar o provisionamento automático e continuar com a configuração normal? (sim/não)[n]”, responda *sim* para prosseguir.
+
+. Se o switch estiver sendo desativado, você concluiu este procedimento; caso contrário, você precisa configurar o switch usando o link:configure-switch-workflow-9332d.html["Configurar o fluxo de trabalho do switch"].
+

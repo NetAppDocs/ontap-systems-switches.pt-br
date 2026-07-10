@@ -15,6 +15,7 @@ Se você possui sistemas FAS22xx em um cluster existente de dois nós sem switch
 
 
 
+[[review-requirements]]
 == Requisitos de revisão
 
 .Antes de começar
@@ -32,12 +33,14 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/
 
 
 
+[[migrate-the-switches]]
 == Migre os switches
 
 Este procedimento não é disruptivo, remove a conectividade direta do cluster em um ambiente sem switch e substitui cada conexão com o switch por uma conexão com o nó parceiro.
 
 
 
+[[step-1-prepare-for-migration]]
 === Etapa 1: Prepare-se para a migração
 
 . Altere o nível de privilégio para avançado, inserindo `y` Quando solicitado a continuar:
@@ -150,6 +153,7 @@ Ao receber a mensagem de nó comprometido, pressione `Ctrl-C` e então responda 
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Etapa 2: Configurar cabos e portas
 
 . Em cada módulo controlador, desconecte o cabo que liga a porta de cluster 10 GbE ao cluster sem switch.
@@ -301,6 +305,7 @@ RPC status:
 ====
 
 
+[[step-3-complete-the-procedure]]
 === Etapa 3: Conclua o procedimento
 
 . Se você desativou a criação automática de casos, reative-a enviando uma mensagem do AutoSupport :
