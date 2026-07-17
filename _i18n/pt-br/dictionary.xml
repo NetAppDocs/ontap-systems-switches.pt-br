@@ -749,8 +749,6 @@
   <block id="1fc245f373dd47304db35c4ef2df408e" category="inline-link-macro">Configurar interruptor</block>
   <block id="163c95e139774086e604f88f7e2f31d3" category="list-text"><block ref="163c95e139774086e604f88f7e2f31d3" category="inline-link-macro-rx"></block></block>
   <block id="04204be9eff305a81c8050c2ee21ed34" category="list-text">Repita os passos de 1 a 8 no interruptor do parceiro.</block>
-  <block id="74af5112ab6cf8732ffe8eba910e2290" category="inline-link-macro">Instale suas licenças</block>
-  <block id="85290349ee32e9f062a4795f3e1e06bb" category="paragraph">Após instalar o software EFOS, você pode <block ref="172517aa1fa2cd21dd6fb86167c00f86" category="inline-link-macro-rx"></block>.</block>
   <block id="88045e5af7830d69afafc3e6e7a9cf86" category="summary">Você pode usar este procedimento para realizar a instalação inicial do switch de cluster BES-53248.</block>
   <block id="a804fe3633b3e8edd13e681d83563c08" category="doc">Configurar o switch de cluster BES-53248</block>
   <block id="67777be64987c8c0fadb924db93389aa" category="paragraph">Siga estes passos para realizar a configuração inicial do switch de cluster BES-53248.</block>
@@ -1306,18 +1304,13 @@
   <block id="c0d96a8467e1acc3623933447f6f212c" category="inline-link-macro">Instale o RCF</block>
   <block id="11c8d833dc677f2da3e3a05f17e029da" category="list-text"><block ref="11c8d833dc677f2da3e3a05f17e029da" category="inline-link-macro-rx"></block></block>
   <block id="b75ec32f89267a27b5a0e0b014097f77" category="list-text">Repita os passos 2 a 8 no interruptor cs1.</block>
-  <block id="d814617aab418a35a7ebbe46f6db2549" category="list-text">É necessária uma conexão de console com o switch ao instalar o RCF a partir de suas configurações padrão de fábrica.  Este requisito é opcional se você já utilizou o artigo da Base de Conhecimento.<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block> Para limpar a configuração previamente.</block>
   <block id="93933c6ca68705cf2c6eee19987428b0" category="inline-link">Broadcom</block>
-  <block id="20e5ec5f7186bff24f7aeef0c34a7edc" category="admonition">Antes de instalar uma nova versão de software de switch e RCFs, consulte o artigo da Base de Conhecimento.<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block> .  Se precisar apagar completamente as configurações do switch, será necessário realizar a configuração básica novamente.  Você precisa estar conectado ao switch usando o console serial, pois a exclusão completa da configuração redefine a configuração da rede de gerenciamento.</block>
   <block id="833aa928a446532020e8ea26e29a32b7" category="section-title">Etapa 1: Prepare-se para a atualização</block>
   <block id="31e544384f3325abd25b797e025ef614" category="list-text">No switch cs2, desligue as portas conectadas às portas do cluster dos nós.  Por exemplo, se as portas 0/1 a 0/16 estiverem conectadas a nós ONTAP :</block>
   <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[passo 11]]Examine a saída do banner do<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> comando. Você deve ler e seguir estas instruções para garantir a configuração e operação corretas do switch.</block>
   <block id="05299bd158481c8acf552dc1d004ab41" category="paragraph"><block ref="db837131dc56fab41bddc52d5aff8865" prefix="" category="inline-code"></block></block>
   <block id="4a00b51f01daee860d41dd95bb500266" category="list-text">Verifique no interruptor se as alterações foram aplicadas.</block>
   <block id="f35806549fff4250f43cb0acde28b920" category="list-text">Reinicie o switch e verifique se a configuração em execução está correta.</block>
-  <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">No switch de cluster cs2, ative as portas conectadas às portas de cluster dos nós.</block>
-  <block id="7271f66e0cb527adb71302d7377910b7" category="list-text">[[passo21]]Repita os passos 1 a 20 no interruptor cs1.</block>
-  <block id="9b241cba96d2cafd3c0f5c9f7bf12560" category="list-text">. Verifique se as LIFs do cluster retornaram à sua porta original:</block>
   <block id="16d074a2c9c574f7e8d9dbc312b16d88" category="summary">Antes de configurar os switches de cluster BES-53248, revise uma visão geral do processo e da nomenclatura.</block>
   <block id="510290e42c307729b66d338637599287" category="doc">Fluxo de trabalho de atualização para switches de cluster BES-53248</block>
   <block id="95731780fd3171c29b73f348e1722fda" category="paragraph">Siga estes passos para atualizar o software EFOS e os arquivos de configuração de referência (RCFs) nos switches de cluster Broadcom BES-54328, conforme aplicável.</block>
@@ -5331,7 +5324,6 @@
   <block id="888d27af1c8bead4bc090f7b57fe47dc" category="paragraph"><block ref="03642bd9ef2a92e7a683427a90d69064" prefix="" category="inline-code"></block></block>
   <block id="9c16d25919d69afd920c43d400da0ea8" category="paragraph"><block ref="e374209cc99be20be59ee159164d8226" prefix="" category="inline-code"></block></block>
   <block id="ab72b57a9a9f0e3ccd70b04752a4b2dc" category="list-text">Verifique se as portas do switch conectadas às portas de storage do nó e às portas do shelf de storage estão *up*.</block>
-  <block id="3050ed36cf7b28894b3ecbbbe2742aa2" category="list-text">Atualize a imagem EPLD e reinicialize o switch. Se você estiver usando NX-OS 10.5(3)F ou posterior, não é necessário realizar uma atualização separada da imagem EPLD porque a imagem EPLD está incluída na imagem NX-OS. Ignore esta etapa e continue com a verificação da integridade da porta do cluster.</block>
   <block id="8b1e9b3cc32c2a1cf644a1cfe3dab553" category="summary">Para instalar o hardware SN2100, consulte a documentação da NVIDIA.</block>
   <block id="c10fbc8cfb6421490d3e923dc2ea002a" category="paragraph">A instalação do hardware do switch NVIDIA SN2100 é um primeiro passo crucial na construção de uma infraestrutura de rede confiável e escalável para suportar fluxos de trabalho de proteção, replicação e gerenciamento de dados.</block>
   <block id="1fcad359e819ec24939bbd1dc0e8cb54" category="paragraph">Siga estas etapas para configurar seus switches SN2100. Consulte a documentação da NVIDIA para obter instruções detalhadas.</block>
@@ -5609,7 +5601,6 @@
   <block id="4900377d6745b8a03e6c9a542b3fe2f0" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir o funcionamento operacional dos switches de rede e coletar os registros do switch para fins de depuração.</block>
   <block id="bc2dfd2fdf95de6b810acf0fa5c67356" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) utiliza SNMP para monitorar a integridade e o desempenho dos switches de rede. Por padrão, o SNMPv2c é configurado automaticamente através do Reference Configuration File (RCF). O SNMPv3 é mais seguro que o SNMPv2 porque introduz recursos de segurança robustos, como autenticação, criptografia e integridade de mensagens, que protegem contra acesso não autorizado e garantem a confidencialidade e integridade dos dados durante a transmissão.</block>
   <block id="7cb74dd4a33dec5dc1811198729f1a3d" category="paragraph">O monitor de integridade do switch Ethernet (CSHM) tenta monitorar automaticamente os switches de rede que detecta; no entanto, o monitoramento pode não ocorrer automaticamente se os switches não estiverem configurados corretamente. Você deve verificar se o monitor de integridade está configurado corretamente para monitorar seus switches.</block>
-  <block id="9bb9d88110e7f202f1952ebcc9fefc08" category="admonition">O arquivo deve ser nomeado <block ref="a890eeb375a613e0acf945129af8cad4" prefix=" " category="inline-code"></block> ao fazer o upload e aplicar o arquivo RCF, caso contrário, a etapa de aplicação do script falhará.</block>
   <block id="153aa60e53e376e3c47bb9de3f41cd5c" category="list-text">Copie o arquivo RCF para o switch cs2 usando um dos seguintes protocolos de transferência: HTTP, HTTPS, FTP, SFTP ou SCP.</block>
   <block id="4bcfba45804fbbbd6422a9b0dea12c5f" category="summary">A substituição de um switch Nexus 92300YC defeituoso em uma rede cluster é um procedimento não disruptivo.</block>
   <block id="c506cb52e11779e41b9479bb442eec6e" category="list-text">Copie o arquivo RCF para a bootflash do switch cs1 usando um dos seguintes protocolos de transferência: FTP, SFTP ou SCP.</block>
@@ -6376,4 +6367,43 @@
   <block id="c14342e34fe3c58a209b86a79b1bb2d0" category="sidebar">Install_hardware_9808</block>
   <block id="4d9fbccb0431ca8e11e51b3dc51e81fb" category="sidebar">configure_switch_9808</block>
   <block id="ff8b1c67dbbb7af6775723d31c9e196a" category="sidebar">Maintain_switches_9808</block>
+  <block id="bbe11fdd91fda58af0bba559cb07294d" category="paragraph">Consulte o site da Cisco para obter guias de atualização e downgrade de software.</block>
+  <block id="aa5c6ec45e4c4b6dcc0850deb97f2e44" category="paragraph">Use os comandos ONTAP neste procedimento, a menos que um comando do switch Cisco Nexus 9000 Series seja especificado.</block>
+  <block id="9fc86f4dabe0859a40dac8d1f8b5531d" category="paragraph"><block ref="b67d565e5390da794178d81e41d9d587" prefix="" category="inline-code"></block></block>
+  <block id="9487ccc182d124ffae84e3326c18b6cf" category="list-text">Faça o download e instale o software NX-OS e a imagem EPLD. Os passos podem variar dependendo da sua versão atual do NX-OS e da versão de destino do NX-OS.</block>
+  <block id="c25086ea467dc08f96b34fa5ddfe6f95" category="paragraph">Selecione a aba que se aplica à sua situação:</block>
+  <block id="545f32c102da8b5c806f0a9252f74aa7" category="list-text">Atualize para 10.4(5)(M)</block>
+  <block id="6d4c71f053835d50b253965bf9e22247" category="list-text">Atualize da versão 10.4(5)(M) ou anterior para 10.5(3)(F) ou posterior</block>
+  <block id="6a3e1271fda881036b04a9948f12b930" category="list-text">Atualize da 10.5(3)(F) para uma versão posterior</block>
+  <block id="22c721af68f3e238337fd6682565a004" category="list-text">[[stepa]] Copie o software NX-OS e as imagens EPLD para o switch Nexus 9336C-FX2.</block>
+  <block id="0a52730597fb4ffa01fc117d9e71e3a9" category="example-title">Exemplo</block>
+  <block id="5471ccde54f76964db229481cc1fb109" category="paragraph"><block ref="741d4bb5899dd2abc3bdd986dd32f159" prefix="" category="inline-code"></block></block>
+  <block id="6634794e8c206b378c65c5faa7c4c80b" category="paragraph"><block ref="a121d8672e9b479ad82c8ef2e7e9c717" prefix="" category="inline-code"></block></block>
+  <block id="f005b45baba8377a1ac45612282d2dc7" category="list-text">[[stepa]] Copie o software NX-OS e a imagem EPLD para o switch Nexus 9336C-FX2.</block>
+  <block id="5a252ea0dbbfb3da5e794e2acb54d70e" category="list-text">Instale as imagens do NX-OS e do EPLD.</block>
+  <block id="ee1c8dab6911f396921f8d9c99310d8e" category="paragraph">A imagem EPLD não é atualizada automaticamente ao atualizar para o NX-OS 10.5(3)(F) e versões posteriores. Após a conclusão da atualização e a reinicialização do switch, você deve executar o mesmo comando de upgrade<block ref="1f3226f23ea270e1a1024cd0db05413e" prefix=" " category="inline-code"></block> novamente.</block>
+  <block id="63866b50d1c752b87d0a35424ec78d9f" category="list-text">A segunda etapa de atualização verifica, mas ignora a atualização do NX-OS; apenas a imagem do EPLD é atualizada.</block>
+  <block id="e891366244f7639a1cebce5d7b254878" category="list-text">Quando você já tiver atualizado para NX-OS 10.5(3)(F) e posterior, ambas as imagens são atualizadas ao mesmo tempo.</block>
+  <block id="7d625d674a5fa1ee8f231bbe934d59c5" category="paragraph">A etapa seguinte mostra uma atualização do NX-OS 10.4(5)(M) para 10.5(3)(F). A primeira passagem realiza a atualização do NX-OS e a segunda passagem realiza a atualização da imagem EPLD.</block>
+  <block id="49b200eb8820638568f5d815c24fbe04" category="paragraph"><block ref="5ea68978710e999c37e81ef89e1609fb" prefix="" category="inline-code"></block></block>
+  <block id="30c31bba00ddc5f435e1609b696cfc11" category="paragraph">O exemplo usa a versão 10.5(4)(M) do NX-OS.</block>
+  <block id="03ff4c3f972d17b8f10bd0edb3043c3a" category="paragraph">O exemplo usa a versão EPLD 10.5(4)(M).</block>
+  <block id="28ccfd0538434ca8f7c3ed05eb919f9d" category="list-text">[[passo 7]]Verifique a integridade das portas do cluster no cluster.</block>
+  <block id="7b7c6479e04cac8c2008fe7ca440afea" category="list-text">Repita os passos 6 a 8 para instalar o software NX-OS no switch cs1.</block>
+  <block id="95a058e5eceffbda103e7cb32bf0371d" category="list-text">[[passo11]]Ative a reversão automática nos LIFs do cluster.</block>
+  <block id="131977f29895c23a06e7ceb348f34fc9" category="paragraph">Se as LIFs do cluster não retornaram às suas portas originais, reverta-as manualmente a partir do nó local:</block>
+  <block id="c6d44233ebeaa055e8f937a641fb1053" category="paragraph">Após atender aos requisitos de cabeamento e configuração, você instala o <block ref="5f8c635ef985b849c8790b2e319cc3c1" category="inline-link-macro-rx"></block> no switch.</block>
+  <block id="56195d3edc2ef765239236e19cf9f9d8" category="paragraph">Após instalar o software EFOS, você pode:</block>
+  <block id="69a4ab133a7f329e3b6d964412122368" category="inline-link-macro">Instale suas licenças</block>
+  <block id="c22dd3ffbd7eb0da1c9a797307a0e3d8" category="list-text"><block ref="f2a6d573030fd5cb26e30ca5f2de8d3e" category="inline-link-macro-rx"></block>.</block>
+  <block id="30c3e1a7dac3e78e6712ff0d67b9ecd3" category="inline-link-macro">Instale o arquivo RCF e o arquivo de licença para EFOS 3.12.0.1 e versões posteriores</block>
+  <block id="a20a23e9f22d1c30ea89d18cbe86e2c5" category="list-text"><block ref="313ea9029f73da8a306189cf101a9b89" category="inline-link-macro-rx"></block>, se aplicável à sua configuração.</block>
+  <block id="a70191390fbf57b5cfe38e5b6a014d4a" category="paragraph">Configurar o monitoramento de integridade do switch Ethernet.</block>
+  <block id="af2af2f8127907c37bce58e3ce83eff9" category="list-text">É necessária uma conexão de console com o switch ao instalar o RCF a partir de suas configurações de fábrica.</block>
+  <block id="f0da8e888101343acd4a7e72e76cff36" category="paragraph">Você utiliza a CLI do switch e a CLI do ONTAP (conforme indicado nas etapas a seguir) para configurações de portas. Você configura as portas no primeiro switch (cs2) e depois repete essas etapas para o segundo switch (cs1).</block>
+  <block id="c32a2c4a7520ad02a1a78600f2a6b3bd" category="admonition">Ao atualizar ou aplicar um novo RCF, você deve apagar as configurações do switch e realizar a configuração básica. Você deve estar conectado ao switch usando o console serial para apagar as configurações do switch.</block>
+  <block id="7032c38c00e10472c490db066ff31b0f" category="list-text">[[passo20]]Repita os passos 1 a 19 no switch cs1.</block>
+  <block id="0e18e00d28d8ccbabfbea2b32f607774" category="list-text">[[passo 6]] Altere o nível de privilégio de volta para admin:</block>
+  <block id="68c1d03c0bb262a8147f6acaedfa16af" category="inline-link-macro">Habilite SSH para coleta de logs</block>
+  <block id="3bbb1b891d8356deadf8d546d8aecf27" category="paragraph">Após atualizar seu RCF, você pode <block ref="00e69d49421223dfe97c48056e7abc6c" category="inline-link-macro-rx"></block>.</block>
 </blocks>
