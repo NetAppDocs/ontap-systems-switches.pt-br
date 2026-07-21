@@ -13,6 +13,9 @@ summary: Você atualiza o NX-OS em seus switches Cisco Nexus 9364D-GX2A para ofe
 [role="lead"]
 Você atualiza o NX-OS em seus switches Cisco Nexus 9364D-GX2A para oferecer suporte a novo hardware ou a uma nova versão do ONTAP em seu sistema AFX 1K ou AFX 2K.
 
+
+NOTE: NetApp recomenda que você conclua primeiro qualquer atualização de software do ONTAP e, em seguida, execute a atualização de software dos seus switches.
+
 .Antes de começar
 * Certifique-se de ter um backup atual da configuração do switch.
 * Verifique se o seu cluster está totalmente funcional, ou seja, se não há erros nos logs ou problemas semelhantes.
@@ -455,7 +458,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-install-the-nx-os]]
 == Etapa 2: Instale o NX-OS
 
-Você instala o NX-OS no primeiro switch (cs1) instalando e verificando as novas versões do NX-OS e do EPLD, verificando a integridade de todas as portas no cluster e, em seguida, repete essas etapas no segundo switch (cs2).
+Você instala o NX-OS no primeiro switch (cs1) instalando e verificando as novas versões do NX-OS e do EPLD, verificando a integridade de todas as portas no cluster e, em seguida, repetindo essas etapas no segundo switch (cs2).
 
 . Utilizando a CLI do switch, copie as imagens do NX-OS e do EPLD para um switch.
 +
@@ -472,7 +475,7 @@ O exemplo utiliza sftp.
 
 [listing, subs="+quotes"]
 ----
-cs2# *copy sftp: bootflash: vrf management*
+cs1# *copy sftp: bootflash: vrf management*
 Enter source filename: */code/nxos.10.4.2.bin*
 Enter hostname for the sftp server: *172.19.2.1*
 Enter username: *root*
@@ -488,7 +491,7 @@ sftp> exit
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 
-cs2# *copy sftp: bootflash: vrf management*
+cs1# *copy sftp: bootflash: vrf management*
 Enter source filename: */code/n9000-epld.10.4.2.F.img*
 Enter hostname for the sftp server: *172.19.2.1*
 Enter username: *user1*
@@ -515,7 +518,7 @@ Copy complete.
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *show version*
+cs1# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2025, Cisco and/or its affiliates.
@@ -548,7 +551,7 @@ Software
 
 
 Hardware
-  cisco Nexus9000 C9332D-GX2B Chassis
+  cisco Nexus9000 C9364D-GX2A Chassis
   Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
   Processor Board ID FLMXXXXXXXX
   Device name: cs2
@@ -570,7 +573,7 @@ plugin
 
 Active Package(s):
 
-cs2#
+cs1#
 ----
 ====
 . Usando a CLI do switch, instale a imagem do NX-OS.
@@ -588,7 +591,7 @@ O exemplo utiliza a versão 10.4.2 do NX-OS.
 
 [listing, subs="+quotes"]
 ----
-cs2# *install all nxos bootflash:nxos.10.4.2.bin*
+cs1# *install all nxos bootflash:nxos.10.4.2.bin*
 
 Installer will perform compatibility check first. Please wait.
 Installer is forced disruptive
@@ -659,7 +662,7 @@ Finishing the upgrade, switch will reboot in 10 seconds.
 ====
 [listing, subs="+quotes"]
 ----
-cs2# *show version*
+cs1# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2025, Cisco and/or its affiliates.
@@ -692,7 +695,7 @@ Software
 
 
 Hardware
-  cisco Nexus9000 C9332D-GX2B Chassis
+  cisco Nexus9000 C9364D-GX2A Chassis
   Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
   Processor Board ID FLMXXXXXXXX
   Device name: cs2
@@ -714,7 +717,7 @@ plugin
 
 Active Package(s):
 
-cs2#
+cs1#
 ----
 ====
 . Utilizando a CLI do switch, atualize a imagem EPLD usando os seguintes comandos:
@@ -735,7 +738,7 @@ O exemplo utiliza a versão 10.4.2.F do EPLD
 
 [listing, subs="+quotes"]
 ----
-cs2# *show version module 1 epld*
+cs1# *show version module 1 epld*
 
 EPLD Device                     Version
 ---------------------------------------
@@ -747,7 +750,7 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 
-cs2# *install epld bootflash:n9000-epld.10.4.2.F.img module all*
+cs1# *install epld bootflash:n9000-epld.10.4.2.F.img module all*
 Compatibility check:
 Module        Type         Upgradable        Impact    Reason
 ------  ------------------ ----------------- --------- -----------

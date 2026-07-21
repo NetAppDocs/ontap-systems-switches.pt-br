@@ -16,6 +16,9 @@ Siga este procedimento para instalar ou atualizar o software NX-OS nos switches 
 Antes de começar, conclua o procedimento emlink:install-nxos-overview-9336c-cluster.html["Prepare-se para instalar o NX-OS e o RCF."] .
 
 
+NOTE: NetApp recomenda que você conclua primeiro qualquer atualização de software do ONTAP e, em seguida, execute a atualização de software dos seus switches.
+
+
 
 [[review-requirements]]
 == Requisitos de revisão

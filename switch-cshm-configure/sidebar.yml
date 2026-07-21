@@ -1,0 +1,10 @@
+---
+section: switch-cshm-configure
+title: Configure o monitoramento de integridade do switch.
+entries:
+- title: Visão geral da configuração
+  url: "/switch-cshm/config-overview.html"
+- title: Configurar coleta de logs
+  url: "/switch-cshm/config-log-collection.html"
+- title: Configurar SNMPv3 (Opcional)
+  url: "/switch-cshm/config-snmpv3.html"

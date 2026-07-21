@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Aprenda sobre clusters, armazenamento e switches compartilhados. 
 ---
-= Comece a usar os sistemas AFX, cluster, armazenamento e switches compartilhados
+= Guia de início rápido para sistemas AFX, cluster, storage e switches compartilhados
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -92,7 +92,7 @@ As instruções de instalação e configuração dos sistemas ONTAP incluem orie
 [%collapsible]
 ====
 * link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["Instale os switches Cisco Nexus em um sistema AFX 1K"^]
-* link:https://review.docs.netapp.com/us-en/ontap-afx/install-afx-2k/afx-cable-overview.html["Instale os switches Cisco Nexus para um sistema AFX 2K"^]
+* link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/afx-cable-overview.html["Instale os switches Cisco Nexus para um sistema AFX 2K"^]
 
 
 ==== a| 

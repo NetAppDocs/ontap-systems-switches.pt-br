@@ -13,6 +13,9 @@ summary: Você atualiza o NX-OS em seus switches Cisco Nexus 9332D-GX2B para ofe
 [role="lead"]
 Você atualiza o NX-OS em seus switches Cisco Nexus 9332D-GX2B para oferecer suporte a novo hardware ou a uma nova versão do ONTAP em seu sistema AFX 1K ou AFX 2K.
 
+
+NOTE: NetApp recomenda que você conclua primeiro qualquer atualização de software do ONTAP e, em seguida, execute a atualização de software dos seus switches.
+
 .Antes de começar
 * Certifique-se de ter um backup atual da configuração do switch.
 * Verifique se o seu cluster está totalmente funcional, ou seja, se não há erros nos logs ou problemas semelhantes.
@@ -455,7 +458,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-install-the-nx-os]]
 == Etapa 2: Instale o NX-OS
 
-Você instala o NX-OS no primeiro switch (cs1) instalando e verificando as novas versões do NX-OS e do EPLD, verificando a integridade de todas as portas no cluster e, em seguida, repete essas etapas no segundo switch (cs2).
+Você instala o NX-OS no primeiro switch (cs1) instalando e verificando as novas versões do NX-OS e do EPLD, verificando a integridade de todas as portas no cluster e, em seguida, repetindo essas etapas no segundo switch (cs2).
 
 . Utilizando a CLI do switch, copie as imagens do NX-OS e do EPLD para um switch.
 +
@@ -904,7 +907,7 @@ node1-01/cdp
 cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
-cs1(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
+cs2(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
      Serial Number: FDOXXXXXXXX
       Is Monitored: true
             Reason: None

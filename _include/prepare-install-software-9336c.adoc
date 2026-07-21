@@ -2,6 +2,9 @@
 :allow-uri-read: 
 
 
+
+NOTE: NetApp recomenda que você conclua primeiro qualquer atualização de software do ONTAP e, em seguida, execute a atualização de software dos seus switches.
+
 .Documentação sugerida
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página do switch Ethernet da Cisco"^]
 +

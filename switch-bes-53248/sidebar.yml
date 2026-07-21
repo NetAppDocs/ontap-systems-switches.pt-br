@@ -5,7 +5,7 @@ entries:
 - title: Começar
   pdf-filename: Overview_bes53248
   entries:
-  - title: Início rápido
+  - title: Instalar e configurar o fluxo de trabalho
     url: "/switch-bes-53248/configure-new-switch-overview.html"
   - title: Requisitos de configuração
     url: "/switch-bes-53248/configure-reqs-bes53248.html"

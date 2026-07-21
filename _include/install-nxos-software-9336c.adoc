@@ -3,6 +3,9 @@
 
 
 
+NOTE: NetApp recomenda que você conclua primeiro qualquer atualização de software do ONTAP e, em seguida, execute a atualização de software dos seus switches.
+
+
 
 [[review-requirements]]
 == Requisitos de revisão

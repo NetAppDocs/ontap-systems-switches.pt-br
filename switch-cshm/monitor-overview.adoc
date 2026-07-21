@@ -2,7 +2,7 @@
 permalink: switch-cshm/monitor-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Você pode usar os seguintes comandos... 
+summary: Use os alertas do monitor de integridade do switch Ethernet para identificar e resolver problemas no switch de rede do seu cluster ONTAP. 
 ---
 = Visão geral do check-up de saúde
 :allow-uri-read: 
@@ -12,6 +12,8 @@ summary: Você pode usar os seguintes comandos...
 
 [role="lead"]
 Os monitores de integridade monitoram proativamente determinadas condições críticas em seu cluster e emitem alertas caso detectem uma falha ou risco.
+
+Após configurar o CSHM, os monitores de integridade verificam continuamente seus switches de rede em busca de possíveis problemas. Quando um monitor de integridade detecta uma falha ou risco, ele gera um alerta que inclui informações de diagnóstico para ajudar você a responder rapidamente. Você pode visualizar os alertas ativos para identificar problemas atuais e visualizar as definições de alerta disponíveis para entender quais condições estão sendo monitoradas.
 
 Para visualizar os alertas de monitoramento de integridade do switch Ethernet atualmente em execução, execute o comando: `system health alert show -monitor ethernet-switch`
 

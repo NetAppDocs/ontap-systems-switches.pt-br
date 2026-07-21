@@ -1,0 +1,38 @@
+---
+indexpage:
+  title: Interruptores de fim de disponibilidade
+  summary: Use a documentação deste site para instalar, configurar e manter switches
+    de fim de disponibilidade para sistemas de storage ONTAP.
+  keywords: end of availability, NVIDIA SN2100, cluster switches, storage switches,
+    ONTAP
+  lead: Esses switches não estão mais disponíveis para compra, mas ainda são compatíveis
+    com sistemas de storage ONTAP.
+  tiles:
+  - title: Switch de cluster NVIDIA SN2100
+    links:
+    - title: Começar
+      url: "../switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+    - title: Instale o hardware
+      url: "../switch-nvidia-sn2100/install-hardware-workflow.html"
+    - title: Configurar o software
+      url: "../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
+    - title: Migre os switches
+      url: "../switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
+    - title: Substitua os interruptores
+      url: "../switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"
+  - title: Switch de storage NVIDIA SN2100
+    links:
+    - title: Começar
+      url: "../switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
+    - title: Instale o hardware
+      url: "../switch-nvidia-sn2100-storage/install-hardware-workflow.html"
+    - title: Configurar o software
+      url: "../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
+    - title: Migre os switches
+      url: "../switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html"
+    - title: Substitua o interruptor
+      url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
+  - title: Anúncios de fim de vendas e fim de vida útil
+    links:
+    - title: 'Fim da disponibilidade: NVIDIA SN2100 series'
+      url: https://mysupport.netapp.com/info/communications/CPC-00635.html

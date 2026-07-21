@@ -13,6 +13,9 @@ summary: Siga os passos abaixo para atualizar sua versão do Cumulus Linux.
 [role="lead"]
 Siga o procedimento abaixo para atualizar sua versão do Cumulus Linux, conforme necessário.
 
+
+NOTE: NetApp recomenda que você conclua primeiro qualquer atualização de software do ONTAP e, em seguida, execute a atualização de software dos seus switches.
+
 .Antes de começar
 Certifique-se de ter o seguinte:
 

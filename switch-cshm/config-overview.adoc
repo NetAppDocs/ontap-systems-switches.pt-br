@@ -13,6 +13,8 @@ summary: 'O monitor de integridade do switch Ethernet (CSHM) é responsável por
 [role="lead"]
 O monitor de integridade do switch Ethernet (CSHM) é responsável por garantir o funcionamento operacional dos switches de rede e coletar os registros do switch para fins de depuração.
 
+Antes de usar o CSHM para monitorar seus switches de rede, você precisa configurar a coleta de logs e, opcionalmente, configurar o SNMPv3 para maior segurança. A coleta de logs é necessária para que o CSHM reúna logs dos switches e dados de diagnóstico. O SNMPv3 proporciona comunicação segura entre ONTAP e seus switches.
+
 * link:config-log-collection.html["Configurar coleta de logs"]
 * link:config-snmpv3.html["Configurar SNMPv3 (Opcional)"]
 

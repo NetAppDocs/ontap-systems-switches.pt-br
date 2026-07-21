@@ -16,6 +16,9 @@ Siga estes passos para atualizar o software EFOS no switch de cluster BES-53248.
 O software EFOS inclui um conjunto de recursos e protocolos de rede avançados para o desenvolvimento de sistemas de infraestrutura Ethernet e IP.  Essa arquitetura de software é adequada para qualquer dispositivo de organização de rede que utilize aplicações que exijam inspeção ou separação minuciosa de pacotes.
 
 
+NOTE: NetApp recomenda que você conclua primeiro qualquer atualização de software do ONTAP e, em seguida, execute a atualização de software dos seus switches.
+
+
 
 [[prepare-for-upgrade]]
 == Prepare-se para a atualização
@@ -352,7 +355,12 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. Repita os passos 5 a 11 no interruptor cs1.
+
+
+
+NOTE: Se você também estiver atualizando seu RCF neste momento, siga o procedimento para atualizar o RCF no switch cs2 antes de atualizar o EFOS no switch cs1. Consulte link:upgrade-rcf.html["atualize a versão RCF"] para obter detalhes.
+
+. [[passo12]] Repita os passos 5 a 11 no switch cs1.
 . Ative a reversão automática nos LIFs do cluster.
 +
 [source, cli]

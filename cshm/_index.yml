@@ -1,0 +1,34 @@
+---
+indexpage:
+  title: Monitor de integridade do switch Ethernet
+  summary: Utilize a documentação deste site para configurar e manter o monitor de
+    integridade Ethernet para seus switches de storage.
+  keywords: Ethernet switch health monitor, storage switches, cisco nexus switches,
+    cluster switches, ontap clusters
+  lead: O monitor de integridade do switch de rede Ethernet permite que você monitore
+    a integridade dos seus switches de storage Ethernet em clusters ONTAP.
+  tiles:
+  - title: Configure o monitoramento de integridade do switch.
+    links:
+    - title: Visão geral da configuração
+      url: "../switch-cshm/config-overview.html"
+    - title: Configurar coleta de logs
+      url: "../switch-cshm/log-collection-overview.html"
+    - title: Configurar SNMPv3 (opcional)
+      url: "../switch-cshm/config-snmpv3.html"
+  - title: Verifique o estado do interruptor.
+    links:
+    - title: Verifique o estado do seu switch
+      url: "../switch-cshm/monitor-overview.html"
+    - title: Gerenciar monitoramento de switches
+      url: "../switch-cshm/monitor-manage.html"
+    - title: Verificar monitoramento de comutadores
+      url: "../switch-cshm/monitor-verify.html"
+    - title: Solucionar problemas de alertas
+      url: "../switch-cshm/monitor-troubleshoot.html"
+  - title: Coleta de registros
+    links:
+    - title: Coleta de registros
+      url: "../switch-cshm/log-collection-overview.html"
+    - title: Solução de problemas na coleta de logs
+      url: "../switch-cshm/log-collection-troubleshoot.html"
