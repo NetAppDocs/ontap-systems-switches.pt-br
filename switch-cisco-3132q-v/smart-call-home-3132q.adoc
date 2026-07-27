@@ -1,0 +1,36 @@
+---
+permalink: switch-cisco-3132q-v/smart-call-home-3132q.html 
+sidebar: sidebar 
+keywords: Cisco, 3132Q-V 
+summary: Para usar o recurso Smart Call Home, revise as seguintes diretrizes. 
+---
+= Requisitos do Smart Call Home
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para usar o Smart Call Home, você deve configurar um switch de rede de cluster para se comunicar por e-mail com o sistema Smart Call Home. Além disso, você pode opcionalmente configurar seu switch de rede de cluster para aproveitar o recurso de suporte Smart Call Home incorporado da Cisco.
+
+O Cisco Smart Call Home monitora os componentes de hardware e software da sua rede. Quando ocorre uma configuração crítica do sistema, ele gera uma notificação por e-mail e envia um alerta para todos os destinatários configurados no seu perfil de destino.
+
+[NOTE]
+====
+ONTAP oferece suporte ao monitoramento de integridade de switches Ethernet (CSHM) para monitorar os switches do cluster AFX, além da capacidade de coletar logs de diagnóstico dos switches.
+
+O Smart Call Home da Cisco é uma opção para fornecer suporte proativo e ajudar você a resolver quaisquer problemas que possam surgir com os switches.
+
+====
+Antes de usar o Smart Call Home, esteja ciente dos seguintes requisitos:
+
+* É necessário ter um servidor de e-mail instalado.
+* O switch deve ter conectividade IP com o servidor de e-mail.
+* É necessário configurar o nome do contato (contato do servidor SNMP), o número de telefone e o endereço.  Isso é necessário para determinar a origem das mensagens recebidas.
+* Um ID CCO deve estar associado a um contrato de serviço Cisco SMARTnet apropriado para sua empresa.
+* O serviço Cisco SMARTnet deve estar instalado para que o dispositivo seja registrado.
+
+
+O http://www.cisco.com/c/en/us/products/switches/index.html["Site de suporte da Cisco"^] Contém informações sobre os comandos para configurar o Smart Call Home.
+
+O Smart Call Home pode ser configurado durante a instalação e configuração de um novo sistema ou posteriormente.

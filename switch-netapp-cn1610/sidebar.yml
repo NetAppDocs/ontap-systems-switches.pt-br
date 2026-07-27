@@ -18,7 +18,7 @@ entries:
     url: "/switch-netapp-cn1610/install-fastpath-software.html"
   - title: Instale um RCF
     url: "/switch-netapp-cn1610/install-rcf-file.html"
-  - title: Instale o FASTPATH ​​e o RCF para ONTAP 8.3.1 e versões posteriores.
+  - title: Instale FASTPATH e RCF para ONTAP 8.3.1 e versões posteriores
     url: "/switch-netapp-cn1610/install-fastpath-rcf-831.html"
   - title: Configurar interruptor
     url: "/switch-netapp-cn1610/configure-hardware-cn1610.html"

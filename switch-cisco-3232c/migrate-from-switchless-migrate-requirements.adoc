@@ -1,0 +1,71 @@
+---
+permalink: switch-cisco-3232c/migrate-from-switchless-migrate-requirements.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 3232c switch, 
+summary: Antes de configurar os switches Cisco Nexus 3232c, revise uma visão geral do processo e da nomenclatura. 
+---
+= Requisitos de migração
+:allow-uri-read: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você possui um cluster sem switch de dois nós, pode migrar para um cluster com switch de dois nós que inclua os switches de rede de cluster Cisco Nexus 3232C. Este é um procedimento sem interrupção.
+
+.Antes de começar
+Verifique as seguintes instalações e conexões:
+
+* Existem portas disponíveis para conexões de nós. Os switches do cluster utilizam as portas Inter-Switch Link (ISL) e1/31-32.
+* Você possui os cabos adequados para conexões em cluster:
++
+** Os nós com conexões de cluster de 10 GbE requerem módulos ópticos QSFP com cabos de fibra breakout ou cabos breakout de cobre QSFP para SFP+.
+** Os nós com conexões de cluster 40/100 GbE requerem módulos ópticos QSFP/QSFP28 compatíveis com cabos de fibra ou cabos de cobre QSFP/QSFP28 de conexão direta.
+** Os switches de cluster requerem o cabeamento ISL apropriado:
++
+*** 2 cabos de fibra óptica ou cobre QSFP28 com conexão direta.
+
+
+
+
+* As configurações estão devidamente definidas e funcionando.
++
+Os dois nós devem estar conectados e funcionando em uma configuração de cluster sem switch de dois nós.
+
+* Todas as portas do cluster estão no estado *ativo*.
+* Os switches de cluster Cisco Nexus 3232C são suportados.
+* A configuração de rede do cluster existente apresenta as seguintes características:
++
+** Uma infraestrutura de cluster Nexus 3232C redundante e totalmente funcional em ambos os switches
+** As versões mais recentes do RCF e do NX-OS em seus switches
+** Conectividade de gerenciamento em ambos os switches
+** Acesso ao console de ambos os switches
+** Todas as interfaces lógicas do cluster (LIFs) no estado *ativo* sem terem sido migradas
+** Personalização inicial do switch
+** Todas as portas ISL habilitadas e cabeadas
+
+
+
+
+.Sobre os exemplos utilizados
+Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:
+
+* Switches de cluster Nexus 3232C, *C1* e *C2*.
+* Os nós são *n1* e *n2*.
+
+
+Os exemplos neste procedimento usam dois nós, cada um utilizando duas portas de interconexão de cluster 40 GbE, *e4a* e *e4e*. A link:https://hwu.netapp.com/["Hardware Universe"^] contém detalhes sobre as portas de cluster em suas plataformas.
+
+* *n1_clus1* é a primeira interface lógica (LIF) a ser conectada ao switch de cluster *C1* para o nó *n1*.
+* *n1_clus2* é a primeira interface lógica de cluster a ser conectada ao switch de cluster *C2* para o nó *n1*.
+* *n2_clus1* é a primeira interface lógica de cluster a ser conectada ao switch de cluster *C1* para o nó *n2*.
+* *n2_clus2* é a segunda interface lógica de cluster a ser conectada ao switch de cluster *C2* para o nó *n2*.
+* O número de portas 10 GbE e 40/100 GbE está definido nos arquivos de configuração de referência (RCFs) disponíveis na  https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Download do arquivo de configuração de referência do switch de rede de cluster Cisco®"^] página.
+
+
+[NOTE]
+====
+O procedimento requer o uso de comandos ONTAP e comandos dos switches Cisco Nexus 3000 Series; comandos ONTAP são usados, a menos que indicado de outra forma.
+
+====
+.O que vem a seguir?
+Após analisar os requisitos de migração, você pode link:migrate-from-switchless-prepare-to-migrate.html["Prepare-se para migrar seus switches"].

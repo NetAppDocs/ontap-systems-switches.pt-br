@@ -1,0 +1,51 @@
+---
+permalink: switch-netapp-cn1610/prepare-install-fastpath-rcfs.html 
+sidebar: sidebar 
+keywords: install, fastpath, software, rcfs, netapp cluster switch 
+summary: 'Você deve instalar o software FASTPATH e os arquivos de configuração de referência (RCFs) em um switch de cluster NetApp CN1610.' 
+---
+= Prepare-se para instalar o software FASTPATH e os RCFs em um switch de cluster NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve instalar o software FASTPATH e os arquivos de configuração de referência (RCFs) em um switch de cluster CN1610 NetApp.
+
+.Antes de começar
+* O cluster deve ser um cluster totalmente funcional.
+* Não deve haver placas de interface de rede (NICs) defeituosas no cluster, e todas as portas conectadas no switch do cluster devem estar funcionando.
+* Todas as portas do cluster devem estar ativas.
+* Todas as interfaces lógicas do cluster (LIFs) devem estar ativas e não devem ter sido migradas.
+* O comando ONTAP (privilégio: avançado) `cluster ping-cluster -node node1` deve indicar que  `larger than PMTU communication` foi bem-sucedido em todos os caminhos.
+* Você deve consultar a tabela de compatibilidade de switches na  http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["NetApp switches CN1601 e CN1610"^] página para as versões suportadas de FASTPATH, RCF e ONTAP.
++
+Pode haver dependências de comandos entre a sintaxe de comandos nas versões RCF e FASTPATH.
+
+
+
+
+NOTE: Na versão 1.2 do RCF, o suporte para Telnet foi explicitamente desativado devido a preocupações de segurança. Para evitar problemas de conectividade durante a instalação do RCF 1.2, você deve verificar se o Secure Shell (SSH) está habilitado. O https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["NetApp® Guia do Administrador do Switch CN1610"^] contém mais informações sobre SSH.
+
+.Sobre esta tarefa
+Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:
+
+* Os procedimentos neste documento utilizam a sintaxe do Clustered Data ONTAP 8.2. Como resultado, o SVM do cluster, os nomes das LIFs e a saída da CLI serão diferentes daqueles do Data ONTAP 8.3.
+* Os dois switches NetApp são cs1 e cs2.
+* Os dois LIFs do cluster são clus1 e clus2.
+* Os SVMs são vs1 e vs2.
+* O  `cluster::*>`prompt indica o nome do cluster.
+* As portas do cluster em cada nó são chamadas e1a e e2a.
++
+O  https://hwu.netapp.com/["Hardware Universe"^]documento contém mais informações sobre as portas de cluster reais que são suportadas na sua plataforma.
+
+* Os links entre switches (ISLs) suportados para o switch de cluster NetApp são as portas 0/13 a 0/16.
+* As conexões de nó suportadas pelo switch de cluster NetApp são as portas 0/1 a 0/12.
+
+
+Este procedimento tem duas partes:
+
+* link:install-fastpath-software.html["Instale o software FASTPATH"]Este documento descreve como instalar o software FASTPATH.
+* link:install-rcf-file.html["Instale um RCF em um switch CN1610"]Descreve como instalar RCFs.
+

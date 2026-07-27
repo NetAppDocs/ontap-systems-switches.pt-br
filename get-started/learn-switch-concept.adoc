@@ -40,7 +40,6 @@ Os switches de cluster permitem que você crie clusters ONTAP com mais de dois n
 
 * Broadcom BES-53248
 * Cisco Nexus 9336C-FX2
-* NVIDIA SN2100
 
 
 
@@ -51,7 +50,6 @@ Os switches de cluster permitem que você crie clusters ONTAP com mais de dois n
 Os switches de armazenamento permitem rotear dados entre servidores e arrays de armazenamento em uma rede de área de armazenamento (SAN).  Os switches de armazenamento compatíveis com a NetApp incluem:
 
 * Cisco Nexus 9336C-FX2
-* NVIDIA SN2100
 
 
 

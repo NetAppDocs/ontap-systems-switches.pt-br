@@ -1,0 +1,34 @@
+---
+permalink: switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-3132q-v switch 
+summary: Visão geral da configuração de software para switches de cluster Cisco Nexus 3132Q-V 
+---
+= Fluxo de trabalho de instalação de software para switches de cluster Cisco Nexus 3132Q-V
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para instalar e configurar o software de um switch Cisco Nexus 3132Q-V e instalar ou atualizar o Arquivo de Configuração de Referência (RCF), siga estes passos:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:setup-switch.html["Configure o interruptor"]
+[role="quick-margin-para"]
+Configurar o switch de cluster 3132Q-V.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:prepare-install-cisco-nexus-3132q.html["Prepare-se para instalar o software NX-OS e o RCF."]
+[role="quick-margin-para"]
+O software Cisco NX-OS e o RCF devem ser instalados nos switches de cluster Cisco 3132Q-V.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:install-nx-os-software-3132q-v.html["Instale ou atualize o software NX-OS."]
+[role="quick-margin-para"]
+Faça o download e instale ou atualize o software NX-OS no switch de cluster Cisco 3132Q-V.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]link:install-upgrade-rcf-overview-3132q-v.html["Instale ou atualize o RCF"]
+[role="quick-margin-para"]
+Instale ou atualize o RCF após configurar o switch Cisco 3132Q-V.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-ssh-keys.html["Verifique a configuração SSH"]
+[role="quick-margin-para"]
+Verifique se o SSH está habilitado nos switches para usar o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs.

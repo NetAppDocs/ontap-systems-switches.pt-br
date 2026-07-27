@@ -8,6 +8,60 @@ indexpage:
   lead: Esses switches não estão mais disponíveis para compra, mas ainda são compatíveis
     com sistemas de storage ONTAP.
   tiles:
+  - title: Switch de cluster Cisco Nexus 3232C
+    links:
+    - title: Começar
+      url: "../switch-cisco-3232c/install-overview-cisco-3232c.html"
+    - title: Instale o hardware
+      url: "../switch-cisco-3232c/install-hardware-workflow.html"
+    - title: Configurar o software
+      url: "../switch-cisco-3232c/configure-software-overview-3232c-cluster.html"
+    - title: Migre os switches
+      url: "../switch-cisco-3232c/migrate-from-switchless-workflow.html"
+    - title: Substitua os interruptores
+      url: "../switch-cisco-3232c/replace-cluster-switch.html"
+  - title: Switch de storage Cisco Nexus 3232C
+    links:
+    - title: Começar
+      url: "../switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
+    - title: Instale o hardware
+      url: "../switch-cisco-3232c-storage/install-hardware-workflow.html"
+    - title: Configurar o software
+      url: "../switch-cisco-3232c-storage/configure-software-overview-3232c-storage.html"
+    - title: Substitua o interruptor
+      url: "../switch-cisco-3232c-storage/replace-storage-switch.html"
+  - title: Switch de cluster Cisco Nexus 3132Q-V
+    links:
+    - title: Começar
+      url: "../switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
+    - title: Instale o hardware
+      url: "../switch-cisco-3132q-v/install-hardware-workflow.html"
+    - title: Configurar o software
+      url: "../switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
+    - title: Migre os switches
+      url: "../switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html"
+    - title: Substitua os interruptores
+      url: "../switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html"
+  - title: Switch de cluster Cisco Nexus 92300YC
+    links:
+    - title: Começar
+      url: "../switch-cisco-92300/install-overview-cisco-92300.html"
+    - title: Instale o hardware
+      url: "../switch-cisco-92300/install-hardware-workflow.html"
+    - title: Configurar o software
+      url: "../switch-cisco-92300/configure-software-overview-92300-cluster.html"
+    - title: Migre os switches
+      url: "../switch-cisco-92300/migrate-to-2n-switched.html"
+    - title: Substitua o interruptor
+      url: "../switch-cisco-92300/replace-92300yc.html"
+  - title: NetApp switch de cluster CN1610
+    links:
+    - title: Começar
+      url: "../switch-netapp-cn1610/switch-overview-cn1610.html"
+    - title: Instalar e configurar
+      url: "../switch-netapp-cn1610/install-overview-cn1610.html"
+    - title: Documentação necessária
+      url: "../switch-netapp-cn1610/required-documentation-cn1610.html"
   - title: Switch de cluster NVIDIA SN2100
     links:
     - title: Começar
@@ -34,5 +88,15 @@ indexpage:
       url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
   - title: Anúncios de fim de vendas e fim de vida útil
     links:
-    - title: 'Fim da disponibilidade: NVIDIA SN2100 series'
+    - title: Cisco Nexus 3232C
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html
+    - title: Cisco Nexus 31108PC-V, 31108TC-V e Nexus 3132Q-V
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/nexus-31108pc-v-31108tc-v-nexus-3132q-v-eol.html
+    - title: Cisco N9K-C93120TX, N9K-C92300YC
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/eos-eol-notice-c51-742776.html
+    - title: Switches Cisco Nexus série 5500
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html
+    - title: NetApp SKUs de interconexão de cluster CN1610
+      url: https://mysupport.netapp.com/info/communications/ECMLP2859128.html
+    - title: Série NVIDIA SN2100
       url: https://mysupport.netapp.com/info/communications/CPC-00635.html

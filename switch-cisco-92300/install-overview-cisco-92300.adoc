@@ -1,0 +1,40 @@
+---
+permalink: switch-cisco-92300/install-overview-cisco-92300.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 92300 switch, 
+summary: Antes de configurar os switches Cisco Nexus 92300, revise uma visão geral do processo e da nomenclatura. 
+---
+= Fluxo de trabalho de instalação e configuração para switches Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os switches Cisco Nexus 92300YC podem ser usados como switches de cluster no seu cluster AFF ou FAS. Os switches de cluster permitem que você construa clusters ONTAP com mais de dois nós.
+
+Siga estes passos do fluxo de trabalho para instalar e configurar seu switch Cisco Nexus 92300YC.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:configure-reqs-92300.html["Requisitos de configuração"]
+[role="quick-margin-para"]
+Analise os requisitos de configuração para o switch de cluster 92300YC.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:required-documentation-92300.html["Documentação necessária"]
+[role="quick-margin-para"]
+Consulte a documentação específica dos switches e controladores para configurar seus switches 92300YC e o cluster ONTAP.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"]link:smart-call-home-92300.html["Requisitos do Smart Call Home"]
+[role="quick-margin-para"]
+Revise os requisitos do recurso Cisco Smart Call Home, usado para monitorar os componentes de hardware e software na sua rede.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]link:install-hardware-workflow.html["Instale o hardware"]
+[role="quick-margin-para"]
+Instale o hardware do switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"]link:configure-software-overview-92300-cluster.html["Configurar o software"]
+[role="quick-margin-para"]
+Configure o software do switch.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"]link:../switch-cshm/config-overview.html["Configurar CSHM"]
+[role="quick-margin-para"]
+Configure o monitoramento de integridade do switch.
