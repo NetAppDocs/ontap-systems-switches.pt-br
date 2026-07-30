@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: Use os alertas do monitor de integridade do switch Ethernet para identificar e resolver problemas no switch de rede do seu cluster ONTAP. 
 ---
-= Visão geral do check-up de saúde
+= Saiba mais sobre os alertas do monitor de integridade do Ethernet switch
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

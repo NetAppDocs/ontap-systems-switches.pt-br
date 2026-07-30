@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/migrate-to-2n-switched.html 
 sidebar: sidebar 
 keywords: two-node switchless clusters, migrating to a two-node switched BES-53248 cluster environment,BES-53248 switches, migrating two-node switched clusters,2-node 
-summary: Se você possui um cluster sem switches de dois nós, pode migrar, sem interrupções, para um cluster com switches de dois nós que inclua switches de cluster BES-53248 compatíveis com a Broadcom. 
+summary: Migre um cluster sem switch de dois nós para um ambiente de cluster com switches usando switches de cluster Broadcom BES-53248 para permitir a escalabilidade além de dois nós. 
 ---
-= Migre para um ambiente de cluster NetApp comutado.
+= Migre para um cluster comutado de dois nós usando switches de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você já possui um ambiente de cluster de dois nós sem switches, pode migrar para um ambiente de cluster de dois nós com switches usando os switches de cluster BES-53248 compatíveis com a Broadcom, o que permite escalar o cluster para além de dois nós.
+Migre um cluster sem switch de dois nós existente para um ambiente de cluster com switches usando os switches de cluster Broadcom BES-53248. Essa migração sem interrupções permite que você expanda o cluster para além de dois nós.
 
 O processo de migração funciona para todas as portas de nós do cluster que utilizam portas ópticas ou Twinax, mas não é suportado neste switch se os nós estiverem utilizando portas RJ45 10GBASE-T integradas para as portas de rede do cluster.
 

@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-3232c/install-rcf-software-3232c.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
-summary: O SSH é um requisito para usar o monitor de integridade do Cluster Switch e os recursos de coleta de logs. Para habilitar o SSH nos switches de cluster Cisco 3232c, primeiro você gera as chaves SSH e depois habilita o SSH. 
+keywords: rcf, install, cluster switch, cisco nexus 3232c 
+summary: 'Instale o arquivo de configuração (RCF) nos switches de cluster Cisco Nexus 3232C após a configuração inicial.' 
 ---
-= Instale o arquivo de configuração de referência (RCF)
+= Instale o RCF nos switches de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você instala o Arquivo de Configuração de Referência (RCF) após configurar os switches Nexus 3232C pela primeira vez.
+Instale o arquivo de configuração (RCF) nos switches de cluster Cisco Nexus 3232C após a configuração inicial. O RCF define as atribuições de porta e as configurações de rede necessárias para a operação do cluster.
 
 .Antes de começar
 Verifique as seguintes instalações e conexões:

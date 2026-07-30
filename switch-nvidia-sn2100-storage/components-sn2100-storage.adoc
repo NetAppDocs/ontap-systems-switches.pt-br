@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/components-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de consultar a lista de componentes e os números de peça do gabinete e do kit de trilhos. 
+summary: Identifique os componentes e os números de peça dos switches de storage NVIDIA SN2100 para dar suporte à instalação e à manutenção contínua. 
 ---
-= Componentes e números de peça para switches NVIDIA SN2100
+= Analise os componentes e os números de peça dos switches de storage NVIDIA SN2100.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para a instalação e manutenção do switch NVIDIA SN2100, certifique-se de consultar a lista de componentes e os números de peça do gabinete e do kit de trilhos.
+Identifique os componentes e os números de peça dos switches de storage NVIDIA SN2100 para dar suporte à instalação e à manutenção contínua.
 
 
 

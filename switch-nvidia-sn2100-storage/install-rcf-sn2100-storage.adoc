@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html 
 sidebar: sidebar 
 keywords: install rcf script, python script, sn2100 SN2100 switches, cumulus 
-summary: Siga este procedimento para instalar o script RCF. 
+summary: 'Instale ou atualize o script do arquivo de configuração de referência (RCF) nos switches de storage NVIDIA SN2100.' 
 ---
-= Instale ou atualize o script RCF.
+= Instale ou atualize o script RCF nos switches de storage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para instalar ou atualizar o script RCF.
+Instale ou atualize o script do arquivo de configuração de referência (RCF) nos switches de storage NVIDIA SN2100 para configurar as atribuições de porta e as configurações de rede.
 
 .Antes de começar
 Antes de instalar ou atualizar o script RCF, certifique-se de que os seguintes itens estejam disponíveis no switch:

@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html 
 sidebar: sidebar 
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2-t 
-summary: Se você deseja documentar as plataformas suportadas, deve preencher a planilha de cabeamento em branco usando a planilha de cabeamento de exemplo preenchida como guia. 
+summary: Preencha a planilha de cabeamento para os switches de cluster Cisco Nexus 9336C-FX2 ou 9336C-FX2-T para documentar as conexões de porta e as configurações de plataforma suportadas. 
 ---
 = Preencha a planilha de cabeamento do Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Se você deseja documentar as plataformas suportadas, deve preencher a 
 
 
 [role="lead"]
-Se você deseja documentar as plataformas suportadas, baixe o PDF desta página e preencha a planilha de cabeamento.
+Preencha a planilha de cabeamento para os switches de cluster Cisco Nexus 9336C-FX2 ou 9336C-FX2-T para documentar as conexões de porta e as configurações de plataforma suportadas.
 
 A planilha de cabeamento de exemplo fornece exemplos de atribuições de portas recomendadas dos switches aos controladores.  A planilha em branco fornece um modelo que você pode usar para configurar seu cluster.
 

@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2/components-9336c-cluster.html 
 keywords: shared storage cluster switch 
-summary: A partir do ONTAP 9.9.1, você pode usar switches Cisco Nexus 9336C-FX2 para combinar funcionalidades de armazenamento e cluster em um cenário de switch compartilhado. 
+summary: Identifique os componentes e os números de peça dos switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T para dar suporte à instalação e à manutenção contínua de hardware. 
 ---
-= Componentes e números de peça para switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T
+= Analise os componentes e os números de peça dos switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: A partir do ONTAP 9.9.1, você pode usar switches Cisco Nexus 9336C-FX2
 
 
 [role="lead"]
-Para instalação e manutenção dos switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T, certifique-se de consultar a lista de componentes e números de peça.
+Identifique os componentes e os números de peça dos switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T para dar suporte à instalação e à manutenção contínua de hardware.
 
 
 

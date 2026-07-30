@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/migrate-from-switchless-configuration-sat-storage.html 
 keywords:  
-summary:  
+summary: Migre de uma configuração sem switch com storage conectado a switch para switches compartilhados Cisco Nexus 9336C-FX2, reutilizando os switches de storage existentes. 
 ---
-= Migre de uma configuração sem switches com armazenamento conectado a switches reutilizando os switches de armazenamento.
+= Migre de uma configuração sem switch com storage conectado ao switch para switches compartilhados Cisco Nexus 9336C-FX2.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Você pode migrar de uma configuração sem switches para um armazenamento conectado a switches reutilizando os switches de armazenamento.
+Migre de uma configuração sem switch com storage conectado a switch para switches compartilhados Cisco Nexus 9336C-FX2, reutilizando os switches de storage existentes.
 
 Ao reutilizar os switches de armazenamento, os switches de armazenamento do par HA 1 tornam-se os switches compartilhados, conforme mostrado na figura a seguir.
 

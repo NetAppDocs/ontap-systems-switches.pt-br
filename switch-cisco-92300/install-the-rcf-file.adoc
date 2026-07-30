@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-the-rcf-file.html 
 sidebar: sidebar 
 keywords: install, rcf 
-summary: Você pode instalar o RCF após configurar o switch Nexus 92300YC pela primeira vez. 
+summary: 'Instale ou atualize o arquivo de configuração (RCF) nos switches de cluster Cisco Nexus 92300YC após a configuração inicial ou quando uma versão mais recente estiver disponível.' 
 ---
-= Instale o arquivo de configuração de referência (RCF)
+= Instale ou atualize o RCF nos switches de cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você pode instalar o RCF após configurar o switch Nexus 92300YC pela primeira vez. Você também pode usar este procedimento para atualizar a versão do seu RCF.
+Instale o arquivo de configuração (RCF) nos switches de cluster Cisco Nexus 92300YC após a configuração inicial ou atualize sua versão do RCF quando uma versão mais recente estiver disponível.
 
 Consulte o artigo da Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração de um switch de interconexão Cisco mantendo a conectividade remota"^] para obter mais informações ao instalar ou atualizar seu RCF.
 

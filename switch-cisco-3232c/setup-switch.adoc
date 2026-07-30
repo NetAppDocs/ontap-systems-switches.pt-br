@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/setup-switch.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Caso ainda não possua as informações de configuração e a documentação necessárias, você precisa reuni-las antes de configurar seu cluster e os switches da rede de gerenciamento. 
+summary: Configure o switch de cluster Cisco Nexus 3232C usando os comandos de configuração inicial para prepará-lo para a operação em cluster. 
 ---
-= Configure o switch de cluster 3232C
+= Configurar o switch de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para configurar o switch Cisco Nexus 3232C.
+Configure o switch de cluster Cisco Nexus 3232C usando os comandos de configuração inicial para prepará-lo para a operação em cluster.
 
 .Antes de começar
 * Acesso a um servidor HTTP, FTP ou TFTP no local de instalação para baixar as versões aplicáveis do NX-OS e do arquivo de configuração de referência (RCF).

@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-smart-call-9808.html 
 sidebar: sidebar 
 keywords: cisco smart call,smart call home 
-summary: Para usar o Smart Call Home, você deve configurar um switch de rede de cluster para se comunicar por e-mail com o sistema Smart Call Home. Além disso, você pode opcionalmente configurar seu switch de rede de cluster para aproveitar o recurso de suporte Smart Call Home incorporado da Cisco. 
+summary: Configure o Smart Call Home nos switches Cisco Nexus 9808 para ativar notificações automáticas por e-mail para eventos críticos do sistema. 
 ---
-= Configurar Smart Call Home - Cisco Nexus 9808
+= Configure o Smart Call Home para o switch Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para usar o Smart Call Home, você deve configurar um switch de rede de cluster para se comunicar por e-mail com o sistema Smart Call Home. Além disso, você pode opcionalmente configurar seu switch de rede de cluster para aproveitar o recurso de suporte Smart Call Home incorporado da Cisco.
+Configure o Smart Call Home nos switches Cisco Nexus 9808 para ativar notificações automáticas por e-mail para eventos críticos do sistema.
 
 O Cisco Smart Call Home monitora os componentes de hardware e software da sua rede. Quando ocorre uma configuração crítica do sistema, ele gera uma notificação por e-mail e envia um alerta para todos os destinatários configurados no seu perfil de destino.
 

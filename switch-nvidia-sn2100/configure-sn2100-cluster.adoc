@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/configure-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: Para instalar o hardware SN2100, consulte a documentação da NVIDIA. 
+summary: Configure o switch de cluster NVIDIA SN2100 seguindo a documentação da NVIDIA. 
 ---
-= Configure o switch NVIDIA SN2100
+= Configurar o switch de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para configurar o switch SN2100, consulte a documentação da NVIDIA.
+Configure o switch de cluster NVIDIA SN2100 seguindo a documentação da NVIDIA.
 
 .Passos
 . Analise olink:configure-reqs-sn2100-cluster.html["requisitos de configuração"] .

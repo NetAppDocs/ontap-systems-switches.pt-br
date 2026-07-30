@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-switch-workflow-9808.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9808 switch 
-summary: Você configura os switches Cisco 9808 como parte de uma nova instalação do sistema AFX 2K, uma substituição do módulo supervisor ou uma redefinição do switch para as configurações padrão de fábrica. 
+summary: Siga este fluxo de trabalho para configurar os switches Cisco Nexus 9808 para instalações do sistema AFX 2K, substituições de módulos supervisores ou redefinições para o padrão de fábrica. 
 ---
-= Configurar fluxo de trabalho do switch - Cisco Nexus 9808
+= Fluxo de trabalho de configuração para switches Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você configura os switches Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K, uma substituição do módulo supervisor ou uma redefinição do switch para as configurações padrão de fábrica.
+Siga este fluxo de trabalho para configurar switches Cisco Nexus 9808 para instalações de sistemas AFX 2K, substituições de módulos supervisores ou ao redefinir um switch para as configurações padrão de fábrica.
 
 Você pode ser direcionado para este fluxo de trabalho ou para tópicos individuais neste fluxo de trabalho conforme necessário quando você link:install-configure-switches-in-afx-workflow-9808.html["Instale e configure um novo sistema AFX 2K"], link:maintain-replace-frus-9808.html["Substituir FRUs"] ou link:maintain-reset-switch-9808.html["Restaurar as configurações de fábrica do switch"].
 

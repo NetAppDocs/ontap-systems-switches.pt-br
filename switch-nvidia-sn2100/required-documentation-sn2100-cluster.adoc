@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/required-documentation-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: Para instalação e manutenção do switch NVIDIA SN2100, certifique-se de consultar toda a documentação recomendada. 
+summary: Analise a documentação necessária para instalar e manter os switches de cluster NVIDIA SN2100. 
 ---
-= Requisitos de documentação para switches NVIDIA SN2100
+= Analise os requisitos de documentação para os switches de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para a instalação do switch NVIDIA SN2100, certifique-se de revisar toda a documentação recomendada.
+Analise a documentação do switch e do controlador necessária para configurar os switches de cluster NVIDIA SN2100 e configurá-los em um cluster ONTAP.
 
 [cols="1,2"]
 |===

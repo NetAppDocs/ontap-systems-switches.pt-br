@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/migrate-from-switchless-cluster-dat-storage.html 
 keywords:  
-summary:  
+summary: Migre de um cluster sem switch com storage conectado diretamente para switches compartilhados Cisco Nexus 9336C-FX2, adicionando dois novos switches compartilhados. 
 ---
-= Migre de um cluster sem switch para armazenamento conectado diretamente.
+= Migre de um cluster sem switch com storage conectado diretamente para switches compartilhados Cisco Nexus 9336C-FX2.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Você pode migrar de um cluster sem switches com armazenamento conectado diretamente adicionando dois novos switches compartilhados.
+Migre de um cluster sem switch com storage conectado diretamente para switches compartilhados Cisco Nexus 9336C-FX2, adicionando dois novos switches compartilhados.
 
 O procedimento a ser utilizado depende de você ter duas portas de rede de cluster dedicadas em cada controlador ou uma única porta de cluster em cada controlador.  O processo documentado funciona para todos os nós que utilizam portas ópticas ou Twinax, mas não é suportado neste switch se os nós estiverem utilizando portas RJ45 10Gb BASE-T integradas para as portas de rede do cluster.
 

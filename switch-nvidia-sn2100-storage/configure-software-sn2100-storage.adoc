@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: Visão geral do processo de configuração de software para switches de armazenamento NVIDIA SN2100. 
+summary: Siga este fluxo de trabalho para instalar o Cumulus Linux e o RCF nos switches de storage NVIDIA SN2100. 
 ---
-= Fluxograma de instalação de software para switches de armazenamento NVIDIA SN2100
+= Fluxo de trabalho de instalação de software para switches de storage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para instalar e configurar o software de um switch NVIDIA SN2100, siga estes passos:
+Siga este fluxo de trabalho para instalar o Cumulus Linux e o arquivo de configuração (RCF) nos switches de storage NVIDIA SN2100.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:configure-sn2100-storage.html["Configure o interruptor"]
 [role="quick-margin-para"]

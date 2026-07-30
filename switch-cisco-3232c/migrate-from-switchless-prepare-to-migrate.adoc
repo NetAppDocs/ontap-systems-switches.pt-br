@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Você pode usar switches Cisco Nexus 3232C como switches de cluster em seu cluster AFF ou FAS. 
+summary: Prepare-se para migrar de um cluster sem switch de dois nós para switches de cluster Cisco Nexus 3232C. 
 ---
-= Prepare-se para a migração de clusters de dois nós sem switch para clusters de dois nós com switch
+= Prepare-se para migrar de um cluster sem switch para switches de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estas etapas para preparar seu cluster sem switch de dois nós para migrar para um cluster de dois nós com switches, que inclua os switches de rede de cluster Cisco Nexus 3232C.
+Prepare seu cluster sem switch de dois nós para migração para um cluster com switches usando os switches de cluster Cisco Nexus 3232C.
 
 .Passos
 . Se o AutoSupport estiver ativado neste cluster, suprima a criação automática de casos invocando uma mensagem do AutoSupport :

@@ -2,16 +2,16 @@
 permalink: switch-cshm/monitor-troubleshoot.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Você pode usar os seguintes comandos... 
+summary: Solucione alertas de monitoramento de integridade do switch Ethernet gerados pelo CSHM em seu cluster ONTAP. 
 ---
-= Solucionar problemas de alertas
+= Solucionar problemas de alertas para o monitor de integridade do switch Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Os alertas são gerados se uma falha, risco ou condição crítica for detectada em um switch Ethernet do seu cluster.
+Solucione problemas relacionados a alertas gerados pelo monitor de integridade do Ethernet (CSHM) quando uma falha, risco ou condição crítica for detectada em um switch de rede no seu cluster ONTAP.
 
 Caso sejam acionados alertas, o status de integridade do sistema será relatado como degradado para o cluster.  Os alertas gerados incluem as informações necessárias para que você possa responder à degradação da integridade do sistema.
 

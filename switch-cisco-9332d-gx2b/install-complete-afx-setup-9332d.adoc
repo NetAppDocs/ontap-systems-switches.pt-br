@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/install-complete-afx-setup-9332d.html 
 sidebar: sidebar 
 keywords: switches, complete system setup, Cisco Nexus, 9332D-GX2B switches, AFX 
-summary: Após concluir os procedimentos de configuração do switch Cisco Nexus 9332D-GX2B, você acessa o site de documentação do sistema AFX para ligar os gabinetes de armazenamento e os controladores do seu sistema AFX 1K ou AFX 2K, verificar a conectividade do switch e concluir a configuração do sistema AFX. 
+summary: Conclua a configuração do sistema AFX 1K ou AFX 2K após finalizar a configuração do switch Cisco Nexus 9332D-GX2B. 
 ---
-= Conclua a configuração do sistema AFX - Cisco Nexus 9332D-GX2B
+= Conclua a configuração do sistema AFX para o switch Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Após concluir os procedimentos de configuração do switch Cisco Nexus 9332D-GX2B, você acessa o site de documentação do sistema AFX para ligar os gabinetes de armazenamento e os controladores do seu sistema AFX 1K ou AFX 2K, verificar a conectividade do switch e concluir a configuração do sistema AFX.
+Após concluir a configuração do switch Cisco Nexus 9332D-GX2B, ligue os gabinetes de armazenamento e os controladores, verifique a conectividade do switch e conclua a configuração do sistema AFX 1K ou AFX 2K.
 
 .Antes de começar
 * Você deve ter concluído os procedimentos de configuração do switch no link:configure-switch-workflow-9332d.html["configurar o fluxo de trabalho do switch"].

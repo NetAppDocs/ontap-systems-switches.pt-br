@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-complete-initial-setup-9808.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9808 
-summary: 'Após ligar o(s) switch(es) Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K ou de uma substituição de switch, ou após redefinir um switch para as configurações padrão de fábrica, você será solicitado a concluir a configuração inicial do(s) switch(es) usando o assistente de configuração. Você pode consultar as seguintes perguntas do assistente de configuração e as respostas recomendadas para ajudá-lo a concluir a configuração inicial do(s) switch(es).' 
+summary: Conclua a configuração inicial dos switches Cisco Nexus 9808 usando o assistente de configuração para novas instalações do sistema AFX 2K, substituições do módulo supervisor ou restaurações para as configurações de fábrica. 
 ---
-= Conclua a configuração inicial do switch - Cisco Nexus 9808
+= Conclua a configuração inicial do switch Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Após ligar os switches Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K ou de uma substituição de módulo supervisor, ou após redefinir um switch para as configurações padrão de fábrica, você será solicitado a concluir a configuração inicial dos switches usando o assistente de configuração. Você pode consultar as seguintes perguntas do assistente de configuração e as respostas recomendadas para ajudar você a concluir a configuração inicial dos switches.
+Conclua a configuração inicial dos switches Cisco Nexus 9808 usando o assistente de configuração. Este procedimento se aplica a novas instalações do sistema AFX 2K, substituições do módulo supervisor e switches redefinidos para as configurações padrão de fábrica.
 
 .Antes de começar
 Certifique-se de ter as informações de rede e configuração para cada switch e as licenças aplicáveis.

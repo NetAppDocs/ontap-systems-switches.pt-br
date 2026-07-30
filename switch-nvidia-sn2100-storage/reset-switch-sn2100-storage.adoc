@@ -1,15 +1,15 @@
 ---
 permalink: switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html 
 sidebar: sidebar 
-keywords: SN2100 reset switch to factory defaults, SN2100 switches configuration, efos 
-summary: Antes de configurar seu switch Cisco Nexus SN2100, revise as seguintes informações. 
+keywords: SN2100 reset switch to factory defaults, SN2100 switches configuration, cumulus linux 
+summary: Restaure o switch de armazenamento NVIDIA SN2100 para as configurações de fábrica apagando a configuração atual do switch. 
 ---
-= Redefinir o switch de armazenamento SN2100 para os padrões de fábrica
+= Redefina o switch de storage NVIDIA SN2100 para os padrões de fábrica
 :allow-uri-read: 
 
 
 [role="lead"]
-Para redefinir o switch de armazenamento SN2100 para os padrões de fábrica:
+Redefina o switch de armazenamento NVIDIA SN2100 para as configurações de fábrica apagando a configuração atual do switch e restaurando-o para as configurações originais.
 
 * Para o Cumulus Linux 5.10 e anteriores, aplique a imagem Cumulus.
 * Para o Cumulus Linux 5.11 e versões posteriores, você usa o `nv action reset system factory-default` comando.

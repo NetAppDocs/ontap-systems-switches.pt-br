@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/smart-call-home-3232c.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Você pode usar switches Cisco Nexus 3232C como switches de cluster em seu cluster AFF ou FAS. 
+summary: Analise os requisitos e opções de configuração do Smart Call Home para switches de cluster Cisco Nexus 3232C. 
 ---
-= Requisitos do Smart Call Home
+= Analise os requisitos do Smart Call Home para switches de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para usar o Smart Call Home, você deve configurar um switch de rede de cluster para se comunicar por e-mail com o sistema Smart Call Home. Além disso, você pode opcionalmente configurar seu switch de rede de cluster para aproveitar o recurso de suporte Smart Call Home incorporado da Cisco.
+Analise os requisitos para configurar o Smart Call Home nos switches de cluster Cisco Nexus 3232C para ativar notificações automáticas por e-mail para eventos críticos do sistema.
 
 O Cisco Smart Call Home monitora os componentes de hardware e software da sua rede. Quando ocorre uma configuração crítica do sistema, ele gera uma notificação por e-mail e envia um alerta para todos os destinatários configurados no seu perfil de destino.
 

@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/maintain-replace-frus-9332d.html 
 sidebar: sidebar 
 keywords: switches, hardware installation, Cisco Nexus, 9332D-GX2B switches 
-summary: 'Seu switch Cisco Nexus 9332D-GX2B possui unidades substituíveis em campo (FRUs) que você pode substituir quando estiverem com defeito.' 
+summary: 'Substitua as unidades substituíveis em campo (FRUs) defeituosas nos switches Cisco Nexus 9332D-GX2B.' 
 ---
-= Substitua FRUs - Cisco Nexus 9332D-GX2B
+= Substitua as FRUs no switch Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Seu switch Cisco Nexus 9332D-GX2B possui unidades substituíveis em campo (FRUs) que você pode substituir quando estiverem com defeito.
+Substitua as unidades substituíveis em campo (FRUs) defeituosas nos switches Cisco Nexus 9332D-GX2B para restaurar a funcionalidade do switch sem precisar substituí-lo por completo.
 
 .Sobre esta tarefa
 O switch Cisco Nexus 9332D-GX2B possui as seguintes FRUs:

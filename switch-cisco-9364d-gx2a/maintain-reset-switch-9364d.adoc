@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9364d-gx2a/maintain-reset-switch-9364d.html 
 keywords: reset switch factory defaults 
-summary: Você pode redefinir um switch Cisco Nexus 9364D-GX2A para as configurações originais de fábrica quando o switch estiver sendo desativado ou quando apresentar falhas e não puder ser recuperado, exigindo que você o reconfigure manualmente. 
+summary: Redefina um switch Cisco Nexus 9364D-GX2A para as configurações padrão de fábrica ao descomissionar ou recuperar um switch que não pode ser configurado. 
 ---
-= Restaurar as configurações de fábrica de um switch - Cisco Nexus 9364D-GX2A
+= Redefina o switch Cisco Nexus 9364D-GX2A para as configurações padrão de fábrica
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Você pode redefinir um switch Cisco Nexus 9364D-GX2A para as configura
 
 
 [role="lead"]
-Você pode redefinir um switch Cisco Nexus 9364D-GX2A para as configurações originais de fábrica quando o switch estiver sendo desativado ou quando apresentar falhas e não puder ser recuperado, exigindo que você o reconfigure manualmente.
+Restaure as configurações de fábrica de um switch Cisco Nexus 9364D-GX2A quando ele estiver sendo desativado ou quando apresentar falhas e não puder ser recuperado pelos métodos normais de configuração.
 
 .Antes de começar
 Você precisa estar conectado ao switch usando o console serial.

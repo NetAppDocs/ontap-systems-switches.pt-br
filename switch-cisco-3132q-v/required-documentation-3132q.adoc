@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/required-documentation-3132q.html 
 sidebar: sidebar 
 keywords: Cisco, 3132Q-V 
-summary: Para a instalação e manutenção do switch Cisco Nexus 3132Q-V, certifique-se de revisar toda a documentação recomendada. 
+summary: Analise a documentação necessária para instalar e manter os switches de cluster Cisco Nexus 3132Q-V. 
 ---
-= Requisitos de documentação para switches Cisco Nexus 3132Q-V
+= Analise os requisitos de documentação para os switches de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para a instalação do switch Cisco Nexus 3132Q-V, certifique-se de revisar toda a documentação recomendada.
+Analise a documentação do switch e do controlador necessária para configurar os switches de cluster Cisco Nexus 3132Q-V e configurá-los em um cluster ONTAP.
 
 
 

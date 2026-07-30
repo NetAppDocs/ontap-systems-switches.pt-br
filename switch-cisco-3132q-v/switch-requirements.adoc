@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/switch-requirements.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3132q-v cluster switches 
-summary: Você deve estar ciente de certas informações de configuração, conexões de porta e requisitos de cabeamento ao substituir os switches de cluster Cisco Nexus 3132Q-V. 
+summary: Revise a configuração, as conexões de porta e os requisitos de cabeamento antes de substituir os switches de cluster Cisco Nexus 3132Q-V. 
 ---
-= Requisitos para substituição dos switches de cluster Cisco Nexus 3132Q-V
+= Revise os requisitos de substituição para os switches de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Certifique-se de compreender os requisitos de configuração, as conexões de porta e os requisitos de cabeamento ao substituir switches de cluster.
+Revise os requisitos de configuração, as conexões de porta e os requisitos de cabeamento antes de substituir os switches de cluster Cisco Nexus 3132Q-V.
 
 
 

@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: two-node switchless cluster environments,migrating to a two-node switched NVIDIA SN2100 cluster environment,switchless cluster environments,NVIDIA SN2100 switches 
-summary: Se você já possui um ambiente de cluster sem switches com dois nós, pode migrar para um ambiente de cluster com switches com dois nós usando switches NVIDIA SN2100 para permitir a escalabilidade além de dois nós no cluster. 
+summary: Migre um cluster sem switch de dois nós existente para um ambiente de cluster com switches usando os switches de cluster NVIDIA SN2100. 
 ---
 = Migre para um cluster comutado de dois nós com switches de cluster NVIDIA SN2100.
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Se você já possui um ambiente de cluster sem switches com dois nós, 
 
 
 [role="lead"]
-Se você já possui um ambiente de cluster sem switches com dois nós, pode migrar para um ambiente de cluster com switches com dois nós usando switches NVIDIA SN2100 para permitir a escalabilidade além de dois nós no cluster.
+Migre um cluster sem switch de dois nós existente para um ambiente de cluster com switches usando NVIDIA SN2100 cluster switches. Essa migração não disruptiva permite que você expanda o cluster para além de dois nós.
 
 O procedimento a ser utilizado depende de você ter duas portas de rede de cluster dedicadas em cada controlador ou uma única porta de cluster em cada controlador.  O processo documentado funciona para todos os nós que utilizam portas ópticas ou Twinax, mas não é suportado neste switch se os nós estiverem utilizando portas RJ45 10GBASE-T integradas para as portas de rede do cluster.
 

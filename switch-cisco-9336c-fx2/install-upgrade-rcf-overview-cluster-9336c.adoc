@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster-9336c.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: O SSH é um requisito para usar o monitor de integridade do switch de cluster e os recursos de coleta de logs. Para habilitar o SSH nos switches de cluster Cisco 9336c-fx2, primeiro você gera as chaves SSH e depois habilita o SSH. 
+summary: 'Instale ou atualize o arquivo de configuração (RCF) nos switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T após a configuração inicial ou ao atualizar um RCF existente.' 
 ---
-= Visão geral da instalação ou atualização do Arquivo de Configuração de Referência (RCF)
+= Instale ou atualize o RCF nos switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você instala o arquivo de configuração de referência (RCF) após configurar os switches Nexus 9336C-FX2 e 9336C-FX2-T pela primeira vez. Você atualiza sua versão RCF quando tem uma versão existente do arquivo RCF instalada no seu switch.
+Instale o arquivo de configuração (RCF) nos switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T após a configuração inicial ou atualize sua versão do RCF quando uma versão mais recente estiver disponível.
 
 Consulte o artigo da Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Como limpar a configuração de um switch de interconexão Cisco mantendo a conectividade remota"^] para obter mais informações ao instalar ou atualizar seu RCF.
 

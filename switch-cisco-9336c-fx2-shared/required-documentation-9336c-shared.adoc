@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/required-documentation-9336c-shared.html 
 keywords: shared storage cluster switch 
-summary: Para a instalação e manutenção do switch Cisco Nexus 9336C-FX2, certifique-se de consultar a documentação específica do switch e do controlador para configurar seus switches Cisco 9336-FX2 e o cluster ONTAP . 
+summary: Analise a documentação do switch e do controlador necessária para configurar e configurar os switches compartilhados Cisco Nexus 9336C-FX2. 
 ---
-= Requisitos de documentação para switches compartilhados Cisco Nexus 9336C-FX2
+= Analise os requisitos de documentação para switches compartilhados Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Para a instalação e manutenção do switch Cisco Nexus 9336C-FX2, cer
 
 
 [role="lead"]
-Para a instalação do switch Cisco Nexus 9336C-FX2, certifique-se de revisar a documentação específica do switch e do controlador para configurar seus switches Cisco 9336-FX2 e o cluster ONTAP.
+Analise a documentação do switch e do controlador necessária para configurar os switches compartilhados Cisco Nexus 9336C-FX2 e configurá-los em um ambiente ONTAP.
 
 Para configurar os switches compartilhados Cisco Nexus 9336C-FX2, consulte link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Suporte para switches Cisco Nexus série 9000"^].
 

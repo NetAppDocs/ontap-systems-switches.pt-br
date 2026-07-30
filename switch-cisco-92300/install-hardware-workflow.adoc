@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-hardware-workflow.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-92300yc switch 
-summary: Antes de configurar os switches de cluster Cisco Nexus 92300YC, revise a visão geral da configuração. 
+summary: Siga este fluxo de trabalho para instalar o hardware dos switches de cluster Cisco Nexus 92300YC. 
 ---
-= Fluxo de trabalho de instalação de hardware para switches Cisco Nexus 92300YC
+= Fluxo de trabalho de instalação de hardware para switches de cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para instalar e configurar o hardware de um switch de cluster 92300YC, siga estes passos:
+Siga este fluxo de trabalho para instalar e configurar o hardware dos switches de cluster Cisco Nexus 92300YC.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:setup-worksheet-92300yc.html["Preencha a planilha de cabeamento"]
 [role="quick-margin-para"]

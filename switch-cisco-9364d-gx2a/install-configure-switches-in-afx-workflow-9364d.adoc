@@ -2,14 +2,14 @@
 permalink: switch-cisco-9364d-gx2a/install-configure-switches-in-afx-workflow-9364d.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure 9364d-gx2ab switch 
-summary: Para instalar e configurar seus switches Cisco Nexus 9364D-GX2A como parte do seu novo sistema AFX 1K ou AFX 2K, você usa uma combinação da documentação deste site do switch e do site dos sistemas AFX. A documentação fornece links que direcionam você conforme necessário. 
+summary: Siga este fluxo de trabalho para instalar e configurar os switches Cisco Nexus 9364D-GX2A como parte de um novo sistema AFX 1K ou AFX 2K. 
 ---
-= Instalar e configurar switches em um fluxo de trabalho do sistema AFX - Cisco Nexus 9364D-GX2A
+= Instale e configure os switches Cisco Nexus 9364D-GX2A em um sistema AFX
 :allow-uri-read: 
 
 
 [role="lead"]
-Para instalar e configurar seus switches Cisco Nexus 9364D-GX2A como parte do seu novo sistema AFX 1K ou AFX 2K, você usa uma combinação da documentação deste site do switch e do site dos sistemas AFX. A documentação fornece links que direcionam você conforme necessário.
+Siga este fluxo de trabalho para instalar e configurar os switches Cisco Nexus 9364D-GX2A como parte de um novo sistema AFX 1K ou AFX 2K. O fluxo de trabalho inclui links para a documentação tanto deste site do switch quanto do site dos sistemas AFX.
 
 
 

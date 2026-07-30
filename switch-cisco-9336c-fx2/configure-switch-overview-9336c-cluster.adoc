@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Visão geral da instalação e configuração dos switches de cluster Cisco Nexus 9336C-FX2 
+summary: Siga este fluxo de trabalho para instalar e configurar os switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T em um ambiente ONTAP. 
 ---
 = Fluxo de trabalho de instalação e configuração para switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Visão geral da instalação e configuração dos switches de cluster C
 
 
 [role="lead"]
-Os switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T fazem parte da plataforma Cisco Nexus 9000 e podem ser instalados em um gabinete de sistema NetApp . Os switches de cluster permitem que você crie clusters ONTAP com mais de dois nós.
+Siga este fluxo de trabalho para instalar e configurar os switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T em um ambiente ONTAP. Esses switches fazem parte da plataforma Cisco Nexus 9000 e suportam clusters ONTAP com mais de dois nós.
 
 O Cisco Nexus 9336C-FX2 (36 portas) é um switch de cluster/armazenamento/dados de alta densidade de portas. O Cisco Nexus 9336C-FX2-T (12 portas) é um switch de alto desempenho e baixa densidade de portas que suporta configurações de cluster de 10/25/40/100 GbE.
 

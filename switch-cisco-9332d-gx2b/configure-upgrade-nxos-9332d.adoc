@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-9332d-gx2b/configure-upgrade-nxos-9332d.html 
 sidebar: sidebar 
-keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9332d-gc2b 
-summary: Você atualiza o NX-OS em seus switches Cisco Nexus 9332D-GX2B para oferecer suporte a novo hardware ou a uma nova versão do ONTAP em seu sistema AFX 1K ou AFX 2K. 
+keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9332d-gx2b 
+summary: Atualize o NX-OS nos switches Cisco Nexus 9332D-GX2B para oferecer suporte a novo hardware ou a uma nova versão do ONTAP nos sistemas AFX 1K ou AFX 2K. 
 ---
-= Atualize o NX-OS - Cisco Nexus 9332D-GX2B
+= Atualize o NX-OS no switch Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você atualiza o NX-OS em seus switches Cisco Nexus 9332D-GX2B para oferecer suporte a novo hardware ou a uma nova versão do ONTAP em seu sistema AFX 1K ou AFX 2K.
+Atualize o NX-OS nos switches Cisco Nexus 9332D-GX2B para oferecer suporte a novo hardware ou a uma nova versão do ONTAP nos sistemas AFX 1K ou AFX 2K.
 
 
 NOTE: NetApp recomenda que você conclua primeiro qualquer atualização de software do ONTAP e, em seguida, execute a atualização de software dos seus switches.

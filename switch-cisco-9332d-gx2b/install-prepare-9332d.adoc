@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9332d-gx2b/install-prepare-9332d.html 
 keywords: shared storage cluster switch 
-summary: Antes de instalar os switches Cisco Nexus 9332D-GX2B como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, você deve compreender os aspectos do switch e sua instalação, revisando a documentação aplicável do switch Cisco e a documentação dos sistemas ONTAP, entendendo as versões RCF suportadas para sistemas AFX e considerando o uso do Smart Call Home. 
+summary: Prepare-se para instalar os switches Cisco Nexus 9332D-GX2B como parte de um novo sistema AFX 1K ou AFX 2K, revisando a documentação do switch, as versões RCF suportadas e os requisitos do Smart Call Home. 
 ---
-= Prepare-se para instalar os switches - Cisco Nexus 9332D-GX2B
+= Prepare-se para instalar switches Cisco Nexus 9332D-GX2B em um sistema AFX
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Antes de instalar os switches Cisco Nexus 9332D-GX2B como parte de uma 
 
 
 [role="lead"]
-Antes de instalar os switches Cisco Nexus 9332D-GX2B como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, você deve compreender os aspectos do switch e sua instalação, revisando a documentação aplicável do switch Cisco e a documentação dos sistemas ONTAP, entendendo as versões RCF suportadas para sistemas AFX e considerando o uso do Smart Call Home.
+Prepare-se para instalar os switches Cisco Nexus 9332D-GX2B como parte de um novo sistema AFX 1K ou AFX 2K, revisando a documentação aplicável dos switches Cisco, entendendo as versões RCF suportadas e considerando a configuração do Smart Call Home.
 
 
 

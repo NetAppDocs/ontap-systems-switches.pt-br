@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/migrate-fas22xx-systems.html 
 sidebar: sidebar 
 keywords: migrate, two-node switched cluster, fas22xx systems, single, network connection 
-summary: Se você possui sistemas FAS22xx em um cluster sem switch existente de dois nós, no qual cada módulo controlador tem uma única conexão 10 GbE direta para conectividade do cluster, você pode usar a opção de rede de cluster sem switch e substituir a conectividade direta por conexões de switch. 
+summary: Migre sistemas FAS22xx de um cluster sem switch com uma única conexão de rede de cluster para um cluster com switches usando os switches de cluster CN1610 da NetApp. 
 ---
-= Migre para um cluster comutado de dois nós em sistemas FAS22xx com uma única conexão de rede de cluster
+= Migre sistemas FAS22xx para um cluster comutado usando NetApp CN1610 cluster switches
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você possui sistemas FAS22xx em um cluster sem switch existente de dois nós, no qual cada módulo controlador tem uma única conexão 10 GbE direta para conectividade do cluster, você pode usar a opção de rede de cluster sem switch e substituir a conectividade direta por conexões de switch.
+Migre sistemas FAS22xx de um cluster sem switch de dois nós com uma única conexão 10 GbE por controlador para um cluster com switches usando NetApp CN1610 switches de cluster.
 
 
 

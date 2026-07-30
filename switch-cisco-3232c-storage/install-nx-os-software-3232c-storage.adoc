@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/install-nx-os-software-3232c-storage.html 
 sidebar: sidebar 
 keywords: install, nx-os software 
-summary: Você pode usar este procedimento para instalar o software NX-OS no switch de armazenamento Nexus 3232C. 
+summary: Instale ou atualize o software NX-OS nos switches de storage Cisco Nexus 3232C. 
 ---
-= Instale ou atualize o software NX-OS.
+= Instale ou atualize o software NX-OS nos switches de storage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você pode usar este procedimento para instalar o software NX-OS no switch de armazenamento Nexus 3232C.
+Instale ou atualize o software NX-OS nos switches de armazenamento Cisco Nexus 3232C para prepará-los para a operação da rede de storage.
 
 
 NOTE: NetApp recomenda que você conclua primeiro qualquer atualização de software do ONTAP e, em seguida, execute a atualização de software dos seus switches.

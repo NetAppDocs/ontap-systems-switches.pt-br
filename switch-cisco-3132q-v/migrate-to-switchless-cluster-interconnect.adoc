@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/migrate-to-switchless-cluster-interconnect.html 
 sidebar: sidebar 
 keywords: migrate, switchless cluster interconnect, cisco nexus 3132q-v 
-summary: É possível migrar de um cluster com uma rede de cluster comutada para uma em que dois nós estão conectados diretamente no ONTAP 9.3 e versões posteriores. 
+summary: Substitua os switches de cluster Cisco Nexus 3132Q-V por conexões sem switch para ONTAP 9.3 e versões posteriores. 
 ---
 = Substitua os switches de cluster Cisco Nexus 3132Q-V por conexões de cluster sem switch
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: É possível migrar de um cluster com uma rede de cluster comutada para
 
 
 [role="lead"]
-No ONTAP 9.3 e versões posteriores, você pode migrar de um cluster com uma rede de interconexão de cluster comutada para um em que dois nós estão conectados diretamente.
+No ONTAP 9.3 e versões posteriores, migre de um cluster com interconexões comutadas para um em que dois nós estão conectados diretamente, substituindo os switches de cluster Cisco Nexus 3132Q-V por conexões diretas.
 
 [NOTE]
 ====

@@ -2,14 +2,14 @@
 permalink: switch-cisco-9336c-fx2-storage/install-nxos-overview-9336c-storage.html 
 sidebar: sidebar 
 keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9336-fx2 cluster switches - cisco nexus 9336x-fx2 
-summary: O software Cisco NX-OS e os arquivos de configuração de referência devem ser instalados nos switches de cluster Cisco Nexus 9336C-FX2. 
+summary: 'Prepare os switches de armazenamento Cisco Nexus 9336C-FX2 e 9336C-FX2-T antes de instalar o software NX-OS e o arquivo de configuração (RCF).' 
 ---
-= Prepare-se para instalar ou atualizar o software NX-OS e o RCF.
+= Prepare-se para instalar o software NX-OS e o RCF nos switches de storage Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 
 
 [role="lead"]
-Antes de instalar o software NX-OS e o Arquivo de Configuração de Referência (RCF), siga este procedimento.
+Prepare os switches de storage Cisco Nexus 9336C-FX2 e 9336C-FX2-T antes de instalar o software NX-OS e o arquivo de configuração (RCF). O NX-OS e o RCF devem ser instalados antes que o switch possa operar em uma rede de storage ONTAP.
 
 .Sobre os exemplos
 Os exemplos neste procedimento utilizam a seguinte nomenclatura de interruptor e nó:

@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/upgrade-rcf-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: upgrade rcf script, python script, sn2100 SN2100 switches, cumulus 
-summary: Certifique-se de que os seguintes itens estejam disponíveis no switch antes de instalar o script RCF. 
+summary: 'Atualize o script do arquivo de configuração de referência (RCF) nos switches de cluster NVIDIA SN2100 quando uma versão mais recente estiver disponível.' 
 ---
-= Script de atualização do arquivo de configuração de referência (RCF)
+= Atualize o script RCF nos switches de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para atualizar o script RCF.
+Atualize o script do arquivo de configuração de referência (RCF) nos switches de cluster NVIDIA SN2100 quando uma versão mais recente estiver disponível.
 
 .Antes de começar
 Antes de atualizar o script RCF, certifique-se de que os seguintes itens estejam disponíveis no switch:

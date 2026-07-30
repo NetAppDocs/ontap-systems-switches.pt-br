@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-configure-ports.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Você pode usar os switches Cisco Nexus 3132q-v como switches de interconexão de cluster em seu cluster AFF ou FAS. 
+summary: Configure as portas para migração de um cluster sem switch de dois nós para switches de cluster Cisco Nexus 3132Q-V. 
 ---
-= Configure suas portas para migração de clusters sem switch para clusters com switch
+= Configure as portas para migração de clusters sem switch para switches de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga estes passos para configurar suas portas para migração de clusters de dois nós sem switch para clusters de dois nós com switch.
+Configure as portas para migração de um cluster sem switch de dois nós para um cluster com switch de dois nós usando os switches de cluster Cisco Nexus 3132Q-V.
 
 .Passos
 . Nos switches Nexus 3132Q-V C1 e C2, desative todas as portas voltadas para o nó C1 e C2, mas não desative as portas ISL.

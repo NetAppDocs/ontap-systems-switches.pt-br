@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-3132q-v/upgrade-rcf-3132q-v.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
-summary: O SSH é um requisito para usar o monitor de integridade do Cluster Switch e os recursos de coleta de logs. Para habilitar o SSH nos switches de cluster Cisco 3132q-v, primeiro você gera as chaves SSH e depois habilita o SSH. 
+keywords: rcf, upgrade, cluster switch, cisco nexus 3132q-v 
+summary: 'Atualize o arquivo de configuração de referência (RCF) nos switches de cluster Cisco Nexus 3132Q-V quando uma versão mais recente estiver disponível.' 
 ---
-= Atualize seu Arquivo de Configuração de Referência (RCF)
+= Atualize o RCF nos switches de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você atualiza a versão do RCF quando já possui uma versão do arquivo RCF instalada em seus switches operacionais.
+Atualize o arquivo de configuração de referência (RCF) nos switches de cluster Cisco Nexus 3132Q-V quando uma versão mais recente do RCF estiver disponível.
 
 .Antes de começar
 Certifique-se de ter o seguinte:

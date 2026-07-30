@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/install-nx-os-software-3132q-v.html 
 sidebar: sidebar 
 keywords: install, nx-os software 
-summary: Você pode usar este procedimento para instalar o software NX-OS no switch de cluster Nexus 3132Q-V. 
+summary: Instale o software NX-OS nos switches de cluster Cisco Nexus 3132Q-V para prepará-los para a operação em cluster. 
 ---
-= Instale o software NX-OS.
+= Instale o software NX-OS nos switches de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Siga este procedimento para instalar o software NX-OS no switch de cluster Nexus 3132Q-V.
+Instale o software NX-OS nos switches de cluster Cisco Nexus 3132Q-V para prepará-los para a operação em cluster.
 
 
 

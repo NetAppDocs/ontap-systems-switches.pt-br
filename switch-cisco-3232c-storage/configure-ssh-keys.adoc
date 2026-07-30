@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: O SSH é um requisito para usar o monitor de integridade do Cluster Switch e os recursos de coleta de logs. Para habilitar o SSH nos switches de cluster Cisco 3232C, primeiro você gera as chaves SSH e depois habilita o SSH. 
+summary: Verifique se o SSH e as chaves SSH estão habilitados nos switches de armazenamento Cisco Nexus 3232C para suportar CSHM e coleta de logs. 
 ---
-= Verifique sua configuração SSH.
+= Verifique a configuração SSH para os switches de armazenamento Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você estiver usando o Ethernet Switch Health Monitor (CSHM) e os recursos de coleta de logs, verifique se o SSH e as chaves SSH estão habilitados nos switches.
+Verifique se o SSH e as chaves SSH estão habilitados nos switches de armazenamento Cisco Nexus 3232C para suportar os recursos de Monitoramento de Saúde do Switch Ethernet (CSHM) e coleta de logs.
 
 .Passos
 . Verifique se o SSH está ativado:

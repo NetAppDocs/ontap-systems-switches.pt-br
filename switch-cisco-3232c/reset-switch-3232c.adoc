@@ -2,14 +2,14 @@
 permalink: switch-cisco-3232c/reset-switch-3232c.html 
 sidebar: sidebar 
 keywords: 3232C reset switch to factory defaults, 3232C switches configuration, efos 
-summary: Antes de configurar seu switch Cisco Nexus 3232C, revise as seguintes informações. 
+summary: Redefina o switch de cluster Cisco Nexus 3232C para as configurações de fábrica apagando a configuração atual do switch. 
 ---
-= Redefina o switch de cluster 3232C para os padrões de fábrica
+= Redefina o switch de cluster Cisco Nexus 3232C para os padrões de fábrica
 :allow-uri-read: 
 
 
 [role="lead"]
-Para redefinir o switch de cluster 3232C para os padrões de fábrica, você deve apagar as configurações do switch 3232C.
+Redefina o switch de cluster Cisco Nexus 3232C para as configurações de fábrica apagando a configuração atual do switch e restaurando-o para as configurações originais.
 
 .Sobre esta tarefa
 * Você precisa estar conectado ao switch usando o console serial.

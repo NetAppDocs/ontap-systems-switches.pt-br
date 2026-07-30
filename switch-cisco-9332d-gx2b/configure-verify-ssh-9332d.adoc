@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/configure-verify-ssh-9332d.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
-summary: 'Se você estiver configurando seus switches como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, uma substituição de switch ou uma redefinição para as configurações padrão de fábrica, e desejar usar o Cluster Switch Health Monitor (CSHM) e os recursos de coleta de logs, você deve verificar se o SSH e as chaves SSH estão habilitados nos switches.' 
+summary: 'Verifique se o SSH está habilitado nos switches Cisco Nexus 9332D-GX2B para suportar o monitor de integridade do switch Ethernet (CSHM) e a coleta de logs.' 
 ---
-= Verifique o SSH para coleta de logs - Cisco Nexus 9332D-GX2B
+= Verifique o SSH para coleta de logs no switch Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você estiver configurando seus switches como parte de uma nova instalação do sistema AFX 1K ou AFX 2K, uma substituição de switch ou uma redefinição para as configurações padrão de fábrica, para usar o recurso de coleta de logs do monitor de integridade do switch Ethernet (CSHM), você deve verificar se o SSH está habilitado nos switches.
+Verifique se o SSH está habilitado nos switches Cisco Nexus 9332D-GX2B para suportar os recursos de monitor de integridade do switch Ethernet (CSHM) e coleta de logs.
 
 .Antes de começar
 Você precisa estar conectado ao switch usando o console serial.

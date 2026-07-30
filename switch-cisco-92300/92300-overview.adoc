@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/92300-overview.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis.  Você pode usar interruptores de gerenciamento adicionais, que são opcionais. 
+summary: Saiba mais sobre os switches de cluster Cisco Nexus 92300YC e seu papel na rede de cluster ONTAP. 
 ---
-= Visão geral do switch Cisco Nexus 92300YC
+= Saiba mais sobre o switch Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois switches de rede de cluster compatíveis.  Você pode usar interruptores de gerenciamento adicionais, que são opcionais.
+O Cisco Nexus 92300YC é um switch de cluster para ambientes ONTAP com mais de dois nós. Analise as funcionalidades e os casos de uso deste switch antes de implementá-lo em seu cluster.
 
 Você pode instalar o switch Cisco Nexus 92300YC (X190003/R) em um gabinete de sistema NetApp ou em um gabinete de terceiro com os suportes padrão que acompanham o switch.
 

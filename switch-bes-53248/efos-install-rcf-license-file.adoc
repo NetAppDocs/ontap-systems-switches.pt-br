@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/efos-install-rcf-license-file.html 
 sidebar: sidebar 
 keywords: install rcf,setup rcf,rcf file, efos, license file 
-summary: Você pode instalar o Arquivo de Configuração de Referência RCF após configurar o switch de cluster BES-53248 e após aplicar as novas licenças. 
+summary: 'Após concluir a configuração inicial, instale o arquivo de configuração de referência (RCF) e o arquivo de licença no switch de cluster Broadcom BES-53248.' 
 ---
-= Instale o arquivo de configuração (RCF) e o arquivo de licença
+= Instale o arquivo RCF e o arquivo de licença no switch de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-A partir do EFOS 3.12.0.1, é possível instalar o arquivo RCF e o arquivo de licença após configurar o switch de cluster BES-53248.
+Instale o arquivo de configuração de referência (RCF) e o arquivo de licença juntos no switch de cluster Broadcom BES-53248. A partir do EFOS 3.12.0.1, você pode instalar ambos os arquivos após concluir a configuração inicial do switch.
 
 
 CAUTION: Todas as portas são configuradas quando você instala o RCF, mas você precisa instalar sua licença para ativar as portas configuradas.

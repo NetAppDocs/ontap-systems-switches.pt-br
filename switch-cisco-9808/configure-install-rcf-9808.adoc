@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-install-rcf-9808.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: Você instala o RCF em novos switches Cisco Nexus 9808 como parte da instalação e configuração de um novo sistema AFX 2K, substituindo um módulo supervisor com defeito ou redefinindo um switch para as configurações padrão de fábrica. 
+summary: Instale o RCF nos switches Cisco Nexus 9808 para novas instalações do sistema AFX 2K, substituições do módulo supervisor ou restaurações para as configurações de fábrica. 
 ---
-= Instale o RCF - Cisco Nexus 9808
+= Instale o RCF no switch Cisco Nexus 9808.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você instala o RCF em novos switches Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K, substituição de um módulo supervisor ou redefinição do switch para as configurações padrão de fábrica.
+Instale o arquivo de configuração (RCF) nos switches Cisco Nexus 9808 para novas instalações do sistema AFX 2K, substituições do módulo supervisor ou ao redefinir um switch para as configurações padrão de fábrica.
 
 .Antes de começar
 * O(s) switch(es) deve(m) estar ligado(s) e você deve ter concluído o link:configure-complete-initial-setup-9808.html["Conclua a configuração inicial do switch"] procedimento.

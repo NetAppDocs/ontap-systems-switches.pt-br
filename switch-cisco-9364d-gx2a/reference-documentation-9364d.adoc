@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9364d-gx2a/reference-documentation-9364d.html 
 keywords: shared storage cluster switch 
-summary: Para instalação e manutenção do switch Cisco Nexus 9364d-gx2a, revise a documentação específica do switch e do controlador para configurar seus switches Cisco 9364d-gx2a e o cluster ONTAP . 
+summary: Revise a documentação do switch Cisco e dos sistemas NetApp para instalação e manutenção do switch Cisco Nexus 9364D-GX2A nos sistemas AFX 1K e AFX 2K. 
 ---
-= Documentação de referência - switches Cisco Nexus 9364D-GX2A
+= Consulte a documentação de referência do switch Cisco Nexus 9364D-GX2A
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Para instalação e manutenção do switch Cisco Nexus 9364d-gx2a, revi
 
 
 [role="lead"]
-Para a instalação do switch Cisco Nexus 9364D-GX2A, certifique-se de revisar a documentação específica do switch e do controlador para configurar seus switches Cisco 9364D-GX2A e o cluster ONTAP.
+Revise a documentação aplicável do switch Cisco e a documentação dos sistemas NetApp para instalação, configuração e manutenção do switch Cisco Nexus 9364D-GX2A nos sistemas AFX 1K e AFX 2K.
 
 
 

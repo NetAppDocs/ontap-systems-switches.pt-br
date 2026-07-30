@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-9364d-gx2a/maintain-overview-9364d.html 
 sidebar: sidebar 
-keywords: maintain overview, frus, replace switch, reset to factory defaults, cisco 9332d-gx2b 
-summary: 'Faça a manutenção do seu switch Cisco Nexus 9364D-GX2A para garantir confiabilidade a longo prazo e desempenho ideal. Você pode realizar tarefas de manutenção como substituir componentes defeituosos do switch (FRUs), substituir um switch com defeito e restaurar o switch para as configurações padrão de fábrica.' 
+keywords: maintain overview, frus, replace switch, reset to factory defaults, cisco 9364d-gx2a 
+summary: Analise as tarefas de manutenção para switches Cisco Nexus 9364D-GX2A, incluindo substituição de FRU, substituição de switches e redefinição para as configurações padrão de fábrica. 
 ---
-= Manter visão geral - Cisco Nexus 9364D-GX2A
+= Saiba mais sobre as opções de manutenção para o switch Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Faça a manutenção do seu switch Cisco Nexus 9364D-GX2A para garantir confiabilidade a longo prazo e desempenho ideal. Você pode realizar tarefas de manutenção, como substituir componentes defeituosos do switch (FRUs), substituir um switch com defeito e redefinir um switch para as configurações padrão de fábrica.
+Analise as tarefas de manutenção disponíveis para os switches Cisco Nexus 9364D-GX2A, incluindo a substituição de componentes defeituosos do switch (FRUs), a substituição de um switch defeituoso e a redefinição de um switch para as configurações padrão de fábrica.
 
 Você pode realizar as seguintes tarefas de manutenção em um switch:
 

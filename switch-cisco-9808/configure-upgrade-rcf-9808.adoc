@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-upgrade-rcf-9808.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: 'Você atualiza a versão do Arquivo de Configuração de Referência (RCF) em seus switches Cisco Nexus 9808 para oferecer suporte a novo hardware, uma nova versão do ONTAP ou para alinhar com uma nova versão do NX-OS na configuração do seu sistema AFX 2K.' 
+summary: Atualize o RCF nos switches Cisco Nexus 9808 para oferecer suporte a novo hardware, uma nova versão do ONTAP ou uma nova versão do NX-OS em sistemas AFX 2K. 
 ---
-= Atualize a versão do RCF - Cisco Nexus 9808
+= Atualize o RCF no switch Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você atualiza a versão do arquivo de configuração de referência (RCF) em seus switches Cisco Nexus 9808 para oferecer suporte a novo hardware, uma nova versão do ONTAP ou para alinhar com uma nova versão do NX-OS na configuração do seu sistema AFX 2K.
+Atualize o arquivo de configuração de referência (RCF) nos switches Cisco Nexus 9808 para oferecer suporte a novo hardware, uma nova versão do ONTAP ou uma nova versão do NX-OS em sistemas AFX 2K.
 
 
 NOTE: Não atualize nem faça downgrade da sua versão do RCF para uma versão não suportada.

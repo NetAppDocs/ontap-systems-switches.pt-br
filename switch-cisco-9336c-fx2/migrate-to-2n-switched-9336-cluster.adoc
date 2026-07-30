@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2/migrate-to-2n-switched-9336-cluster.html 
 sidebar: sidebar 
 keywords: two-node switchless cluster environments,migrating to a two-node switched 9336C-FX2 cluster environment,switchless cluster environments,9336C-FX2 switches 
-summary: Se você tiver um ambiente de cluster sem switch de dois nós existente, poderá migrar para um ambiente de cluster com switch de dois nós usando switches Cisco Nexus 9336C-FX2 para permitir o dimensionamento além de dois nós no cluster. 
+summary: Migre um cluster sem switch de dois nós existente para um ambiente de cluster com switches usando os switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T. 
 ---
-= Migrar para um cluster comutado de dois nós
+= Migre para um cluster comutado de dois nós usando os switches de cluster Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você tiver um ambiente de cluster _sem switch_ de dois nós existente, poderá migrar para um ambiente de cluster _com switch_ de dois nós usando os switches Cisco Nexus 9336C-FX2 e 9336C-FX2-T.
+Migre um cluster sem switch de dois nós existente para um ambiente de cluster com switches usando os switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T. Essa migração sem interrupções permite que você expanda o cluster para além de dois nós.
 
 O processo de migração funciona para todos os nós que utilizam portas ópticas ou Twinax, mas não é suportado neste switch se os nós estiverem utilizando portas RJ45 10Gb BASE-T integradas para as portas de rede do cluster.
 

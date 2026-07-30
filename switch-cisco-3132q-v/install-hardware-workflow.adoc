@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/install-hardware-workflow.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Antes de configurar os switches de cluster Cisco Nexus 3132Q-V, revise a visão geral da configuração. 
+summary: Siga este fluxo de trabalho para instalar o hardware dos switches de cluster Cisco Nexus 3132Q-V. 
 ---
-= Fluxo de trabalho de instalação de hardware para switches Cisco Nexus 3132Q-V
+= Fluxo de trabalho de instalação de hardware para switches de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Para instalar e configurar o hardware de um switch de cluster 3132Q-V, siga estes passos:
+Siga este fluxo de trabalho para instalar e configurar o hardware dos switches de cluster Cisco Nexus 3132Q-V.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"]link:setup-worksheet-3132q.html["Preencha a planilha de cabeamento"]
 [role="quick-margin-para"]

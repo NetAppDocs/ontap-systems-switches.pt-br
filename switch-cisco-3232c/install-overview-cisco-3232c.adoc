@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/install-overview-cisco-3232c.html 
 sidebar: sidebar 
 keywords: install, cisco nexus 3232c switch, 
-summary: Antes de configurar os switches Cisco Nexus 3232c, revise uma visão geral do processo e da nomenclatura. 
+summary: Siga este fluxo de trabalho para instalar e configurar os switches de cluster Cisco Nexus 3232C em um ambiente ONTAP. 
 ---
-= Fluxo de trabalho de instalação e configuração para switches Cisco Nexus 3232C
+= Fluxo de trabalho de instalação e configuração para switches de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Os switches Cisco Nexus 3232C podem ser usados como switches de cluster em seu cluster AFF ou FAS. Os switches de cluster permitem que você construa clusters ONTAP com mais de dois nós.
+Siga este fluxo de trabalho para instalar e configurar os switches de cluster Cisco Nexus 3232C em um ambiente ONTAP. O 3232C suporta clusters ONTAP com mais de dois nós.
 
 Siga estes passos do fluxo de trabalho para instalar e configurar seu switch Cisco Nexus 3232C.
 

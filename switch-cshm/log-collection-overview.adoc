@@ -4,13 +4,15 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: Utilize a coleta de logs do CSHM para reunir logs de switch e dados de diagnóstico para solucionar problemas em switches de rede. 
 ---
-= Visão geral da coleta de logs
+= Saiba mais sobre a coleta de logs para o monitor de integridade do switch Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Utilize a coleta de logs do CSHM para reunir logs de switch e dados de diagnóstico para solucionar problemas em switches de rede.
+
 Com a coleta de logs configurada, você pode habilitar a coleta horária de dados periódicos que são coletados pelo AutoSupport e solicitar logs de suporte detalhados.
 
 A coleta de logs ajuda você a solucionar problemas em switches de rede, reunindo automaticamente logs e dados de diagnóstico. Você pode coletar dados periodicamente de forma agendada por meio do AutoSupport ou acionar a coleta sob demanda quando precisar de logs detalhados para solucionar problemas específicos. Os logs coletados fornecem visibilidade sobre a integridade do switch, alterações de configuração e eventos de rede.

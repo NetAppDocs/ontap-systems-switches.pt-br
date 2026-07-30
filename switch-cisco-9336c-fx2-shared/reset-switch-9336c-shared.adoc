@@ -2,14 +2,14 @@
 permalink: switch-cisco-9336c-fx2-shared/reset-switch-9336c-shared.html 
 sidebar: sidebar 
 keywords: 9336C-FX2 reset switch to factory defaults, 9336C-FX2 switches configuration, efos 
-summary: Antes de configurar seu switch Cisco Nexus 9336C-FX2, revise as seguintes informações. 
+summary: Restaure o switch compartilhado Cisco Nexus 9336C-FX2 para as configurações de fábrica apagando a configuração atual do switch. 
 ---
-= Redefinir o switch compartilhado 9336C-FX2 para os padrões de fábrica
+= Redefina o switch compartilhado Cisco Nexus 9336C-FX2 para as configurações de fábrica
 :allow-uri-read: 
 
 
 [role="lead"]
-Para redefinir o switch compartilhado 9336C-FX2 para os padrões de fábrica, você deve apagar as configurações do switch 9336C-FX2.
+Redefina o switch compartilhado Cisco Nexus 9336C-FX2 para os padrões de fábrica apagando a configuração atual do switch e restaurando-o para as configurações originais.
 
 .Sobre esta tarefa
 * Você precisa estar conectado ao switch usando o console serial.

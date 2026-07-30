@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
 keywords: shared storage cluster switch cable 
-summary: Utilize as imagens de cabeamento para completar a conexão entre os controladores e os switches. 
+summary: Preencha a planilha de cabeamento para switches compartilhados Cisco Nexus 9336C-FX2 para documentar as conexões de porta entre controladores e switches. 
 ---
-= Preencha a planilha de cabeamento do Cisco Nexus 9336C-FX2.
+= Preencha a planilha de cabeamento do switch compartilhado Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Utilize as imagens de cabeamento para completar a conexão entre os con
 
 
 [role="lead"]
-Utilize as imagens de cabeamento a seguir para concluir a conexão entre os controladores e os switches.
+Complete a planilha de cabeamento para switches compartilhados Cisco Nexus 9336C-FX2 usando as imagens de cabeamento para documentar as conexões de porta entre controladores e switches.
 
 
 

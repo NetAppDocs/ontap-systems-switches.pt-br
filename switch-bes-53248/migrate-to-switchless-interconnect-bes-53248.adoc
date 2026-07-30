@@ -2,9 +2,9 @@
 permalink: switch-bes-53248/migrate-to-switchless-interconnect-bes-53248.html 
 sidebar: sidebar 
 keywords: migrate, switchless cluster interconnect, broadcom bes-53248 switch 
-summary: É possível migrar de um cluster com uma rede de cluster comutada para uma em que dois nós estão conectados diretamente no ONTAP 9.3 e versões posteriores. 
+summary: Migre de uma rede de cluster com switches Broadcom BES-53248 para uma configuração de cluster sem switch de dois nós para ONTAP 9.3 e versões posteriores. 
 ---
-= Substitua os switches de cluster Broadcom BES-53248 por conexões sem switch.
+= Migre de switches de cluster Broadcom BES-53248 para conexões sem switch
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

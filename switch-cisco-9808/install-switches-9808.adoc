@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/install-switches-9808.html 
 sidebar: sidebar 
 keywords: switches, hardware installation, Cisco Nexus, 9808 switches 
-summary: A instalação dos switches Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K inclui instalar os switches em um rack ou gabinete, conectá-los aos controladores e prateleiras do sistema e, em seguida, ligá-los. 
+summary: Instale switches Cisco Nexus 9808 como parte de um novo sistema AFX 2K, incluindo montagem em rack, cabeamento para controladoras e prateleiras, e energização. 
 ---
-= Instale os switches Cisco Nexus 9808
+= Instale os switches Cisco Nexus 9808 em um sistema AFX
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-A instalação dos switches Cisco Nexus 9808 como parte de uma nova instalação do sistema AFX 2K inclui instalar os switches em um rack ou gabinete, conectá-los aos controladores e prateleiras do sistema e, em seguida, ligá-los.
+Instale os switches Cisco Nexus 9808 como parte de um novo sistema AFX 2K. Isso inclui instalar os switches em um rack ou gabinete, conectá-los aos controladores e prateleiras do sistema e ligá-los.
 
 .Antes de começar
 Você deve ter concluído as etapas de preparação do switch em link:install-prepare-9808.html["Prepare-se para instalar os switches"].

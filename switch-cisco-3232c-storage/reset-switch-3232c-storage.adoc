@@ -2,14 +2,14 @@
 permalink: switch-cisco-3232c-storage/reset-switch-3232c-storage.html 
 sidebar: sidebar 
 keywords: 3232C reset switch to factory defaults, 3232C switches configuration, efos 
-summary: Antes de configurar seu switch Cisco Nexus 3232C, revise as seguintes informações. 
+summary: Redefina o switch de armazenamento Cisco Nexus 3232C para as configurações de fábrica apagando a configuração atual do switch. 
 ---
-= Redefina o switch de armazenamento 3232C para os padrões de fábrica
+= Redefina o switch de armazenamento Cisco Nexus 3232C para os padrões de fábrica
 :allow-uri-read: 
 
 
 [role="lead"]
-Para restaurar as configurações de fábrica do switch de armazenamento 3232C, você deve apagar as configurações do switch de armazenamento 3232C.
+Redefina o switch de armazenamento Cisco Nexus 3232C para os padrões de fábrica apagando a configuração atual do switch e restaurando-o para as configurações originais.
 
 .Sobre esta tarefa
 * Você precisa estar conectado ao switch usando o console serial.

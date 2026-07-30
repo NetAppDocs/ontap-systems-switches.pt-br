@@ -2,14 +2,14 @@
 permalink: switch-bes-53248/reset-switch-bes-53248.html 
 sidebar: sidebar 
 keywords: BES-53248 reset switch to factory defaults, BES-53248 switches configuration, efos 
-summary: Antes de configurar seu switch Broadcom BES-53248, revise as seguintes informações. 
+summary: Restaure as configurações de fábrica do switch de cluster Broadcom BES-53248 apagando a configuração atual do switch. 
 ---
-= Redefinir o switch do cluster BES-53248 para os padrões de fábrica
+= Redefina o switch de cluster Broadcom BES-53248 para os padrões de fábrica
 :allow-uri-read: 
 
 
 [role="lead"]
-Para redefinir o switch de cluster BES-53248 para os padrões de fábrica, você deve apagar as configurações do switch BES-53248.
+Redefina o switch de cluster Broadcom BES-53248 para os padrões de fábrica apagando a configuração atual do switch e restaurando o switch para as configurações originais.
 
 .Sobre esta tarefa
 * Você precisa estar conectado ao switch usando o console serial.

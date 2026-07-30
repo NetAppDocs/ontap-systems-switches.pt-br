@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html 
 sidebar: sidebar 
 keywords: migrate, two-node cluster, switchless, cisco nexus 3232c 
-summary: Se você possui um cluster sem switch de dois nós, pode migrar sem interrupções para um cluster com switch de dois nós que inclua os switches de rede de cluster Cisco Nexus 3232C. 
+summary: Migre de um cluster sem switch de dois nós para um cluster com switches usando os switches de cluster Cisco Nexus 3232C. Este é um procedimento não disruptivo. 
 ---
-= Migre de um cluster sem switch de dois nós para um cluster com switches de cluster Cisco Nexus 3232C
+= Migre de um cluster sem switch de dois nós para switches de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se você possui um cluster de dois nós sem switch, pode migrar para um cluster de dois nós com switch que inclua os switches de rede Cisco Nexus 3232C. Este procedimento não causa interrupções.
+Migre de um cluster sem switch de dois nós para um cluster com switches usando os switches de cluster Cisco Nexus 3232C. Este é um procedimento não disruptivo.
 
 
 

@@ -2,14 +2,14 @@
 permalink: switch-cisco-3132q-v/reset-switch-3132q-v.html 
 sidebar: sidebar 
 keywords: 3132Q-V reset switch to factory defaults, 3132Q-V2 switches configuration, efos 
-summary: Antes de configurar seu switch Cisco Nexus 3132Q-V, revise as seguintes informações. 
+summary: Redefina o switch de cluster Cisco Nexus 3132Q-V para as configurações de fábrica apagando a configuração atual do switch. 
 ---
-= Redefina o switch de cluster 3132Q-V para os padrões de fábrica
+= Redefina o switch de cluster Cisco Nexus 3132Q-V para as configurações de fábrica
 :allow-uri-read: 
 
 
 [role="lead"]
-Para redefinir o switch de interconexão de cluster 3132Q-V para os padrões de fábrica, você deve apagar as configurações do switch 3132Q-V.
+Redefina o switch de cluster Cisco Nexus 3132Q-V para os padrões de fábrica apagando a configuração atual do switch e restaurando-o para as configurações originais.
 
 .Sobre esta tarefa
 * Você precisa estar conectado ao switch usando o console serial.

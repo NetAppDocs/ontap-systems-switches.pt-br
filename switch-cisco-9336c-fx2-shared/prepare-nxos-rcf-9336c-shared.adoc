@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/prepare-nxos-rcf-9336c-shared.html 
 keywords:  
-summary:  
+summary: 'Prepare um switch compartilhado Cisco Nexus 9336C-FX2 antes de instalar o software NX-OS e o arquivo de configuração (RCF).' 
 ---
-= Prepare-se para instalar o software NX-OS e o RCF.
+= Prepare-se para instalar o software NX-OS e o RCF em um switch compartilhado Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Antes de instalar o software NX-OS e o Arquivo de Configuração de Referência (RCF), siga este procedimento.
+Prepare um switch compartilhado Cisco Nexus 9336C-FX2 antes de instalar o software NX-OS e o arquivo de configuração (RCF). O NX-OS e o RCF devem ser instalados antes que o switch possa operar em um ambiente ONTAP.
 
 .Documentação sugerida
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Página do switch Ethernet da Cisco"^]

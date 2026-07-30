@@ -2,9 +2,9 @@
 permalink: switch-cshm/monitor-manage.html 
 sidebar: sidebar 
 keywords: create, remove, switch, cluster, monitor, health, management 
-summary: Aprenda como criar e alterar manualmente as configurações de monitoramento padrão, além de excluir switches Ethernet do monitoramento. 
+summary: Adicione, configure ou remova manualmente switches de Ethernet do monitoramento CSHM, ou pause o monitoramento durante a manutenção. 
 ---
-= Gerenciar o monitoramento de switches Ethernet
+= Gerencie o monitoramento de integridade do switch Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
