@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify, monitor, cluster, management, network, switches, heath, monitor 
 summary: Verifique se o monitoramento de integridade do switch Ethernet está configurado corretamente e funcionando em seus switches. 
 ---
-= Verifique a configuração do monitor de integridade do switch de rede Ethernet
+= Verifique a configuração para o monitoramento de integridade do switch Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

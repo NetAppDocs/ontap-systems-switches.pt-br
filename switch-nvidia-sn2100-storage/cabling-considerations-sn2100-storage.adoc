@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
 summary: Revise as considerações de cabeamento e configuração dos switches de storage NVIDIA SN2100 antes da implementação. 
 ---
-= Analise as considerações de cabeamento e configuração para os switches de storage NVIDIA SN2100
+= Consulte as diretrizes de cabeamento para os switches de armazenamento NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

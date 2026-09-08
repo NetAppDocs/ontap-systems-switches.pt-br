@@ -409,7 +409,7 @@ cs2# copy running-config startup-config [#######################################
 cs2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-. Reaplique quaisquer personalizações anteriores à configuração do switch. Consulte link:cabling-considerations-3132q-v.html["Analise as considerações sobre cabeamento e configuração."] para obter detalhes sobre quaisquer outras alterações necessárias.
+. Reaplique quaisquer personalizações anteriores à configuração do switch. Consulte link:cabling-considerations-3132q-v.html["Analise os requisitos de cabeamento e configuração"] para obter detalhes sobre quaisquer outras alterações necessárias.
 . Verifique a integridade das portas do cluster.
 +
 .. Verifique se as portas do cluster estão ativas e funcionando corretamente em todos os nós do cluster:

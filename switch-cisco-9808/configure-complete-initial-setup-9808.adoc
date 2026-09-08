@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9808 
 summary: Conclua a configuração inicial dos switches Cisco Nexus 9808 usando o assistente de configuração para novas instalações do sistema AFX 2K, substituições do módulo supervisor ou restaurações para as configurações de fábrica. 
 ---
-= Conclua a configuração inicial do switch Cisco Nexus 9808
+= Conclua a configuração inicial no switch Cisco Nexus 9808.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

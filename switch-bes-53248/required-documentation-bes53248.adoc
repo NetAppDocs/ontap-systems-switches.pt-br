@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: documentation requirements, BES-53248 switches,cluster switches 
 summary: Analise a documentação do switch e do controlador necessária para configurar e ajustar o switch de cluster Broadcom BES-53248. 
 ---
-= Analise os requisitos de documentação para configurar o switch de cluster Broadcom BES-53248
+= Analise os requisitos de documentação para o switch de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

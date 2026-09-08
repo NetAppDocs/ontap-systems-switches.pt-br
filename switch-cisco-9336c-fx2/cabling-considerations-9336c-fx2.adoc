@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
 summary: Revise as considerações de cabeamento e configuração para os switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T antes da implementação. 
 ---
-= Analise as considerações de cabeamento e configuração para os switches de cluster Cisco Nexus 9336C-FX2
+= Analise os requisitos de cabeamento e configuração para os switches de cluster Cisco Nexus 9336C-FX2 e 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

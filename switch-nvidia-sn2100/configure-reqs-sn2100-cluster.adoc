@@ -22,7 +22,7 @@ Se você deseja criar clusters ONTAP com mais de dois nós, precisará de dois s
 
 Você instala o switch NVIDIA SN2100 (X190006) no gabinete de switch duplo/simples da NVIDIA com os suportes padrão que acompanham o switch.
 
-Para diretrizes de cabeamento, consulte link:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."].
+Para diretrizes de cabeamento, consulte link:cabling-considerations-sn2100-cluster.html["Revise as diretrizes de cabeamento e configuração"].
 
 
 

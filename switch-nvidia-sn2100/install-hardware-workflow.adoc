@@ -17,7 +17,7 @@ Siga este fluxo de trabalho para instalar e configurar o hardware dos switches d
 [role="quick-margin-para"]
 Instale o hardware do switch.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"]link:cabling-considerations-sn2100-cluster.html["Revise as diretrizes de cabeamento e configuração"]
 [role="quick-margin-para"]
 Analise os requisitos para conexões ópticas, o adaptador QSA e a velocidade da porta do switch.
 

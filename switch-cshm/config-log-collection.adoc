@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
 summary: Configure a coleta de logs para permitir que o CSHM colete logs de switches e dados de diagnóstico de switches de cluster e de rede de storage. 
 ---
-= Configurar a coleta de logs para o monitor de integridade do switch Ethernet
+= Configure a coleta de logs para o monitoramento da integridade do switch Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

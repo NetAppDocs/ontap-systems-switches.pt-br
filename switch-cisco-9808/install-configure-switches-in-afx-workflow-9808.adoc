@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: switches, initial installation, configure switch-cisco-9808 switch 
 summary: Siga este fluxo de trabalho para instalar e configurar os switches Cisco Nexus 9808 como parte de um novo sistema AFX 2K. 
 ---
-= Instale e configure o fluxo de trabalho para switches Cisco Nexus 9808 em um sistema AFX
+= Fluxo de trabalho de instalação e configuração para os switches Cisco Nexus 9808
 :allow-uri-read: 
 
 

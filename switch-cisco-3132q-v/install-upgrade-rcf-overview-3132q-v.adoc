@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rcf, install, upgrade, cluster switch, cisco nexus 3132q-v 
 summary: Instale ou atualize o RCF nos switches de cluster Cisco Nexus 3132Q-V após a configuração inicial ou quando uma versão mais recente estiver disponível. 
 ---
-= Saiba como instalar ou atualizar o RCF nos switches de cluster Cisco Nexus 3132Q-V
+= Saiba mais sobre como instalar ou atualizar o RCF nos switches de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

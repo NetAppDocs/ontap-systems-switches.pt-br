@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords:  
 summary: Aprenda sobre clusters, armazenamento e switches compartilhados. 
 ---
-= Saiba mais sobre os switches do seu sistema ONTAP
+= Saiba mais sobre os switches do sistema ONTAP
 :allow-uri-read: 
 
 
 [role="lead"]
-A NetApp oferece sistemas AFX, cluster, armazenamento e switches compartilhados que fornecem comunicações internas com a capacidade de mover dados e interfaces de rede pelo cluster sem interrupções.
+O ONTAP oferece sistemas AFX, cluster, armazenamento e switches compartilhados que proporcionam comunicações internas com a capacidade de mover dados e interfaces de rede pelo cluster sem interrupções.
 
 Os switches de "front-end" fornecem conectividade ao armazenamento do host, enquanto os switches de cluster de "back-end" fornecem conexões entre dois ou mais controladores NetApp .
 

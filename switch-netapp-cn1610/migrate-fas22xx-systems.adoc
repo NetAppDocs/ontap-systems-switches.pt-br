@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: migrate, two-node switched cluster, fas22xx systems, single, network connection 
 summary: Migre sistemas FAS22xx de um cluster sem switch com uma única conexão de rede de cluster para um cluster com switches usando os switches de cluster CN1610 da NetApp. 
 ---
-= Migre sistemas FAS22xx para um cluster comutado usando NetApp CN1610 cluster switches
+= Migre sistemas FAS22xx usando NetApp CN1610 switches de cluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

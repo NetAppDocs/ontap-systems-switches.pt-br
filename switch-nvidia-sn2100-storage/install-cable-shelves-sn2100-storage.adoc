@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
 summary: Cable NS224 drive shelves como armazenamento conectado a switches usando switches de armazenamento NVIDIA SN2100 quando o armazenamento conectado diretamente não é utilizado. 
 ---
-= Conecte os compartimentos de unidades NS224 como armazenamento conectado a switch para os switches de armazenamento NVIDIA SN2100
+= Cabo as gavetas de unidades NS224 para os switches de armazenamento NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

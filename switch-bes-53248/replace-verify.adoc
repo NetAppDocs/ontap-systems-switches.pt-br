@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: command, verify, operational, bes, cluster, switch, upgrade, verify the configuration after a cluster switch upgrade - bes-53428 switches 
 summary: Verifique a integridade da rede do cluster ONTAP após a atualização do software EFOS ou do RCF no switch de cluster Broadcom BES-53248. 
 ---
-= Verifique a rede do cluster ONTAP após atualizar o software EFOS ou o RCF no switch de cluster Broadcom BES-53248
+= Verifique a rede do cluster após atualizar o switch Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

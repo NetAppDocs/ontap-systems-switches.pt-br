@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: 'Solucione erros e falhas na coleta de logs do monitor de integridade do switch Ethernet (CSHM).' 
 ---
-= Solucione problemas na coleta de logs para o monitor de integridade do switch de rede Ethernet
+= Solucione problemas na coleta de logs para o monitoramento da integridade de switches Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

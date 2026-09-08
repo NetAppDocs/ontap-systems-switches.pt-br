@@ -163,7 +163,7 @@ NOTE: Na etapa 3 *Atualizando o arquivo MOTD* acima, o comando `cat /etc/motd` �
 
 NOTE: Para quaisquer problemas com o script Python do RCF que não possam ser corrigidos, entre em contato com https://mysupport.netapp.com/["Suporte NetApp"^] para obter assistência.
 
-. Reaplique quaisquer personalizações anteriores à configuração do switch.  Consultelink:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."] Para obter detalhes sobre quaisquer alterações adicionais necessárias.
+. Reaplique quaisquer personalizações anteriores à configuração do switch. Consulte link:cabling-considerations-sn2100-cluster.html["Revise as diretrizes de cabeamento e configuração"] para obter detalhes sobre quaisquer outras alterações necessárias.
 . Verifique a configuração após a reinicialização:
 +
 [listing, subs="+quotes"]
@@ -464,7 +464,7 @@ admin@sw1:mgmt:~$ cat /etc/issue.net
 
 NOTE: Para quaisquer problemas com o script Python do RCF que não possam ser corrigidos, entre em contato com https://mysupport.netapp.com/["Suporte NetApp"^] para obter assistência.
 
-. Reaplique quaisquer personalizações anteriores à configuração do switch.  Consultelink:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."] Para obter detalhes sobre quaisquer alterações adicionais necessárias.
+. Reaplique quaisquer personalizações anteriores à configuração do switch. Consulte link:cabling-considerations-sn2100-cluster.html["Revise as diretrizes de cabeamento e configuração"] para obter detalhes sobre quaisquer outras alterações necessárias.
 . Verifique a configuração após a reinicialização:
 +
 [listing, subs="+quotes"]
@@ -830,7 +830,7 @@ admin@sw1:mgmt:~$ cat /etc/issue.net
 
 NOTE: Para quaisquer problemas com o script Python do RCF que não possam ser corrigidos, entre em contato com https://mysupport.netapp.com/["Suporte NetApp"^] para obter assistência.
 
-. Reaplique quaisquer personalizações anteriores à configuração do switch.  Consultelink:cabling-considerations-sn2100-cluster.html["Analise as considerações sobre cabeamento e configuração."] Para obter detalhes sobre quaisquer alterações adicionais necessárias.
+. Reaplique quaisquer personalizações anteriores à configuração do switch. Consulte link:cabling-considerations-sn2100-cluster.html["Revise as diretrizes de cabeamento e configuração"] para obter detalhes sobre quaisquer outras alterações necessárias.
 . Verifique a configuração após a reinicialização:
 +
 [listing, subs="+quotes"]
