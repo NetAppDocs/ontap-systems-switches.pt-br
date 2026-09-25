@@ -97,7 +97,7 @@ Por exemplo, para modificar a lista de portas com as novas portas, 19-22, para o
 +
 `interface e1/19/1-4, e1/20/1-4, e1/21/1-4, e1/22/1-4`
 
-. Configure manualmente as portas breakout do switch (4x100GbE) para 100GbE. Se você não configurar manualmente a velocidade, as portas não serão ativadas e ficarão em estado desabilitado por erro.
+. Configure manualmente as portas breakout do switch (4x100GbE) para 100GbE. Se você não configurar manualmente a velocidade, as portas não serão ativadas e ficarão em estado de erro desabilitado:
 +
 `speed 100000`
 

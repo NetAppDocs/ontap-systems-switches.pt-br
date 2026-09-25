@@ -39,7 +39,7 @@ Prepare-se para instalar o RCF no(s) switch(es), certificando-se de que você po
 
 .Passos
 . Você precisa ter acesso a um servidor HTTP, FTP ou TFTP. O acesso a um desses servidores permite que você baixe uma versão compatível do RCF.
-. Faça o download do RCF compatível com o seu tipo de sistema AFX no site de suporte da NetApp em  http://mysupport.netapp.com/["meusuporte.netapp.com"^].
+. Faça o download do RCF compatível com o seu tipo de sistema AFX no site de suporte da NetApp em link:http://mysupport.netapp.com/["meusuporte.netapp.com"^].
 +
 
 NOTE: Os switches novos não são enviados com o RCF instalado. Você precisa instalar o RCF nos switches.
@@ -52,7 +52,7 @@ NOTE: Os switches novos não são enviados com o RCF instalado. Você precisa in
 [[step-2-install-the-rcf]]
 == Etapa 2: instalar o RCF
 
-Você instala o RCF no primeiro switch (cs1) copiando e aplicando o RCF ao bootflash, examinando a saída do banner, verificando se a versão do RCF está correta, registrando quaisquer adições personalizadas, salvando os detalhes básicos de configuração, verificando se o arquivo write_erase.cfg está preenchido, apagando a configuração salva atualmente, copiando a configuração básica salva anteriormente para a configuração de inicialização e, em seguida, reiniciando o switch. Você repete essas etapas no segundo switch (cs2) se estiver instalando o RCF como parte de uma nova instalação do sistema AFX.
+Você instala o RCF no primeiro switch (cs1) copiando e aplicando o RCF ao bootflash, examinando a saída do banner, verificando se a versão do RCF está correta, tornando persistente a configuração atual em execução e, em seguida, reinicializando o switch. Você repete essas etapas no segundo switch (cs2) se estiver instalando o RCF como parte da instalação de um novo sistema AFX.
 
 . Faça login no switch cs1 usando SSH ou usando um console serial.
 . Copie o RCF para o bootflash do switch cs1 usando um dos seguintes protocolos de transferência: FTP, TFTP, SFTP ou SCP.
@@ -138,7 +138,7 @@ O resultado varia de acordo com a configuração do seu site.  Verifique as conf
 
 . Copie a configuração atual em execução para a configuração de inicialização para torná-la persistente.
 +
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
+`cs1# *copy running-config startup-config*`
 
 . Reinicie o switch:
 +

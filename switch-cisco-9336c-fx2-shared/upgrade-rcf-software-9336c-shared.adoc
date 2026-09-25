@@ -36,6 +36,13 @@ CAUTION: Antes de instalar uma nova versão de software do switch e os RCFs, voc
 [[step-1-prepare-for-the-upgrade]]
 == Etapa 1: Prepare-se para a atualização
 
+. Altere o nível de privilégio para avançado, digitando *y* quando solicitado a continuar:
++
+`set -privilege advanced`
+
++
+O prompt avançado(`*>` ) aparece.
+
 . Exibir as portas do cluster em cada nó que estão conectadas aos switches do cluster:
 +
 `network device-discovery show`
@@ -696,7 +703,7 @@ cluster1::*>
 . Repita as etapas de 1 a 21 no switch cs2.
 . Ative a reversão automática nos LIFs do cluster.
 +
-`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*`
 
 
 
@@ -994,14 +1001,16 @@ cluster1-04          true    true          false
 --
 Você pode usar o `network interface check cluster-connectivity` Comando para iniciar uma verificação de acessibilidade para conectividade do cluster e, em seguida, exibir os detalhes:
 
-`network interface check cluster-connectivity start`e `network interface check cluster-connectivity show`
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start -node **
+----
+*NOTA:* Aguarde alguns segundos antes de executar o  `show`comando para exibir os detalhes. Verifique as entradas que correspondem à data de hoje.
 
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface check cluster-connectivity start*
+cluster1::*> *network interface check cluster-connectivity show*
 ----
-*NOTA:* Aguarde alguns segundos antes de executar o `show` comando para exibir os detalhes.
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity show*

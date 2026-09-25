@@ -22,8 +22,10 @@ Instale o NX-OS em switches Cisco Nexus 9808 para novas instalações do sistema
 
 
 * Se você estiver instalando o NX-OS em um switch como parte de uma substituição de switch ou de uma redefinição de switch para as configurações padrão de fábrica, verifique se seu cluster está totalmente funcional, ou seja, se não há erros nos logs ou problemas semelhantes.
-* Se você estiver instalando o NX-OS como parte de uma nova instalação do sistema AFX, poderá ignorar este requisito, pois os controladores do seu sistema AFX não estão ligados neste ponto da instalação e configuração do sistema AFX.
 
+
+
+NOTE: Se você estiver instalando o NX-OS como parte de uma nova instalação do sistema AFX, poderá ignorar este requisito, pois os controladores do seu sistema AFX não estão ligados neste ponto da instalação e configuração do sistema AFX.
 
 .Sobre esta tarefa
 * A versão do ONTAP em execução no seu sistema AFX determina as versões do NX-OS compatíveis com seus switches.
@@ -37,6 +39,7 @@ Para obter a lista atual de versões NX-OS suportadas, consulte link:https://mys
 * Este procedimento requer apenas o uso de comandos dos switches da série Cisco Nexus 9000.
 * Os exemplos neste procedimento referem-se ao primeiro switch como cs1 e ao segundo switch como cs2.
 * Se você instalou switches como parte de uma nova instalação do sistema AFX 2K, instale o NX-OS no primeiro switch (cs1) e depois repita os passos para o segundo switch (cs2) usando este procedimento.
+* Os exemplos mostrados neste procedimento são para sistemas AFX 2K com switches executando RCF 10.1. A entrada e a saída podem variar dependendo da sua versão do RCF.
 
 
 
@@ -50,7 +53,7 @@ Prepare-se para instalar o NX-OS no(s) switch(es) certificando-se de que você t
 . Você precisa ter acesso a um servidor HTTP, SFTP, FTP ou TFTP. O acesso a um desses servidores permite que você baixe uma versão compatível do NX-OS.
 . Faça o download da versão correta do NX-OS e da imagem EPLD para o(s) switch(es) na  https://software.cisco.com/download/home["Download do software Cisco"^] página.
 . Conecte o switch à rede de gerenciamento (para a transferência de arquivos).
-. Verifique a conectividade com o servidor que hospeda o NX-OS usando o comando  `ping`.
+. Verifique a conectividade com o servidor que hospeda o NX-OS usando o  `ping` comando:
 +
 `ping <IP address>`
 
@@ -77,7 +80,7 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 
 Você instala a imagem NX-OS e EPLD no primeiro switch (cs1) instalando e verificando as versões das imagens NX-OS e EPLD e, em seguida, repete essas etapas no segundo switch (cs2) se estiver instalando o NX-OS como parte de uma nova instalação do sistema AFX.
 
-. Copie a imagem do NX-OS e do EPLD para o primeiro switch.
+. Copie a imagem do NX-OS e do EPLD para o primeiro switch:
 +
 `copy <protocol>: bootflash: vrf management`
 
@@ -176,7 +179,7 @@ cs1#
 ====
 . Instale a imagem NX-OS e EPLD.
 +
-A instalação do arquivo de imagem faz com que ele seja carregado sempre que o switch for reiniciado.
+A instalação do arquivo de imagem faz com que ele seja carregado sempre que o switch reinicializar:
 
 +
 `install all nxos bootflash:nxos.<image_file>.bin`

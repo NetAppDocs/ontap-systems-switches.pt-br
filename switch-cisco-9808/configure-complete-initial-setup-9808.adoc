@@ -18,7 +18,7 @@ Certifique-se de ter as informações de rede e configuração para cada switch 
 
 .Sobre esta tarefa
 * Você deve concluir a configuração inicial em cada switch.
-* Caso necessário, você pode consultar as informações para configurar os switches no capítulo *Usando o utilitário de configuração do Cisco NX-OS* do link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/106x/configuration/fundamentals/cisco-nexus-9000-series-nx-os-fundamentals-configuration-guide-release-106x/m-using-nnxos-setup-utility.html["Guia de Configuração de Fundamentos do Cisco Nexus 9000 Series NX-OS, Release 10.6(x)"^].
+* Se necessário, você pode consultar sua versão do NX-OS do link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/106x/configuration/fundamentals/cisco-nexus-9000-series-nx-os-fundamentals-configuration-guide-release-106x.html["Guia de configuração de fundamentos do NX-OS da série Cisco Nexus 9000"^] para obter informações sobre a configuração dos switches, no capítulo "Usando o Utilitário de Configuração do Cisco NX-OS". Você também pode encontrar informações sobre as configurações do terminal no capítulo "Configurando as Configurações e Sessões do Terminal".
 
 
 .Passos
