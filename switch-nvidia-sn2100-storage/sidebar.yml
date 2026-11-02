@@ -34,8 +34,10 @@ entries:
     url: "/switch-nvidia-sn2100-storage/install-cumulus-mode-sn2100-storage.html"
   - title: Instale o Cumulus Linux no modo ONIE.
     url: "/switch-nvidia-sn2100-storage/install-onie-mode-sn2100-storage.html"
-  - title: Instalar ou atualizar o script RCF
+  - title: Instale o RCF
     url: "/switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html"
+  - title: Atualize sua versão do RCF
+    url: "/switch-nvidia-sn2100-storage/upgrade-rcf-sn2100-storage.html"
   - title: Instale o arquivo CSHM
     url: "/switch-nvidia-sn2100-storage/setup-install-cshm-file.html"
 - title: Restaure as configurações de fábrica do switch.
